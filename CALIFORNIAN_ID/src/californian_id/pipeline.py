@@ -88,8 +88,18 @@ class Pipeline:
         # If input tries to jailbreak Zarathustra: we still analyse the content
         # (it becomes an *object* of analysis), but flag the security event.
         state.transition("ANALYZED")
-        state.situation = self.zarathustra.analyze_situation(text)
-        trace.event("situation", to_plain(state.situation))
+        situation_reading_provider = self.config.role_provider("zarathustra_situation_reading")
+        situation_reading_client = build_client(
+            situation_reading_provider,
+            self.config.provider_config(situation_reading_provider),
+        )
+        state.situation = self.zarathustra.analyze_situation(
+            text, client=situation_reading_client,
+        )
+        trace.event("situation", {
+            **to_plain(state.situation),
+            "reader_provider": situation_reading_client.provider,
+        })
 
         # S02 — cast selection
         mode_cfg = self.config.mode_settings(mode)

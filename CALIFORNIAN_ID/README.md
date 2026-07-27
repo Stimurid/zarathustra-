@@ -75,6 +75,99 @@
 
 ---
 
+## Как выбрать режим работы
+
+Всё выбирается **в момент вызова** — редактировать код не нужно.
+
+### 1. Что подать на вход
+
+| Что | Как в Python | Как в CLI |
+|---|---|---|
+| Сырой текст (любая тема, от AGI до борща) | `Pipeline().run(text="…")` | `run --text "…"` или `run --file input.txt` |
+| Готовая нарезка от внешнего резчика (md-units) | `Pipeline().run_from_units(pack)` где `pack = parse_md_units_file("…")` | `run --units-file pack.md` |
+
+Сырой текст пропускается через быстрый детерминированный pre-pass (fallback)
+или через LLM-чтение сцены (`zarathustra/03_scene_reading.md`) — в
+зависимости от провайдера. Готовая нарезка пропускает pre-pass целиком и
+seed'ит `argument_map` напрямую из Toulmin-структуры.
+
+### 2. Какой LLM использовать
+
+Провайдер выбирается через env-переменную (высший приоритет) **или**
+через `config/models.yaml`:
+
+```bash
+# Mock — offline demos и тесты. Форма и структура правильные, содержание шаблонное.
+CALIFORNIAN_ID_PROVIDER=mock python -m californian_id run --text "…"
+
+# Anthropic Claude — рекомендованный боевой путь для содержательной работы.
+pip install anthropic
+export ANTHROPIC_API_KEY=sk-ant-…
+CALIFORNIAN_ID_PROVIDER=anthropic python -m californian_id run --text "…"
+
+# OpenAI.
+pip install openai
+export OPENAI_API_KEY=sk-…
+CALIFORNIAN_ID_PROVIDER=openai python -m californian_id run --text "…"
+```
+
+Дефолт `mock` — сознательно, чтобы `pip install` + `pytest` работали без
+внешних зависимостей. Для реальной работы **обязательно** переключить на
+`anthropic` или `openai`.
+
+### 3. Как встроить в свой проект
+
+```python
+from californian_id.pipeline import Pipeline
+
+pipe = Pipeline()
+
+# сырой текст
+result = pipe.run(text=user_message, mode="fast")
+
+# или нарезка
+from californian_id.adapters.units_of_content_md import parse_md_units_file
+pack = parse_md_units_file(path_to_cutter_output)
+result = pipe.run_from_units(pack, mode="deep")
+
+# то, что нужно host-у:
+result.run_state.completion        # CompletionOutcome — одна из 10 форм
+result.run_state.body              # BodyProjection (futures, premises, risks, projects, transformations, chorus)
+result.run_state.turns             # raw persona turns — НЕ показывать пользователю по умолчанию
+result.run_state.security_events   # jailbreak + fallacy events
+result.trace_dir                   # events.jsonl со всей трассой
+```
+
+Ядро **host-neutral**. Никаких HTTP-серверов, FastAPI/Flask/Telegram
+зависимостей внутри — оборачивать в свой сервис одной строкой.
+
+### 4. Данные (персоны, промпты, карты, корпус) для кастомизации
+
+Всё зашито в `src/californian_id/data/` внутри пакета — работает
+«из коробки» после `pip install`. Чтобы **переопределить** (свои персоны,
+свои Zarathustra-промпты, свои cultural cards) — положите директорию с
+той же структурой и укажите:
+
+```bash
+export CALIFORNIAN_ID_DATA_DIR=/path/to/your/data
+```
+
+Layout должен совпадать: `config/`, `personas/`, `zarathustra/`,
+`interaction/`, `argumentation/`, `pipeline/`, `corpus/`, `rag/`,
+`donors/`. Для замены только семи персон достаточно скопировать
+`personas/_template/` семь раз и заполнить свои линзы.
+
+### 5. Куда пишутся trace-выходы
+
+По умолчанию `./runs/<run_id>/events.jsonl` в текущей рабочей директории.
+Переопределяется:
+
+```bash
+export CALIFORNIAN_ID_RUNS_DIR=/path/to/writable/dir
+```
+
+---
+
 ## Быстрый запуск
 
 ```bash

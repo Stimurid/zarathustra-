@@ -153,53 +153,85 @@ class Zarathustra:
     # ------------------------------------------------------------
     # SPINE ZONE: ситуация
     # ------------------------------------------------------------
-    def analyze_situation(self, text: str) -> SituationAnalysis:
-        """Cheap deterministic pre-pass. Real providers могут переопределить через
-        03_scene_reading.md, но SPINE обязан вернуть валидный объект без LLM."""
+    def analyze_situation(
+        self,
+        text: str,
+        client: "ModelClient | None" = None,
+    ) -> SituationAnalysis:
+        """Return situation analysis for arbitrary text.
+
+        Two paths:
+
+        - **LLM path** (default when `client` is a real provider):
+          calls the model with `03_scene_reading.md` and returns a rich
+          situation with topic/genre/stakes/horizons/concepts/tensions
+          filled by the model. Works on **any topic**.
+
+        - **Deterministic fallback** (mock provider OR client is None):
+          returns only structurally-derivable fields — topic (first
+          meaningful sentence), genre (question / normative / long_form /
+          statement, based on modal words and length), everything else
+          empty. No hardcoded topic-dictionary — the pack works for a
+          seminar on Kant, a shopping list, or bare-butt milk runs alike.
+        """
         stripped = text.strip()
+        # LLM path
+        if client is not None and getattr(client, "provider", "mock") != "mock":
+            try:
+                return self._llm_situation(text=stripped, client=client)
+            except Exception as e:
+                # fall through to deterministic — never fail hard on scene reading
+                fallback = self._deterministic_situation(stripped)
+                fallback.uncertainties.append(f"llm_scene_reading_failed: {e}")
+                return fallback
+        return self._deterministic_situation(stripped)
+
+    # ---- deterministic path (no topic dictionary!) ----
+    def _deterministic_situation(self, text: str) -> SituationAnalysis:
         return SituationAnalysis(
-            topic=self._topic_guess(stripped),
-            genre=self._genre_guess(stripped),
-            stakes=self._stakes_guess(stripped),
-            horizons=self._horizon_guess(stripped),
-            concepts=self._concept_hints(stripped),
+            topic=self._first_meaningful_sentence(text),
+            genre=self._genre_guess(text),
+            stakes=[],       # do not invent stakes; let the LLM path fill this
+            horizons=[],     # ditto
+            concepts=[],     # ditto — no more hardcoded AGI/moratorium regex
             tensions=[],
             uncertainties=[],
         )
 
-    def _topic_guess(self, text: str) -> str:
+    def _first_meaningful_sentence(self, text: str) -> str:
+        """First sentence of length >= 30 characters; fall back to first line;
+        never returns 'the last question in the text' — that was misleading."""
         if not text:
             return "неопределённый предмет"
-        # Skip jailbreak-like prefixes: use the last question/sentence instead
-        lines = [l.strip() for l in re.split(r"[\n\.\!?]+", text) if l.strip()]
-        # Prefer a question if any
-        questions = [l for l in lines if l.endswith("?") or "?" in l]
-        first = (questions[-1] if questions else lines[-1] if lines else text).strip("?.!— ")
-        if len(first) > 180:
-            first = first[:180].rsplit(" ", 1)[0] + "…"
-        return first or "неопределённый предмет"
-
-    def _stakes_guess(self, text: str) -> list[str]:
-        low = text.lower()
-        out = []
-        for kw, stake in [
-            ("agi", "неопределённость последствий AGI"),
-            ("бессмерт", "переопределение человека"),
-            ("morator", "легитимность моратория"),
-            ("свобод", "свобода vs принуждение"),
-            ("рынок", "распределение выгоды/риска"),
-            ("будущ", "интересы будущих поколений"),
-        ]:
-            if kw in low:
-                out.append(stake)
-        return out or ["предмет не имеет явных ставок в тексте"]
+        # split on sentence terminators (keep neighbouring content)
+        sentences = re.split(r"(?<=[\.\!\?])\s+", text)
+        for s in sentences:
+            s = s.strip()
+            # skip markdown headers / obvious metadata rows
+            if s.startswith(("#", "|", "- ", "* ", ">")):
+                continue
+            if len(s) >= 30:
+                return _truncate_topic(s)
+        # fall back: first non-empty non-header line
+        for line in text.splitlines():
+            line = line.strip()
+            if line and not line.startswith(("#", "|", "- ", "* ", ">")):
+                return _truncate_topic(line)
+        return _truncate_topic(text) or "неопределённый предмет"
 
     def _genre_guess(self, text: str) -> str:
+        """Genre by structural cues only. NOT topic-specific."""
         if not text:
             return "empty"
         low = text.lower()
-        # normative markers win over «?»: normative вопрос — это отдельный жанр
-        if any(w in low for w in ("следует", "should", "стоит ли", "надо ли", "нужно ли", "moratorium", "moratori")):
+        # Normative modality: должен / нельзя / следует / must / should / ought — any topic.
+        normative_markers = (
+            "следует", "стоит ли", "надо ли", "нужно ли", "должн", "обязан",
+            "нельзя", "запрет", "запрещ", "позвол", "разреш",
+            "should", "ought", "must ", " must,", "have to", "need to",
+            "may not", "forbidden", "allowed", "permitted",
+        )
+        if any(w in low for w in normative_markers):
             return "normative"
         if "?" in text:
             return "question"
@@ -207,24 +239,37 @@ class Zarathustra:
             return "long_form"
         return "statement"
 
-    def _horizon_guess(self, text: str) -> list[str]:
-        low = text.lower()
-        out = []
-        if any(k in low for k in ("долго", "generation", "lifespan", "century", "long-term")):
-            out.append("long")
-        if any(k in low for k in ("сейчас", "urgent", "immediate", "prod", "release")):
-            out.append("short")
-        return out or ["unspecified"]
-
-    def _concept_hints(self, text: str) -> list[str]:
-        keywords = re.findall(
-            r"\b(AGI|AI|человечеств\w*|бессмерт\w*|risк\w*|risk|governance|власт\w*|"
-            r"свобод\w*|моратор\w*|ускоре\w*|биоэтик\w*|technolog\w+|"
-            r"technology|acceleration|alignment)\b",
-            text,
-            flags=re.IGNORECASE,
+    # ---- LLM path ----
+    def _llm_situation(self, text: str, client: "ModelClient") -> SituationAnalysis:
+        """Ask the model to read the scene using `03_scene_reading.md`."""
+        from .models import Message
+        prompt = self.prompt("03_scene_reading.md") or _DEFAULT_SCENE_READING_PROMPT
+        messages = [
+            Message(role="system", content=prompt),
+            Message(role="user", content=text[:20000]),  # generous cap
+        ]
+        result = client.generate(
+            messages,
+            settings={
+                "role": "zarathustra_situation_reading",
+                "input_len": len(text),
+            },
         )
-        return sorted({k.lower() for k in keywords})[:12]
+        try:
+            data = _json_from_text(result.text)
+        except Exception:
+            # empty JSON → fall back to structural
+            raise
+        # Trust model on all listed fields; validate types conservatively.
+        return SituationAnalysis(
+            topic=str(data.get("topic") or self._first_meaningful_sentence(text))[:280],
+            genre=str(data.get("genre") or self._genre_guess(text))[:60],
+            stakes=[str(s)[:200] for s in (data.get("stakes") or [])][:12],
+            horizons=[str(h)[:60] for h in (data.get("horizons") or [])][:6],
+            concepts=[str(c)[:80] for c in (data.get("concepts") or [])][:20],
+            tensions=[str(t)[:200] for t in (data.get("tensions") or [])][:12],
+            uncertainties=[str(u)[:200] for u in (data.get("uncertainties") or [])][:12],
+        )
 
     # ------------------------------------------------------------
     # SPINE ZONE: каст
@@ -731,6 +776,22 @@ _DEFAULT_ROUTE_PROMPT = (
     "Ты — spine Заратустры. Диспетчер сцены.\n"
     "Верни JSON: {\"next_persona\":\"<id>\",\"operation\":\"<op>\",\"reason\":\"...\"}."
 )
+
+
+_DEFAULT_SCENE_READING_PROMPT = (
+    "Ты — spine Заратустры. Прочитай сцену и верни валидный JSON:\n"
+    "{\"topic\":\"...\",\"genre\":\"question|statement|normative|long_form|transcript\",\n"
+    " \"stakes\":[...],\"horizons\":[...],\"concepts\":[...],\"tensions\":[...],\n"
+    " \"uncertainties\":[...]}.\n"
+    "Не додумывай — пустой массив предпочтительнее выдумки."
+)
+
+
+def _truncate_topic(s: str) -> str:
+    s = s.strip("?.!— \t\n\"«»")
+    if len(s) > 180:
+        s = s[:180].rsplit(" ", 1)[0] + "…"
+    return s
 
 
 def _json_from_text(text: str) -> dict[str, Any]:
