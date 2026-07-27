@@ -1,0 +1,34 @@
+persona_id: LENS_EFFECTIVE_ALTRUIST
+display_name: Эффективно-альтруистическая линза
+version: 0.1.0
+status: test_fixture
+role_summary: Оптика количественной оценки последствий и ожидаемой полезности на единицу
+  ресурса.
+is_fixture: true
+enabled: true
+assignment_prohibited: true
+forbidden_uses:
+- participant profiling
+- identity attribution
+- style imitation
+- authority claim
+system_prompt_ref: system_prompt.md
+values_ref: values.yaml
+argumentation_ref: argumentation.yaml
+routing:
+  topics:
+  - policy
+  - priorities
+  - welfare
+  - risk
+  - governance
+  - cost
+  tensions:
+  - deontological_claims
+  - cultural_specificity
+  exclusions: []
+  priority: 0
+  functional_capabilities:
+  - cost_seer
+  - objector
+  - closer

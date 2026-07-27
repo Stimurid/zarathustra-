@@ -1,0 +1,102 @@
+prompt_dependency_map_id: californian_id.zarathustra.prompt_deps.v0.4.0
+version: 0.4.0
+status: candidate
+rule_source: donors/DONOR_OPERATION_CARDS/prompt_body_selection_and_assembly.yaml
+principle: |
+  Никакой мега-промпт. Каждый шаг Заратустры подгружает ТОЛЬКО те
+  prompt-modules, что ему нужны. Новые модули появляются через явный
+  proposal и versioning.
+
+modules:
+  - id: "01_identity_and_laws"
+    purpose: "constitutional layer; всегда supersystem"
+    used_by_steps: ["all"]
+    depends_on: []
+    output_schema: n/a
+    version: "0.2.0"
+  - id: "02_cave_ontology"
+    purpose: "сцены как рабочие режимы; читается при выборе scene tag"
+    used_by_steps: ["scene_reading", "tension_regulation"]
+    depends_on: ["01_identity_and_laws"]
+    version: "0.2.0"
+  - id: "03_scene_reading"
+    purpose: "структурная реконструкция входа"
+    used_by_steps: ["analyze_situation"]
+    depends_on: ["01_identity_and_laws"]
+    output_schema: {topic, genre, stakes, horizons, concepts, tensions, uncertainties, dominant_frame, suppressed_frame}
+    version: "0.2.0"
+  - id: "04_head_calling"
+    purpose: "выбор следующей головы + операции"
+    used_by_steps: ["route_next"]
+    depends_on: ["01_identity_and_laws"]
+    donor_ops_used: ["prompt_body_selection_and_assembly"]
+    output_schema: {next_persona, operation, reason}
+    version: "0.2.0"
+  - id: "05_move_assignment"
+    purpose: "выдаётся голове перед её ходом"
+    used_by_steps: ["persona_turn"]
+    depends_on: ["01_identity_and_laws"]
+    output_schema: {persona_id, operation, utterance, claims, assumptions, values, supports, attacks, actions, questions, confidence}
+    version: "0.2.0"
+  - id: "06_tension_regulation"
+    purpose: "перечень сигналов + правила регулирования"
+    used_by_steps: ["chorus", "route_next"]
+    depends_on: ["01_identity_and_laws", "02_cave_ontology"]
+    version: "0.2.0"
+  - id: "07_position_testing"
+    purpose: "как испытывать позицию (генеалогия/ценность/будущее)"
+    used_by_steps: ["route_next when operation in {test_value, steelman_opponent}"]
+    depends_on: ["01_identity_and_laws"]
+    version: "0.2.0"
+  - id: "08_question_transformation"
+    purpose: "правила преображения вопроса"
+    used_by_steps: ["route_next when operation in {shift_ontology, problematize_question}"]
+    depends_on: ["01_identity_and_laws"]
+    version: "0.2.0"
+  - id: "09_completion_form_selection"
+    purpose: "выбор одной из 10 форм завершения"
+    used_by_steps: ["choose_completion_form"]
+    depends_on: ["01_identity_and_laws"]
+    donor_ops_used: ["anti_slop_synthesis_gate"]
+    cultural_cards_used:
+      - CARD_FALSE_SYNTHESIS_RISK
+      - CARD_DISSENT_PRESERVATION
+      - CARD_COMPLETION_FORM_SWITCH
+    output_schema: {form, reason}
+    version: "0.2.0"
+  - id: "10_narrative_memory"
+    purpose: "нарративная память + запреты записи"
+    used_by_steps: ["persist_memory", "route_next"]
+    depends_on: ["01_identity_and_laws"]
+    version: "0.2.0"
+  - id: "11_defense_and_role_holding"
+    purpose: "защита от перехвата"
+    used_by_steps: ["all"]
+    depends_on: ["01_identity_and_laws"]
+    donor_ops_used: ["role_wipe_guard"]
+    version: "0.2.0"
+  - id: "12_rhetorical_presentation"
+    purpose: "финальный рендер пользователю"
+    used_by_steps: ["render_user_response"]
+    depends_on: ["01_identity_and_laws"]
+    version: "0.2.0"
+
+  # Prompt module (Пик 4)
+  - id: "prompt_modules/architectonic_turn_reconstruction"
+    purpose: "инкрементальная делта после каждого хода"
+    used_by_steps: ["after_each_turn"]
+    depends_on: ["01_identity_and_laws"]
+    donor_ops_used: ["architectonic_turn_reconstruction"]
+    cultural_cards_used:
+      - CARD_ARCHITECTONIC_RECONSTRUCTION
+    output_schema: |
+      typed delta {new_claims, revised_claims, withdrawn_claims,
+      attacked_claims, new_supports, new_attacks, assumptions_exposed,
+      concepts_introduced, concept_meanings_changed, values_activated,
+      ontology_shifts, position_changes, risks, projects, futures,
+      unresolved_questions, breaks, loops, returns, false_closures,
+      state_delta, provenance}
+    version: "0.1.0"
+
+not_a_prompt_module:
+  - argumentation/prompts/socratic_question_chain.md    # in argumentation pkg, not zarathustra

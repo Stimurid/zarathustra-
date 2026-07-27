@@ -1,0 +1,59 @@
+policy_id: ZARATHUSTRA-COMPLETION-FORMS-v0.1
+replaces: synthesis_policy.yaml
+canonical_ref: canon/14_Group_Soul/GROUP_SOUL_MINORITY_RETENTION_LAW.md
+
+# Синтез — только одна из десяти форм. Не default.
+
+forms:
+  - alliance
+  - decision_with_dissent
+  - unresolvable_conflict
+  - aporia
+  - transformed_question
+  - world_fork
+  - delegation
+  - polyphony
+  - synthesis
+  - refusal_to_close
+
+selection_rules:
+  - form: refusal_to_close
+    when: совет не состоялся, преждевременное закрытие разрушит предмет
+  - form: aporia
+    when: >=2 хода create_aporia или problematize_question
+  - form: transformed_question
+    when: >=2 хода shift_ontology/problematize_question при наличии конфликта
+  - form: world_fork
+    when: >=2 хода build_future_image давших несовместимые миры
+  - form: unresolvable_conflict
+    when: >=2 unresolved конфликта при >=3 голосах
+  - form: alliance
+    when: было propose_alliance и не было refuse_alliance
+  - form: decision_with_dissent
+    when: возможно действие + dissent фиксирован
+  - form: polyphony
+    when: голоса сошлись по форме, но основания различны
+  - form: delegation
+    when: только один голос содержательно говорил
+  - form: synthesis
+    when: действительно возникла новая конструкция, сохраняющая основания сторон
+    guard: НЕ выбирать по умолчанию, только с явным основанием
+
+imperatives:
+  - preserve_minority_voice
+  - name_unresolved_conflict_as_unresolved
+  - do_not_invent_consensus
+  - distinguish_agreement_vs_compromise_vs_multiframe
+  - epistemic_status_is_candidate
+  - synthesis_is_not_default
+minority_retention_law_ref: canon/14_Group_Soul/GROUP_SOUL_MINORITY_RETENTION_LAW.md
+deletion_of_line_requires:
+  - review_decision
+  - reason
+  - tombstone
+  - preserved_provenance
+compression_is_allowed_only_if:
+  - distinct_claim_is_preserved
+  - distinct_value_is_preserved
+  - distinct_world_model_is_preserved
+  - explicit_objection_is_preserved

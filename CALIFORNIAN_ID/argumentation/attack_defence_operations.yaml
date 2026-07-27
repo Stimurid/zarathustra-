@@ -1,0 +1,30 @@
+policy_id: ATTACK_DEFENCE_OPS-v0.1
+source: Поварнин + канон Тинкуя (04_дискуссия_и_аргументация) + Toulmin
+attack_types:
+  - id: logical
+    example_ops: [attack]
+  - id: empirical
+    example_ops: [build_counterexample]
+  - id: conceptual
+    example_ops: [attack_presupposition, restore_ground]
+  - id: methodological
+    example_ops: [test_value, dispute_zarathustra]
+  - id: value
+    example_ops: [test_value]
+defence_types:
+  - id: direct
+    example_ops: [defend]
+  - id: reframe
+    example_ops: [shift_ontology, shift_scale, shift_temporal_horizon]
+  - id: steelman_reply
+    example_ops: [steelman_opponent, defend]
+validity_checks:
+  - id: attack_has_target
+    detail: turn.attacks must have non-null target
+  - id: defence_has_target
+    detail: turn.supports/defence must reference a claim
+  - id: no_ad_hominem
+    detail: attack.text must not target persona identity/personality
+runtime_effect:
+  - assessment.valid_attack: bool
+  - assessment.valid_defence: bool

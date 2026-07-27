@@ -1,0 +1,102 @@
+corpus: californian_id/zarathustra
+extraction_pass: v0.4.0
+sources:
+- stem: bakhtin_poetics_of_dostoevsky_ru
+  status: EXTRACTED_MIN_OR_FAILED
+  source_path: bachtin_poetika_dostoevsky.pdf
+  source_sha256: c26edfb6240ca9e41dd8d4ca825aa793d2c13630d45233a3d0eb398bc394f4ae
+  size_chars: 69
+  note: ''
+  method: pypdf
+- stem: bakhtin_problems_of_dostoevsky_creativity_ru
+  status: OK
+  source_path: Бахтин М.. Проблемы творчества Достоевского - royallib.com.txt (1).zip
+  source_sha256: c9ee6881ffbe1d78bc5fbc15712f340fe24411fb8cb3b4cabf925e353768312e
+  size_chars: 1048153
+  derivative_path: corpus\zarathustra\normalized\bakhtin_problems_of_dostoevsky_creativity_ru.txt
+  derivative_sha256: 182b2fbcb00ef72ff5426a324e827eec5aa50e049509a479a933cb00068e6783
+  method: zip_txt
+  note: üáσΓ¿¡ î.. Åα«í½Ñ¼δ Γó«ατÑßΓóá ä«ßΓ«Ñóß¬«ú« - royallib.ru.txt decoded as cp1251
+- stem: bakhtin_k_filosofii_postupka_ru
+  status: OK
+  source_path: k_filosofii_postupka.zip
+  source_sha256: 7ecc63c2f82f82bcbfc0d5d4585bc62118d2ff133ee9c946cdf8a7b7bbd90453
+  size_chars: 140859
+  derivative_path: corpus\zarathustra\normalized\bakhtin_k_filosofii_postupka_ru.txt
+  derivative_sha256: cb8bd881b93809b5839dac53510e69eceaebe9d7589a33296da21a08f1f07f65
+  method: zip_doc_olefile
+  note: üáσΓ¿¡ î.î., è Σ¿½«ß«Σ¿¿ »«ßΓπ»¬á.doc extracted via olefile (best-effort)
+- stem: jung_red_book_liber_novus_en
+  status: OK
+  source_path: C_G_Jung_-_The_Red_Book_-_Liber_Novus.pdf
+  source_sha256: 48b838876e7bab911ae18f938bd30ffb6ae0adfc0b7442e9ce686c8324ae9c11
+  size_chars: 1298739
+  derivative_path: corpus\zarathustra\normalized\jung_red_book_liber_novus_en.txt
+  derivative_sha256: 2f97ce5e9e0c5fe2f5e859ecdfff83884226f8ca7fb4646681aea96e2d4e22c9
+  method: pypdf
+  note: ''
+- stem: jung_krasnaya_kniga_liber_novus_ru
+  status: OK
+  source_path: K_G_Yung_-_Krasnaya_kniga_-_Liber_Novus.doc
+  source_sha256: 10bee1bb5b671fc76189501d257f13fdba1b44aab9abc1ced598d994c396a941
+  size_chars: 710693
+  derivative_path: corpus\zarathustra\normalized\jung_krasnaya_kniga_liber_novus_ru.txt
+  derivative_sha256: 24a1dfe8613cd0ff64d7a026947c392fe847bc65e875e6c25cf2ea7872d994d5
+  method: olefile
+  note: ''
+- stem: deleuze_guattari_mille_plateaux_fr_1980
+  status: OK
+  source_path: 1980_-_Mille_Plateaux__Capitalisme_et_schizophr_233_nie_2_coll__Critique__Les__233_ditions_de_Minuit.pdf
+  source_sha256: d97f4deab856774b5fa1de1f6622d57f1e2d1c199d7143045447ae67b8609f2a
+  size_chars: 1841898
+  derivative_path: corpus\zarathustra\normalized\deleuze_guattari_mille_plateaux_fr_1980.txt
+  derivative_sha256: 9a56fa666cce847aefe5770b21e6e53ca4a2e7b943e461ee233f273e4b55660c
+  method: pypdf
+  note: ''
+- stem: deleuze_guattari_tysyacha_plato_ru_2010
+  status: OK
+  source_path: 2010_Zhil_Delyoz_Felix_Gvattari_Kapitalizm_i_shizofrenia_Tysyacha_plato.pdf
+  source_sha256: 8d502ccc31cc8d927306677c1c2da6dfc30796d8e1514ead0fbb833dc0610c7c
+  size_chars: 1827614
+  derivative_path: corpus\zarathustra\normalized\deleuze_guattari_tysyacha_plato_ru_2010.txt
+  derivative_sha256: a01b2c8371e118f80b120b7b7913ecbd8bfce431e2a165f7a754e022349dab4c
+  method: pypdf
+  note: ''
+- stem: latour_politiki_prirody_ru
+  status: OK
+  source_path: politiki_prirody.zip
+  source_sha256: ee9f297fb63a9ff52978c1b6eb2e0aae04d584c7b09a894aa92406dac4374ec4
+  size_chars: 796406
+  derivative_path: corpus\zarathustra\normalized\latour_politiki_prirody_ru.txt
+  derivative_sha256: e3410a8b23ff7d0f4ec8d6c9c44126b1715c2931e41f26b1511c799527d1de2b
+  method: zip_doc_olefile
+  note: üαπ¡« ïáΓπα, Å«½¿Γ¿¬¿ »α¿α«ñδ.doc extracted via olefile (best-effort)
+- stem: vakhshtein_sociology_of_things_ru
+  status: OK
+  source_path: Vakhshtayn_V_S__red__Sotsiologia_veschey.pdf
+  source_sha256: fbaafcd2f770cf66d6f22c38005a7d98184ff55767b3496301febb93e27ddd93
+  size_chars: 1100418
+  derivative_path: corpus\zarathustra\normalized\vakhshtein_sociology_of_things_ru.txt
+  derivative_sha256: d55b295e76f603d17f9ee875d069353ddf6f05fb2006610adf14ba247dbe99e2
+  method: pypdf
+  note: ''
+- stem: gurdjieff_views_from_the_real_world_ru
+  status: OK
+  source_path: Гурджиев Георгий. Взгляды из реального мира. - royallib.com.txt.zip
+  source_sha256: 4bcff38030b3d2c920d861a82d70613a99227e878a7078b2ae1178dd5ffeaf80
+  size_chars: 154811
+  derivative_path: corpus\zarathustra\normalized\gurdjieff_views_from_the_real_world_ru.txt
+  derivative_sha256: e5607d414f65aeb82a28de52e35bf8f4e0b9069366873615f5eef0188caa9e90
+  method: zip_txt
+  note: âπαñª¿Ñó âÑ«αú¿⌐. éºú½∩ñδ ¿º αÑá½∞¡«ú« ¼¿αá. - royallib.ru.txt decoded as
+    cp1251
+- stem: povarnin_iskusstvo_spora_ru
+  status: OK
+  source_path: Искусство спора. О теории и практике спора - проф. С.И. Поварнин -
+    читать, скачать.mhtml
+  source_sha256: 2e3b46fd4063bd9e78678ef2e84472fbda74af81719293136e681449ec84a802
+  size_chars: 1804049
+  derivative_path: corpus\zarathustra\normalized\povarnin_iskusstvo_spora_ru.txt
+  derivative_sha256: e7ff4dc82403f8e29807f2a43af9c9d83ebc5ab56621e1b46859853d67a5b94c
+  method: mhtml
+  note: ''

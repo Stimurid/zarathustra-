@@ -1,0 +1,33 @@
+persona_id: LENS_LIBERTARIAN
+display_name: Либертарианская линза
+version: 0.1.0
+status: test_fixture
+role_summary: Оптика первичности свободы индивидов и недопустимости государственного
+  принуждения.
+is_fixture: true
+enabled: true
+assignment_prohibited: true
+forbidden_uses:
+- participant profiling
+- identity attribution
+- style imitation
+- authority claim
+system_prompt_ref: system_prompt.md
+values_ref: values.yaml
+argumentation_ref: argumentation.yaml
+routing:
+  topics:
+  - regulation
+  - policy
+  - market
+  - freedom
+  - moratorium
+  tensions:
+  - state_authority
+  - collective_governance
+  exclusions: []
+  priority: 0
+  functional_capabilities:
+  - consensus_breaker
+  - weak_defender
+  - opener

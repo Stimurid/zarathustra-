@@ -1,0 +1,22 @@
+card_id: CARD_TRICK_POVARNIN
+card_type: risk
+title: Уловка (неопровержимо-риторический ход)
+primary_sources:
+- source_id: POVARNIN_ISKUSSTVO_SPORA_RU
+  locator: CHAR=1663-2029
+  quote_hash: sha256:9fc447f9d580ac9a
+figures:
+- уловка
+- риторический захват
+situation: Ход выглядит убедительно, но опирается не на основание, а на риторический
+  эффект.
+operation:
+  name: назвать уловку и вернуть к основанию
+  description: Фиксация уловки с указанием её типа (по Поварнину).
+  runtime_operation_ref: dispute:fallacy_or_trick_detected
+activation_conditions:
+- ход имеет высокую риторическую силу и низкую опору
+expected_body_delta:
+  security_events: trick_flagged
+provenance_status: quoted
+confidence: 0.85

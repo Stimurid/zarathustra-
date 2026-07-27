@@ -1,0 +1,26 @@
+card_id: CARD_PARLIAMENT_OF_THE_ABSENT_LATOUR
+card_type: operation
+title: Парламент отсутствующих / нечеловеческих участников
+primary_sources:
+- source_id: LATOUR_POLITIKI_PRIRODY_RU
+  locator: CHAR=3332-3701
+  quote_hash: sha256:591dc842c6942755
+secondary_sources:
+- source_id: VAKHSHTEIN_SOCIOLOGY_OF_THINGS_RU
+  locator: PAGE≈8#CHAR=6303-6668
+  quote_hash: sha256:f76af86ee9314ffa
+figures:
+- коллектив
+- нечеловеческие участники
+- matters of concern
+situation: До сих пор не сказано о тех/том, кого решение затронет.
+operation:
+  name: ввести отсутствующего участника
+  description: Не только люди; вещи, экосистемы, будущие поколения.
+  runtime_operation_ref: operation:introduce_absent_subject
+activation_conditions:
+- решение принимается «в пользу» без представителя затронутого
+expected_body_delta:
+  voices_history: absent_subject_named
+provenance_status: quoted
+confidence: 0.85

@@ -1,0 +1,15 @@
+policy_id: BURDEN_RULES-v0.1
+source: Поварнин, глава о бремени; pragma-dialectics rule of burden
+default_carrier: initial_thesis_holder
+shift_rules:
+  - trigger: new_claim_of_own_by_opponent
+    effect: burden partial shift on opponent for that new claim
+  - trigger: appeal_to_unshared_authority
+    effect: burden stays on caller
+  - trigger: demand_for_universal_negative
+    effect: burden not on defender of universal negative
+runtime_effect:
+  - assessment.burden_state:
+      who_carries_burden: <persona_id>
+      whether_shifted: bool
+      shift_reason: str

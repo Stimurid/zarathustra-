@@ -1,0 +1,23 @@
+policy_id: DISPUTE_MODES-v0.1
+source: Поварнин — Искусство спора (по существу)
+modes:
+  - id: truth
+    description: спор ради истины; допустимы уступки, важно основание, а не победа
+    hallmarks: [обмен основаниями, готовность признать сильное возражение, длительность]
+  - id: persuasion
+    description: спор ради убеждения аудитории (не оппонента)
+    hallmarks: [ориентация на слушателя, риторический выбор, ставка на форму]
+    risks: [ложные уловки становятся эффективными]
+  - id: victory
+    description: спор ради победы (полемика в узком смысле)
+    hallmarks: [давление, скорость, риторический захват]
+    risks: [подмена тезиса, уловки]
+default_mode: truth
+detection_hints:
+  - if avg_confidence rises with each defence -> likely truth
+  - if attacks jump from thesis to opponent -> likely victory
+  - if audience_orientation detected -> persuasion
+runtime_effect:
+  - truth: normal proceeds
+  - persuasion: warn (fairness_event), continue
+  - victory: strict fallacy detection, stricter thesis tracking

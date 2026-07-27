@@ -1,0 +1,25 @@
+package_id: californian_id.argumentation
+version: 0.4.0
+status: candidate
+role: dispute_assessment_and_anti_slop
+primary_donor: DONOR_POVARNIN_ISKUSSTVO_SPORA_RU (via corpus normalized)
+canon_alignment:
+  attack_types_ref: canon/04_дискуссия_и_аргументация
+  minority_retention_ref: canon/14_Group_Soul/GROUP_SOUL_MINORITY_RETENTION_LAW.md
+runtime:
+  module: californian_id.argumentation
+  entry_functions:
+    - assess_turn
+    - detect_thesis_substitution
+    - detect_fallacy_or_trick
+    - check_anti_slop
+files:
+  - dispute_modes.yaml
+  - thesis_tracking.yaml
+  - attack_defence_operations.yaml
+  - burden_rules.yaml
+  - fallacies_and_tricks.yaml
+  - fairness_policy.yaml
+  - refusal_and_stopping.yaml
+  - schemas/dispute_assessment.schema.json
+  - prompts/socratic_question_chain.md

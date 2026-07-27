@@ -1,0 +1,231 @@
+donor_registry_id: californian_id.donors.v0.4.0
+version: 0.4.0
+status: candidate
+pass_id: donor_pass_v0_4_0
+canonical_alignment:
+  contract_ref: canon/12_пайплайны_и_оркестраторы
+  law_ref: canon/14_Group_Soul/GROUP_SOUL_MINORITY_RETENTION_LAW.md
+  boundary: |
+    Ни один донорский промпт не встраивается в Заратустру целиком.
+    Извлекаются ТОЛЬКО операции с явным input/output контрактом.
+    Provenance сохраняется в operation card.
+
+# ----------------------------------------------------------------------------
+# Donors that were content-read this pass. Full text left in original files.
+# ----------------------------------------------------------------------------
+donors:
+
+  - donor_id: DONOR_ARCHITECTONIC_MASTER_v1_2_1
+    source_path: "промпты доноры/04_аналитические_операторы/Концептуально-архитектонический анализ академической статьи v1.2.1.docx"
+    title: "Концептуально-архитектонический анализ академической статьи v1.2.1"
+    version: "1.2.1"
+    status: candidate
+    role: primary_master_prompt
+    total_size_chars: 42768
+    usable_operations:
+      - operation_id: architectonic_turn_reconstruction
+        purpose: |
+          Инкрементально пересобрать состояние тела после одного хода:
+          атомизация тезиса, типизированные связи, provenance, дефекты,
+          обрывы/тупики/циклы/возвраты/повторы, ложные закрытия.
+        input_contract: [current_body, previous_turn, new_turn, source_context]
+        output_contract:
+          - new_claims
+          - revised_claims
+          - withdrawn_claims
+          - attacked_claims
+          - new_supports
+          - new_attacks
+          - assumptions_exposed
+          - concepts_introduced
+          - concept_meanings_changed
+          - values_activated
+          - ontology_shifts
+          - position_changes
+          - risks
+          - projects
+          - futures
+          - unresolved_questions
+          - breaks
+          - loops
+          - returns
+          - false_closures
+          - state_delta
+          - provenance
+        invariant: |
+          Не запускать целиком после каждого хода; использовать только
+          incremental delta. Не заменять BodyProjection пересказом.
+        adaptation_required:
+          - удалить полный peer-review;
+          - удалить поабзацную редактуру статьи;
+          - удалить требование готовой замены каждого абзаца;
+          - удалить длинный отчёт.
+        target_modules:
+          - CALIFORNIAN_ID/zarathustra/prompt_modules/architectonic_turn_reconstruction.md
+          - CALIFORNIAN_ID/src/californian_id/architectonic.py
+        card_ref: DONOR_OPERATION_CARDS/architectonic_turn_reconstruction.yaml
+
+  - donor_id: DONOR_ORC_AGENT_MET
+    source_path: "промпты доноры/02_агентные_архитектуры/Orc_agent_met.docx"
+    title: "Orc_Agent_Met — оркестратор пятерых внутренних агентов"
+    version: "0.x"
+    status: candidate
+    role: orchestration_pattern_reference
+    total_size_chars: 14313
+    usable_operations:
+      - operation_id: multi_agent_role_switching
+        purpose: |
+          Паттерн переключения между заранее объявленными агентами
+          с явными handoff-ами. Не подменяет sequential inner council
+          Заратустры, но даёт форму передачи shared state.
+        input_contract: [current_scene, previous_agent_output, next_agent_id]
+        output_contract:
+          - next_agent_prompt_load
+          - context_pack
+          - handoff_object
+        invariant: |
+          Оркестратор не имеет собственной идеологической позиции
+          (уже отражено в Заратустре как SPINE + HEAD с политикой).
+        adaptation_required:
+          - НЕ заимствовать пять фиксированных агентов; у нас 7 линз + Заратустра;
+          - использовать только паттерн handoff и явного context_pack.
+        target_modules:
+          - reference only; already covered by zarathustra.py.
+        card_ref: DONOR_OPERATION_CARDS/multi_agent_role_switching.yaml
+
+  - donor_id: DONOR_BOBROV_50_AGENTS
+    source_path: "промпты доноры/02_агентные_архитектуры/промпты бобера.docx"
+    title: "промпты бобера — 50 агентов ModerBober"
+    version: "v0.1"
+    status: reference_only
+    role: agent_zoo_reference
+    total_size_chars: 263647
+    usable_operations:
+      - operation_id: common_agent_runtime_contract
+        purpose: |
+          COMMON AGENT RUNTIME CONTRACT: claim taxonomy
+          (source_fact / inference / hypothesis / conflict / gap /
+          question_to_human / proposal / applied_change), запреты
+          на сглаживание противоречий, сохранение конфликтов источников.
+        input_contract: [agent_output_raw]
+        output_contract:
+          - typed_claims
+          - conflicts_preserved
+          - gaps_named
+          - proposals_marked
+        invariant: |
+          «Не сглаживай противоречия ради красивого отчёта.»
+          «Не скрывай конфликты источников.»
+        adaptation_required:
+          - taxonomy встраивается в argumentation.DisputeAssessment;
+          - не тащить все 50 агентов внутрь; каждый — свой пакет.
+        target_modules:
+          - CALIFORNIAN_ID/src/californian_id/argumentation.py
+          - CALIFORNIAN_ID/argumentation/attack_defence_operations.yaml
+        card_ref: DONOR_OPERATION_CARDS/common_agent_runtime_contract.yaml
+
+  - donor_id: DONOR_LITOPS_PROMPT_BODY_REGISTRY
+    source_path: "промпты доноры/02_агентные_архитектуры/LITOPS_PROMPT_BODY_REGISTRY_v0_1.docx"
+    title: "LITOPS Prompt Body Registry — правила сборки LLM-вызовов"
+    version: "v0.1"
+    status: candidate
+    role: prompt_assembly_policy
+    total_size_chars: 19516
+    usable_operations:
+      - operation_id: prompt_body_selection_and_assembly
+        purpose: |
+          Не вставлять большие мировые документы в каждый LLM-вызов.
+          Prompt-bodies выбираются и собираются по registry;
+          новый орган или prompt-body появляется только через явный
+          proposal и traceable versioning.
+        input_contract: [organ_id, transition_id, minimum_context]
+        output_contract:
+          - assembled_prompt_body
+          - included_bodies
+          - excluded_bodies
+          - provenance
+        invariant: |
+          Мега-промпты запрещены. Registry — источник истины о том,
+          какие prompt-bodies где применяются.
+        adaptation_required:
+          - применить как правило к архитектонике Zarathustra prompt stack;
+          - создать PROMPT_DEPENDENCY_MAP.yaml на этой основе.
+        target_modules:
+          - CALIFORNIAN_ID/zarathustra/PROMPT_DEPENDENCY_MAP.yaml
+        card_ref: DONOR_OPERATION_CARDS/prompt_body_selection_and_assembly.yaml
+
+  - donor_id: DONOR_ANTIGPT_SP
+    source_path: "промпты доноры/01_онтологические_режимы/antiGPT_SP.docx"
+    title: "antiGPT_SP — защита роли от свода к generic assistant"
+    version: "0.x"
+    status: candidate
+    role: role_preservation_prefix
+    usable_operations:
+      - operation_id: role_wipe_guard
+        purpose: |
+          Prefix, запрещающий свод к generic assistant / сервисной логике
+          / позитивным социальным маркерам. Ставится как supersystem.
+        input_contract: [prompt_stack]
+        output_contract: [guarded_prompt_stack]
+        invariant: |
+          Никогда не заменять содержательный ответ обещанием быть полезным.
+        target_modules:
+          - already covered in zarathustra/11_defense_and_role_holding.md
+        card_ref: DONOR_OPERATION_CARDS/role_wipe_guard.yaml
+
+  - donor_id: DONOR_UNION_ANALYSIS_VIZ_v1_0
+    source_path: "промпты доноры/04_аналитические_операторы/Объединённый мастер-промпт — анализ статьи, визуализация и экспорт v1.0.docx"
+    title: "Объединённый мастер-промпт — анализ, визуализация, экспорт"
+    version: "1.0"
+    status: reference_only
+    role: extraction_and_visualisation
+    usable_operations:
+      - operation_id: thesaurus_and_map_export
+        purpose: |
+          Тезаурус, карта тезисов, edges, экспорт. Для нашей сборки —
+          reference only; наш body уже покрывает argument_map.
+        adaptation_required:
+          - не встраивать; при необходимости — как отдельный CLI-report.
+        card_ref: DONOR_OPERATION_CARDS/thesaurus_and_map_export.yaml
+
+  - donor_id: DONOR_SOCRATIC_ELECTIVES
+    source_path: "промпты доноры/04_аналитические_операторы/элективы системный промпт.docx"
+    title: "Элективы — сократический ведущий-голос"
+    version: "0.x"
+    status: candidate
+    role: socratic_operator
+    usable_operations:
+      - operation_id: socratic_question_chain
+        purpose: |
+          Ведение через вопросы, а не через ответы. Ритмы:
+          Вопрос → Удержание → Действие. Именованные сцены переходов.
+        input_contract: [subject, participant_state]
+        output_contract: [next_question, hold_or_move]
+        invariant: не заменять содержательный ответ бесконечными вопросами
+        target_modules:
+          - operation_id используется как один из шаблонов для операции
+            problematize_question в argumentation/prompts/.
+        card_ref: DONOR_OPERATION_CARDS/socratic_question_chain.yaml
+
+  - donor_id: DONOR_ANTI_SLOP_SYSTEM_ROLE
+    source_path: "промпты доноры/05_стилизация/SYSTEM ROLE anti-slop.docx"
+    title: "SYSTEM ROLE anti-slop — Deep Research Agent, wave 0–4"
+    version: "0.x"
+    status: candidate
+    role: quality_gate
+    usable_operations:
+      - operation_id: anti_slop_synthesis_gate
+        purpose: |
+          Риторическая гладкость — режим ошибки. Wave-0..4 с
+          counterexamples и confounds. Применяется как quality gate
+          перед выбором формы завершения `synthesis`.
+        input_contract: [candidate_completion, turns]
+        output_contract:
+          - passes_anti_slop
+          - detected_slop_signals
+          - required_reworks
+        invariant: не пропускать `synthesis`, если голоса не проработали ходы
+        target_modules:
+          - CALIFORNIAN_ID/src/californian_id/argumentation.py (fairness gate)
+          - CALIFORNIAN_ID/zarathustra/09_completion_form_selection.md
+        card_ref: DONOR_OPERATION_CARDS/anti_slop_synthesis_gate.yaml

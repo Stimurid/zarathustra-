@@ -1,0 +1,26 @@
+card_id: CARD_FALSE_SYNTHESIS_RISK
+card_type: risk
+title: Ложный синтез
+primary_sources:
+- source_id: POVARNIN_ISKUSSTVO_SPORA_RU
+  locator: 'весь корпус: раздел о согласии и уступках'
+  translation_or_edition: mhtml
+- source_id: BAKHTIN_PROBLEMS_DOSTOEVSKY_CREATIVITY_RU
+  locator: 'весь корпус: полифония vs монолог'
+  translation_or_edition: royallib txt
+figures:
+- синтез
+- монолог
+- согласие
+situation: Форма synthesis выбрана, но по существу воспроизводит один голос под именем
+  совета.
+operation:
+  name: блокировать synthesis, вернуть polyphony/decision_with_dissent
+  description: Anti-slop gate перед выбором формы завершения.
+  runtime_operation_ref: anti_slop_gate
+activation_conditions:
+- candidate_form=synthesis, но не было attack_presupposition + defend
+expected_body_delta:
+  chorus_reflections: false_consensus_detected
+provenance_status: reconstructed_no_locator
+confidence: 0.95

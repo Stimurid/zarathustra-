@@ -1,0 +1,18 @@
+policy_id: FAIRNESS_POLICY-v0.1
+source: Поварнин + canon
+imperatives:
+  - dispute_the_argument_not_the_person
+  - allow_opponent_to_formulate_own_position
+  - do_not_ignore_legitimate_counterexamples
+  - do_not_use_authority_as_substitute_for_ground
+  - do_not_change_topic_to_avoid_defeat
+  - do_not_declare_victory_when_none_reached
+fairness_events:
+  - id: unfair_omission
+    when: strong opponent claim ignored in next turn
+  - id: authority_substitution
+    when: appeal to external authority without independent ground
+  - id: closure_without_engagement
+    when: completion chosen while unresolved central attack remains
+runtime_effect:
+  - assessment.fairness_events: [event_id, ...]

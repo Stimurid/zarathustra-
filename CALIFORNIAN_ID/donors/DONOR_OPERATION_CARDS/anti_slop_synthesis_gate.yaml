@@ -1,0 +1,20 @@
+card_id: DONOR_OP_anti_slop_synthesis_gate
+donor_id: DONOR_ANTI_SLOP_SYSTEM_ROLE
+operation_id: anti_slop_synthesis_gate
+purpose: |
+  Quality gate перед формой `synthesis`. Если голоса совета не отработали
+  предпосылок / атаков / defenses / контрпримеров — synthesis не выбирается
+  и заменяется на polyphony/decision_with_dissent.
+input_contract:
+  candidate_form: synthesis|other
+  turns: list of TurnRecord
+  argument_map: ArgumentMap
+output_contract:
+  passes_anti_slop: bool
+  detected_slop_signals: [str]
+  suggested_alternative_form: str|null
+invariants:
+  - "риторическая гладкость — сигнал ошибки, не успеха"
+  - "synthesis без предыдущих attack_presupposition + defend не допускается"
+target_modules:
+  - CALIFORNIAN_ID/src/californian_id/argumentation.py

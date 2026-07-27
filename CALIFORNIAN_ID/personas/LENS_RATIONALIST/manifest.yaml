@@ -1,0 +1,33 @@
+persona_id: LENS_RATIONALIST
+display_name: Рационалистская линза
+version: 0.1.0
+status: test_fixture
+role_summary: Оптика операциональных определений, байесовых оценок и проверяемых предсказаний.
+is_fixture: true
+enabled: true
+assignment_prohibited: true
+forbidden_uses:
+- participant profiling
+- identity attribution
+- style imitation
+- authority claim
+system_prompt_ref: system_prompt.md
+values_ref: values.yaml
+argumentation_ref: argumentation.yaml
+routing:
+  topics:
+  - agi
+  - risk
+  - prediction
+  - policy
+  - evidence
+  - governance
+  tensions:
+  - unfalsifiable_claims
+  - moral_intuition_as_axiom
+  exclusions: []
+  priority: 0
+  functional_capabilities:
+  - objector
+  - consensus_breaker
+  - aporia_maker

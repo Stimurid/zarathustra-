@@ -1,0 +1,27 @@
+package_id: californian_id
+display_name: "Калифорнийский Ид"
+version: 0.4.0
+status: candidate
+codename: CALIFORNIAN_ID
+description: >
+  Первый агентный прикладной пакет Тинкуя. Внутренний совет семи
+  идеологических персон под управлением оркестратора «Заратустра».
+  На вход — произвольный текст (вопрос, транскрипт, документ),
+  на выход — синтезированная позиция с сохранёнными конфликтами и
+  меньшинственными голосами.
+tinkuy_alignment:
+  role: TINKUY_CASE_001
+  principle: deterministic_core_intelligent_documents
+  contracts_used:
+    - TINKUY_EXECUTION_PROTOCOL
+    - TINKUY_EPISTEMIC_DISCIPLINE
+    - TINKUY_OUTPUT_STATUS_VOCABULARY
+    - TINKUY_DOCUMENT_PRECEDENCE_AND_OVERRIDE
+runtime:
+  language: python
+  min_version: "3.11"
+  entrypoint_module: californian_id
+  cli_module: californian_id.cli
+depends_on: []
+authors:
+  - project: Tinkuy

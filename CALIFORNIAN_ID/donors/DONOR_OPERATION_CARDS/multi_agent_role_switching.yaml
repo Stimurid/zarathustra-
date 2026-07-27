@@ -1,0 +1,22 @@
+card_id: DONOR_OP_multi_agent_role_switching
+donor_id: DONOR_ORC_AGENT_MET
+operation_id: multi_agent_role_switching
+purpose: |
+  Паттерн последовательной передачи shared state между несколькими
+  агентами с explicit handoff и предзагруженным ontology layer.
+input_contract:
+  current_scene: dict
+  previous_agent_output: dict
+  next_agent_id: str
+output_contract:
+  next_agent_prompt_load: str
+  context_pack: dict
+  handoff_object: {type: str, payload: dict, provenance: dict}
+invariants:
+  - "оркестратор не имеет собственной идеологической позиции"
+  - "shared state не переписывается молча"
+target_modules:
+  - reference only — already covered by zarathustra.py + BodyProjection
+note: |
+  Не заимствуем пять фиксированных агентов Orc_Agent_Met. У нас 7 линз +
+  Заратустра. Используем ТОЛЬКО паттерн handoff и context_pack.

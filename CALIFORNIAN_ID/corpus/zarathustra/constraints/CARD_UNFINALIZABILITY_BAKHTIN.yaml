@@ -1,0 +1,27 @@
+card_id: CARD_UNFINALIZABILITY_BAKHTIN
+card_type: constraint
+title: Незавершимость голоса
+primary_sources:
+- source_id: BAKHTIN_PROBLEMS_DOSTOEVSKY_CREATIVITY_RU
+  locator: CHAR=81983-82357
+  quote_hash: sha256:0b34e5bcdfce6506
+figures:
+- голос
+- личность
+situation: Голос не может быть окончательно определён извне до его собственного слова.
+conflicts:
+- импульс к завершающему определению vs право голоса на дальнейшее слово
+operation:
+  name: запрет завершающего определения
+  description: Заратустра не выносит финальный вердикт о голосе.
+  runtime_operation_ref: constraint:no_final_verdict
+activation_conditions:
+- Заратустра близок к тому, чтобы приписать голосу «истинную позицию»
+contraindications:
+- голос сам явно закрыл линию
+expected_body_delta:
+  position_changes: not_closed
+completion_implications:
+- не выбирать synthesis, если голос сохраняет открытость
+provenance_status: quoted
+confidence: 0.85

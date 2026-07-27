@@ -1,0 +1,12 @@
+policy_id: REPETITION-v0.1
+detection:
+  jaccard_threshold: 0.8
+  window: last_two_turns_by_same_persona
+response:
+  - if_no_new_frame:
+      action: mark_repetition_and_stop_that_voice
+  - if_reframed:
+      action: allow_turn
+disallowed_defaults:
+  - restart_full_council_without_new_input
+  - silently_emit_identical_synthesis

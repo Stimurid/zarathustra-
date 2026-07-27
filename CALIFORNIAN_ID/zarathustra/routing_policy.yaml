@@ -1,0 +1,24 @@
+policy_id: ZARATHUSTRA-ROUTING-v0.1
+priority_rules:
+  - name: prefer_unheard_frames
+    detail: голос, у которого была нулевая или наименьшая доля ходов, приоритетнее
+  - name: forbid_same_voice_streak
+    detail: один и тот же persona_id не может занять два подряд хода
+  - name: novelty_over_repetition
+    detail: если prior_turns содержит перифраз того же тезиса, выбирай голос,
+      способный вскрыть новое допущение
+  - name: minority_slot_reserved
+    detail: до синтеза необходимо гарантировать вход как минимум одному
+      меньшинственному голосу
+operation_cycle_default:
+  - initial_position
+  - attack_previous
+  - defend_position
+  - attack_assumption
+  - propose_action
+  - synthesis_challenge
+override_conditions:
+  - condition: жанр = normative
+    prefer_operations: [attack_assumption, defend_position, propose_action]
+  - condition: жанр = long_form
+    prefer_operations: [initial_position, attack_previous, attack_assumption, synthesis_challenge]

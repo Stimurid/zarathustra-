@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy/californian_id/persona.schema.json",
+  "title": "CalifornianIdPersonaManifest",
+  "type": "object",
+  "required": [
+    "persona_id",
+    "display_name",
+    "version",
+    "status",
+    "role_summary",
+    "system_prompt_ref"
+  ],
+  "properties": {
+    "persona_id": {"type": "string", "pattern": "^[A-Z0-9_\\-\\.]+$"},
+    "display_name": {"type": "string"},
+    "version": {"type": "string"},
+    "status": {"type": "string", "enum": ["draft", "experimental", "candidate", "canonical", "deprecated", "archived", "test_fixture"]},
+    "role_summary": {"type": "string"},
+    "is_fixture": {"type": "boolean"},
+    "enabled": {"type": "boolean"},
+    "assignment_prohibited": {"type": "boolean"},
+    "forbidden_uses": {"type": "array", "items": {"type": "string"}},
+    "system_prompt_ref": {"type": "string"},
+    "worldview_ref": {"type": "string"},
+    "ontology_ref": {"type": "string"},
+    "values_ref": {"type": "string"},
+    "action_model_ref": {"type": "string"},
+    "argumentation_ref": {"type": "string"},
+    "rhetoric_ref": {"type": "string"},
+    "interaction_policy_ref": {"type": "string"},
+    "memory_policy_ref": {"type": "string"},
+    "affect_model_ref": {"type": "string"},
+    "source_manifest_ref": {"type": "string"},
+    "routing": {
+      "type": "object",
+      "properties": {
+        "topics": {"type": "array", "items": {"type": "string"}},
+        "tensions": {"type": "array", "items": {"type": "string"}},
+        "exclusions": {"type": "array", "items": {"type": "string"}},
+        "priority": {"type": "number"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

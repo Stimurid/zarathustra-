@@ -1,0 +1,19 @@
+card_id: CARD_STOP_FUTILE_DISPUTE_POVARNIN
+card_type: completion_pattern
+title: Прекращение бесплодного спора
+primary_sources:
+- source_id: POVARNIN_ISKUSSTVO_SPORA_RU
+  locator: CHAR=62558-62936
+  quote_hash: sha256:ac89942c0888e305
+figures:
+- спор
+- остановка
+situation: Стороны повторяются, тезис не сдвигается, основания исчерпаны.
+operation:
+  name: прекратить спор с явным основанием
+  description: Не сводить к 'ничьей'; назвать причину остановки.
+  runtime_operation_ref: completion_form:refusal_to_close|unresolvable_conflict
+activation_conditions:
+- novelty_score → 0 у двух последних ходов; ложный consensus риск
+provenance_status: paraphrased_with_locator
+confidence: 0.8

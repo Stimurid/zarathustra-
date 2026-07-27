@@ -1,0 +1,20 @@
+card_id: CARD_COMPLETION_FORM_SWITCH
+card_type: completion_pattern
+title: Смена формы завершения
+primary_sources:
+- source_id: CALIFORNIAN_ID/zarathustra/09_completion_form_selection.md
+  locator: local:zarathustra/09
+  translation_or_edition: v0.2.0
+figures:
+- Заратустра
+- форма завершения
+situation: Собранная форма проваливает контракт (см. anti_slop) — форму нужно сменить.
+operation:
+  name: переопределить форму завершения на месте
+  description: Отбросить candidate form; выбрать альтернативу по правилам.
+  runtime_operation_ref: operation:dispute_completion_form
+activation_conditions:
+- anti_slop == fail
+- detected false_synthesis
+provenance_status: reconstructed_no_locator
+confidence: 1.0

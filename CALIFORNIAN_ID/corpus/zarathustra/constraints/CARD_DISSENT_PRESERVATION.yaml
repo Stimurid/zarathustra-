@@ -1,0 +1,19 @@
+card_id: CARD_DISSENT_PRESERVATION
+card_type: constraint
+title: Сохранение dissent
+primary_sources:
+- source_id: TINKUY/GROUP_SOUL_MINORITY_RETENTION_LAW
+  locator: canon/14_Group_Soul/GROUP_SOUL_MINORITY_RETENTION_LAW.md
+  translation_or_edition: canon
+figures:
+- меньшинственная позиция
+- review
+situation: Всякая форма завершения обязана сохранить distinct claims dissent.
+operation:
+  name: ни компрессия, ни удаление не должны стирать distinct claim
+  description: Deletion требует review + tombstone + provenance.
+  runtime_operation_ref: synthesis_policy:minority_retention
+activation_conditions:
+- собирается completion любой формы
+provenance_status: quoted
+confidence: 1.0

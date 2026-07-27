@@ -1,0 +1,36 @@
+runtime:
+  mode_default: fast
+  timezone: UTC
+
+modes:
+  fast:
+    max_turns: 5
+    max_voices: 4
+    stopping:
+      novelty_floor: 0.15
+      require_minority_voice: true
+  deep:
+    max_turns: 12
+    max_voices: 7
+    stopping:
+      novelty_floor: 0.08
+      require_minority_voice: true
+
+council:
+  min_turns: 3
+  min_distinct_voices: 3
+  allow_voice_repeat: true
+  max_consecutive_same_voice: 1
+
+budget:
+  max_model_calls_per_run: 30
+  soft_token_ceiling: 40000
+
+output:
+  redact_hidden_prompts: true
+  redact_internal_traces_by_default: true
+  include_debug_only_with_flag: true
+
+logging:
+  level: INFO
+  redact_secrets: true

@@ -1,0 +1,19 @@
+card_id: DONOR_OP_prompt_body_selection_and_assembly
+donor_id: DONOR_LITOPS_PROMPT_BODY_REGISTRY
+operation_id: prompt_body_selection_and_assembly
+purpose: |
+  Правила сборки prompt-стека для каждого шага: какие модули включаются,
+  какие исключаются, какие подгружаются лениво. Без мега-промпта.
+input_contract:
+  step_id: str
+  minimum_context: dict
+output_contract:
+  assembled_prompt_body: str
+  included_modules: [str]
+  excluded_modules: [str]
+  provenance: {sources: [{path, version}]}
+invariants:
+  - "не встраивать большие мировые документы в каждый LLM-вызов"
+  - "новый prompt-body появляется только через явный proposal и versioning"
+target_modules:
+  - CALIFORNIAN_ID/zarathustra/PROMPT_DEPENDENCY_MAP.yaml

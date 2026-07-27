@@ -1,0 +1,18 @@
+card_id: DONOR_OP_socratic_question_chain
+donor_id: DONOR_SOCRATIC_ELECTIVES
+operation_id: socratic_question_chain
+purpose: |
+  Ритм «Вопрос → Удержание → Действие». Применяется как шаблон под
+  операцию `problematize_question` и, при необходимости, `create_aporia`.
+input_contract:
+  subject: str
+  current_ground: str
+  participant_state: any
+output_contract:
+  next_question: str
+  hold_or_move: hold|move
+invariants:
+  - "не заменять содержательный ответ бесконечными вопросами"
+  - "вопрос обращён к основанию, не к личности"
+target_modules:
+  - CALIFORNIAN_ID/argumentation/prompts/socratic_question_chain.md

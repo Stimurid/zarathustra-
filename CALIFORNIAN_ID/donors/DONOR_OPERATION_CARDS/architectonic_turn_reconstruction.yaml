@@ -1,0 +1,65 @@
+card_id: DONOR_OP_architectonic_turn_reconstruction
+donor_id: DONOR_ARCHITECTONIC_MASTER_v1_2_1
+operation_id: architectonic_turn_reconstruction
+extracted_from_source: "промпты доноры/04_аналитические_операторы/Концептуально-архитектонический анализ академической статьи v1.2.1.docx"
+extracted_from_source_sha256_note: computed in DONOR_REGISTRY
+purpose: |
+  Инкрементально пересобирать состояние общего тела Змея после каждого хода
+  одной головы. Не пересобирать всё; вернуть только delta (что появилось,
+  что изменилось, что отозвано, что атаковано, какие связи возникли,
+  какие обрывы, циклы, возвраты, ложные закрытия зафиксированы).
+input_contract:
+  current_body: BodyProjection snapshot before this turn
+  previous_turn: TurnRecord | null
+  new_turn: TurnRecord (just executed)
+  source_context: retrieved evidence + cultural cards (may be empty)
+output_contract:
+  new_claims: []
+  revised_claims: []
+  withdrawn_claims: []
+  attacked_claims: []
+  new_supports: []
+  new_attacks: []
+  assumptions_exposed: []
+  concepts_introduced: []
+  concept_meanings_changed: []
+  values_activated: []
+  ontology_shifts: []
+  position_changes: []
+  risks: []
+  projects: []
+  futures: []
+  unresolved_questions: []
+  breaks: []
+  loops: []
+  returns: []
+  false_closures: []
+  state_delta: {}
+  provenance: {}
+invariants:
+  - "не пересказывать ход; вернуть только typed deltas"
+  - "различать основание и утверждение (см. epistemic_discipline)"
+  - "провенанс каждой строки delta обязателен"
+  - "не переопределять BodyProjection целиком"
+failure_modes:
+  - "модель возвращает summary вместо typed delta"
+  - "delta противоречит уже принятому state (см. NoSilentOverwriteGuard)"
+  - "провенанс пустой"
+adaptation_required:
+  - remove: полный peer-review академической статьи
+  - remove: поабзацная редактура текста статьи
+  - remove: требование готовой замены каждого абзаца
+  - remove: длинный редакторский отчёт
+  - keep: атомизация тезиса
+  - keep: типизированные связи с текстовыми якорями
+  - keep: реестр обрывов / тупиков / циклов / возвратов / повторов / ложных закрытий
+  - keep: тезаурус изменений понятий
+  - keep: провенанс с метками статуса основания
+target_modules:
+  - CALIFORNIAN_ID/zarathustra/prompt_modules/architectonic_turn_reconstruction.md
+  - CALIFORNIAN_ID/src/californian_id/architectonic.py
+extracted_prompt_fragment_note: |
+  Из донора v1.2.1 переносим ТОЛЬКО инкрементальную часть операций
+  «атомизация тезиса», «типизированные связи», «реестр дефектов и обрывов»,
+  «провенанс с метками статуса основания». Полный протокол v1.2.1
+  остаётся в исходном файле; не встраивать целиком.

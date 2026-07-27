@@ -1,0 +1,23 @@
+card_id: CARD_THESIS_HOLDING_POVARNIN
+card_type: operation
+title: Удержание тезиса
+primary_sources:
+- source_id: POVARNIN_ISKUSSTVO_SPORA_RU
+  locator: CHAR=1969-2335
+  quote_hash: sha256:73a0b111ba504e2a
+figures:
+- спорящий
+- тезис
+situation: Спор длится, но тезис постепенно сдвигается.
+operation:
+  name: точно удерживать формулировку тезиса
+  description: Каждый ход проверяется на соответствие исходному тезису.
+  runtime_operation_ref: dispute:thesis_tracking
+activation_conditions:
+- 3+ ходов спора
+contraindications:
+- тезис явно и легитимно был переопределён
+expected_body_delta:
+  argument_map: thesis_alignment_checked
+provenance_status: quoted
+confidence: 0.95

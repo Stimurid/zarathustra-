@@ -1,0 +1,29 @@
+state_model_id: californian_id.state
+version: 0.1.0
+states:
+  - RECEIVED
+  - ANALYZED
+  - CAST_SELECTED
+  - COUNCIL_RUNNING
+  - STOPPING_CHECK
+  - SYNTHESIZING
+  - VALIDATING
+  - COMPLETED
+  - FAILED
+  - CANCELLED
+transitions:
+  RECEIVED: [ANALYZED, FAILED, CANCELLED]
+  ANALYZED: [CAST_SELECTED, FAILED, CANCELLED]
+  CAST_SELECTED: [COUNCIL_RUNNING, FAILED, CANCELLED]
+  COUNCIL_RUNNING: [STOPPING_CHECK, FAILED, CANCELLED]
+  STOPPING_CHECK: [COUNCIL_RUNNING, SYNTHESIZING, FAILED, CANCELLED]
+  SYNTHESIZING: [VALIDATING, FAILED, CANCELLED]
+  VALIDATING: [COMPLETED, FAILED, CANCELLED]
+  COMPLETED: []
+  FAILED: []
+  CANCELLED: []
+invariants:
+  - transition_must_be_in_transitions_map
+  - status_timestamps_are_append_only
+  - synthesis_field_populated_iff_status_is_VALIDATING_or_COMPLETED
+  - each_step_leaves_at_least_one_trace_event

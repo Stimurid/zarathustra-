@@ -1,0 +1,23 @@
+card_id: CARD_THESIS_SUBSTITUTION_POVARNIN
+card_type: risk
+title: Подмена тезиса
+primary_sources:
+- source_id: POVARNIN_ISKUSSTVO_SPORA_RU
+  locator: CHAR=17036-17407
+  quote_hash: sha256:f40eb49fe5a1ae9a
+figures:
+- атакующий
+- тезис
+situation: Атакующий обсуждает не исходный тезис, а его сдвинутую версию.
+operation:
+  name: выявить и назвать подмену
+  description: Возврат к исходной формулировке и прямой запрос об основании сдвига.
+  runtime_operation_ref: dispute:thesis_substitution_detected
+activation_conditions:
+- атака направлена не на исходный тезис
+expected_body_delta:
+  argument_map: thesis_substitution_flagged
+completion_implications:
+- не выбирать synthesis, если исходный тезис так и не атакован по существу
+provenance_status: quoted
+confidence: 0.9

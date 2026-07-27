@@ -1,0 +1,19 @@
+card_id: DONOR_OP_common_agent_runtime_contract
+donor_id: DONOR_BOBROV_50_AGENTS
+operation_id: common_agent_runtime_contract
+purpose: |
+  Задать taxonomy типов утверждений и запреты на сглаживание конфликтов
+  для всех голосов совета. Не встраивается как отдельный агент — работает
+  через argumentation.TypedClaimTaxonomy + fairness policy.
+input_contract:
+  raw_output: str (persona utterance or extraction)
+output_contract:
+  typed_claims: [{kind: source_fact|inference|hypothesis|conflict|gap|question_to_human|proposal|applied_change, text: str, confidence: float}]
+  preserved_conflicts: []
+  gaps_named: []
+invariants:
+  - "Не сглаживай противоречия ради красивого отчёта"
+  - "Не скрывай конфликты источников"
+  - "Каждое утверждение имеет kind; неклассифицированное не принимается"
+target_modules:
+  - CALIFORNIAN_ID/src/californian_id/argumentation.py

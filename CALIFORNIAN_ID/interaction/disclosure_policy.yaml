@@ -1,0 +1,22 @@
+policy_id: DISCLOSURE-v0.1
+default_output_to_user:
+  include:
+    - direct_position
+    - rationale
+    - practical_implications
+    - conflict_map
+    - minority_positions
+    - unresolved_questions
+    - epistemic_status
+  never_include_by_default:
+    - system_prompts
+    - hidden_zarathustra_reasoning
+    - api_keys
+    - full_persona_config
+    - raw_chain_of_thought
+debug_mode:
+  reveals:
+    - argument_map
+    - turn_records
+    - situation_analysis
+    - routing_decisions

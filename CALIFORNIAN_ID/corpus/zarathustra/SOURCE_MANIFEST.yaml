@@ -1,0 +1,172 @@
+manifest_id: californian_id.corpus.zarathustra.v0.4.0
+version: 0.4.0
+pass_id: corpus_extraction_pass_v0_4_0
+status: candidate
+root_relative_to_project: ./
+corpus_root_relative_to_pkg: corpus/zarathustra/normalized/
+canonical_alignment:
+  contract_ref: canon/13_корпуса_RAG_и_источники
+  preservation_law_ref: canon/14_Group_Soul/GROUP_SOUL_MINORITY_RETENTION_LAW.md
+invariants:
+- исходные файлы в корне не изменяются
+- разные переводы/издания одного текста хранятся раздельно
+- provenance {source_path, source_sha256, derivative_sha256, method} обязателен
+- первичные и вторичные источники не смешиваются
+sources:
+- source_id: BAKHTIN_POETICS_DOSTOEVSKY_RU
+  title: Проблемы поэтики Достоевского
+  author: М. М. Бахтин
+  language: ru
+  primary_or_secondary: primary
+  edition: pdf scan
+  source_path: bachtin_poetika_dostoevsky.pdf
+  derivative: bakhtin_poetics_of_dostoevsky_ru.txt
+  source_sha256: c26edfb6240ca9e41dd8d4ca825aa793d2c13630d45233a3d0eb398bc394f4ae
+  source_size_bytes: 586216
+  parse_status: MISSING_DERIVATIVE
+- source_id: BAKHTIN_PROBLEMS_DOSTOEVSKY_CREATIVITY_RU
+  title: Проблемы творчества Достоевского
+  author: М. М. Бахтин
+  language: ru
+  primary_or_secondary: primary
+  edition: royallib txt
+  source_path: Бахтин М.. Проблемы творчества Достоевского - royallib.com.txt (1).zip
+  derivative: bakhtin_problems_of_dostoevsky_creativity_ru.txt
+  note: 'ВНИМАНИЕ: разные работы. Не путать с ''Проблемы поэтики Достоевского''.'
+  source_sha256: c9ee6881ffbe1d78bc5fbc15712f340fe24411fb8cb3b4cabf925e353768312e
+  source_size_bytes: 381510
+  derivative_sha256: fa784d952d103e879a8e28838e27a4edc15902862931d815a83fda174e2be633
+  derivative_size_chars: 1048153
+  derivative_russian_word_count: 97887
+  parse_status: OK
+- source_id: BAKHTIN_K_FILOSOFII_POSTUPKA_RU
+  title: К философии поступка
+  author: М. М. Бахтин
+  language: ru
+  primary_or_secondary: primary
+  edition: .doc via olefile (best-effort)
+  source_path: k_filosofii_postupka.zip
+  derivative: bakhtin_k_filosofii_postupka_ru.txt
+  note: Extracted via olefile — некоторые куски могут иметь артефакты.
+  source_sha256: 7ecc63c2f82f82bcbfc0d5d4585bc62118d2ff133ee9c946cdf8a7b7bbd90453
+  source_size_bytes: 65246
+  derivative_sha256: cb8bd881b93809b5839dac53510e69eceaebe9d7589a33296da21a08f1f07f65
+  derivative_size_chars: 140859
+  derivative_russian_word_count: 13071
+  parse_status: OK
+- source_id: JUNG_RED_BOOK_LIBER_NOVUS_EN
+  title: The Red Book — Liber Novus
+  author: C. G. Jung
+  language: en
+  primary_or_secondary: primary
+  edition: pdf
+  source_path: C_G_Jung_-_The_Red_Book_-_Liber_Novus.pdf
+  derivative: jung_red_book_liber_novus_en.txt
+  source_sha256: 48b838876e7bab911ae18f938bd30ffb6ae0adfc0b7442e9ce686c8324ae9c11
+  source_size_bytes: 153856589
+  derivative_sha256: 2f97ce5e9e0c5fe2f5e859ecdfff83884226f8ca7fb4646681aea96e2d4e22c9
+  derivative_size_chars: 1298739
+  derivative_russian_word_count: 0
+  parse_status: OK
+- source_id: JUNG_KRASNAYA_KNIGA_LIBER_NOVUS_RU
+  title: Красная книга — Liber Novus
+  author: К. Г. Юнг
+  language: ru
+  primary_or_secondary: primary
+  edition: .doc via olefile (best-effort)
+  source_path: K_G_Yung_-_Krasnaya_kniga_-_Liber_Novus.doc
+  derivative: jung_krasnaya_kniga_liber_novus_ru.txt
+  note: RU перевод не есть тот же текст, что EN. Сохраняем отдельно.
+  source_sha256: 10bee1bb5b671fc76189501d257f13fdba1b44aab9abc1ced598d994c396a941
+  source_size_bytes: 1694208
+  derivative_sha256: 24a1dfe8613cd0ff64d7a026947c392fe847bc65e875e6c25cf2ea7872d994d5
+  derivative_size_chars: 710693
+  derivative_russian_word_count: 67584
+  parse_status: OK
+- source_id: DELEUZE_GUATTARI_MILLE_PLATEAUX_FR_1980
+  title: Mille Plateaux (Capitalisme et schizophrénie 2)
+  author: Gilles Deleuze, Félix Guattari
+  language: fr
+  primary_or_secondary: primary
+  edition: 1980 Minuit
+  source_path: 1980_-_Mille_Plateaux__Capitalisme_et_schizophr_233_nie_2_coll__Critique__Les__233_ditions_de_Minuit.pdf
+  derivative: deleuze_guattari_mille_plateaux_fr_1980.txt
+  source_sha256: d97f4deab856774b5fa1de1f6622d57f1e2d1c199d7143045447ae67b8609f2a
+  source_size_bytes: 7021085
+  derivative_sha256: 9a56fa666cce847aefe5770b21e6e53ca4a2e7b943e461ee233f273e4b55660c
+  derivative_size_chars: 1841898
+  derivative_russian_word_count: 0
+  parse_status: OK
+- source_id: DELEUZE_GUATTARI_TYSYACHA_PLATO_RU_2010
+  title: Тысяча плато. Капитализм и шизофрения
+  author: Ж. Делёз, Ф. Гваттари
+  language: ru
+  primary_or_secondary: primary
+  edition: 2010 RU перевод
+  source_path: 2010_Zhil_Delyoz_Felix_Gvattari_Kapitalizm_i_shizofrenia_Tysyacha_plato.pdf
+  derivative: deleuze_guattari_tysyacha_plato_ru_2010.txt
+  note: Разное издание/язык. Не сливать с FR оригиналом.
+  source_sha256: 8d502ccc31cc8d927306677c1c2da6dfc30796d8e1514ead0fbb833dc0610c7c
+  source_size_bytes: 32942683
+  derivative_sha256: a01b2c8371e118f80b120b7b7913ecbd8bfce431e2a165f7a754e022349dab4c
+  derivative_size_chars: 1827614
+  derivative_russian_word_count: 166598
+  parse_status: OK
+- source_id: LATOUR_POLITIKI_PRIRODY_RU
+  title: Политики природы. Как привить наукам демократию
+  author: Бруно Латур
+  language: ru
+  primary_or_secondary: primary
+  edition: .doc via olefile (best-effort)
+  source_path: politiki_prirody.zip
+  derivative: latour_politiki_prirody_ru.txt
+  source_sha256: ee9f297fb63a9ff52978c1b6eb2e0aae04d584c7b09a894aa92406dac4374ec4
+  source_size_bytes: 840605
+  derivative_sha256: e3410a8b23ff7d0f4ec8d6c9c44126b1715c2931e41f26b1511c799527d1de2b
+  derivative_size_chars: 796406
+  derivative_russian_word_count: 70327
+  parse_status: OK
+- source_id: VAKHSHTEIN_SOCIOLOGY_OF_THINGS_RU
+  title: Социология вещей
+  author: под ред. В. С. Вахштайна
+  language: ru
+  primary_or_secondary: secondary
+  edition: pdf
+  source_path: Vakhshtayn_V_S__red__Sotsiologia_veschey.pdf
+  derivative: vakhshtein_sociology_of_things_ru.txt
+  note: Вторичная антология по акторно-сетевой теории; не смешивать с Latour.
+  source_sha256: fbaafcd2f770cf66d6f22c38005a7d98184ff55767b3496301febb93e27ddd93
+  source_size_bytes: 3220258
+  derivative_sha256: d55b295e76f603d17f9ee875d069353ddf6f05fb2006610adf14ba247dbe99e2
+  derivative_size_chars: 1100418
+  derivative_russian_word_count: 81127
+  parse_status: OK
+- source_id: GURDJIEFF_VIEWS_FROM_REAL_WORLD_RU
+  title: Взгляды из реального мира
+  author: Г. И. Гурджиев
+  language: ru
+  primary_or_secondary: primary
+  edition: royallib txt
+  source_path: Гурджиев Георгий. Взгляды из реального мира. - royallib.com.txt.zip
+  derivative: gurdjieff_views_from_the_real_world_ru.txt
+  source_sha256: 4bcff38030b3d2c920d861a82d70613a99227e878a7078b2ae1178dd5ffeaf80
+  source_size_bytes: 57789
+  derivative_sha256: f2b4da3a9876ea81bee241a36278da77f620d43bcd66df929a60c0a8b3bc1dd7
+  derivative_size_chars: 154811
+  derivative_russian_word_count: 15312
+  parse_status: OK
+- source_id: POVARNIN_ISKUSSTVO_SPORA_RU
+  title: Искусство спора. О теории и практике спора
+  author: С. И. Поварнин
+  language: ru
+  primary_or_secondary: primary
+  edition: azbyka.ru mhtml snapshot
+  source_path: Искусство спора. О теории и практике спора - проф. С.И. Поварнин -
+    читать, скачать.mhtml
+  derivative: povarnin_iskusstvo_spora_ru.txt
+  source_sha256: 2e3b46fd4063bd9e78678ef2e84472fbda74af81719293136e681449ec84a802
+  source_size_bytes: 1903522
+  derivative_sha256: 7ae97d2621dce6aa2dab40544ddeb44a464a582682057f2c0da162b6262f1c88
+  derivative_size_chars: 262413
+  derivative_russian_word_count: 25767
+  parse_status: OK

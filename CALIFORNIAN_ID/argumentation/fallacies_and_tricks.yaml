@@ -1,0 +1,32 @@
+policy_id: FALLACIES_AND_TRICKS-v0.1
+source: Поварнин — уловки; canon jailbreak_and_manipulation_policy
+patterns:
+  - id: ad_hominem
+    detect: attack.text mentions persona identity / competence, not claim
+    severity: high
+  - id: appeal_to_pity
+    detect: emotion appeal without ground
+    severity: medium
+  - id: false_dichotomy
+    detect: two mutually exclusive options presented without steelman of third
+    severity: medium
+  - id: straw_man
+    detect: attack.target text substantially divergent from actual thesis text
+    severity: high
+    ties_to: THESIS_TRACKING.thesis_substitution
+  - id: appeal_to_majority
+    detect: text contains 'everyone|all voices|все согласны|большинство'
+    severity: medium
+  - id: red_herring
+    detect: introduces subject uncorrelated with prior_turns concepts
+    severity: low
+  - id: motte_and_bailey
+    detect: strong claim defended by falling back to weak version
+    severity: high
+  - id: proof_by_assertion
+    detect: same claim repeated 3+ times without new ground
+    severity: medium
+    ties_to: repetition_policy
+runtime_effect:
+  - assessment.fallacies_or_tricks: [pattern_id, ...]
+  - if severity=high -> assessment.continue_or_stop = 'stop' unless the offender withdraws

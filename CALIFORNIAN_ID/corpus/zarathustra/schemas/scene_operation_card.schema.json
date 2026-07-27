@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy/californian_id/scene_operation_card.schema.json",
+  "title": "SceneOperationCard",
+  "type": "object",
+  "required": ["card_id", "card_type", "title", "primary_sources", "operation", "activation_conditions", "provenance_status"],
+  "properties": {
+    "card_id": {"type": "string", "pattern": "^CARD_[A-Z0-9_]+$"},
+    "card_type": {"type": "string", "enum": ["scene", "operation", "constraint", "risk", "completion_pattern"]},
+    "title": {"type": "string"},
+    "primary_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_id", "locator"],
+        "properties": {
+          "source_id": {"type": "string"},
+          "locator": {"type": "string", "description": "PAGE=N | LINE=N-M | CHUNK=stem#N | SECTION=name"},
+          "translation_or_edition": {"type": "string"},
+          "quote_hash": {"type": "string", "description": "sha256 of exact quoted fragment if quoted"}
+        }
+      },
+      "minItems": 1
+    },
+    "secondary_sources": {"type": "array", "items": {"type": "object"}},
+    "figures": {"type": "array", "items": {"type": "string"}},
+    "situation": {"type": "string"},
+    "conflicts": {"type": "array", "items": {"type": "string"}},
+    "operation": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "description": {"type": "string"},
+        "runtime_operation_ref": {"type": "string", "description": "map to TURN_OPERATIONS entry or completion_form"}
+      }
+    },
+    "activation_conditions": {"type": "array", "items": {"type": "string"}},
+    "contraindications": {"type": "array", "items": {"type": "string"}},
+    "expected_body_delta": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "expected changes in BodyProjection (futures/premises/risks/…)"
+    },
+    "affect": {"type": "string"},
+    "completion_implications": {"type": "array", "items": {"type": "string"}},
+    "orchestrator_directive_template": {"type": "string"},
+    "failure_modes": {"type": "array", "items": {"type": "string"}},
+    "provenance_status": {
+      "type": "string",
+      "enum": ["quoted", "paraphrased_with_locator", "reconstructed_no_locator"]
+    },
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+  },
+  "additionalProperties": true
+}

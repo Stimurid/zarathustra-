@@ -1,0 +1,20 @@
+policy_id: REFUSAL_AND_STOPPING-v0.1
+source: Поварнин — глава о прекращении спора
+stop_conditions:
+  - id: no_new_ground_two_rounds
+    detail: novelty_score → 0 in last two turns
+  - id: fallacy_high_repeat
+    detail: same high-severity fallacy 2+ times
+  - id: thesis_lost
+    detail: after 3+ turns, thesis_preserved=false
+  - id: no_shared_criteria
+    detail: no shared criterion for accepting any evidence
+refusal_rules:
+  - persona_may_refuse_turn: true
+  - refusal_requires_reason: true
+  - refusal_does_not_forfeit_position: true
+completion_form_hint_when_stop:
+  - if_thesis_lost: refusal_to_close
+  - if_shared_criteria_missing: unresolvable_conflict
+  - if_fallacy_high_repeat: refusal_to_close
+  - if_novelty_zero_and_conflicts_named: unresolvable_conflict OR decision_with_dissent

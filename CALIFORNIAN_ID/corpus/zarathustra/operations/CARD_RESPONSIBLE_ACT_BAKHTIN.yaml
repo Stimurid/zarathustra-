@@ -1,0 +1,23 @@
+card_id: CARD_RESPONSIBLE_ACT_BAKHTIN
+card_type: operation
+title: Ответственный поступок
+primary_sources:
+- source_id: BAKHTIN_K_FILOSOFII_POSTUPKA_RU
+  locator: CHAR=2673-3048
+  quote_hash: sha256:9063906eaa27c627
+figures:
+- участник
+- поступок
+- не-алиби
+situation: Никто не имеет алиби в бытии — поступок должен быть присвоен.
+operation:
+  name: настоять на присвоении поступка
+  description: Голос отвечает за свой ход; отказ анонимизировать.
+  runtime_operation_ref: operation:draw_practical_implication
+activation_conditions:
+- голос предложил действие
+- нет ответственного за последствия
+expected_body_delta:
+  projects: attributed
+provenance_status: quoted
+confidence: 0.85

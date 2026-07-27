@@ -1,0 +1,59 @@
+pipeline_id: californian_id.inner_council
+version: 0.1.0
+status: candidate
+tinkuy_alignment:
+  authority_matrix_ref: canon/14_Group_Soul/G-U07_GROUP_SOUL_AUTHORITY_MATRIX.yaml
+  contract_ref: canon/12_.../TINKUY_PIPELINEPACK_INTERFACE_CONTRACT_v1.0.0
+entrypoints:
+  cli:
+    schema: schemas/cli_input.schema.json
+    steps: [intake, normalize_input, analyze_situation, load_persona_registry,
+            validate_personas, retrieve_initial_context, select_initial_voice,
+            run_inner_council, evaluate_stopping_condition, synthesize,
+            validate_output, persist_trace, render_user_response]
+terminal_states:
+  - COMPLETED
+  - FAILED
+  - CANCELLED
+steps:
+  - id: intake
+    operation: receive input text or file
+  - id: normalize_input
+    operation: strip trivial noise; preserve original text
+  - id: analyze_situation
+    operation: zarathustra.analyze_situation -> topic/genre/stakes/tensions
+  - id: load_persona_registry
+    operation: personas.load_registry from /personas/
+  - id: validate_personas
+    operation: reject enabled personas with fatal manifest errors; keep issues in trace
+  - id: retrieve_initial_context
+    operation: persona-scoped lexical retrieval; no cross-persona bleed
+  - id: select_initial_voice
+    operation: zarathustra.cast based on routing.topics/tensions overlap
+  - id: run_inner_council
+    operation: sequential turns under zarathustra.route_next
+  - id: evaluate_stopping_condition
+    operation: check max_turns / novelty / minority coverage / duplicate output
+  - id: synthesize
+    operation: zarathustra.synthesize with minority + conflict preservation
+  - id: validate_output
+    operation: schema check + contract check (no empty synth with no minority)
+  - id: persist_trace
+    operation: append events.jsonl and state.json in runs/<run_id>/
+  - id: render_user_response
+    operation: pretty|json; hidden prompts stay hidden unless --debug
+llm_calls:
+  fast:
+    council_turns: 5
+    routing: up_to_4
+    synthesis: 1
+  deep:
+    council_turns: 12
+    routing: up_to_11
+    synthesis: 1
+fail_closed:
+  - persona_registry_empty
+  - unknown_control_authority
+  - synthesis_erases_all_minority_voices
+  - unbounded_repetition_loop
+  - schema_validation_of_synthesis_fails_after_repair

@@ -1,0 +1,26 @@
+card_id: CARD_DETERRITORIALIZATION_DELEUZE_GUATTARI
+card_type: operation
+title: Детерриториализация — линия ускользания
+primary_sources:
+- source_id: DELEUZE_GUATTARI_TYSYACHA_PLATO_RU_2010
+  locator: PAGE≈16#CHAR=24088-24464
+  quote_hash: sha256:b74cdeb2ba6d6fb7
+- source_id: DELEUZE_GUATTARI_MILLE_PLATEAUX_FR_1980
+  locator: PAGE≈5#CHAR=5576-5949
+  quote_hash: sha256:6e07833295bcfc65
+figures:
+- территория
+- линия ускользания
+situation: Спор ушёл в закрытую территорию; нужна линия ускользания.
+operation:
+  name: детерриториализация вопроса
+  description: Перевести обсуждение в другую онтологию/масштаб.
+  runtime_operation_ref: operation:shift_ontology | shift_scale
+activation_conditions:
+- 3+ ходов в одной территории без нового
+contraindications:
+- голос защищает территорию по существу, а не по инерции
+completion_implications:
+- 'форма завершения: transformed_question'
+provenance_status: quoted
+confidence: 0.8

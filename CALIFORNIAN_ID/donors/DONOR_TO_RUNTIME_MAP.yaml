@@ -1,0 +1,49 @@
+donor_to_runtime_map_id: californian_id.donor_to_runtime.v0.4.0
+version: 0.4.0
+mappings:
+
+  - donor_id: DONOR_ARCHITECTONIC_MASTER_v1_2_1
+    operation_id: architectonic_turn_reconstruction
+    runtime_target:
+      module: californian_id.architectonic
+      function: reconstruct_turn_delta
+      prompt_module: zarathustra/prompt_modules/architectonic_turn_reconstruction.md
+      pipeline_hook: after_each_turn
+
+  - donor_id: DONOR_BOBROV_50_AGENTS
+    operation_id: common_agent_runtime_contract
+    runtime_target:
+      module: californian_id.argumentation
+      dataclass: TypedClaimTaxonomy
+      pipeline_hook: fold_turn_claims
+
+  - donor_id: DONOR_LITOPS_PROMPT_BODY_REGISTRY
+    operation_id: prompt_body_selection_and_assembly
+    runtime_target:
+      file: CALIFORNIAN_ID/zarathustra/PROMPT_DEPENDENCY_MAP.yaml
+      contract: registry-driven assembly, no mega-prompt
+
+  - donor_id: DONOR_ANTIGPT_SP
+    operation_id: role_wipe_guard
+    runtime_target:
+      file: CALIFORNIAN_ID/zarathustra/11_defense_and_role_holding.md
+      note: already active from Пик 1
+
+  - donor_id: DONOR_SOCRATIC_ELECTIVES
+    operation_id: socratic_question_chain
+    runtime_target:
+      file: CALIFORNIAN_ID/argumentation/prompts/socratic_question_chain.md
+      integration: available to operation `problematize_question`
+
+  - donor_id: DONOR_ANTI_SLOP_SYSTEM_ROLE
+    operation_id: anti_slop_synthesis_gate
+    runtime_target:
+      module: californian_id.argumentation
+      function: check_anti_slop
+      pipeline_hook: before_choose_completion_form=synthesis
+
+  - donor_id: DONOR_UNION_ANALYSIS_VIZ_v1_0
+    operation_id: thesaurus_and_map_export
+    runtime_target:
+      status: not_integrated_this_pass
+      reason: reference_only; body already carries argument_map

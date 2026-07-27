@@ -1,0 +1,22 @@
+card_id: CARD_ARCHITECTONIC_RECONSTRUCTION
+card_type: operation
+title: Инкрементальная архитектоническая реконструкция хода
+primary_sources:
+- source_id: DONOR_ARCHITECTONIC_MASTER_v1_2_1
+  locator: доноры/04_аналитические_операторы/Концептуально-архитектонический анализ
+    v1.2.1
+  translation_or_edition: master_prompt
+figures:
+- ход
+- delta
+situation: Каждый ход требует typed delta по BodyProjection.
+operation:
+  name: reconstruct_turn_delta
+  description: Извлечь new_claims/premises/attacks/supports/… как delta.
+  runtime_operation_ref: pipeline_hook:after_each_turn
+activation_conditions:
+- непосредственно после каждого persona turn
+contraindications:
+- ход пуст
+provenance_status: reconstructed_no_locator
+confidence: 1.0

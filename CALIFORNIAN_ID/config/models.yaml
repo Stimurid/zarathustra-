@@ -1,0 +1,36 @@
+# Model routing config. All roles resolve to a provider client at runtime.
+# In this MVP the default provider is `mock` so the pipeline runs offline.
+# Change `provider` to `anthropic` / `openai` / etc. once keys are wired.
+providers:
+  mock:
+    kind: mock
+    settings: {}
+
+  anthropic:
+    kind: anthropic
+    env_key: ANTHROPIC_API_KEY
+    model: claude-sonnet-5-20260101   # placeholder — pick current
+    settings:
+      max_tokens: 4096
+      temperature: 0.4
+
+  openai:
+    kind: openai
+    env_key: OPENAI_API_KEY
+    model: gpt-4o-mini
+    settings:
+      temperature: 0.4
+
+roles:
+  # Which provider serves which pipeline role.
+  # Split so that heavy synthesis and orchestration can use different models.
+  routing:
+    provider: mock
+  persona_turn:
+    provider: mock
+  zarathustra_orchestration:
+    provider: mock
+  synthesis:
+    provider: mock
+  embeddings:
+    provider: mock

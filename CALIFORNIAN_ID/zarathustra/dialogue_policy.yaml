@@ -1,0 +1,18 @@
+policy_id: ZARATHUSTRA-DIALOGUE-v0.1
+rules:
+  - no_parallel_speech: true
+  - hidden_inner_dialogue: true
+  - persona_may_refuse_turn: true
+  - repetition_forbidden: true
+  - forbidden_content:
+      - impersonation_of_real_person
+      - profiling_of_participant
+      - identity_attribution
+      - style_imitation
+turn_budget:
+  fast:
+    max_turns: 5
+    max_voices: 4
+  deep:
+    max_turns: 12
+    max_voices: 7

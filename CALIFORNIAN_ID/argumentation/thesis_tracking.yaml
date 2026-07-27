@@ -1,0 +1,21 @@
+policy_id: THESIS_TRACKING-v0.1
+source: Поварнин — Искусство спора; уловки подмены тезиса
+rules:
+  - id: canonical_thesis_is_first_defended_claim
+    detail: первый претендент — first turn where operation in {initial_position, defend}
+  - id: attacks_must_target_thesis
+    detail: если turn.attack.target != thesis_id AND != premise_of(thesis) -> flag
+  - id: reframing_requires_explicit_shift
+    detail: смена thesis допускается только через operation shift_ontology / problematize_question
+  - id: no_silent_thesis_change
+    detail: изменение thesis без явного хода = подмена
+alerts:
+  - id: thesis_substitution
+    when: attack.target semantically incompatible with thesis and no explicit shift
+    severity: high
+  - id: thesis_dilution
+    when: thesis re-worded loose over 3+ turns without a shift operation
+    severity: medium
+runtime_effect:
+  - fold into DisputeAssessment.thesis_preserved
+  - if thesis_substitution -> require_response_type: restore_ground

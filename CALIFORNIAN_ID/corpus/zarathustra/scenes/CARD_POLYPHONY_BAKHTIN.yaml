@@ -1,0 +1,35 @@
+card_id: CARD_POLYPHONY_BAKHTIN
+card_type: scene
+title: Полифония — сосуществование самостоятельных голосов
+primary_sources:
+- source_id: BAKHTIN_PROBLEMS_DOSTOEVSKY_CREATIVITY_RU
+  locator: CHAR=452-826
+  quote_hash: sha256:6331519725e38bf7
+figures:
+- автор
+- герой
+- голос
+situation: Совет удерживает несколько самостоятельных голосов; автор не сливает их
+  в единое.
+conflicts:
+- голос как объект vs голос как самостоятельный субъект
+operation:
+  name: удержать полифонию
+  description: Не редуцировать разные голоса к одной точке зрения.
+  runtime_operation_ref: completion_form:polyphony
+activation_conditions:
+- ≥3 голоса высказались с разными основаниями
+- готовится ложный синтез
+contraindications:
+- все голоса на самом деле говорят одно, лишь синонимично
+expected_body_delta:
+  minority_positions: preserved
+affect: сдержанная строгость
+completion_implications:
+- 'форма завершения: polyphony или decision_with_dissent'
+orchestrator_directive_template: Верни полифоническое высказывание; не сводить к единому
+  голосу.
+failure_modes:
+- перевод полифонии в 'общее мнение совета'
+provenance_status: quoted
+confidence: 0.9

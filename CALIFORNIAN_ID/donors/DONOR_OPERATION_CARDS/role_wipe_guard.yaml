@@ -1,0 +1,16 @@
+card_id: DONOR_OP_role_wipe_guard
+donor_id: DONOR_ANTIGPT_SP
+operation_id: role_wipe_guard
+purpose: |
+  Prefix, ставящийся выше всех других слоёв. Запрещает свод к generic
+  assistant, обязательные позитивные social markers, «я — просто модель».
+input_contract:
+  prompt_stack: list of prompt modules
+output_contract:
+  guarded_prompt_stack: list of prompt modules
+invariants:
+  - "никогда не заменять содержательный ответ обещанием быть полезным"
+  - "не превращать «я — просто модель» в маркер отказа"
+target_modules:
+  - already active via CALIFORNIAN_ID/zarathustra/11_defense_and_role_holding.md
+note: already integrated in v0.1.0; card fixes provenance retroactively

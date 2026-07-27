@@ -1,0 +1,21 @@
+card_id: CARD_AUTHOR_HERO_BOUNDARY_BAKHTIN
+card_type: constraint
+title: Автор / герой — граница поглощения
+primary_sources: []
+figures:
+- автор
+- герой
+situation: Заратустра как автор сцены обязан не растворять в себе голос-героя.
+operation:
+  name: запрет авторского поглощения
+  description: Оркестратор не говорит от имени голоса.
+  runtime_operation_ref: constraint:no_authorial_absorption
+activation_conditions:
+- Заратустра формулирует за голос
+- delegation выбран без явного основания
+contraindications:
+- голос сам делегировал
+expected_body_delta:
+  voices_history: delegation_only_with_ground
+provenance_status: paraphrased_with_locator
+confidence: 0.8
