@@ -210,6 +210,11 @@ class BodyProjection:
     alliances_refused: list[dict] = field(default_factory=list)
     voices_history: list[dict] = field(default_factory=list)   # [{persona_id, operation, turn_index}]
     chorus_reflections: list[ChorusReflection] = field(default_factory=list)
+    seeded_from_units: list[str] = field(default_factory=list)  # unit_id из UnitPack
+    pack_unresolved_questions: list[str] = field(default_factory=list)  # copy of pack-level questions
+
+    def unresolved_questions_from_pack(self) -> list[str]:
+        return list(self.pack_unresolved_questions)
 
     def snapshot_for_head(self, max_items: int = 4) -> dict:
         """Компактный срез тела для передачи голове перед её ходом."""
@@ -380,3 +385,105 @@ def to_plain(obj: Any) -> Any:
     if isinstance(obj, dict):
         return {k: to_plain(v) for k, v in obj.items()}
     return obj
+
+
+# =============================================================================
+# Semantic units — вход от чужого резчика
+# =============================================================================
+# Резчик Тимура (или любой другой) отдаёт нам тексты, уже разложенные на
+# единицы содержания. Мы принимаем их через run_from_units и seed'им состояние
+# совета уже разложенной аргументативной тканью.
+#
+# Никакой словарь-заточка для этого пути НЕ используется — топик и понятия
+# приходят из единиц.
+
+@dataclass
+class ToulminBundle:
+    """Toulmin-разбор аргумента внутри одной единицы содержания."""
+    claim: str = ""
+    data: str = ""              # grounds / основание
+    warrant: str = ""           # implicit rule bridging data → claim
+    backing: str = ""
+    qualifier: str = ""
+    rebuttal: str = ""
+    counterclaim: str = ""
+    counter_persona: str = ""
+
+
+@dataclass
+class UnitParticipant:
+    """Участник внутри одной единицы содержания (метка + нормализованная роль + имя)."""
+    label: str                 # исходная speaker-метка ("Speaker 1", "Speaker 3", …)
+    normalized_role: str = ""  # "Методолог", "Ведущий", "Инженер", …
+    name: str | None = None    # "Олег Гринько" — только если резчик доказал связку
+
+
+@dataclass
+class ThemeRheme:
+    theme: str
+    rheme: str
+    participant_label: str = ""
+    locator: str = ""          # тайм-код / индекс реплики / любой locator резчика
+
+
+@dataclass
+class UnitProvenance:
+    """Provenance одной единицы содержания."""
+    participant_label: str = ""
+    participant_name: str = ""
+    locator: str = ""
+
+
+@dataclass
+class SemanticUnit:
+    """Единица содержания (U-блок), как её даёт внешний резчик."""
+    unit_id: str                              # "U1", "U2", …
+    title: str
+    intention: str = ""                       # "сведения" | "аргументация" | "проблематизация" | …
+    object_aspect: str = ""
+    participants: list[UnitParticipant] = field(default_factory=list)
+    position: str = ""
+    theme_rheme: list[ThemeRheme] = field(default_factory=list)
+    toulmin: ToulminBundle | None = None
+    interventions: list[dict] = field(default_factory=list)
+    provenance: list[UnitProvenance] = field(default_factory=list)
+    abstract: str = ""
+    key_concepts: list[str] = field(default_factory=list)
+    unresolved_questions_here: list[str] = field(default_factory=list)
+
+
+@dataclass
+class DiarizationDefect:
+    kind: str                                # "разрыв" | "склейка"
+    at_label: str
+    at_locator: str = ""
+    description: str = ""
+
+
+@dataclass
+class SourceAudit:
+    """Аудит источника — то, что резчик обнаружил ПРО источник, а не про его содержание.
+
+    Всё это становится сигналами для chorus_reflection на нулевом ходу совета,
+    чтобы Заратустра НЕ приписывал позиции конкретному человеку, если резчик
+    честно предупредил о ненадёжности диаризации / OCR / атрибуции.
+    """
+    speaker_roles: list[UnitParticipant] = field(default_factory=list)
+    name_evidence: list[dict] = field(default_factory=list)   # [{label, name, evidence_locator, is_hypothesis}]
+    diarization_defects: list[DiarizationDefect] = field(default_factory=list)
+    recognition_damage: list[dict] = field(default_factory=list)  # [{locator, verbatim, note}]
+    ambiguous_vocatives: list[str] = field(default_factory=list)  # ["Саша: два лица", "Олег: два лица"]
+    notes: str = ""
+
+
+@dataclass
+class UnitPack:
+    """Пакет от резчика: единицы + необязательный аудит источника + метаданные."""
+    units: list[SemanticUnit]
+    source_audit: SourceAudit | None = None
+    seminar_title: str = ""
+    seminar_locator_span: str = ""      # "00:00:01 - 02:02:05" например
+    cutter_id: str = ""                 # "personas/units-of-content-analyst.md" | другой
+    cutter_model: str = ""              # "claude-opus-5" | другой
+    source_path: str = ""
+    unresolved_questions_pack: list[str] = field(default_factory=list)

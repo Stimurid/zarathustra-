@@ -22,15 +22,20 @@ from .schemas import to_plain
 
 
 def _cmd_run(args: argparse.Namespace) -> int:
-    if not args.text and not args.file:
-        print("error: --text or --file is required", file=sys.stderr)
+    if not args.text and not args.file and not args.units_file:
+        print("error: one of --text / --file / --units-file is required", file=sys.stderr)
         return 2
-    text = args.text
-    if args.file:
-        text = Path(args.file).read_text(encoding="utf-8")
 
     pipe = Pipeline()
-    result = pipe.run(text=text, mode=args.mode)
+    if args.units_file:
+        from .adapters.units_of_content_md import parse_md_units_file
+        pack = parse_md_units_file(args.units_file)
+        result = pipe.run_from_units(pack, mode=args.mode)
+    else:
+        text = args.text
+        if args.file:
+            text = Path(args.file).read_text(encoding="utf-8")
+        result = pipe.run(text=text, mode=args.mode)
 
     payload = {
         "run_id": result.run_state.run_id,
@@ -175,7 +180,11 @@ def build_parser() -> argparse.ArgumentParser:
 
     run = sub.add_parser("run", help="Run the inner council on an input")
     run.add_argument("--text", type=str, default=None, help="Inline input text")
-    run.add_argument("--file", type=str, default=None, help="Path to input file")
+    run.add_argument("--file", type=str, default=None, help="Path to raw text file")
+    run.add_argument("--units-file", type=str, default=None,
+                     help="Path to a md-units pack from an external semantic cutter "
+                          "(bypasses the raw-text pre-pass and seeds argument_map "
+                          "directly from Toulmin structures)")
     run.add_argument("--mode", type=str, default=None, help="fast|deep (default: fast)")
     run.add_argument("--output", choices=["pretty", "json"], default="pretty")
     run.add_argument("--debug", action="store_true", help="Include internal trace fields in output")

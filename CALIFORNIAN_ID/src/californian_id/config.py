@@ -8,14 +8,30 @@ from typing import Any
 import yaml
 
 
-PACKAGE_ROOT = Path(__file__).resolve().parents[2]
-CONFIG_DIR = PACKAGE_ROOT / "config"
-PERSONAS_DIR = PACKAGE_ROOT / "personas"
-ZARATHUSTRA_DIR = PACKAGE_ROOT / "zarathustra"
-PIPELINE_DIR = PACKAGE_ROOT / "pipeline"
-RUNS_DIR = PACKAGE_ROOT / "runs"
-INTERACTION_DIR = PACKAGE_ROOT / "interaction"
-MEMORY_DIR = PACKAGE_ROOT / "memory"
+# --- Data location resolution ---
+# Ships as `src/californian_id/data/` inside the wheel.
+# User override via CALIFORNIAN_ID_DATA_DIR points at a directory with the
+# same layout (config/, personas/, zarathustra/, interaction/, argumentation/,
+# pipeline/, corpus/, rag/, donors/).
+# Runs are written to a user-writable dir; default = CWD/runs.
+_env_data = os.environ.get("CALIFORNIAN_ID_DATA_DIR")
+if _env_data:
+    DATA_ROOT = Path(_env_data).resolve()
+else:
+    DATA_ROOT = Path(__file__).resolve().parent / "data"
+
+PACKAGE_ROOT = DATA_ROOT  # backwards-compat name
+CONFIG_DIR = DATA_ROOT / "config"
+PERSONAS_DIR = DATA_ROOT / "personas"
+ZARATHUSTRA_DIR = DATA_ROOT / "zarathustra"
+PIPELINE_DIR = DATA_ROOT / "pipeline"
+INTERACTION_DIR = DATA_ROOT / "interaction"
+MEMORY_DIR = DATA_ROOT / "memory"
+
+# Runs directory: user-writable. Default = CWD/runs; overridable via env.
+_env_runs = os.environ.get("CALIFORNIAN_ID_RUNS_DIR")
+RUNS_DIR = Path(_env_runs).resolve() if _env_runs else Path.cwd() / "runs"
+RUNS_DIR.mkdir(exist_ok=True, parents=True)
 
 
 def _load_yaml(path: Path) -> dict[str, Any]:

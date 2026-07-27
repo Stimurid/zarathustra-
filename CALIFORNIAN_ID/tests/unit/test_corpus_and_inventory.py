@@ -4,7 +4,7 @@ import yaml
 
 PKG = Path(__file__).resolve().parents[2]
 WORK = PKG / "_work"
-CORPUS = PKG / "corpus" / "zarathustra"
+CORPUS = PKG / "src" / "californian_id" / "data" / "corpus" / "zarathustra"
 
 
 def test_root_source_inventory_exists_and_non_trivial():

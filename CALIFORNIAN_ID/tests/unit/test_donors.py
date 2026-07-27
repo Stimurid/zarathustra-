@@ -3,7 +3,7 @@ from pathlib import Path
 import yaml
 
 PKG = Path(__file__).resolve().parents[2]
-DONORS = PKG / "donors"
+DONORS = PKG / "src" / "californian_id" / "data" / "donors"
 
 
 def test_donor_registry_has_operations_with_contracts():
