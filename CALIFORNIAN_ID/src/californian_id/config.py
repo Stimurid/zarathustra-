@@ -27,6 +27,8 @@ ZARATHUSTRA_DIR = DATA_ROOT / "zarathustra"
 PIPELINE_DIR = DATA_ROOT / "pipeline"
 INTERACTION_DIR = DATA_ROOT / "interaction"
 MEMORY_DIR = DATA_ROOT / "memory"
+REPO_ROOT = Path(__file__).resolve().parents[3]
+PERSONA_LAYER_ROOT = REPO_ROOT / "runtime_assets" / "personas" / "v0.2"
 
 # Runs directory: user-writable. Default = CWD/runs; overridable via env.
 _env_runs = os.environ.get("CALIFORNIAN_ID_RUNS_DIR")

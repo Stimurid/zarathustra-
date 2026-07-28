@@ -1,0 +1,28 @@
+activation_id: G-P14-R-ACT-001
+status: passed_technical_candidate
+runtime_ready_candidate: true
+production_ready: false
+behavioral_test_campaign: out_of_scope
+executor: portable_offline_hybrid_reference_runner
+cards_total: 330
+checks:
+  seven_manifests_valid: true
+  seven_runtime_prompts_present: true
+  seven_source_manifests_present: true
+  seed_cards_replaced: true
+  normalized_card_schema_valid: true
+  operation_mapping_complete: true
+  retrieval_index_built: true
+  retrieval_returns_all_personas: true
+  body_delta_validation_7_of_7: true
+  no_silent_persona_substitution: true
+  end_to_end_trace_saved: true
+  all_112_exact_operations_retrievable_by_primary_or_secondary_link: true
+  hybrid_lexical_and_vector_probe_passed: true
+trace: runtime/activation_trace.jsonl
+final_body: runtime/body_projection_after.json
+remaining_nonblocking_gaps:
+- Live host-provider execution in Zarathustra runtime
+- Behavioral distinctiveness and adversarial test campaign
+- Several source-depth gaps recorded in persona source manifests
+retrieval_backend: hybrid_tfidf_plus_sqlite_fts5_or_query

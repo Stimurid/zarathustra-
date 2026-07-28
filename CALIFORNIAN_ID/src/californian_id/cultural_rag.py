@@ -109,8 +109,10 @@ def _load_all_fragments(max_files: int | None = None, chunk_size: int = 800) -> 
     """Load and chunk primary corpus. Cheap because we already normalized."""
     frags: list[dict] = []
     if not NORMALIZED_DIR.exists():
-        return frags
+        return _load_fragment_fallback_from_cards()
     files = sorted(NORMALIZED_DIR.glob("*.txt"))
+    if not files:
+        return _load_fragment_fallback_from_cards()
     if max_files:
         files = files[:max_files]
     for f in files:
@@ -131,8 +133,34 @@ def _load_all_fragments(max_files: int | None = None, chunk_size: int = 800) -> 
     return frags
 
 
+def _load_fragment_fallback_from_cards() -> list[dict]:
+    """Build a minimal fragment index from card provenance when corpus texts are absent."""
+    frags: list[dict] = []
+    for card in _load_all_cards():
+        card_text = _card_search_text(card)
+        if not card_text:
+            continue
+        for source in card.get("primary_sources") or []:
+            source_id = str(source.get("source_id") or "").strip()
+            if not source_id:
+                continue
+            locator = str(source.get("locator") or f"CARD={card.get('card_id', '?')}")
+            quote_hash = str(source.get("quote_hash") or "")
+            if not quote_hash:
+                digest = hashlib.sha256(card_text.encode("utf-8")).hexdigest()[:16]
+                quote_hash = f"sha256:{digest}"
+            frags.append({
+                "source_id": source_id.upper(),
+                "locator": locator,
+                "text": card_text,
+                "quote_hash": quote_hash,
+                "_file": str(card.get("_file", "")),
+            })
+    return frags
+
+
 # ------------------------- retrieval math -------------------------
-_TOKEN_RE = re.compile(r"[\wа-яА-ЯёЁ]+", re.UNICODE)
+_TOKEN_RE = re.compile(r"[0-9A-Za-z_]+|[\u0400-\u04FF]+", re.UNICODE)
 
 
 def _tokens(text: str) -> list[str]:

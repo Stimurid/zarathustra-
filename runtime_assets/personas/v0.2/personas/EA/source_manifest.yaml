@@ -1,0 +1,230 @@
+manifest_id: EA_SOURCE_MANIFEST_v0.2
+persona_id: EA
+persona_name: Эффективный альтруист
+version: 0.2.0
+status: candidate
+generation_id: G-P12
+generated_at: '2026-07-28'
+scope:
+  cards_target: 35-50
+  cards_produced: 48
+  tests_in_scope: false
+  source_acquisition_note: Network binary download was unavailable; official PDFs/pages were read through web retrieval and
+    stored as provenance locators, not copied as fake local files.
+provenance_rules:
+- Primary, institutional, critique, and Tinkuy reconstruction remain distinct.
+- Abstract-only criticism is marked abstract_grounded.
+- No direct quotation is stored in cards.
+- Longtermism is not the definition of EA.
+- Moral weights and measurement boundaries remain explicit.
+sources:
+- source_id: EA-CANON-001
+  author: Peter Singer
+  title: Famine, Affluence, and Morality
+  year: 1972
+  source_type: primary_philosophy
+  authority: canonical_inspiration
+  url: https://www.jstor.org/stable/2265052
+  access_basis: secondary_study_guide_plus_bibliographic_reference
+  accessible_support: https://utilitarianism.net/peter-singer-famine-affluence-and-morality/
+  extraction_status: partial_secondary_grounding
+  rights_status: primary_text_not_acquired_in_this_run
+- source_id: EA-CANON-002
+  author: William MacAskill
+  title: The Definition of Effective Altruism
+  year: 2019
+  source_type: primary_definition
+  authority: core_definition
+  url: https://www.williammacaskill.com/s/The_Definition_of_Effective_Altruism.pdf
+  access_basis: official_open_pdf_parsed_via_web
+  extraction_status: substantial
+  rights_status: official_author_hosted_pdf
+- source_id: EA-CANON-005
+  author: Toby Ord
+  title: The Moral Imperative toward Cost-Effectiveness in Global Health
+  year: 2013
+  source_type: primary_argument
+  authority: core_method_argument
+  url: https://www.cgdev.org/sites/default/files/1427016_file_moral_imperative_cost_effectiveness.pdf
+  access_basis: official_open_pdf_parsed_via_web
+  extraction_status: substantial
+  rights_status: CGD permits noncommercial dissemination under stated terms
+- source_id: EA-INST-001
+  author: Centre for Effective Altruism
+  title: What is effective altruism?
+  year: current
+  source_type: institutional_definition
+  authority: official_current
+  url: https://www.effectivealtruism.org/articles/what-is-effective-altruism
+  access_basis: official_web_page
+  extraction_status: substantial
+  rights_status: web_reference
+- source_id: EA-INST-002
+  author: Centre for Effective Altruism
+  title: Core EA principles
+  year: current
+  source_type: institutional_principles
+  authority: official_current
+  url: https://www.centreforeffectivealtruism.org/core-principles
+  access_basis: official_web_page
+  extraction_status: substantial
+  rights_status: web_reference
+- source_id: EA-METHOD-001
+  author: GiveWell
+  title: How We Work
+  year: current
+  source_type: institutional_method
+  authority: primary_method
+  url: https://www.givewell.org/how-we-work
+  access_basis: official_web_page
+  extraction_status: substantial
+  rights_status: web_reference
+- source_id: EA-METHOD-002
+  author: GiveWell
+  title: Cost-Effectiveness
+  year: updated 2025
+  source_type: institutional_method
+  authority: primary_method
+  url: https://www.givewell.org/how-we-work/our-criteria/cost-effectiveness
+  access_basis: official_web_page
+  extraction_status: substantial
+  rights_status: web_reference
+- source_id: EA-METHOD-003
+  author: GiveWell
+  title: Moral Weights
+  year: updated 2025
+  source_type: institutional_method
+  authority: primary_method
+  url: https://www.givewell.org/how-we-work/our-criteria/cost-effectiveness/moral-weights
+  access_basis: official_web_page
+  extraction_status: substantial
+  rights_status: web_reference
+- source_id: EA-METHOD-004
+  author: GiveWell
+  title: Our Mistakes
+  year: current
+  source_type: institutional_failure_log
+  authority: primary_failure_record
+  url: https://www.givewell.org/about/our-mistakes
+  access_basis: official_web_page
+  extraction_status: substantial
+  rights_status: web_reference
+- source_id: EA-METHOD-005
+  author: 80,000 Hours
+  title: A framework for comparing global problems in terms of expected impact
+  year: current
+  source_type: institutional_framework
+  authority: primary_method
+  url: https://80000hours.org/articles/problem-framework/
+  access_basis: official_web_page
+  extraction_status: substantial
+  rights_status: web_reference
+- source_id: EA-METHOD-006
+  author: Giving What We Can
+  title: Choosing a cause to support
+  year: current
+  source_type: institutional_framework
+  authority: primary_method
+  url: https://www.givingwhatwecan.org/choosing-a-cause
+  access_basis: official_web_page
+  extraction_status: partial
+  rights_status: web_reference
+- source_id: EA-CRIT-001
+  author: Iason Gabriel
+  title: Effective Altruism and its Critics
+  year: 2017
+  source_type: academic_critique
+  authority: peer_reviewed_countercanon
+  url: https://doi.org/10.1111/japp.12176
+  access_basis: publisher_abstract
+  extraction_status: abstract_only
+  rights_status: full_text_not_acquired
+- source_id: EA-CRIT-002
+  author: Theodore M. Lechterman
+  title: The Effective Altruist's Political Problem
+  year: 2020
+  source_type: academic_critique
+  authority: peer_reviewed_countercanon
+  url: https://doi.org/10.1086/706867
+  access_basis: publisher_abstract
+  extraction_status: abstract_only
+  rights_status: full_text_not_acquired
+- source_id: EA-CRIT-003
+  author: Alexander Dietz
+  title: Effective Altruism and Collective Obligations
+  year: 2019
+  source_type: academic_critique
+  authority: peer_reviewed_countercanon
+  url: https://doi.org/10.1017/S0953820818000158
+  access_basis: publisher_abstract
+  extraction_status: abstract_only
+  rights_status: full_text_not_acquired
+- source_id: EA-CRIT-004
+  author: Federico Zuolo
+  title: Beyond Moral Efficiency
+  year: 2020
+  source_type: academic_critique
+  authority: peer_reviewed_countercanon
+  url: https://doi.org/10.1017/S0953820819000281
+  access_basis: publisher_abstract_and_author_uploaded_penultimate_version
+  extraction_status: abstract_grounded
+  rights_status: full_publisher_text_not_acquired
+- source_id: EA-UPSTREAM-001
+  author: Tinkuy project
+  title: EA source manifest v0.1
+  year: 2026
+  source_type: upstream_manifest
+  authority: G-P05_input
+  url: https://drive.google.com/file/d/16sLufESmn7vH1y3QEJSF4h4G4mD8pHEp/view
+  access_basis: project_drive
+  extraction_status: fully_used
+  rights_status: project_internal
+- source_id: EA-UPSTREAM-002
+  author: Tinkuy project
+  title: EA source atlas v0.1
+  year: 2026
+  source_type: upstream_atlas
+  authority: G-P05_input
+  url: https://drive.google.com/file/d/1ClULGOltPNoMmPwFNb85P7f_lxu132mp/view
+  access_basis: project_drive
+  extraction_status: fully_used
+  rights_status: project_internal
+coverage:
+  full_or_substantial_extraction:
+  - EA-CANON-002
+  - EA-CANON-005
+  - EA-INST-001
+  - EA-INST-002
+  - EA-METHOD-001
+  - EA-METHOD-002
+  - EA-METHOD-003
+  - EA-METHOD-004
+  - EA-METHOD-005
+  partial:
+  - EA-CANON-001
+  - EA-METHOD-006
+  abstract_only:
+  - EA-CRIT-001
+  - EA-CRIT-002
+  - EA-CRIT-003
+  - EA-CRIT-004
+  not_acquired_or_deferred:
+  - Doing Good Better
+  - The Most Good You Can Do
+  - recipient-led localisation primary corpus
+gaps:
+- gap_id: EA-GAP-001
+  description: Full primary Singer text was not acquired; relevant cards are secondary-grounded.
+  status: open
+- gap_id: EA-GAP-002
+  description: Doing Good Better and The Most Good You Can Do were not fully extracted.
+  status: open
+- gap_id: EA-GAP-003
+  description: Critique cards from Gabriel, Lechterman, Dietz, Zuolo mostly rely on publisher abstracts.
+  status: open
+- gap_id: EA-GAP-004
+  description: Recipient-led and localisation corpus remains insufficient.
+  status: open
+- gap_id: EA-GAP-005
+  description: No test campaign performed by user instruction.
+  status: accepted_out_of_scope

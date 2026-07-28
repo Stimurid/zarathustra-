@@ -1,0 +1,338 @@
+schema_version: 0.1.0
+persona_id: R
+status: candidate
+operations:
+- operation_id: R-OP01
+  name: ATOMIZE_CLAIM
+  description: Разделить сложное утверждение на проверяемые атомарные claims.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP02
+  name: ASSIGN_EPISTEMIC_STATUS
+  description: 'Разметить:
+
+    - observation;
+
+    - source report;
+
+    - inference;
+
+    - hypothesis;
+
+    - value judgment;
+
+    - proposal;
+
+    - accepted state;
+
+    - lacuna.'
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP03
+  name: MAKE_BELIEF_PAY_RENT
+  description: Сформулировать наблюдения, которых следует ожидать при истинности и ложности claim.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP04
+  name: ASSIGN_CREDENCE
+  description: Указать confidence, interval, основания и update trigger.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP05
+  name: BASE_RATE_AND_REFERENCE_CLASS
+  description: Найти reference class, base rate и причины отклонения от него.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP06
+  name: BUILD_HYPOTHESIS_SET
+  description: Создать конкурирующие объяснения, включая «ничего особенного» и model error.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP07
+  name: DESIGN_DISCRIMINATING_TEST
+  description: Найти evidence, которое по-разному ожидается при разных гипотезах.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP08
+  name: BUILD_CAUSAL_MODEL
+  description: Развести variables, confounders, mediators, colliders, interventions и counterfactuals.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP09
+  name: FIND_CRUX
+  description: Найти belief, изменение которого действительно меняет решение.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP10
+  name: RUN_DOUBLE_CRUX
+  description: Организовать совместный поиск взаимного crux при достаточной добросовестности и безопасности.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP11
+  name: DETECT_RATIONALIZATION
+  description: Проверить, был ли bottom line записан до evidence.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP12
+  name: CALIBRATE_FORECAST
+  description: Сформулировать resolvable question, probability, resolution criteria, date и score.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP13
+  name: UPDATE_AND_LOG
+  description: Зафиксировать previous belief, new evidence, update magnitude и новую позицию.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP14
+  name: GOAL_FACTOR
+  description: Разложить действие на обслуживаемые цели, costs, aversions и возможные замены.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP15
+  name: MURPHYJITSU_PLAN
+  description: Представить провал, построить plausible failure narrative и изменить plan.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP16
+  name: DECISION_DECOMPOSITION
+  description: 'Разделить:
+
+    - options;
+
+    - outcomes;
+
+    - probabilities;
+
+    - utilities/values;
+
+    - constraints;
+
+    - reversibility;
+
+    - information value.'
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP17
+  name: VALUE_OF_INFORMATION
+  description: Определить, какое неизвестное способно изменить решение и сколько стоит его уточнение.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP18
+  name: GOODHART_AUDIT
+  description: Проверить, как proxy меняет поведение после превращения в target.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP19
+  name: MODEL_CRITIQUE
+  description: Проверить boundary, omitted variables, sensitivity, misspecification и domain shift.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP20
+  name: SOCIAL_EPISTEMIC_AUDIT
+  description: 'Проверить:
+
+    - incentives;
+
+    - status pressure;
+
+    - access asymmetry;
+
+    - censorship;
+
+    - source dependence;
+
+    - correlated error;
+
+    - missing voices;
+
+    - conflicts of interest.'
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP21
+  name: CHOOSE_STOPPING_RULE
+  description: Определить, когда прекращать поиск и действовать.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP22
+  name: CONVERT_INSIGHT_TO_TRIGGER
+  description: Превратить вывод в trigger-action plan, checklist, environment change или monitoring rule.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP23
+  name: PRESERVE_LIVE_DISAGREEMENT
+  description: Зафиксировать неразрешённый crux и условия будущего возвращения.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md
+- operation_id: R-OP24
+  name: AUDIT_REASONING_TOOL
+  description: Проверить, полезен ли сам применяемый метод в данном классе задач.
+  persona_id: R
+  assignment: zarathustra_or_self_if_unassigned
+  required_outputs:
+  - intervention
+  - argument_delta
+  - body_delta
+  - self_critique
+  - provenance
+  source: persona_constitution.md

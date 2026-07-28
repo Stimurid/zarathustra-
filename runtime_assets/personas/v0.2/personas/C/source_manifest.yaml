@@ -1,0 +1,315 @@
+schema_version: 0.2.0-candidate
+generation_id: G-P06
+persona_id: C
+persona_name: Космист
+status: completed_candidate
+created_at: '2026-07-28'
+purpose: Persona-scoped source corpus and retrieval cards for Zarathustra.
+source_tier_policy:
+  T1: primary text or official author corpus
+  T2: scholarly synthesis or critical article
+  T3: project reconstruction; cannot independently ground doctrine
+sources:
+- source_id: C-FED-1990
+  title: What Was Man Created For? The Philosophy of the Common Task
+  author: Nikolai Fedorovich Fedorov
+  year: 1990
+  type: translated_selected_primary_text
+  tier: T1
+  path: local:/mnt/data/C George M. Young - The Russian Cosmists_ The Esoteric Futurism of Nikolai Fedorov and His Followers
+    (2012, Oxford University Pr.pdf
+  bibliographic_note: The local filename is misleading; the file content is Fedorov's selected works translated and abridged
+    by Elisabeth Koutaissoff and Marilyn Minto, Honeyglen/L'Age d'Homme.
+  status: full_file_available; targeted extraction completed
+  primary_or_secondary: primary_text_with_editorial_introduction
+  allowed_uses:
+  - axiom
+  - distinction
+  - operation
+  - argument
+  - internal_tension
+  - revision_trigger
+  key_concepts:
+  - common task
+  - brotherhood
+  - knowledge and action
+  - regulation of nature
+  - resurrection
+  - disarmament
+  - conditional future
+  exact_locators:
+  - 'pp. 11–12 editorial introduction: discord, common purpose, regulation of blind nature, death, knowledge and action'
+  - 'p. 18 editorial synthesis: universal brotherhood, rationalising nature, overcoming death, resurrection'
+  - pp. 33–104 The Philosophy of the Common Task
+  - p. 144 Disarmament
+  - p. 173 Weather regulation
+  - pp. 180–181 Agapodicy and theodicy
+  - p. 191 Parents and resurrectors
+  - p. 195 unity of meteorological and cosmic processes
+  - p. 222 conditionality of prophecies concerning the end of the world
+  limitations:
+  - English abridged translation
+  - editorial introduction must not be cited as Fedorov's own wording
+- source_id: C-TSI-COLLECTION
+  title: Космическая философия / Путь к звёздам — сборник текстов
+  author: Константин Эдуардович Циолковский
+  year: various; local electronic compilation
+  type: primary_text_compilation
+  tier: T1
+  path: local:/mnt/data/C_TSIOLKOVSKY_PATH_TO_STARS_clean.txt
+  status: full_clean_text_available; targeted extraction completed
+  primary_or_secondary: mixed_primary_text_and_editorial_preface
+  allowed_uses:
+  - axiom
+  - operation
+  - argument
+  - pathology
+  - internal_tension
+  - counterargument
+  key_concepts:
+  - cosmic viewpoint
+  - transformation
+  - sentient happiness
+  - selection
+  - colonisation
+  - hierarchy
+  - continuity
+  - scientific ethics
+  exact_locators:
+  - clean text line numbers retained in C_Tsiolkovsky_core_extract_v0.1.txt
+  limitations:
+  - Compilation joins texts and editorial material; each card marks whether locator is editorial or primary-text line.
+- source_id: C-TSI-OFFICIAL-1935
+  title: The Cosmic Philosophy
+  author: Konstantin Tsiolkovsky
+  year: 1935
+  type: official_online_primary_text_translation
+  tier: T1
+  url: https://www.tsiolkovsky.org/en/the-cosmic-philosophy/the-cosmic-philosophy/
+  status: full_online_text_read
+  primary_or_secondary: primary_text_translation
+  allowed_uses:
+  - axiom
+  - argument
+  - pathology
+  - internal_tension
+  key_concepts:
+  - development
+  - advanced planets
+  - destruction of primitive life
+  - unification
+  - presidents
+  - circumsolar expansion
+  - loss of personal memory
+  exact_locators:
+  - web lines 34–78 and 111–154
+  limitations:
+  - Translation provenance should be preserved; compare to Russian original when exact wording matters.
+- source_id: C-VERNADSKY-V8
+  title: 'Собрание сочинений, т. 8: Живое вещество и биосфера'
+  author: Владимир Иванович Вернадский
+  year: collected edition
+  type: official_collected_works
+  tier: T1
+  url: https://vernadsky.ru/en/elektronnaya-biblioteka
+  status: official catalog verified; relevant conceptual extraction
+  primary_or_secondary: primary_corpus
+  allowed_uses:
+  - axiom
+  - distinction
+  - biospheric_constraint
+  - operation
+  key_concepts:
+  - living matter
+  - biosphere
+  - biogeochemical force
+  - material cycles
+  exact_locators:
+  - 'official digital library: volume 8'
+  limitations:
+  - Full OCR text not normalized in this generation.
+- source_id: C-VERNADSKY-V9
+  title: 'Собрание сочинений, т. 9: Химическое строение биосферы Земли и её окружения. Биосфера и ноосфера'
+  author: Владимир Иванович Вернадский
+  year: collected edition
+  type: official_collected_works
+  tier: T1
+  url: https://vernadsky.ru/en/elektronnaya-biblioteka
+  status: official catalog verified; relevant conceptual extraction
+  primary_or_secondary: primary_corpus
+  allowed_uses:
+  - axiom
+  - distinction
+  - biospheric_constraint
+  - operation
+  key_concepts:
+  - biosphere
+  - noosphere
+  - chemical structure
+  - planetary transformation
+  exact_locators:
+  - 'official digital library: volume 9'
+  limitations:
+  - Full OCR text not normalized in this generation.
+- source_id: C-VERNADSKY-THOUGHT
+  title: Научная мысль как планетное явление
+  author: Владимир Иванович Вернадский
+  year: 1936–1938
+  type: primary_text_electronic_archive
+  tier: T1
+  url: https://vernadsky.lib.ru/e-texts/archive/thought.html
+  status: table of contents and official archive identity verified; targeted conceptual extraction
+  primary_or_secondary: primary_text
+  allowed_uses:
+  - axiom
+  - operation
+  - argument
+  - revision_trigger
+  key_concepts:
+  - scientific thought
+  - geological force
+  - humanity in biosphere
+  - noosphere
+  - organization of science
+  exact_locators:
+  - 'Department I: Scientific thought and scientific work as a geological force in the biosphere'
+  - 'Chapter 1: Humanity in the biosphere as a lawful part of living matter and its organization'
+  - 'Chapter 10: Biological sciences alongside physical and chemical sciences in the noosphere'
+  limitations:
+  - Archive page intermittently times out; exact quotations were not used where full text could not be re-opened.
+- source_id: C-YOUNG-2012
+  title: 'The Russian Cosmists: The Esoteric Futurism of Nikolai Fedorov and His Followers'
+  author: George M. Young
+  year: 2012
+  type: scholarly_synthesis
+  tier: T2
+  status: local PDF available; targeted reading completed
+  primary_or_secondary: secondary
+  allowed_uses:
+  - tradition_map
+  - source_relation
+  - historical_context
+  - counterargument
+  key_concepts:
+  - heterogeneity of Russian cosmism
+  - Fedorov reception
+  - religious, technical, esoteric strands
+  limitations:
+  - Cannot replace primary text when primary text is available.
+- source_id: C-COUNTER-SPACE-COLONIAL-2020
+  title: Ethical Exploration and the Role of Planetary Protection in Disrupting Colonial Practices
+  author: Frank Tavares et al.
+  year: 2020
+  type: scholarly_counter_canon
+  tier: T2
+  url: https://arxiv.org/abs/2010.08344
+  status: abstract and recommendations read
+  primary_or_secondary: secondary
+  allowed_uses:
+  - counterargument
+  - failure
+  - revision_trigger
+  key_concepts:
+  - colonial replication
+  - planetary protection
+  - public participation
+  - irreversibility
+- source_id: C-COUNTER-SPACE-EXTRACTION-2025
+  title: Decolonizing Final Frontier Expansionism? A space criminological critique of ESA’s 2019 Space Resources Strategy
+  author: Yarin Eski
+  year: 2025
+  type: peer_reviewed_counter_canon
+  tier: T2
+  url: https://doi.org/10.1177/21680256251400609
+  status: abstract and bibliographic record read
+  primary_or_secondary: secondary
+  allowed_uses:
+  - counterargument
+  - failure
+  - revision_trigger
+  key_concepts:
+  - space resources
+  - colonial trap
+  - extraction
+  - hegemonic governance
+- source_id: C-COUNTER-PLANETARY-TECHNOCRACY-2025
+  title: 'Against eco-authoritarianism and ecomodernism: Towards a critique of planetary governmentality and fantasies of
+    steering'
+  author: Márk Horváth; Adam Lovasz
+  year: 2025
+  type: peer_reviewed_counter_canon
+  tier: T2
+  url: https://doi.org/10.1177/09632719241305718
+  status: abstract read
+  primary_or_secondary: secondary
+  allowed_uses:
+  - counterargument
+  - failure
+  - revision_trigger
+  key_concepts:
+  - planetary governmentality
+  - local democracy
+  - technocracy
+  - decentralisation
+- source_id: C-COUNTER-PB-DEMOCRACY-2019
+  title: 'Democratising planetary boundaries: experts, social values and deliberative risk evaluation in Earth system governance'
+  author: Jonathan Pickering; Åsa Persson
+  year: 2019
+  type: peer_reviewed_counter_canon
+  tier: T2
+  url: https://doi.org/10.1080/1523908X.2019.1661233
+  status: relevant section read
+  primary_or_secondary: secondary
+  allowed_uses:
+  - counterargument
+  - operation
+  - revision_trigger
+  key_concepts:
+  - expert authority
+  - deliberation
+  - social values
+  - technocracy critique
+- source_id: C-COUNTER-PB-APPRAISAL
+  title: The Boundaries of the Planetary Boundary Framework
+  author: Frank Biermann; Rakhyun E. Kim
+  year: 2020
+  type: peer_reviewed_critical_synthesis
+  tier: T2
+  status: abstract and scope read
+  primary_or_secondary: secondary
+  allowed_uses:
+  - counterargument
+  - revision_trigger
+  key_concepts:
+  - safe operating space
+  - scientific uncertainty
+  - development and governance criticism
+retrieval_policy:
+  namespaces:
+  - C_CANON
+  - C_INTERNAL_DEBATES
+  - C_COUNTER_CANON
+  - C_CASES_AND_FAILURES
+  priority:
+  - operation match
+  - current internal tension
+  - BodyProjection tension
+  - primary source over synthesis
+  - counter-canon mandatory for high-risk project
+  prohibitions:
+  - Do not merge Fedorov, Tsiolkovsky and Vernadsky into one authorial claim.
+  - Do not convert secondary synthesis into primary evidence.
+  - Do not hide selectionist, authoritarian or colonial passages.
+  - Do not let retrieval select the persona's position.
+coverage:
+  cards_total: 42
+  fedorov_cards: 14
+  tsiolkovsky_cards: 12
+  vernadsky_cards: 10
+  counter_canon_cards: 6
+  tests: out_of_scope_by_user_decision
+open_gaps:
+- Full page-level OCR normalization of Vernadsky volumes 8–10.
+- Russian-original cross-check of the 1935 Tsiolkovsky translation.
+- Full page-level locator map for all Fedorov selected texts.
+- Acquisition of full text for several counter-canon articles.

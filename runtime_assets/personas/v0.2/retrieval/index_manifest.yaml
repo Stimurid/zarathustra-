@@ -1,0 +1,32 @@
+index_version: 0.2.0
+source_package_versions:
+  C: 0.2.0
+  EA: 0.2.0
+  Ex: 0.2.0
+  L: 0.2.0
+  N8: 0.2.0-candidate
+  R: 0.2.0
+  S: 0.2.0
+  T: 0.2.0
+personas:
+- C
+- EA
+- Ex
+- L
+- N8
+- R
+- S
+- T
+card_count: 529
+operation_count: 141
+schema_hash: 'True'
+source_hashes:
+  cards_snapshot_sha256: 8c3490f493aa394f973d3dc05f445b5585932112644ac92b41a8c678de67e7ff
+  sqlite_sha256: d6e2564e6ba793c9211fd1cab0f795a852a7232393b1d0aa798f0dbde4a4ca5a
+  tfidf_sha256: db08432acc0e08a7655dd3f7adc0368172b0299dc754c28ea255d45d01a2cdbd
+build_command: python -m californian_id persona-layer rebuild-index
+build_time: '2026-07-28T10:03:51.841194+00:00'
+backend_versions:
+  sqlite: 3.50.4
+  tfidf: builtin_python
+backend: sqlite_fts5_plus_builtin_tfidf

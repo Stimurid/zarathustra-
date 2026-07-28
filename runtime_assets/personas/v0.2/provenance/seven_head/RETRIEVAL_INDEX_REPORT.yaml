@@ -1,0 +1,143 @@
+status: passed
+backend: hybrid_tfidf_plus_sqlite_fts5_or_query
+cards_total: 330
+personas: 7
+namespaces:
+- persona.C.canon
+- persona.C.cases_and_failures
+- persona.C.internal_debates
+- persona.EA.canon
+- persona.EA.cases_and_failures
+- persona.EA.internal_debates
+- persona.Ex.canon
+- persona.Ex.cases_and_failures
+- persona.L.canon
+- persona.L.cases_and_failures
+- persona.L.internal_debates
+- persona.R.canon
+- persona.S.canon
+- persona.S.cases_and_failures
+- persona.S.internal_debates
+- persona.T.canon
+- persona.T.cases_and_failures
+probe_results:
+  C:
+  - card_id: C-FED-002
+    score: 0.4967677350720163
+    vector_score: 0.16127955845336056
+    lexical_score: 1.0
+    operation_id_exact: C-OP02
+  - card_id: C-FED-011
+    score: 0.4618352824021222
+    vector_score: 0.13614642393109483
+    lexical_score: 0.9503685701086632
+    operation_id_exact: C-OP08
+  - card_id: C-FED-013
+    score: 0.4450617793241638
+    vector_score: 0.12654104740431826
+    lexical_score: 0.9228428772039321
+    operation_id_exact: C-OP03
+  T:
+  - card_id: T-GP07-030
+    score: 0.5035614677488814
+    vector_score: 0.17260244624813575
+    lexical_score: 1.0
+    operation_id_exact: T-OP06
+  - card_id: T-GP07-042
+    score: 0.47366192483112396
+    vector_score: 0.15395789545326824
+    lexical_score: 0.9532179688979074
+    operation_id_exact: T-OP05
+  - card_id: T-GP07-036
+    score: 0.432002854546392
+    vector_score: 0.1440745141428673
+    lexical_score: 0.863895365151679
+    operation_id_exact: T-OP06
+  Ex:
+  - card_id: EX-GP08-039
+    score: 0.5086333088410826
+    vector_score: 0.18105551473513773
+    lexical_score: 1.0
+    operation_id_exact: EX-OP13
+  - card_id: EX-GP08-022
+    score: 0.2124997340577992
+    vector_score: 0.06254424734870452
+    lexical_score: 0.4374329641214412
+    operation_id_exact: EX-OP02
+  - card_id: EX-GP08-033
+    score: 0.17803621574966288
+    vector_score: 0.02777453359096971
+    lexical_score: 0.4034287389877026
+    operation_id_exact: EX-OP10
+  S:
+  - card_id: S-GP09-032
+    score: 0.5433649682525621
+    vector_score: 0.23894161375427014
+    lexical_score: 1.0
+    operation_id_exact: S-OP02
+  - card_id: S-GP09-042
+    score: 0.3842948796263229
+    vector_score: 0.2082583228451855
+    lexical_score: 0.648349714798029
+    operation_id_exact: S-OP11
+  - card_id: S-GP09-031
+    score: 0.35693806909944287
+    vector_score: 0.11092410058469727
+    lexical_score: 0.7259590218715612
+    operation_id_exact: S-OP05
+  R:
+  - card_id: R-GP10-038
+    score: 0.47079162176891015
+    vector_score: 0.11798603628151688
+    lexical_score: 1.0
+    operation_id_exact: R-OP19
+  - card_id: R-GP10-035
+    score: 0.4460271307375115
+    vector_score: 0.13256218301968264
+    lexical_score: 0.9162245523142547
+    operation_id_exact: R-OP18
+  - card_id: R-GP10-011
+    score: 0.30964717246737755
+    vector_score: 0.06853074554930727
+    lexical_score: 0.671321812844483
+    operation_id_exact: R-OP06
+  EA:
+  - card_id: EA-GP12-029
+    score: 0.4
+    vector_score: 0.0
+    lexical_score: 1.0
+    operation_id_exact: EA-OP09
+  - card_id: EA-GP12-036
+    score: 0.3803179131974934
+    vector_score: 0.18346380214776803
+    lexical_score: 0.6755990797720814
+    operation_id_exact: EA-OP05
+  - card_id: EA-GP12-039
+    score: 0.23053836647128792
+    vector_score: 0.08242106294939067
+    lexical_score: 0.4527143217541338
+    operation_id_exact: EA-OP16
+  L:
+  - card_id: L-GP11-024
+    score: 0.49275003058166744
+    vector_score: 0.15458338430277904
+    lexical_score: 1.0
+    operation_id_exact: L-OP05
+  - card_id: L-GP11-033
+    score: 0.4805539973630758
+    vector_score: 0.1468986255859172
+    lexical_score: 0.9810370550288137
+    operation_id_exact: L-OP07
+  - card_id: L-GP11-046
+    score: 0.3557062194877758
+    vector_score: 0.08872169063794272
+    lexical_score: 0.7561830127625254
+    operation_id_exact: L-OP11
+files:
+- runtime/index/card_operations table
+- runtime/index/retrieval_index.sqlite
+- runtime/index/tfidf_matrix.npz
+- runtime/index/vectorizer.joblib
+- runtime/retrieve.py
+operation_filter: primary_and_secondary_exact_operations
+lexical_component_nonzero_for_probes: true

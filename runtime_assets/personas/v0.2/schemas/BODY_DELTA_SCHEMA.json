@@ -1,0 +1,357 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/schemas/persona-body-delta.schema.json",
+  "title": "PersonaBodyDelta",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "turn_id",
+    "persona_id",
+    "operation_id",
+    "target_object_ids",
+    "perception",
+    "distinction",
+    "position",
+    "intervention",
+    "argument_delta",
+    "body_delta",
+    "relation_to_previous_voice",
+    "self_critique",
+    "unresolved_questions",
+    "provenance",
+    "grounding_status"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "turn_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "persona_id": {
+      "enum": [
+        "C",
+        "T",
+        "Ex",
+        "S",
+        "R",
+        "EA",
+        "L"
+      ]
+    },
+    "operation_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "target_object_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "perception": {
+      "type": "object",
+      "required": [
+        "what_is_happening",
+        "stakes",
+        "missing_or_silenced"
+      ],
+      "properties": {
+        "what_is_happening": {
+          "type": "string"
+        },
+        "stakes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "missing_or_silenced": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "distinction": {
+      "type": "object",
+      "required": [
+        "id",
+        "left",
+        "right",
+        "diagnostic_question"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "left": {
+          "type": "string"
+        },
+        "right": {
+          "type": "string"
+        },
+        "diagnostic_question": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "position": {
+      "type": "object",
+      "required": [
+        "claim",
+        "grounds",
+        "confidence"
+      ],
+      "properties": {
+        "claim": {
+          "type": "string"
+        },
+        "grounds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "qualifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "intervention": {
+      "type": "object",
+      "required": [
+        "utterance",
+        "novel_contribution"
+      ],
+      "properties": {
+        "utterance": {
+          "type": "string"
+        },
+        "novel_contribution": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "argument_delta": {
+      "type": "object",
+      "properties": {
+        "claims_added": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "claims_revised": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "claims_withdrawn": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "supports": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "attacks": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "assumptions_exposed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "values_activated": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "burden_changes": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "body_delta": {
+      "type": "object",
+      "properties": {
+        "concepts_added": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "concepts_redefined": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "tensions_added": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "tensions_reframed": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "risks_added": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "projects_added": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "futures_added": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "alliances_added": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "position_changes": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "transformations": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "relation_to_previous_voice": {
+      "enum": [
+        "support",
+        "attack",
+        "reframe",
+        "qualify",
+        "ally",
+        "refuse",
+        "cross_examine",
+        "change_scale"
+      ]
+    },
+    "self_critique": {
+      "type": "object",
+      "required": [
+        "strongest_objection",
+        "what_would_change_my_mind",
+        "known_failure_mode"
+      ],
+      "properties": {
+        "strongest_objection": {
+          "type": "string"
+        },
+        "what_would_change_my_mind": {
+          "type": "string"
+        },
+        "known_failure_mode": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "unresolved_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "source_type",
+          "locator",
+          "use"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string"
+          },
+          "source_type": {
+            "type": "string"
+          },
+          "locator": {
+            "type": "string"
+          },
+          "use": {
+            "type": "string"
+          },
+          "retrieval_event_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "grounding_status": {
+      "enum": [
+        "grounded",
+        "partially_grounded",
+        "prompt_only_degraded"
+      ]
+    },
+    "security_events": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

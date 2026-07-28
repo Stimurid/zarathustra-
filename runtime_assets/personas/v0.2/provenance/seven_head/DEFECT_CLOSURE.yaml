@@ -1,0 +1,38 @@
+schema_version: 1.0.0
+status: candidate
+generations: [G-P10-closure, G-P13-R, G-P14-R]
+defects:
+  - defect_id: D-PERSONA-001
+    name: MISSING_R_SOURCE_PASS
+    resolution: closed_candidate
+    evidence: personas/R/source_manifest.yaml; personas/R/cards.jsonl
+  - defect_id: D-PERSONA-002
+    name: ENRICHED_PACKAGES_NOT_MERGED
+    resolution: closed
+    evidence: seed_cards_active=0; personas/*/cards.seed_archived.jsonl
+  - defect_id: D-PERSONA-003
+    name: CARD_SCHEMA_DIVERGENCE
+    resolution: closed
+    evidence: shared/PERSONA_CARD_SCHEMA.json; reports/SCHEMA_NORMALIZATION_REPORT.yaml
+  - defect_id: D-PERSONA-004
+    name: OPERATION_ID_DIVERGENCE
+    resolution: closed
+    evidence: shared/CARD_TO_EXACT_OPERATION_REGISTRY.yaml; reports/OPERATION_MAPPING_REPORT.yaml
+  - defect_id: D-PERSONA-007
+    name: RETRIEVAL_INDEX_NOT_BUILT
+    resolution: closed
+    evidence: runtime/index; reports/RETRIEVAL_INDEX_REPORT.yaml
+  - defect_id: D-PERSONA-008
+    name: ACTIVATION_TRACE_MISSING
+    resolution: closed_technical_candidate
+    evidence: runtime/activation_trace.jsonl; reports/ACTIVATION_GATE_REPORT.yaml
+remaining:
+  - id: HOST-ACCEPTANCE
+    severity: nonblocking_for_portable_candidate
+    status: open
+  - id: BEHAVIORAL-EVALUATION
+    severity: separate_campaign
+    status: open
+  - id: SOURCE-DEPTH-GAPS
+    severity: nonblocking
+    status: open_in_persona_manifests

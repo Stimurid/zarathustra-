@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "current_body",
+    "previous_turn",
+    "zarathustra_directive",
+    "retrieved_context",
+    "persona_memory",
+    "council_state"
+  ],
+  "properties": {
+    "current_body": {
+      "type": "object"
+    },
+    "previous_turn": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "zarathustra_directive": {
+      "type": "object",
+      "required": [
+        "function",
+        "operation",
+        "target",
+        "constraints"
+      ],
+      "properties": {
+        "function": {
+          "type": "string"
+        },
+        "operation": {
+          "type": "string"
+        },
+        "target": {},
+        "constraints": {
+          "type": "array"
+        }
+      }
+    },
+    "retrieved_context": {
+      "type": "array"
+    },
+    "persona_memory": {
+      "type": "object"
+    },
+    "council_state": {
+      "type": "object"
+    },
+    "persona_id": {
+      "const": "R"
+    }
+  },
+  "$id": "https://tinkuy.local/schemas/persona-R-input.schema.json",
+  "title": "R Persona Input"
+}

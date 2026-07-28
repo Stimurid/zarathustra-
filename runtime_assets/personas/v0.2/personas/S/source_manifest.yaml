@@ -1,0 +1,240 @@
+manifest_id: S_SOURCE_MANIFEST_v0.2
+persona_id: S
+persona_name: Сингуляритарианец
+version: 0.2.0
+status: candidate
+generation_id: G-P09
+generated_at: '2026-07-28'
+scope:
+  cards_target: 35-50
+  cards_produced: 48
+  tests_in_scope: false
+provenance_rules:
+- Scenario, prediction, trend, mechanism and current measurement remain distinct.
+- Good, Vinge and Kurzweil are historical primary arguments, not current empirical confirmation.
+- Fast and slow takeoff remain competing models.
+- AI-assisted R&D is not treated as full recursive self-improvement without loop-closure evidence.
+- Current empirical measurements keep domain and methodology limits.
+- No direct quotation is stored in cards.
+sources:
+- source_id: S-CANON-001
+  author: I. J. Good
+  title: Speculations Concerning the First Ultraintelligent Machine
+  year: 1965
+  source_type: foundational_primary_text
+  authority: core_intelligence_explosion_origin
+  url: https://www.sciencedirect.com/science/article/pii/S0065245808604180
+  access_basis: publisher abstract and bibliographic record
+  extraction_status: substantial_summary
+  rights_status: full publisher text not acquired
+- source_id: S-CANON-002
+  author: Vernor Vinge
+  title: 'The Coming Technological Singularity: How to Survive in the Post-Human Era'
+  year: 1993
+  source_type: foundational_primary_text
+  authority: core_singularity_framework
+  url: https://ntrs.nasa.gov/citations/19940022856
+  access_basis: NASA public conference paper
+  extraction_status: substantial
+  rights_status: public distribution
+- source_id: S-CANON-003
+  author: Ray Kurzweil
+  title: The Law of Accelerating Returns
+  year: 2001
+  source_type: primary_acceleration_argument
+  authority: core_exponential_narrative
+  url: https://www.writingsbyraykurzweil.com/the-law-of-accelerating-returns
+  access_basis: official author archive
+  extraction_status: substantial
+  rights_status: official web reference
+- source_id: S-CANON-004
+  author: Eliezer Yudkowsky
+  title: Intelligence Explosion Microeconomics
+  year: 2013
+  source_type: primary_takeoff_model
+  authority: core_feedback_economics
+  url: https://intelligence.org/all-publications/
+  access_basis: MIRI publication record and report summaries
+  extraction_status: substantial_summary
+  rights_status: MIRI publication record
+- source_id: S-CANON-005
+  author: Robin Hanson and Eliezer Yudkowsky
+  title: The Hanson–Yudkowsky AI-Foom Debate
+  year: 2013
+  source_type: internal_debate
+  authority: core_fast_slow_takeoff_debate
+  url: https://intelligence.org/ai-foom-debate/
+  access_basis: official free MIRI eBook page
+  extraction_status: substantial
+  rights_status: official free eBook
+- source_id: S-CANON-006
+  author: Katja Grace
+  title: Algorithmic Progress in Six Domains
+  year: 2013
+  source_type: empirical_algorithmic_progress
+  authority: historical_efficiency_evidence
+  url: https://intelligence.org/2013/08/02/algorithmic-progress-in-six-domains-released/
+  access_basis: MIRI report summary
+  extraction_status: summary_grounded
+  rights_status: official MIRI page
+- source_id: S-METHOD-001
+  author: Shane Legg and Marcus Hutter
+  title: 'Universal Intelligence: A Definition of Machine Intelligence'
+  year: 2007
+  source_type: formal_intelligence_measure
+  authority: conceptual_method
+  url: https://arxiv.org/abs/0712.3329
+  access_basis: open paper
+  extraction_status: substantial
+  rights_status: arXiv
+- source_id: S-EMP-001
+  author: METR
+  title: Task-Completion Time Horizons of Frontier AI Models
+  year: 2026
+  source_type: current_empirical_capability_measure
+  authority: primary_current_measurement
+  url: https://metr.org/time-horizons/
+  access_basis: official living research page
+  extraction_status: substantial
+  rights_status: official research page
+- source_id: S-EMP-002
+  author: Thomas Kwa / METR
+  title: Clarifying limitations of time horizon
+  year: 2026
+  source_type: current_methodological_limit
+  authority: primary_current_method_note
+  url: https://metr.org/notes/2026-01-22-time-horizon-limitations/
+  access_basis: official METR note
+  extraction_status: substantial
+  rights_status: official research page
+- source_id: S-EMP-003
+  author: METR research team
+  title: 'RE-Bench: Evaluating frontier AI R&D capabilities'
+  year: 2024
+  source_type: empirical_AI_RnD_benchmark
+  authority: primary_benchmark
+  url: https://arxiv.org/abs/2411.15114
+  access_basis: open paper and benchmark
+  extraction_status: substantial
+  rights_status: arXiv
+- source_id: S-EMP-004
+  author: David Owen / Epoch AI
+  title: Interviewing AI researchers on automation of AI R&D
+  year: 2024
+  source_type: empirical_research_process_study
+  authority: primary_interview_study
+  url: https://epoch.ai/publications/interviewing-ai-researchers-on-automation-of-ai-rnd
+  access_basis: official open report
+  extraction_status: substantial
+  rights_status: official report
+- source_id: S-EMP-005
+  author: Jaime Sevilla et al. / Epoch AI
+  title: Can AI scaling continue through 2030?
+  year: 2024
+  source_type: technical_bottleneck_analysis
+  authority: primary_scaling_analysis
+  url: https://epoch.ai/publications/can-ai-scaling-continue-through-2030
+  access_basis: official open report
+  extraction_status: substantial
+  rights_status: official report
+- source_id: S-EMP-006
+  author: Epoch AI
+  title: AI scaling and hardware trends
+  year: 2026
+  source_type: living_data_and_trends
+  authority: current_empirical_monitoring
+  url: https://epoch.ai/topics/scaling
+  access_basis: official current data hub
+  extraction_status: substantial
+  rights_status: CC BY where indicated
+- source_id: S-EMP-007
+  author: Alan Chan et al.
+  title: Measuring AI R&D Automation
+  year: 2026
+  source_type: measurement_framework
+  authority: current_research_framework
+  url: https://arxiv.org/abs/2603.03992
+  access_basis: open paper
+  extraction_status: substantial
+  rights_status: arXiv
+- source_id: S-EMP-008
+  author: Stanford CRFM et al.
+  title: On the Opportunities and Risks of Foundation Models
+  year: 2021
+  source_type: sociotechnical_system_analysis
+  authority: broad_technical_countercanon
+  url: https://arxiv.org/abs/2108.07258
+  access_basis: open paper
+  extraction_status: substantial
+  rights_status: arXiv
+- source_id: S-CRIT-001
+  author: Arvind Narayanan and Sayash Kapoor
+  title: AI as Normal Technology
+  year: 2025
+  source_type: normal_technology_countercanon
+  authority: core_countercanon
+  url: https://knightcolumbia.org/content/ai-as-normal-technology
+  access_basis: official institute publication
+  extraction_status: substantial
+  rights_status: official web publication
+- source_id: S-CRIT-002
+  author: Arvind Narayanan and Sayash Kapoor
+  title: Why AI hasn't replaced software engineers, and won't
+  year: 2026
+  source_type: current_normal_technology_case
+  authority: current_countercanon
+  url: https://www.normaltech.ai/p/why-ai-hasnt-replaced-software-engineers
+  access_basis: official author publication
+  extraction_status: substantial
+  rights_status: web reference
+- source_id: S-UPSTREAM-001
+  author: Tinkuy project
+  title: S Persona Node v0.1
+  year: 2026
+  source_type: TINKUY_RECONSTRUCTION
+  authority: persona_source
+  url: https://docs.google.com/document/d/14nTEZrpdUOtjBiTUcYmTmQ0wf5tF6Xuik8trrtzJlDU/edit
+  access_basis: project_drive
+  extraction_status: fully_used
+  rights_status: project_internal
+coverage:
+  substantial:
+  - S-CANON-002
+  - S-CANON-003
+  - S-CANON-005
+  - S-METHOD-001
+  - S-EMP-001
+  - S-EMP-002
+  - S-EMP-003
+  - S-EMP-004
+  - S-EMP-005
+  - S-EMP-006
+  - S-EMP-007
+  - S-EMP-008
+  - S-CRIT-001
+  - S-CRIT-002
+  summary_or_partial:
+  - S-CANON-001
+  - S-CANON-004
+  - S-CANON-006
+gaps:
+- gap_id: S-GAP-001
+  description: Good full publisher text was not acquired; core cards rely on publisher summary and bibliographic records.
+  status: open
+- gap_id: S-GAP-002
+  description: Intelligence Explosion Microeconomics cards rely on MIRI summaries and debate framing, not a full dedicated
+    extraction.
+  status: open
+- gap_id: S-GAP-003
+  description: Kurzweil corpus is represented primarily by Law of Accelerating Returns rather than full Singularity Is Near
+    books.
+  status: open
+- gap_id: S-GAP-004
+  description: Current capability evidence is concentrated in software, ML and cyber tasks.
+  status: open
+- gap_id: S-GAP-005
+  description: No dedicated geopolitical race, deployment-control or hardware-supply-chain case corpus.
+  status: open
+- gap_id: S-GAP-006
+  description: No behavior test campaign, by plan.
+  status: accepted_out_of_scope

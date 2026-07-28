@@ -1,0 +1,37 @@
+validated_at: '2026-07-28T10:05:48.459250+00:00'
+existing_tests_pass: true
+personas_loaded: 8/8
+active_seed_cards: 0
+common_schema_errors: 0
+unmapped_cards: 0
+operation_collisions: 0
+all_operations_retrievable: true
+retrieval_persona_isolation: true
+body_delta_validation: true
+nemo8_meta_pass: true
+nemo8_cannot_orchestrate: true
+nemo8_cannot_finalize: true
+reopen_cycle_bounded: true
+trace_saved: true
+runtime_ready_candidate: true
+production_ready: false
+canonical: false
+test_summary:
+  baseline_plus_final: 89 passed, 3 skipped
+  live_provider: BLOCKED_NO_CREDENTIALS
+  persona_layer_validate: 8 packages loaded
+  retrieval_backend: sqlite_fts5_plus_builtin_tfidf
+  retrieval_cards: 529
+  retrieval_operations: 141
+scenario_assertions:
+  base_turns: 7
+  nemo8_operation_id: OP-N8-07
+  reopened_persona_ids:
+  - C
+  - EA
+  reopen_decision:
+    accepted: true
+    reason: false_consensus_risk
+  minority_positions:
+  - S:S-OP01
+  - T:T-OP06

@@ -1,0 +1,63 @@
+migration_id: nemo8_meta_integration_v0.2
+date_utc: '2026-07-28T10:05:48.456508+00:00'
+orchestrator: Zarathustra remains the sole orchestrator and finalizer
+base_heads_integrated:
+- C
+- EA
+- Ex
+- L
+- R
+- S
+- T
+meta_head_integrated: N8
+nemo8_mode: post-council meta-pass with bounded reopen requests only
+runtime_changes:
+- Added shared persona-layer asset root under runtime_assets/personas/v0.2
+- Added persona-layer loader, retrieval index, council runtime, and CLI entrypoints
+- Added NEMO-8 machine-readable package derived from Google Drive source files
+- Rebuilt retrieval index from normalized seven-head and NEMO-8 cards
+behavioral_contracts:
+  nemo8_can_orchestrate: false
+  nemo8_can_finalize: false
+  reopen_cycle_bounded: true
+  reopen_targets_from_trace:
+  - C
+  - EA
+  reopen_reason: false_consensus_risk
+discrepancies:
+- artifact: N8 cards_index.yaml vs cards.jsonl
+  expected_exact_operation_ids: 30
+  actual_distinct_operation_ids_in_cards: 0
+  missing_from_cards:
+  - OP-N8-01
+  - OP-N8-02
+  - OP-N8-03
+  - OP-N8-04
+  - OP-N8-05
+  - OP-N8-06
+  - OP-N8-07
+  - OP-N8-08
+  - OP-N8-09
+  - OP-N8-10
+  - OP-N8-11
+  - OP-N8-12
+  - OP-N8-13
+  - OP-N8-14
+  - OP-N8-15
+  - OP-N8-16
+  - OP-N8-17
+  - OP-N8-18
+  - OP-N8-19
+  - OP-N8-20
+  - OP-N8-21
+  - OP-N8-22
+  - OP-N8-23
+  - OP-N8-24
+  - OP-N8-25
+  - OP-N8-26
+  - OP-N8-27
+  - OP-N8-28
+  - OP-N8-29
+  - OP-N8-30
+  runtime_handling: preserved as-is, surfaced in manifest and validation reports,
+    no silent substitution

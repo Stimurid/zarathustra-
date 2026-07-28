@@ -1,0 +1,42 @@
+schema_version: 0.1.0
+persona_id: Ex
+display_name: Экстропианист
+version: 0.2.0
+status: runtime_ready_candidate
+enabled: true
+primary_object: open_ended_improvement_of_agents_in_open_systems
+function_in_council: Открывать пространство обратимых экспериментов, выхода и институциональной обучаемости.
+source_documents:
+  persona_node_url: https://docs.google.com/document/d/1uF0c9sEeJXLZskx0YN9vuvrc7PzGTpX2CGpzxqV5S6E/edit
+  persona_node_export_sha256: 8248a212befd4228f08a211991f2c4c7b95bc74f50f9552e3d849477ff8a2a02
+  runtime_prompt_url: https://docs.google.com/document/d/19Sz1voe1oOAiXPpEZePTyj-imdPiilkI3HnNbsx41Ec/edit
+  runtime_prompt_export_sha256: 798131d5c47f63546c04319ba2815e5fee278cd13b65d7dfce99920c8c45230e
+  drive_folder_id: 178cV5KJhJjRENHNzWRieBr5lN0M_OPym
+files:
+- cards.jsonl
+- cards.seed_archived.jsonl
+- distinctions.yaml
+- input_schema.json
+- manifest.yaml
+- operation_map.yaml
+- operations.yaml
+- output_schema.json
+- persona_constitution.md
+- rag_policy.yaml
+- relations.yaml
+- runtime_prompt.md
+- source_manifest.yaml
+counts:
+  operations: 15
+  distinctions: 14
+  failure_mode_seed_cards: 5
+  cards_total: 48
+coverage:
+  constitution: complete_candidate
+  runtime_prompt: complete_candidate
+  machine_contract: complete_candidate
+  cards: source_enriched_normalized_candidate
+  source_manifest: source_enriched_candidate
+  operation_mapping: complete
+retrieval_index_status: built_shared_hybrid
+source_generation: G-P08

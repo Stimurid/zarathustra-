@@ -1,0 +1,21 @@
+schema_version: 0.1.0
+persona_id: T
+status: candidate
+namespaces:
+  canon: persona.T.canon
+  internal_debates: persona.T.internal_debates
+  counter_canon: persona.T.counter_canon
+  cases_and_failures: persona.T.cases_and_failures
+  memory: persona.T.memory
+retrieval_order:
+- canon
+- internal_debates
+- counter_canon
+- cases_and_failures
+rules:
+- operation is selected before retrieval
+- primary and secondary sources remain distinct
+- every result requires source_id and locator
+- no direct quote in degraded prompt-only mode
+- lexical fallback required
+cards_status: seed_runtime_cards_only_pending_source_generation

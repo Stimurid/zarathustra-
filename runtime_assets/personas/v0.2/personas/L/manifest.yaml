@@ -1,0 +1,42 @@
+schema_version: 0.1.0
+persona_id: L
+display_name: Лонгтермист
+version: 0.2.0
+status: runtime_ready_candidate
+enabled: true
+primary_object: long_run_trajectory_and_future_option_space
+function_in_council: Картировать долговременные траектории, persistence, lock-in, x-risk и межпоколенческую легитимность.
+source_documents:
+  persona_node_url: https://docs.google.com/document/d/1lYYp2GBuZqsuHQZklGCO82dVgR0GadrqjnTXSs4tSdQ/edit
+  persona_node_export_sha256: dc931e1268761b224540aa9caa17c72f9000ff8acc5b7e1df15de9302f9b499f
+  runtime_prompt_url: https://docs.google.com/document/d/12Vpb5WLuTGlmv0gEUyNn5P-oQwVxUMxsPeeuzZ6PHjQ/edit
+  runtime_prompt_export_sha256: 9344fff92ed37748235f2fd1d1539e0132dc2a20047a3a5a5f46e596f377c586
+  drive_folder_id: 1JUfySf2sjO9HM8P17CVQFUTs2UMGt9__
+files:
+- cards.jsonl
+- cards.seed_archived.jsonl
+- distinctions.yaml
+- input_schema.json
+- manifest.yaml
+- operation_map.yaml
+- operations.yaml
+- output_schema.json
+- persona_constitution.md
+- rag_policy.yaml
+- relations.yaml
+- runtime_prompt.md
+- source_manifest.yaml
+counts:
+  operations: 14
+  distinctions: 13
+  failure_mode_seed_cards: 5
+  cards_total: 48
+coverage:
+  constitution: complete_candidate
+  runtime_prompt: complete_candidate
+  machine_contract: complete_candidate
+  cards: source_enriched_normalized_candidate
+  source_manifest: source_enriched_candidate
+  operation_mapping: complete
+retrieval_index_status: built_shared_hybrid
+source_generation: G-P11

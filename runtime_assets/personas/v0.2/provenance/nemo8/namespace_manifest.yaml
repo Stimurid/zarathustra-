@@ -1,0 +1,26 @@
+artifact_id: N8-RETRIEVAL-NAMESPACES
+version: 0.2.0-candidate
+namespaces:
+  N8_EVIDENCE:
+    purpose: manifested identity and recurrent commitments
+    count: 42
+    identity_authority: true
+  N8_DONOR_OPERATIONS:
+    purpose: external concepts and operations
+    count: 80
+    identity_authority: false
+  N8_COUNTER_CANON:
+    purpose: hard objections, limits and revision triggers
+    count: 36
+    identity_authority: false
+  N8_RELATIONS:
+    purpose: seven-head boundaries, productive pairs and ownership
+    count: 35
+    identity_authority: false
+recommended_bundle:
+  direct_evidence_min: 2
+  donor_min: 2
+  countercanon_min: 1
+  relation_min_when_head_relevant: 1
+  default_max: 12
+  direct_call_max: 16

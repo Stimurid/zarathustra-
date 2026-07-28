@@ -1,0 +1,43 @@
+artifact_id: N8-CARDS-INDEX
+version: 0.2.0-candidate
+persona_id: N8
+total_cards: 199
+by_namespace:
+  N8_EVIDENCE: 42
+  N8_CASES_AND_FAILURES: 4
+  N8_SELF_HISTORY: 2
+  N8_DONOR_OPERATIONS: 80
+  N8_COUNTER_CANON: 36
+  N8_RELATIONS: 35
+by_type:
+  thesis: 29
+  distinction: 23
+  operation: 40
+  counterargument: 40
+  failure_mode: 28
+  revision_trigger: 4
+  shared_ground: 7
+  irreducible_difference: 7
+  valid_intervention: 7
+  forbidden_appropriation: 7
+  productive_pair: 7
+exact_operation_ids: 30
+normalization_contract:
+- card_id
+- persona_id
+- namespace
+- card_type
+- title
+- statement
+- activation_conditions
+- operation_ids
+- delegate_to
+- source_refs
+- provenance_status
+- transfer_limit
+- counter_signal
+- confidence
+- status
+- relation_scope
+- retrieval_text
+R_relation_note: Boundary cards for R are provisional until G-P10 source pass.

@@ -1,0 +1,149 @@
+manifest_id: R_SOURCE_MANIFEST_v0.2
+persona_id: R
+persona_name: Рационалист
+version: 0.2.0
+status: candidate
+generation_id: G-P10-closure
+generated_at: '2026-07-28'
+scope:
+  cards_target: 40-60
+  cards_produced: 48
+  tests_in_scope: false
+provenance_rules:
+- Primary research, movement practice, scholarly synthesis and Tinkuy reconstruction remain distinct.
+- No direct quotations are stored in cards.
+- Debiasing methods are treated as domain-sensitive tools, not universal cures.
+sources:
+- source_id: R-CANON-001
+  author: Eliezer Yudkowsky and LessWrong community
+  title: 'Rationality: From AI to Zombies / Sequences'
+  year: 2006–2015
+  source_type: movement_primary_corpus
+  url: https://www.lesswrong.com/rationality
+  access_basis: official corpus index
+  extraction_status: targeted conceptual extraction
+- source_id: R-CANON-002
+  author: Center for Applied Rationality
+  title: CFAR Handbook
+  year: 2016
+  source_type: official_practice_handbook
+  url: https://www.rationality.org/resources/handbook
+  access_basis: official handbook page
+  extraction_status: targeted conceptual extraction
+- source_id: R-CANON-003
+  author: Amos Tversky and Daniel Kahneman
+  title: 'Judgment under Uncertainty: Heuristics and Biases'
+  year: 1974
+  source_type: primary_behavioral_research
+  url: https://doi.org/10.1126/science.185.4157.1124
+  access_basis: publisher abstract and bibliographic record
+  extraction_status: abstract plus standard section map
+- source_id: R-CANON-004
+  author: Herbert A. Simon
+  title: A Behavioral Model of Rational Choice
+  year: 1955
+  source_type: primary_bounded_rationality
+  url: https://doi.org/10.2307/1884852
+  access_basis: publisher abstract and contents
+  extraction_status: abstract and section map
+- source_id: R-CANON-005
+  author: Judea Pearl
+  title: 'Causality: Models, Reasoning, and Inference'
+  year: 2000/2009
+  source_type: primary_causal_inference
+  url: https://bayes.cs.ucla.edu/BOOK-2K/causality.html
+  access_basis: official author site, contents and selected chapters
+  extraction_status: substantial conceptual extraction
+- source_id: R-CANON-006
+  author: Glenn W. Brier
+  title: Verification of Forecasts Expressed in Terms of Probability
+  year: 1950
+  source_type: primary_forecast_scoring
+  url: https://doi.org/10.1175/1520-0493(1950)078<0001:VOFEIT>2.0.CO;2
+  access_basis: publisher record
+  extraction_status: core scoring rule extraction
+- source_id: R-CANON-007
+  author: Philip Tetlock, Barbara Mellers et al.
+  title: Good Judgment Project / Superforecasting research
+  year: 2011–2015
+  source_type: primary_forecasting_program
+  url: https://goodjudgment.com/common-questions-good-judgment-superforecasters/
+  access_basis: official project history and published research references
+  extraction_status: substantial methodological extraction
+- source_id: R-CANON-008
+  author: David Manheim and Scott Garrabrant
+  title: Categorizing Variants of Goodhart’s Law
+  year: 2018
+  source_type: primary_metric_failure_taxonomy
+  url: https://arxiv.org/abs/1803.04585
+  access_basis: open paper
+  extraction_status: substantial
+- source_id: R-CANON-009
+  author: Hugo Mercier and Dan Sperber
+  title: Why Do Humans Reason? Arguments for an Argumentative Theory
+  year: 2011
+  source_type: primary_social_reasoning_theory
+  url: https://doi.org/10.1017/S0140525X10000968
+  access_basis: publisher abstract and open manuscript record
+  extraction_status: substantial summary
+- source_id: R-CANON-010
+  author: Helen Longino / Stanford Encyclopedia of Philosophy
+  title: Social Epistemology and Critical Interaction
+  year: 1990–2022
+  source_type: academic_social_epistemology
+  url: https://plato.stanford.edu/archives/spr2022/entries/epistemology-social/
+  access_basis: open scholarly synthesis
+  extraction_status: substantial
+- source_id: R-CANON-011
+  author: Daniel Kahneman and Dan Lovallo
+  title: Timid Choices and Bold Forecasts
+  year: 1993
+  source_type: primary_outside_view_research
+  url: https://doi.org/10.1287/mnsc.39.1.17
+  access_basis: bibliographic and abstract-level extraction
+  extraction_status: abstract_grounded
+- source_id: R-CANON-012
+  author: Gary Klein
+  title: Performing a Project Premortem
+  year: 2007
+  source_type: applied_decision_method
+  url: https://hbr.org/2007/09/performing-a-project-premortem
+  access_basis: authoritative practitioner article
+  extraction_status: substantial
+- source_id: R-CANON-013
+  author: Peter Gollwitzer
+  title: Implementation Intentions
+  year: 1999
+  source_type: primary_action_psychology
+  url: https://doi.org/10.1037/0003-066X.54.7.493
+  access_basis: publisher record and abstract
+  extraction_status: abstract_grounded
+- source_id: R-CANON-014
+  author: George E. P. Box
+  title: Science and Statistics
+  year: 1976
+  source_type: primary_model_critique
+  url: https://doi.org/10.1080/01621459.1976.10480949
+  access_basis: bibliographic and standard argument extraction
+  extraction_status: summary_grounded
+- source_id: R-CANON-015
+  author: Tinkuy project
+  title: R Persona Node v0.1
+  year: 2026
+  source_type: TINKUY_RECONSTRUCTION
+  url: https://docs.google.com/document/d/1db7IBf2_ZuXM4stLJvr_gd7L1MzOAYuK_ga8fzbw1Jk/edit
+  access_basis: project Drive
+  extraction_status: fully used
+gaps:
+- gap_id: R-GAP-001
+  description: 'Rationality: A–Z and CFAR were target-read, not ingested as full source chunks.'
+  status: open
+- gap_id: R-GAP-002
+  description: Several classic papers are abstract- or summary-grounded.
+  status: open
+- gap_id: R-GAP-003
+  description: No dedicated full corpus for peer disagreement, testimony and institutional epistemology.
+  status: open
+- gap_id: R-GAP-004
+  description: Behavioral persona tests remain outside this closure.
+  status: accepted_out_of_scope

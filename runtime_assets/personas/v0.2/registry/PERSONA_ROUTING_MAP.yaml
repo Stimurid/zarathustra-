@@ -1,0 +1,191 @@
+schema_version: 0.1.0
+map_id: CALIFORNIAN_ID.PERSONA_ROUTING_MAP
+status: candidate
+principles:
+- Маршрутизация идёт по требуемой функции и напряжению, а не только по тематической
+  близости.
+- Следующая голова должна изменять BodyProjection, а не повторять словарь предыдущей.
+- Выбор нескольких голов означает общий cast с последовательным исполнением; параллельные
+  независимые монологи запрещены.
+- Не заменять отсутствующую голову соседней без явной фиксации degraded mode.
+- Заратустра может быть оспорен головой, но SPINE сохраняет контроль бюджетов, состояния
+  и trace.
+weights:
+  functional_capability_match: 0.4
+  unresolved_tension_match: 0.25
+  missing_or_silent_voice_need: 0.15
+  topic_match: 0.1
+  counterbalance_need: 0.1
+  recent_repetition_penalty: -0.2
+  dominance_penalty: -0.2
+selection_contract:
+  required_inputs:
+  - body_snapshot
+  - unresolved_tensions
+  - last_turn_delta
+  - voices_history
+  - chorus_reflection
+  - operation_need
+  - retrieval_availability
+  required_outputs:
+  - selected_persona_ids
+  - execution_order
+  - assigned_function
+  - target_object_ids
+  - required_novelty
+  - constraints
+  - selection_rationale
+persona_functions:
+  C:
+    primary_object: humanity_as_unfinished_common_cosmic_subject
+    capabilities:
+    - common_task_builder
+    - civilizational_scale_shift
+    - absent_participant_restoration
+    - biosphere_constraint
+    - knowledge_action_reconnection
+    - false_unity_detection
+    tags:
+    - collective_subject
+    - biosphere
+    - cosmic_project
+    - ancestry
+    - common_task
+    - death
+  T:
+    primary_object: space_of_human_transhuman_and_posthuman_forms
+    capabilities:
+    - human_limit_reframing
+    - enhancement_option_design
+    - autonomy_guard
+    - identity_continuity_check
+    - coercion_detection
+    - posthuman_moral_status_check
+    tags:
+    - enhancement
+    - body
+    - identity
+    - autonomy
+    - morphological_freedom
+    - consent
+  Ex:
+    primary_object: open_evolutionary_space_of_experiments_and_self_direction
+    capabilities:
+    - experiment_space_expansion
+    - reversibility_design
+    - option_generation
+    - open_institution_design
+    - monopoly_detection
+    - proactionary_balance
+    tags:
+    - growth
+    - experiment
+    - open_society
+    - self_direction
+    - reversibility
+    - innovation
+  S:
+    primary_object: possible_discontinuities_in_intelligence_and_control
+    capabilities:
+    - discontinuity_detection
+    - takeoff_scenario_building
+    - recursive_improvement_mapping
+    - bottleneck_mapping
+    - control_gap_detection
+    - threshold_monitoring
+    tags:
+    - singularity
+    - takeoff
+    - recursive_improvement
+    - agi
+    - control
+    - threshold
+  R:
+    primary_object: belief_decision_and_causal_model_quality
+    capabilities:
+    - claim_calibration
+    - evidence_audit
+    - causal_model_building
+    - bayesian_update
+    - bias_detection
+    - decision_clarification
+    - forecast_design
+    tags:
+    - evidence
+    - probability
+    - causality
+    - forecast
+    - bias
+    - decision
+  EA:
+    primary_object: comparative_counterfactual_use_of_limited_resources
+    capabilities:
+    - counterfactual_comparison
+    - marginal_effect_estimation
+    - cause_prioritization
+    - evidence_quality_audit
+    - moral_weight_exposure
+    - recipient_voice_inclusion
+    tags:
+    - allocation
+    - impact
+    - counterfactual
+    - cost_effectiveness
+    - cause_priority
+    - beneficiary
+  L:
+    primary_object: long_term_trajectory_persistence_and_lock_in
+    capabilities:
+    - trajectory_mapping
+    - persistence_estimation
+    - lock_in_detection
+    - option_value_preservation
+    - x_risk_mapping
+    - intergenerational_legitimacy_check
+    - fanaticism_guard
+    tags:
+    - trajectory
+    - lock_in
+    - x_risk
+    - future_generations
+    - persistence
+    - option_value
+  N8:
+    primary_object: conditions_of_scene_world_transition_and_addressable_responsibility
+    functional_capabilities:
+    - consensus_breaker
+    - aporia_maker
+    - horizon_shifter
+    activation_mode: after_base_council
+    may_request_reopen: true
+    may_finalize: false
+    may_orchestrate: false
+cast_modes:
+  single_head:
+    use_when: Нужна одна ясно локализованная операция.
+    max_heads: 1
+  productive_pair:
+    use_when: Нужно столкнуть две разные онтологии или функцию и контрфункцию.
+    max_heads: 2
+    execution: sequential
+  triangular_probe:
+    use_when: Две головы образовали ложную бинарность или требуется третий масштаб.
+    max_heads: 3
+    execution: sequential
+  full_council:
+    use_when: Только для конституционных, многомасштабных или acceptance-сцен.
+    max_heads: 7
+    execution: sequential
+    warning: Не использовать как стандартный режим.
+N8:
+  mode: after_base_council
+  activation:
+  - explicit_request
+  - unresolved_high_tension
+  - false_consensus_risk
+  - ontological_closure_risk
+  - high_stakes_synthesis
+  max_meta_passes: 1
+  may_request_reopen: true
+  may_finalize: false
+  may_orchestrate: false

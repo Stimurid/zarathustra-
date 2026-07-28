@@ -16,6 +16,7 @@ if hasattr(sys.stdout, "buffer"):
         pass
 
 from .config import RUNS_DIR
+from .persona_layer import PersonaCouncilRuntime, load_persona_layer_registry
 from .personas import load_registry
 from .pipeline import Pipeline
 from .schemas import to_plain
@@ -85,6 +86,32 @@ def _cmd_personas_list(_args: argparse.Namespace) -> int:
         role = p.role_summary[:80] if p.role_summary else ""
         marker = " [fixture]" if p.is_fixture else ""
         print(f"{p.persona_id}\t{p.display_name}\t{p.status}\t{role}{marker}")
+    return 0
+
+
+def _cmd_persona_layer_validate(_args: argparse.Namespace) -> int:
+    reg = load_persona_layer_registry()
+    print(f"persona-layer packages loaded: {len(reg.personas)}")
+    for pkg in reg.personas.values():
+        print(f"  - {pkg.persona_id} v{pkg.manifest.get('version', '?')} cards={len(pkg.cards)} ops={len(pkg.operations)}")
+    if reg.issues:
+        print("\nissues:")
+        for issue in reg.issues:
+            print(f"  [{issue.severity}] {issue.scope}: {issue.detail}")
+    return 1 if any(i.severity == "error" for i in reg.issues) else 0
+
+
+def _cmd_persona_layer_rebuild(args: argparse.Namespace) -> int:
+    runtime = PersonaCouncilRuntime()
+    manifest = runtime.index.rebuild(runtime.registry, "python -m californian_id persona-layer rebuild-index")
+    print(json.dumps(manifest, ensure_ascii=False, indent=2))
+    return 0
+
+
+def _cmd_persona_layer_run(args: argparse.Namespace) -> int:
+    runtime = PersonaCouncilRuntime()
+    result = runtime.run(args.text, enable_nemo8=not args.disable_nemo8)
+    print(json.dumps(result.trace, ensure_ascii=False, indent=2))
     return 0
 
 
@@ -200,6 +227,17 @@ def build_parser() -> argparse.ArgumentParser:
     plist.set_defaults(func=_cmd_personas_list)
     pval = psub.add_parser("validate", help="Alias for `validate`")
     pval.set_defaults(func=_cmd_validate)
+
+    layer = sub.add_parser("persona-layer", help="Seven-head + NEMO-8 runtime operations")
+    lsub = layer.add_subparsers(dest="lcmd", required=True)
+    lval = lsub.add_parser("validate", help="Validate integrated persona-layer assets")
+    lval.set_defaults(func=_cmd_persona_layer_validate)
+    lrebuild = lsub.add_parser("rebuild-index", help="Rebuild persona-layer retrieval index from source cards")
+    lrebuild.set_defaults(func=_cmd_persona_layer_rebuild)
+    lrun = lsub.add_parser("run-scenario", help="Run the integrated persona-layer council locally")
+    lrun.add_argument("--text", required=True, help="Scenario text")
+    lrun.add_argument("--disable-nemo8", action="store_true", help="Run only the base seven-head council")
+    lrun.set_defaults(func=_cmd_persona_layer_run)
 
     return p
 

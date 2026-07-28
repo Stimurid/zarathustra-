@@ -1,0 +1,83 @@
+schema_version: 0.1.0
+policy_id: CALIFORNIAN_ID.RETRIEVAL_NAMESPACES
+status: candidate
+backend:
+  preferred: hybrid_lexical_vector
+  required_fallback: lexical
+  agentic_rag: false
+namespaces:
+  C:
+    canon: persona.C.canon
+    internal_debates: persona.C.internal_debates
+    counter_canon: persona.C.counter_canon
+    cases_and_failures: persona.C.cases_and_failures
+    memory: persona.C.memory
+  T:
+    canon: persona.T.canon
+    internal_debates: persona.T.internal_debates
+    counter_canon: persona.T.counter_canon
+    cases_and_failures: persona.T.cases_and_failures
+    memory: persona.T.memory
+  Ex:
+    canon: persona.Ex.canon
+    internal_debates: persona.Ex.internal_debates
+    counter_canon: persona.Ex.counter_canon
+    cases_and_failures: persona.Ex.cases_and_failures
+    memory: persona.Ex.memory
+  S:
+    canon: persona.S.canon
+    internal_debates: persona.S.internal_debates
+    counter_canon: persona.S.counter_canon
+    cases_and_failures: persona.S.cases_and_failures
+    memory: persona.S.memory
+  R:
+    canon: persona.R.canon
+    internal_debates: persona.R.internal_debates
+    counter_canon: persona.R.counter_canon
+    cases_and_failures: persona.R.cases_and_failures
+    memory: persona.R.memory
+  EA:
+    canon: persona.EA.canon
+    internal_debates: persona.EA.internal_debates
+    counter_canon: persona.EA.counter_canon
+    cases_and_failures: persona.EA.cases_and_failures
+    memory: persona.EA.memory
+  L:
+    canon: persona.L.canon
+    internal_debates: persona.L.internal_debates
+    counter_canon: persona.L.counter_canon
+    cases_and_failures: persona.L.cases_and_failures
+    memory: persona.L.memory
+  N8:
+    evidence: N8_EVIDENCE
+    donor_operations: N8_DONOR_OPERATIONS
+    counter_canon: N8_COUNTER_CANON
+    relations: N8_RELATIONS
+    cases_and_failures: N8_CASES_AND_FAILURES
+    self_history: N8_SELF_HISTORY
+global_rules:
+- Каждая голова извлекает материалы только из собственных namespace, кроме явно маркированного
+  cross_persona_retrieval.
+- Первичный текст, внутренний спор, контрканон и кейсы хранятся раздельно.
+- Комментарий не может быть выдан за первичный источник.
+- Нельзя смешивать разные переводы и редакции без version metadata.
+- Каждый retrieval event сохраняет query, filters, source_id, locator, score, reason
+  и run_id.
+- 'Similarity не определяет операцию: операция выбирается до retrieval по состоянию
+  тела.'
+retrieval_result_contract:
+  required_fields:
+  - persona_id
+  - namespace
+  - source_id
+  - source_type
+  - author
+  - work
+  - locator
+  - edition
+  - translation
+  - card_type
+  - text_or_card
+  - score
+  - retrieval_reason
+  - provenance_status
