@@ -23,7 +23,9 @@ from .interaction import assess_input, detect_repetition, to_security_events
 from .memory import ConversationMemory
 from .models import Message, build_client
 from .personas import PersonaRegistry, load_registry
+from .regimes import CRITIQUE_REGIMES, VARIATION_REGIMES
 from .retrieval import LexicalPersonaRetriever
+from .router_scoring import summarize_route_trace
 from .schemas import (
     Action,
     ArgumentMap,
@@ -68,13 +70,27 @@ class Pipeline:
         self.cultural = CulturalIndex()
 
     # ---------- Public entry (raw text) ----------
-    def run(self, text: str, mode: str | None = None, run_id: str | None = None) -> PipelineResult:
+    def run(
+        self,
+        text: str,
+        mode: str | None = None,
+        run_id: str | None = None,
+        critique_regime: str = "balanced",
+        variation_regime: str = "normal",
+    ) -> PipelineResult:
         mode = mode or self.config.default_mode
+        critique_regime = critique_regime if critique_regime in CRITIQUE_REGIMES else "balanced"
+        variation_regime = variation_regime if variation_regime in VARIATION_REGIMES else "normal"
         run_id = run_id or new_run_id()
         state = RunState(run_id=run_id, mode=mode, input_text=text)
         state.stamp("run_started")
         trace = TraceRecorder(run_id)
-        trace.event("run_started", {"mode": mode, "input_chars": len(text)})
+        trace.event("run_started", {
+            "mode": mode,
+            "input_chars": len(text),
+            "critique_regime": critique_regime,
+            "variation_regime": variation_regime,
+        })
 
         registry = load_registry()
         state.persona_registry_snapshot = registry.snapshot()
@@ -142,6 +158,7 @@ class Pipeline:
 
         already_called: list[str] = []
         registry_ids = state.selected_personas or [p.persona_id for p in active_personas]
+        route_traces: list[dict[str, Any]] = []
 
         for turn_index in range(max_turns):
             state.transition("STOPPING_CHECK")
@@ -149,21 +166,39 @@ class Pipeline:
                 # Zarathustra opens with a canonical first voice from cast
                 first = registry_ids[0]
                 decision = self.zarathustra.route_next(
-                    routing_client, registry_ids, already_called, state.turns, state.situation
+                    routing_client,
+                    registry_ids,
+                    already_called,
+                    state.turns,
+                    state.situation,
+                    critique_regime=critique_regime,
+                    variation_regime=variation_regime,
                 )
                 if decision.next_persona not in registry_ids:
                     decision = type(decision)(next_persona=first, operation="initial_position", reason="seed")
                 else:
                     decision.operation = "initial_position"
+                if decision.trace is not None:
+                    decision.trace["selected_operation"] = "initial_position"
+                    decision.trace["selected_class"] = "stabilize"
             else:
                 decision = self.zarathustra.route_next(
-                    routing_client, registry_ids, already_called, state.turns, state.situation
+                    routing_client,
+                    registry_ids,
+                    already_called,
+                    state.turns,
+                    state.situation,
+                    critique_regime=critique_regime,
+                    variation_regime=variation_regime,
                 )
+            if decision.trace:
+                route_traces.append(decision.trace)
             trace.event("route", {
                 "turn_index": turn_index,
                 "persona_id": decision.next_persona,
                 "operation": decision.operation,
                 "reason": decision.reason,
+                **(decision.trace or {}),
             })
 
             state.transition("COUNCIL_RUNNING")
@@ -210,6 +245,9 @@ class Pipeline:
                 evidence=evidence,
                 cultural_cards=turn_cards, # <-- + культурные карты
                 routing_reason=decision.reason,
+                critique_regime=critique_regime,
+                variation_regime=variation_regime,
+                route_trace=decision.trace or {},
             )
             state.turns.append(turn)
             already_called.append(persona.persona_id)
@@ -348,6 +386,7 @@ class Pipeline:
             "turns": len(state.turns),
             "stopping_reason": state.stopping_reason,
             "completion_form": completion.form,
+            "regime_metrics": summarize_route_trace(route_traces),
         })
         trace.dump_state({"state": state.as_json(), "memory": memory.as_dict()})
         return PipelineResult(state, memory, trace.dir)
@@ -358,6 +397,8 @@ class Pipeline:
         pack: UnitPack,
         mode: str | None = None,
         run_id: str | None = None,
+        critique_regime: str = "balanced",
+        variation_regime: str = "normal",
     ) -> PipelineResult:
         """Seed council state from a UnitPack instead of raw text.
 
@@ -368,6 +409,8 @@ class Pipeline:
         that Zarathustra knows attribution is unreliable.
         """
         mode = mode or self.config.default_mode
+        critique_regime = critique_regime if critique_regime in CRITIQUE_REGIMES else "balanced"
+        variation_regime = variation_regime if variation_regime in VARIATION_REGIMES else "normal"
         run_id = run_id or new_run_id()
         input_summary = (
             f"UnitPack: {len(pack.units)} units | "
@@ -385,6 +428,8 @@ class Pipeline:
             "source_path": pack.source_path,
             "cutter_id": pack.cutter_id,
             "cutter_model": pack.cutter_model,
+            "critique_regime": critique_regime,
+            "variation_regime": variation_regime,
         })
 
         registry = load_registry()
@@ -442,6 +487,7 @@ class Pipeline:
         state.transition("COUNCIL_RUNNING")
         already_called: list[str] = []
         registry_ids = state.selected_personas or [p.persona_id for p in active_personas]
+        route_traces: list[dict[str, Any]] = []
 
         # Chorus turn -1: source-audit signals go in BEFORE the first head speaks.
         if pack.source_audit is not None:
@@ -476,16 +522,28 @@ class Pipeline:
         for turn_index in range(max_turns):
             state.transition("STOPPING_CHECK")
             decision = self.zarathustra.route_next(
-                routing_client, registry_ids, already_called, state.turns, state.situation
+                routing_client,
+                registry_ids,
+                already_called,
+                state.turns,
+                state.situation,
+                critique_regime=critique_regime,
+                variation_regime=variation_regime,
             )
             if turn_index == 0 and decision.next_persona not in registry_ids:
                 decision.next_persona = registry_ids[0]
                 decision.operation = "initial_position"
+            if turn_index == 0 and decision.trace is not None:
+                decision.trace["selected_operation"] = "initial_position"
+                decision.trace["selected_class"] = "stabilize"
+            if decision.trace:
+                route_traces.append(decision.trace)
             trace.event("route", {
                 "turn_index": turn_index,
                 "persona_id": decision.next_persona,
                 "operation": decision.operation,
                 "reason": decision.reason,
+                **(decision.trace or {}),
             })
             state.transition("COUNCIL_RUNNING")
             persona = registry.by_id(decision.next_persona)
@@ -526,6 +584,9 @@ class Pipeline:
                 evidence=evidence,
                 cultural_cards=turn_cards,
                 routing_reason=decision.reason,
+                critique_regime=critique_regime,
+                variation_regime=variation_regime,
+                route_trace=decision.trace or {},
             )
             state.turns.append(turn)
             already_called.append(persona.persona_id)
@@ -607,6 +668,7 @@ class Pipeline:
             "stopping_reason": state.stopping_reason,
             "completion_form": completion.form,
             "entrypoint": "run_from_units",
+            "regime_metrics": summarize_route_trace(route_traces),
         })
         trace.dump_state({"state": state.as_json(), "memory": memory.as_dict()})
         return PipelineResult(state, memory, trace.dir)
@@ -624,6 +686,9 @@ class Pipeline:
         evidence: list,
         cultural_cards: list | None = None,
         routing_reason: str = "",
+        critique_regime: str = "balanced",
+        variation_regime: str = "normal",
+        route_trace: dict[str, Any] | None = None,
     ) -> TurnRecord:
         prior_snippets = [
             f"[{t.persona_id} — {t.operation}]: {t.utterance[:220]}"
@@ -633,6 +698,7 @@ class Pipeline:
             f"[{e.source_id}#{e.locator}]: {e.text[:280]}" for e in evidence
         ]
         body_snapshot = body.snapshot_for_head(max_items=4)
+        route_trace = route_trace or {}
 
         # B2: cultural cards visible to the persona at turn time
         cultural_hints = []
@@ -659,13 +725,27 @@ class Pipeline:
             "topic": situation_topic,
             "operation": operation,
             "turn_index": turn_index,
+            "critique_regime": critique_regime,
+            "variation_regime": variation_regime,
             # Голова видит текущее СОСТОЯНИЕ ОБЩЕГО ТЕЛА.
             "body": body_snapshot,
             "prior_snippets": prior_snippets,
             "evidence": evidence_snippets,
+            "routing_contract": {
+                "canonical_operation": route_trace.get("canonical_operation"),
+                "selected_operation": route_trace.get("selected_operation", operation),
+                "selected_class": route_trace.get("selected_class"),
+                "recent_operations": route_trace.get("recent_operations", []),
+                "recent_classes": route_trace.get("recent_classes", []),
+                "selection_reason": route_trace.get("selection_reason", []),
+            },
             # B2: культурные карты — не обязательны к цитированию, но входят
             # в контекст. При provenance_status != quoted — не цитировать.
             "cultural_hints": cultural_hints,
+            "regime_instruction": {
+                "critique": CRITIQUE_REGIMES[critique_regime].directness_hint,
+                "variation": VARIATION_REGIMES[variation_regime].prompt_hint,
+            },
             "instruction": (
                 "Верни JSON согласно схеме persona turn: "
                 "persona_id, operation, utterance, claims, assumptions, values, "
@@ -690,6 +770,8 @@ class Pipeline:
                 "operation": operation,
                 "topic": situation_topic,
                 "attack_target": prior_turns[-1].persona_id if prior_turns else "previous_turn",
+                "critique_regime": critique_regime,
+                "variation_regime": variation_regime,
             },
         )
 

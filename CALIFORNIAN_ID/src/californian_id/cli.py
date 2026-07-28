@@ -31,12 +31,22 @@ def _cmd_run(args: argparse.Namespace) -> int:
     if args.units_file:
         from .adapters.units_of_content_md import parse_md_units_file
         pack = parse_md_units_file(args.units_file)
-        result = pipe.run_from_units(pack, mode=args.mode)
+        result = pipe.run_from_units(
+            pack,
+            mode=args.mode,
+            critique_regime=args.critique_regime,
+            variation_regime=args.variation_regime,
+        )
     else:
         text = args.text
         if args.file:
             text = Path(args.file).read_text(encoding="utf-8")
-        result = pipe.run(text=text, mode=args.mode)
+        result = pipe.run(
+            text=text,
+            mode=args.mode,
+            critique_regime=args.critique_regime,
+            variation_regime=args.variation_regime,
+        )
 
     payload = {
         "run_id": result.run_state.run_id,
@@ -229,6 +239,8 @@ def build_parser() -> argparse.ArgumentParser:
                           "(bypasses the raw-text pre-pass and seeds argument_map "
                           "directly from Toulmin structures)")
     run.add_argument("--mode", type=str, default=None, help="fast|deep (default: fast)")
+    run.add_argument("--critique-regime", choices=["gentle", "balanced", "hard"], default="balanced")
+    run.add_argument("--variation-regime", choices=["strict", "normal", "jazz"], default="normal")
     run.add_argument("--output", choices=["pretty", "json"], default="pretty")
     run.add_argument("--debug", action="store_true", help="Include internal trace fields in output")
     run.add_argument("--strict", action="store_true", help="Non-zero exit if any errors were logged")

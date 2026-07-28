@@ -97,6 +97,8 @@ class MockClient:
         role = settings.get("role", "generic")
         persona_id = settings.get("persona_id", "generic")
         operation = settings.get("operation", "initial_position")
+        critique_regime = settings.get("critique_regime", "balanced")
+        variation_regime = settings.get("variation_regime", "normal")
         topic = settings.get("topic") or _extract("topic", messages, "предмет обсуждения")
 
         stance = _persona_hint(persona_id)
@@ -178,6 +180,12 @@ class MockClient:
             shared="общая ответственность за постановку задачи",
             unresolved=f"столкновение рамок вокруг «{topic}»",
         )
+        if critique_regime == "hard":
+            utterance = f"Р‘РµР· СЃРјСЏРіС‡РµРЅРёСЏ: {utterance}"
+        elif critique_regime == "gentle":
+            utterance = f"РћСЃС‚РѕСЂРѕР¶РЅРѕ: {utterance}"
+        if variation_regime == "jazz":
+            utterance = f"{utterance} РЎРјРµРЅСЏСЋ СѓРіРѕР» Р·Р°С…РѕРґР°, С‡С‚РѕР±С‹ РЅРµ РїРѕРІС‚РѕСЂСЏС‚СЊ С‚Сѓ Р¶Рµ С‚СЂР°РµРєС‚РѕСЂРёСЋ."
         payload = {
             "persona_id": persona_id,
             "operation": operation,

@@ -31,6 +31,9 @@ from typing import Any
 from .config import ZARATHUSTRA_DIR
 from .models import Message, ModelClient
 from .personas import Persona
+from .regimes import CRITIQUE_REGIMES, VARIATION_REGIMES
+from .rhetoric import OPERATION_ALTERNATIVES, operation_class, recent_classes, recent_operations
+from .router_scoring import score_candidates
 from .schemas import (
     AllianceRecord,
     ArgumentMap,
@@ -105,6 +108,7 @@ class RoutingDecision:
     next_persona: str
     operation: str
     reason: str
+    trace: dict[str, Any] | None = None
 
 
 @dataclass
@@ -320,8 +324,26 @@ class Zarathustra:
         already_called: list[str],
         turns: list[TurnRecord],
         situation: SituationAnalysis,
+        critique_regime: str = "balanced",
+        variation_regime: str = "normal",
     ) -> RoutingDecision:
-        suggested_op = self._suggest_operation(turns, situation)
+        critique_spec = CRITIQUE_REGIMES[critique_regime]
+        variation_spec = VARIATION_REGIMES[variation_regime]
+        canonical_op = self._canonical_operation(turns, situation)
+        candidate_ops = self._candidate_operations(canonical_op)
+        scored = score_candidates(candidate_ops, canonical_op, turns, critique_spec, variation_spec)
+        suggested_op = scored[0].operation
+        route_trace = {
+            "critique_regime": critique_regime,
+            "variation_regime": variation_regime,
+            "canonical_operation": canonical_op,
+            "selected_operation": suggested_op,
+            "selected_class": operation_class(suggested_op),
+            "recent_operations": recent_operations(turns, n=3),
+            "recent_classes": recent_classes(turns, n=3),
+            "candidate_scores": [item.as_dict() for item in scored],
+            "selection_reason": scored[0].reasons,
+        }
         route_prompt = self.prompt("04_head_calling.md") or _DEFAULT_ROUTE_PROMPT
         messages = [
             Message(role="system", content=route_prompt),
@@ -334,6 +356,10 @@ class Zarathustra:
                 "available_personas": registry_ids,
                 "already_called": already_called,
                 "suggested_operation": suggested_op,
+                "canonical_operation": canonical_op,
+                "candidate_operations": candidate_ops,
+                "critique_regime": critique_regime,
+                "variation_regime": variation_regime,
                 "topic": situation.topic,
             },
         )
@@ -346,12 +372,15 @@ class Zarathustra:
                 pid = self._fallback_persona(registry_ids, already_called)
             if op not in TURN_OPERATIONS:
                 op = suggested_op
-            return RoutingDecision(next_persona=pid, operation=op, reason=reason)
+            route_trace["selected_operation"] = op
+            route_trace["selected_class"] = operation_class(op)
+            return RoutingDecision(next_persona=pid, operation=op, reason=reason, trace=route_trace)
         except Exception as e:
             return RoutingDecision(
                 next_persona=self._fallback_persona(registry_ids, already_called),
                 operation=suggested_op,
                 reason=f"deterministic fallback ({e})",
+                trace=route_trace,
             )
 
     def _fallback_persona(self, registry_ids: list[str], already: list[str]) -> str:
@@ -361,6 +390,23 @@ class Zarathustra:
         return min(registry_ids, key=lambda pid: sum(1 for x in already if x == pid))
 
     def _suggest_operation(
+        self,
+        turns: list[TurnRecord],
+        situation: SituationAnalysis | None = None,
+        critique_regime: str = "balanced",
+        variation_regime: str = "normal",
+    ) -> str:
+        canonical_op = self._canonical_operation(turns, situation)
+        scored = score_candidates(
+            self._candidate_operations(canonical_op),
+            canonical_op,
+            turns,
+            CRITIQUE_REGIMES[critique_regime],
+            VARIATION_REGIMES[variation_regime],
+        )
+        return scored[0].operation
+
+    def _canonical_operation(
         self, turns: list[TurnRecord], situation: SituationAnalysis | None = None
     ) -> str:
         """Suggestion, чувствительный к ситуации.
@@ -438,6 +484,13 @@ class Zarathustra:
             "dispute_zarathustra": "restore_ground",
         }
         return cycle.get(last.operation, "attack_presupposition")
+
+    def _candidate_operations(self, canonical_operation: str) -> list[str]:
+        candidates = [canonical_operation]
+        for operation in OPERATION_ALTERNATIVES.get(canonical_operation, []):
+            if operation in TURN_OPERATIONS and operation not in candidates:
+                candidates.append(operation)
+        return candidates
 
     def _route_context(
         self,
