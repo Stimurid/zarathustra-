@@ -5,6 +5,33 @@ from typing import Any
 
 from .base import Message, ModelResult
 
+_INTERNAL_SETTING_KEYS = {
+    "role",
+    "persona_id",
+    "operation",
+    "topic",
+    "available_personas",
+    "already_called",
+    "suggested_operation",
+    "canonical_operation",
+    "candidate_operations",
+    "critique_regime",
+    "variation_regime",
+    "turns",
+    "conflict_map",
+    "strongest_arguments",
+    "minority_positions",
+    "attack_target",
+    "selected_operation",
+    "selected_class",
+    "recent_operations",
+    "recent_classes",
+    "selection_reason",
+    "candidate_scores",
+    "routing_contract",
+    "regime_instruction",
+}
+
 
 class AnthropicClient:
     provider = "anthropic"
@@ -35,18 +62,8 @@ class AnthropicClient:
             if m.role in {"user", "assistant"}
         ]
         merged = {**self.settings, **(settings or {})}
-        merged.pop("role", None)
-        merged.pop("persona_id", None)
-        merged.pop("operation", None)
-        merged.pop("topic", None)
-        merged.pop("available_personas", None)
-        merged.pop("already_called", None)
-        merged.pop("suggested_operation", None)
-        merged.pop("turns", None)
-        merged.pop("conflict_map", None)
-        merged.pop("strongest_arguments", None)
-        merged.pop("minority_positions", None)
-        merged.pop("attack_target", None)
+        for k in _INTERNAL_SETTING_KEYS:
+            merged.pop(k, None)
         max_tokens = merged.pop("max_tokens", 4096)
         resp = self._client.messages.create(
             model=self.model,

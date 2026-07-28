@@ -20,6 +20,7 @@ from .persona_layer import PersonaCouncilRuntime, load_persona_layer_registry
 from .personas import load_registry
 from .pipeline import Pipeline
 from .schemas import to_plain
+from .web_ui import serve_web_ui
 
 
 def _cmd_run(args: argparse.Namespace) -> int:
@@ -138,6 +139,11 @@ def _cmd_persona_layer_route(args: argparse.Namespace) -> int:
         "fixed_order_fallback_used": route.fixed_order_fallback_used,
         "rationale": route.rationale,
     }, ensure_ascii=False, indent=2))
+    return 0
+
+
+def _cmd_web_ui(args: argparse.Namespace) -> int:
+    serve_web_ui(host=args.host, port=args.port)
     return 0
 
 
@@ -270,6 +276,11 @@ def build_parser() -> argparse.ArgumentParser:
     lroute.add_argument("--text", required=True, help="Scenario text")
     lroute.add_argument("--disable-nemo8", action="store_true", help="Force NEMO-8 off for route inspection")
     lroute.set_defaults(func=_cmd_persona_layer_route)
+
+    webui = sub.add_parser("web-ui", help="Run a minimal browser UI for text or units input")
+    webui.add_argument("--host", default="127.0.0.1")
+    webui.add_argument("--port", type=int, default=8765)
+    webui.set_defaults(func=_cmd_web_ui)
 
     return p
 

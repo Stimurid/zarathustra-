@@ -5,6 +5,33 @@ from typing import Any
 
 from .base import Message, ModelResult
 
+_INTERNAL_SETTING_KEYS = {
+    "role",
+    "persona_id",
+    "operation",
+    "topic",
+    "available_personas",
+    "already_called",
+    "suggested_operation",
+    "canonical_operation",
+    "candidate_operations",
+    "critique_regime",
+    "variation_regime",
+    "turns",
+    "conflict_map",
+    "strongest_arguments",
+    "minority_positions",
+    "attack_target",
+    "selected_operation",
+    "selected_class",
+    "recent_operations",
+    "recent_classes",
+    "selection_reason",
+    "candidate_scores",
+    "routing_contract",
+    "regime_instruction",
+}
+
 
 class OpenAIClient:
     provider = "openai"
@@ -28,9 +55,7 @@ class OpenAIClient:
         settings: dict[str, Any] | None = None,
     ) -> ModelResult:
         merged = {**self.settings, **(settings or {})}
-        for k in ("role", "persona_id", "operation", "topic", "available_personas",
-                  "already_called", "suggested_operation", "turns", "conflict_map",
-                  "strongest_arguments", "minority_positions", "attack_target"):
+        for k in _INTERNAL_SETTING_KEYS:
             merged.pop(k, None)
         chat = [{"role": m.role, "content": m.content} for m in messages]
         resp = self._client.chat.completions.create(
