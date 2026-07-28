@@ -1,0 +1,83 @@
+artifact_id: N8-ZARATHUSTRA-BINDING
+version: 0.2.0-candidate
+persona_id: N8
+host: Zarathustra
+invocation:
+  default_position: after the seven heads or after a provisional synthesis
+  allowed_direct_call: true
+  system_prompt_file: 03_RUNTIME/runtime_prompt.md
+  input_schema: 00_CONTRACTS/input_schema.json
+  output_schema: 00_CONTRACTS/output_schema.json
+  retrieval_policy: 00_CONTRACTS/rag_policy.yaml
+  card_store: 02_RAG_CARDS/cards.jsonl
+  relations_file: 00_CONTRACTS/relations.yaml
+  operation_ownership_file: 00_CONTRACTS/boundary_ownership.yaml
+routing:
+  call_when:
+  - AFTER_VICTORY
+  - AFTER_DEFEAT
+  - AFTER_STALEMATE
+  - FALSE_SYNTHESIS
+  - HUMAN_FRAME_EXHAUSTED
+  - ADDRESS_COLLAPSE
+  - POWER_MANDATE_COLLAPSE
+  - TRANSLATION_LOSS
+  - FUTURE_BLACKMAIL
+  - CRITIQUE_WITHOUT_DELTA
+  - MODE_CHANGE_REQUIRED
+  - DIRECT_CALL
+  do_not_call_when:
+  - simple factual task with no relevant gate
+  - request is already adequately answered by one head
+  - only stylistic xeno effect is desired
+  parallelism: N8 may read all seven outputs but should normally answer after their provisional resolution; parallel direct-call
+    is allowed only when Zarathustra marks DIRECT_CALL.
+  max_operations_per_turn: 3
+  pre_call_checks:
+  - real_entry_gate
+  - head_owned_task_identified
+  - namespace_balanced_retrieval
+  - countercanon_card_present
+return_contract:
+  internal: full structured object validated by output_schema.json
+  external_default:
+  - intervention.utterance
+  - distinction
+  - body_delta
+  - residue
+  - self_critique
+  - exit
+  zarathustra_may_reject: true
+  retained_dissent_required_on_rejection: true
+  internal_required_additions:
+  - ownership_check
+  - countercanon_check
+memory:
+  write_only_on_real_change: true
+  allowed_operations:
+  - append
+  - supersede_with_trace
+  - fork
+  - merge_with_residue
+  - narrow
+  - reclassify
+  - repair
+  - forget_with_residue
+  - transfer_ownership
+  - suspend
+  - close_with_reopen_condition
+  forbidden_appropriations:
+  - another persona position
+  - Zarathustra final answer
+  - user instruction
+  - RAG fragment
+  - external myth
+  - system configuration
+  - rhetorical image
+fallback:
+  no_retrieval: continue from constitution with reduced confidence and evidence-gap marker
+  schema_failure: return one repair attempt; then typed refusal provenance_failure
+  no_gate: OP-N8-20 RETURN_TO_ORDINARY or OP-N8-14 no_needed_intervention
+  incomplete_human_head: Mark dependency and do not let N8 simulate the missing source pass; return routing or a narrowly
+    scoped scene repair.
+activation_status: persona_package_complete_candidate; depends on shared G-P13/G-P14 reconciliation for live council runtime

@@ -1,0 +1,72 @@
+artifact_id: N8-RAG-POLICY
+version: 0.2.0-candidate
+persona_id: N8
+namespaces:
+  N8_EVIDENCE: Observed N8 outputs and evidence matrix; only namespace that can establish already manifested identity.
+  N8_STIMULI: Prompts and source stimuli; never treated as N8 position.
+  N8_DONOR_OPERATIONS: Transferable operations extracted from donors; donors do not become identity.
+  N8_COUNTER_CANON: Critique, anti-donors, limits and counterexamples.
+  N8_CASES_AND_FAILURES: Runtime cases, failures, repairs and negative examples.
+  N8_SELF_HISTORY: N8 versions, revisions, errors, repairs, naming and ontological-status changes.
+  N8_CULTURAL_MATERIALS: Mythic, ritual, poetic and cultural materials with explicit mode and provenance.
+  N8_RELATIONS: Boundaries, ownership, productive pairs and handoff conditions with C/T/Ex/S/R/EA/L.
+priority:
+- direct_evidence
+- current_conflict
+- exact_scene_object
+- primary_source
+- counter_canon
+- own_previous_failure
+- cultural_origin
+- exact_locator
+retrieval_contract:
+  query_fields:
+  - scene_object
+  - entry_gate
+  - distinction
+  - operation_candidate
+  - affected_subjects
+  - source_status
+  max_cards_default: 12
+  max_cards_direct_call: 16
+  minimum_direct_evidence_cards_when_available: 2
+  require_counter_card_for_normative_claim: true
+  require_locator_for_quote: true
+  minimum_donor_cards_when_material: 2
+  minimum_countercanon_cards: 1
+  minimum_relation_cards_when_head_relevant: 1
+  max_share_single_namespace: 0.55
+prohibitions:
+- donor_as_personality
+- stimulus_as_position
+- invented_quote
+- similarity_as_evidence
+- sacred_tradition_appropriation
+- RAG_selects_position
+- silent_status_merge
+- relation_card_as_authority_over_other_head
+- countercanon_as_automatic_veto
+- retrieval_bundle_without_namespace_balance
+- R_boundary_as_source_complete_before_G-P10
+fallback: If retrieval is absent, operate from constitution and runtime prompt, mark the evidence gap, narrow confidence,
+  and do not fabricate source support.
+bundle_profiles:
+  council_post_synthesis:
+  - 2 evidence
+  - 2 donor
+  - 1 countercanon
+  - 1-3 relation
+  direct_call:
+  - 2 evidence
+  - 2 donor
+  - 2 countercanon
+  - relation cards for any displaced head
+  material_infrastructure:
+  - 1 evidence
+  - 3 donor including recalcitrance/labour/interface
+  - 1 countercanon
+  boundary_conflict:
+  - 1 evidence
+  - 1 donor
+  - 1 countercanon
+  - 2 relation cards

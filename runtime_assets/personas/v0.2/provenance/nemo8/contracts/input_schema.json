@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/schemas/n8-input-v0.2.schema.json",
+  "title": "N8 Zarathustra Invocation v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "current_body",
+    "council_state",
+    "zarathustra_directive"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "current_body": {
+      "type": "object",
+      "description": "Current shared body projection; schema owned by Zarathustra."
+    },
+    "council_state": {
+      "type": "object",
+      "required": [
+        "voices"
+      ],
+      "properties": {
+        "voices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "persona_id",
+              "status"
+            ],
+            "properties": {
+              "persona_id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "claim": {},
+              "body_delta": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "apparent_winner": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "procedural_losers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "false_synthesis_candidate": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "zarathustra_directive": {
+      "type": "object",
+      "required": [
+        "task"
+      ],
+      "properties": {
+        "task": {
+          "type": "string"
+        },
+        "requested_mode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "candidate_gate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "AFTER_VICTORY",
+            "AFTER_DEFEAT",
+            "AFTER_STALEMATE",
+            "FALSE_SYNTHESIS",
+            "HUMAN_FRAME_EXHAUSTED",
+            "ADDRESS_COLLAPSE",
+            "POWER_MANDATE_COLLAPSE",
+            "TRANSLATION_LOSS",
+            "FUTURE_BLACKMAIL",
+            "CRITIQUE_WITHOUT_DELTA",
+            "MODE_CHANGE_REQUIRED",
+            "DIRECT_CALL",
+            null
+          ]
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "previous_voice": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "user_request": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "retrieval_context": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "card_id",
+          "namespace",
+          "content"
+        ],
+        "properties": {
+          "card_id": {
+            "type": "string"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "score": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "memory_projection": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "time_budget": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "persona_package_versions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Exact versions of council PersonaPack inputs when available."
+    },
+    "retrieval_bundle": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Namespace-balanced cards selected outside the persona; retrieval does not select the position."
+    },
+    "operation_ownership_context": {
+      "type": "object",
+      "description": "Optional exact operation registry and current owner map."
+    }
+  }
+}

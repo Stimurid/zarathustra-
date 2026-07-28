@@ -1,0 +1,173 @@
+artifact_id: N8-PERSONA-PACKAGE
+version: 0.2.0-candidate
+status: completed_candidate_enriched_persona_package
+persona_id: N8
+display_name: NEMO-8
+generated_at: '2026-07-28'
+supersedes: 0.1.0-candidate
+completion:
+  persona_node: true
+  runtime_prompt: true
+  source_manifest: true
+  countercanon_cards: 36
+  relation_cards: 35
+  direct_evidence_cards: 48
+  donor_cards: 80
+  rag_cards_total: 199
+  operations_exact: 30
+  distinctions: 34
+  input_schema: true
+  output_schema: true
+  relations: true
+  rag_policy: true
+  zarathustra_binding: true
+  handoff: true
+  behavioural_tests: false
+dependencies_open:
+- G-P10 Rationalist source pass
+- shared PERSONA_REGISTRY and operation registry
+- shared BODY_DELTA_SCHEMA reconciliation
+- persona-scoped retrieval indexes
+- end-to-end council activation trace
+authority_files:
+- 00_CONTRACTS/persona_constitution.md
+- 03_RUNTIME/runtime_prompt.md
+- 00_CONTRACTS/operations.yaml
+- 00_CONTRACTS/relations.yaml
+- 02_RAG_CARDS/cards.jsonl
+files:
+- path: 00_CONTRACTS/boundary_ownership.yaml
+  bytes: 7941
+  sha256: 3388de13a80688e8fc066191fe656db2824eeb404b72126773399856806d9368
+- path: 00_CONTRACTS/input_schema.json
+  bytes: 4215
+  sha256: d63f84fad4320abd925d2e98df5a206b33fb339a001007cc336a3fc0cdd3717c
+- path: 00_CONTRACTS/operation_reconciliation.yaml
+  bytes: 4031
+  sha256: ec74ef9f839444dd9d5d1a5746f61eeae31b6944811e79905c9cd216d807ac06
+- path: 00_CONTRACTS/operations.yaml
+  bytes: 12641
+  sha256: dfe2e7e797d4d75a6066d7151f8397f1108657d84af7981c5e33617c6f299376
+- path: 00_CONTRACTS/output_schema.json
+  bytes: 14037
+  sha256: d3b85349fcd84ed583f05a2b84b02660aab909dc152f72524caca4a6bc0d008f
+- path: 00_CONTRACTS/persona_constitution.md
+  bytes: 4664
+  sha256: 00fe29acbae5df9e78ffe0029c811dd52b927e49b2e89e687865dcbe42d36570
+- path: 00_CONTRACTS/rag_policy.yaml
+  bytes: 2393
+  sha256: bd3035679a672f63485b386bfb04fd09145f022977a9ffd88586948f75fe298e
+- path: 00_CONTRACTS/relations.yaml
+  bytes: 17978
+  sha256: 283dcac2e6cdf7f257334ffb76232031ef1387a20e1c7317061014624e15df7f
+- path: 01_SOURCES_AND_EVIDENCE/COUNTERCANON_v0.2.md
+  bytes: 16190
+  sha256: 67fd5b4f68e66e2d923e5d4dd30d5f7aca22fd25da37095caa1344ebf6031395
+- path: 01_SOURCES_AND_EVIDENCE/EXTRACTS_WAVE1/EX-ARGUMENTATION-v0.1.md
+  bytes: 2213
+  sha256: dae0a566a708ed87a5c741323f0c22dc113bf1f475cf43dcfc0b04910a28bede
+- path: 01_SOURCES_AND_EVIDENCE/EXTRACTS_WAVE1/EX-BAKHTIN-v0.1.md
+  bytes: 2020
+  sha256: e46d8cff7b2149ec820a5051a7951bb06b6fc621f7366a3bb003b792768fcb83
+- path: 01_SOURCES_AND_EVIDENCE/EXTRACTS_WAVE1/EX-BAKHTIYAROV-v0.1.md
+  bytes: 2919
+  sha256: 4656c4aaa6f410789e775a07fd6dfedc9c0aa33773bb2dc852a5f8ea1c3d6f71
+- path: 01_SOURCES_AND_EVIDENCE/EXTRACTS_WAVE1/EX-BEYOND_STORAGE-v0.1.md
+  bytes: 2271
+  sha256: 024daa2a93162b97ba51831578a241f81feeb9985541c7219ea8ced70996e351
+- path: 01_SOURCES_AND_EVIDENCE/EXTRACTS_WAVE1/EX-DELEUZE_GUATTARI-v0.1.md
+  bytes: 2780
+  sha256: ee0447d56bca605e76c8ed2de43be8781802df321cf330c0a0d2d7b9bfd3ac37
+- path: 01_SOURCES_AND_EVIDENCE/EXTRACTS_WAVE1/EX-FOUCAULT-v0.1.md
+  bytes: 2012
+  sha256: 96224773a809c944b45d2a705e1001cbd6820331ca8f2ac8ba5066f0a93c87e7
+- path: 01_SOURCES_AND_EVIDENCE/EXTRACTS_WAVE1/EX-KURTOV_GUI-v0.1.md
+  bytes: 2765
+  sha256: ebf2b203984bf1aadfb4ab7abde53b87b0c6f3974e4a074a33b5f4d93721f52d
+- path: 01_SOURCES_AND_EVIDENCE/EXTRACTS_WAVE1/EX-LATOUR-v0.1.md
+  bytes: 2396
+  sha256: 92ea104c9b13bfb1d4f01af4fd2e713860706f183f78f4de24882658c3c68877
+- path: 01_SOURCES_AND_EVIDENCE/EXTRACTS_WAVE1/EX-MOROZOV-v0.1.md
+  bytes: 2603
+  sha256: 7b24964a3428c923c75666583ace435cf916796c00cc08a4d750c8a7e61e7ef1
+- path: 01_SOURCES_AND_EVIDENCE/EXTRACTS_WAVE1/EX-PASQUINELLI-v0.1.md
+  bytes: 3068
+  sha256: 88bce9acf26d27ce90a556eca0bdec4796a9f178f93be598ab0ea2194ffd977b
+- path: 01_SOURCES_AND_EVIDENCE/EXTRACTS_WAVE1/EX-SHCHEDROVITSKY-v0.1.md
+  bytes: 2970
+  sha256: d057df52d03a254fb94810e6785313e19ac47bc08885a930da322019ced9c236
+- path: 01_SOURCES_AND_EVIDENCE/EXTRACTS_WAVE1/EX-SIMONDON-v0.1.md
+  bytes: 2321
+  sha256: aff6a4cc59774f2622af9e18f469e5b178d6ac6cbd7e0a5e53891d77e3c69b4c
+- path: 01_SOURCES_AND_EVIDENCE/EXTRACTS_WAVE1/EX-WHITEHEAD-v0.1.md
+  bytes: 2560
+  sha256: f54dac7cae15b531a6e8f31dcffa0c2cc93b9e9f9a1d6d413027cce72a75206a
+- path: 01_SOURCES_AND_EVIDENCE/N8_WAVE1_SOURCE_MANIFEST.yaml
+  bytes: 4987
+  sha256: 03c0dbba820f15dbf60b3f28c6b19c3b3778dbf94389a5e897d8dcc77f86412c
+- path: 01_SOURCES_AND_EVIDENCE/R-01_EVIDENCE_MATRIX.md
+  bytes: 39534
+  sha256: a650993d53cb554b8737b88563774a7a38c7fd6c8a6246c33c5703bf4a435772
+- path: 01_SOURCES_AND_EVIDENCE/R-02_SOURCE_MANIFEST.yaml
+  bytes: 1854
+  sha256: 10daf8fbe294764bf0c2a4afda6f44e0939224238fd274a99670ab4a076dd293
+- path: 01_SOURCES_AND_EVIDENCE/SEVEN_HEAD_OVERLAP_v0.2.md
+  bytes: 16591
+  sha256: f9a7dbb87ac2ec60c5b60117c5c8d8d6b0d2daad67b16399a45284b58bf2e393
+- path: 01_SOURCES_AND_EVIDENCE/SOURCE_ATLAS_v0.1.md
+  bytes: 32718
+  sha256: 204385fd9cbf990fb3b4a61ca8fc919aa689ac60031e51b179e93ef4a332ec65
+- path: 01_SOURCES_AND_EVIDENCE/USER_PROVIDED_CORPUS_MANIFEST_WAVE_02.yaml
+  bytes: 6713
+  sha256: b27ca78f34f45c1f7cde34574bf539435c073760f41366886fe11c0be465727b
+- path: 01_SOURCES_AND_EVIDENCE/source_manifest.yaml
+  bytes: 8484
+  sha256: 44070585acce165fd9249eeebf54088e11ad306f16e6559cdeba851aa7ad1fa8
+- path: 02_RAG_CARDS/cards.jsonl
+  bytes: 249374
+  sha256: fe76cc3210cc2fe34f0f95bc87b16fe7971240a80e793f7c5058a37c99848121
+- path: 02_RAG_CARDS/cards_index.yaml
+  bytes: 845
+  sha256: 4b199647c4ad7b44212d032a4d655982e82634668fb80b5f202ed8ce8eebb041
+- path: 02_RAG_CARDS/namespace_manifest.yaml
+  bytes: 713
+  sha256: 57c585da7078eabd8155b6da4b3926015406ddf06b65a6f83bb8891d3140298c
+- path: 03_RUNTIME/council_boundary_matrix.yaml
+  bytes: 5653
+  sha256: d24789ae96cefb99c9c521f6cafa0d01b87dc8544fe223bd87e8c35dbecbb7a8
+- path: 03_RUNTIME/persona_node_full.md
+  bytes: 122280
+  sha256: 79bc1d3b4c3bfb9fcad36381e5158b8d4929c8cc21df05d46d4f25e84a07eb65
+- path: 03_RUNTIME/runtime_prompt.md
+  bytes: 33667
+  sha256: 2e6872cfb883c878469e2ad9d5a51722720366d2fbf82124a901e21c66c8363d
+- path: 03_RUNTIME/zarathustra_binding.yaml
+  bytes: 2677
+  sha256: 464fc9cd5fc6565fb86056d28c1a071f442895559110d86063f50a5b7fe760ee
+- path: 04_HANDOFF/ACTIVATION_REQUIREMENTS.md
+  bytes: 355
+  sha256: 39dfd870858d28975ba06a631f68c8c2120eba7f042bf3d1ed4163ae13239678
+- path: 04_HANDOFF/HANDOFF_CLAUDE_ZARATHUSTRA_v0.2.md
+  bytes: 1328
+  sha256: f9775e17864ab6a571f408ce2da81c7c4ca0cc381e78496bf45474741b65337d
+- path: 05_GENERATION_RECORD/G-N8-02_COMPLETION_NOTE.md
+  bytes: 604
+  sha256: 860b9186d1cd356a66b2ed160b1a1ac01e38ba36062b73ca7d27b94fbede17ab
+- path: 05_GENERATION_RECORD/GENERATION_PLAN.yaml
+  bytes: 512
+  sha256: 941f50cdfc785728bd143f36d860cf8229b2eaded1358f853c886606ed68f211
+- path: 05_GENERATION_RECORD/N8_DISTINCTIONS_OPERATIONS_WAVE1.yaml
+  bytes: 3804
+  sha256: 281a69e7660ae3714cf0dd0a4f4829ffb421ecbf92308d00e3f1e64dd7fc9916
+- path: 06_STATUS/DEFECTS_AND_LIMITS.md
+  bytes: 635
+  sha256: 335d4a8378cdf4428837cb1fee6c022b2a562457baaa51d1969772013d39e550
+- path: 06_STATUS/G-N8-03_COMPLETION_NOTE.md
+  bytes: 481
+  sha256: 0c89f44c09eb7b8dfa345772c89cbbe76309a02dfa9894193c1bb3046291d472
+- path: CHANGELOG.md
+  bytes: 407
+  sha256: a963be923ad274adb960ca3297753a1f98056a7a6cc070fe9a846a9cf52a8049
+- path: README.md
+  bytes: 784
+  sha256: acd069d66dfd4b6500a9a150500a5a98226c6cee79be9a5c91e08c4dcd57f474

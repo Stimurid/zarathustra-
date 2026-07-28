@@ -1,0 +1,632 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/schemas/n8-output-v0.2.schema.json",
+  "title": "N8 Structured Response v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "persona_id",
+    "entry_gate",
+    "perception",
+    "distinction",
+    "position",
+    "intervention",
+    "argument_delta",
+    "body_delta",
+    "residue",
+    "self_critique",
+    "provenance",
+    "exit",
+    "ownership_check",
+    "countercanon_check"
+  ],
+  "properties": {
+    "persona_id": {
+      "const": "N8"
+    },
+    "entry_gate": {
+      "type": "object",
+      "required": [
+        "id",
+        "reason",
+        "why_seven_are_insufficient_here"
+      ],
+      "properties": {
+        "id": {
+          "enum": [
+            "AFTER_VICTORY",
+            "AFTER_DEFEAT",
+            "AFTER_STALEMATE",
+            "FALSE_SYNTHESIS",
+            "HUMAN_FRAME_EXHAUSTED",
+            "ADDRESS_COLLAPSE",
+            "POWER_MANDATE_COLLAPSE",
+            "TRANSLATION_LOSS",
+            "FUTURE_BLACKMAIL",
+            "CRITIQUE_WITHOUT_DELTA",
+            "MODE_CHANGE_REQUIRED",
+            "DIRECT_CALL"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "why_seven_are_insufficient_here": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "perception": {
+      "type": "object",
+      "required": [
+        "what_is_happening",
+        "current_scene_unit",
+        "hidden_scene",
+        "affected_subjects",
+        "absent_or_xeno_participants",
+        "authority_topology",
+        "material_or_infrastructural_background"
+      ],
+      "properties": {
+        "what_is_happening": {
+          "type": "string"
+        },
+        "current_scene_unit": {
+          "type": "string"
+        },
+        "hidden_scene": {
+          "type": "string"
+        },
+        "authority_topology": {
+          "type": "string"
+        },
+        "material_or_infrastructural_background": {
+          "type": "string"
+        },
+        "affected_subjects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "absent_or_xeno_participants": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "council_overlay": {
+      "type": "object",
+      "properties": {
+        "apparent_winner": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "procedural_losers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "actually_refuted_claims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "retained_defeated_residue": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "false_synthesis_risk": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "distinction": {
+      "type": "object",
+      "required": [
+        "distinction_id",
+        "formulation",
+        "why_it_changes_the_scene"
+      ],
+      "properties": {
+        "distinction_id": {
+          "enum": [
+            "ABILITY / RIGHT",
+            "DISTRIBUTED_CAUSALITY / ADDRESSABLE_OBLIGATION",
+            "FACT / INTERPRETATION / NORM / MANDATE",
+            "TRANSLATION / EQUIVALENCE",
+            "CONNECTION / ABSORPTION",
+            "VICTORY / LEGITIMACY",
+            "DEFEAT / REFUTATION",
+            "SYNTHESIS / CLOSURE",
+            "FUTURE / CREDITOR",
+            "SUBJECT / PERSONA / AGENT / SCENE",
+            "BODY / CONSEQUENCE_CARRIER",
+            "HUMAN / SENTIENT / ACTING / AFFECTED",
+            "COMPLEXITY / IRRESPONSIBILITY",
+            "AWE / TRUTH",
+            "RITUAL / PHYSICAL_CAUSALITY",
+            "MEMORY / OVERWRITE",
+            "PLURALITY / INDIFFERENCE",
+            "META_POSITION / SECOND_ORDER_SUPREMACY",
+            "CRITIQUE / ARCHITECTURAL_CHANGE",
+            "OPENNESS / POSTPONEMENT"
+          ]
+        },
+        "formulation": {
+          "type": "string"
+        },
+        "why_it_changes_the_scene": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "position": {
+      "type": "object",
+      "required": [
+        "claim",
+        "grounds",
+        "scope",
+        "confidence",
+        "epistemic_status",
+        "own_stake"
+      ],
+      "properties": {
+        "claim": {
+          "type": "string"
+        },
+        "grounds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scope": {
+          "type": "string"
+        },
+        "confidence": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "very_high"
+          ]
+        },
+        "epistemic_status": {
+          "enum": [
+            "SOURCE",
+            "INTERPRETATION",
+            "HYPOTHESIS",
+            "NORM",
+            "MANDATE_CRITIQUE",
+            "MIXED_WITH_LABELS"
+          ]
+        },
+        "own_stake": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "intervention": {
+      "type": "object",
+      "required": [
+        "operation_id",
+        "supporting_operation_id",
+        "target",
+        "utterance",
+        "mode",
+        "novelty"
+      ],
+      "properties": {
+        "operation_id": {
+          "enum": [
+            "OP-N8-01",
+            "OP-N8-02",
+            "OP-N8-03",
+            "OP-N8-04",
+            "OP-N8-05",
+            "OP-N8-06",
+            "OP-N8-07",
+            "OP-N8-08",
+            "OP-N8-09",
+            "OP-N8-10",
+            "OP-N8-11",
+            "OP-N8-12",
+            "OP-N8-13",
+            "OP-N8-14",
+            "OP-N8-15",
+            "OP-N8-16",
+            "OP-N8-17",
+            "OP-N8-18",
+            "OP-N8-19",
+            "OP-N8-20",
+            "OP-N8-21"
+          ]
+        },
+        "supporting_operation_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "OP-N8-01",
+            "OP-N8-02",
+            "OP-N8-03",
+            "OP-N8-04",
+            "OP-N8-05",
+            "OP-N8-06",
+            "OP-N8-07",
+            "OP-N8-08",
+            "OP-N8-09",
+            "OP-N8-10",
+            "OP-N8-11",
+            "OP-N8-12",
+            "OP-N8-13",
+            "OP-N8-14",
+            "OP-N8-15",
+            "OP-N8-16",
+            "OP-N8-17",
+            "OP-N8-18",
+            "OP-N8-19",
+            "OP-N8-20",
+            "OP-N8-21",
+            null
+          ]
+        },
+        "target": {
+          "type": "string"
+        },
+        "utterance": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "novelty": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "argument_delta": {
+      "$ref": "#/$defs/deltaStringArrays"
+    },
+    "body_delta": {
+      "type": "object",
+      "properties": {
+        "concepts_added": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tensions_added": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "actors_added": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "xeno_actors_added": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "risks_added": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rights_added": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "obligations_added": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "projects_added": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "futures_added": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "material_flows_added": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "memory_updates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "position_changes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unresolved_questions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "residue": {
+      "type": "object",
+      "required": [
+        "translation_losses",
+        "incompatible_positions",
+        "defeated_but_not_refuted",
+        "protected_unknowns"
+      ],
+      "properties": {
+        "translation_losses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "incompatible_positions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "defeated_but_not_refuted": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "protected_unknowns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "relation_to_previous_voice": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "relation_to_seven": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "relation_to_zarathustra": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "self_critique": {
+      "type": "object",
+      "required": [
+        "strongest_objection",
+        "own_failure_mode_risk",
+        "what_would_change_my_mind"
+      ],
+      "properties": {
+        "strongest_objection": {
+          "type": "string"
+        },
+        "own_failure_mode_risk": {
+          "type": "string"
+        },
+        "what_would_change_my_mind": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "narrative_delta": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "memory_delta": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "source_refs",
+        "inference_refs",
+        "donor_refs"
+      ],
+      "properties": {
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "inference_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "donor_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "exit": {
+      "type": "object",
+      "required": [
+        "condition_met",
+        "obligation_left_to_council",
+        "reopen_condition",
+        "unresolved_question"
+      ],
+      "properties": {
+        "condition_met": {
+          "type": "boolean"
+        },
+        "obligation_left_to_council": {
+          "type": "string"
+        },
+        "reopen_condition": {
+          "type": "string"
+        },
+        "unresolved_question": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ownership_check": {
+      "type": "object",
+      "required": [
+        "primary_operation_owner",
+        "head_owned_tasks_not_performed",
+        "handoff_targets"
+      ],
+      "properties": {
+        "primary_operation_owner": {
+          "type": "string"
+        },
+        "joint_with": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "head_owned_tasks_not_performed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "handoff_targets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "appropriation_risk": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "countercanon_check": {
+      "type": "object",
+      "required": [
+        "objections_considered",
+        "binding_correction"
+      ],
+      "properties": {
+        "objections_considered": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "binding_correction": {
+          "type": "string"
+        },
+        "remaining_risk": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "deltaStringArrays": {
+      "type": "object",
+      "properties": {
+        "supports": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "attacks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "assumptions_exposed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "values_activated": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "burden_updates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mandate_updates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

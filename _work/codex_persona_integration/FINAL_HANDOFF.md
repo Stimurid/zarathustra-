@@ -13,6 +13,7 @@
 - Dynamic routing: true
 - Namespace isolation: true
 - NEMO-8 limited to meta-pass: true
+- NEMO-8 full archive: `ZIP recovered and SHA-256 verified`
 
 ## Tests
 - Baseline commit 8d942438b99e89938d8c164793f22da1e88fca5a: `89 passed, 3 skipped`
@@ -28,6 +29,7 @@
 - `audit_outputs/retrieval_probes.json`
 - `audit_outputs/route_probes.json`
 - `audit_outputs/route_probe_traces.json`
+- `ACQUISITION_MANIFEST.yaml`
 
 ## Exact rerun commands
 - `cd CALIFORNIAN_ID`

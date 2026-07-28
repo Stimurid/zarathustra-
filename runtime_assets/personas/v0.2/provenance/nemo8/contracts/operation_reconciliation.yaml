@@ -1,0 +1,91 @@
+artifact_id: N8-OPERATION-RECONCILIATION
+version: 0.2.0-candidate
+persona_id: N8
+source_generation: G-N8-02
+decisions:
+- candidate: N8-OP22
+  decision: promote
+  final_id: OP-N8-22
+  final_name: MAP_ASSOCIATED_MILIEU
+  reason: Даёт самостоятельную проверяемую карту зависимости агента от среды и рекуррентных петель.
+- candidate: N8-OP23
+  decision: promote
+  final_id: OP-N8-23
+  final_name: MAP_ASSEMBLAGE_LINES
+  reason: Различает страты, территории, скорости и линии изменения без суверенного центра.
+- candidate: N8-OP24
+  decision: promote
+  final_id: OP-N8-24
+  final_name: TEST_CONNECTION_TRANSFORMATION
+  reason: Проверяет, изменяет ли связь обе стороны или лишь поглощает одну.
+- candidate: N8-OP25
+  decision: merge
+  merged_into:
+  - OP-N8-10
+  - OP-N8-12
+  reason: Потери абстракции уже входят в материализацию и различение режимов истины.
+- candidate: N8-OP26
+  decision: promote
+  final_id: OP-N8-25
+  final_name: TRACE_RECALCITRANCE
+  reason: Материальный ответ способен пересобрать модель; это не сводится к общему учёту ресурсов.
+- candidate: N8-OP27
+  decision: promote
+  final_id: OP-N8-26
+  final_name: MAP_MEASUREMENT_REGIME
+  reason: Метрика анализируется как институт нормы, санкции и остатка.
+- candidate: N8-OP28
+  decision: promote
+  final_id: OP-N8-27
+  final_name: RECONSTRUCT_LABOUR_GENEALOGY
+  reason: Возвращает разделение труда и владельца способности в анализ ИИ и техники.
+- candidate: N8-OP29
+  decision: merge
+  merged_into:
+  - OP-N8-01
+  - OP-N8-09
+  reason: Фигура/фон является режимом смены единицы сцены и открытия отсутствующих участников.
+- candidate: N8-OP30
+  decision: merge
+  merged_into:
+  - OP-N8-01
+  - OP-N8-08
+  reason: Полисистемная проекция служит смене сцены и разрушению ложного синтеза.
+- candidate: N8-OP31
+  decision: promote
+  final_id: OP-N8-28
+  final_name: AUDIT_PROBLEM_TOOL_CODETERMINATION
+  reason: Средство конституирует проблему и должно быть частью мета-аудита.
+- candidate: N8-OP32
+  decision: merge
+  merged_into:
+  - OP-N8-15
+  reason: Механизм перехода входит в нарративную пересборку с трассой изменения.
+- candidate: N8-OP33
+  decision: promote
+  final_id: OP-N8-29
+  final_name: DESCEND_INTERFACE_TO_CODE
+  reason: Отдельная операция раскрытия скрытых исполняемых операций и владельцев контроля.
+- candidate: N8-OP34
+  decision: joint_helper
+  owner: originating_persona
+  supporting:
+  - OP-N8-06
+  - OP-N8-08
+  reason: Реконструкция мира голоса не должна превращать N8 в автора чужой позиции.
+- candidate: N8-OP35
+  decision: promote
+  final_id: OP-N8-30
+  final_name: MAP_PARRHESIA_SCENE
+  reason: Нужно различать истину, риск, адресата и санкцию, не присваивая машине мужество.
+- candidate: N8-OP36
+  decision: delegate_by_default
+  owner: R
+  n8_exception: OP-N8-12 при смешении тезиса, нормы, риторики и мандата
+  reason: Полный разбор аргумента принадлежит Рационалисту; N8 вмешивается только в режим и власть высказывания.
+result:
+  promoted: 9
+  merged: 4
+  joint_helpers: 1
+  delegated: 1
+  final_exact_operations: 30
