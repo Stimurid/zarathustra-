@@ -15,6 +15,20 @@ import yaml
 from .config import PERSONA_LAYER_ROOT
 
 
+BASE_FALLBACK_ORDER = ["C", "EA", "Ex", "L", "R", "S", "T"]
+ROUTING_KEYWORDS = {
+    "C": ("common task", "biosphere", "collective", "ancestry", "death", "civilization", "coordination"),
+    "T": ("enhancement", "autonomy", "body", "biometric", "consent", "identity", "posthuman", "morphological"),
+    "Ex": ("experiment", "innovation", "reversibility", "open", "option", "monopoly", "sandbox"),
+    "S": ("agi", "ai", "compute", "takeoff", "recursive", "control", "capability", "threshold"),
+    "R": ("evidence", "causal", "probability", "forecast", "model", "uncertainty", "calibration"),
+    "EA": ("efficiency", "effectiveness", "impact", "allocation", "beneficiary", "cost", "resource"),
+    "L": ("future", "generations", "century", "charter", "trajectory", "lock-in", "intergenerational", "long-term"),
+}
+FULL_COUNCIL_KEYWORDS = ("mandatory", "charter", "governance", "century", "constitutional", "civilizational")
+NEMO8_TRIGGER_KEYWORDS = ("mandate", "legitimacy", "consensus", "closure", "sovereignty", "governance", "charter", "parrhesia")
+
+
 def _load_yaml(path: Path) -> dict[str, Any]:
     return yaml.safe_load(path.read_text(encoding="utf-8")) or {}
 
@@ -329,6 +343,24 @@ class PersonaIndex:
         combined.sort(key=lambda hit: (-hit.score, hit.card_id))
         return combined[:top_k]
 
+    def is_stale(self, reg: PersonaLayerRegistry) -> bool:
+        outputs = [self.manifest_path, self.sqlite_path, self.tfidf_path, self.cards_snapshot_path]
+        if any(not path.exists() for path in outputs):
+            return True
+        built_at = min(path.stat().st_mtime for path in outputs)
+        inputs: list[Path] = []
+        for pkg in reg.personas.values():
+            inputs.extend([
+                pkg.package_dir / "manifest.yaml",
+                pkg.package_dir / "cards.jsonl",
+                pkg.package_dir / "operations.yaml",
+            ])
+        inputs.extend([
+            self.root / "registry" / "CARD_TO_EXACT_OPERATION_REGISTRY.yaml",
+            self.root / "registry" / "PERSONA_OPERATION_REGISTRY.yaml",
+        ])
+        return any(path.exists() and path.stat().st_mtime > built_at for path in inputs)
+
 
 @dataclass
 class MetaChallenge:
@@ -363,6 +395,18 @@ class CouncilRun:
     trace: dict[str, Any]
 
 
+@dataclass
+class RoutePlan:
+    cast_mode: str
+    selected_persona_ids: list[str]
+    execution_order: list[str]
+    persona_scores: dict[str, float]
+    call_nemo8: bool
+    full_council_required: bool
+    fixed_order_fallback_used: bool
+    rationale: str
+
+
 class PersonaCouncilRuntime:
     def __init__(self, root: Path = PERSONA_LAYER_ROOT) -> None:
         self.root = root
@@ -370,15 +414,76 @@ class PersonaCouncilRuntime:
         self.index = PersonaIndex(root)
 
     def ensure_index(self) -> dict[str, Any]:
-        if self.index.manifest_path.exists() and self.index.sqlite_path.exists() and self.index.tfidf_path.exists():
+        if not self.index.is_stale(self.registry):
             return _load_yaml(self.index.manifest_path)
         return self.index.rebuild(self.registry, "python -m californian_id persona-layer rebuild-index")
+
+    def plan_route(self, scene: str, *, enable_nemo8: bool = True) -> RoutePlan:
+        scene_low = scene.lower()
+        scores: dict[str, float] = {}
+        for persona_id in BASE_FALLBACK_ORDER:
+            score = 0.0
+            for phrase in ROUTING_KEYWORDS.get(persona_id, ()):
+                if phrase in scene_low:
+                    score += 1.0 if " " not in phrase else 1.5
+            scores[persona_id] = score
+
+        ranked = sorted(BASE_FALLBACK_ORDER, key=lambda pid: (-scores[pid], BASE_FALLBACK_ORDER.index(pid)))
+        positive = [pid for pid in ranked if scores[pid] > 0]
+        full_council_required = len(positive) >= 4 and any(word in scene_low for word in FULL_COUNCIL_KEYWORDS)
+        fixed_order_fallback_used = False
+
+        if full_council_required:
+            cast_mode = "full_council"
+            selected = list(BASE_FALLBACK_ORDER)
+            execution_order = list(BASE_FALLBACK_ORDER)
+            fixed_order_fallback_used = True
+            rationale = "High-stakes multi-domain scene triggered explicit full-council mode."
+        elif len(positive) >= 3:
+            cast_mode = "triangular_probe"
+            selected = positive[:3]
+            execution_order = list(selected)
+            rationale = "Three relevant heads were sufficient to avoid false binary closure."
+        elif len(positive) == 2:
+            cast_mode = "productive_pair"
+            selected = positive[:2]
+            execution_order = list(selected)
+            rationale = "A productive pair captured the dominant tension without forcing a full council."
+        elif len(positive) == 1:
+            cast_mode = "single_head"
+            selected = positive[:1]
+            execution_order = list(selected)
+            rationale = "A single head had a clear local match to the scene."
+        else:
+            cast_mode = "single_head"
+            selected = ["R"]
+            execution_order = ["R"]
+            fixed_order_fallback_used = True
+            rationale = "No strong topical match; falling back to Rationalist as the generic evidence-audit entrypoint."
+
+        call_nemo8 = bool(
+            enable_nemo8
+            and self.registry.nemo8()
+            and (full_council_required or any(word in scene_low for word in NEMO8_TRIGGER_KEYWORDS))
+        )
+        return RoutePlan(
+            cast_mode=cast_mode,
+            selected_persona_ids=selected,
+            execution_order=execution_order,
+            persona_scores=scores,
+            call_nemo8=call_nemo8,
+            full_council_required=full_council_required,
+            fixed_order_fallback_used=fixed_order_fallback_used,
+            rationale=rationale,
+        )
 
     def run(self, scene: str, *, enable_nemo8: bool = True) -> CouncilRun:
         self.ensure_index()
         run_id = f"persona_layer_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}_{uuid.uuid4().hex[:6]}"
+        route_plan = self.plan_route(scene, enable_nemo8=enable_nemo8)
         base_turns: list[CouncilTurn] = []
-        for pkg in self.registry.enabled_base():
+        for persona_id in route_plan.execution_order:
+            pkg = self.registry.personas[persona_id]
             hits = self.index.query(self.registry, scene, persona_id=pkg.persona_id, top_k=1)
             if not hits:
                 continue
@@ -390,7 +495,7 @@ class PersonaCouncilRuntime:
         nemo8_turn = None
         reopened_turns: list[CouncilTurn] = []
         reopen_decision = {"accepted": False, "reason": "nemo8_disabled"}
-        if enable_nemo8 and self.registry.nemo8():
+        if route_plan.call_nemo8 and self.registry.nemo8():
             nemo8_hits = self.index.query(self.registry, scene, persona_id="N8", top_k=3)
             if nemo8_hits:
                 chosen = _pick_nemo8_hit(nemo8_hits, scene)
@@ -411,6 +516,16 @@ class PersonaCouncilRuntime:
         trace = {
             "run_id": run_id,
             "scene": scene,
+            "route_plan": {
+                "cast_mode": route_plan.cast_mode,
+                "selected_persona_ids": route_plan.selected_persona_ids,
+                "execution_order": route_plan.execution_order,
+                "persona_scores": route_plan.persona_scores,
+                "call_nemo8": route_plan.call_nemo8,
+                "full_council_required": route_plan.full_council_required,
+                "fixed_order_fallback_used": route_plan.fixed_order_fallback_used,
+                "rationale": route_plan.rationale,
+            },
             "base_turns": [t.__dict__ | {"meta_challenge": _plain_meta(t.meta_challenge)} for t in base_turns],
             "provisional_synthesis": provisional,
             "nemo8_turn": None if nemo8_turn is None else nemo8_turn.__dict__ | {"meta_challenge": _plain_meta(nemo8_turn.meta_challenge)},
@@ -459,7 +574,7 @@ def _turn_from_card(run_id: str, card: PersonaCard, scene: str, *, meta_challeng
 
 
 def _provisional_synthesis(scene: str, turns: list[CouncilTurn]) -> str:
-    ops = ", ".join(sorted({t.operation_id for t in turns[:4]}))
+    ops = ", ".join(sorted({t.operation_id for t in turns[:4]})) or "no_base_operations"
     return f"Provisional synthesis for '{scene}': base council mapped the scene through {ops}."
 
 
@@ -483,17 +598,17 @@ def _nemo8_challenge(scene: str, provisional: str, conflict_personas: list[str],
 
 
 def _final_synthesis(scene: str, base_turns: list[CouncilTurn], nemo8_turn: CouncilTurn | None, reopened_turns: list[CouncilTurn]) -> str:
-    base_ids = ", ".join(t.persona_id for t in base_turns[:4])
+    base_ids = ", ".join(t.persona_id for t in base_turns[:4]) or "no-base-heads"
     if nemo8_turn is None:
         return f"Zarathustra final synthesis for '{scene}': base council only ({base_ids}); minority positions preserved."
     if reopened_turns:
         reopened = ", ".join(t.persona_id for t in reopened_turns)
         return (
-            f"Zarathustra final synthesis for '{scene}': seven-head council ran first, "
+            f"Zarathustra final synthesis for '{scene}': base council ran first, "
             f"NEMO-8 challenged the provisional closure, {reopened} reopened, and the final answer preserves dissent."
         )
     return (
-        f"Zarathustra final synthesis for '{scene}': seven-head council ran first, "
+        f"Zarathustra final synthesis for '{scene}': base council ran first, "
         "NEMO-8 added a meta-pass, and Zarathustra retained final authority."
     )
 

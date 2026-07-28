@@ -22,7 +22,9 @@ def test_persona_layer_card_and_operation_counts_match_verified_assets():
         for op in pkg.operations
         if op.get("operation_id")
     }
-    assert len(ops) == 141  # package discrepancy: N8 cards expose 29 exact ops, not 30
+    assert len(ops) == 142
+    assert "OP-N8-18" in ops
+    assert "OP-N8-30" in ops
 
 
 def test_no_active_seed_cards_in_runtime_packages():
@@ -50,3 +52,14 @@ def test_nemo8_namespace_counts_match_cards_index():
         "N8_COUNTER_CANON": 36,
         "N8_RELATIONS": 35,
     }
+
+
+def test_nemo8_restored_operation_has_card_link():
+    reg = load_persona_layer_registry()
+    n8 = reg.personas["N8"]
+    linked_cards = [
+        card.card_id
+        for card in n8.cards
+        if "OP-N8-18" in (card.raw.get("operation_ids") or [])
+    ]
+    assert linked_cards == ["N8-CC-019"]

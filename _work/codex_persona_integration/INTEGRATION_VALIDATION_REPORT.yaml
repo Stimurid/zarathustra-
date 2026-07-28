@@ -1,4 +1,4 @@
-validated_at: '2026-07-28T10:05:48.459250+00:00'
+validated_at: '2026-07-28T10:46:42.761424+00:00'
 existing_tests_pass: true
 personas_loaded: 8/8
 active_seed_cards: 0
@@ -13,18 +13,24 @@ nemo8_cannot_orchestrate: true
 nemo8_cannot_finalize: true
 reopen_cycle_bounded: true
 trace_saved: true
+dynamic_routing: true
+full_council_not_default: true
+nemo8_not_always_called: true
 runtime_ready_candidate: true
 production_ready: false
 canonical: false
 test_summary:
-  baseline_plus_final: 89 passed, 3 skipped
+  baseline: 89 passed, 3 skipped
+  final: 95 passed, 3 skipped
   live_provider: BLOCKED_NO_CREDENTIALS
   persona_layer_validate: 8 packages loaded
   retrieval_backend: sqlite_fts5_plus_builtin_tfidf
   retrieval_cards: 529
-  retrieval_operations: 141
+  retrieval_operations: 142
 scenario_assertions:
+  cast_mode: full_council
   base_turns: 7
+  nemo8_called: true
   nemo8_operation_id: OP-N8-07
   reopened_persona_ids:
   - C

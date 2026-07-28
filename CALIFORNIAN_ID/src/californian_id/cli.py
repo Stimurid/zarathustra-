@@ -115,6 +115,22 @@ def _cmd_persona_layer_run(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_persona_layer_route(args: argparse.Namespace) -> int:
+    runtime = PersonaCouncilRuntime()
+    route = runtime.plan_route(args.text, enable_nemo8=not args.disable_nemo8)
+    print(json.dumps({
+        "cast_mode": route.cast_mode,
+        "selected_persona_ids": route.selected_persona_ids,
+        "execution_order": route.execution_order,
+        "persona_scores": route.persona_scores,
+        "call_nemo8": route.call_nemo8,
+        "full_council_required": route.full_council_required,
+        "fixed_order_fallback_used": route.fixed_order_fallback_used,
+        "rationale": route.rationale,
+    }, ensure_ascii=False, indent=2))
+    return 0
+
+
 def _pretty_print(payload: dict) -> None:
     print(f"=== Калифорнийский Ид — run {payload['run_id']} ({payload['mode']}) ===")
     print(f"Status: {payload['status']}  stopping={payload['stopping_reason']}  turns={payload['turn_count']}")
@@ -238,6 +254,10 @@ def build_parser() -> argparse.ArgumentParser:
     lrun.add_argument("--text", required=True, help="Scenario text")
     lrun.add_argument("--disable-nemo8", action="store_true", help="Run only the base seven-head council")
     lrun.set_defaults(func=_cmd_persona_layer_run)
+    lroute = lsub.add_parser("inspect-route", help="Inspect persona-layer routing without running the full council")
+    lroute.add_argument("--text", required=True, help="Scenario text")
+    lroute.add_argument("--disable-nemo8", action="store_true", help="Force NEMO-8 off for route inspection")
+    lroute.set_defaults(func=_cmd_persona_layer_route)
 
     return p
 
