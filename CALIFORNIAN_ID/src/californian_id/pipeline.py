@@ -20,6 +20,12 @@ from .architectonic import TurnDelta, reconstruct_turn_delta
 from .argumentation import DisputeAssessment, assess_turn, check_anti_slop
 from .cultural_rag import CulturalIndex, infer_required_function
 from .interaction import assess_input, detect_repetition, to_security_events
+from .ingress import (
+    RawStreamEnvelope,
+    SemanticUnitsEnvelope,
+    envelope_to_unit_pack,
+    normalise_envelope,
+)
 from .memory import ConversationMemory
 from .models import Message, build_client
 from .personas import PersonaRegistry, load_registry
@@ -390,6 +396,24 @@ class Pipeline:
         })
         trace.dump_state({"state": state.as_json(), "memory": memory.as_dict()})
         return PipelineResult(state, memory, trace.dir)
+
+    def run_from_envelope(
+        self,
+        envelope: RawStreamEnvelope | SemanticUnitsEnvelope,
+        mode: str | None = None,
+        critique_regime: str = "balanced",
+        variation_regime: str = "normal",
+    ) -> PipelineResult:
+        """Run using the official Tinkuy ingress contract."""
+        normalized = normalise_envelope(envelope)
+        pack = envelope_to_unit_pack(normalized)
+        return self.run_from_units(
+            pack,
+            mode=mode,
+            run_id=normalized.run_id,
+            critique_regime=critique_regime,
+            variation_regime=variation_regime,
+        )
 
     # ---------- Public entry (pre-parsed units from external cutter) ----------
     def run_from_units(

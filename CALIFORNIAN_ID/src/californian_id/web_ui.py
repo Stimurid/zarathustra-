@@ -6,7 +6,10 @@ from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Any
 
+import yaml
+
 from .adapters.units_of_content_md import parse_md_units_text
+from .ingress import parse_envelope
 from .pipeline import Pipeline
 from .schemas import to_plain
 
@@ -50,7 +53,7 @@ _HTML = """<!doctype html>
     .sub {
       color: var(--muted);
       margin-bottom: 28px;
-      max-width: 52rem;
+      max-width: 56rem;
     }
     .grid {
       display: grid;
@@ -153,7 +156,7 @@ _HTML = """<!doctype html>
 <body>
   <main>
     <h1>Zarathustra Runner</h1>
-    <div class="sub">Вставь текст или загрузи файл. Ниже можно переключить жесткость критики и вариативность риторической траектории, затем получить готовый результат совета.</div>
+    <div class="sub">Вставь текст или загрузи файл. `raw text` идёт в legacy-вход, `auto-slice` режет сырой поток в raw_stream units, `semantic-units` принимает canonical JSON/YAML envelope или md units pack.</div>
     <div class="grid">
       <section class="card">
         <div class="controls">
@@ -161,7 +164,8 @@ _HTML = """<!doctype html>
             <label for="inputMode">Тип входа</label>
             <select id="inputMode">
               <option value="raw" selected>raw text</option>
-              <option value="units">units pack</option>
+              <option value="auto-slice">auto-slice raw_stream</option>
+              <option value="semantic-units">semantic-units</option>
             </select>
           </div>
           <div>
@@ -196,11 +200,11 @@ _HTML = """<!doctype html>
           </div>
           <div class="full">
             <label for="fileInput">Файл</label>
-            <input id="fileInput" type="file" accept=".txt,.md,.json,.text">
+            <input id="fileInput" type="file" accept=".txt,.md,.json,.yaml,.yml,.text">
           </div>
         </div>
         <label for="inputText">Текст</label>
-        <textarea id="inputText" placeholder="Вставь расшифровку, вопрос, пакет блоков или другой материал..."></textarea>
+        <textarea id="inputText" placeholder="Вставь расшифровку, вопрос, canonical semantic-units envelope, md units pack или другой материал..."></textarea>
         <div class="actions">
           <button id="runBtn">Запустить совет</button>
           <button class="secondary" id="clearBtn" type="button">Очистить</button>
@@ -210,13 +214,13 @@ _HTML = """<!doctype html>
       <section class="card">
         <div>
           <span class="pill">text or file</span>
+          <span class="pill">raw / auto-slice / semantic-units</span>
           <span class="pill">critique regime</span>
           <span class="pill">variation regime</span>
-          <span class="pill">trace aware</span>
         </div>
         <label for="output">Результат</label>
         <pre id="output">Здесь появится JSON результата.</pre>
-        <div class="hint">Файл не отправляется отдельно: браузер читает его локально и подставляет содержимое в текстовое поле.</div>
+        <div class="hint">Файл не отправляется отдельно: браузер читает его локально и подставляет содержимое в текстовое поле. Для `semantic-units` можно вставить canonical JSON/YAML envelope или md units pack.</div>
       </section>
     </div>
   </main>
@@ -291,7 +295,33 @@ def run_web_request(
     debug: bool = False,
 ) -> dict[str, Any]:
     pipe = Pipeline()
-    if input_mode == "units":
+    resolved_input_mode = input_mode
+    ingress_mode = "legacy_raw"
+
+    if input_mode == "semantic-units":
+        result = _run_semantic_units_request(
+            pipe,
+            text=text,
+            mode=mode,
+            critique_regime=critique_regime,
+            variation_regime=variation_regime,
+        )
+        ingress_mode = "semantic_units"
+    elif input_mode == "auto-slice":
+        envelope = parse_envelope({
+            "mode": "raw_stream",
+            "run_id": "web-ui-raw-stream",
+            "content": text,
+            "metadata": {"source": "web_ui"},
+        })
+        result = pipe.run_from_envelope(
+            envelope,
+            mode=mode,
+            critique_regime=critique_regime,
+            variation_regime=variation_regime,
+        )
+        ingress_mode = "raw_stream"
+    elif input_mode == "units":
         pack = parse_md_units_text(text)
         result = pipe.run_from_units(
             pack,
@@ -299,6 +329,8 @@ def run_web_request(
             critique_regime=critique_regime,
             variation_regime=variation_regime,
         )
+        resolved_input_mode = "semantic-units"
+        ingress_mode = "md_units_pack"
     else:
         result = pipe.run(
             text=text,
@@ -306,6 +338,7 @@ def run_web_request(
             critique_regime=critique_regime,
             variation_regime=variation_regime,
         )
+
     payload: dict[str, Any] = {
         "run_id": result.run_state.run_id,
         "mode": result.run_state.mode,
@@ -322,13 +355,43 @@ def run_web_request(
             "critique_regime": critique_regime,
             "variation_regime": variation_regime,
         },
-        "input_mode": input_mode,
+        "input_mode": resolved_input_mode,
+        "ingress_mode": ingress_mode,
     }
     if debug:
         payload["turns"] = [to_plain(t) for t in result.run_state.turns]
         payload["situation"] = to_plain(result.run_state.situation)
         payload["argument_map"] = to_plain(result.run_state.argument_map)
     return payload
+
+
+def _run_semantic_units_request(
+    pipe: Pipeline,
+    *,
+    text: str,
+    mode: str,
+    critique_regime: str,
+    variation_regime: str,
+):
+    stripped = text.strip()
+    if stripped.startswith("{") or stripped.startswith("mode:"):
+        parsed = yaml.safe_load(text)
+        if not isinstance(parsed, dict):
+            raise ValueError("semantic-units input must decode to an object")
+        envelope = parse_envelope(parsed)
+        return pipe.run_from_envelope(
+            envelope,
+            mode=mode,
+            critique_regime=critique_regime,
+            variation_regime=variation_regime,
+        )
+    pack = parse_md_units_text(text)
+    return pipe.run_from_units(
+        pack,
+        mode=mode,
+        critique_regime=critique_regime,
+        variation_regime=variation_regime,
+    )
 
 
 class _WebUIHandler(BaseHTTPRequestHandler):

@@ -13,30 +13,74 @@ def test_web_ui_runner_returns_completion_payload():
     assert payload["completion"] is not None
     assert payload["regimes"]["critique_regime"] == "balanced"
     assert payload["regimes"]["variation_regime"] == "normal"
+    assert payload["ingress_mode"] == "legacy_raw"
 
 
-def test_web_ui_runner_accepts_units_mode():
+def test_web_ui_runner_accepts_md_semantic_units_mode():
     units_text = """# Demo Pack
 
-### U1 — Тестовый блок
-- Заголовок: Тест
+### U1 - Test unit
 - Намерение: Проверить вход units
-- Объект: AGI governance
-- Участники: Докладчик
-- Позиция: Нужна рамка
-- Тема: AGI | Рема: governance
-- Провенанс: source=test
+- Объект/аспект: AGI governance
+- Участники/роли внутри ЕС: Докладчик
 
-Абстракт:
+Тема-Рема
+- Тема: AGI | Рема: governance
+
+Абстракт ЕС
 Нужно понять, как обсуждать управление AGI.
 """
     payload = run_web_request(
         units_text,
-        input_mode="units",
+        input_mode="semantic-units",
         mode="fast",
         critique_regime="balanced",
         variation_regime="normal",
         debug=False,
     )
     assert payload["status"] == "COMPLETED"
-    assert payload["input_mode"] == "units"
+    assert payload["input_mode"] == "semantic-units"
+    assert payload["ingress_mode"] == "semantic_units"
+
+
+def test_web_ui_runner_accepts_auto_slice_mode():
+    payload = run_web_request(
+        "User: Стоит ли ускорять развитие AGI?\nAnalyst: Только с рамкой управления.",
+        input_mode="auto-slice",
+        mode="fast",
+        critique_regime="balanced",
+        variation_regime="normal",
+        debug=False,
+    )
+    assert payload["status"] == "COMPLETED"
+    assert payload["input_mode"] == "auto-slice"
+    assert payload["ingress_mode"] == "raw_stream"
+
+
+def test_web_ui_runner_accepts_canonical_semantic_units_yaml():
+    payload = run_web_request(
+        """mode: semantic_units
+run_id: web-ui-semantic
+units:
+  - unit_id: u-1
+    text: Нужно различить скорость и управляемость.
+    speaker: Speaker 1
+    source_refs: ["char:0-41"]
+    semantic_types: [distinction, governance]
+  - unit_id: u-2
+    text: Ускорение без рамки создаёт цену ошибки.
+    speaker: Speaker 2
+    source_refs: ["char:42-83"]
+    semantic_types: [risk, governance]
+metadata:
+  title: AGI governance notes
+""",
+        input_mode="semantic-units",
+        mode="fast",
+        critique_regime="balanced",
+        variation_regime="normal",
+        debug=False,
+    )
+    assert payload["status"] == "COMPLETED"
+    assert payload["input_mode"] == "semantic-units"
+    assert payload["ingress_mode"] == "semantic_units"
