@@ -192,17 +192,41 @@ _HTML = """<!doctype html>
             </select>
           </div>
           <div>
-            <label for="preset">Модель</label>
+            <label for="preset">Пресет</label>
             <select id="preset">
               <option value="" selected>по умолчанию</option>
-              <!-- динамически подгружается из /api/presets -->
             </select>
           </div>
           <div>
-            <label for="debug">Вывод</label>
+            <label for="modelPick">Модель (bypass preset)</label>
+            <select id="modelPick">
+              <option value="" selected>из пресета</option>
+            </select>
+          </div>
+          <div>
+            <label for="maxTokens">max_tokens</label>
+            <input id="maxTokens" type="number" min="128" max="8192" step="256" placeholder="из конфига"
+                   style="width: 100%; padding: 6px 8px; border-radius: 10px; border: 1px solid var(--line); background: #fff;">
+          </div>
+          <div>
+            <label for="outFmt">Формат ответа</label>
+            <select id="outFmt">
+              <option value="text" selected>text (речь Заратустры)</option>
+              <option value="json">json (структура)</option>
+            </select>
+          </div>
+          <div>
+            <label for="detailLvl">Детализация</label>
+            <select id="detailLvl">
+              <option value="only_result" selected>только результат</option>
+              <option value="with_turns">результат + ходы совета</option>
+            </select>
+          </div>
+          <div>
+            <label for="debug">Debug</label>
             <select id="debug">
-              <option value="false" selected>обычный</option>
-              <option value="true">с debug trace</option>
+              <option value="false" selected>без trace</option>
+              <option value="true">с trace</option>
             </select>
           </div>
           <div class="full">
@@ -254,7 +278,6 @@ _HTML = """<!doctype html>
       fileInput.value = '';
     });
 
-    // populate preset dropdown from /api/presets
     (async () => {
       try {
         const r = await fetch('api/presets');
@@ -266,7 +289,20 @@ _HTML = """<!doctype html>
           opt.textContent = p.label || p.name;
           sel.appendChild(opt);
         }
-      } catch(e) { /* ignore — dropdown will just have default */ }
+      } catch(e) {}
+      try {
+        const r2 = await fetch('api/models');
+        const j2 = await r2.json();
+        const sel2 = document.getElementById('modelPick');
+        // wipe placeholder — server sends {id:"", label:"по умолчанию (из пресета)"} тоже
+        sel2.innerHTML = '';
+        for (const m of (j2.models || [])) {
+          const opt = document.createElement('option');
+          opt.value = m.id || '';
+          opt.textContent = m.label || m.id || '(default)';
+          sel2.appendChild(opt);
+        }
+      } catch(e) {}
     })();
 
     runBtn.addEventListener('click', async () => {
@@ -289,11 +325,21 @@ _HTML = """<!doctype html>
             critique_regime: document.getElementById('critique').value,
             variation_regime: document.getElementById('variation').value,
             preset: document.getElementById('preset').value,
+            model: document.getElementById('modelPick').value,
+            max_tokens: (document.getElementById('maxTokens').value || null),
+            output_format: document.getElementById('outFmt').value,
+            detail: document.getElementById('detailLvl').value,
             debug: document.getElementById('debug').value === 'true'
           })
         });
         const payload = await response.json();
-        output.textContent = JSON.stringify(payload, null, 2);
+        // text-mode: показать body как plain text, meta ниже;
+        // json-mode: JSON.stringify как раньше.
+        if (payload && payload.format === 'text' && payload.body) {
+          output.textContent = payload.body + '\n\n--- meta ---\n' + JSON.stringify(payload.meta || {}, null, 2);
+        } else {
+          output.textContent = JSON.stringify(payload, null, 2);
+        }
         statusEl.textContent = response.ok ? 'Готово.' : 'Ошибка запуска.';
       } catch (error) {
         output.textContent = String(error);
@@ -317,8 +363,16 @@ def run_web_request(
     variation_regime: str = "normal",
     debug: bool = False,
     preset: str | None = None,
+    model: str | None = None,
+    max_tokens: int | None = None,
+    output_format: str = "json",    # "json" | "text"
+    detail: str = "with_turns",     # "only_result" | "with_turns"
 ) -> dict[str, Any]:
-    pipe = Pipeline(preset_override=preset or None)
+    pipe = Pipeline(
+        preset_override=preset or None,
+        model_override=model or None,
+        max_tokens_override=max_tokens if (max_tokens and max_tokens > 0) else None,
+    )
     resolved_input_mode = input_mode
     ingress_mode = "legacy_raw"
 
@@ -382,12 +436,88 @@ def run_web_request(
         "input_mode": resolved_input_mode,
         "ingress_mode": ingress_mode,
         "preset": pipe.preset_override,
+        "model": pipe.model_override,
+        "max_tokens": pipe.max_tokens_override,
+        "closing_speech": (
+            (result.run_state.completion.closing_speech or "").strip()
+            if result.run_state.completion else ""
+        ),
     }
+    if detail == "with_turns" or debug:
+        payload["turns"] = [
+            {
+                "turn_index": t.turn_index,
+                "persona_id": t.persona_id,
+                "operation": t.operation,
+                "utterance": t.utterance,
+                "confidence": t.confidence,
+                "model": t.model_name,
+                "provider": t.model_provider,
+            }
+            for t in result.run_state.turns
+        ]
     if debug:
-        payload["turns"] = [to_plain(t) for t in result.run_state.turns]
         payload["situation"] = to_plain(result.run_state.situation)
         payload["argument_map"] = to_plain(result.run_state.argument_map)
+
+    # Text-format rendering: короче ответ, приоритет closing_speech.
+    if output_format == "text":
+        payload = _render_text_payload(payload, detail=detail)
     return payload
+
+
+def _render_text_payload(payload: dict[str, Any], *, detail: str) -> dict[str, Any]:
+    """Свернуть JSON-структуру в лаконичный text-документ.
+
+    Возвращает `{format: "text", body: "...", meta: {...}}` — тонкая мета
+    остаётся, но всё остальное — plain text (закрывающая речь Заратустры
+    + опционально ходы голосов).
+    """
+    lines: list[str] = []
+    c = payload.get("completion") or {}
+    speech = (payload.get("closing_speech") or "").strip()
+    form = c.get("form") or "?"
+
+    lines.append("⚡ Заратустра")
+    lines.append("")
+    if speech:
+        lines.append(speech)
+    else:
+        lines.append(
+            "(mock-режим или пустой ответ модели — закрывающая речь недоступна; "
+            "переключи preset/model для полного текста)"
+        )
+    lines.append("")
+    lines.append(f"[форма завершения: {form} · voices: {', '.join(payload.get('voices_used') or []) or '—'}]")
+
+    if detail == "with_turns":
+        turns = payload.get("turns") or []
+        if turns:
+            lines.append("")
+            lines.append("—" * 3 + " ход совета " + "—" * 3)
+            for t in turns:
+                lines.append("")
+                lines.append(f"[{t.get('persona_id')} · {t.get('operation')}]")
+                lines.append((t.get("utterance") or "").strip())
+
+    return {
+        "format": "text",
+        "body": "\n".join(lines),
+        "meta": {
+            "run_id": payload.get("run_id"),
+            "mode": payload.get("mode"),
+            "status": payload.get("status"),
+            "form": form,
+            "voices_used": payload.get("voices_used"),
+            "turn_count": payload.get("turn_count"),
+            "preset": payload.get("preset"),
+            "model": payload.get("model"),
+            "max_tokens": payload.get("max_tokens"),
+            "security_events": payload.get("security_events"),
+            "trace_dir": payload.get("trace_dir"),
+            "errors": payload.get("errors"),
+        },
+    }
 
 
 def _run_semantic_units_request(
@@ -428,6 +558,11 @@ class _WebUIHandler(BaseHTTPRequestHandler):
             cfg = load_config()
             self._send_json({"presets": cfg.presets()})
             return
+        if self.path in {"/api/models", "/models"}:
+            from .config import load_config
+            cfg = load_config()
+            self._send_json({"models": cfg.model_menu()})
+            return
         if self.path not in {"/", "/index.html"}:
             self.send_error(HTTPStatus.NOT_FOUND, "Not found")
             return
@@ -458,6 +593,10 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                 variation_regime=data.get("variation_regime") or "normal",
                 debug=bool(data.get("debug")),
                 preset=(data.get("preset") or None),
+                model=(data.get("model") or None),
+                max_tokens=(int(data["max_tokens"]) if data.get("max_tokens") else None),
+                output_format=(data.get("output_format") or "json"),
+                detail=(data.get("detail") or "with_turns"),
             )
             self._send_json(payload)
         except Exception as exc:  # pragma: no cover - defensive boundary

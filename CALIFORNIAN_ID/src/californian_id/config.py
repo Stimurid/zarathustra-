@@ -70,6 +70,11 @@ class RuntimeConfig:
         raw = self.models.get("presets") or []
         return [dict(p) for p in raw]
 
+    def model_menu(self) -> list[dict[str, Any]]:
+        """List of concrete models the UI should offer for direct pick."""
+        raw = self.models.get("model_menu") or []
+        return [dict(m) for m in raw]
+
     def preset_provider_name(self, preset_name: str) -> str | None:
         """Map a preset name → underlying provider config name. None if unknown."""
         for p in self.presets():

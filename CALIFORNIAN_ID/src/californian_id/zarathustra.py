@@ -785,6 +785,88 @@ class Zarathustra:
             })
         return base
 
+    def compose_closing_speech(
+        self,
+        client: ModelClient,
+        situation: SituationAnalysis,
+        completion: CompletionOutcome,
+        turns: list[TurnRecord],
+        argument_map: ArgumentMap,
+    ) -> str:
+        """Финальная связная речь Заратустры (800-2000 слов) по итогу совета.
+
+        Именно этот текст пользователь видит в text-режиме UI. Форма
+        завершения определяет ТИП речи (см. 13_closing_speech.md).
+        Mock provider возвращает "" — тогда UI показывает только структуру.
+        """
+        provider = getattr(client, "provider", "mock")
+        if provider == "mock":
+            return ""
+
+        prompt = self.prompt("13_closing_speech.md") or _DEFAULT_CLOSING_SPEECH_PROMPT
+
+        voice_lines = []
+        for t in turns:
+            voice_lines.append(f"[{t.persona_id} · {t.operation}] {t.utterance[:600]}")
+        voices_block = "\n\n".join(voice_lines)
+
+        conflicts_block = "\n".join(
+            f"- {c.tension} :: {c.side_a} ↔ {c.side_b} ({c.status})"
+            for c in (completion.conflict_map or [])
+        )
+        minority_block = "\n".join(
+            f"- [{m.persona_id}] {m.text[:220]}"
+            for m in (completion.minority_positions or [])
+        )
+        form = completion.form
+
+        payload = json.dumps({
+            "topic": situation.topic,
+            "genre": situation.genre,
+            "form_chosen": form,
+            "form_rationale": completion.rationale,
+            "voices_history": voice_lines,
+            "conflict_map": conflicts_block,
+            "minority_positions": minority_block,
+            # form-specific payload:
+            "decision": completion.decision,
+            "aporia_statement": completion.aporia_statement,
+            "transformed_question": completion.transformed_question,
+            "delegated_to": completion.delegated_to,
+            "delegated_utterance": completion.delegated_utterance,
+            "refusal_reason": completion.refusal_reason,
+            "world_branches": [
+                {"label": w.label, "if_we_accept": w.if_we_accept,
+                 "then_world": w.then_world, "price": w.price}
+                for w in (completion.world_branches or [])
+            ],
+            "polyphonic_voices": completion.polyphonic_voices,
+            "incompatible_pictures": completion.incompatible_pictures,
+            "alliance": (
+                {"action": completion.alliance.action,
+                 "partners": completion.alliance.partners,
+                 "shared_reason": completion.alliance.shared_reason}
+                if completion.alliance else None
+            ),
+        }, ensure_ascii=False)
+
+        messages = [
+            Message(role="system", content=prompt),
+            Message(role="user", content=payload),
+        ]
+        try:
+            result = client.generate(
+                messages,
+                settings={
+                    "role": "zarathustra_closing_speech",
+                    "topic": situation.topic,
+                    "form": form,
+                },
+            )
+            return (result.text or "").strip()
+        except Exception as e:
+            return f"[compose_closing_speech failed: {type(e).__name__}: {str(e)[:200]}]"
+
     def _assemble_synthesis(self, base, situation, turns, amap):
         # Только когда действительно возникла новая конструкция.
         strongest = _derive_strongest_arguments(turns)
@@ -828,6 +910,13 @@ class Zarathustra:
 _DEFAULT_ROUTE_PROMPT = (
     "Ты — spine Заратустры. Диспетчер сцены.\n"
     "Верни JSON: {\"next_persona\":\"<id>\",\"operation\":\"<op>\",\"reason\":\"...\"}."
+)
+
+
+_DEFAULT_CLOSING_SPEECH_PROMPT = (
+    "Ты — Заратустра. Совет отработал. Напиши связную речь на 800-2000 слов "
+    "по итогу — от первого лица, прозой, без markdown-заголовков. Форма "
+    "завершения определяет тип речи (см. поле form_chosen)."
 )
 
 

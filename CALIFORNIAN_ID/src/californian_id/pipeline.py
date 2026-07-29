@@ -69,30 +69,59 @@ class PipelineResult:
 
 
 class Pipeline:
-    def __init__(self, preset_override: str | None = None) -> None:
+    def __init__(
+        self,
+        preset_override: str | None = None,
+        model_override: str | None = None,
+        max_tokens_override: int | None = None,
+    ) -> None:
         self.config = load_config()
         self.zarathustra = Zarathustra()
         self.retriever = LexicalPersonaRetriever(PERSONAS_DIR)
         self.cultural = CulturalIndex()
-        # per-Pipeline preset override — if set, все role_provider возвращают
-        # этот preset вместо роль-specific провайдера из yaml. Web-endpoint
-        # создаёт новый Pipeline на каждый запрос при указании preset в body.
+        # Per-Pipeline overrides — если указаны, применяются к persona_turn +
+        # closing_speech (там нужны умные модели). Служебные роли (routing /
+        # situation_reading / synthesis / orchestration) остаются на своих
+        # yaml/env provider'ах, чтобы не тратить heavy-модель зря.
         self.preset_override = preset_override
+        self.model_override = model_override        # e.g. "claude-opus-4-1-20250805"
+        self.max_tokens_override = max_tokens_override  # e.g. 4096
 
     def _role_and_cfg(self, role: str) -> tuple[str, dict[str, Any]]:
-        """Resolve (provider_name, provider_config) для роли.
-
-        Preset override действует ТОЛЬКО на 'persona_turn' — там реально
-        нужна умная модель. routing / situation_reading / synthesis остаются
-        на своих провайдерах из yaml (или env override), чтобы не тратить
-        heavy-модель на служебные вызовы и не выйти за Caddy 300s timeout.
-        """
-        preset_affects = {"persona_turn"}
+        preset_affects = {"persona_turn", "zarathustra_closing_speech"}
         if self.preset_override and role in preset_affects:
             resolved = self.config.preset_provider_name(self.preset_override) or self.preset_override
-            return resolved, self.config.provider_config(resolved)
-        name = self.config.role_provider(role)
-        return name, self.config.provider_config(name)
+            base_cfg = dict(self.config.provider_config(resolved))
+        else:
+            name = self.config.role_provider(role)
+            resolved = name
+            base_cfg = dict(self.config.provider_config(name))
+        # Deep-copy settings, чтобы не мутировать глобальный config
+        base_cfg["settings"] = dict(base_cfg.get("settings", {}) or {})
+        # Overrides применяются к тем же ролям (persona_turn + closing_speech).
+        if role in preset_affects:
+            if self.model_override:
+                base_cfg["model"] = self.model_override
+                # ensure kind is 302ai when raw model override is given
+                # (пользователь пишет имя модели — мы routim через 302.ai)
+                if not base_cfg.get("kind") or base_cfg.get("kind") == "mock":
+                    base_cfg["kind"] = "302ai"
+                    base_cfg["env_key"] = base_cfg.get("env_key") or "API_302AI_KEY"
+                    base_cfg["base_url"] = base_cfg.get("base_url") or "https://api.302.ai/v1"
+                # drop fallbacks — юзер явно назвал модель
+                base_cfg.pop("fallbacks", None)
+            if self.max_tokens_override and self.max_tokens_override > 0:
+                base_cfg["settings"]["max_tokens"] = int(self.max_tokens_override)
+                # так же для всех fallback-ступеней
+                if base_cfg.get("fallbacks"):
+                    fbs = []
+                    for fb in base_cfg["fallbacks"]:
+                        fb2 = dict(fb)
+                        fb2["settings"] = dict(fb2.get("settings", {}) or {})
+                        fb2["settings"]["max_tokens"] = int(self.max_tokens_override)
+                        fbs.append(fb2)
+                    base_cfg["fallbacks"] = fbs
+        return resolved, base_cfg
 
     # ---------- Public entry (raw text) ----------
     def run(
@@ -399,6 +428,18 @@ class Pipeline:
 
         memory.unresolved_conflicts = [c.__dict__ for c in completion.conflict_map if c.status == "unresolved"]
         memory.security_events = [se.__dict__ for se in state.security_events]
+
+        # Final closing speech from Zarathustra — the long connected text
+        # the user actually reads in text mode of the UI.
+        closing_client = build_client(*self._role_and_cfg("zarathustra_closing_speech"))
+        completion.closing_speech = self.zarathustra.compose_closing_speech(
+            closing_client, state.situation, completion, state.turns, state.argument_map,
+        )
+        trace.event("closing_speech", {
+            "provider": getattr(closing_client, "provider", "?"),
+            "model": getattr(closing_client, "model", "?"),
+            "chars": len(completion.closing_speech or ""),
+        })
 
         trace.event("completion", to_plain(completion))
         state.transition("VALIDATING")

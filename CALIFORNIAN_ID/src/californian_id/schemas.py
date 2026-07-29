@@ -376,6 +376,11 @@ class CompletionOutcome:
     refusal_reason: str = ""
     what_would_be_destroyed_by_closure: str = ""
 
+    # Финальная речь Заратустры — связный длинный текст (800-2000 слов),
+    # синтезирующий результат совета. Именно то, что читает пользователь
+    # в text-режиме UI. Пусто, если провайдер = mock.
+    closing_speech: str = ""
+
 
 def to_plain(obj: Any) -> Any:
     """Recursively convert dataclasses / lists to plain JSON-serialisable values."""

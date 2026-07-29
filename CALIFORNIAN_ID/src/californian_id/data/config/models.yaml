@@ -191,8 +191,28 @@ roles:
     provider: mock
   synthesis:
     provider: mock
+  zarathustra_closing_speech:
+    provider: mock       # override через preset_override + model_override per-request
   embeddings:
     provider: mock
+
+# Список моделей, доступных через 302.ai — для UI dropdown "Модель".
+# Проверены на нашем ключе (2026-07-29). Пользователь передаёт `model`
+# в POST /api/run для точечного выбора (bypass preset chain).
+model_menu:
+  - {id: "",                                label: "по умолчанию (из пресета)"}
+  - {id: claude-opus-4-1-20250805,          label: "Claude Opus 4.1"}
+  - {id: claude-sonnet-4-20250514,          label: "Claude Sonnet 4"}
+  - {id: claude-3-7-sonnet-latest,          label: "Claude Sonnet 3.7"}
+  - {id: gpt-5,                             label: "GPT-5"}
+  - {id: gpt-4.1,                           label: "GPT-4.1"}
+  - {id: gpt-4o,                            label: "GPT-4o"}
+  - {id: o1,                                label: "OpenAI o1 (reasoning)"}
+  - {id: o3-mini,                           label: "OpenAI o3-mini (reasoning)"}
+  - {id: deepseek-reasoner,                 label: "DeepSeek R1 (reasoning)"}
+  - {id: deepseek-chat,                     label: "DeepSeek Chat"}
+  - {id: grok-3,                            label: "Grok 3"}
+  - {id: gemini-2.0-flash-exp,              label: "Gemini 2.0 Flash"}
 # NOTE: default provider stays `mock` so `pip install` + `pytest` работают
 # offline. Прод-инстанс переопределяет env-переменной:
 #     CALIFORNIAN_ID_PROVIDER=302ai
