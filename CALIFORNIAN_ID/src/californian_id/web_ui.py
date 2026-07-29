@@ -312,8 +312,14 @@ _HTML = """<!doctype html>
         return;
       }
       runBtn.disabled = true;
-      statusEl.textContent = 'Считаю...';
-      output.textContent = 'Выполняется запуск...';
+      const t0 = Date.now();
+      statusEl.textContent = 'Идёт запрос к LLM…';
+      // Заметный overlay c прогрессом времени
+      output.textContent = '⏳ Совет собирается…\n\nЖивой запрос к LLM: обычно 60–180 секунд.\nПодожди, не нажимай ещё раз.\n\n(смотри статус в углу карточки — там таймер)';
+      const timer = setInterval(() => {
+        const dt = Math.floor((Date.now() - t0) / 1000);
+        statusEl.textContent = `Идёт запрос к LLM… ${dt}s`;
+      }, 1000);
       try {
         const response = await fetch('api/run', {
           method: 'POST',
@@ -340,11 +346,15 @@ _HTML = """<!doctype html>
         } else {
           output.textContent = JSON.stringify(payload, null, 2);
         }
-        statusEl.textContent = response.ok ? 'Готово.' : 'Ошибка запуска.';
+        const dt = Math.floor((Date.now() - t0) / 1000);
+        statusEl.textContent = response.ok
+          ? `Готово за ${dt}s.`
+          : `Ошибка HTTP ${response.status} за ${dt}s.`;
       } catch (error) {
         output.textContent = String(error);
-        statusEl.textContent = 'Ошибка сети.';
+        statusEl.textContent = 'Ошибка сети (проверь соединение / DevTools → Network).';
       } finally {
+        clearInterval(timer);
         runBtn.disabled = false;
       }
     });
@@ -553,6 +563,10 @@ class _WebUIHandler(BaseHTTPRequestHandler):
     server_version = "ZarathustraWebUI/0.1"
 
     def do_GET(self) -> None:  # noqa: N802
+        # Strip query-string: /?nocache=... должен матчить корневые пути
+        path_only = self.path.split("?", 1)[0]
+        # Rewrite so все ниже проверки видят чистый path
+        self.path = path_only
         if self.path in {"/api/presets", "/presets"}:
             from .config import load_config
             cfg = load_config()
