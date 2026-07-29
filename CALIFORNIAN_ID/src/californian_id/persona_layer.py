@@ -16,17 +16,13 @@ from .config import PERSONA_LAYER_ROOT
 
 
 BASE_FALLBACK_ORDER = ["C", "EA", "Ex", "L", "R", "S", "T"]
-ROUTING_KEYWORDS = {
-    "C": ("common task", "biosphere", "collective", "ancestry", "death", "civilization", "coordination"),
-    "T": ("enhancement", "autonomy", "body", "biometric", "consent", "identity", "posthuman", "morphological"),
-    "Ex": ("experiment", "innovation", "reversibility", "open", "option", "monopoly", "sandbox"),
-    "S": ("agi", "ai", "compute", "takeoff", "recursive", "control", "capability", "threshold"),
-    "R": ("evidence", "causal", "probability", "forecast", "model", "uncertainty", "calibration"),
-    "EA": ("efficiency", "effectiveness", "impact", "allocation", "beneficiary", "cost", "resource"),
-    "L": ("future", "generations", "century", "charter", "trajectory", "lock-in", "intergenerational", "long-term"),
-}
-FULL_COUNCIL_KEYWORDS = ("mandatory", "charter", "governance", "century", "constitutional", "civilizational")
-NEMO8_TRIGGER_KEYWORDS = ("mandate", "legitimacy", "consensus", "closure", "sovereignty", "governance", "charter", "parrhesia")
+
+# NOTE: since v0.4.3 the routing lexicon lives in data, not in this module.
+#   - per-persona topics: runtime_assets/personas/v0.2/personas/<ID>/manifest.yaml::routing.topics.{en,ru}
+#   - cross-cutting triggers: runtime_assets/personas/v0.2/registry/routing_policy.yaml
+# The three deleted constants used to be ROUTING_KEYWORDS / FULL_COUNCIL_KEYWORDS /
+# NEMO8_TRIGGER_KEYWORDS, all English-only. Loading is now bilingual and swappable
+# per persona pack — see load_routing_policy() below.
 
 
 def _load_yaml(path: Path) -> dict[str, Any]:
@@ -112,6 +108,73 @@ class PersonaLayerRegistry:
 
     def nemo8(self) -> PersonaPackage | None:
         return self.personas.get("N8")
+
+
+@dataclass
+class RoutingPolicy:
+    """Routing lexicon loaded from data (persona manifests + registry policy).
+
+    Replaces the deleted Python constants ROUTING_KEYWORDS /
+    FULL_COUNCIL_KEYWORDS / NEMO8_TRIGGER_KEYWORDS. All phrases are lower-cased,
+    stemmed where useful (Russian), and matched via substring `in scene.lower()`.
+    """
+    per_persona: dict[str, list[str]] = field(default_factory=dict)
+    full_council: list[str] = field(default_factory=list)
+    nemo8: list[str] = field(default_factory=list)
+
+    def keywords_for(self, persona_id: str) -> list[str]:
+        return self.per_persona.get(persona_id, [])
+
+
+def _flatten_bilingual(payload: Any) -> list[str]:
+    """Accepts dict {en:[...], ru:[...]} OR flat list; returns lowered union."""
+    if payload is None:
+        return []
+    if isinstance(payload, dict):
+        buckets: list[str] = []
+        for lang_key in ("en", "ru"):
+            v = payload.get(lang_key) or []
+            if isinstance(v, list):
+                buckets.extend(str(x).lower() for x in v)
+        # unknown-language buckets too
+        for k, v in payload.items():
+            if k in ("en", "ru"):
+                continue
+            if isinstance(v, list):
+                buckets.extend(str(x).lower() for x in v)
+        return sorted(set(b for b in buckets if b))
+    if isinstance(payload, list):
+        return sorted({str(x).lower() for x in payload if x})
+    return []
+
+
+def load_routing_policy(
+    root: Path,
+    personas: dict[str, "PersonaPackage"],
+) -> RoutingPolicy:
+    """Read routing lexicon from data.
+
+    Sources:
+      - per-persona: <root>/personas/<ID>/manifest.yaml -> routing.topics
+      - cross-cutting: <root>/registry/routing_policy.yaml -> full_council_triggers / nemo8_triggers
+    Both accept either bilingual dict {en:[...], ru:[...]} or a flat list.
+    Missing sources => empty policy (system degrades to persona order).
+    """
+    per_persona: dict[str, list[str]] = {}
+    for pid, pkg in personas.items():
+        routing = pkg.manifest.get("routing") or {}
+        topics = routing.get("topics")
+        per_persona[pid] = _flatten_bilingual(topics)
+
+    full_council: list[str] = []
+    nemo8: list[str] = []
+    policy_path = root / "registry" / "routing_policy.yaml"
+    if policy_path.exists():
+        policy_doc = _load_yaml(policy_path) or {}
+        full_council = _flatten_bilingual(policy_doc.get("full_council_triggers"))
+        nemo8 = _flatten_bilingual(policy_doc.get("nemo8_triggers"))
+
+    return RoutingPolicy(per_persona=per_persona, full_council=full_council, nemo8=nemo8)
 
 
 def load_persona_layer_registry(root: Path = PERSONA_LAYER_ROOT) -> PersonaLayerRegistry:
@@ -412,6 +475,7 @@ class PersonaCouncilRuntime:
         self.root = root
         self.registry = load_persona_layer_registry(root)
         self.index = PersonaIndex(root)
+        self.routing = load_routing_policy(root, self.registry.personas)
 
     def ensure_index(self) -> dict[str, Any]:
         if not self.index.is_stale(self.registry):
@@ -423,14 +487,14 @@ class PersonaCouncilRuntime:
         scores: dict[str, float] = {}
         for persona_id in BASE_FALLBACK_ORDER:
             score = 0.0
-            for phrase in ROUTING_KEYWORDS.get(persona_id, ()):
+            for phrase in self.routing.keywords_for(persona_id):
                 if phrase in scene_low:
                     score += 1.0 if " " not in phrase else 1.5
             scores[persona_id] = score
 
         ranked = sorted(BASE_FALLBACK_ORDER, key=lambda pid: (-scores[pid], BASE_FALLBACK_ORDER.index(pid)))
         positive = [pid for pid in ranked if scores[pid] > 0]
-        full_council_required = len(positive) >= 4 and any(word in scene_low for word in FULL_COUNCIL_KEYWORDS)
+        full_council_required = len(positive) >= 4 and any(word in scene_low for word in self.routing.full_council)
         fixed_order_fallback_used = False
 
         if full_council_required:
@@ -464,7 +528,7 @@ class PersonaCouncilRuntime:
         call_nemo8 = bool(
             enable_nemo8
             and self.registry.nemo8()
-            and (full_council_required or any(word in scene_low for word in NEMO8_TRIGGER_KEYWORDS))
+            and (full_council_required or any(word in scene_low for word in self.routing.nemo8))
         )
         return RoutePlan(
             cast_mode=cast_mode,

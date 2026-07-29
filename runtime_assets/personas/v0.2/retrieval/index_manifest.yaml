@@ -23,9 +23,9 @@ schema_hash: 'True'
 source_hashes:
   cards_snapshot_sha256: 325386767ab5699eb22beba9a9aa0a326e1d4b92b52f5ac2636ee444c83256c3
   sqlite_sha256: eafab6e4bc92f4efe35c2bfacb1d7bc55d89e771b99c0bd27f73f6b7ae7d8ec9
-  tfidf_sha256: 6751c1ae65d8402735a0cd59d0199f713e4f4d98ff93e15dc1b3c10608b3fe1b
-build_command: python -m californian_id persona-layer rebuild-index
-build_time: '2026-07-28T10:46:42.200583+00:00'
+  tfidf_sha256: 7d3bfda2375ba28008de64864fa628da09bf2c2345fef71364860c54ee2bb3f9
+build_command: pytest-rebuild
+build_time: '2026-07-29T08:36:52.951759+00:00'
 backend_versions:
   sqlite: 3.50.4
   tfidf: builtin_python

@@ -1,0 +1,54 @@
+schema_version: 0.1.0
+policy_id: PERSONA_LAYER_ROUTING_v0.1
+description: |
+  Routing lexicon for the persona layer. Replaces the previously-hardcoded
+  Python constants ROUTING_KEYWORDS / FULL_COUNCIL_KEYWORDS /
+  NEMO8_TRIGGER_KEYWORDS from persona_layer.py.
+
+  Per-persona topics live inside each persona's manifest.yaml under
+  `routing.topics.en` / `routing.topics.ru`. This policy holds only the
+  cross-cutting triggers that were previously module-level:
+    - full_council_triggers   → cast_mode="full_council"
+    - nemo8_triggers          → NEMO-8 meta-pass activation
+
+  Both lexicons are bilingual (English + Russian stems for substring match).
+  Russian entries are stems, not full forms, so they match all grammatical
+  variants ("будущее", "будущего", "будущему" → stem "будущ").
+
+full_council_triggers:
+  en:
+    - mandatory
+    - charter
+    - governance
+    - century
+    - constitutional
+    - civilizational
+  ru:
+    - обязательн     # обязательный / обязательно / обязательное
+    - устав          # уставный / уставом
+    - регламент
+    - управлени      # управление / управлением
+    - век            # века / веков
+    - столети        # столетие / столетий
+    - конституц      # конституция / конституционный
+    - цивилизац      # цивилизация / цивилизационный
+    - хартия         # civil charter (полная форма для русского корня)
+
+nemo8_triggers:
+  en:
+    - mandate
+    - legitimacy
+    - consensus
+    - closure
+    - sovereignty
+    - governance
+    - charter
+    - parrhesia
+  ru:
+    - легитим        # легитимность / легитимный
+    - консенсус
+    - суверен        # суверенитет / суверенный
+    - парр           # парресия
+    - закрыти        # закрытие / закрытием
+    - окончательн    # окончательность / окончательный
+    - принудительн   # (замыкание через принуждение — meta signal для N8)
