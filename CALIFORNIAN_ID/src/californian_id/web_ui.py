@@ -315,7 +315,7 @@ _HTML = """<!doctype html>
       const t0 = Date.now();
       statusEl.textContent = 'Идёт запрос к LLM…';
       // Заметный overlay c прогрессом времени
-      output.textContent = '⏳ Совет собирается…\n\nЖивой запрос к LLM: обычно 60–180 секунд.\nПодожди, не нажимай ещё раз.\n\n(смотри статус в углу карточки — там таймер)';
+      output.textContent = '⏳ Совет собирается…\\n\\nЖивой запрос к LLM: обычно 60–180 секунд.\\nПодожди, не нажимай ещё раз.\\n\\n(смотри статус в углу карточки — там таймер)';
       const timer = setInterval(() => {
         const dt = Math.floor((Date.now() - t0) / 1000);
         statusEl.textContent = `Идёт запрос к LLM… ${dt}s`;
@@ -342,7 +342,7 @@ _HTML = """<!doctype html>
         // text-mode: показать body как plain text, meta ниже;
         // json-mode: JSON.stringify как раньше.
         if (payload && payload.format === 'text' && payload.body) {
-          output.textContent = payload.body + '\n\n--- meta ---\n' + JSON.stringify(payload.meta || {}, null, 2);
+          output.textContent = payload.body + '\\n\\n--- meta ---\\n' + JSON.stringify(payload.meta || {}, null, 2);
         } else {
           output.textContent = JSON.stringify(payload, null, 2);
         }
