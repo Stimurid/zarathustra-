@@ -10,6 +10,8 @@ _INTERNAL_SETTING_KEYS = {
     "persona_id",
     "operation",
     "topic",
+    "form",
+    "input_len",
     "available_personas",
     "already_called",
     "suggested_operation",
@@ -31,6 +33,23 @@ _INTERNAL_SETTING_KEYS = {
     "routing_contract",
     "regime_instruction",
 }
+
+
+def _strip_internal(settings: dict[str, Any]) -> dict[str, Any]:
+    """Whitelist по-хорошему был бы надёжнее, но пока — вычистка знакомых
+    internal ключей + любых не-примитивов (SDK не примет dict/list/None
+    в generate)."""
+    out = {}
+    for k, v in (settings or {}).items():
+        if k in _INTERNAL_SETTING_KEYS:
+            continue
+        if v is None:
+            continue
+        if not isinstance(v, (str, int, float, bool)):
+            # dict/list — точно не SDK-параметр, скорее контекст для промпта
+            continue
+        out[k] = v
+    return out
 
 
 class OpenAIClient:
@@ -66,9 +85,7 @@ class OpenAIClient:
         response_schema: dict[str, Any] | None = None,
         settings: dict[str, Any] | None = None,
     ) -> ModelResult:
-        merged = {**self.settings, **(settings or {})}
-        for k in _INTERNAL_SETTING_KEYS:
-            merged.pop(k, None)
+        merged = _strip_internal({**self.settings, **(settings or {})})
         chat = [{"role": m.role, "content": m.content} for m in messages]
         resp = self._client.chat.completions.create(
             model=self.model,
