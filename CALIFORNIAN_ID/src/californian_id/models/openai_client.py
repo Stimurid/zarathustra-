@@ -36,7 +36,14 @@ _INTERNAL_SETTING_KEYS = {
 class OpenAIClient:
     provider = "openai"
 
-    def __init__(self, api_key: str, model: str | None, settings: dict[str, Any]) -> None:
+    def __init__(
+        self,
+        api_key: str,
+        model: str | None,
+        settings: dict[str, Any],
+        base_url: str | None = None,
+        provider_label: str | None = None,
+    ) -> None:
         try:
             from openai import OpenAI  # type: ignore
         except ImportError as e:
@@ -44,9 +51,14 @@ class OpenAIClient:
                 "The `openai` package is not installed. "
                 "Run `pip install openai` or switch provider to `mock`."
             ) from e
-        self._client = OpenAI(api_key=api_key)
+        kwargs: dict[str, Any] = {"api_key": api_key}
+        if base_url:
+            kwargs["base_url"] = base_url
+        self._client = OpenAI(**kwargs)
         self.model = model or "gpt-4o-mini"
         self.settings = dict(settings)
+        if provider_label:
+            self.provider = provider_label
 
     def generate(
         self,

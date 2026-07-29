@@ -34,15 +34,17 @@ class Value:
 
 @dataclass
 class Attack:
-    target: str  # id of a previous claim/assumption or "previous_turn"
-    text: str
+    # target defaults to "previous_turn" because live LLMs (Claude/GPT) often
+    # emit `attacks` without an explicit target field; mock always did.
+    text: str = ""
+    target: str = "previous_turn"
     persona_id: str | None = None
 
 
 @dataclass
 class Support:
-    target: str
-    text: str
+    text: str = ""
+    target: str = "previous_turn"
     persona_id: str | None = None
 
 

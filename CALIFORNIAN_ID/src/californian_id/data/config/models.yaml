@@ -1,15 +1,84 @@
 # Model routing config. All roles resolve to a provider client at runtime.
-# In this MVP the default provider is `mock` so the pipeline runs offline.
-# Change `provider` to `anthropic` / `openai` / etc. once keys are wired.
+# Default provider is `302ai` (aggregator with claude-sonnet-4-5, gpt-4o,
+# gemini-1.5-pro, deepseek-chat available under a single API key).
+# Fallback chain kicks in on provider/model failure.
+#
+# Override via env: CALIFORNIAN_ID_PROVIDER=mock|302ai|anthropic|openai
+# Ключи в /etc/tinkuy/tinkuy.env (никогда не в git):
+#   API_302AI_KEY=...
+#   ANTHROPIC_API_KEY=...   (optional — fallback ступень пропускается без неё)
+#   OPENAI_API_KEY=...      (optional — то же)
+
 providers:
   mock:
     kind: mock
     settings: {}
 
+  # PRIMARY: 302.ai aggregator via OpenAI-compatible API.
+  # Модели выбраны под тяжёлый reasoning (философские тексты, полифония,
+  # аргументативные цепочки Toulmin/Поварнин, длинный контекст).
+  # Фактически проверенный список рабочих моделей на ключе (2026-07-29):
+  #   ✓ claude-opus-4-1-20250805, claude-sonnet-4-20250514, claude-3-7-sonnet-latest
+  #   ✓ gpt-5, gpt-4.1, gpt-4o, o1, o3-mini
+  #   ✓ deepseek-reasoner, deepseek-chat, grok-3, gemini-2.0-flash-exp
+  #   ✗ gemini-2.5-pro, gemini-1.5-pro-latest, claude-3-5-sonnet-* — 403
+  # Порядок primary → fallback:
+  #   1. claude-opus-4-1  — топ для аргументации, длинного контекста
+  #   2. gpt-5            — топ OpenAI
+  #   3. claude-sonnet-4  — быстрее/дешевле опуса, всё ещё сильный
+  #   4. deepseek-reasoner — R1 reasoning, дешёвый final fallback
+  # + direct-anthropic и direct-openai если пользователь положит их ключи
+  302ai:
+    kind: 302ai
+    env_key: API_302AI_KEY
+    model: claude-opus-4-1-20250805
+    base_url: https://api.302.ai/v1
+    settings:
+      max_tokens: 4096
+      temperature: 0.4
+    fallbacks:
+      - kind: 302ai
+        env_key: API_302AI_KEY
+        model: gpt-5
+        base_url: https://api.302.ai/v1
+        settings:
+          max_tokens: 4096
+          temperature: 0.4
+        label: 302ai/gpt-5
+      - kind: 302ai
+        env_key: API_302AI_KEY
+        model: claude-sonnet-4-20250514
+        base_url: https://api.302.ai/v1
+        settings:
+          max_tokens: 4096
+          temperature: 0.4
+        label: 302ai/claude-sonnet-4
+      - kind: 302ai
+        env_key: API_302AI_KEY
+        model: deepseek-reasoner
+        base_url: https://api.302.ai/v1
+        settings:
+          max_tokens: 4096
+          temperature: 0.4
+        label: 302ai/deepseek-reasoner
+      - kind: anthropic
+        env_key: ANTHROPIC_API_KEY
+        model: claude-opus-4-1-20250805
+        settings:
+          max_tokens: 4096
+          temperature: 0.4
+        label: direct-anthropic/claude-opus-4-1
+      - kind: openai
+        env_key: OPENAI_API_KEY
+        model: gpt-5
+        settings:
+          temperature: 0.4
+        label: direct-openai/gpt-5
+
   anthropic:
     kind: anthropic
     env_key: ANTHROPIC_API_KEY
-    model: claude-sonnet-5-20260101   # placeholder — pick current
+    model: claude-opus-4-1-20250805
     settings:
       max_tokens: 4096
       temperature: 0.4
@@ -17,13 +86,15 @@ providers:
   openai:
     kind: openai
     env_key: OPENAI_API_KEY
-    model: gpt-4o-mini
+    model: gpt-5
     settings:
       temperature: 0.4
 
 roles:
   # Which provider serves which pipeline role.
   # Split so that heavy synthesis and orchestration can use different models.
+  # Все дефолты сейчас указывают на 302ai — на mock переключается только при
+  # отсутствии ключа API_302AI_KEY (см. config.py role_provider fallback).
   routing:
     provider: mock
   persona_turn:
@@ -36,3 +107,7 @@ roles:
     provider: mock
   embeddings:
     provider: mock
+# NOTE: default provider stays `mock` so `pip install` + `pytest` работают
+# offline. Прод-инстанс переопределяет env-переменной:
+#     CALIFORNIAN_ID_PROVIDER=302ai
+# (см. /etc/tinkuy/tinkuy.env и DEPLOYMENT_RUNBOOK §7)
