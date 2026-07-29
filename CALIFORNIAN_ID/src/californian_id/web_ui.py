@@ -237,7 +237,7 @@ _HTML = """<!doctype html>
         <label for="inputText">Текст</label>
         <textarea id="inputText" placeholder="Вставь расшифровку, вопрос, canonical semantic-units envelope, md units pack или другой материал..."></textarea>
         <div class="actions">
-          <button id="runBtn">Запустить совет</button>
+          <button id="runBtn" type="button">Запустить совет</button>
           <button class="secondary" id="clearBtn" type="button">Очистить</button>
           <span class="status" id="status">Готово.</span>
         </div>
@@ -570,6 +570,12 @@ class _WebUIHandler(BaseHTTPRequestHandler):
         self.send_response(HTTPStatus.OK)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
+        # Prevent browser/proxy caching of the UI — иначе после deploy
+        # пользователь получает старую HTML с несовпадающими id, script не
+        # находит нужные элементы, handler не привязывается, кнопка "мертва".
+        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+        self.send_header("Pragma", "no-cache")
+        self.send_header("Expires", "0")
         self.end_headers()
         self.wfile.write(body)
 
