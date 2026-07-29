@@ -56,10 +56,22 @@ class RuntimeConfig:
         return self.raw.get("runtime", {}).get("mode_default", "fast")
 
     def role_provider(self, role: str) -> str:
-        """Which provider serves this pipeline role. Env override wins."""
+        """Which provider serves this pipeline role.
+
+        Priority:
+          1. explicit env `CALIFORNIAN_ID_PROVIDER`
+          2. implicit smart default: for voice roles (`persona_turn`,
+             `zarathustra_closing_speech`), if `API_302AI_KEY` is set
+             → return `302ai`. Так пользователь получает полноценный
+             живой ответ «из коробки», а не пустую mock-заглушку.
+          3. yaml `roles.<role>.provider` (default mock).
+        """
         env = os.environ.get("CALIFORNIAN_ID_PROVIDER")
         if env:
             return env
+        _voice_roles = {"persona_turn", "zarathustra_closing_speech"}
+        if role in _voice_roles and os.environ.get("API_302AI_KEY"):
+            return "302ai"
         return self.models.get("roles", {}).get(role, {}).get("provider", "mock")
 
     def provider_config(self, name: str) -> dict[str, Any]:
