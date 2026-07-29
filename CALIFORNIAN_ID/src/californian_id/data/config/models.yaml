@@ -34,7 +34,7 @@ providers:
     model: claude-opus-4-1-20250805
     base_url: https://api.302.ai/v1
     settings:
-      max_tokens: 4096
+      max_tokens: 1024
       temperature: 0.4
     fallbacks:
       - kind: 302ai
@@ -42,7 +42,7 @@ providers:
         model: gpt-5
         base_url: https://api.302.ai/v1
         settings:
-          max_tokens: 4096
+          max_tokens: 1024
           temperature: 0.4
         label: 302ai/gpt-5
       - kind: 302ai
@@ -50,7 +50,7 @@ providers:
         model: claude-sonnet-4-20250514
         base_url: https://api.302.ai/v1
         settings:
-          max_tokens: 4096
+          max_tokens: 1024
           temperature: 0.4
         label: 302ai/claude-sonnet-4
       - kind: 302ai
@@ -58,14 +58,14 @@ providers:
         model: deepseek-reasoner
         base_url: https://api.302.ai/v1
         settings:
-          max_tokens: 4096
+          max_tokens: 1024
           temperature: 0.4
         label: 302ai/deepseek-reasoner
       - kind: anthropic
         env_key: ANTHROPIC_API_KEY
         model: claude-opus-4-1-20250805
         settings:
-          max_tokens: 4096
+          max_tokens: 1024
           temperature: 0.4
         label: direct-anthropic/claude-opus-4-1
       - kind: openai
@@ -80,7 +80,7 @@ providers:
     env_key: ANTHROPIC_API_KEY
     model: claude-opus-4-1-20250805
     settings:
-      max_tokens: 4096
+      max_tokens: 1024
       temperature: 0.4
 
   openai:
@@ -105,13 +105,13 @@ providers:
     model: claude-opus-4-1-20250805
     base_url: https://api.302.ai/v1
     settings:
-      max_tokens: 4096
+      max_tokens: 1024
       temperature: 0.3
     fallbacks:
-      - {kind: 302ai, env_key: API_302AI_KEY, model: o1, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.3}, label: 302ai/o1}
-      - {kind: 302ai, env_key: API_302AI_KEY, model: gpt-5, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.3}, label: 302ai/gpt-5}
-      - {kind: 302ai, env_key: API_302AI_KEY, model: grok-3, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.3}, label: 302ai/grok-3}
-      - {kind: 302ai, env_key: API_302AI_KEY, model: deepseek-reasoner, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.3}, label: 302ai/deepseek-reasoner}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: o1, base_url: https://api.302.ai/v1, settings: {max_tokens: 1024, temperature: 0.3}, label: 302ai/o1}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: gpt-5, base_url: https://api.302.ai/v1, settings: {max_tokens: 1024, temperature: 0.3}, label: 302ai/gpt-5}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: grok-3, base_url: https://api.302.ai/v1, settings: {max_tokens: 1024, temperature: 0.3}, label: 302ai/grok-3}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: deepseek-reasoner, base_url: https://api.302.ai/v1, settings: {max_tokens: 1024, temperature: 0.3}, label: 302ai/deepseek-reasoner}
 
   # REASONING: reasoning-first (o1 → deepseek-reasoner → gpt-5 → opus). Для сложных тезисов и апорий.
   reasoning:
@@ -120,11 +120,11 @@ providers:
     model: o1
     base_url: https://api.302.ai/v1
     settings:
-      max_tokens: 8192
+      max_tokens: 2048
     fallbacks:
-      - {kind: 302ai, env_key: API_302AI_KEY, model: deepseek-reasoner, base_url: https://api.302.ai/v1, settings: {max_tokens: 8192}, label: 302ai/deepseek-reasoner}
-      - {kind: 302ai, env_key: API_302AI_KEY, model: o3-mini, base_url: https://api.302.ai/v1, settings: {max_tokens: 8192}, label: 302ai/o3-mini}
-      - {kind: 302ai, env_key: API_302AI_KEY, model: claude-opus-4-1-20250805, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.3}, label: 302ai/opus-4-1}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: deepseek-reasoner, base_url: https://api.302.ai/v1, settings: {max_tokens: 2048}, label: 302ai/deepseek-reasoner}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: o3-mini, base_url: https://api.302.ai/v1, settings: {max_tokens: 2048}, label: 302ai/o3-mini}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: claude-opus-4-1-20250805, base_url: https://api.302.ai/v1, settings: {max_tokens: 1024, temperature: 0.3}, label: 302ai/opus-4-1}
 
   # DIVERSE: одна frontier-модель от каждого крупного лаба. Для полифонии стилей.
   diverse:
@@ -133,13 +133,13 @@ providers:
     model: claude-opus-4-1-20250805
     base_url: https://api.302.ai/v1
     settings:
-      max_tokens: 4096
+      max_tokens: 1024
       temperature: 0.5
     fallbacks:
-      - {kind: 302ai, env_key: API_302AI_KEY, model: gpt-5, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.5}, label: 302ai/gpt-5}
-      - {kind: 302ai, env_key: API_302AI_KEY, model: grok-3, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.5}, label: 302ai/grok-3}
-      - {kind: 302ai, env_key: API_302AI_KEY, model: gemini-2.0-flash-exp, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.5}, label: 302ai/gemini-2.0-flash-exp}
-      - {kind: 302ai, env_key: API_302AI_KEY, model: deepseek-chat, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.5}, label: 302ai/deepseek-chat}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: gpt-5, base_url: https://api.302.ai/v1, settings: {max_tokens: 1024, temperature: 0.5}, label: 302ai/gpt-5}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: grok-3, base_url: https://api.302.ai/v1, settings: {max_tokens: 1024, temperature: 0.5}, label: 302ai/grok-3}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: gemini-2.0-flash-exp, base_url: https://api.302.ai/v1, settings: {max_tokens: 1024, temperature: 0.5}, label: 302ai/gemini-2.0-flash-exp}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: deepseek-chat, base_url: https://api.302.ai/v1, settings: {max_tokens: 1024, temperature: 0.5}, label: 302ai/deepseek-chat}
 
   # FAST: быстро и дёшево. Sonnet 4 → gpt-4o → deepseek-chat.
   fast:

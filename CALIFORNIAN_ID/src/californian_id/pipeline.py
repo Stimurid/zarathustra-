@@ -80,9 +80,15 @@ class Pipeline:
         self.preset_override = preset_override
 
     def _role_and_cfg(self, role: str) -> tuple[str, dict[str, Any]]:
-        """Resolve (provider_name, provider_config) для роли с учётом preset override.
-        See src/californian_id/data/config/models.yaml → `presets` секция."""
-        if self.preset_override:
+        """Resolve (provider_name, provider_config) для роли.
+
+        Preset override действует ТОЛЬКО на 'persona_turn' — там реально
+        нужна умная модель. routing / situation_reading / synthesis остаются
+        на своих провайдерах из yaml (или env override), чтобы не тратить
+        heavy-модель на служебные вызовы и не выйти за Caddy 300s timeout.
+        """
+        preset_affects = {"persona_turn"}
+        if self.preset_override and role in preset_affects:
             resolved = self.config.preset_provider_name(self.preset_override) or self.preset_override
             return resolved, self.config.provider_config(resolved)
         name = self.config.role_provider(role)
