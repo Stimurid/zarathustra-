@@ -168,6 +168,71 @@ sudo systemctl restart tinkuy-web
 - `OPENAI_API_KEY` — то же
 Если этих ключей нет в env, соответствующие ступени fallback просто пропускаются.
 
+## 7-bis. Presets — быстрое сравнение моделей per-request
+
+С v0.4.5 у каждого запроса можно выбрать preset (набор моделей + fallback chain)
+через параметр `preset` в POST body. Дефолт остаётся из `/etc/tinkuy/tinkuy.env`,
+но конкретный запрос может пойти на "умнее" / "reasoning" / "cheap" — сравнить
+результат бок о бок без рестарта.
+
+### Доступные presets
+
+| name | ~что | цепочка |
+|------|------|---------|
+| `default`   | текущий дефолт из .env | `CALIFORNIAN_ID_PROVIDER` |
+| `smartest`  | максимально умно | Opus 4.1 → o1 → gpt-5 → grok-3 → deepseek-reasoner |
+| `reasoning` | reasoning-first | o1 → deepseek-reasoner → o3-mini → Opus 4.1 |
+| `diverse`   | стилевая полифония | Opus 4.1 → gpt-5 → grok-3 → gemini-2.0-flash → deepseek-chat |
+| `fast`      | быстро/бюджетно | Sonnet 4 → gpt-4o → deepseek-chat |
+| `cheap`     | минимум затрат | deepseek-chat → gpt-4o |
+| `mock`      | offline test | шаблонные ответы, без вызова LLM |
+
+Список endpoint: `GET https://tinkuy.mindkampf.ru/api/presets`.
+
+### Через API — «поставь модель по-умнее»
+
+```bash
+# smartest — топ Opus 4.1 + o1 + gpt-5 + grok-3
+curl -sk -X POST https://tinkuy.mindkampf.ru/api/run \
+  -H 'Content-Type: application/json; charset=utf-8' \
+  -d '{"text":"Стоит ли ускорять развитие AGI?","mode":"fast","preset":"smartest"}'
+
+# reasoning — o1 first, для сложных апорий
+curl -sk -X POST https://tinkuy.mindkampf.ru/api/run \
+  -d '{"text":"...","preset":"reasoning"}'
+
+# сравнить: default vs smartest на одном вопросе
+for p in "" smartest reasoning; do
+  echo "=== preset=$p ==="
+  curl -sk -X POST https://tinkuy.mindkampf.ru/api/run \
+    -H 'Content-Type: application/json; charset=utf-8' \
+    -d "{\"text\":\"Свобода или безопасность?\",\"mode\":\"fast\",\"preset\":\"$p\"}" \
+    | jq '{form: .completion.form, voices: .voices_used, provider: .preset}'
+done
+```
+
+### Через Web UI
+
+Открыть https://tinkuy.mindkampf.ru → dropdown «Модель» → выбрать нужный preset
+→ запустить совет. Preset сохраняется только в этом запросе.
+
+### Через Python
+
+```python
+from californian_id.pipeline import Pipeline
+r = Pipeline(preset_override="smartest").run(text="...", mode="fast")
+# preset_override действует только для этого Pipeline инстанса
+```
+
+### Как добавить свой preset
+
+Отредактировать `/opt/tinkuy/app/CALIFORNIAN_ID/src/californian_id/data/config/models.yaml`
+(или свой data-dir через `CALIFORNIAN_ID_DATA_DIR`):
+
+1. Добавить в `providers:` блок новый провайдер с fallbacks — по образцу `smartest`.
+2. Добавить в `presets:` строку с `name`, `label`, `provider`.
+3. `sudo systemctl restart tinkuy-web`.
+
 ## 8. basic_auth (закрыть публичный доступ)
 
 По умолчанию сейчас без auth (после снятия невалидного хеша от Codex).

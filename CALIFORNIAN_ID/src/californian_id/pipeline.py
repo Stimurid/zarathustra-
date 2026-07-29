@@ -69,11 +69,24 @@ class PipelineResult:
 
 
 class Pipeline:
-    def __init__(self) -> None:
+    def __init__(self, preset_override: str | None = None) -> None:
         self.config = load_config()
         self.zarathustra = Zarathustra()
         self.retriever = LexicalPersonaRetriever(PERSONAS_DIR)
         self.cultural = CulturalIndex()
+        # per-Pipeline preset override — if set, все role_provider возвращают
+        # этот preset вместо роль-specific провайдера из yaml. Web-endpoint
+        # создаёт новый Pipeline на каждый запрос при указании preset в body.
+        self.preset_override = preset_override
+
+    def _role_and_cfg(self, role: str) -> tuple[str, dict[str, Any]]:
+        """Resolve (provider_name, provider_config) для роли с учётом preset override.
+        See src/californian_id/data/config/models.yaml → `presets` секция."""
+        if self.preset_override:
+            resolved = self.config.preset_provider_name(self.preset_override) or self.preset_override
+            return resolved, self.config.provider_config(resolved)
+        name = self.config.role_provider(role)
+        return name, self.config.provider_config(name)
 
     # ---------- Public entry (raw text) ----------
     def run(
@@ -110,10 +123,11 @@ class Pipeline:
         # If input tries to jailbreak Zarathustra: we still analyse the content
         # (it becomes an *object* of analysis), but flag the security event.
         state.transition("ANALYZED")
-        situation_reading_provider = self.config.role_provider("zarathustra_situation_reading")
+        situation_reading_provider, situation_reading_cfg = self._role_and_cfg(
+            "zarathustra_situation_reading"
+        )
         situation_reading_client = build_client(
-            situation_reading_provider,
-            self.config.provider_config(situation_reading_provider),
+            situation_reading_provider, situation_reading_cfg,
         )
         state.situation = self.zarathustra.analyze_situation(
             text, client=situation_reading_client,
@@ -149,18 +163,15 @@ class Pipeline:
         state.transition("COUNCIL_RUNNING")
 
         # ---------- Sequential inner council ----------
-        persona_turn_client = build_client(
-            self.config.role_provider("persona_turn"),
-            self.config.provider_config(self.config.role_provider("persona_turn")),
-        )
-        routing_client = build_client(
-            self.config.role_provider("zarathustra_orchestration"),
-            self.config.provider_config(self.config.role_provider("zarathustra_orchestration")),
-        )
-        synth_client = build_client(
-            self.config.role_provider("synthesis"),
-            self.config.provider_config(self.config.role_provider("synthesis")),
-        )
+        persona_turn_client = build_client(*self._role_and_cfg("persona_turn"))
+        routing_client = build_client(*self._role_and_cfg("zarathustra_orchestration"))
+        synth_client = build_client(*self._role_and_cfg("synthesis"))
+        trace.event("provider_selection", {
+            "preset_override": self.preset_override,
+            "persona_turn": persona_turn_client.provider + "/" + str(getattr(persona_turn_client, "model", "")),
+            "routing": routing_client.provider + "/" + str(getattr(routing_client, "model", "")),
+            "synthesis": synth_client.provider + "/" + str(getattr(synth_client, "model", "")),
+        })
 
         already_called: list[str] = []
         registry_ids = state.selected_personas or [p.persona_id for p in active_personas]
@@ -496,17 +507,10 @@ class Pipeline:
         affect = AffectBook()
 
         persona_turn_client = build_client(
-            self.config.role_provider("persona_turn"),
-            self.config.provider_config(self.config.role_provider("persona_turn")),
+            *self._role_and_cfg("persona_turn"),
         )
-        routing_client = build_client(
-            self.config.role_provider("zarathustra_orchestration"),
-            self.config.provider_config(self.config.role_provider("zarathustra_orchestration")),
-        )
-        synth_client = build_client(
-            self.config.role_provider("synthesis"),
-            self.config.provider_config(self.config.role_provider("synthesis")),
-        )
+        routing_client = build_client(*self._role_and_cfg("zarathustra_orchestration"))
+        synth_client = build_client(*self._role_and_cfg("synthesis"))
 
         state.transition("COUNCIL_RUNNING")
         already_called: list[str] = []

@@ -65,6 +65,21 @@ class RuntimeConfig:
     def provider_config(self, name: str) -> dict[str, Any]:
         return self.models.get("providers", {}).get(name, {"kind": name, "settings": {}})
 
+    def presets(self) -> list[dict[str, Any]]:
+        """Registered LLM presets for UI/CLI selection. Order = display order."""
+        raw = self.models.get("presets") or []
+        return [dict(p) for p in raw]
+
+    def preset_provider_name(self, preset_name: str) -> str | None:
+        """Map a preset name → underlying provider config name. None if unknown."""
+        for p in self.presets():
+            if p.get("name") == preset_name:
+                return p.get("provider") or preset_name
+        # unknown preset — allow raw provider name pass-through
+        if preset_name in (self.models.get("providers") or {}):
+            return preset_name
+        return None
+
 
 def load_config() -> RuntimeConfig:
     return RuntimeConfig(

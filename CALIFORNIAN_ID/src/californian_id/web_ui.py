@@ -192,6 +192,13 @@ _HTML = """<!doctype html>
             </select>
           </div>
           <div>
+            <label for="preset">Модель</label>
+            <select id="preset">
+              <option value="" selected>по умолчанию</option>
+              <!-- динамически подгружается из /api/presets -->
+            </select>
+          </div>
+          <div>
             <label for="debug">Вывод</label>
             <select id="debug">
               <option value="false" selected>обычный</option>
@@ -247,6 +254,21 @@ _HTML = """<!doctype html>
       fileInput.value = '';
     });
 
+    // populate preset dropdown from /api/presets
+    (async () => {
+      try {
+        const r = await fetch('api/presets');
+        const j = await r.json();
+        const sel = document.getElementById('preset');
+        for (const p of (j.presets || [])) {
+          const opt = document.createElement('option');
+          opt.value = p.name;
+          opt.textContent = p.label || p.name;
+          sel.appendChild(opt);
+        }
+      } catch(e) { /* ignore — dropdown will just have default */ }
+    })();
+
     runBtn.addEventListener('click', async () => {
       const text = input.value.trim();
       if (!text) {
@@ -266,6 +288,7 @@ _HTML = """<!doctype html>
             mode: document.getElementById('mode').value,
             critique_regime: document.getElementById('critique').value,
             variation_regime: document.getElementById('variation').value,
+            preset: document.getElementById('preset').value,
             debug: document.getElementById('debug').value === 'true'
           })
         });
@@ -293,8 +316,9 @@ def run_web_request(
     critique_regime: str = "balanced",
     variation_regime: str = "normal",
     debug: bool = False,
+    preset: str | None = None,
 ) -> dict[str, Any]:
-    pipe = Pipeline()
+    pipe = Pipeline(preset_override=preset or None)
     resolved_input_mode = input_mode
     ingress_mode = "legacy_raw"
 
@@ -357,6 +381,7 @@ def run_web_request(
         },
         "input_mode": resolved_input_mode,
         "ingress_mode": ingress_mode,
+        "preset": pipe.preset_override,
     }
     if debug:
         payload["turns"] = [to_plain(t) for t in result.run_state.turns]
@@ -398,6 +423,11 @@ class _WebUIHandler(BaseHTTPRequestHandler):
     server_version = "ZarathustraWebUI/0.1"
 
     def do_GET(self) -> None:  # noqa: N802
+        if self.path in {"/api/presets", "/presets"}:
+            from .config import load_config
+            cfg = load_config()
+            self._send_json({"presets": cfg.presets()})
+            return
         if self.path not in {"/", "/index.html"}:
             self.send_error(HTTPStatus.NOT_FOUND, "Not found")
             return
@@ -427,6 +457,7 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                 critique_regime=data.get("critique_regime") or "balanced",
                 variation_regime=data.get("variation_regime") or "normal",
                 debug=bool(data.get("debug")),
+                preset=(data.get("preset") or None),
             )
             self._send_json(payload)
         except Exception as exc:  # pragma: no cover - defensive boundary

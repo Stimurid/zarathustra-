@@ -90,6 +90,92 @@ providers:
     settings:
       temperature: 0.4
 
+  # ============================================================
+  # PRESETS — переключаются per-request через API/CLI.
+  # Клиент передаёт { "preset": "smartest" } в POST /api/run —
+  # для этого запроса cast будет ходить в указанный preset.
+  # Без указания — берётся тот, что в roles.<role>.provider (mock/302ai).
+  # ============================================================
+
+  # SMARTEST: топ reasoning + разнообразие. Медленно, дорого, максимальное качество.
+  # Первым идёт Opus 4.1 (глубина reasoning), fallback через o1 → gpt-5 → grok-3 → deepseek-reasoner.
+  smartest:
+    kind: 302ai
+    env_key: API_302AI_KEY
+    model: claude-opus-4-1-20250805
+    base_url: https://api.302.ai/v1
+    settings:
+      max_tokens: 4096
+      temperature: 0.3
+    fallbacks:
+      - {kind: 302ai, env_key: API_302AI_KEY, model: o1, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.3}, label: 302ai/o1}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: gpt-5, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.3}, label: 302ai/gpt-5}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: grok-3, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.3}, label: 302ai/grok-3}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: deepseek-reasoner, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.3}, label: 302ai/deepseek-reasoner}
+
+  # REASONING: reasoning-first (o1 → deepseek-reasoner → gpt-5 → opus). Для сложных тезисов и апорий.
+  reasoning:
+    kind: 302ai
+    env_key: API_302AI_KEY
+    model: o1
+    base_url: https://api.302.ai/v1
+    settings:
+      max_tokens: 8192
+    fallbacks:
+      - {kind: 302ai, env_key: API_302AI_KEY, model: deepseek-reasoner, base_url: https://api.302.ai/v1, settings: {max_tokens: 8192}, label: 302ai/deepseek-reasoner}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: o3-mini, base_url: https://api.302.ai/v1, settings: {max_tokens: 8192}, label: 302ai/o3-mini}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: claude-opus-4-1-20250805, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.3}, label: 302ai/opus-4-1}
+
+  # DIVERSE: одна frontier-модель от каждого крупного лаба. Для полифонии стилей.
+  diverse:
+    kind: 302ai
+    env_key: API_302AI_KEY
+    model: claude-opus-4-1-20250805
+    base_url: https://api.302.ai/v1
+    settings:
+      max_tokens: 4096
+      temperature: 0.5
+    fallbacks:
+      - {kind: 302ai, env_key: API_302AI_KEY, model: gpt-5, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.5}, label: 302ai/gpt-5}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: grok-3, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.5}, label: 302ai/grok-3}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: gemini-2.0-flash-exp, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.5}, label: 302ai/gemini-2.0-flash-exp}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: deepseek-chat, base_url: https://api.302.ai/v1, settings: {max_tokens: 4096, temperature: 0.5}, label: 302ai/deepseek-chat}
+
+  # FAST: быстро и дёшево. Sonnet 4 → gpt-4o → deepseek-chat.
+  fast:
+    kind: 302ai
+    env_key: API_302AI_KEY
+    model: claude-sonnet-4-20250514
+    base_url: https://api.302.ai/v1
+    settings:
+      max_tokens: 2048
+      temperature: 0.4
+    fallbacks:
+      - {kind: 302ai, env_key: API_302AI_KEY, model: gpt-4o, base_url: https://api.302.ai/v1, settings: {max_tokens: 2048, temperature: 0.4}, label: 302ai/gpt-4o}
+      - {kind: 302ai, env_key: API_302AI_KEY, model: deepseek-chat, base_url: https://api.302.ai/v1, settings: {max_tokens: 2048, temperature: 0.4}, label: 302ai/deepseek-chat}
+
+  # CHEAP: минимум денег. deepseek-chat → gpt-4o.
+  cheap:
+    kind: 302ai
+    env_key: API_302AI_KEY
+    model: deepseek-chat
+    base_url: https://api.302.ai/v1
+    settings:
+      max_tokens: 2048
+      temperature: 0.4
+    fallbacks:
+      - {kind: 302ai, env_key: API_302AI_KEY, model: gpt-4o, base_url: https://api.302.ai/v1, settings: {max_tokens: 2048, temperature: 0.4}, label: 302ai/gpt-4o}
+
+# Реестр пресетов для UI/CLI-выбора. Порядок = порядок в dropdown.
+presets:
+  - {name: default,  label: "Умолчание (Opus 4.1 → gpt-5 → sonnet-4 → deepseek-r)", provider: 302ai}
+  - {name: smartest, label: "Умнее (Opus 4.1 + o1 + gpt-5 + grok-3)",              provider: smartest}
+  - {name: reasoning, label: "Reasoning tier (o1 + deepseek-reasoner + o3-mini)",    provider: reasoning}
+  - {name: diverse,  label: "Разные лабы (Opus 4.1 + gpt-5 + grok-3 + gemini)",     provider: diverse}
+  - {name: fast,     label: "Быстро (Sonnet 4 + gpt-4o + deepseek-chat)",           provider: fast}
+  - {name: cheap,    label: "Дёшево (deepseek-chat + gpt-4o)",                       provider: cheap}
+  - {name: mock,     label: "Mock (без вызова LLM, для теста pipeline)",             provider: mock}
+
 roles:
   # Which provider serves which pipeline role.
   # Split so that heavy synthesis and orchestration can use different models.
