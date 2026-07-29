@@ -168,14 +168,12 @@ providers:
 
 # Реестр пресетов для UI/CLI-выбора. Порядок = порядок в dropdown.
 presets:
-  - {name: "",       label: "по умолчанию (Opus 4.1 при наличии ключа, иначе mock)", provider: ""}
-  - {name: default,  label: "Умолчание (Opus 4.1 → gpt-5 → sonnet-4 → deepseek-r)", provider: 302ai}
+  - {name: "",       label: "по умолчанию — Opus 4.1 → gpt-5 → sonnet-4 → deepseek-r", provider: 302ai}
   - {name: smartest, label: "Умнее (Opus 4.1 + o1 + gpt-5 + grok-3)",              provider: smartest}
   - {name: reasoning, label: "Reasoning tier (o1 + deepseek-reasoner + o3-mini)",    provider: reasoning}
   - {name: diverse,  label: "Разные лабы (Opus 4.1 + gpt-5 + grok-3 + gemini)",     provider: diverse}
   - {name: fast,     label: "Быстро (Sonnet 4 + gpt-4o + deepseek-chat)",           provider: fast}
   - {name: cheap,    label: "Дёшево (deepseek-chat + gpt-4o)",                       provider: cheap}
-  - {name: mock,     label: "Mock (без вызова LLM, для теста pipeline)",             provider: mock}
 
 roles:
   # Which provider serves which pipeline role.

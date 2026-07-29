@@ -60,17 +60,15 @@ class RuntimeConfig:
 
         Priority:
           1. explicit env `CALIFORNIAN_ID_PROVIDER`
-          2. implicit smart default: for voice roles (`persona_turn`,
-             `zarathustra_closing_speech`), if `API_302AI_KEY` is set
-             → return `302ai`. Так пользователь получает полноценный
-             живой ответ «из коробки», а не пустую mock-заглушку.
-          3. yaml `roles.<role>.provider` (default mock).
+          2. if `API_302AI_KEY` set → 302ai для **всех** ролей. Пользователь
+             никогда не получает mock в проде — mock существует только для
+             pytest fixtures, когда ключа нет.
+          3. yaml `roles.<role>.provider` (fallback mock — только для тестов).
         """
         env = os.environ.get("CALIFORNIAN_ID_PROVIDER")
         if env:
             return env
-        _voice_roles = {"persona_turn", "zarathustra_closing_speech"}
-        if role in _voice_roles and os.environ.get("API_302AI_KEY"):
+        if os.environ.get("API_302AI_KEY"):
             return "302ai"
         return self.models.get("roles", {}).get(role, {}).get("provider", "mock")
 

@@ -194,7 +194,7 @@ _HTML = """<!doctype html>
           <div>
             <label for="preset">Пресет</label>
             <select id="preset">
-              <option value="" selected>по умолчанию</option>
+              <!-- заполняется /api/presets, mock отфильтровывается -->
             </select>
           </div>
           <div>
@@ -283,7 +283,10 @@ _HTML = """<!doctype html>
         const r = await fetch('api/presets');
         const j = await r.json();
         const sel = document.getElementById('preset');
+        // фильтруем mock — в UI пользователю mock не нужен никогда
         for (const p of (j.presets || [])) {
+          if ((p.name || '').toLowerCase() === 'mock') continue;
+          if ((p.provider || '').toLowerCase() === 'mock') continue;
           const opt = document.createElement('option');
           opt.value = p.name;
           opt.textContent = p.label || p.name;
@@ -294,9 +297,9 @@ _HTML = """<!doctype html>
         const r2 = await fetch('api/models');
         const j2 = await r2.json();
         const sel2 = document.getElementById('modelPick');
-        // wipe placeholder — server sends {id:"", label:"по умолчанию (из пресета)"} тоже
         sel2.innerHTML = '';
         for (const m of (j2.models || [])) {
+          if ((m.id || '').toLowerCase() === 'mock') continue;
           const opt = document.createElement('option');
           opt.value = m.id || '';
           opt.textContent = m.label || m.id || '(default)';
