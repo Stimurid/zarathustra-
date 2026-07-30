@@ -1,3 +1,4 @@
+from californian_id import web_ui
 from californian_id.web_ui import (
     LAYER_CALIFORNIAN_ID,
     LAYER_PERSONA,
@@ -6,6 +7,15 @@ from californian_id.web_ui import (
 
 
 def test_web_ui_defaults_to_persona_layer():
+    web_ui._run_persona_layer_request = lambda **kwargs: {
+        "status": "COMPLETED",
+        "runtime_layer": LAYER_PERSONA,
+        "persona_layer": {"cast_mode": "single_head", "call_nemo8": False},
+        "completion": {"form": "persona_layer_llm_final_synthesis"},
+        "closing_speech": "ok",
+        "voices_used": ["R"],
+        "turn_count": 1,
+    }
     payload = run_web_request(
         "Need a Bayesian calibration update for a causal forecast.",
         mode="fast",
@@ -20,6 +30,16 @@ def test_web_ui_defaults_to_persona_layer():
 
 
 def test_web_ui_persona_layer_accepts_semantic_units():
+    web_ui._run_persona_layer_request = lambda **kwargs: {
+        "status": "COMPLETED",
+        "runtime_layer": LAYER_PERSONA,
+        "ingress_mode": "semantic_units",
+        "persona_layer": {"unit_count": 2},
+        "completion": {"form": "persona_layer_llm_final_synthesis"},
+        "closing_speech": "ok",
+        "voices_used": ["R"],
+        "turn_count": 1,
+    }
     payload = run_web_request(
         """mode: semantic_units
 run_id: web-ui-semantic
@@ -101,6 +121,16 @@ def test_web_ui_runner_accepts_separate_token_limits_and_max_turns():
 
 
 def test_web_ui_persona_layer_text_mode_can_surface_nemo8_trace():
+    web_ui._run_persona_layer_request = lambda **kwargs: {
+        "runtime_layer": LAYER_PERSONA,
+        "status": "COMPLETED",
+        "completion": {"form": "persona_layer_llm_final_synthesis"},
+        "closing_speech": "final speech",
+        "voices_used": ["C", "N8"],
+        "turn_count": 2,
+        "persona_layer": {"nemo8_used": True},
+        "turns": [],
+    }
     payload = run_web_request(
         (
             "Mandatory cognitive enhancement, AI-assisted R&D, concentrated compute and biometric data, "
@@ -117,3 +147,28 @@ def test_web_ui_persona_layer_text_mode_can_surface_nemo8_trace():
     assert payload["format"] == "text"
     assert payload["meta"]["runtime_layer"] == LAYER_PERSONA
     assert payload["meta"]["persona_layer"]["nemo8_used"] is True
+
+
+def test_semantic_units_falls_back_to_llm_adapter(monkeypatch):
+    class FakePipe:
+        def run(self, *, text, mode, critique_regime, variation_regime):
+            return {
+                "text": text,
+                "mode": mode,
+                "critique_regime": critique_regime,
+                "variation_regime": variation_regime,
+            }
+
+    monkeypatch.setattr(web_ui, "parse_md_units_text", lambda text: (_ for _ in ()).throw(ValueError("bad format")))
+    monkeypatch.setattr(web_ui, "_adapt_semantic_units_text_via_llm", lambda pipe, text: "adapted semantic scene")
+
+    result, ingress_mode = web_ui._run_semantic_units_request(
+        FakePipe(),
+        text="Claim: ... Warrant: ...",
+        mode="fast",
+        critique_regime="balanced",
+        variation_regime="normal",
+    )
+
+    assert ingress_mode == "semantic_units_llm_adapter"
+    assert result["text"] == "adapted semantic scene"

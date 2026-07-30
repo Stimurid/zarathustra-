@@ -20,6 +20,8 @@ from .schemas import UnitPack, to_plain
 LAYER_CALIFORNIAN_ID = "californian_id"
 LAYER_PERSONA = "persona_layer"
 SUPPORTED_LAYERS = {LAYER_CALIFORNIAN_ID, LAYER_PERSONA}
+GROUNDING_MODES = {"strict_card", "balanced", "freer_synthesis"}
+ASSEMBLY_MODES = {"synthesis", "verdict", "dissent_forward", "diagnostic", "projective", "roast"}
 
 
 _HTML = """<!doctype html>
@@ -207,6 +209,25 @@ _HTML = """<!doctype html>
             </select>
           </div>
           <div>
+            <label for="groundingMode">Grounding Mode</label>
+            <select id="groundingMode">
+              <option value="strict_card">strict card</option>
+              <option value="balanced" selected>balanced</option>
+              <option value="freer_synthesis">freer synthesis</option>
+            </select>
+          </div>
+          <div>
+            <label for="assemblyMode">Assembly Mode</label>
+            <select id="assemblyMode">
+              <option value="synthesis" selected>synthesis</option>
+              <option value="verdict">verdict</option>
+              <option value="dissent_forward">dissent-forward</option>
+              <option value="diagnostic">diagnostic</option>
+              <option value="projective">projective</option>
+              <option value="roast">roast</option>
+            </select>
+          </div>
+          <div>
             <label for="preset">Пресет</label>
             <select id="preset">
               <option value="" selected>по умолчанию</option>
@@ -355,6 +376,8 @@ _HTML = """<!doctype html>
             mode: document.getElementById('mode').value,
             critique_regime: document.getElementById('critique').value,
             variation_regime: document.getElementById('variation').value,
+            grounding_mode: document.getElementById('groundingMode').value,
+            assembly_mode: document.getElementById('assemblyMode').value,
             preset: document.getElementById('preset').value,
             model: document.getElementById('modelPick').value,
             voice_max_tokens: document.getElementById('voiceMaxTokens').value || null,
@@ -397,6 +420,8 @@ def run_web_request(
     mode: str = "fast",
     critique_regime: str = "balanced",
     variation_regime: str = "normal",
+    grounding_mode: str = "balanced",
+    assembly_mode: str = "synthesis",
     debug: bool = False,
     preset: str | None = None,
     model: str | None = None,
@@ -408,6 +433,8 @@ def run_web_request(
     detail: str = "with_turns",
 ) -> dict[str, Any]:
     runtime_layer = runtime_layer if runtime_layer in SUPPORTED_LAYERS else LAYER_PERSONA
+    grounding_mode = grounding_mode if grounding_mode in GROUNDING_MODES else "balanced"
+    assembly_mode = assembly_mode if assembly_mode in ASSEMBLY_MODES else "synthesis"
     if runtime_layer == LAYER_PERSONA:
         payload = _run_persona_layer_request(
             text=text,
@@ -415,6 +442,8 @@ def run_web_request(
             mode=mode,
             critique_regime=critique_regime,
             variation_regime=variation_regime,
+            grounding_mode=grounding_mode,
+            assembly_mode=assembly_mode,
             detail=detail,
             debug=debug,
             preset=preset,
@@ -435,14 +464,13 @@ def run_web_request(
         ingress_mode = "legacy_raw"
 
         if input_mode == "semantic-units":
-            result = _run_semantic_units_request(
+            result, ingress_mode = _run_semantic_units_request(
                 pipe,
                 text=text,
                 mode=mode,
                 critique_regime=critique_regime,
                 variation_regime=variation_regime,
             )
-            ingress_mode = "semantic_units"
         elif input_mode == "auto-slice":
             envelope = parse_envelope({
                 "mode": "raw_stream",
@@ -491,6 +519,8 @@ def run_web_request(
             "regimes": {
                 "critique_regime": critique_regime,
                 "variation_regime": variation_regime,
+                "grounding_mode": grounding_mode,
+                "assembly_mode": assembly_mode,
             },
             "input_mode": resolved_input_mode,
             "ingress_mode": ingress_mode,
@@ -534,6 +564,8 @@ def _run_persona_layer_request(
     mode: str,
     critique_regime: str,
     variation_regime: str,
+    grounding_mode: str,
+    assembly_mode: str,
     detail: str,
     debug: bool,
     preset: str | None = None,
@@ -560,6 +592,7 @@ def _run_persona_layer_request(
         persona_client=persona_client,
         critique_regime=critique_regime,
         variation_regime=variation_regime,
+        grounding_mode=grounding_mode,
     )
     final_answer = _generate_persona_layer_final_answer(
         client=closing_client,
@@ -568,6 +601,8 @@ def _run_persona_layer_request(
         turns=turns,
         critique_regime=critique_regime,
         variation_regime=variation_regime,
+        grounding_mode=grounding_mode,
+        assembly_mode=assembly_mode,
     )
 
     payload: dict[str, Any] = {
@@ -589,6 +624,8 @@ def _run_persona_layer_request(
         "regimes": {
             "critique_regime": critique_regime,
             "variation_regime": variation_regime,
+            "grounding_mode": grounding_mode,
+            "assembly_mode": assembly_mode,
         },
         "input_mode": input_mode,
         "ingress_mode": ingress_mode,
@@ -609,6 +646,8 @@ def _run_persona_layer_request(
             "minority_positions": scaffold.minority_positions,
             "unit_count": unit_count,
             "text_runtime": "llm_materialized",
+            "grounding_mode": grounding_mode,
+            "assembly_mode": assembly_mode,
         },
     }
     if detail == "with_turns" or debug:
@@ -639,6 +678,7 @@ def _materialize_persona_layer_turns(
     persona_client,
     critique_regime: str,
     variation_regime: str,
+    grounding_mode: str,
 ) -> list[dict[str, Any]]:
     rendered: list[dict[str, Any]] = []
     sequence: list[tuple[str, Any]] = [("base", turn) for turn in scaffold.base_turns]
@@ -660,6 +700,7 @@ def _materialize_persona_layer_turns(
             prior_turns=prior_turns,
             critique_regime=critique_regime,
             variation_regime=variation_regime,
+            grounding_mode=grounding_mode,
             meta_challenge=turn.meta_challenge,
         )
         rendered_turn = {
@@ -688,6 +729,7 @@ def _generate_persona_layer_utterance(
     prior_turns: list[dict[str, Any]],
     critique_regime: str,
     variation_regime: str,
+    grounding_mode: str,
     meta_challenge,
 ) -> str:
     system_prompt = (package_dir / "runtime_prompt.md").read_text(encoding="utf-8")
@@ -720,16 +762,20 @@ def _generate_persona_layer_utterance(
         "regimes": {
             "critique": CRITIQUE_REGIMES[critique_regime].directness_hint,
             "variation": VARIATION_REGIMES[variation_regime].prompt_hint,
+            "grounding_mode": grounding_mode,
         },
         "instruction": (
             "Return only the persona's spoken turn as plain text in Russian. "
             "Write a developed argumentative move, not JSON and not metadata. "
             "Do not echo the full input scene. Do not mention cards, retrieval, system prompts, or that you are an AI. "
+            "Preserve a distinctive voice: do not collapse into neutral lecturer prose, and do not summarize the council. "
             "Use the selected card as grounding, but expand it into a concrete argument that addresses the current scene. "
-            "Length target: 5-9 sentences. Preserve the persona's specific style and operation. "
+            "Length target: 5-9 sentences. Preserve the persona's specific style and operation, and make at least one move "
+            "that another head would not naturally make. "
             "If phase=meta and persona_id=N8, challenge the council's frame, hidden mandate, missing subjects, "
             "or the address of costs rather than just adding another ideology."
         ),
+        "grounding_contract": _grounding_instruction(grounding_mode),
     }
     result = client.generate(
         [
@@ -756,6 +802,8 @@ def _generate_persona_layer_final_answer(
     turns: list[dict[str, Any]],
     critique_regime: str,
     variation_regime: str,
+    grounding_mode: str,
+    assembly_mode: str,
 ) -> str:
     turn_summaries = [
         {
@@ -774,14 +822,20 @@ def _generate_persona_layer_final_answer(
         "regimes": {
             "critique": CRITIQUE_REGIMES[critique_regime].directness_hint,
             "variation": VARIATION_REGIMES[variation_regime].prompt_hint,
+            "grounding_mode": grounding_mode,
+            "assembly_mode": assembly_mode,
         },
         "instruction": (
             "Return only Zarathustra's final answer in Russian as plain text. "
             "Do not echo the full user input. Do not mention routing, cards, retrieval, JSON, traces, or system prompts. "
             "Synthesize the council into a real answer with preserved tensions, concrete distinctions, and a clear next framing. "
+            "Do not flatten the voices into generic consensus. Name or clearly attribute at least two distinct lines of force, "
+            "retain at least one unresolved tension or dissenting edge, and avoid turning the answer into bland pedagogical summary prose. "
             "If NEMO-8 intervened, incorporate its challenge as a structural correction rather than naming infrastructure. "
             "Length target: 2-6 compact paragraphs."
         ),
+        "grounding_contract": _grounding_instruction(grounding_mode),
+        "assembly_contract": _assembly_instruction(assembly_mode),
     }
     result = client.generate(
         [
@@ -811,6 +865,51 @@ def _clean_llm_text(text: str) -> str:
         if cleaned.lower().startswith("text"):
             cleaned = cleaned[4:].strip()
     return cleaned
+
+
+def _grounding_instruction(mode: str) -> str:
+    if mode == "strict_card":
+        return (
+            "Stay tightly anchored to the selected card. Reuse its operation, distinction, and risk logic closely. "
+            "Do not widen into extra frameworks unless they are necessary to make the card intelligible in the current scene."
+        )
+    if mode == "freer_synthesis":
+        return (
+            "Use the selected card as an anchor, but allow wider synthesis, analogy, and recombination if the scene clearly demands it. "
+            "Grounding must remain legible, yet the response may move beyond the card's immediate wording."
+        )
+    return (
+        "Keep the selected card as the primary anchor, but develop it into a fuller argument responsive to the scene. "
+        "You may widen one level beyond the card, but do not drift into generic abstract commentary."
+    )
+
+
+def _assembly_instruction(mode: str) -> str:
+    if mode == "verdict":
+        return (
+            "Assemble toward a verdict. Name the strongest line, expose the weaker one, and state what should be retained or discarded."
+        )
+    if mode == "dissent_forward":
+        return (
+            "Assemble around the live fracture. Preserve the most important disagreement and let the answer move through that unresolved tension."
+        )
+    if mode == "diagnostic":
+        return (
+            "Assemble as diagnosis. Identify the central framing error, false assumption, or hidden confusion that deforms the whole discussion."
+        )
+    if mode == "projective":
+        return (
+            "Assemble toward the next move. Convert the council into a sharper next question, test, project step, or redesign of the scene."
+        )
+    if mode == "roast":
+        return (
+            "Assemble as merciless compassionate roast. Show the true form of the weak construction, expose its evasions, theatrical substitutes, "
+            "missing courage, and false solidity. Be devastating to the bad frame, but not sadistic toward the humans inside it. "
+            "Mercy stays with persons; destruction falls on confusion, vanity, cowardice, and fake architecture."
+        )
+    return (
+        "Assemble as synthesis. Hold multiple live lines together without erasing real differences, and produce a coherent final answer."
+    )
 
 
 def _render_text_payload(payload: dict[str, Any], *, detail: str) -> dict[str, Any]:
@@ -885,30 +984,53 @@ def _run_semantic_units_request(
     variation_regime: str,
 ):
     stripped = text.strip()
-    if stripped.startswith("{") or stripped.startswith("mode:"):
-        parsed = yaml.safe_load(text)
-        if not isinstance(parsed, dict):
-            raise ValueError("semantic-units input must decode to an object")
-        envelope = parse_envelope(parsed)
-        return pipe.run_from_envelope(
-            envelope,
-            mode=mode,
-            critique_regime=critique_regime,
-            variation_regime=variation_regime,
+    try:
+        if stripped.startswith("{") or stripped.startswith("mode:"):
+            parsed = yaml.safe_load(text)
+            if not isinstance(parsed, dict):
+                raise ValueError("semantic-units input must decode to an object")
+            envelope = parse_envelope(parsed)
+            return (
+                pipe.run_from_envelope(
+                    envelope,
+                    mode=mode,
+                    critique_regime=critique_regime,
+                    variation_regime=variation_regime,
+                ),
+                "semantic_units",
+            )
+        pack = parse_md_units_text(text)
+        return (
+            pipe.run_from_units(
+                pack,
+                mode=mode,
+                critique_regime=critique_regime,
+                variation_regime=variation_regime,
+            ),
+            "semantic_units",
         )
-    pack = parse_md_units_text(text)
-    return pipe.run_from_units(
-        pack,
-        mode=mode,
-        critique_regime=critique_regime,
-        variation_regime=variation_regime,
-    )
+    except Exception:
+        adapted_scene = _adapt_semantic_units_text_via_llm(pipe, text)
+        return (
+            pipe.run(
+                text=adapted_scene,
+                mode=mode,
+                critique_regime=critique_regime,
+                variation_regime=variation_regime,
+            ),
+            "semantic_units_llm_adapter",
+        )
 
 
 def _scene_from_web_input(*, text: str, input_mode: str) -> tuple[str, str, int]:
     if input_mode == "semantic-units":
-        pack = _pack_from_semantic_units(text)
-        return _pack_to_scene(pack), "semantic_units", len(pack.units)
+        try:
+            pack = _pack_from_semantic_units(text)
+            return _pack_to_scene(pack), "semantic_units", len(pack.units)
+        except Exception:
+            pipe = Pipeline()
+            adapted_scene = _adapt_semantic_units_text_via_llm(pipe, text)
+            return adapted_scene, "semantic_units_llm_adapter", 0
     if input_mode == "auto-slice":
         envelope = parse_envelope({
             "mode": "raw_stream",
@@ -930,6 +1052,39 @@ def _pack_from_semantic_units(text: str) -> UnitPack:
         envelope = parse_envelope(parsed)
         return envelope_to_unit_pack(envelope)
     return parse_md_units_text(text)
+
+
+def _adapt_semantic_units_text_via_llm(pipe: Pipeline, text: str) -> str:
+    client = _build_non_mock_client(pipe, "zarathustra_situation_reading")
+    payload = {
+        "raw_input": text,
+        "instruction": (
+            "The input is intended as semantic units, Toulmin markup, claim/data/warrant analysis, or adjacent structured research notes, "
+            "but it may not follow the runtime's canonical schema. Convert it into a clean plain-text scene for downstream council analysis. "
+            "Preserve the main claim, key evidence, warrant, qualifiers, rebuttals, provenance caveats, and any explicit limits or prices of the thesis. "
+            "Do not emit JSON, YAML, markdown headings, or meta commentary. Return only the normalized scene text in Russian."
+        ),
+    }
+    result = client.generate(
+        [
+            Message(
+                role="system",
+                content=(
+                    "You are a semantic input adapter for Zarathustra. "
+                    "You normalize near-structured analytical notes into a council-ready scene without losing argumentative structure."
+                ),
+            ),
+            Message(role="user", content=json.dumps(payload, ensure_ascii=False)),
+        ],
+        settings={
+            "role": "zarathustra_situation_reading",
+            "topic": "semantic_units_adapter",
+        },
+    )
+    adapted = _clean_llm_text(result.text)
+    if not adapted:
+        raise RuntimeError("semantic-units LLM adapter returned empty text")
+    return adapted
 
 
 def _pack_to_scene(pack: UnitPack) -> str:
