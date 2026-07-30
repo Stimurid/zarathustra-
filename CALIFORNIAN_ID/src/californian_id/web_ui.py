@@ -209,7 +209,6 @@ _HTML = """<!doctype html>
                    style="width: 100%; padding: 6px 8px; border-radius: 10px; border: 1px solid var(--line); background: #fff;">
           </div>
           <div>
-            <label for="outFmt">Формат ответа</label>
             <label for="closingMaxTokens">Токены Заратустры</label>
             <input id="closingMaxTokens" type="number" min="128" max="8192" step="256" placeholder="из конфига"
                    style="width: 100%; padding: 6px 8px; border-radius: 10px; border: 1px solid var(--line); background: #fff;">
