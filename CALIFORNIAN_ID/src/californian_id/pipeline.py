@@ -74,6 +74,8 @@ class Pipeline:
         preset_override: str | None = None,
         model_override: str | None = None,
         max_tokens_override: int | None = None,
+        voice_max_tokens_override: int | None = None,
+        closing_max_tokens_override: int | None = None,
     ) -> None:
         self.config = load_config()
         self.zarathustra = Zarathustra()
@@ -86,6 +88,15 @@ class Pipeline:
         self.preset_override = preset_override
         self.model_override = model_override        # e.g. "claude-opus-4-1-20250805"
         self.max_tokens_override = max_tokens_override  # e.g. 4096
+        self.voice_max_tokens_override = voice_max_tokens_override
+        self.closing_max_tokens_override = closing_max_tokens_override
+
+    def _role_max_tokens_override(self, role: str) -> int | None:
+        if role == "persona_turn":
+            return self.voice_max_tokens_override or self.max_tokens_override
+        if role == "zarathustra_closing_speech":
+            return self.closing_max_tokens_override or self.max_tokens_override
+        return None
 
     def _role_and_cfg(self, role: str) -> tuple[str, dict[str, Any]]:
         preset_affects = {"persona_turn", "zarathustra_closing_speech"}
@@ -110,15 +121,16 @@ class Pipeline:
                     base_cfg["base_url"] = base_cfg.get("base_url") or "https://api.302.ai/v1"
                 # drop fallbacks — юзер явно назвал модель
                 base_cfg.pop("fallbacks", None)
-            if self.max_tokens_override and self.max_tokens_override > 0:
-                base_cfg["settings"]["max_tokens"] = int(self.max_tokens_override)
+            role_max_tokens = self._role_max_tokens_override(role)
+            if role_max_tokens and role_max_tokens > 0:
+                base_cfg["settings"]["max_tokens"] = int(role_max_tokens)
                 # так же для всех fallback-ступеней
                 if base_cfg.get("fallbacks"):
                     fbs = []
                     for fb in base_cfg["fallbacks"]:
                         fb2 = dict(fb)
                         fb2["settings"] = dict(fb2.get("settings", {}) or {})
-                        fb2["settings"]["max_tokens"] = int(self.max_tokens_override)
+                        fb2["settings"]["max_tokens"] = int(role_max_tokens)
                         fbs.append(fb2)
                     base_cfg["fallbacks"] = fbs
         return resolved, base_cfg

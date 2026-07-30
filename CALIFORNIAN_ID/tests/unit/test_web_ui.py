@@ -84,3 +84,33 @@ metadata:
     assert payload["status"] == "COMPLETED"
     assert payload["input_mode"] == "semantic-units"
     assert payload["ingress_mode"] == "semantic_units"
+
+
+def test_web_ui_runner_text_mode_returns_plain_text_body():
+    payload = run_web_request(
+        "Стоит ли ускорять развитие AGI?",
+        mode="fast",
+        critique_regime="balanced",
+        variation_regime="normal",
+        debug=False,
+        output_format="text",
+    )
+    assert payload["format"] == "text"
+    assert isinstance(payload["body"], str) and payload["body"].strip()
+    assert "--- meta ---" not in payload["body"]
+    assert "meta" in payload
+
+
+def test_web_ui_runner_accepts_separate_token_limits():
+    payload = run_web_request(
+        "Стоит ли ускорять развитие AGI?",
+        mode="fast",
+        critique_regime="balanced",
+        variation_regime="normal",
+        debug=False,
+        voice_max_tokens=768,
+        closing_max_tokens=1536,
+    )
+    assert payload["status"] == "COMPLETED"
+    assert payload["voice_max_tokens"] == 768
+    assert payload["closing_max_tokens"] == 1536

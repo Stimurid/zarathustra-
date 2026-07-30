@@ -204,12 +204,18 @@ _HTML = """<!doctype html>
             </select>
           </div>
           <div>
-            <label for="maxTokens">max_tokens</label>
-            <input id="maxTokens" type="number" min="128" max="8192" step="256" placeholder="из конфига"
+            <label for="voiceMaxTokens">Токены голосов</label>
+            <input id="voiceMaxTokens" type="number" min="128" max="8192" step="256" placeholder="из конфига"
                    style="width: 100%; padding: 6px 8px; border-radius: 10px; border: 1px solid var(--line); background: #fff;">
           </div>
           <div>
             <label for="outFmt">Формат ответа</label>
+            <label for="closingMaxTokens">Токены Заратустры</label>
+            <input id="closingMaxTokens" type="number" min="128" max="8192" step="256" placeholder="из конфига"
+                   style="width: 100%; padding: 6px 8px; border-radius: 10px; border: 1px solid var(--line); background: #fff;">
+          </div>
+          <div>
+            <label for="outFmt">Р¤РѕСЂРјР°С‚ РѕС‚РІРµС‚Р°</label>
             <select id="outFmt">
               <option value="text" selected>text (речь Заратустры)</option>
               <option value="json">json (структура)</option>
@@ -335,7 +341,8 @@ _HTML = """<!doctype html>
             variation_regime: document.getElementById('variation').value,
             preset: document.getElementById('preset').value,
             model: document.getElementById('modelPick').value,
-            max_tokens: (document.getElementById('maxTokens').value || null),
+            voice_max_tokens: (document.getElementById('voiceMaxTokens').value || null),
+            closing_max_tokens: (document.getElementById('closingMaxTokens').value || null),
             output_format: document.getElementById('outFmt').value,
             detail: document.getElementById('detailLvl').value,
             debug: document.getElementById('debug').value === 'true'
@@ -345,7 +352,7 @@ _HTML = """<!doctype html>
         // text-mode: показать body как plain text, meta ниже;
         // json-mode: JSON.stringify как раньше.
         if (payload && payload.format === 'text' && payload.body) {
-          output.textContent = payload.body + '\\n\\n--- meta ---\\n' + JSON.stringify(payload.meta || {}, null, 2);
+          output.textContent = payload.body;
         } else {
           output.textContent = JSON.stringify(payload, null, 2);
         }
@@ -378,6 +385,8 @@ def run_web_request(
     preset: str | None = None,
     model: str | None = None,
     max_tokens: int | None = None,
+    voice_max_tokens: int | None = None,
+    closing_max_tokens: int | None = None,
     output_format: str = "json",    # "json" | "text"
     detail: str = "with_turns",     # "only_result" | "with_turns"
 ) -> dict[str, Any]:
@@ -385,6 +394,8 @@ def run_web_request(
         preset_override=preset or None,
         model_override=model or None,
         max_tokens_override=max_tokens if (max_tokens and max_tokens > 0) else None,
+        voice_max_tokens_override=voice_max_tokens if (voice_max_tokens and voice_max_tokens > 0) else None,
+        closing_max_tokens_override=closing_max_tokens if (closing_max_tokens and closing_max_tokens > 0) else None,
     )
     resolved_input_mode = input_mode
     ingress_mode = "legacy_raw"
@@ -451,6 +462,8 @@ def run_web_request(
         "preset": pipe.preset_override,
         "model": pipe.model_override,
         "max_tokens": pipe.max_tokens_override,
+        "voice_max_tokens": pipe.voice_max_tokens_override,
+        "closing_max_tokens": pipe.closing_max_tokens_override,
         "closing_speech": (
             (result.run_state.completion.closing_speech or "").strip()
             if result.run_state.completion else ""
@@ -525,11 +538,23 @@ def _render_text_payload(payload: dict[str, Any], *, detail: str) -> dict[str, A
             "preset": payload.get("preset"),
             "model": payload.get("model"),
             "max_tokens": payload.get("max_tokens"),
+            "voice_max_tokens": payload.get("voice_max_tokens"),
+            "closing_max_tokens": payload.get("closing_max_tokens"),
             "security_events": payload.get("security_events"),
             "trace_dir": payload.get("trace_dir"),
             "errors": payload.get("errors"),
         },
     }
+
+
+def _parse_optional_int(value: Any) -> int | None:
+    if value in (None, ""):
+        return None
+    try:
+        parsed = int(value)
+    except (TypeError, ValueError):
+        return None
+    return parsed if parsed > 0 else None
 
 
 def _run_semantic_units_request(
@@ -616,7 +641,9 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                 debug=bool(data.get("debug")),
                 preset=(data.get("preset") or None),
                 model=(data.get("model") or None),
-                max_tokens=(int(data["max_tokens"]) if data.get("max_tokens") else None),
+                max_tokens=_parse_optional_int(data.get("max_tokens")),
+                voice_max_tokens=_parse_optional_int(data.get("voice_max_tokens")),
+                closing_max_tokens=_parse_optional_int(data.get("closing_max_tokens")),
                 output_format=(data.get("output_format") or "json"),
                 detail=(data.get("detail") or "with_turns"),
             )
