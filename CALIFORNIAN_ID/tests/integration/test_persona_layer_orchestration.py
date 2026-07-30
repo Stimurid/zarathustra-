@@ -85,3 +85,9 @@ def test_nemo8_is_not_always_called():
     result = runtime.run(NO_NEMO8, enable_nemo8=True)
     assert result.trace["route_plan"]["call_nemo8"] is False
     assert result.nemo8_turn is None
+
+
+def test_final_answer_does_not_echo_full_input_scene():
+    runtime = PersonaCouncilRuntime()
+    result = runtime.run(SCENARIO, enable_nemo8=True)
+    assert SCENARIO not in result.final_answer

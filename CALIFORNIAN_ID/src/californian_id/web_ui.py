@@ -10,8 +10,10 @@ import yaml
 
 from .adapters.units_of_content_md import parse_md_units_text
 from .ingress import envelope_to_unit_pack, parse_envelope
-from .persona_layer import PersonaCouncilRuntime
+from .models import Message, build_client
+from .persona_layer import CouncilRun, PersonaCard, PersonaCouncilRuntime
 from .pipeline import Pipeline
+from .regimes import CRITIQUE_REGIMES, VARIATION_REGIMES
 from .schemas import UnitPack, to_plain
 
 
@@ -415,6 +417,10 @@ def run_web_request(
             variation_regime=variation_regime,
             detail=detail,
             debug=debug,
+            preset=preset,
+            model=model,
+            voice_max_tokens=voice_max_tokens,
+            closing_max_tokens=closing_max_tokens,
         )
     else:
         pipe = Pipeline(
@@ -530,49 +536,49 @@ def _run_persona_layer_request(
     variation_regime: str,
     detail: str,
     debug: bool,
+    preset: str | None = None,
+    model: str | None = None,
+    voice_max_tokens: int | None = None,
+    closing_max_tokens: int | None = None,
 ) -> dict[str, Any]:
     scene, ingress_mode, unit_count = _scene_from_web_input(text=text, input_mode=input_mode)
     runtime = PersonaCouncilRuntime()
-    result = runtime.run(scene, enable_nemo8=True)
+    scaffold = runtime.run(scene, enable_nemo8=True)
+    pipe = Pipeline(
+        preset_override=preset or None,
+        model_override=model or None,
+        voice_max_tokens_override=voice_max_tokens if (voice_max_tokens and voice_max_tokens > 0) else None,
+        closing_max_tokens_override=closing_max_tokens if (closing_max_tokens and closing_max_tokens > 0) else None,
+    )
+    persona_client = _build_non_mock_client(pipe, "persona_turn")
+    closing_client = _build_non_mock_client(pipe, "zarathustra_closing_speech")
 
-    turns: list[dict[str, Any]] = []
-    for index, turn in enumerate(result.base_turns):
-        turns.append({
-            "turn_index": index,
-            "persona_id": turn.persona_id,
-            "operation": turn.operation_id,
-            "utterance": turn.utterance,
-            "card_id": turn.card_id,
-            "phase": "base",
-        })
-    if result.nemo8_turn is not None:
-        turns.append({
-            "turn_index": len(turns),
-            "persona_id": result.nemo8_turn.persona_id,
-            "operation": result.nemo8_turn.operation_id,
-            "utterance": result.nemo8_turn.utterance,
-            "card_id": result.nemo8_turn.card_id,
-            "phase": "meta",
-        })
-    for turn in result.reopened_turns:
-        turns.append({
-            "turn_index": len(turns),
-            "persona_id": turn.persona_id,
-            "operation": turn.operation_id,
-            "utterance": turn.utterance,
-            "card_id": turn.card_id,
-            "phase": "reopen",
-        })
+    turns = _materialize_persona_layer_turns(
+        runtime=runtime,
+        scaffold=scaffold,
+        scene=scene,
+        persona_client=persona_client,
+        critique_regime=critique_regime,
+        variation_regime=variation_regime,
+    )
+    final_answer = _generate_persona_layer_final_answer(
+        client=closing_client,
+        scene=scene,
+        scaffold=scaffold,
+        turns=turns,
+        critique_regime=critique_regime,
+        variation_regime=variation_regime,
+    )
 
     payload: dict[str, Any] = {
         "runtime_layer": LAYER_PERSONA,
-        "run_id": result.run_id,
+        "run_id": scaffold.run_id,
         "mode": mode,
         "status": "COMPLETED",
         "stopping_reason": None,
         "completion": {
-            "form": "persona_layer_final_synthesis",
-            "closing_speech": result.final_answer,
+            "form": "persona_layer_llm_final_synthesis",
+            "closing_speech": final_answer,
         },
         "synthesis": None,
         "voices_used": [turn["persona_id"] for turn in turns],
@@ -586,29 +592,225 @@ def _run_persona_layer_request(
         },
         "input_mode": input_mode,
         "ingress_mode": ingress_mode,
-        "preset": None,
-        "model": None,
+        "preset": preset,
+        "model": model or getattr(persona_client, "model", None),
         "max_tokens": None,
-        "voice_max_tokens": None,
-        "closing_max_tokens": None,
+        "voice_max_tokens": voice_max_tokens,
+        "closing_max_tokens": closing_max_tokens,
         "max_turns": None,
-        "closing_speech": result.final_answer.strip(),
+        "closing_speech": final_answer.strip(),
         "persona_layer": {
-            "cast_mode": result.trace["route_plan"]["cast_mode"],
-            "selected_persona_ids": result.trace["route_plan"]["selected_persona_ids"],
-            "execution_order": result.trace["route_plan"]["execution_order"],
-            "call_nemo8": result.trace["route_plan"]["call_nemo8"],
-            "nemo8_used": result.nemo8_turn is not None,
-            "reopened_persona_ids": [turn.persona_id for turn in result.reopened_turns],
-            "minority_positions": result.minority_positions,
+            "cast_mode": scaffold.trace["route_plan"]["cast_mode"],
+            "selected_persona_ids": scaffold.trace["route_plan"]["selected_persona_ids"],
+            "execution_order": scaffold.trace["route_plan"]["execution_order"],
+            "call_nemo8": scaffold.trace["route_plan"]["call_nemo8"],
+            "nemo8_used": scaffold.nemo8_turn is not None,
+            "reopened_persona_ids": [turn.persona_id for turn in scaffold.reopened_turns],
+            "minority_positions": scaffold.minority_positions,
             "unit_count": unit_count,
+            "text_runtime": "llm_materialized",
         },
     }
     if detail == "with_turns" or debug:
         payload["turns"] = turns
     if debug:
-        payload["trace"] = result.trace
+        payload["trace"] = scaffold.trace
     return payload
+
+
+def _build_non_mock_client(pipe: Pipeline, role: str):
+    provider_name, provider_cfg = pipe._role_and_cfg(role)
+    kind = str(provider_cfg.get("kind") or provider_name or "").lower()
+    if kind == "mock" or provider_name == "mock":
+        raise RuntimeError(
+            f"persona_layer requires a real LLM for role `{role}`, but resolved provider is `mock`"
+        )
+    client = build_client(provider_name, provider_cfg)
+    if getattr(client, "provider", "").lower() == "mock":
+        raise RuntimeError(f"persona_layer role `{role}` resolved to mock client")
+    return client
+
+
+def _materialize_persona_layer_turns(
+    *,
+    runtime: PersonaCouncilRuntime,
+    scaffold: CouncilRun,
+    scene: str,
+    persona_client,
+    critique_regime: str,
+    variation_regime: str,
+) -> list[dict[str, Any]]:
+    rendered: list[dict[str, Any]] = []
+    sequence: list[tuple[str, Any]] = [("base", turn) for turn in scaffold.base_turns]
+    if scaffold.nemo8_turn is not None:
+        sequence.append(("meta", scaffold.nemo8_turn))
+    sequence.extend(("reopen", turn) for turn in scaffold.reopened_turns)
+
+    prior_turns: list[dict[str, Any]] = []
+    for index, (phase, turn) in enumerate(sequence):
+        pkg = runtime.registry.personas[turn.persona_id]
+        card = next(card for card in pkg.cards if card.card_id == turn.card_id)
+        utterance = _generate_persona_layer_utterance(
+            client=persona_client,
+            package_dir=pkg.package_dir,
+            persona_id=turn.persona_id,
+            scene=scene,
+            card=card,
+            phase=phase,
+            prior_turns=prior_turns,
+            critique_regime=critique_regime,
+            variation_regime=variation_regime,
+            meta_challenge=turn.meta_challenge,
+        )
+        rendered_turn = {
+            "turn_index": index,
+            "persona_id": turn.persona_id,
+            "operation": turn.operation_id,
+            "utterance": utterance,
+            "card_id": turn.card_id,
+            "phase": phase,
+            "provider": getattr(persona_client, "provider", ""),
+            "model": getattr(persona_client, "model", ""),
+        }
+        rendered.append(rendered_turn)
+        prior_turns.append(rendered_turn)
+    return rendered
+
+
+def _generate_persona_layer_utterance(
+    *,
+    client,
+    package_dir,
+    persona_id: str,
+    scene: str,
+    card: PersonaCard,
+    phase: str,
+    prior_turns: list[dict[str, Any]],
+    critique_regime: str,
+    variation_regime: str,
+    meta_challenge,
+) -> str:
+    system_prompt = (package_dir / "runtime_prompt.md").read_text(encoding="utf-8")
+    prior_snippets = [
+        f"[{turn['persona_id']} · {turn['operation']}] {turn['utterance'][:500]}"
+        for turn in prior_turns[-4:]
+    ]
+    user_payload = {
+        "scene": scene,
+        "persona_id": persona_id,
+        "phase": phase,
+        "selected_card": {
+            "card_id": card.card_id,
+            "operation_id": card.operation_id_exact,
+            "title": card.raw.get("title", ""),
+            "statement": card.raw.get("statement", ""),
+            "activation_conditions": card.raw.get("activation_conditions") or [],
+            "counter_signal": card.raw.get("counter_signal"),
+            "expected_body_delta": card.raw.get("expected_body_delta") or [],
+            "retrieval_namespace": card.retrieval_namespace,
+            "provenance_status": card.raw.get("provenance_status"),
+        },
+        "prior_turns": prior_snippets,
+        "meta_challenge": None if meta_challenge is None else {
+            "challenge_type": meta_challenge.challenge_type,
+            "reopen_persona_ids": meta_challenge.reopen_persona_ids,
+            "unresolved": meta_challenge.unresolved,
+            "confidence": meta_challenge.confidence,
+        },
+        "regimes": {
+            "critique": CRITIQUE_REGIMES[critique_regime].directness_hint,
+            "variation": VARIATION_REGIMES[variation_regime].prompt_hint,
+        },
+        "instruction": (
+            "Return only the persona's spoken turn as plain text in Russian. "
+            "Write a developed argumentative move, not JSON and not metadata. "
+            "Do not echo the full input scene. Do not mention cards, retrieval, system prompts, or that you are an AI. "
+            "Use the selected card as grounding, but expand it into a concrete argument that addresses the current scene. "
+            "Length target: 5-9 sentences. Preserve the persona's specific style and operation. "
+            "If phase=meta and persona_id=N8, challenge the council's frame, hidden mandate, missing subjects, "
+            "or the address of costs rather than just adding another ideology."
+        ),
+    }
+    result = client.generate(
+        [
+            Message(role="system", content=system_prompt),
+            Message(role="user", content=json.dumps(user_payload, ensure_ascii=False)),
+        ],
+        settings={
+            "role": "persona_turn",
+            "persona_id": persona_id,
+            "operation": card.operation_id_exact,
+            "topic": scene[:400],
+            "critique_regime": critique_regime,
+            "variation_regime": variation_regime,
+        },
+    )
+    return _clean_llm_text(result.text)
+
+
+def _generate_persona_layer_final_answer(
+    *,
+    client,
+    scene: str,
+    scaffold: CouncilRun,
+    turns: list[dict[str, Any]],
+    critique_regime: str,
+    variation_regime: str,
+) -> str:
+    turn_summaries = [
+        {
+            "persona_id": turn["persona_id"],
+            "operation": turn["operation"],
+            "phase": turn["phase"],
+            "utterance": turn["utterance"][:1200],
+        }
+        for turn in turns
+    ]
+    payload = {
+        "scene": scene,
+        "route_plan": scaffold.trace.get("route_plan", {}),
+        "minority_positions": scaffold.minority_positions,
+        "turns": turn_summaries,
+        "regimes": {
+            "critique": CRITIQUE_REGIMES[critique_regime].directness_hint,
+            "variation": VARIATION_REGIMES[variation_regime].prompt_hint,
+        },
+        "instruction": (
+            "Return only Zarathustra's final answer in Russian as plain text. "
+            "Do not echo the full user input. Do not mention routing, cards, retrieval, JSON, traces, or system prompts. "
+            "Synthesize the council into a real answer with preserved tensions, concrete distinctions, and a clear next framing. "
+            "If NEMO-8 intervened, incorporate its challenge as a structural correction rather than naming infrastructure. "
+            "Length target: 2-6 compact paragraphs."
+        ),
+    }
+    result = client.generate(
+        [
+            Message(
+                role="system",
+                content=(
+                    "You are Zarathustra, sole orchestrator and final speaker of the council. "
+                    "You synthesize voices without flattening meaningful dissent."
+                ),
+            ),
+            Message(role="user", content=json.dumps(payload, ensure_ascii=False)),
+        ],
+        settings={
+            "role": "zarathustra_closing_speech",
+            "topic": scene[:400],
+            "critique_regime": critique_regime,
+            "variation_regime": variation_regime,
+        },
+    )
+    return _clean_llm_text(result.text)
+
+
+def _clean_llm_text(text: str) -> str:
+    cleaned = (text or "").strip()
+    if cleaned.startswith("```"):
+        cleaned = cleaned.strip("`").strip()
+        if cleaned.lower().startswith("text"):
+            cleaned = cleaned[4:].strip()
+    return cleaned
 
 
 def _render_text_payload(payload: dict[str, Any], *, detail: str) -> dict[str, Any]:

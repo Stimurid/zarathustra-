@@ -638,8 +638,13 @@ def _turn_from_card(run_id: str, card: PersonaCard, scene: str, *, meta_challeng
 
 
 def _provisional_synthesis(scene: str, turns: list[CouncilTurn]) -> str:
+    del scene
     ops = ", ".join(sorted({t.operation_id for t in turns[:4]})) or "no_base_operations"
-    return f"Provisional synthesis for '{scene}': base council mapped the scene through {ops}."
+    personas = ", ".join(t.persona_id for t in turns[:4]) or "no-base-heads"
+    return (
+        "Provisional synthesis: "
+        f"base council mapped the scene through operations {ops} and initial voices {personas}."
+    )
 
 
 def _pick_nemo8_hit(hits: list[RetrievalHit], scene: str) -> RetrievalHit:
@@ -662,17 +667,21 @@ def _nemo8_challenge(scene: str, provisional: str, conflict_personas: list[str],
 
 
 def _final_synthesis(scene: str, base_turns: list[CouncilTurn], nemo8_turn: CouncilTurn | None, reopened_turns: list[CouncilTurn]) -> str:
+    del scene
     base_ids = ", ".join(t.persona_id for t in base_turns[:4]) or "no-base-heads"
     if nemo8_turn is None:
-        return f"Zarathustra final synthesis for '{scene}': base council only ({base_ids}); minority positions preserved."
+        return (
+            "Zarathustra final synthesis: "
+            f"base council only ({base_ids}); minority positions preserved."
+        )
     if reopened_turns:
         reopened = ", ".join(t.persona_id for t in reopened_turns)
         return (
-            f"Zarathustra final synthesis for '{scene}': base council ran first, "
+            "Zarathustra final synthesis: base council ran first, "
             f"NEMO-8 challenged the provisional closure, {reopened} reopened, and the final answer preserves dissent."
         )
     return (
-        f"Zarathustra final synthesis for '{scene}': base council ran first, "
+        "Zarathustra final synthesis: base council ran first, "
         "NEMO-8 added a meta-pass, and Zarathustra retained final authority."
     )
 
