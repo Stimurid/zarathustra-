@@ -76,6 +76,7 @@ class Pipeline:
         max_tokens_override: int | None = None,
         voice_max_tokens_override: int | None = None,
         closing_max_tokens_override: int | None = None,
+        max_turns_override: int | None = None,
     ) -> None:
         self.config = load_config()
         self.zarathustra = Zarathustra()
@@ -90,6 +91,7 @@ class Pipeline:
         self.max_tokens_override = max_tokens_override  # e.g. 4096
         self.voice_max_tokens_override = voice_max_tokens_override
         self.closing_max_tokens_override = closing_max_tokens_override
+        self.max_turns_override = max_turns_override
 
     def _role_max_tokens_override(self, role: str) -> int | None:
         if role == "persona_turn":
@@ -134,6 +136,12 @@ class Pipeline:
                         fbs.append(fb2)
                     base_cfg["fallbacks"] = fbs
         return resolved, base_cfg
+
+    def _mode_cfg(self, mode: str) -> dict[str, Any]:
+        mode_cfg = dict(self.config.mode_settings(mode) or {})
+        if self.max_turns_override and self.max_turns_override > 0:
+            mode_cfg["max_turns"] = int(self.max_turns_override)
+        return mode_cfg
 
     # ---------- Public entry (raw text) ----------
     def run(
@@ -185,7 +193,7 @@ class Pipeline:
         })
 
         # S02 — cast selection
-        mode_cfg = self.config.mode_settings(mode)
+        mode_cfg = self._mode_cfg(mode)
         max_voices = int(mode_cfg.get("max_voices", 4))
         max_turns = int(mode_cfg.get("max_turns", 5))
 
@@ -549,7 +557,7 @@ class Pipeline:
         })
 
         # Cast + council loop unchanged — reuse `run`'s core.
-        mode_cfg = self.config.mode_settings(mode)
+        mode_cfg = self._mode_cfg(mode)
         max_voices = int(mode_cfg.get("max_voices", 4))
         max_turns = int(mode_cfg.get("max_turns", 5))
 

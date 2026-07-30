@@ -9,9 +9,15 @@ from typing import Any
 import yaml
 
 from .adapters.units_of_content_md import parse_md_units_text
-from .ingress import parse_envelope
+from .ingress import envelope_to_unit_pack, parse_envelope
+from .persona_layer import PersonaCouncilRuntime
 from .pipeline import Pipeline
-from .schemas import to_plain
+from .schemas import UnitPack, to_plain
+
+
+LAYER_CALIFORNIAN_ID = "californian_id"
+LAYER_PERSONA = "persona_layer"
+SUPPORTED_LAYERS = {LAYER_CALIFORNIAN_ID, LAYER_PERSONA}
 
 
 _HTML = """<!doctype html>
@@ -84,7 +90,7 @@ _HTML = """<!doctype html>
       background: #fffdf8;
       color: var(--ink);
     }
-    select, button, input[type=file] {
+    select, button, input[type=file], input[type=number] {
       font: inherit;
     }
     .controls {
@@ -96,7 +102,7 @@ _HTML = """<!doctype html>
     .controls .full {
       grid-column: 1 / -1;
     }
-    select {
+    select, input[type=number] {
       width: 100%;
       padding: 10px 12px;
       border-radius: 12px;
@@ -156,10 +162,17 @@ _HTML = """<!doctype html>
 <body>
   <main>
     <h1>Zarathustra Runner</h1>
-    <div class="sub">Вставь текст или загрузи файл. `raw text` идёт в legacy-вход, `auto-slice` режет сырой поток в raw_stream units, `semantic-units` принимает canonical JSON/YAML envelope или md units pack.</div>
+    <div class="sub">Вставь текст или загрузи файл. `raw text` идет как прямой вход, `auto-slice` режет сырой поток во встроенные raw_stream units, `semantic-units` принимает canonical JSON/YAML envelope или md units pack. Переключатель `Council Layer` выбирает между текущим CALIFORNIAN_ID runtime и persona layer с семью головами и NEMO-8.</div>
     <div class="grid">
       <section class="card">
         <div class="controls">
+          <div>
+            <label for="councilLayer">Council Layer</label>
+            <select id="councilLayer">
+              <option value="persona_layer" selected>persona layer (7 heads + NEMO-8)</option>
+              <option value="californian_id">californian_id runtime</option>
+            </select>
+          </div>
           <div>
             <label for="inputMode">Тип входа</label>
             <select id="inputMode">
@@ -194,27 +207,29 @@ _HTML = """<!doctype html>
           <div>
             <label for="preset">Пресет</label>
             <select id="preset">
-              <!-- заполняется /api/presets, mock отфильтровывается -->
+              <option value="" selected>по умолчанию</option>
             </select>
           </div>
           <div>
             <label for="modelPick">Модель (bypass preset)</label>
             <select id="modelPick">
-              <option value="" selected>из пресета</option>
+              <option value="" selected>по умолчанию (из пресета)</option>
             </select>
           </div>
           <div>
             <label for="voiceMaxTokens">Токены голосов</label>
-            <input id="voiceMaxTokens" type="number" min="128" max="8192" step="256" placeholder="из конфига"
-                   style="width: 100%; padding: 6px 8px; border-radius: 10px; border: 1px solid var(--line); background: #fff;">
+            <input id="voiceMaxTokens" type="number" min="128" max="8192" step="256" placeholder="из конфига">
           </div>
           <div>
             <label for="closingMaxTokens">Токены Заратустры</label>
-            <input id="closingMaxTokens" type="number" min="128" max="8192" step="256" placeholder="из конфига"
-                   style="width: 100%; padding: 6px 8px; border-radius: 10px; border: 1px solid var(--line); background: #fff;">
+            <input id="closingMaxTokens" type="number" min="128" max="8192" step="256" placeholder="из конфига">
           </div>
           <div>
-            <label for="outFmt">Р¤РѕСЂРјР°С‚ РѕС‚РІРµС‚Р°</label>
+            <label for="maxTurns">Max Turns</label>
+            <input id="maxTurns" type="number" min="1" max="24" step="1" placeholder="из runtime mode">
+          </div>
+          <div>
+            <label for="outFmt">Формат ответа</label>
             <select id="outFmt">
               <option value="text" selected>text (речь Заратустры)</option>
               <option value="json">json (структура)</option>
@@ -251,11 +266,12 @@ _HTML = """<!doctype html>
         <div>
           <span class="pill">text or file</span>
           <span class="pill">raw / auto-slice / semantic-units</span>
+          <span class="pill">persona layer / californian_id</span>
           <span class="pill">critique regime</span>
           <span class="pill">variation regime</span>
         </div>
         <label for="output">Результат</label>
-        <pre id="output">Здесь появится JSON результата.</pre>
+        <pre id="output">Здесь появится результат.</pre>
         <div class="hint">Файл не отправляется отдельно: браузер читает его локально и подставляет содержимое в текстовое поле. Для `semantic-units` можно вставить canonical JSON/YAML envelope или md units pack.</div>
       </section>
     </div>
@@ -278,39 +294,38 @@ _HTML = """<!doctype html>
 
     clearBtn.addEventListener('click', () => {
       input.value = '';
-      output.textContent = 'Здесь появится JSON результата.';
+      output.textContent = 'Здесь появится результат.';
       statusEl.textContent = 'Очищено.';
       fileInput.value = '';
     });
 
     (async () => {
       try {
-        const r = await fetch('api/presets');
-        const j = await r.json();
-        const sel = document.getElementById('preset');
-        // фильтруем mock — в UI пользователю mock не нужен никогда
-        for (const p of (j.presets || [])) {
-          if ((p.name || '').toLowerCase() === 'mock') continue;
-          if ((p.provider || '').toLowerCase() === 'mock') continue;
-          const opt = document.createElement('option');
-          opt.value = p.name;
-          opt.textContent = p.label || p.name;
-          sel.appendChild(opt);
+        const presetsResponse = await fetch('api/presets');
+        const presetsPayload = await presetsResponse.json();
+        const presetSelect = document.getElementById('preset');
+        for (const preset of (presetsPayload.presets || [])) {
+          if ((preset.name || '').toLowerCase() === 'mock') continue;
+          if ((preset.provider || '').toLowerCase() === 'mock') continue;
+          const option = document.createElement('option');
+          option.value = preset.name;
+          option.textContent = preset.label || preset.name;
+          presetSelect.appendChild(option);
         }
-      } catch(e) {}
+      } catch (error) {}
       try {
-        const r2 = await fetch('api/models');
-        const j2 = await r2.json();
-        const sel2 = document.getElementById('modelPick');
-        sel2.innerHTML = '';
-        for (const m of (j2.models || [])) {
-          if ((m.id || '').toLowerCase() === 'mock') continue;
-          const opt = document.createElement('option');
-          opt.value = m.id || '';
-          opt.textContent = m.label || m.id || '(default)';
-          sel2.appendChild(opt);
+        const modelsResponse = await fetch('api/models');
+        const modelsPayload = await modelsResponse.json();
+        const modelSelect = document.getElementById('modelPick');
+        modelSelect.innerHTML = '<option value="" selected>по умолчанию (из пресета)</option>';
+        for (const model of (modelsPayload.models || [])) {
+          if ((model.id || '').toLowerCase() === 'mock') continue;
+          const option = document.createElement('option');
+          option.value = model.id || '';
+          option.textContent = model.label || model.id || '(default)';
+          modelSelect.appendChild(option);
         }
-      } catch(e) {}
+      } catch (error) {}
     })();
 
     runBtn.addEventListener('click', async () => {
@@ -321,12 +336,11 @@ _HTML = """<!doctype html>
       }
       runBtn.disabled = true;
       const t0 = Date.now();
-      statusEl.textContent = 'Идёт запрос к LLM…';
-      // Заметный overlay c прогрессом времени
-      output.textContent = '⏳ Совет собирается…\\n\\nЖивой запрос к LLM: обычно 60–180 секунд.\\nПодожди, не нажимай ещё раз.\\n\\n(смотри статус в углу карточки — там таймер)';
+      statusEl.textContent = 'Идет запрос к runtime...';
+      output.textContent = 'Совет собирается...\\n\\nЖивой запрос к LLM обычно занимает 60-180 секунд.\\nПодожди и не нажимай кнопку повторно.';
       const timer = setInterval(() => {
         const dt = Math.floor((Date.now() - t0) / 1000);
-        statusEl.textContent = `Идёт запрос к LLM… ${dt}s`;
+        statusEl.textContent = `Идет запрос к runtime... ${dt}s`;
       }, 1000);
       try {
         const response = await fetch('api/run', {
@@ -334,22 +348,22 @@ _HTML = """<!doctype html>
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             text,
+            runtime_layer: document.getElementById('councilLayer').value,
             input_mode: document.getElementById('inputMode').value,
             mode: document.getElementById('mode').value,
             critique_regime: document.getElementById('critique').value,
             variation_regime: document.getElementById('variation').value,
             preset: document.getElementById('preset').value,
             model: document.getElementById('modelPick').value,
-            voice_max_tokens: (document.getElementById('voiceMaxTokens').value || null),
-            closing_max_tokens: (document.getElementById('closingMaxTokens').value || null),
+            voice_max_tokens: document.getElementById('voiceMaxTokens').value || null,
+            closing_max_tokens: document.getElementById('closingMaxTokens').value || null,
+            max_turns: document.getElementById('maxTurns').value || null,
             output_format: document.getElementById('outFmt').value,
             detail: document.getElementById('detailLvl').value,
             debug: document.getElementById('debug').value === 'true'
           })
         });
         const payload = await response.json();
-        // text-mode: показать body как plain text, meta ниже;
-        // json-mode: JSON.stringify как раньше.
         if (payload && payload.format === 'text' && payload.body) {
           output.textContent = payload.body;
         } else {
@@ -361,7 +375,7 @@ _HTML = """<!doctype html>
           : `Ошибка HTTP ${response.status} за ${dt}s.`;
       } catch (error) {
         output.textContent = String(error);
-        statusEl.textContent = 'Ошибка сети (проверь соединение / DevTools → Network).';
+        statusEl.textContent = 'Ошибка сети или runtime.';
       } finally {
         clearInterval(timer);
         runBtn.disabled = false;
@@ -376,6 +390,7 @@ _HTML = """<!doctype html>
 def run_web_request(
     text: str,
     *,
+    runtime_layer: str = LAYER_PERSONA,
     input_mode: str = "raw",
     mode: str = "fast",
     critique_regime: str = "balanced",
@@ -386,149 +401,250 @@ def run_web_request(
     max_tokens: int | None = None,
     voice_max_tokens: int | None = None,
     closing_max_tokens: int | None = None,
-    output_format: str = "json",    # "json" | "text"
-    detail: str = "with_turns",     # "only_result" | "with_turns"
+    max_turns: int | None = None,
+    output_format: str = "json",
+    detail: str = "with_turns",
 ) -> dict[str, Any]:
-    pipe = Pipeline(
-        preset_override=preset or None,
-        model_override=model or None,
-        max_tokens_override=max_tokens if (max_tokens and max_tokens > 0) else None,
-        voice_max_tokens_override=voice_max_tokens if (voice_max_tokens and voice_max_tokens > 0) else None,
-        closing_max_tokens_override=closing_max_tokens if (closing_max_tokens and closing_max_tokens > 0) else None,
-    )
-    resolved_input_mode = input_mode
-    ingress_mode = "legacy_raw"
-
-    if input_mode == "semantic-units":
-        result = _run_semantic_units_request(
-            pipe,
+    runtime_layer = runtime_layer if runtime_layer in SUPPORTED_LAYERS else LAYER_PERSONA
+    if runtime_layer == LAYER_PERSONA:
+        payload = _run_persona_layer_request(
             text=text,
+            input_mode=input_mode,
             mode=mode,
             critique_regime=critique_regime,
             variation_regime=variation_regime,
+            detail=detail,
+            debug=debug,
         )
-        ingress_mode = "semantic_units"
-    elif input_mode == "auto-slice":
-        envelope = parse_envelope({
-            "mode": "raw_stream",
-            "run_id": "web-ui-raw-stream",
-            "content": text,
-            "metadata": {"source": "web_ui"},
-        })
-        result = pipe.run_from_envelope(
-            envelope,
-            mode=mode,
-            critique_regime=critique_regime,
-            variation_regime=variation_regime,
-        )
-        ingress_mode = "raw_stream"
-    elif input_mode == "units":
-        pack = parse_md_units_text(text)
-        result = pipe.run_from_units(
-            pack,
-            mode=mode,
-            critique_regime=critique_regime,
-            variation_regime=variation_regime,
-        )
-        resolved_input_mode = "semantic-units"
-        ingress_mode = "md_units_pack"
     else:
-        result = pipe.run(
-            text=text,
-            mode=mode,
-            critique_regime=critique_regime,
-            variation_regime=variation_regime,
+        pipe = Pipeline(
+            preset_override=preset or None,
+            model_override=model or None,
+            max_tokens_override=max_tokens if (max_tokens and max_tokens > 0) else None,
+            voice_max_tokens_override=voice_max_tokens if (voice_max_tokens and voice_max_tokens > 0) else None,
+            closing_max_tokens_override=closing_max_tokens if (closing_max_tokens and closing_max_tokens > 0) else None,
+            max_turns_override=max_turns if (max_turns and max_turns > 0) else None,
         )
+        resolved_input_mode = input_mode
+        ingress_mode = "legacy_raw"
+
+        if input_mode == "semantic-units":
+            result = _run_semantic_units_request(
+                pipe,
+                text=text,
+                mode=mode,
+                critique_regime=critique_regime,
+                variation_regime=variation_regime,
+            )
+            ingress_mode = "semantic_units"
+        elif input_mode == "auto-slice":
+            envelope = parse_envelope({
+                "mode": "raw_stream",
+                "run_id": "web-ui-raw-stream",
+                "content": text,
+                "metadata": {"source": "web_ui"},
+            })
+            result = pipe.run_from_envelope(
+                envelope,
+                mode=mode,
+                critique_regime=critique_regime,
+                variation_regime=variation_regime,
+            )
+            ingress_mode = "raw_stream"
+        elif input_mode == "units":
+            pack = parse_md_units_text(text)
+            result = pipe.run_from_units(
+                pack,
+                mode=mode,
+                critique_regime=critique_regime,
+                variation_regime=variation_regime,
+            )
+            resolved_input_mode = "semantic-units"
+            ingress_mode = "md_units_pack"
+        else:
+            result = pipe.run(
+                text=text,
+                mode=mode,
+                critique_regime=critique_regime,
+                variation_regime=variation_regime,
+            )
+
+        payload = {
+            "runtime_layer": LAYER_CALIFORNIAN_ID,
+            "run_id": result.run_state.run_id,
+            "mode": result.run_state.mode,
+            "status": result.run_state.status,
+            "stopping_reason": result.run_state.stopping_reason,
+            "completion": to_plain(result.run_state.completion) if result.run_state.completion else None,
+            "synthesis": to_plain(result.run_state.synthesis) if result.run_state.synthesis else None,
+            "voices_used": result.memory.voices_called,
+            "turn_count": len(result.run_state.turns),
+            "security_events": [se.__dict__ for se in result.run_state.security_events],
+            "errors": result.run_state.errors,
+            "trace_dir": str(result.trace_dir),
+            "regimes": {
+                "critique_regime": critique_regime,
+                "variation_regime": variation_regime,
+            },
+            "input_mode": resolved_input_mode,
+            "ingress_mode": ingress_mode,
+            "preset": pipe.preset_override,
+            "model": pipe.model_override,
+            "max_tokens": pipe.max_tokens_override,
+            "voice_max_tokens": pipe.voice_max_tokens_override,
+            "closing_max_tokens": pipe.closing_max_tokens_override,
+            "max_turns": pipe.max_turns_override,
+            "closing_speech": (
+                (result.run_state.completion.closing_speech or "").strip()
+                if result.run_state.completion else ""
+            ),
+        }
+        if detail == "with_turns" or debug:
+            payload["turns"] = [
+                {
+                    "turn_index": turn.turn_index,
+                    "persona_id": turn.persona_id,
+                    "operation": turn.operation,
+                    "utterance": turn.utterance,
+                    "confidence": turn.confidence,
+                    "model": turn.model_name,
+                    "provider": turn.model_provider,
+                }
+                for turn in result.run_state.turns
+            ]
+        if debug:
+            payload["situation"] = to_plain(result.run_state.situation)
+            payload["argument_map"] = to_plain(result.run_state.argument_map)
+
+    if output_format == "text":
+        return _render_text_payload(payload, detail=detail)
+    return payload
+
+
+def _run_persona_layer_request(
+    *,
+    text: str,
+    input_mode: str,
+    mode: str,
+    critique_regime: str,
+    variation_regime: str,
+    detail: str,
+    debug: bool,
+) -> dict[str, Any]:
+    scene, ingress_mode, unit_count = _scene_from_web_input(text=text, input_mode=input_mode)
+    runtime = PersonaCouncilRuntime()
+    result = runtime.run(scene, enable_nemo8=True)
+
+    turns: list[dict[str, Any]] = []
+    for index, turn in enumerate(result.base_turns):
+        turns.append({
+            "turn_index": index,
+            "persona_id": turn.persona_id,
+            "operation": turn.operation_id,
+            "utterance": turn.utterance,
+            "card_id": turn.card_id,
+            "phase": "base",
+        })
+    if result.nemo8_turn is not None:
+        turns.append({
+            "turn_index": len(turns),
+            "persona_id": result.nemo8_turn.persona_id,
+            "operation": result.nemo8_turn.operation_id,
+            "utterance": result.nemo8_turn.utterance,
+            "card_id": result.nemo8_turn.card_id,
+            "phase": "meta",
+        })
+    for turn in result.reopened_turns:
+        turns.append({
+            "turn_index": len(turns),
+            "persona_id": turn.persona_id,
+            "operation": turn.operation_id,
+            "utterance": turn.utterance,
+            "card_id": turn.card_id,
+            "phase": "reopen",
+        })
 
     payload: dict[str, Any] = {
-        "run_id": result.run_state.run_id,
-        "mode": result.run_state.mode,
-        "status": result.run_state.status,
-        "stopping_reason": result.run_state.stopping_reason,
-        "completion": to_plain(result.run_state.completion) if result.run_state.completion else None,
-        "synthesis": to_plain(result.run_state.synthesis) if result.run_state.synthesis else None,
-        "voices_used": result.memory.voices_called,
-        "turn_count": len(result.run_state.turns),
-        "security_events": [se.__dict__ for se in result.run_state.security_events],
-        "errors": result.run_state.errors,
-        "trace_dir": str(result.trace_dir),
+        "runtime_layer": LAYER_PERSONA,
+        "run_id": result.run_id,
+        "mode": mode,
+        "status": "COMPLETED",
+        "stopping_reason": None,
+        "completion": {
+            "form": "persona_layer_final_synthesis",
+            "closing_speech": result.final_answer,
+        },
+        "synthesis": None,
+        "voices_used": [turn["persona_id"] for turn in turns],
+        "turn_count": len(turns),
+        "security_events": [],
+        "errors": [],
+        "trace_dir": None,
         "regimes": {
             "critique_regime": critique_regime,
             "variation_regime": variation_regime,
         },
-        "input_mode": resolved_input_mode,
+        "input_mode": input_mode,
         "ingress_mode": ingress_mode,
-        "preset": pipe.preset_override,
-        "model": pipe.model_override,
-        "max_tokens": pipe.max_tokens_override,
-        "voice_max_tokens": pipe.voice_max_tokens_override,
-        "closing_max_tokens": pipe.closing_max_tokens_override,
-        "closing_speech": (
-            (result.run_state.completion.closing_speech or "").strip()
-            if result.run_state.completion else ""
-        ),
+        "preset": None,
+        "model": None,
+        "max_tokens": None,
+        "voice_max_tokens": None,
+        "closing_max_tokens": None,
+        "max_turns": None,
+        "closing_speech": result.final_answer.strip(),
+        "persona_layer": {
+            "cast_mode": result.trace["route_plan"]["cast_mode"],
+            "selected_persona_ids": result.trace["route_plan"]["selected_persona_ids"],
+            "execution_order": result.trace["route_plan"]["execution_order"],
+            "call_nemo8": result.trace["route_plan"]["call_nemo8"],
+            "nemo8_used": result.nemo8_turn is not None,
+            "reopened_persona_ids": [turn.persona_id for turn in result.reopened_turns],
+            "minority_positions": result.minority_positions,
+            "unit_count": unit_count,
+        },
     }
     if detail == "with_turns" or debug:
-        payload["turns"] = [
-            {
-                "turn_index": t.turn_index,
-                "persona_id": t.persona_id,
-                "operation": t.operation,
-                "utterance": t.utterance,
-                "confidence": t.confidence,
-                "model": t.model_name,
-                "provider": t.model_provider,
-            }
-            for t in result.run_state.turns
-        ]
+        payload["turns"] = turns
     if debug:
-        payload["situation"] = to_plain(result.run_state.situation)
-        payload["argument_map"] = to_plain(result.run_state.argument_map)
-
-    # Text-format rendering: короче ответ, приоритет closing_speech.
-    if output_format == "text":
-        payload = _render_text_payload(payload, detail=detail)
+        payload["trace"] = result.trace
     return payload
 
 
 def _render_text_payload(payload: dict[str, Any], *, detail: str) -> dict[str, Any]:
-    """Свернуть JSON-структуру в лаконичный text-документ.
-
-    Возвращает `{format: "text", body: "...", meta: {...}}` — тонкая мета
-    остаётся, но всё остальное — plain text (закрывающая речь Заратустры
-    + опционально ходы голосов).
-    """
     lines: list[str] = []
-    c = payload.get("completion") or {}
+    completion = payload.get("completion") or {}
     speech = (payload.get("closing_speech") or "").strip()
-    form = c.get("form") or "?"
+    form = completion.get("form") or "?"
 
-    lines.append("⚡ Заратустра")
+    lines.append("Заратустра")
     lines.append("")
     if speech:
         lines.append(speech)
     else:
-        lines.append(
-            "(закрывающая речь недоступна; смотри `errors` в meta — ран завершился без валидного финального текста)"
-        )
+        lines.append("(закрывающая речь недоступна; смотри errors в meta)")
     lines.append("")
-    lines.append(f"[форма завершения: {form} · voices: {', '.join(payload.get('voices_used') or []) or '—'}]")
+    lines.append(
+        f"[форма завершения: {form} · layer: {payload.get('runtime_layer')} · voices: "
+        f"{', '.join(payload.get('voices_used') or []) or '—'}]"
+    )
 
     if detail == "with_turns":
         turns = payload.get("turns") or []
         if turns:
             lines.append("")
-            lines.append("—" * 3 + " ход совета " + "—" * 3)
-            for t in turns:
+            lines.append("--- ход совета ---")
+            for turn in turns:
                 lines.append("")
-                lines.append(f"[{t.get('persona_id')} · {t.get('operation')}]")
-                lines.append((t.get("utterance") or "").strip())
+                lines.append(f"[{turn.get('persona_id')} · {turn.get('operation')}]")
+                lines.append((turn.get("utterance") or "").strip())
 
     return {
         "format": "text",
         "body": "\n".join(lines),
         "meta": {
             "run_id": payload.get("run_id"),
+            "runtime_layer": payload.get("runtime_layer"),
             "mode": payload.get("mode"),
             "status": payload.get("status"),
             "form": form,
@@ -539,9 +655,11 @@ def _render_text_payload(payload: dict[str, Any], *, detail: str) -> dict[str, A
             "max_tokens": payload.get("max_tokens"),
             "voice_max_tokens": payload.get("voice_max_tokens"),
             "closing_max_tokens": payload.get("closing_max_tokens"),
+            "max_turns": payload.get("max_turns"),
             "security_events": payload.get("security_events"),
             "trace_dir": payload.get("trace_dir"),
             "errors": payload.get("errors"),
+            "persona_layer": payload.get("persona_layer"),
         },
     }
 
@@ -585,13 +703,64 @@ def _run_semantic_units_request(
     )
 
 
+def _scene_from_web_input(*, text: str, input_mode: str) -> tuple[str, str, int]:
+    if input_mode == "semantic-units":
+        pack = _pack_from_semantic_units(text)
+        return _pack_to_scene(pack), "semantic_units", len(pack.units)
+    if input_mode == "auto-slice":
+        envelope = parse_envelope({
+            "mode": "raw_stream",
+            "run_id": "web-ui-raw-stream",
+            "content": text,
+            "metadata": {"source": "web_ui"},
+        })
+        pack = envelope_to_unit_pack(envelope)
+        return _pack_to_scene(pack), "raw_stream", len(pack.units)
+    return text.strip(), "legacy_raw", 0
+
+
+def _pack_from_semantic_units(text: str) -> UnitPack:
+    stripped = text.strip()
+    if stripped.startswith("{") or stripped.startswith("mode:"):
+        parsed = yaml.safe_load(text)
+        if not isinstance(parsed, dict):
+            raise ValueError("semantic-units input must decode to an object")
+        envelope = parse_envelope(parsed)
+        return envelope_to_unit_pack(envelope)
+    return parse_md_units_text(text)
+
+
+def _pack_to_scene(pack: UnitPack) -> str:
+    lines: list[str] = []
+    if pack.seminar_title:
+        lines.append(f"Title: {pack.seminar_title}")
+    for unit in pack.units:
+        speaker = ""
+        if unit.provenance:
+            first = unit.provenance[0]
+            if isinstance(first, dict):
+                speaker = str(first.get("participant_label") or first.get("participant_name") or "")
+            else:
+                speaker = first.participant_label or first.participant_name
+        prefix = f"{speaker}: " if speaker else ""
+        abstract = (unit.abstract or unit.title or "").strip()
+        if not abstract:
+            continue
+        lines.append(f"{prefix}{abstract}")
+    if pack.unresolved_questions_pack:
+        lines.append("Open questions:")
+        lines.extend(f"- {question}" for question in pack.unresolved_questions_pack)
+    scene = "\n".join(lines).strip()
+    if not scene:
+        raise ValueError("semantic-units input produced an empty scene")
+    return scene
+
+
 class _WebUIHandler(BaseHTTPRequestHandler):
-    server_version = "ZarathustraWebUI/0.1"
+    server_version = "ZarathustraWebUI/0.2"
 
     def do_GET(self) -> None:  # noqa: N802
-        # Strip query-string: /?nocache=... должен матчить корневые пути
         path_only = self.path.split("?", 1)[0]
-        # Rewrite so все ниже проверки видят чистый path
         self.path = path_only
         if self.path in {"/api/presets", "/presets"}:
             from .config import load_config
@@ -610,9 +779,6 @@ class _WebUIHandler(BaseHTTPRequestHandler):
         self.send_response(HTTPStatus.OK)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
-        # Prevent browser/proxy caching of the UI — иначе после deploy
-        # пользователь получает старую HTML с несовпадающими id, script не
-        # находит нужные элементы, handler не привязывается, кнопка "мертва".
         self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
         self.send_header("Pragma", "no-cache")
         self.send_header("Expires", "0")
@@ -633,6 +799,7 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                 return
             payload = run_web_request(
                 text,
+                runtime_layer=data.get("runtime_layer") or LAYER_PERSONA,
                 input_mode=data.get("input_mode") or "raw",
                 mode=data.get("mode") or "fast",
                 critique_regime=data.get("critique_regime") or "balanced",
@@ -643,11 +810,12 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                 max_tokens=_parse_optional_int(data.get("max_tokens")),
                 voice_max_tokens=_parse_optional_int(data.get("voice_max_tokens")),
                 closing_max_tokens=_parse_optional_int(data.get("closing_max_tokens")),
+                max_turns=_parse_optional_int(data.get("max_turns")),
                 output_format=(data.get("output_format") or "json"),
                 detail=(data.get("detail") or "with_turns"),
             )
             self._send_json(payload)
-        except Exception as exc:  # pragma: no cover - defensive boundary
+        except Exception as exc:  # pragma: no cover
             self._send_json({"error": str(exc)}, status=HTTPStatus.INTERNAL_SERVER_ERROR)
 
     def log_message(self, format: str, *args: object) -> None:

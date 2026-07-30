@@ -22,3 +22,11 @@ def test_pipeline_falls_back_to_global_max_tokens_override():
 
     assert persona_cfg["settings"]["max_tokens"] == 2048
     assert closing_cfg["settings"]["max_tokens"] == 2048
+
+
+def test_pipeline_applies_max_turns_override_to_mode_config():
+    pipe = Pipeline(max_turns_override=3)
+
+    mode_cfg = pipe._mode_cfg("deep")
+
+    assert mode_cfg["max_turns"] == 3
