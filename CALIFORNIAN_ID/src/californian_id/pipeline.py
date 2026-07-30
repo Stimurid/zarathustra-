@@ -435,6 +435,8 @@ class Pipeline:
         completion.closing_speech = self.zarathustra.compose_closing_speech(
             closing_client, state.situation, completion, state.turns, state.argument_map,
         )
+        if getattr(closing_client, "provider", "mock") != "mock" and not (completion.closing_speech or "").strip():
+            raise RuntimeError("zarathustra_closing_speech returned empty text")
         trace.event("closing_speech", {
             "provider": getattr(closing_client, "provider", "?"),
             "model": getattr(closing_client, "model", "?"),
@@ -850,7 +852,12 @@ class Pipeline:
             },
         )
 
-        parsed = _parse_persona_turn(result.text, persona.persona_id, operation)
+        parsed = _parse_persona_turn(
+            result.text,
+            persona.persona_id,
+            operation,
+            strict=(result.provider != "mock"),
+        )
         return TurnRecord(
             turn_index=turn_index,
             persona_id=persona.persona_id,
@@ -1200,3 +1207,81 @@ def _norm_list(items: Any, allowed: set[str]) -> list[dict[str, Any]]:
                 continue
             out.append(filt)
     return out
+
+
+def _extract_json_object(text: str) -> dict[str, Any]:
+    import re
+
+    stripped = (text or "").strip()
+    if not stripped:
+        raise ValueError("empty model response")
+    fence = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", stripped, re.DOTALL | re.IGNORECASE)
+    if fence:
+        return json.loads(fence.group(1))
+    if stripped.startswith("{") and stripped.endswith("}"):
+        return json.loads(stripped)
+    start = stripped.find("{")
+    if start < 0:
+        raise ValueError("no json object found")
+    depth = 0
+    in_string = False
+    escaped = False
+    for index in range(start, len(stripped)):
+        char = stripped[index]
+        if escaped:
+            escaped = False
+            continue
+        if char == "\\":
+            escaped = True
+            continue
+        if char == '"':
+            in_string = not in_string
+            continue
+        if in_string:
+            continue
+        if char == "{":
+            depth += 1
+        elif char == "}":
+            depth -= 1
+            if depth == 0:
+                return json.loads(stripped[start:index + 1])
+    raise ValueError("unterminated json object")
+
+
+def _parse_persona_turn(
+    text: str,
+    persona_id: str,
+    operation: str,
+    *,
+    strict: bool = False,
+) -> dict[str, Any]:
+    text = (text or "").strip()
+    try:
+        data = _extract_json_object(text)
+    except Exception:
+        if strict:
+            raise RuntimeError(
+                f"persona_turn returned non-JSON output for {persona_id}/{operation}: {text[:240]}"
+            )
+        data = {
+            "utterance": text[:1200] or f"[{persona_id}] empty output for {operation}",
+            "claims": [],
+            "assumptions": [],
+            "values": [],
+            "supports": [],
+            "attacks": [],
+            "actions": [],
+            "questions": [],
+            "confidence": 0.3,
+        }
+    return {
+        "utterance": str(data.get("utterance", ""))[:1200],
+        "claims": _norm_list(data.get("claims"), {"text", "confidence", "source"}),
+        "assumptions": _norm_list(data.get("assumptions"), {"text", "exposed_by"}),
+        "values": _norm_list(data.get("values"), {"text"}),
+        "supports": _norm_list(data.get("supports"), {"target", "text"}),
+        "attacks": _norm_list(data.get("attacks"), {"target", "text"}),
+        "actions": _norm_list(data.get("actions"), {"text"}),
+        "questions": _norm_list(data.get("questions"), {"text", "unresolved"}),
+        "confidence": data.get("confidence", 0.5),
+    }

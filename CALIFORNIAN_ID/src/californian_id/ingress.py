@@ -1,250 +1,239 @@
-"""Official Tinkuy ingress envelopes adapted for the Zarathustra runtime.
-
-This keeps the canonical two-lane contract explicit:
-    - raw_stream: raw text provided as content
-    - semantic_units: externally produced semantic units with provenance
-
-The current Zarathustra runtime still uses its native `run(...)` and
-`run_from_units(...)` internals. This module provides the thin contract layer
-between the canonical Tinkuy envelope and those existing runtime entrypoints.
-"""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+import re
 from typing import Any
 
-from .schemas import SemanticUnit, UnitPack
+from .schemas import SemanticUnit, SourceAudit, ToulminBundle, UnitPack
+
+
+@dataclass
+class IngressUnit:
+    unit_id: str
+    text: str
+    speaker: str = ""
+    source_refs: list[str] = field(default_factory=list)
+    semantic_types: list[str] = field(default_factory=list)
+    char_span: list[int] = field(default_factory=list)
 
 
 @dataclass
 class RawStreamEnvelope:
-    mode: str
-    run_id: str
-    content: str
-    speaker_hint: str | None = None
-    timestamp: str | None = None
+    mode: str = "raw_stream"
+    run_id: str = "raw-stream"
+    content: str = ""
     metadata: dict[str, Any] = field(default_factory=dict)
-
-
-@dataclass
-class SemanticIngressUnit:
-    unit_id: str
-    text: str
-    speaker: str | None = None
-    char_span: list[int] = field(default_factory=list)
-    source_refs: list[str] = field(default_factory=list)
-    semantic_types: list[str] = field(default_factory=list)
-    metadata: dict[str, Any] = field(default_factory=dict)
+    speaker_hint: str = ""
 
 
 @dataclass
 class SemanticUnitsEnvelope:
-    mode: str
-    run_id: str
-    units: list[SemanticIngressUnit]
+    mode: str = "semantic_units"
+    run_id: str = "semantic-units"
+    units: list[IngressUnit] = field(default_factory=list)
     metadata: dict[str, Any] = field(default_factory=dict)
+    seminar_title: str = ""
+    cutter_id: str = ""
+    cutter_model: str = ""
+    source_path: str = ""
+    unresolved_questions_pack: list[str] = field(default_factory=list)
 
 
-IngressEnvelope = RawStreamEnvelope | SemanticUnitsEnvelope
-
-
-def parse_envelope(payload: dict[str, Any]) -> IngressEnvelope:
-    """Validate a canonical Tinkuy ingress envelope without extra deps."""
+def parse_envelope(payload: dict[str, Any]) -> RawStreamEnvelope | SemanticUnitsEnvelope:
     if not isinstance(payload, dict):
-        raise ValueError("ingress payload must be an object")
-    mode = payload.get("mode")
-    if mode == "raw_stream":
-        return _parse_raw_stream(payload)
-    if mode == "semantic_units":
-        return _parse_semantic_units(payload)
-    raise ValueError("mode must be 'raw_stream' or 'semantic_units'")
-
-
-def envelope_to_unit_pack(envelope: SemanticUnitsEnvelope) -> UnitPack:
-    """Adapt canonical semantic units to the runtime's richer UnitPack shape."""
-    units: list[SemanticUnit] = []
-    for raw in envelope.units:
-        title = _title_from_text(raw.text)
-        units.append(
-            SemanticUnit(
-                unit_id=raw.unit_id,
-                title=title,
-                abstract=raw.text,
-                key_concepts=list(raw.semantic_types),
-                provenance=[
-                    {
-                        "participant_label": raw.speaker or "",
-                        "participant_name": raw.speaker or "",
-                        "locator": ref,
-                    }
-                    for ref in raw.source_refs
-                ],
-            )
+        raise ValueError("envelope must be an object")
+    mode = str(payload.get("mode") or "").strip().lower()
+    if mode in {"", "legacy_raw", "raw", "raw_stream"}:
+        metadata = dict(payload.get("metadata") or {})
+        speaker_hint = str(payload.get("speaker_hint") or metadata.get("speaker_hint") or "")
+        return RawStreamEnvelope(
+            mode="raw_stream",
+            run_id=str(payload.get("run_id") or "raw-stream"),
+            content=str(payload.get("content") or payload.get("text") or payload.get("raw_text") or ""),
+            metadata=metadata,
+            speaker_hint=speaker_hint,
         )
-    return UnitPack(
-        units=units,
-        seminar_title=str(envelope.metadata.get("title", "semantic units input")),
-        cutter_id=str(envelope.metadata.get("producer", "external_semantic_units")),
-        cutter_model=str(envelope.metadata.get("producer_model", "")),
-        source_path=str(envelope.metadata.get("source_path", "")),
-    )
+    if mode in {"semantic_units", "semantic-units", "units"}:
+        raw_units = payload.get("units")
+        if raw_units is None and isinstance(payload.get("unit_pack"), dict):
+            raw_units = payload["unit_pack"].get("units")
+        if not isinstance(raw_units, list):
+            raise ValueError("semantic_units envelope must contain a units array")
+        metadata = dict(payload.get("metadata") or {})
+        title = str(payload.get("seminar_title") or payload.get("title") or metadata.get("title") or "")
+        return SemanticUnitsEnvelope(
+            mode="semantic_units",
+            run_id=str(payload.get("run_id") or "semantic-units"),
+            units=[_parse_ingress_unit(index, unit) for index, unit in enumerate(raw_units, start=1) if isinstance(unit, dict)],
+            metadata=metadata,
+            seminar_title=title,
+            cutter_id=str(payload.get("cutter_id") or ""),
+            cutter_model=str(payload.get("cutter_model") or ""),
+            source_path=str(payload.get("source_path") or ""),
+            unresolved_questions_pack=[str(x) for x in (payload.get("unresolved_questions_pack") or []) if x],
+        )
+    raise ValueError(f"unsupported envelope mode: {mode}")
 
 
-def slice_raw_stream(text: str) -> list[SemanticIngressUnit]:
-    """Thin-turn segmentation for raw_stream, following the Tinkuy ingress model."""
-    units: list[SemanticIngressUnit] = []
-    cursor = 0
-    for line in text.splitlines(True):
-        raw = line.rstrip("\n")
-        if raw.strip():
-            speaker = None
-            content = raw
-            if ":" in raw:
-                head, tail = raw.split(":", 1)
-                if 0 < len(head.strip()) <= 60:
-                    speaker = head.strip()
-                    content = tail.strip()
-            start = cursor
-            end = cursor + len(raw)
-            units.append(
-                SemanticIngressUnit(
-                    unit_id=f"raw-{len(units) + 1}",
-                    text=content,
-                    speaker=speaker,
-                    char_span=[start, end],
-                    source_refs=[f"char:{start}-{end}"],
-                    semantic_types=[],
-                    metadata={},
-                )
-            )
-        cursor += len(line)
-    if not units and text.strip():
+def slice_raw_stream(text: str) -> list[IngressUnit]:
+    content = str(text or "")
+    lines = content.splitlines()
+    units: list[IngressUnit] = []
+    offset = 0
+    pending_speaker = ""
+    unit_index = 1
+    for line in lines:
+        raw_line = line
+        line = line.rstrip("\r")
+        start = offset
+        end = start + len(raw_line)
+        offset = end + 1
+        stripped = line.strip()
+        if not stripped:
+            pending_speaker = ""
+            continue
+        speaker = pending_speaker
+        text_body = stripped
+        if ":" in stripped:
+            head, tail = stripped.split(":", 1)
+            if head.strip() and tail.strip():
+                speaker = head.strip()
+                text_body = tail.strip()
+        if speaker:
+            pending_speaker = speaker
+        body_start = start
+        body_end = end
+        source_start = content.find(text_body, start, end + 1)
+        if source_start < 0:
+            source_start = start
+        source_end = source_start + len(text_body)
         units.append(
-            SemanticIngressUnit(
-                unit_id="raw-1",
-                text=text.strip(),
-                speaker=None,
-                char_span=[0, len(text)],
-                source_refs=[f"char:0-{len(text)}"],
+            IngressUnit(
+                unit_id=f"raw-{unit_index}",
+                text=text_body,
+                speaker=speaker,
+                source_refs=[f"char:{source_start}-{source_end}"],
                 semantic_types=[],
-                metadata={},
+                char_span=[body_start, body_end],
             )
         )
+        unit_index += 1
     return units
 
 
-def normalise_envelope(envelope: IngressEnvelope) -> SemanticUnitsEnvelope:
-    """Collapse both official ingress modes into the semantic-units lane."""
+def normalise_envelope(
+    envelope: RawStreamEnvelope | SemanticUnitsEnvelope,
+) -> SemanticUnitsEnvelope:
     if isinstance(envelope, SemanticUnitsEnvelope):
+        envelope.units = [unit for unit in envelope.units if isinstance(unit, IngressUnit)]
         return envelope
+    metadata = dict(envelope.metadata)
+    metadata["source_mode"] = "raw_stream"
+    if envelope.speaker_hint:
+        metadata["speaker_hint"] = envelope.speaker_hint
     return SemanticUnitsEnvelope(
         mode="semantic_units",
         run_id=envelope.run_id,
         units=slice_raw_stream(envelope.content),
-        metadata={
-            **envelope.metadata,
-            "source_mode": "raw_stream",
-            "speaker_hint": envelope.speaker_hint,
-            "timestamp": envelope.timestamp,
-        },
+        metadata=metadata,
+        seminar_title=str(metadata.get("title") or title_from_text(envelope.content)),
+        cutter_id="builtin.raw_stream_slicer",
+        cutter_model="deterministic",
+        source_path=str(metadata.get("source") or ""),
+        unresolved_questions_pack=[],
     )
 
 
-def _parse_raw_stream(payload: dict[str, Any]) -> RawStreamEnvelope:
-    _require_string(payload, "run_id")
-    content = _require_string(payload, "content")
-    if not content.strip():
-        raise ValueError("raw_stream.content must be non-empty")
-    return RawStreamEnvelope(
-        mode="raw_stream",
-        run_id=payload["run_id"],
-        content=content,
-        speaker_hint=_optional_string(payload, "speaker_hint"),
-        timestamp=_optional_string(payload, "timestamp"),
-        metadata=_optional_object(payload, "metadata"),
-    )
-
-
-def _parse_semantic_units(payload: dict[str, Any]) -> SemanticUnitsEnvelope:
-    _require_string(payload, "run_id")
-    units_raw = payload.get("units")
-    if not isinstance(units_raw, list) or not units_raw:
-        raise ValueError("semantic_units.units must be a non-empty array")
-    units: list[SemanticIngressUnit] = []
-    for idx, raw in enumerate(units_raw):
-        if not isinstance(raw, dict):
-            raise ValueError(f"semantic_units.units[{idx}] must be an object")
-        unit_id = _require_string(raw, "unit_id", prefix=f"semantic_units.units[{idx}]")
-        text = _require_string(raw, "text", prefix=f"semantic_units.units[{idx}]")
-        units.append(
-            SemanticIngressUnit(
-                unit_id=unit_id,
-                text=text,
-                speaker=_optional_string(raw, "speaker"),
-                char_span=_optional_int_pair(raw, "char_span", idx),
-                source_refs=_optional_string_list(raw, "source_refs", idx),
-                semantic_types=_optional_string_list(raw, "semantic_types", idx),
-                metadata=_optional_object(raw, "metadata"),
-            )
-        )
-    return SemanticUnitsEnvelope(
-        mode="semantic_units",
-        run_id=payload["run_id"],
+def envelope_to_unit_pack(
+    envelope: RawStreamEnvelope | SemanticUnitsEnvelope,
+) -> UnitPack:
+    normalized = normalise_envelope(envelope)
+    units = [_ingress_unit_to_semantic_unit(unit) for unit in normalized.units]
+    return UnitPack(
         units=units,
-        metadata=_optional_object(payload, "metadata"),
+        source_audit=SourceAudit(),
+        seminar_title=normalized.seminar_title,
+        cutter_id=normalized.cutter_id,
+        cutter_model=normalized.cutter_model,
+        source_path=normalized.source_path,
+        unresolved_questions_pack=list(normalized.unresolved_questions_pack),
     )
 
 
-def _title_from_text(text: str) -> str:
-    line = " ".join(text.strip().splitlines()).strip()
-    if not line:
-        return "untitled semantic unit"
-    return line[:80]
+def _parse_ingress_unit(index: int, raw: dict[str, Any]) -> IngressUnit:
+    text = str(raw.get("text") or raw.get("abstract") or raw.get("title") or "").strip()
+    source_refs = [str(x) for x in (raw.get("source_refs") or []) if x]
+    char_span = raw.get("char_span") or _char_span_from_refs(source_refs)
+    semantic_types = [str(x) for x in (raw.get("semantic_types") or raw.get("key_concepts") or []) if x]
+    return IngressUnit(
+        unit_id=str(raw.get("unit_id") or f"u-{index}"),
+        text=text,
+        speaker=str(raw.get("speaker") or ""),
+        source_refs=source_refs,
+        semantic_types=semantic_types,
+        char_span=[int(x) for x in char_span][:2] if char_span else [],
+    )
 
 
-def _require_string(payload: dict[str, Any], key: str, prefix: str | None = None) -> str:
-    value = payload.get(key)
-    if not isinstance(value, str):
-        name = f"{prefix}.{key}" if prefix else key
-        raise ValueError(f"{name} must be a string")
-    return value
+def _ingress_unit_to_semantic_unit(unit: IngressUnit) -> SemanticUnit:
+    toulmin = None
+    return SemanticUnit(
+        unit_id=unit.unit_id,
+        title=_first_sentence(unit.text) or unit.unit_id,
+        intention="semantic_unit",
+        object_aspect="",
+        position="",
+        toulmin=toulmin,
+        abstract=unit.text,
+        key_concepts=list(unit.semantic_types or _key_concepts(unit.text))[:12],
+        provenance=[{"locator": ref, "speaker": unit.speaker} for ref in unit.source_refs],
+        unresolved_questions_here=_extract_questions(unit.text),
+    )
 
 
-def _optional_string(payload: dict[str, Any], key: str) -> str | None:
-    value = payload.get(key)
-    if value is None:
-        return None
-    if not isinstance(value, str):
-        raise ValueError(f"{key} must be a string or null")
-    return value
-
-
-def _optional_object(payload: dict[str, Any], key: str) -> dict[str, Any]:
-    value = payload.get(key)
-    if value is None:
-        return {}
-    if not isinstance(value, dict):
-        raise ValueError(f"{key} must be an object")
-    return value
-
-
-def _optional_string_list(payload: dict[str, Any], key: str, idx: int) -> list[str]:
-    value = payload.get(key)
-    if value is None:
+def _char_span_from_refs(source_refs: list[str]) -> list[int]:
+    if not source_refs:
         return []
-    if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
-        raise ValueError(f"semantic_units.units[{idx}].{key} must be an array of strings")
-    return list(value)
-
-
-def _optional_int_pair(payload: dict[str, Any], key: str, idx: int) -> list[int]:
-    value = payload.get(key)
-    if value is None:
+    match = re.match(r"char:(\d+)-(\d+)", source_refs[0])
+    if not match:
         return []
-    if (
-        not isinstance(value, list)
-        or len(value) != 2
-        or not all(isinstance(item, int) for item in value)
-    ):
-        raise ValueError(f"semantic_units.units[{idx}].{key} must be a two-item integer array")
-    return list(value)
+    return [int(match.group(1)), int(match.group(2))]
+
+
+def _first_sentence(text: str) -> str:
+    for chunk in re.split(r"(?<=[\.\!\?])\s+", text.strip()):
+        chunk = chunk.strip(" -\t\r\n")
+        if len(chunk) >= 12:
+            return chunk
+    return text.strip().splitlines()[0].strip() if text.strip() else ""
+
+
+def title_from_text(text: str) -> str:
+    return (_first_sentence(text) or "Raw stream input")[:160]
+
+
+def _key_concepts(text: str) -> list[str]:
+    words = re.findall(r"[A-Za-zА-Яа-яЁё]{4,}", text.lower())
+    stop = {
+        "это", "того", "только", "когда", "после", "между", "потому", "который",
+        "which", "there", "about", "would", "could", "should",
+    }
+    seen: list[str] = []
+    for word in words:
+        if word in stop or word in seen:
+            continue
+        seen.append(word)
+        if len(seen) >= 12:
+            break
+    return seen
+
+
+def _extract_questions(text: str) -> list[str]:
+    questions = []
+    for part in re.split(r"(?<=\?)\s+", text):
+        part = part.strip()
+        if "?" in part and len(part) >= 10:
+            questions.append(part[:220])
+        if len(questions) >= 6:
+            break
+    return questions

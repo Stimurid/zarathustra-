@@ -184,10 +184,7 @@ class Zarathustra:
             try:
                 return self._llm_situation(text=stripped, client=client)
             except Exception as e:
-                # fall through to deterministic — never fail hard on scene reading
-                fallback = self._deterministic_situation(stripped)
-                fallback.uncertainties.append(f"llm_scene_reading_failed: {e}")
-                return fallback
+                raise RuntimeError(f"zarathustra_situation_reading failed: {e}") from e
         return self._deterministic_situation(stripped)
 
     # ---- deterministic path (no topic dictionary!) ----
@@ -376,6 +373,8 @@ class Zarathustra:
             route_trace["selected_class"] = operation_class(op)
             return RoutingDecision(next_persona=pid, operation=op, reason=reason, trace=route_trace)
         except Exception as e:
+            if getattr(client, "provider", "mock") != "mock":
+                raise RuntimeError(f"zarathustra_route failed: {e}") from e
             return RoutingDecision(
                 next_persona=self._fallback_persona(registry_ids, already_called),
                 operation=suggested_op,
@@ -937,13 +936,45 @@ def _truncate_topic(s: str) -> str:
 
 
 def _json_from_text(text: str) -> dict[str, Any]:
-    text = text.strip()
-    if text.startswith("{"):
-        return json.loads(text)
-    match = re.search(r"\{.*\}", text, re.DOTALL)
-    if not match:
+    candidate = _extract_json_object(text)
+    return json.loads(candidate)
+
+
+def _extract_json_object(text: str) -> str:
+    stripped = (text or "").strip()
+    if not stripped:
+        raise ValueError("empty model response")
+    fence = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", stripped, re.DOTALL | re.IGNORECASE)
+    if fence:
+        return fence.group(1)
+    if stripped.startswith("{") and stripped.endswith("}"):
+        return stripped
+    start = stripped.find("{")
+    if start < 0:
         raise ValueError("no json object found")
-    return json.loads(match.group(0))
+    depth = 0
+    in_string = False
+    escaped = False
+    for index in range(start, len(stripped)):
+        char = stripped[index]
+        if escaped:
+            escaped = False
+            continue
+        if char == "\\":
+            escaped = True
+            continue
+        if char == '"':
+            in_string = not in_string
+            continue
+        if in_string:
+            continue
+        if char == "{":
+            depth += 1
+        elif char == "}":
+            depth -= 1
+            if depth == 0:
+                return stripped[start:index + 1]
+    raise ValueError("unterminated json object in model response")
 
 
 def _derive_conflict_map(turns: list[TurnRecord], amap: ArgumentMap) -> list[ConflictItem]:

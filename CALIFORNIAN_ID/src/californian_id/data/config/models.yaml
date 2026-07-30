@@ -23,20 +23,36 @@ providers:
   #   ✓ deepseek-reasoner, deepseek-chat, grok-3, gemini-2.0-flash-exp
   #   ✗ gemini-2.5-pro, gemini-1.5-pro-latest, claude-3-5-sonnet-* — 403
   # Порядок primary → fallback:
-  #   1. claude-opus-4-1  — топ для аргументации, длинного контекста
-  #   2. gpt-5            — топ OpenAI
-  #   3. claude-sonnet-4  — быстрее/дешевле опуса, всё ещё сильный
-  #   4. deepseek-reasoner — R1 reasoning, дешёвый final fallback
+  #   1. gpt-4.1          — фактически стабилен на structured JSON в scene-reading/persona-turn
+  #   2. gpt-4o           — быстрый и совместимый fallback
+  #   3. deepseek-chat    — дешёвый текстовый fallback
+  #   4. gpt-5            — держим ниже, т.к. на scene-reading иногда отдаёт empty content
   # + direct-anthropic и direct-openai если пользователь положит их ключи
   302ai:
     kind: 302ai
     env_key: API_302AI_KEY
-    model: claude-opus-4-1-20250805
+    model: gpt-4.1
     base_url: https://api.302.ai/v1
     settings:
       max_tokens: 1024
       temperature: 0.4
     fallbacks:
+      - kind: 302ai
+        env_key: API_302AI_KEY
+        model: gpt-4o
+        base_url: https://api.302.ai/v1
+        settings:
+          max_tokens: 1024
+          temperature: 0.4
+        label: 302ai/gpt-4o
+      - kind: 302ai
+        env_key: API_302AI_KEY
+        model: deepseek-chat
+        base_url: https://api.302.ai/v1
+        settings:
+          max_tokens: 1024
+          temperature: 0.4
+        label: 302ai/deepseek-chat
       - kind: 302ai
         env_key: API_302AI_KEY
         model: gpt-5
@@ -45,22 +61,6 @@ providers:
           max_tokens: 1024
           temperature: 0.4
         label: 302ai/gpt-5
-      - kind: 302ai
-        env_key: API_302AI_KEY
-        model: claude-sonnet-4-20250514
-        base_url: https://api.302.ai/v1
-        settings:
-          max_tokens: 1024
-          temperature: 0.4
-        label: 302ai/claude-sonnet-4
-      - kind: 302ai
-        env_key: API_302AI_KEY
-        model: deepseek-reasoner
-        base_url: https://api.302.ai/v1
-        settings:
-          max_tokens: 1024
-          temperature: 0.4
-        label: 302ai/deepseek-reasoner
       - kind: anthropic
         env_key: ANTHROPIC_API_KEY
         model: claude-opus-4-1-20250805
@@ -168,7 +168,7 @@ providers:
 
 # Реестр пресетов для UI/CLI-выбора. Порядок = порядок в dropdown.
 presets:
-  - {name: "",       label: "по умолчанию — Opus 4.1 → gpt-5 → sonnet-4 → deepseek-r", provider: 302ai}
+  - {name: "",       label: "по умолчанию — gpt-4.1 → gpt-4o → deepseek-chat → gpt-5", provider: 302ai}
   - {name: smartest, label: "Умнее (Opus 4.1 + o1 + gpt-5 + grok-3)",              provider: smartest}
   - {name: reasoning, label: "Reasoning tier (o1 + deepseek-reasoner + o3-mini)",    provider: reasoning}
   - {name: diverse,  label: "Разные лабы (Opus 4.1 + gpt-5 + grok-3 + gemini)",     provider: diverse}

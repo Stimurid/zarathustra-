@@ -92,7 +92,7 @@ class OpenAIClient:
             messages=chat,
             **merged,
         )
-        text = resp.choices[0].message.content or ""
+        text = _coerce_message_content(resp.choices[0].message.content)
         return ModelResult(
             text=text,
             raw=resp,
@@ -104,3 +104,28 @@ class OpenAIClient:
                 "completion_tokens": getattr(resp.usage, "completion_tokens", None),
             },
         )
+
+
+def _coerce_message_content(content: Any) -> str:
+    if content is None:
+        return ""
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        parts: list[str] = []
+        for item in content:
+            if isinstance(item, str):
+                parts.append(item)
+            elif isinstance(item, dict):
+                text_value = item.get("text")
+                if isinstance(text_value, str):
+                    parts.append(text_value)
+                elif isinstance(item.get("content"), str):
+                    parts.append(item["content"])
+        return "\n".join(p for p in parts if p)
+    if isinstance(content, dict):
+        for key in ("text", "content", "output_text"):
+            value = content.get(key)
+            if isinstance(value, str):
+                return value
+    return str(content)

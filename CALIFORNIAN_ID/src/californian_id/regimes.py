@@ -1,99 +1,59 @@
-"""Formal runtime contracts for critique and variation regimes."""
 from __future__ import annotations
 
 from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
-class CritiqueRegimeSpec:
+class CritiqueRegime:
     name: str
-    pressure_bonus: float
-    stabilize_penalty_before_exposure: float
-    steelman_bonus: float
     directness_hint: str
-    require_cost_exposure_early: bool
+    attack_bias: float
 
 
 @dataclass(frozen=True)
-class VariationRegimeSpec:
+class VariationRegime:
     name: str
-    noncanonical_bonus: float
-    repeat_operation_penalty: float
-    repeat_class_penalty: float
-    repeat_trajectory_penalty: float
-    prefer_class_switch: bool
-    allow_sop_break: bool
     prompt_hint: str
+    repeat_penalty: float
+    class_repeat_penalty: float
 
 
-CRITIQUE_REGIMES: dict[str, CritiqueRegimeSpec] = {
-    "gentle": CritiqueRegimeSpec(
+CRITIQUE_REGIMES: dict[str, CritiqueRegime] = {
+    "gentle": CritiqueRegime(
         name="gentle",
-        pressure_bonus=0.0,
-        stabilize_penalty_before_exposure=0.0,
-        steelman_bonus=0.45,
-        directness_hint=(
-            "Начинай с аккуратной реконструкции позиции и не называй слабость "
-            "лобовой формулой, если можно вскрыть ее через уточнение."
-        ),
-        require_cost_exposure_early=False,
+        directness_hint="Критикуй мягко: сначала реконструируй сильную версию позиции, затем возражай без лишней агрессии.",
+        attack_bias=-0.4,
     ),
-    "balanced": CritiqueRegimeSpec(
+    "balanced": CritiqueRegime(
         name="balanced",
-        pressure_bonus=0.2,
-        stabilize_penalty_before_exposure=0.15,
-        steelman_bonus=0.1,
-        directness_hint=(
-            "Держи критическую прямоту, но не жертвуй различимостью оснований и цен."
-        ),
-        require_cost_exposure_early=False,
+        directness_hint="Критикуй прямо, но по существу: вскрывай допущения, цену и слабости без театральной жестокости.",
+        attack_bias=0.0,
     ),
-    "hard": CritiqueRegimeSpec(
+    "hard": CritiqueRegime(
         name="hard",
-        pressure_bonus=1.1,
-        stabilize_penalty_before_exposure=0.45,
-        steelman_bonus=-0.1,
-        directness_hint=(
-            "Не смягчай уязвимость, если она обнаружена: сначала назови слабость, "
-            "цену или предпосылку, а затем уже допускай защиту."
-        ),
-        require_cost_exposure_early=True,
+        directness_hint="Критикуй жёстко: бей в скрытые допущения, цену и внутренние противоречия без смягчающих оборотов.",
+        attack_bias=0.8,
     ),
 }
 
 
-VARIATION_REGIMES: dict[str, VariationRegimeSpec] = {
-    "strict": VariationRegimeSpec(
+VARIATION_REGIMES: dict[str, VariationRegime] = {
+    "strict": VariationRegime(
         name="strict",
-        noncanonical_bonus=0.0,
-        repeat_operation_penalty=0.05,
-        repeat_class_penalty=0.05,
-        repeat_trajectory_penalty=0.05,
-        prefer_class_switch=False,
-        allow_sop_break=False,
-        prompt_hint="Сохраняй канонический порядок совета, если нет явной причины отклониться.",
+        prompt_hint="Держи ход близко к канонической операции; избегай лишней импровизации.",
+        repeat_penalty=0.2,
+        class_repeat_penalty=0.1,
     ),
-    "normal": VariationRegimeSpec(
+    "normal": VariationRegime(
         name="normal",
-        noncanonical_bonus=0.2,
-        repeat_operation_penalty=0.2,
-        repeat_class_penalty=0.25,
-        repeat_trajectory_penalty=0.3,
-        prefer_class_switch=True,
-        allow_sop_break=True,
-        prompt_hint="Меняй класс хода, когда повтор уже заметен, но не ломай сцену ради эффекта.",
+        prompt_hint="Допускай умеренное разнообразие ходов, но не теряй сцепление со сценой.",
+        repeat_penalty=0.7,
+        class_repeat_penalty=0.35,
     ),
-    "jazz": VariationRegimeSpec(
+    "jazz": VariationRegime(
         name="jazz",
-        noncanonical_bonus=0.55,
-        repeat_operation_penalty=0.45,
-        repeat_class_penalty=0.7,
-        repeat_trajectory_penalty=0.85,
-        prefer_class_switch=True,
-        allow_sop_break=True,
-        prompt_hint=(
-            "Не повторяй один и тот же риторический паттерн два цикла подряд: "
-            "при прочих равных предпочитай контрастный, но релевантный класс хода."
-        ),
+        prompt_hint="Избегай одинакового риторического паттерна несколько ходов подряд; меняй тип захода и класс операции.",
+        repeat_penalty=1.3,
+        class_repeat_penalty=0.8,
     ),
 }

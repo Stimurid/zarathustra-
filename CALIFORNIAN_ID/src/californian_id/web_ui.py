@@ -497,8 +497,7 @@ def _render_text_payload(payload: dict[str, Any], *, detail: str) -> dict[str, A
         lines.append(speech)
     else:
         lines.append(
-            "(mock-режим или пустой ответ модели — закрывающая речь недоступна; "
-            "переключи preset/model для полного текста)"
+            "(закрывающая речь недоступна; смотри `errors` в meta — ран завершился без валидного финального текста)"
         )
     lines.append("")
     lines.append(f"[форма завершения: {form} · voices: {', '.join(payload.get('voices_used') or []) or '—'}]")
