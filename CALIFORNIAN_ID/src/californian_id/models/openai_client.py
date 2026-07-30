@@ -34,19 +34,42 @@ _INTERNAL_SETTING_KEYS = {
     "regime_instruction",
 }
 
+_FLOAT_SETTING_KEYS = {
+    "temperature",
+    "top_p",
+    "presence_penalty",
+    "frequency_penalty",
+}
+
+_INT_SETTING_KEYS = {
+    "max_tokens",
+    "n",
+    "seed",
+}
+
 
 def _strip_internal(settings: dict[str, Any]) -> dict[str, Any]:
-    """Whitelist по-хорошему был бы надёжнее, но пока — вычистка знакомых
-    internal ключей + любых не-примитивов (SDK не примет dict/list/None
-    в generate)."""
+    """Remove prompt-only keys and normalize SDK-facing scalar settings."""
     out = {}
     for k, v in (settings or {}).items():
         if k in _INTERNAL_SETTING_KEYS:
             continue
         if v is None:
             continue
+        if k in _FLOAT_SETTING_KEYS:
+            try:
+                out[k] = float(v)
+            except (TypeError, ValueError):
+                continue
+            continue
+        if k in _INT_SETTING_KEYS:
+            try:
+                out[k] = int(v)
+            except (TypeError, ValueError):
+                continue
+            continue
         if not isinstance(v, (str, int, float, bool)):
-            # dict/list — точно не SDK-параметр, скорее контекст для промпта
+            # dict/list are prompt context, not SDK parameters.
             continue
         out[k] = v
     return out
