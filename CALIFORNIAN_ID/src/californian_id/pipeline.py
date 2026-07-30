@@ -870,7 +870,7 @@ class Pipeline:
             attacks=[Attack(**{**a, "persona_id": persona.persona_id}) for a in parsed["attacks"]],
             actions=[Action(**{**a, "persona_id": persona.persona_id}) for a in parsed["actions"]],
             questions=[Question(**{**q, "persona_id": persona.persona_id}) for q in parsed["questions"]],
-            confidence=float(parsed.get("confidence", 0.5)),
+            confidence=_coerce_confidence(parsed.get("confidence", 0.5)),
             routing_reason=routing_reason,
             model_provider=result.provider,
             model_name=result.model,
@@ -987,6 +987,43 @@ def _make_repetition_event(score: float, turn_index: int):
         detail=f"near-duplicate persona utterance, jaccard={score:.2f}",
         turn_index=turn_index,
     )
+
+
+def _coerce_confidence(value: Any, default: float = 0.5) -> float:
+    if value is None:
+        return default
+    if isinstance(value, str):
+        normalized = value.strip().lower().replace("-", "_").replace(" ", "_")
+        semantic = {
+            "low": 0.25,
+            "weak": 0.25,
+            "низкая": 0.25,
+            "низкий": 0.25,
+            "medium": 0.5,
+            "med": 0.5,
+            "mid": 0.5,
+            "moderate": 0.5,
+            "средняя": 0.5,
+            "средний": 0.5,
+            "high": 0.85,
+            "strong": 0.85,
+            "высокая": 0.85,
+            "высокий": 0.85,
+            "very_high": 0.95,
+        }
+        if normalized in semantic:
+            return semantic[normalized]
+        try:
+            value = float(normalized)
+        except ValueError:
+            return default
+    try:
+        score = float(value)
+    except (TypeError, ValueError):
+        return default
+    if score > 10.0 and score <= 100.0:
+        score = score / 100.0
+    return max(0.0, min(1.0, score))
 
 
 def _validate(state: RunState) -> None:
@@ -1205,6 +1242,8 @@ def _norm_list(items: Any, allowed: set[str]) -> list[dict[str, Any]]:
             filt = {k: v for k, v in item.items() if k in allowed}
             if "text" not in filt and "target" not in filt:
                 continue
+            if "confidence" in filt:
+                filt["confidence"] = _coerce_confidence(filt["confidence"])
             out.append(filt)
     return out
 
