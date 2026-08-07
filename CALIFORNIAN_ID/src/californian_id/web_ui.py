@@ -2,6 +2,10 @@
 from __future__ import annotations
 
 import json
+import os
+import secrets
+import time
+import uuid
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Any
@@ -9,6 +13,7 @@ from typing import Any
 import yaml
 
 from .adapters.units_of_content_md import parse_md_units_text
+from .config import load_config
 from .ingress import envelope_to_unit_pack, parse_envelope
 from .models import Message, build_client
 from .persona_layer import CouncilRun, PersonaCard, PersonaCouncilRuntime
@@ -22,6 +27,46 @@ LAYER_PERSONA = "persona_layer"
 SUPPORTED_LAYERS = {LAYER_CALIFORNIAN_ID, LAYER_PERSONA}
 GROUNDING_MODES = {"strict_card", "balanced", "freer_synthesis"}
 ASSEMBLY_MODES = {"synthesis", "verdict", "dissent_forward", "diagnostic", "projective", "roast"}
+COUNCIL_SPANS = {"auto", "force_pair", "force_triangular", "force_full_council"}
+COMPAT_API_KEY_ENV = "TINKUY_COMPAT_API_KEY"
+COMPAT_BASE_URL = "https://tinkuy.mindkampf.ru/v1"
+COMPAT_MODEL_ALIASES: dict[str, dict[str, Any]] = {
+    "tinkuy-persona-fast": {
+        "runtime_layer": LAYER_PERSONA,
+        "mode": "fast",
+        "preset": "fast",
+        "assembly_mode": "synthesis",
+        "council_span": "auto",
+    },
+    "tinkuy-persona-deep": {
+        "runtime_layer": LAYER_PERSONA,
+        "mode": "deep",
+        "preset": "reasoning",
+        "assembly_mode": "synthesis",
+        "council_span": "auto",
+    },
+    "tinkuy-persona-roast": {
+        "runtime_layer": LAYER_PERSONA,
+        "mode": "fast",
+        "preset": "reasoning",
+        "assembly_mode": "roast",
+        "council_span": "auto",
+    },
+    "tinkuy-calif-fast": {
+        "runtime_layer": LAYER_CALIFORNIAN_ID,
+        "mode": "fast",
+        "preset": "fast",
+        "assembly_mode": "synthesis",
+        "council_span": "auto",
+    },
+    "tinkuy-calif-deep": {
+        "runtime_layer": LAYER_CALIFORNIAN_ID,
+        "mode": "deep",
+        "preset": "reasoning",
+        "assembly_mode": "synthesis",
+        "council_span": "auto",
+    },
+}
 
 
 _HTML = """<!doctype html>
@@ -135,6 +180,26 @@ _HTML = """<!doctype html>
       color: var(--muted);
       font-size: 0.95rem;
     }
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 12px 0 16px;
+    }
+    .copy-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+    }
+    input[readonly] {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fffdf8;
+      color: var(--ink);
+    }
     pre {
       white-space: pre-wrap;
       word-break: break-word;
@@ -228,6 +293,15 @@ _HTML = """<!doctype html>
             </select>
           </div>
           <div>
+            <label for="councilSpan">Council Span</label>
+            <select id="councilSpan">
+              <option value="auto" selected>auto</option>
+              <option value="force_pair">force pair</option>
+              <option value="force_triangular">force triangular</option>
+              <option value="force_full_council">force full council</option>
+            </select>
+          </div>
+          <div>
             <label for="preset">Пресет</label>
             <select id="preset">
               <option value="" selected>по умолчанию</option>
@@ -266,6 +340,13 @@ _HTML = """<!doctype html>
             </select>
           </div>
           <div>
+            <label for="showOrchestrationTrace">Show orchestration trace</label>
+            <select id="showOrchestrationTrace">
+              <option value="false" selected>hide orchestration trace</option>
+              <option value="true">show orchestration trace</option>
+            </select>
+          </div>
+          <div>
             <label for="debug">Debug</label>
             <select id="debug">
               <option value="false" selected>без trace</option>
@@ -287,11 +368,11 @@ _HTML = """<!doctype html>
       </section>
       <section class="card">
         <div>
-          <span class="pill">text or file</span>
-          <span class="pill">raw / auto-slice / semantic-units</span>
-          <span class="pill">persona layer / californian_id</span>
-          <span class="pill">critique regime</span>
-          <span class="pill">variation regime</span>
+          <span class="pill" id="pillInput">input: raw text</span>
+          <span class="pill" id="pillLayer">layer: persona layer</span>
+          <span class="pill" id="pillCritique">critique: balanced</span>
+          <span class="pill" id="pillVariation">variation: normal</span>
+          <span class="pill" id="pillSpan">span: auto</span>
         </div>
         <label for="output">Результат</label>
         <pre id="output">Здесь появится результат.</pre>
@@ -306,6 +387,73 @@ _HTML = """<!doctype html>
     const statusEl = document.getElementById('status');
     const runBtn = document.getElementById('runBtn');
     const clearBtn = document.getElementById('clearBtn');
+    const headerSub = document.querySelector('.sub');
+
+    if (headerSub) {
+      headerSub.textContent = 'Вставь текст или загрузи файл. `raw text` отправляет материал как есть, `auto-slice` режет сырой поток во встроенные raw_stream units, `semantic-units` принимает canonical JSON/YAML envelope, md units pack или близкую аналитическую разметку и при необходимости адаптирует ее через LLM. `Council Layer` переключает между persona layer и CALIFORNIAN_ID runtime, `Council Span` управляет числом голосов в persona layer, `Assembly Mode` задает тип финальной сборки Заратустры, а `Show orchestration trace` показывает маршрут совета. Блок `API Access` выдает отдельный Tinkuy-compatible ключ и model aliases для `https://tinkuy.mindkampf.ru/v1`.';
+    }
+
+    function copyText(value) {
+      if (!value) return;
+      navigator.clipboard.writeText(value).catch(() => {});
+    }
+
+    function mountApiAccess(payload) {
+      const outputLabel = document.querySelector('label[for="output"]');
+      if (!outputLabel) return;
+      const block = document.createElement('div');
+      block.innerHTML = `
+        <label>API Access</label>
+        <div class="access-grid">
+          <div>
+            <label for="apiAccessMode">Access Mode</label>
+            <input id="apiAccessMode" type="text" readonly>
+          </div>
+          <div>
+            <label for="apiBaseUrl">Base URL</label>
+            <div class="copy-row">
+              <input id="apiBaseUrl" type="text" readonly>
+              <button class="secondary" id="copyBaseUrlBtn" type="button">copy</button>
+            </div>
+          </div>
+          <div>
+            <label for="apiKeyValue">API Key</label>
+            <div class="copy-row">
+              <input id="apiKeyValue" type="text" readonly>
+              <button class="secondary" id="copyApiKeyBtn" type="button">copy</button>
+            </div>
+          </div>
+          <div>
+            <label for="apiModelsValue">Suggested Models</label>
+            <div class="copy-row">
+              <input id="apiModelsValue" type="text" readonly>
+              <button class="secondary" id="copyModelsBtn" type="button">copy</button>
+            </div>
+          </div>
+        </div>
+      `;
+      outputLabel.parentNode.insertBefore(block, outputLabel);
+      document.getElementById('apiAccessMode').value = payload.access_mode || '';
+      document.getElementById('apiBaseUrl').value = payload.base_url || '';
+      document.getElementById('apiKeyValue').value = payload.api_key || '';
+      document.getElementById('apiModelsValue').value = (payload.suggested_models || []).join(', ');
+      document.getElementById('copyBaseUrlBtn').addEventListener('click', () => copyText(payload.base_url || ''));
+      document.getElementById('copyApiKeyBtn').addEventListener('click', () => copyText(payload.api_key || ''));
+      document.getElementById('copyModelsBtn').addEventListener('click', () => copyText((payload.suggested_models || []).join(', ')));
+    }
+
+    function updateModePills() {
+      const inputMode = document.getElementById('inputMode');
+      const councilLayer = document.getElementById('councilLayer');
+      const critique = document.getElementById('critique');
+      const variation = document.getElementById('variation');
+      const councilSpan = document.getElementById('councilSpan');
+      document.getElementById('pillInput').textContent = `input: ${inputMode.options[inputMode.selectedIndex].text}`;
+      document.getElementById('pillLayer').textContent = `layer: ${councilLayer.options[councilLayer.selectedIndex].text}`;
+      document.getElementById('pillCritique').textContent = `critique: ${critique.options[critique.selectedIndex].text}`;
+      document.getElementById('pillVariation').textContent = `variation: ${variation.options[variation.selectedIndex].text}`;
+      document.getElementById('pillSpan').textContent = `span: ${councilSpan.options[councilSpan.selectedIndex].text}`;
+    }
 
     fileInput.addEventListener('change', async (event) => {
       const file = event.target.files && event.target.files[0];
@@ -349,7 +497,17 @@ _HTML = """<!doctype html>
           modelSelect.appendChild(option);
         }
       } catch (error) {}
+      try {
+        const accessResponse = await fetch('api/access');
+        const accessPayload = await accessResponse.json();
+        mountApiAccess(accessPayload);
+      } catch (error) {}
+      updateModePills();
     })();
+
+    for (const id of ['inputMode', 'councilLayer', 'critique', 'variation', 'councilSpan']) {
+      document.getElementById(id).addEventListener('change', updateModePills);
+    }
 
     runBtn.addEventListener('click', async () => {
       const text = input.value.trim();
@@ -378,6 +536,7 @@ _HTML = """<!doctype html>
             variation_regime: document.getElementById('variation').value,
             grounding_mode: document.getElementById('groundingMode').value,
             assembly_mode: document.getElementById('assemblyMode').value,
+            council_span: document.getElementById('councilSpan').value,
             preset: document.getElementById('preset').value,
             model: document.getElementById('modelPick').value,
             voice_max_tokens: document.getElementById('voiceMaxTokens').value || null,
@@ -385,6 +544,7 @@ _HTML = """<!doctype html>
             max_turns: document.getElementById('maxTurns').value || null,
             output_format: document.getElementById('outFmt').value,
             detail: document.getElementById('detailLvl').value,
+            show_orchestration_trace: document.getElementById('showOrchestrationTrace').value === 'true',
             debug: document.getElementById('debug').value === 'true'
           })
         });
@@ -422,6 +582,8 @@ def run_web_request(
     variation_regime: str = "normal",
     grounding_mode: str = "balanced",
     assembly_mode: str = "synthesis",
+    council_span: str = "auto",
+    show_orchestration_trace: bool = False,
     debug: bool = False,
     preset: str | None = None,
     model: str | None = None,
@@ -435,6 +597,7 @@ def run_web_request(
     runtime_layer = runtime_layer if runtime_layer in SUPPORTED_LAYERS else LAYER_PERSONA
     grounding_mode = grounding_mode if grounding_mode in GROUNDING_MODES else "balanced"
     assembly_mode = assembly_mode if assembly_mode in ASSEMBLY_MODES else "synthesis"
+    council_span = council_span if council_span in COUNCIL_SPANS else "auto"
     if runtime_layer == LAYER_PERSONA:
         payload = _run_persona_layer_request(
             text=text,
@@ -444,6 +607,8 @@ def run_web_request(
             variation_regime=variation_regime,
             grounding_mode=grounding_mode,
             assembly_mode=assembly_mode,
+            council_span=council_span,
+            show_orchestration_trace=show_orchestration_trace,
             detail=detail,
             debug=debug,
             preset=preset,
@@ -521,6 +686,7 @@ def run_web_request(
                 "variation_regime": variation_regime,
                 "grounding_mode": grounding_mode,
                 "assembly_mode": assembly_mode,
+                "council_span": council_span,
             },
             "input_mode": resolved_input_mode,
             "ingress_mode": ingress_mode,
@@ -551,6 +717,11 @@ def run_web_request(
         if debug:
             payload["situation"] = to_plain(result.run_state.situation)
             payload["argument_map"] = to_plain(result.run_state.argument_map)
+        if show_orchestration_trace:
+            payload["orchestration_trace"] = {
+                "runtime_layer": LAYER_CALIFORNIAN_ID,
+                "detail": "legacy runtime does not expose council-span routing trace",
+            }
 
     if output_format == "text":
         return _render_text_payload(payload, detail=detail)
@@ -566,6 +737,8 @@ def _run_persona_layer_request(
     variation_regime: str,
     grounding_mode: str,
     assembly_mode: str,
+    council_span: str,
+    show_orchestration_trace: bool,
     detail: str,
     debug: bool,
     preset: str | None = None,
@@ -573,15 +746,16 @@ def _run_persona_layer_request(
     voice_max_tokens: int | None = None,
     closing_max_tokens: int | None = None,
 ) -> dict[str, Any]:
-    scene, ingress_mode, unit_count = _scene_from_web_input(text=text, input_mode=input_mode)
-    runtime = PersonaCouncilRuntime()
-    scaffold = runtime.run(scene, enable_nemo8=True)
     pipe = Pipeline(
         preset_override=preset or None,
         model_override=model or None,
         voice_max_tokens_override=voice_max_tokens if (voice_max_tokens and voice_max_tokens > 0) else None,
         closing_max_tokens_override=closing_max_tokens if (closing_max_tokens and closing_max_tokens > 0) else None,
     )
+    scene, ingress_mode, unit_count = _scene_from_web_input(text=text, input_mode=input_mode, pipe=pipe)
+    runtime = PersonaCouncilRuntime()
+    force_span = None if council_span == "auto" else council_span
+    scaffold = runtime.run(scene, enable_nemo8=True, force_span=force_span)
     persona_client = _build_non_mock_client(pipe, "persona_turn")
     closing_client = _build_non_mock_client(pipe, "zarathustra_closing_speech")
 
@@ -626,6 +800,7 @@ def _run_persona_layer_request(
             "variation_regime": variation_regime,
             "grounding_mode": grounding_mode,
             "assembly_mode": assembly_mode,
+            "council_span": council_span,
         },
         "input_mode": input_mode,
         "ingress_mode": ingress_mode,
@@ -637,6 +812,7 @@ def _run_persona_layer_request(
         "max_turns": None,
         "closing_speech": final_answer.strip(),
         "persona_layer": {
+            "council_span": scaffold.trace["route_plan"]["council_span"],
             "cast_mode": scaffold.trace["route_plan"]["cast_mode"],
             "selected_persona_ids": scaffold.trace["route_plan"]["selected_persona_ids"],
             "execution_order": scaffold.trace["route_plan"]["execution_order"],
@@ -652,6 +828,18 @@ def _run_persona_layer_request(
     }
     if detail == "with_turns" or debug:
         payload["turns"] = turns
+    if show_orchestration_trace:
+        payload["orchestration_trace"] = {
+            "council_span": scaffold.trace["route_plan"]["council_span"],
+            "cast_mode": scaffold.trace["route_plan"]["cast_mode"],
+            "selected_persona_ids": scaffold.trace["route_plan"]["selected_persona_ids"],
+            "execution_order": scaffold.trace["route_plan"]["execution_order"],
+            "call_nemo8": scaffold.trace["route_plan"]["call_nemo8"],
+            "nemo8_used": scaffold.nemo8_turn is not None,
+            "reopened_persona_ids": [turn.persona_id for turn in scaffold.reopened_turns],
+            "reopen_decision": scaffold.trace["reopen_decision"],
+            "rationale": scaffold.trace["route_plan"]["rationale"],
+        }
     if debug:
         payload["trace"] = scaffold.trace
     return payload
@@ -947,6 +1135,28 @@ def _render_text_payload(payload: dict[str, Any], *, detail: str) -> dict[str, A
                 lines.append("")
                 lines.append(f"[{turn.get('persona_id')} · {turn.get('operation')}]")
                 lines.append((turn.get("utterance") or "").strip())
+    orchestration_trace = payload.get("orchestration_trace")
+    if orchestration_trace:
+        lines.append("")
+        lines.append("--- orchestration trace ---")
+        lines.append(
+            f"span: {orchestration_trace.get('council_span', 'n/a')} · cast: {orchestration_trace.get('cast_mode', 'n/a')} · "
+            f"nemo8: {'yes' if orchestration_trace.get('nemo8_used') else 'no'}"
+        )
+        selected = ", ".join(orchestration_trace.get("selected_persona_ids") or []) or "—"
+        execution = ", ".join(orchestration_trace.get("execution_order") or []) or "—"
+        reopened = ", ".join(orchestration_trace.get("reopened_persona_ids") or []) or "—"
+        lines.append(f"selected: {selected}")
+        lines.append(f"execution: {execution}")
+        lines.append(f"reopened: {reopened}")
+        rationale = (orchestration_trace.get("rationale") or "").strip()
+        if rationale:
+            lines.append(f"why: {rationale}")
+        reopen_decision = orchestration_trace.get("reopen_decision") or {}
+        if reopen_decision:
+            lines.append(
+                f"reopen decision: accepted={reopen_decision.get('accepted')} reason={reopen_decision.get('reason')}"
+            )
 
     return {
         "format": "text",
@@ -969,6 +1179,7 @@ def _render_text_payload(payload: dict[str, Any], *, detail: str) -> dict[str, A
             "trace_dir": payload.get("trace_dir"),
             "errors": payload.get("errors"),
             "persona_layer": payload.get("persona_layer"),
+            "orchestration_trace": payload.get("orchestration_trace"),
         },
     }
 
@@ -1030,13 +1241,13 @@ def _run_semantic_units_request(
         )
 
 
-def _scene_from_web_input(*, text: str, input_mode: str) -> tuple[str, str, int]:
+def _scene_from_web_input(*, text: str, input_mode: str, pipe: Pipeline | None = None) -> tuple[str, str, int]:
     if input_mode == "semantic-units":
         try:
             pack = _pack_from_semantic_units(text)
             return _pack_to_scene(pack), "semantic_units", len(pack.units)
         except Exception:
-            pipe = Pipeline()
+            pipe = pipe or Pipeline()
             adapted_scene = _adapt_semantic_units_text_via_llm(pipe, text)
             return adapted_scene, "semantic_units_llm_adapter", 0
     if input_mode == "auto-slice":
@@ -1070,6 +1281,9 @@ def _adapt_semantic_units_text_via_llm(pipe: Pipeline, text: str) -> str:
             "The input is intended as semantic units, Toulmin markup, claim/data/warrant analysis, or adjacent structured research notes, "
             "but it may not follow the runtime's canonical schema. Convert it into a clean plain-text scene for downstream council analysis. "
             "Preserve the main claim, key evidence, warrant, qualifiers, rebuttals, provenance caveats, and any explicit limits or prices of the thesis. "
+            "Keep multiple live axes visible at once instead of collapsing the material into one dominant frame. "
+            "Explicitly preserve, when present: price or sacrifice, ethics or moral status, institutions and power, project design or system capability, "
+            "freedom or autonomy, long-term or intergenerational consequences, and epistemic limits or source caveats. "
             "Do not emit JSON, YAML, markdown headings, or meta commentary. Return only the normalized scene text in Russian."
         ),
     }
@@ -1092,7 +1306,145 @@ def _adapt_semantic_units_text_via_llm(pipe: Pipeline, text: str) -> str:
     adapted = _clean_llm_text(result.text)
     if not adapted:
         raise RuntimeError("semantic-units LLM adapter returned empty text")
-    return adapted
+    return _stabilize_semantic_axes(adapted)
+
+
+def _stabilize_semantic_axes(adapted: str) -> str:
+    axis_line = (
+        "Сохрани для совета одновременно: цену и жертву человеческой жизни; этический предел и моральный статус; "
+        "институциональную власть, контроль и замкнутый контур управления; проектирование систем, дизайн новых правил и способность "
+        "строить альтернативный порядок; свободу, автономию, согласие и право на отказ; долгосрочную траекторию, исторические и межпоколенческие "
+        "последствия; эпистемические ограничения, статус интерпретации, пробелы в backing и ограничения источника."
+    )
+    normalized = adapted.strip()
+    if axis_line.lower() in normalized.lower():
+        return normalized
+    return f"{normalized}\n\n{axis_line}"
+
+
+def _build_api_access_payload() -> dict[str, Any]:
+    api_key = os.environ.get(COMPAT_API_KEY_ENV)
+    return {
+        "access_mode": "tinkuy_compat_issued" if api_key else "not_issued",
+        "provider": "tinkuy_openai_compatible" if api_key else None,
+        "base_url": COMPAT_BASE_URL if api_key else None,
+        "api_key": api_key if api_key else None,
+        "api_key_env": COMPAT_API_KEY_ENV if api_key else None,
+        "suggested_models": list(COMPAT_MODEL_ALIASES) if api_key else [],
+        "note": (
+            "Dedicated Tinkuy-issued key for the local OpenAI-compatible compatibility endpoint."
+            if api_key else
+            "A separate Tinkuy-issued API key is not available in this build."
+        ),
+    }
+
+
+def _compat_models_payload() -> dict[str, Any]:
+    return {
+        "object": "list",
+        "data": [
+            {
+                "id": model_id,
+                "object": "model",
+                "created": int(time.time()),
+                "owned_by": "tinkuy",
+            }
+            for model_id in COMPAT_MODEL_ALIASES
+        ],
+    }
+
+
+def _extract_bearer_token(handler: BaseHTTPRequestHandler) -> str:
+    auth = handler.headers.get("Authorization", "")
+    if not auth.lower().startswith("bearer "):
+        return ""
+    return auth.split(" ", 1)[1].strip()
+
+
+def _compat_key_is_valid(handler: BaseHTTPRequestHandler) -> bool:
+    expected = os.environ.get(COMPAT_API_KEY_ENV) or ""
+    if not expected:
+        return False
+    return _extract_bearer_token(handler) == expected
+
+
+def _messages_to_text(messages: list[dict[str, Any]]) -> str:
+    lines: list[str] = []
+    for item in messages:
+        role = str(item.get("role") or "user").upper()
+        content = item.get("content")
+        if isinstance(content, list):
+            text_parts = []
+            for part in content:
+                if isinstance(part, dict) and part.get("type") == "text":
+                    text_parts.append(str(part.get("text") or ""))
+            content_text = "\n".join(part for part in text_parts if part.strip())
+        else:
+            content_text = str(content or "")
+        if content_text.strip():
+            lines.append(f"{role}:\n{content_text.strip()}")
+    return "\n\n".join(lines).strip()
+
+
+def _run_compat_chat_completion(request: dict[str, Any]) -> dict[str, Any]:
+    model_name = str(request.get("model") or "tinkuy-persona-fast")
+    alias = COMPAT_MODEL_ALIASES.get(model_name)
+    if alias is None:
+        raise ValueError(f"unknown compat model: {model_name}")
+    messages = request.get("messages")
+    if not isinstance(messages, list) or not messages:
+        raise ValueError("messages must be a non-empty list")
+    text = _messages_to_text(messages)
+    if not text:
+        raise ValueError("messages produced empty text")
+    max_tokens = request.get("max_completion_tokens")
+    if max_tokens in (None, ""):
+        max_tokens = request.get("max_tokens")
+    payload = run_web_request(
+        text=text,
+        runtime_layer=alias["runtime_layer"],
+        input_mode="raw",
+        mode=alias["mode"],
+        critique_regime="balanced",
+        variation_regime="normal",
+        grounding_mode="balanced",
+        assembly_mode=alias["assembly_mode"],
+        council_span=alias["council_span"],
+        show_orchestration_trace=False,
+        debug=False,
+        preset=alias.get("preset"),
+        model=None,
+        max_tokens=_parse_optional_int(max_tokens),
+        voice_max_tokens=None,
+        closing_max_tokens=_parse_optional_int(max_tokens),
+        max_turns=None,
+        output_format="text",
+        detail="only_result",
+    )
+    content = str(payload.get("body") or "").strip()
+    completion_id = f"chatcmpl-{uuid.uuid4().hex[:24]}"
+    now = int(time.time())
+    return {
+        "id": completion_id,
+        "object": "chat.completion",
+        "created": now,
+        "model": model_name,
+        "choices": [
+            {
+                "index": 0,
+                "message": {
+                    "role": "assistant",
+                    "content": content,
+                },
+                "finish_reason": "stop",
+            }
+        ],
+        "usage": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+        },
+    }
 
 
 def _pack_to_scene(pack: UnitPack) -> str:
@@ -1127,15 +1479,22 @@ class _WebUIHandler(BaseHTTPRequestHandler):
     def do_GET(self) -> None:  # noqa: N802
         path_only = self.path.split("?", 1)[0]
         self.path = path_only
+        if self.path in {"/v1/models"}:
+            if not _compat_key_is_valid(self):
+                self._send_json({"error": {"message": "unauthorized", "type": "invalid_request_error"}}, status=HTTPStatus.UNAUTHORIZED)
+                return
+            self._send_json(_compat_models_payload())
+            return
         if self.path in {"/api/presets", "/presets"}:
-            from .config import load_config
             cfg = load_config()
             self._send_json({"presets": cfg.presets()})
             return
         if self.path in {"/api/models", "/models"}:
-            from .config import load_config
             cfg = load_config()
             self._send_json({"models": cfg.model_menu()})
+            return
+        if self.path in {"/api/access", "/access"}:
+            self._send_json(_build_api_access_payload())
             return
         if self.path not in {"/", "/index.html"}:
             self.send_error(HTTPStatus.NOT_FOUND, "Not found")
@@ -1151,6 +1510,19 @@ class _WebUIHandler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_POST(self) -> None:  # noqa: N802
+        if self.path in {"/v1/chat/completions"}:
+            if not _compat_key_is_valid(self):
+                self._send_json({"error": {"message": "unauthorized", "type": "invalid_request_error"}}, status=HTTPStatus.UNAUTHORIZED)
+                return
+            try:
+                length = int(self.headers.get("Content-Length", "0"))
+                raw = self.rfile.read(length)
+                data = json.loads(raw.decode("utf-8"))
+                payload = _run_compat_chat_completion(data)
+                self._send_json(payload)
+            except Exception as exc:
+                self._send_json({"error": {"message": str(exc), "type": "invalid_request_error"}}, status=HTTPStatus.BAD_REQUEST)
+            return
         if self.path not in {"/api/run", "/run"}:
             self.send_error(HTTPStatus.NOT_FOUND, "Not found")
             return
@@ -1169,6 +1541,10 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                 mode=data.get("mode") or "fast",
                 critique_regime=data.get("critique_regime") or "balanced",
                 variation_regime=data.get("variation_regime") or "normal",
+                grounding_mode=data.get("grounding_mode") or "balanced",
+                assembly_mode=data.get("assembly_mode") or "synthesis",
+                council_span=data.get("council_span") or "auto",
+                show_orchestration_trace=bool(data.get("show_orchestration_trace")),
                 debug=bool(data.get("debug")),
                 preset=(data.get("preset") or None),
                 model=(data.get("model") or None),

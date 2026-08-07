@@ -460,6 +460,7 @@ class CouncilRun:
 
 @dataclass
 class RoutePlan:
+    council_span: str
     cast_mode: str
     selected_persona_ids: list[str]
     execution_order: list[str]
@@ -482,7 +483,13 @@ class PersonaCouncilRuntime:
             return _load_yaml(self.index.manifest_path)
         return self.index.rebuild(self.registry, "python -m californian_id persona-layer rebuild-index")
 
-    def plan_route(self, scene: str, *, enable_nemo8: bool = True) -> RoutePlan:
+    def plan_route(
+        self,
+        scene: str,
+        *,
+        enable_nemo8: bool = True,
+        force_span: str | None = None,
+    ) -> RoutePlan:
         scene_low = scene.lower()
         scores: dict[str, float] = {}
         for persona_id in BASE_FALLBACK_ORDER:
@@ -494,10 +501,34 @@ class PersonaCouncilRuntime:
 
         ranked = sorted(BASE_FALLBACK_ORDER, key=lambda pid: (-scores[pid], BASE_FALLBACK_ORDER.index(pid)))
         positive = [pid for pid in ranked if scores[pid] > 0]
+        forced_targets = {
+            "force_pair": 2,
+            "force_triangular": 3,
+            "force_full_council": len(BASE_FALLBACK_ORDER),
+        }
+        council_span = force_span if force_span in forced_targets else "auto"
         full_council_required = len(positive) >= 4 and any(word in scene_low for word in self.routing.full_council)
         fixed_order_fallback_used = False
 
-        if full_council_required:
+        if council_span == "force_full_council":
+            cast_mode = "forced_full_council"
+            selected = list(BASE_FALLBACK_ORDER)
+            execution_order = list(BASE_FALLBACK_ORDER)
+            full_council_required = True
+            fixed_order_fallback_used = True
+            rationale = "UI forced a full seven-head council before NEMO-8 review."
+        elif council_span in {"force_pair", "force_triangular"}:
+            target = forced_targets[council_span]
+            selected = ranked[:target]
+            execution_order = list(selected)
+            fixed_order_fallback_used = len(positive) < target
+            cast_mode = "forced_pair" if target == 2 else "forced_triangular"
+            rationale = (
+                f"UI forced a {target}-head council span; runtime padded from fallback ranking where topical matches were insufficient."
+                if fixed_order_fallback_used else
+                f"UI forced a {target}-head council span using the strongest topical matches."
+            )
+        elif full_council_required:
             cast_mode = "full_council"
             selected = list(BASE_FALLBACK_ORDER)
             execution_order = list(BASE_FALLBACK_ORDER)
@@ -531,6 +562,7 @@ class PersonaCouncilRuntime:
             and (full_council_required or any(word in scene_low for word in self.routing.nemo8))
         )
         return RoutePlan(
+            council_span=council_span,
             cast_mode=cast_mode,
             selected_persona_ids=selected,
             execution_order=execution_order,
@@ -541,10 +573,16 @@ class PersonaCouncilRuntime:
             rationale=rationale,
         )
 
-    def run(self, scene: str, *, enable_nemo8: bool = True) -> CouncilRun:
+    def run(
+        self,
+        scene: str,
+        *,
+        enable_nemo8: bool = True,
+        force_span: str | None = None,
+    ) -> CouncilRun:
         self.ensure_index()
         run_id = f"persona_layer_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}_{uuid.uuid4().hex[:6]}"
-        route_plan = self.plan_route(scene, enable_nemo8=enable_nemo8)
+        route_plan = self.plan_route(scene, enable_nemo8=enable_nemo8, force_span=force_span)
         base_turns: list[CouncilTurn] = []
         for persona_id in route_plan.execution_order:
             pkg = self.registry.personas[persona_id]
@@ -581,6 +619,7 @@ class PersonaCouncilRuntime:
             "run_id": run_id,
             "scene": scene,
             "route_plan": {
+                "council_span": route_plan.council_span,
                 "cast_mode": route_plan.cast_mode,
                 "selected_persona_ids": route_plan.selected_persona_ids,
                 "execution_order": route_plan.execution_order,

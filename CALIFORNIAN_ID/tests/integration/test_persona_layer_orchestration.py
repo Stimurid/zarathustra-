@@ -87,6 +87,26 @@ def test_nemo8_is_not_always_called():
     assert result.nemo8_turn is None
 
 
+def test_forced_council_span_overrides_dynamic_routing():
+    runtime = PersonaCouncilRuntime()
+
+    pair = runtime.plan_route(SINGLE_HEAD, enable_nemo8=True, force_span="force_pair")
+    assert pair.council_span == "force_pair"
+    assert pair.cast_mode == "forced_pair"
+    assert pair.selected_persona_ids == ["R", "C"]
+
+    triangular = runtime.plan_route(SINGLE_HEAD, enable_nemo8=True, force_span="force_triangular")
+    assert triangular.council_span == "force_triangular"
+    assert triangular.cast_mode == "forced_triangular"
+    assert triangular.selected_persona_ids == ["R", "C", "EA"]
+
+    full = runtime.plan_route(SINGLE_HEAD, enable_nemo8=True, force_span="force_full_council")
+    assert full.council_span == "force_full_council"
+    assert full.cast_mode == "forced_full_council"
+    assert full.selected_persona_ids == ["C", "EA", "Ex", "L", "R", "S", "T"]
+    assert full.call_nemo8 is True
+
+
 def test_final_answer_does_not_echo_full_input_scene():
     runtime = PersonaCouncilRuntime()
     result = runtime.run(SCENARIO, enable_nemo8=True)
