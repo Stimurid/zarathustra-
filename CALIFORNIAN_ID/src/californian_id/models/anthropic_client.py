@@ -42,7 +42,7 @@ class AnthropicClient:
         except ImportError as e:
             raise RuntimeError(
                 "The `anthropic` package is not installed. "
-                "Run `pip install anthropic` or switch provider to `mock`."
+                "Run `pip install anthropic`. Mock is forbidden outside pytest (HARD_RULES §1)."
             ) from e
         self._anthropic = anthropic
         self._client = anthropic.Anthropic(api_key=api_key)

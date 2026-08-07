@@ -796,10 +796,14 @@ class Zarathustra:
 
         Именно этот текст пользователь видит в text-режиме UI. Форма
         завершения определяет ТИП речи (см. 13_closing_speech.md).
-        Mock provider возвращает "" — тогда UI показывает только структуру.
+
+        Mock provider (только pytest): возвращает "", pipeline пропускает
+        закрывающую речь для тестов. В prod runtime pipeline.py дальше
+        сам raise'ает если получил пустую речь при live-провайдере.
         """
-        provider = getattr(client, "provider", "mock")
+        provider = getattr(client, "provider", "")
         if provider == "mock":
+            # tests only; prod pipeline.py:459 fail-fast'ает на пустой result
             return ""
 
         prompt = self.prompt("13_closing_speech.md") or _DEFAULT_CLOSING_SPEECH_PROMPT

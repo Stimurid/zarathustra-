@@ -58,19 +58,42 @@ class RuntimeConfig:
     def role_provider(self, role: str) -> str:
         """Which provider serves this pipeline role.
 
-        Priority:
-          1. explicit env `CALIFORNIAN_ID_PROVIDER`
-          2. if `API_302AI_KEY` set → 302ai для **всех** ролей. Пользователь
-             никогда не получает mock в проде — mock существует только для
-             pytest fixtures, когда ключа нет.
-          3. yaml `roles.<role>.provider` (fallback mock — только для тестов).
+        Priority (per HARD_RULES §1 — no silent mock in prod):
+          1. explicit env `CALIFORNIAN_ID_PROVIDER` (accepts "mock" only for
+             pytest — user-facing runtime never sets it to mock).
+          2. `API_302AI_KEY` set → return "302ai" for all roles.
+          3. `ANTHROPIC_API_KEY` set → "anthropic".
+          4. `OPENAI_API_KEY` set → "openai".
+          5. explicit yaml `roles.<role>.provider` (rarely useful; usually
+             unset).
+          6. **no key + no yaml value → raise RuntimeError.** Fail-fast.
+             Silent mock-fallback is forbidden — user must know that no LLM
+             is configured, not get a placeholder.
+
+        pytest only exception: tests that need mock must either
+        - explicitly `os.environ["CALIFORNIAN_ID_PROVIDER"]="mock"`, or
+        - explicitly set `roles.<role>.provider: mock` in a test fixture
+          yaml, or
+        - construct a MockClient directly.
         """
         env = os.environ.get("CALIFORNIAN_ID_PROVIDER")
         if env:
             return env
         if os.environ.get("API_302AI_KEY"):
             return "302ai"
-        return self.models.get("roles", {}).get(role, {}).get("provider", "mock")
+        if os.environ.get("ANTHROPIC_API_KEY"):
+            return "anthropic"
+        if os.environ.get("OPENAI_API_KEY"):
+            return "openai"
+        yaml_value = self.models.get("roles", {}).get(role, {}).get("provider")
+        if yaml_value:
+            return yaml_value
+        raise RuntimeError(
+            f"role '{role}': no LLM provider available. Set one of "
+            "API_302AI_KEY / ANTHROPIC_API_KEY / OPENAI_API_KEY, "
+            "or CALIFORNIAN_ID_PROVIDER=mock for tests only. "
+            "See _work/HARD_RULES.md §1."
+        )
 
     def provider_config(self, name: str) -> dict[str, Any]:
         return self.models.get("providers", {}).get(name, {"kind": name, "settings": {}})

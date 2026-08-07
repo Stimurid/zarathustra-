@@ -923,7 +923,15 @@ def _render_text_payload(payload: dict[str, Any], *, detail: str) -> dict[str, A
     if speech:
         lines.append(speech)
     else:
-        lines.append("(закрывающая речь недоступна; смотри errors в meta)")
+        # HARD_RULES §1: пустая речь = баг, а не placeholder. Живой pipeline
+        # уже raise'ает (pipeline.py:459). Это ветка — только для тестов на
+        # mock или если Codex-guard был обойдён.
+        lines.append(
+            "[ERROR] closing_speech is empty. См. errors в meta. "
+            "В prod runtime это RuntimeError — если видишь это, значит либо "
+            "запрос ушёл на mock (нарушение HARD_RULES §1), либо LLM "
+            "вернул пустой ответ без exception."
+        )
     lines.append("")
     lines.append(
         f"[форма завершения: {form} · layer: {payload.get('runtime_layer')} · voices: "

@@ -91,7 +91,7 @@ class OpenAIClient:
         except ImportError as e:
             raise RuntimeError(
                 "The `openai` package is not installed. "
-                "Run `pip install openai` or switch provider to `mock`."
+                "Run `pip install openai`. Mock is forbidden outside pytest (HARD_RULES §1)."
             ) from e
         kwargs: dict[str, Any] = {"api_key": api_key}
         if base_url:

@@ -176,24 +176,13 @@ presets:
   - {name: cheap,    label: "Дёшево (deepseek-chat + gpt-4o)",                       provider: cheap}
 
 roles:
-  # Which provider serves which pipeline role.
-  # Split so that heavy synthesis and orchestration can use different models.
-  # Все дефолты сейчас указывают на 302ai — на mock переключается только при
-  # отсутствии ключа API_302AI_KEY (см. config.py role_provider fallback).
-  routing:
-    provider: mock
-  persona_turn:
-    provider: mock
-  zarathustra_orchestration:
-    provider: mock
-  zarathustra_situation_reading:
-    provider: mock
-  synthesis:
-    provider: mock
-  zarathustra_closing_speech:
-    provider: mock       # override через preset_override + model_override per-request
-  embeddings:
-    provider: mock
+  # Роль-провайдер маппинг разрешается через config.role_provider().
+  # Priority: env CALIFORNIAN_ID_PROVIDER → API_302AI_KEY → ANTHROPIC → OPENAI →
+  # explicit yaml value below → RuntimeError.
+  # Секция ниже НАМЕРЕННО пустая (mock тут был удалён — см. HARD_RULES §1).
+  # Тесты используют mock через os.environ["CALIFORNIAN_ID_PROVIDER"]="mock"
+  # либо через прямую MockClient() (см. tests/conftest.py если нужен fixture).
+  {}
 
 # Список моделей, доступных через 302.ai — для UI dropdown "Модель".
 # Проверены на нашем ключе (2026-07-29). Пользователь передаёт `model`

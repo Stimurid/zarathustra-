@@ -22,9 +22,18 @@ def _build_one(provider_cfg: dict[str, Any]) -> ModelClient:
       - 302ai              (OpenAI-compatible via api.302.ai)
       - openai_compatible  (generic: needs `base_url` + `env_key`)
     """
-    kind = (provider_cfg.get("kind") or "mock").lower()
+    kind = (provider_cfg.get("kind") or "").lower()
+
+    if not kind:
+        raise RuntimeError(
+            "provider config missing `kind`. Cannot silently default to mock — "
+            "see _work/HARD_RULES.md §1."
+        )
 
     if kind == "mock":
+        # Allowed only when explicitly requested (pytest via
+        # CALIFORNIAN_ID_PROVIDER=mock, or an explicit `kind: mock` provider
+        # in a fixture yaml).
         return MockClient()
 
     if kind == "anthropic":
@@ -32,7 +41,7 @@ def _build_one(provider_cfg: dict[str, Any]) -> ModelClient:
         if not os.environ.get(env):
             raise RuntimeError(
                 f"provider=anthropic requires env var {env}. "
-                "Set it, run `pip install anthropic`, or switch provider to `mock`."
+                "Set it, run `pip install anthropic`, Provide a real API key — mock is forbidden outside pytest (see _work/HARD_RULES.md §1)."
             )
         from .anthropic_client import AnthropicClient
         return AnthropicClient(
@@ -46,7 +55,7 @@ def _build_one(provider_cfg: dict[str, Any]) -> ModelClient:
         if not os.environ.get(env):
             raise RuntimeError(
                 f"provider=openai requires env var {env}. "
-                "Set it, run `pip install openai`, or switch provider to `mock`."
+                "Set it, run `pip install openai`, Provide a real API key — mock is forbidden outside pytest (see _work/HARD_RULES.md §1)."
             )
         from .openai_client import OpenAIClient
         return OpenAIClient(
@@ -61,7 +70,7 @@ def _build_one(provider_cfg: dict[str, Any]) -> ModelClient:
         if not os.environ.get(env):
             raise RuntimeError(
                 f"provider=302ai requires env var {env}. "
-                "Set it in /etc/tinkuy/tinkuy.env or switch provider to `mock`."
+                "Set it in /etc/tinkuy/tinkuy.env Provide a real API key — mock is forbidden outside pytest (see _work/HARD_RULES.md §1)."
             )
         base_url = provider_cfg.get("base_url") or os.environ.get(
             "API_302AI_BASE_URL", _302AI_DEFAULT_BASE_URL
@@ -109,7 +118,12 @@ def build_client(provider_name: str, provider_cfg: dict[str, Any]) -> ModelClien
           ]
         }
     """
-    kind = (provider_cfg.get("kind") or provider_name or "mock").lower()
+    kind = (provider_cfg.get("kind") or provider_name or "").lower()
+    if not kind:
+        raise RuntimeError(
+            f"build_client: no provider name given for '{provider_name}'. "
+            "Refusing to default to mock — see _work/HARD_RULES.md §1."
+        )
 
     # legacy compat: bare 'mock'/'anthropic'/'openai' string with no `kind` key
     if "kind" not in provider_cfg and provider_name in {"mock", "anthropic", "openai", "302ai"}:
