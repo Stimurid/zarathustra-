@@ -1,5 +1,105 @@
 # BACKLOG — CALIFORNIAN_ID
 
+## КАРТА ПИКОВ (roadmap стендалон-Тинкуя)
+
+По каноническому `TINKUY_STANDALONE_MVP_ARCHITECTURE_V1.1` (226 док-номеров).
+Пиков 1-4 закрыты (совет, персоны, корпус карт, аргументативный слой, RAG).
+Оценка покрытия канона на 2026-08-08 ≈ **30-35%**. Ниже — как закрыть остальное.
+
+### ⏳ Пик 5 — СВОЯ ФАБРИКА ТКАНИ (в работе, крит-блокер стендалона)
+Без своего резчика мы не сервис, а обёртка над LLM. Сейчас принимаем только
+готовые md-units и делаем плоский pre-pass.
+- 5.1 Schemas (JSON Schema + dataclasses): SemanticUnit / Block / Relation /
+  Thread / Snapshot / SourceSpan / EvidenceFragment / SceneState.
+  Канон 015-024, 035-044.
+- 5.2 Prompts `data/fabric/*.md` (11 модулей, канон 045-056):
+  FabricParserOrchestrator, CoarseComposition, MultiscaleSegmentation,
+  SemanticMoveExtraction, BlockAssembly, RelationExtraction, ThreadInduction,
+  CrossScaleReconciliation, WindowBoundaryRepair, FabricProvenanceValidator,
+  FabricNoLossValidator.
+- 5.3 `fabric/parser.py` — исполнитель orchestrator: source_map →
+  coarse_composition → moves → blocks → relations → threads → reconciliation.
+- 5.4 `fabric/store.py` — SQLite (JSON1) хранилище ткани: таблицы
+  source_artifact, source_version, source_span, evidence_fragment,
+  semantic_unit, semantic_block, semantic_relation, semantic_thread,
+  semantic_snapshot.
+- 5.5 `Pipeline.run_from_raw_text(text) → SemanticSnapshot → CouncilResult`:
+  парсит ткань → сохраняет snapshot → seed'ит argument_map/BodyProjection
+  из ткани → зовёт inner council по обычной схеме.
+- 5.6 CLI: `python -m californian_id fabric parse --file X.txt`,
+  `fabric snapshot <run_id>`, `fabric export <run_id> --format md|json`.
+- 5.7 Web UI: новый Input Mode "raw + fabric" который для длинных текстов
+  автоматически запускает fabric parser перед советом.
+- 5.8 Валидаторы: NoSilentOverwriteGuard, FabricNoLossValidator,
+  FabricProvenanceValidator, SourceCoverageValidator (канон 2.19-2.21, 055-056).
+- 5.9 Тесты: unit — round-trip snapshot; integration — fabric+council на
+  реальном транскрипте 5-10 стр.
+- **Приёмка (§9 канона):** испытание A (сократическая линия), B (атака →
+  защита → карта применимости), C (полный текст → 5-7 связанных вмешательств).
+- **Оценка:** 3-5 дней. **Deliverable:** пользователь вставляет транскрипт
+  100 страниц, получает ткань + связный совет по ткани.
+
+### 🔜 Пик 6 — REALTIME + WORKSPACE + MULTI-USER
+Сейчас: sync HTTP, per-run, single-user, тишина 90-180s.
+- 6.1 SSE streaming — turn-by-turn прогресс в UI (persona → operation →
+  utterance).  Endpoint `GET /api/run/{id}/stream`.
+- 6.2 TinkuyWorkspace (канон 2.1) — контейнер исследования: сессия + история
+  run'ов + snapshot ткани, привязанные к user_id. SQLite таблица workspace.
+- 6.3 Async job queue — POST /api/run → 202 {run_id}; GET /api/run/{id} →
+  status; GET /api/run/{id}/result → payload. Пользователь может закрыть
+  браузер и вернуться.
+- 6.4 Auth: basic → JWT + user table. `/etc/tinkuy/users.yaml` или SQLite.
+  Per-user quotas.
+- 6.5 История в UI: список run'ов пользователя, повторный прогон,
+  cross-run reflection ("покажи все run'ы про X").
+- **Оценка:** 2-3 дня. **Deliverable:** сервис-как-сервис, не local demo.
+
+### 🔜 Пик 7 — MethodPacks + Dialogue + Rhetoric (глубина)
+По канону 090-150. У нас закрыт argumentation (Toulmin+Поварнин).
+- 7.1 6 универсальных MethodPack'ов: ClaimAndLogicAnalysis,
+  ArgumentReconstruction, ConceptualAnalysis, OntologicalReconstruction,
+  Problematisation, SocraticInquiry.
+- 7.2 RhetoricalTransformer + 5-7 жанров (academic critique, socratic
+  questions, methodological consultation, ironic demolition, supportive
+  reframing, forensic argument, short intervention).
+- 7.3 PositionModelPack'и для 8 персон по каноническому шаблону 194-200
+  (сейчас только persona_constitution.md — недостаточно структурно).
+- 7.4 5 Dialogue protocols: Listening, Clarifying, Socratic, Joint Inquiry,
+  Problematising (канон 106-111).
+- **Оценка:** ~1 неделя. **Deliverable:** совет умеет 6 методов, 7 жанров
+  предъявления, 5 диалоговых протоколов.
+
+### 🔜 Пик 8 — Export + Cross-run + Publish
+- 8.1 ExportService (канон 2.55): Markdown / DOCX / JSON / trace bundle.
+  Кнопка «скачать» в UI. Voice + closing + ткань + trace в одном bundle.
+- 8.2 Cross-run reflection: «покажи все run'ы про свободу», «сравни этот
+  совет с прошлым». Требует Пик 5 (ткань) + Пик 6 (workspace).
+- 8.3 Полировка `/v1/*` OpenAI-compatible endpoint: per-API-key auth +
+  rate limit + billing metrics.
+- 8.4 Public docs + пример «Тинкуй как LLM для чужой системы».
+- **Оценка:** 2-3 дня.
+
+### 🔜 Пик 9 — Полировка + Corpus expansion
+- 9.1 Persistent narrative memory Заратустры (SQLite store).
+- 9.2 Cost budgets enforcement (soft → hard, per-user).
+- 9.3 CI/CD — `.github/workflows/tests.yml` на push/PR.
+- 9.4 PyPI publish (сейчас только `pip install git+…`).
+- 9.5 Cultural corpus expansion: 18 карт → 200+ по Ницше книга IV, Платон,
+  Достоевский, Бахтин, Иов, Гита, Гурджиев, Латур.
+- 9.6 Gold Test Corpus + regression suite (канон 4.11, 212-223).
+- **Оценка:** ~1 неделя.
+
+---
+
+## Правила чтения этой карты для следующей сессии
+- Пики закрываются последовательно. Пик N+1 требует Пика N.
+- Внутри одного Пика подзадачи (5.1, 5.2, …) можно делать параллельно
+  в разных worktree/агентах, но `_work/DECISIONS.md` пусть удерживает
+  единый контракт.
+- После закрытия Пика — обновить эту карту (переставить ⏳ → ✅), в
+  `CHANGELOG.md` добавить raздел «vX.Y.0: Пик N закрыт», написать
+  испытания по канону §9.
+
 ---
 
 ## Раздел 5. Multi-orchestrator + human-in-the-loop + shared corpus
