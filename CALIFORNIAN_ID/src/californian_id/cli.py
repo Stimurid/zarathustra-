@@ -23,6 +23,122 @@ from .schemas import to_plain
 from .web_ui import serve_web_ui
 
 
+# ---------- fabric (Пик 5) ----------
+def _fabric_store(args) -> "FabricStore":
+    from .fabric import FabricStore
+    from .config import RUNS_DIR
+    path = Path(args.store) if getattr(args, "store", None) else RUNS_DIR / "fabric.sqlite3"
+    return FabricStore(path)
+
+
+def _cmd_fabric_parse(args) -> int:
+    from .fabric import FabricParser
+    from .models import build_client
+    from .config import load_config
+
+    if not args.text and not args.file:
+        print("error: --text or --file required", file=sys.stderr)
+        return 2
+    text = args.text if args.text else Path(args.file).read_text(encoding="utf-8")
+
+    cfg = load_config()
+    provider = cfg.role_provider("persona_turn")
+    client = build_client(provider, cfg.provider_config(provider))
+    parser = FabricParser(client)
+    print(f"→ parsing {len(text)} chars via {client.provider}/{getattr(client,'model','?')}", file=sys.stderr)
+    snap = parser.parse(text, source_id=args.source_id)
+    store = _fabric_store(args)
+    try:
+        store.register_source(snap.source_id, title="cli parse", kind="raw_text", text_content=text)
+        store.save_snapshot(snap)
+    finally:
+        store.close()
+    print(json.dumps({
+        "snapshot_id": snap.snapshot_id,
+        "source_id": snap.source_id,
+        "stats": snap.stats,
+        "scene_question": snap.scene.question if snap.scene else None,
+        "n_units": len(snap.units),
+        "n_blocks": len(snap.blocks),
+        "n_relations": len(snap.relations),
+        "n_threads": len(snap.threads),
+    }, ensure_ascii=False, indent=2))
+    return 0
+
+
+def _cmd_fabric_snapshot(args) -> int:
+    store = _fabric_store(args)
+    try:
+        snap = store.load_snapshot(args.snapshot_id)
+    finally:
+        store.close()
+    if not snap:
+        print(f"snapshot {args.snapshot_id} not found", file=sys.stderr)
+        return 1
+    from dataclasses import asdict
+    print(json.dumps(asdict(snap), ensure_ascii=False, indent=2)[:20000])
+    return 0
+
+
+def _cmd_fabric_list(args) -> int:
+    store = _fabric_store(args)
+    try:
+        items = store.list_snapshots(source_id=args.source_id)
+    finally:
+        store.close()
+    print(json.dumps(items, ensure_ascii=False, indent=2))
+    return 0
+
+
+def _cmd_fabric_export(args) -> int:
+    store = _fabric_store(args)
+    try:
+        snap = store.load_snapshot(args.snapshot_id)
+    finally:
+        store.close()
+    if not snap:
+        print(f"snapshot {args.snapshot_id} not found", file=sys.stderr)
+        return 1
+    if args.format == "json":
+        from dataclasses import asdict
+        print(json.dumps(asdict(snap), ensure_ascii=False, indent=2))
+        return 0
+    # markdown
+    lines = [f"# Fabric snapshot `{snap.snapshot_id}`",
+             f"- source: `{snap.source_id}` @ `{snap.source_version}`",
+             f"- created: {snap.created_at}",
+             f"- parser_run: {snap.parser_run_id}",
+             f"- stats: {json.dumps(snap.stats, ensure_ascii=False)}",
+             ""]
+    if snap.scene:
+        lines.append(f"## Сцена\n\n**Вопрос:** {snap.scene.question}\n")
+        lines.append(f"**Участники:** {', '.join(snap.scene.participants) or '—'}\n")
+        if snap.scene.tensions:
+            lines.append("**Напряжения:**")
+            for t in snap.scene.tensions:
+                lines.append(f"- {t}")
+            lines.append("")
+        if snap.scene.open_loops:
+            lines.append("**Открытые вопросы:**")
+            for q in snap.scene.open_loops:
+                lines.append(f"- {q}")
+            lines.append("")
+    lines.append(f"## Юниты ({len(snap.units)})\n")
+    for u in snap.units:
+        lines.append(f"- **[{u.intention}]** `{u.unit_id}` conf={u.confidence:.2f} — {u.text}")
+    lines.append(f"\n## Блоки ({len(snap.blocks)})\n")
+    for b in snap.blocks:
+        lines.append(f"- **[{b.block_type}]** `{b.block_id}` — {b.title}  ({len(b.unit_ids)} units)")
+    lines.append(f"\n## Нити ({len(snap.threads)})\n")
+    for t in snap.threads:
+        lines.append(f"- **[{t.thread_type}]** `{t.thread_id}` — {t.label}")
+    lines.append(f"\n## Связи ({len(snap.relations)})\n")
+    for r in snap.relations:
+        lines.append(f"- `{r.source_id}` → **{r.relation_type}** → `{r.target_id}`")
+    print("\n".join(lines))
+    return 0
+
+
 def _cmd_run(args: argparse.Namespace) -> int:
     if not args.text and not args.file and not args.units_file:
         print("error: one of --text / --file / --units-file is required", file=sys.stderr)
@@ -281,6 +397,33 @@ def build_parser() -> argparse.ArgumentParser:
     webui.add_argument("--host", default="127.0.0.1")
     webui.add_argument("--port", type=int, default=8765)
     webui.set_defaults(func=_cmd_web_ui)
+
+    # ---------- fabric (Пик 5) ----------
+    fab = sub.add_parser("fabric", help="Own semantic fabric parser (Пик 5)")
+    fsub = fab.add_subparsers(dest="fcmd", required=True)
+
+    fp = fsub.add_parser("parse", help="Parse raw text → FabricSnapshot (LLM required)")
+    fp.add_argument("--text")
+    fp.add_argument("--file")
+    fp.add_argument("--source-id", default=None)
+    fp.add_argument("--store", default=None, help="Path to SQLite fabric store")
+    fp.set_defaults(func=_cmd_fabric_parse)
+
+    fl = fsub.add_parser("snapshot", help="Load and print a snapshot from store")
+    fl.add_argument("snapshot_id")
+    fl.add_argument("--store", default=None)
+    fl.set_defaults(func=_cmd_fabric_snapshot)
+
+    flist = fsub.add_parser("list", help="List snapshots in store")
+    flist.add_argument("--store", default=None)
+    flist.add_argument("--source-id", default=None)
+    flist.set_defaults(func=_cmd_fabric_list)
+
+    fexp = fsub.add_parser("export", help="Export snapshot as md|json")
+    fexp.add_argument("snapshot_id")
+    fexp.add_argument("--format", choices=["md", "json"], default="md")
+    fexp.add_argument("--store", default=None)
+    fexp.set_defaults(func=_cmd_fabric_export)
 
     return p
 

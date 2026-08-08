@@ -496,6 +496,67 @@ class Pipeline:
         )
 
     # ---------- Public entry (pre-parsed units from external cutter) ----------
+    def run_from_raw_text(
+        self,
+        text: str,
+        mode: str | None = None,
+        run_id: str | None = None,
+        critique_regime: str = "balanced",
+        variation_regime: str = "normal",
+        source_id: str | None = None,
+        fabric_store_path: str | None = None,
+    ) -> "PipelineResult":
+        """Пик 5: свой резчик ткани → snapshot → UnitPack → полный совет.
+
+        1. Запускает FabricParser (LLM) на text → FabricSnapshot.
+        2. Сохраняет snapshot в FabricStore (SQLite JSON1).
+        3. Конвертирует FabricSnapshot → UnitPack (мостик к run_from_units).
+        4. Делегирует run_from_units (полный совет + closing_speech).
+
+        HARD_RULES §1: mock forbidden. FabricParser сам raise'ает если mock.
+        """
+        from .fabric import FabricParser, FabricStore
+        from .config import RUNS_DIR
+
+        run_id = run_id or new_run_id()
+
+        fab_provider, fab_cfg = self._role_and_cfg("persona_turn")
+        fab_client = build_client(fab_provider, fab_cfg)
+        parser = FabricParser(fab_client)
+        snapshot = parser.parse(text, source_id=source_id, parser_run_id=f"fabric_{run_id}")
+
+        store_path = Path(fabric_store_path) if fabric_store_path else RUNS_DIR / "fabric.sqlite3"
+        store = FabricStore(store_path)
+        try:
+            store.register_source(
+                snapshot.source_id,
+                title=(snapshot.scene.question if snapshot.scene else "raw text run")[:200],
+                kind="raw_text",
+                text_content=text,
+            )
+            store.save_snapshot(snapshot)
+        finally:
+            store.close()
+
+        # 3. FabricSnapshot → UnitPack — мостик к run_from_units.
+        pack = _fabric_snapshot_to_unit_pack(snapshot)
+
+        # 4. Полный совет через существующий run_from_units.
+        result = self.run_from_units(
+            pack,
+            mode=mode,
+            run_id=run_id,
+            critique_regime=critique_regime,
+            variation_regime=variation_regime,
+        )
+        # Приложим fabric snapshot к результату для UI/trace.
+        result.run_state.persona_registry_snapshot = {
+            **(result.run_state.persona_registry_snapshot or {}),
+            "_fabric_snapshot_id": snapshot.snapshot_id,
+            "_fabric_stats": snapshot.stats,
+        }
+        return result
+
     def run_from_units(
         self,
         pack: UnitPack,
@@ -1344,3 +1405,143 @@ def _parse_persona_turn(
         "questions": _norm_list(data.get("questions"), {"text", "unresolved"}),
         "confidence": data.get("confidence", 0.5),
     }
+
+
+
+# ============================================================
+# Пик 5: FabricSnapshot → UnitPack bridge (для run_from_raw_text).
+# ============================================================
+def _fabric_snapshot_to_unit_pack(snapshot):
+    """Мостик: FabricSnapshot → UnitPack, чтобы run_from_units переиспользовать.
+
+    Каждый FabricBlock (или изолированный FabricUnit) становится одним
+    SemanticUnit в UnitPack. Toulmin-структура собирается из FabricUnit.intention:
+      - claim → Toulmin.claim
+      - assumption → Toulmin.warrant
+      - counterexample/contradicting via FabricRelation → Toulmin.rebuttal
+    Провенанс переносится через FabricSourceSpan.locator.
+    """
+    from .schemas import (
+        SemanticUnit as PackUnit,
+        UnitPack,
+        UnitParticipant,
+        ThemeRheme,
+        ToulminBundle,
+        UnitProvenance,
+        SourceAudit,
+    )
+
+    if snapshot is None:
+        return UnitPack(units=[])
+
+    # индекс юнитов по id
+    unit_by_id = {u.unit_id: u for u in snapshot.units}
+    # relations: {source_id: [(type, target_id)]}
+    rel_by_src: dict = {}
+    for r in snapshot.relations:
+        rel_by_src.setdefault(r.source_id, []).append(r)
+
+    pack_units = []
+    # Один SemanticUnit-пакет на каждый FabricBlock; юниты без блоков в отдельные.
+    used_units: set = set()
+
+    for i, b in enumerate(snapshot.blocks, start=1):
+        member_units = [unit_by_id[uid] for uid in b.unit_ids if uid in unit_by_id]
+        if not member_units:
+            continue
+        used_units.update(u.unit_id for u in member_units)
+
+        claim_units = [u for u in member_units if u.intention == "claim"]
+        assumption_units = [u for u in member_units if u.intention == "assumption"]
+        rebuttal_rels = [
+            r for u in member_units
+            for r in rel_by_src.get(u.unit_id, [])
+            if r.relation_type in ("contradicts", "avoids")
+        ]
+
+        toulmin = None
+        if claim_units:
+            main_claim = claim_units[0]
+            toulmin = ToulminBundle(
+                claim=main_claim.text,
+                data=" | ".join(u.text[:200] for u in member_units if u.intention == "example")[:600],
+                warrant=(assumption_units[0].text if assumption_units else ""),
+                rebuttal=(unit_by_id[rebuttal_rels[0].target_id].text
+                          if rebuttal_rels and rebuttal_rels[0].target_id in unit_by_id else ""),
+            )
+
+        participants = []
+        speakers = sorted({u.speaker_ref for u in member_units if u.speaker_ref})
+        for sp in speakers:
+            participants.append(UnitParticipant(label=sp, normalized_role="", name=sp))
+
+        theme_rheme = []
+        for u in member_units[:6]:
+            theme_rheme.append(ThemeRheme(
+                theme=u.intention,
+                rheme=u.text[:280],
+                participant_label=u.speaker_ref,
+                locator=(u.evidence_span_ids[0] if u.evidence_span_ids else ""),
+            ))
+
+        provenance = []
+        for u in member_units[:10]:
+            for sp_id in u.evidence_span_ids[:1]:
+                sp_obj = next((s for s in snapshot.spans if s.span_id == sp_id), None)
+                if sp_obj:
+                    provenance.append(UnitProvenance(
+                        participant_label=u.speaker_ref, participant_name=u.speaker_ref,
+                        locator=sp_obj.locator or f"[{sp_obj.char_start}:{sp_obj.char_end}]",
+                    ))
+
+        pack_units.append(PackUnit(
+            unit_id=f"U{i}",
+            title=b.title or f"Блок {b.block_type}",
+            intention=("аргументация" if b.block_type == "argument"
+                       else "проблематизация" if b.block_type in ("problem", "aporia")
+                       else "сведения"),
+            object_aspect=b.title[:200],
+            participants=participants,
+            theme_rheme=theme_rheme,
+            toulmin=toulmin,
+            provenance=provenance,
+            abstract=(claim_units[0].text[:600] if claim_units else b.title),
+            key_concepts=[b.title[:60]],
+            unresolved_questions_here=[],
+        ))
+
+    # Изолированные юниты (не вошли ни в один блок) — по одному на PackUnit.
+    orphan_ix = len(pack_units)
+    for u in snapshot.units:
+        if u.unit_id in used_units:
+            continue
+        orphan_ix += 1
+        theme_rheme = [ThemeRheme(theme=u.intention, rheme=u.text[:280],
+                                   participant_label=u.speaker_ref)]
+        toulmin = ToulminBundle(claim=u.text) if u.intention == "claim" else None
+        pack_units.append(PackUnit(
+            unit_id=f"U{orphan_ix}",
+            title=u.text[:120],
+            intention=("аргументация" if u.intention == "claim" else "сведения"),
+            theme_rheme=theme_rheme,
+            toulmin=toulmin,
+            abstract=u.text[:600],
+            key_concepts=[],
+        ))
+
+    seminar_title = (
+        (snapshot.scene.question if snapshot.scene else "") or
+        (snapshot.blocks[0].title if snapshot.blocks else "") or
+        f"raw text run {snapshot.source_id[:16]}"
+    )[:200]
+
+    return UnitPack(
+        units=pack_units,
+        source_audit=None,
+        seminar_title=seminar_title,
+        seminar_locator_span=f"chars 0..{snapshot.stats.get('total_chars', 0)}",
+        cutter_id="californian_id.fabric.FabricParser",
+        cutter_model=snapshot.parser_run_id,
+        source_path=snapshot.source_id,
+        unresolved_questions_pack=(snapshot.scene.open_loops[:10] if snapshot.scene else []),
+    )
