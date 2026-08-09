@@ -215,3 +215,22 @@ class MockClient:
             stop_reason="ok",
             usage={"messages": len(messages)},
         )
+
+    def generate_stream(
+        self,
+        messages: list[Message],
+        on_delta,
+        settings: dict[str, Any] | None = None,
+    ) -> ModelResult:
+        """Mock stream — режем финальный текст на условные чанки, эмитим по одному."""
+        result = self.generate(messages, settings=settings)
+        text = result.text or ""
+        chunk = max(len(text) // 8, 1)
+        for i in range(0, len(text), chunk):
+            piece = text[i:i + chunk]
+            if piece and on_delta:
+                try:
+                    on_delta(piece)
+                except Exception:
+                    pass
+        return result

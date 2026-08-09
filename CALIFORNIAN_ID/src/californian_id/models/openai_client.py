@@ -128,6 +128,51 @@ class OpenAIClient:
             },
         )
 
+    def generate_stream(
+        self,
+        messages: list[Message],
+        on_delta,
+        settings: dict[str, Any] | None = None,
+    ) -> ModelResult:
+        """Token-level stream via OpenAI SDK (stream=True). 6.B.2."""
+        merged = _strip_internal({**self.settings, **(settings or {})})
+        chat = [{"role": m.role, "content": m.content} for m in messages]
+        parts: list[str] = []
+        finish_reason = "ok"
+        stream = self._client.chat.completions.create(
+            model=self.model,
+            messages=chat,
+            stream=True,
+            **merged,
+        )
+        for chunk in stream:
+            try:
+                choice = chunk.choices[0]
+            except (IndexError, AttributeError):
+                continue
+            delta_obj = getattr(choice, "delta", None)
+            if delta_obj is not None:
+                delta = getattr(delta_obj, "content", None) or ""
+            else:
+                delta = ""
+            if delta:
+                parts.append(delta)
+                if on_delta:
+                    try:
+                        on_delta(delta)
+                    except Exception:
+                        pass
+            fr = getattr(choice, "finish_reason", None)
+            if fr:
+                finish_reason = str(fr)
+        return ModelResult(
+            text="".join(parts),
+            raw={"_streamed": True},
+            provider=self.provider,
+            model=self.model,
+            stop_reason=finish_reason,
+        )
+
 
 def _coerce_message_content(content: Any) -> str:
     if content is None:

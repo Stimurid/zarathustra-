@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, Protocol
+from typing import Any, Callable, Protocol
 
 
 @dataclass
@@ -20,6 +20,11 @@ class ModelResult:
     stop_reason: str = "ok"
 
 
+# Signature for token-delta callbacks used by generate_stream.
+# Called once per chunk with the delta text as it arrives.
+DeltaSink = Callable[[str], None]
+
+
 class ModelClient(Protocol):
     provider: str
     model: str
@@ -30,3 +35,7 @@ class ModelClient(Protocol):
         response_schema: dict[str, Any] | None = None,
         settings: dict[str, Any] | None = None,
     ) -> ModelResult: ...
+
+    # Optional — providers that don't implement it fall back to a single
+    # emit at the end from generate() (see stream_utils.stream_via_generate).
+    # Signature: same as generate + `on_delta: DeltaSink`.

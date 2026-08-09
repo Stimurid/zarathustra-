@@ -86,3 +86,48 @@ class AnthropicClient:
                 "output_tokens": getattr(resp.usage, "output_tokens", None),
             },
         )
+
+    def generate_stream(
+        self,
+        messages: list[Message],
+        on_delta,
+        settings: dict[str, Any] | None = None,
+    ) -> ModelResult:
+        """Anthropic token stream via messages.stream(). 6.B.2."""
+        system_chunks = [m.content for m in messages if m.role == "system"]
+        chat = [
+            {"role": m.role, "content": m.content}
+            for m in messages
+            if m.role in {"user", "assistant"}
+        ]
+        merged = {**self.settings, **(settings or {})}
+        for k in _INTERNAL_SETTING_KEYS:
+            merged.pop(k, None)
+        max_tokens = merged.pop("max_tokens", 4096)
+        parts: list[str] = []
+        stop_reason = "ok"
+        with self._client.messages.stream(
+            model=self.model,
+            system="\n\n".join(system_chunks) if system_chunks else "",
+            messages=chat,
+            max_tokens=max_tokens,
+            **merged,
+        ) as stream:
+            for text_delta in stream.text_stream:
+                if not text_delta:
+                    continue
+                parts.append(text_delta)
+                if on_delta:
+                    try:
+                        on_delta(text_delta)
+                    except Exception:
+                        pass
+            final = stream.get_final_message()
+            stop_reason = str(getattr(final, "stop_reason", "ok"))
+        return ModelResult(
+            text="".join(parts),
+            raw={"_streamed": True},
+            provider=self.provider,
+            model=self.model,
+            stop_reason=stop_reason,
+        )

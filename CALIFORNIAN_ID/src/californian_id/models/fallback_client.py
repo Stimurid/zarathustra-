@@ -68,6 +68,47 @@ class FallbackClient:
             f"Last error: {type(last_exc).__name__}: {last_exc}"
         ) from last_exc
 
+    def generate_stream(
+        self,
+        messages: list[Message],
+        on_delta,
+        settings: dict[str, Any] | None = None,
+    ) -> ModelResult:
+        """Streaming variant — пробуем шаги по очереди."""
+        from .stream_utils import stream_via_generate
+        self._last_events = []
+        last_exc: Exception | None = None
+        for step in self.steps:
+            try:
+                if hasattr(step.client, "generate_stream"):
+                    result = step.client.generate_stream(
+                        messages, on_delta=on_delta, settings=settings,
+                    )
+                else:
+                    result = stream_via_generate(
+                        step.client, messages, on_delta, settings=settings,
+                    )
+                self._last_events.append({"label": step.label, "outcome": "success"})
+                result.provider = f"{result.provider or step.client.provider}"
+                if not result.model:
+                    result.model = step.client.model
+                return result
+            except Exception as exc:  # noqa: BLE001
+                self._last_events.append({
+                    "label": step.label,
+                    "outcome": "failed",
+                    "error": type(exc).__name__,
+                    "message": str(exc)[:200],
+                })
+                last_exc = exc
+                continue
+        if last_exc is None:
+            raise RuntimeError("FallbackClient: no steps configured")
+        raise RuntimeError(
+            f"FallbackClient stream: all {len(self.steps)} providers failed. "
+            f"Last error: {type(last_exc).__name__}: {last_exc}"
+        ) from last_exc
+
     def chain_summary(self) -> list[dict[str, Any]]:
         """Trace of the last generate() call. For visibility in logs."""
         return list(self._last_events)

@@ -364,6 +364,9 @@ _HTML = """<!doctype html>
         <div class="actions">
           <button id="runBtn" type="button">Запустить совет</button>
           <button class="secondary" id="clearBtn" type="button">Очистить</button>
+          <label style="margin-left:1em;font-size:0.9em;">
+            <input type="checkbox" id="liveStream" /> Live stream (SSE, 6.B)
+          </label>
           <span class="status" id="status">Готово.</span>
         </div>
       </section>
@@ -510,6 +513,120 @@ _HTML = """<!doctype html>
       document.getElementById(id).addEventListener('change', updateModePills);
     }
 
+    function buildRequestBody(text) {
+      return {
+        text,
+        runtime_layer: document.getElementById('councilLayer').value,
+        input_mode: document.getElementById('inputMode').value,
+        mode: document.getElementById('mode').value,
+        critique_regime: document.getElementById('critique').value,
+        variation_regime: document.getElementById('variation').value,
+        grounding_mode: document.getElementById('groundingMode').value,
+        assembly_mode: document.getElementById('assemblyMode').value,
+        council_span: document.getElementById('councilSpan').value,
+        preset: document.getElementById('preset').value,
+        model: document.getElementById('modelPick').value,
+        voice_max_tokens: document.getElementById('voiceMaxTokens').value || null,
+        closing_max_tokens: document.getElementById('closingMaxTokens').value || null,
+        max_turns: document.getElementById('maxTurns').value || null,
+        output_format: document.getElementById('outFmt').value,
+        detail: document.getElementById('detailLvl').value,
+        show_orchestration_trace: document.getElementById('showOrchestrationTrace').value === 'true',
+        debug: document.getElementById('debug').value === 'true'
+      };
+    }
+
+    async function runStreamed(text, t0, timer) {
+      output.textContent = '';
+      const response = await fetch('api/run/stream', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(buildRequestBody(text))
+      });
+      if (!response.ok || !response.body) {
+        throw new Error('HTTP ' + response.status);
+      }
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder('utf-8');
+      let buffer = '';
+      let closingText = '';
+      let finalPayload = null;
+      let turnCount = 0;
+      const appendLine = (s) => { output.textContent += s + '\\n'; };
+      while (true) {
+        const {value, done} = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, {stream: true});
+        let idx;
+        while ((idx = buffer.indexOf('\\n\\n')) >= 0) {
+          const chunk = buffer.slice(0, idx);
+          buffer = buffer.slice(idx + 2);
+          for (const line of chunk.split('\\n')) {
+            if (!line.startsWith('data:')) continue;
+            let evt;
+            try { evt = JSON.parse(line.slice(5).trim()); }
+            catch (e) { continue; }
+            const k = evt.kind;
+            const dt = Math.floor((Date.now() - t0) / 1000);
+            statusEl.textContent = `Live: ${k} · ${dt}s`;
+            if (k === 'run_started') {
+              appendLine('=== run ' + evt.run_id + ' (workspace: ' + evt.workspace_id + ') ===');
+            } else if (k === 'situation_reading_done') {
+              appendLine('  situation: topic=' + JSON.stringify(evt.topic) + ' genre=' + evt.genre);
+            } else if (k === 'cast_selected') {
+              appendLine('  cast: ' + evt.personas.join(', ') + '  (max_turns=' + evt.max_turns + ')');
+              appendLine('');
+            } else if (k === 'turn_completed') {
+              turnCount += 1;
+              appendLine('[T' + evt.turn_index + ' · ' + evt.persona_id + ' · ' + evt.operation + ']');
+              appendLine(evt.utterance);
+              appendLine('');
+            } else if (k === 'closing_speech_start') {
+              appendLine('--- closing speech (form: ' + evt.form + ') ---');
+              closingText = '';
+            } else if (k === 'closing_speech_delta') {
+              closingText += (evt.delta || '');
+              // rebuild last line without breaking prior content
+              // Cheaper: mark boundary and append delta
+              output.textContent += (evt.delta || '');
+            } else if (k === 'closing_speech_complete') {
+              output.textContent += '\\n\\n(closing_speech: ' + evt.chars + ' chars)\\n';
+            } else if (k === 'run_completed') {
+              appendLine('=== completed: ' + evt.completion_form + ' · turns=' + evt.turns + ' · reason=' + evt.stopping_reason + ' ===');
+            } else if (k === 'final_payload') {
+              finalPayload = evt.payload;
+            } else if (k === 'error') {
+              appendLine('ERROR: ' + evt.error);
+            }
+          }
+        }
+      }
+      const dt = Math.floor((Date.now() - t0) / 1000);
+      statusEl.textContent = `Готово за ${dt}s (live, ${turnCount} turns).`;
+      if (finalPayload && document.getElementById('debug').value === 'true') {
+        output.textContent += '\\n\\n--- full payload ---\\n' + JSON.stringify(finalPayload, null, 2);
+      }
+    }
+
+    async function runBlocking(text, t0, timer) {
+      output.textContent = 'Совет собирается...\\n\\nЖивой запрос к LLM обычно занимает 60-180 секунд.\\nПодожди и не нажимай кнопку повторно.';
+      const response = await fetch('api/run', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(buildRequestBody(text))
+      });
+      const payload = await response.json();
+      if (payload && payload.format === 'text' && payload.body) {
+        output.textContent = payload.body;
+      } else {
+        output.textContent = JSON.stringify(payload, null, 2);
+      }
+      const dt = Math.floor((Date.now() - t0) / 1000);
+      statusEl.textContent = response.ok
+        ? `Готово за ${dt}s.`
+        : `Ошибка HTTP ${response.status} за ${dt}s.`;
+    }
+
     runBtn.addEventListener('click', async () => {
       const text = input.value.trim();
       if (!text) {
@@ -519,48 +636,19 @@ _HTML = """<!doctype html>
       runBtn.disabled = true;
       const t0 = Date.now();
       statusEl.textContent = 'Идет запрос к runtime...';
-      output.textContent = 'Совет собирается...\\n\\nЖивой запрос к LLM обычно занимает 60-180 секунд.\\nПодожди и не нажимай кнопку повторно.';
       const timer = setInterval(() => {
         const dt = Math.floor((Date.now() - t0) / 1000);
         statusEl.textContent = `Идет запрос к runtime... ${dt}s`;
       }, 1000);
       try {
-        const response = await fetch('api/run', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-            text,
-            runtime_layer: document.getElementById('councilLayer').value,
-            input_mode: document.getElementById('inputMode').value,
-            mode: document.getElementById('mode').value,
-            critique_regime: document.getElementById('critique').value,
-            variation_regime: document.getElementById('variation').value,
-            grounding_mode: document.getElementById('groundingMode').value,
-            assembly_mode: document.getElementById('assemblyMode').value,
-            council_span: document.getElementById('councilSpan').value,
-            preset: document.getElementById('preset').value,
-            model: document.getElementById('modelPick').value,
-            voice_max_tokens: document.getElementById('voiceMaxTokens').value || null,
-            closing_max_tokens: document.getElementById('closingMaxTokens').value || null,
-            max_turns: document.getElementById('maxTurns').value || null,
-            output_format: document.getElementById('outFmt').value,
-            detail: document.getElementById('detailLvl').value,
-            show_orchestration_trace: document.getElementById('showOrchestrationTrace').value === 'true',
-            debug: document.getElementById('debug').value === 'true'
-          })
-        });
-        const payload = await response.json();
-        if (payload && payload.format === 'text' && payload.body) {
-          output.textContent = payload.body;
+        const useStream = document.getElementById('liveStream').checked;
+        if (useStream) {
+          await runStreamed(text, t0, timer);
         } else {
-          output.textContent = JSON.stringify(payload, null, 2);
+          await runBlocking(text, t0, timer);
         }
-        const dt = Math.floor((Date.now() - t0) / 1000);
-        statusEl.textContent = response.ok
-          ? `Готово за ${dt}s.`
-          : `Ошибка HTTP ${response.status} за ${dt}s.`;
       } catch (error) {
-        output.textContent = String(error);
+        output.textContent += '\\n' + String(error);
         statusEl.textContent = 'Ошибка сети или runtime.';
       } finally {
         clearInterval(timer);
@@ -594,6 +682,8 @@ def run_web_request(
     max_turns: int | None = None,
     output_format: str = "json",
     detail: str = "with_turns",
+    event_sink=None,
+    workspace_id: str | None = None,
 ) -> dict[str, Any]:
     runtime_layer = runtime_layer if runtime_layer in SUPPORTED_LAYERS else LAYER_PERSONA
     grounding_mode = grounding_mode if grounding_mode in GROUNDING_MODES else "balanced"
@@ -625,7 +715,10 @@ def run_web_request(
             voice_max_tokens_override=voice_max_tokens if (voice_max_tokens and voice_max_tokens > 0) else None,
             closing_max_tokens_override=closing_max_tokens if (closing_max_tokens and closing_max_tokens > 0) else None,
             max_turns_override=max_turns if (max_turns and max_turns > 0) else None,
+            workspace_id=workspace_id,
         )
+        if event_sink is not None:
+            pipe.event_sink = event_sink
         resolved_input_mode = input_mode
         ingress_mode = "legacy_raw"
 
@@ -1521,6 +1614,9 @@ class _WebUIHandler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_POST(self) -> None:  # noqa: N802
+        if self.path in {"/api/run/stream", "/run/stream"}:
+            self._handle_run_stream()
+            return
         if self.path in {"/v1/chat/completions"}:
             if not _compat_key_is_valid(self):
                 self._send_json({"error": {"message": "unauthorized", "type": "invalid_request_error"}}, status=HTTPStatus.UNAUTHORIZED)
@@ -1572,6 +1668,82 @@ class _WebUIHandler(BaseHTTPRequestHandler):
 
     def log_message(self, format: str, *args: object) -> None:
         return
+
+    # ---------- 6.B.3 SSE endpoint ----------
+    def _handle_run_stream(self) -> None:  # type: ignore[no-redef]
+        """Server-Sent Events. Worker thread → queue.Queue → chunked flush."""
+        import queue
+        import threading
+
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            raw = self.rfile.read(length) if length else b"{}"
+            data = json.loads(raw.decode("utf-8")) if raw else {}
+        except Exception as exc:
+            self._send_json({"error": f"bad request: {exc}"}, status=HTTPStatus.BAD_REQUEST)
+            return
+
+        text = (data.get("text") or "").strip()
+        if not text:
+            self._send_json({"error": "text is required"}, status=HTTPStatus.BAD_REQUEST)
+            return
+
+        events: "queue.Queue[dict | None]" = queue.Queue(maxsize=1024)
+
+        def sink(evt: dict) -> None:
+            try:
+                events.put(evt, timeout=1)
+            except queue.Full:
+                pass
+
+        def worker() -> None:
+            try:
+                payload = run_web_request(
+                    text,
+                    runtime_layer=data.get("runtime_layer") or LAYER_CALIFORNIAN_ID,
+                    input_mode=data.get("input_mode") or "raw",
+                    mode=data.get("mode") or "fast",
+                    critique_regime=data.get("critique_regime") or "balanced",
+                    variation_regime=data.get("variation_regime") or "normal",
+                    preset=(data.get("preset") or None),
+                    model=(data.get("model") or None),
+                    max_tokens=_parse_optional_int(data.get("max_tokens")),
+                    voice_max_tokens=_parse_optional_int(data.get("voice_max_tokens")),
+                    closing_max_tokens=_parse_optional_int(data.get("closing_max_tokens")),
+                    max_turns=_parse_optional_int(data.get("max_turns")),
+                    event_sink=sink,
+                    workspace_id=data.get("workspace_id") or None,
+                )
+                events.put({"kind": "final_payload", "payload": payload})
+            except Exception as ex:  # noqa: BLE001
+                events.put({"kind": "error", "error": f"{type(ex).__name__}: {ex}"})
+            finally:
+                events.put(None)  # sentinel
+
+        self.send_response(HTTPStatus.OK)
+        self.send_header("Content-Type", "text/event-stream; charset=utf-8")
+        self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
+        self.send_header("Connection", "keep-alive")
+        self.send_header("X-Accel-Buffering", "no")  # tell nginx/caddy not to buffer
+        self.end_headers()
+
+        t = threading.Thread(target=worker, daemon=True)
+        t.start()
+
+        try:
+            while True:
+                evt = events.get()
+                if evt is None:
+                    break
+                body = f"data: {json.dumps(evt, ensure_ascii=False)}\n\n".encode("utf-8")
+                try:
+                    self.wfile.write(body)
+                    self.wfile.flush()
+                except (BrokenPipeError, ConnectionResetError):
+                    return
+        finally:
+            # give worker a moment to exit if still alive
+            t.join(timeout=0.5)
 
     def _send_json(self, payload: dict[str, Any], status: HTTPStatus = HTTPStatus.OK) -> None:
         body = json.dumps(payload, ensure_ascii=False, indent=2).encode("utf-8")

@@ -791,6 +791,7 @@ class Zarathustra:
         completion: CompletionOutcome,
         turns: list[TurnRecord],
         argument_map: ArgumentMap,
+        on_delta=None,
     ) -> str:
         """Финальная связная речь Заратустры (800-2000 слов) по итогу совета.
 
@@ -857,15 +858,17 @@ class Zarathustra:
             Message(role="system", content=prompt),
             Message(role="user", content=payload),
         ]
+        settings = {
+            "role": "zarathustra_closing_speech",
+            "topic": situation.topic,
+            "form": form,
+        }
         try:
-            result = client.generate(
-                messages,
-                settings={
-                    "role": "zarathustra_closing_speech",
-                    "topic": situation.topic,
-                    "form": form,
-                },
-            )
+            if on_delta is not None:
+                from .models.stream_utils import call_stream
+                result = call_stream(client, messages, on_delta, settings=settings)
+            else:
+                result = client.generate(messages, settings=settings)
             return (result.text or "").strip()
         except Exception as e:
             return f"[compose_closing_speech failed: {type(e).__name__}: {str(e)[:200]}]"

@@ -85,6 +85,9 @@ class Pipeline:
         self.retriever = LexicalPersonaRetriever(PERSONAS_DIR)
         self.cultural = CulturalIndex()
         self.workspace_id = validate_workspace_id(workspace_id or DEFAULT_WORKSPACE_ID)
+        # 6.B.1 — real-time event sink. Called during run() with structured
+        # dicts (`{"kind": "...", ...}`). None = no streaming.
+        self.event_sink = None
         # Per-Pipeline overrides — если указаны, применяются к persona_turn +
         # closing_speech (там нужны умные модели). Служебные роли (routing /
         # situation_reading / synthesis / orchestration) остаются на своих
@@ -140,6 +143,16 @@ class Pipeline:
                     base_cfg["fallbacks"] = fbs
         return resolved, base_cfg
 
+    def _emit(self, kind: str, payload: dict[str, Any] | None = None) -> None:
+        """6.B — emit real-time event to self.event_sink if set. No-op otherwise."""
+        sink = self.event_sink
+        if sink is None:
+            return
+        try:
+            sink({"kind": kind, **(payload or {})})
+        except Exception as ex:
+            logger.warning("event_sink failed for %s: %s", kind, ex)
+
     def _mode_cfg(self, mode: str) -> dict[str, Any]:
         mode_cfg = dict(self.config.mode_settings(mode) or {})
         if self.max_turns_override and self.max_turns_override > 0:
@@ -168,6 +181,11 @@ class Pipeline:
             "critique_regime": critique_regime,
             "variation_regime": variation_regime,
         })
+        self._emit("run_started", {
+            "run_id": run_id, "mode": mode,
+            "workspace_id": self.workspace_id,
+            "input_chars": len(text),
+        })
 
         registry = load_registry()
         state.persona_registry_snapshot = registry.snapshot()
@@ -194,6 +212,10 @@ class Pipeline:
             **to_plain(state.situation),
             "reader_provider": situation_reading_client.provider,
         })
+        self._emit("situation_reading_done", {
+            "topic": state.situation.topic,
+            "genre": state.situation.genre,
+        })
 
         # S02 — cast selection
         mode_cfg = self._mode_cfg(mode)
@@ -212,6 +234,11 @@ class Pipeline:
         )
         state.transition("CAST_SELECTED")
         trace.event("cast", {"personas": state.selected_personas, "max_voices": max_voices})
+        self._emit("cast_selected", {
+            "personas": state.selected_personas,
+            "max_voices": max_voices,
+            "max_turns": max_turns,
+        })
 
         memory = ConversationMemory(topic=state.situation.topic)
         argument_map = state.argument_map
@@ -382,6 +409,13 @@ class Pipeline:
             # module in a future pass.
 
             trace.event("turn", to_plain(turn))
+            self._emit("turn_completed", {
+                "turn_index": turn.turn_index,
+                "persona_id": turn.persona_id,
+                "operation": turn.operation,
+                "utterance": turn.utterance,
+                "confidence": getattr(turn, "confidence", None),
+            })
 
             # Chorus mode: каждые 2 хода Заратустра проводит рефлексию тела.
             # Не голос, не решение. Пишется в trace и body.chorus_reflections[].
@@ -455,11 +489,29 @@ class Pipeline:
         # Final closing speech from Zarathustra — the long connected text
         # the user actually reads in text mode of the UI.
         closing_client = build_client(*self._role_and_cfg("zarathustra_closing_speech"))
+
+        # 6.B: if event_sink set, stream token deltas.
+        on_delta = None
+        if self.event_sink is not None:
+            self._emit("closing_speech_start", {
+                "provider": getattr(closing_client, "provider", "?"),
+                "model": getattr(closing_client, "model", "?"),
+                "form": completion.form,
+            })
+            def _closing_delta(piece: str) -> None:
+                self._emit("closing_speech_delta", {"delta": piece})
+            on_delta = _closing_delta
+
         completion.closing_speech = self.zarathustra.compose_closing_speech(
             closing_client, state.situation, completion, state.turns, state.argument_map,
+            on_delta=on_delta,
         )
         if getattr(closing_client, "provider", "mock") != "mock" and not (completion.closing_speech or "").strip():
             raise RuntimeError("zarathustra_closing_speech returned empty text")
+        if self.event_sink is not None:
+            self._emit("closing_speech_complete", {
+                "chars": len(completion.closing_speech or ""),
+            })
         trace.event("closing_speech", {
             "provider": getattr(closing_client, "provider", "?"),
             "model": getattr(closing_client, "model", "?"),
@@ -476,6 +528,12 @@ class Pipeline:
             "stopping_reason": state.stopping_reason,
             "completion_form": completion.form,
             "regime_metrics": summarize_route_trace(route_traces),
+        })
+        self._emit("run_completed", {
+            "turns": len(state.turns),
+            "stopping_reason": state.stopping_reason,
+            "completion_form": completion.form,
+            "run_id": state.run_id,
         })
         trace.dump_state({"state": state.as_json(), "memory": memory.as_dict()})
         return PipelineResult(state, memory, trace.dir)
@@ -664,6 +722,11 @@ class Pipeline:
         state.selected_personas = self.zarathustra.cast(active_personas, state.situation, max_voices)
         state.transition("CAST_SELECTED")
         trace.event("cast", {"personas": state.selected_personas, "max_voices": max_voices})
+        self._emit("cast_selected", {
+            "personas": state.selected_personas,
+            "max_voices": max_voices,
+            "max_turns": max_turns,
+        })
 
         memory = ConversationMemory(topic=state.situation.topic)
         affect = AffectBook()
@@ -804,6 +867,13 @@ class Pipeline:
                     turn_index=turn.turn_index,
                 ))
             trace.event("turn", to_plain(turn))
+            self._emit("turn_completed", {
+                "turn_index": turn.turn_index,
+                "persona_id": turn.persona_id,
+                "operation": turn.operation,
+                "utterance": turn.utterance,
+                "confidence": getattr(turn, "confidence", None),
+            })
 
             if (turn_index + 1) % 2 == 0:
                 chorus = self.zarathustra.chorus_reflect(state.turns, state.body)
@@ -859,6 +929,13 @@ class Pipeline:
             "completion_form": completion.form,
             "entrypoint": "run_from_units",
             "regime_metrics": summarize_route_trace(route_traces),
+        })
+        self._emit("run_completed", {
+            "turns": len(state.turns),
+            "stopping_reason": state.stopping_reason,
+            "completion_form": completion.form,
+            "run_id": state.run_id,
+            "entrypoint": "run_from_units",
         })
         trace.dump_state({"state": state.as_json(), "memory": memory.as_dict()})
         return PipelineResult(state, memory, trace.dir)
