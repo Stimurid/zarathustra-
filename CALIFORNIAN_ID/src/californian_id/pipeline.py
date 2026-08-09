@@ -449,16 +449,30 @@ class Pipeline:
 
         state.transition("STOPPING_CHECK")
         state.transition("COMPLETING")
+        self._finalize_council(state, memory, trace, route_traces, entrypoint="run")
+        return PipelineResult(state, memory, trace.dir)
 
-        # Заратустра сначала ВЫБИРАЕТ форму завершения (одну из 10),
-        # затем СОБИРАЕТ её. Синтез — только если явно выбран.
+    def _finalize_council(
+        self,
+        state: RunState,
+        memory: ConversationMemory,
+        trace: TraceRecorder,
+        route_traces: list[dict[str, Any]],
+        entrypoint: str = "run",
+    ) -> None:
+        """Общий финализатор: choose_form → assemble → closing_speech → validate.
+
+        Вынесено чтоб и run(), и run_from_units() шли одним путём (bug из Пика 5:
+        run_from_units не звал compose_closing_speech, и мостик raw+fabric тоже
+        оставался без закрытия).
+        """
+        synth_client = build_client(*self._role_and_cfg("synthesis"))
+
         choice = self.zarathustra.choose_completion_form(
             synth_client, state.situation, state.turns, state.argument_map
         )
         trace.event("completion_choice", {"form": choice.form, "reason": choice.reason})
 
-        # P4: anti-slop gate — если candidate = synthesis, но совет не отработал
-        # attack_presupposition + defend, форма меняется.
         anti_slop = check_anti_slop(choice.form, state.turns, state.argument_map)
         if not anti_slop.passes_anti_slop:
             trace.event("anti_slop_block", {
@@ -476,7 +490,6 @@ class Pipeline:
             synth_client, choice, state.situation, state.turns, state.argument_map
         )
         state.completion = completion
-        # backward-compat: synthesis populated only when form == synthesis
         if completion.form == "synthesis" and completion.synthesis is not None:
             state.synthesis = completion.synthesis
             memory.final_position = completion.synthesis.direct_position
@@ -486,11 +499,8 @@ class Pipeline:
         memory.unresolved_conflicts = [c.__dict__ for c in completion.conflict_map if c.status == "unresolved"]
         memory.security_events = [se.__dict__ for se in state.security_events]
 
-        # Final closing speech from Zarathustra — the long connected text
-        # the user actually reads in text mode of the UI.
+        # Closing speech (optionally streamed via event_sink).
         closing_client = build_client(*self._role_and_cfg("zarathustra_closing_speech"))
-
-        # 6.B: if event_sink set, stream token deltas.
         on_delta = None
         if self.event_sink is not None:
             self._emit("closing_speech_start", {
@@ -527,6 +537,7 @@ class Pipeline:
             "turns": len(state.turns),
             "stopping_reason": state.stopping_reason,
             "completion_form": completion.form,
+            "entrypoint": entrypoint,
             "regime_metrics": summarize_route_trace(route_traces),
         })
         self._emit("run_completed", {
@@ -534,9 +545,9 @@ class Pipeline:
             "stopping_reason": state.stopping_reason,
             "completion_form": completion.form,
             "run_id": state.run_id,
+            "entrypoint": entrypoint,
         })
         trace.dump_state({"state": state.as_json(), "memory": memory.as_dict()})
-        return PipelineResult(state, memory, trace.dir)
 
     def run_from_envelope(
         self,
@@ -891,53 +902,7 @@ class Pipeline:
 
         state.transition("STOPPING_CHECK")
         state.transition("COMPLETING")
-        choice = self.zarathustra.choose_completion_form(
-            synth_client, state.situation, state.turns, state.argument_map
-        )
-        trace.event("completion_choice", {"form": choice.form, "reason": choice.reason})
-        anti_slop = check_anti_slop(choice.form, state.turns, state.argument_map)
-        if not anti_slop.passes_anti_slop:
-            trace.event("anti_slop_block", {
-                "original_form": choice.form,
-                "signals": anti_slop.detected_slop_signals,
-                "suggested": anti_slop.suggested_alternative_form,
-            })
-            choice.form = anti_slop.suggested_alternative_form or "polyphony"
-            choice.reason = (
-                f"anti-slop gate: {', '.join(anti_slop.detected_slop_signals)} — "
-                f"переключено на {choice.form}"
-            )
-        completion = self.zarathustra.assemble_completion(
-            synth_client, choice, state.situation, state.turns, state.argument_map
-        )
-        state.completion = completion
-        if completion.form == "synthesis" and completion.synthesis is not None:
-            state.synthesis = completion.synthesis
-            memory.final_position = completion.synthesis.direct_position
-        else:
-            memory.final_position = _memory_position_for(completion)
-        memory.unresolved_conflicts = [c.__dict__ for c in completion.conflict_map if c.status == "unresolved"]
-        memory.security_events = [se.__dict__ for se in state.security_events]
-        trace.event("completion", to_plain(completion))
-        state.transition("VALIDATING")
-        _validate(state)
-        state.transition("COMPLETED")
-        state.stamp("run_completed")
-        trace.event("run_completed", {
-            "turns": len(state.turns),
-            "stopping_reason": state.stopping_reason,
-            "completion_form": completion.form,
-            "entrypoint": "run_from_units",
-            "regime_metrics": summarize_route_trace(route_traces),
-        })
-        self._emit("run_completed", {
-            "turns": len(state.turns),
-            "stopping_reason": state.stopping_reason,
-            "completion_form": completion.form,
-            "run_id": state.run_id,
-            "entrypoint": "run_from_units",
-        })
-        trace.dump_state({"state": state.as_json(), "memory": memory.as_dict()})
+        self._finalize_council(state, memory, trace, route_traces, entrypoint="run_from_units")
         return PipelineResult(state, memory, trace.dir)
 
     # ---------- Persona turn ----------

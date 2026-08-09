@@ -30,10 +30,39 @@ MEMORY_DIR = DATA_ROOT / "memory"
 REPO_ROOT = Path(__file__).resolve().parents[3]
 PERSONA_LAYER_ROOT = REPO_ROOT / "runtime_assets" / "personas" / "v0.2"
 
-# Runs directory: user-writable. Default = CWD/runs; overridable via env.
-_env_runs = os.environ.get("CALIFORNIAN_ID_RUNS_DIR")
-RUNS_DIR = Path(_env_runs).resolve() if _env_runs else Path.cwd() / "runs"
-RUNS_DIR.mkdir(exist_ok=True, parents=True)
+# Runs directory: user-writable. Priority:
+#   1. CALIFORNIAN_ID_RUNS_DIR env var (explicit)
+#   2. CWD/runs (dev)
+#   3. XDG_STATE_HOME/californian_id/runs (systemd services без HOME)
+#   4. tempfile.gettempdir()/californian_id-runs (last resort)
+def _resolve_runs_dir() -> Path:
+    import tempfile
+    env_val = os.environ.get("CALIFORNIAN_ID_RUNS_DIR")
+    candidates: list[Path] = []
+    if env_val:
+        candidates.append(Path(env_val).resolve())
+    candidates.append(Path.cwd() / "runs")
+    xdg = os.environ.get("XDG_STATE_HOME")
+    if xdg:
+        candidates.append(Path(xdg).resolve() / "californian_id" / "runs")
+    home = os.environ.get("HOME") or os.environ.get("USERPROFILE")
+    if home:
+        candidates.append(Path(home) / ".local" / "state" / "californian_id" / "runs")
+    candidates.append(Path(tempfile.gettempdir()) / "californian_id-runs")
+    for c in candidates:
+        try:
+            c.mkdir(exist_ok=True, parents=True)
+            probe = c / ".writable_probe"
+            probe.touch()
+            probe.unlink(missing_ok=True)
+            return c
+        except (PermissionError, OSError):
+            continue
+    # cannot reach here in practice (tempdir almost always works)
+    raise RuntimeError("no writable runs directory found")
+
+
+RUNS_DIR = _resolve_runs_dir()
 
 
 def _load_yaml(path: Path) -> dict[str, Any]:

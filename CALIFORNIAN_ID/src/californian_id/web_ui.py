@@ -365,10 +365,22 @@ _HTML = """<!doctype html>
           <button id="runBtn" type="button">Запустить совет</button>
           <button class="secondary" id="clearBtn" type="button">Очистить</button>
           <label style="margin-left:1em;font-size:0.9em;">
-            <input type="checkbox" id="liveStream" /> Live stream (SSE, 6.B)
+            Workspace: <input type="text" id="workspaceId" value="default"
+              style="width:8em;padding:2px;font-family:monospace;" />
+          </label>
+          <label style="margin-left:1em;font-size:0.9em;">
+            <input type="checkbox" id="liveStream" /> Live (SSE, 6.B)
+          </label>
+          <label style="margin-left:0.5em;font-size:0.9em;">
+            <input type="checkbox" id="asyncMode" /> Async (6.3)
           </label>
           <span class="status" id="status">Готово.</span>
         </div>
+        <div class="actions" style="margin-top:0.5em;">
+          <button class="secondary" id="historyBtn" type="button">📜 История ранов</button>
+          <span id="historyInfo" class="hint"></span>
+        </div>
+        <div id="historyPanel" style="display:none;margin-top:0.5em;max-height:220px;overflow:auto;border:1px solid #333;padding:0.5em;font-size:0.85em;font-family:monospace;"></div>
       </section>
       <section class="card">
         <div>
@@ -513,9 +525,14 @@ _HTML = """<!doctype html>
       document.getElementById(id).addEventListener('change', updateModePills);
     }
 
+    function currentWorkspace() {
+      return (document.getElementById('workspaceId').value || 'default').trim() || 'default';
+    }
+
     function buildRequestBody(text) {
       return {
         text,
+        workspace_id: currentWorkspace(),
         runtime_layer: document.getElementById('councilLayer').value,
         input_mode: document.getElementById('inputMode').value,
         mode: document.getElementById('mode').value,
@@ -535,6 +552,93 @@ _HTML = """<!doctype html>
         debug: document.getElementById('debug').value === 'true'
       };
     }
+
+    async function runAsync(text, t0, timer) {
+      const resp = await fetch('api/run/async', {
+        method: 'POST', headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(buildRequestBody(text))
+      });
+      const enq = await resp.json();
+      if (!resp.ok) throw new Error('async submit: HTTP ' + resp.status);
+      const rid = enq.run_id;
+      output.textContent = 'Async job enqueued.\\nrun_id: ' + rid + '\\n\\nPolling status...';
+      const ws = currentWorkspace();
+      while (true) {
+        await new Promise(r => setTimeout(r, 2000));
+        const s = await fetch('api/run/' + rid + '/result?workspace=' + encodeURIComponent(ws));
+        if (s.status === 202) {
+          const st = await s.json();
+          const dt = Math.floor((Date.now() - t0)/1000);
+          statusEl.textContent = `Async: ${st.status} · ${dt}s`;
+          continue;
+        }
+        if (!s.ok) throw new Error('async poll: HTTP ' + s.status);
+        const payload = await s.json();
+        if (payload.error) {
+          output.textContent = 'ERROR:\\n' + payload.error + '\\n\\n' + (payload.traceback || '');
+          statusEl.textContent = 'Async: ERROR';
+          return;
+        }
+        if (payload && payload.format === 'text' && payload.body) {
+          output.textContent = payload.body;
+        } else {
+          output.textContent = JSON.stringify(payload, null, 2);
+        }
+        const dt = Math.floor((Date.now() - t0)/1000);
+        statusEl.textContent = `Async готово за ${dt}s.`;
+        return;
+      }
+    }
+
+    async function refreshHistory() {
+      const ws = currentWorkspace();
+      const panel = document.getElementById('historyPanel');
+      const info = document.getElementById('historyInfo');
+      try {
+        const resp = await fetch('api/runs?workspace=' + encodeURIComponent(ws) + '&limit=50');
+        const data = await resp.json();
+        panel.style.display = 'block';
+        if (!data.runs || data.runs.length === 0) {
+          panel.innerHTML = '<i>Пусто. Workspace: ' + ws + '</i>';
+          info.textContent = '';
+          return;
+        }
+        info.textContent = data.runs.length + ' runs в workspace ' + ws;
+        const rows = data.runs.map(r => {
+          const badge = r.status === 'COMPLETED' ? '✓' : (r.status === 'RUNNING' ? '⏳' : '⚠');
+          const summary = (r.input_summary || '').replace(/</g,'&lt;').slice(0,80);
+          return `<div style="margin-bottom:4px;">
+            <a href="#" data-rid="${r.run_id}" class="load-run" style="color:#79c;text-decoration:none;">${badge} ${r.run_id}</a>
+            · <b>${r.completion_form || r.status}</b> · turns=${r.turn_count}
+            · ${r.mode}/${r.input_mode || '?'}
+            · ${r.created_at ? r.created_at.slice(0,19).replace('T',' ') : ''}
+            <br/><span style="color:#888;padding-left:1em;">${summary}</span>
+          </div>`;
+        });
+        panel.innerHTML = rows.join('');
+        panel.querySelectorAll('.load-run').forEach(a => {
+          a.addEventListener('click', async (ev) => {
+            ev.preventDefault();
+            const rid = a.getAttribute('data-rid');
+            statusEl.textContent = 'Загрузка ' + rid + '...';
+            const r = await fetch('api/run/' + rid + '/result?workspace=' + encodeURIComponent(ws));
+            const payload = await r.json();
+            if (r.status === 202) {
+              output.textContent = 'Этот ран ещё RUNNING. Попробуй позже.';
+            } else if (payload && payload.format === 'text' && payload.body) {
+              output.textContent = payload.body;
+            } else {
+              output.textContent = JSON.stringify(payload, null, 2);
+            }
+            statusEl.textContent = 'Загружен ' + rid;
+          });
+        });
+      } catch (e) {
+        panel.style.display = 'block';
+        panel.innerHTML = '<i>Ошибка: ' + String(e) + '</i>';
+      }
+    }
+    document.getElementById('historyBtn').addEventListener('click', refreshHistory);
 
     async function runStreamed(text, t0, timer) {
       output.textContent = '';
@@ -642,7 +746,11 @@ _HTML = """<!doctype html>
       }, 1000);
       try {
         const useStream = document.getElementById('liveStream').checked;
-        if (useStream) {
+        const useAsync = document.getElementById('asyncMode').checked;
+        if (useAsync) {
+          await runAsync(text, t0, timer);
+          await refreshHistory();
+        } else if (useStream) {
           await runStreamed(text, t0, timer);
         } else {
           await runBlocking(text, t0, timer);
@@ -1580,8 +1688,24 @@ def _pack_to_scene(pack: UnitPack) -> str:
 class _WebUIHandler(BaseHTTPRequestHandler):
     server_version = "ZarathustraWebUI/0.2"
 
+    def _query_param(self, name: str) -> str | None:
+        # self.path is already path-only after do_GET stripped ?; read raw from headers
+        # (нам достаточно смотреть self.raw_path — но её нет; вернём None и заставим
+        # POST/JSON быть первичным источником workspace_id).
+        raw = getattr(self, "raw_query", None)
+        if not raw:
+            return None
+        from urllib.parse import parse_qs
+        parts = parse_qs(raw)
+        vals = parts.get(name) or []
+        return vals[0] if vals else None
+
     def do_GET(self) -> None:  # noqa: N802
-        path_only = self.path.split("?", 1)[0]
+        raw = self.path
+        if "?" in raw:
+            path_only, self.raw_query = raw.split("?", 1)
+        else:
+            path_only, self.raw_query = raw, ""
         self.path = path_only
         if self.path in {"/v1/models"}:
             if not _compat_key_is_valid(self):
@@ -1600,6 +1724,48 @@ class _WebUIHandler(BaseHTTPRequestHandler):
         if self.path in {"/api/access", "/access"}:
             self._send_json(_build_api_access_payload())
             return
+        # 6.3 async job status / result
+        if self.path.startswith("/api/run/") and self.path.endswith("/status"):
+            run_id = self.path[len("/api/run/"):-len("/status")]
+            ws = self._query_param("workspace") or "default"
+            from .async_jobs import get_status
+            data = get_status(ws, run_id)
+            if data is None:
+                self._send_json({"error": "not found"}, status=HTTPStatus.NOT_FOUND); return
+            self._send_json(data); return
+        if self.path.startswith("/api/run/") and self.path.endswith("/result"):
+            run_id = self.path[len("/api/run/"):-len("/result")]
+            ws = self._query_param("workspace") or "default"
+            from .async_jobs import get_result, get_status
+            data = get_result(ws, run_id)
+            if data is None:
+                st = get_status(ws, run_id)
+                if st is None:
+                    self._send_json({"error": "not found"}, status=HTTPStatus.NOT_FOUND); return
+                self._send_json({"status": st.get("status", "RUNNING"),
+                                 "note": "not ready yet"}, status=HTTPStatus.ACCEPTED); return
+            self._send_json(data); return
+        # 6.5 runs list
+        if self.path.startswith("/api/runs") or self.path == "/runs":
+            from .workspaces import RunStore
+            ws = self._query_param("workspace") or "default"
+            limit = int(self._query_param("limit") or "50")
+            store = RunStore.for_workspace(ws)
+            try:
+                items = store.list(limit=limit)
+            finally:
+                store.close()
+            from dataclasses import asdict
+            self._send_json({
+                "workspace_id": ws,
+                "runs": [asdict(m) for m in items],
+            })
+            return
+        # 6.A workspaces list
+        if self.path in {"/api/workspaces", "/workspaces"}:
+            from .workspaces import list_workspaces
+            self._send_json({"workspaces": list_workspaces()})
+            return
         if self.path not in {"/", "/index.html"}:
             self.send_error(HTTPStatus.NOT_FOUND, "Not found")
             return
@@ -1616,6 +1782,9 @@ class _WebUIHandler(BaseHTTPRequestHandler):
     def do_POST(self) -> None:  # noqa: N802
         if self.path in {"/api/run/stream", "/run/stream"}:
             self._handle_run_stream()
+            return
+        if self.path in {"/api/run/async", "/run/async"}:
+            self._handle_run_async()
             return
         if self.path in {"/v1/chat/completions"}:
             if not _compat_key_is_valid(self):
@@ -1668,6 +1837,51 @@ class _WebUIHandler(BaseHTTPRequestHandler):
 
     def log_message(self, format: str, *args: object) -> None:
         return
+
+    # ---------- 6.3 async job endpoint ----------
+    def _handle_run_async(self) -> None:
+        from .async_jobs import submit
+        from .trace import new_run_id
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            raw = self.rfile.read(length) if length else b"{}"
+            data = json.loads(raw.decode("utf-8")) if raw else {}
+        except Exception as exc:
+            self._send_json({"error": f"bad request: {exc}"},
+                            status=HTTPStatus.BAD_REQUEST); return
+        text = (data.get("text") or "").strip()
+        if not text:
+            self._send_json({"error": "text is required"},
+                            status=HTTPStatus.BAD_REQUEST); return
+        run_id = new_run_id()
+        ws = data.get("workspace_id") or "default"
+
+        def _job() -> dict[str, Any]:
+            return run_web_request(
+                text,
+                runtime_layer=data.get("runtime_layer") or LAYER_CALIFORNIAN_ID,
+                input_mode=data.get("input_mode") or "raw",
+                mode=data.get("mode") or "fast",
+                critique_regime=data.get("critique_regime") or "balanced",
+                variation_regime=data.get("variation_regime") or "normal",
+                preset=(data.get("preset") or None),
+                model=(data.get("model") or None),
+                max_tokens=_parse_optional_int(data.get("max_tokens")),
+                voice_max_tokens=_parse_optional_int(data.get("voice_max_tokens")),
+                closing_max_tokens=_parse_optional_int(data.get("closing_max_tokens")),
+                max_turns=_parse_optional_int(data.get("max_turns")),
+                workspace_id=ws,
+            )
+        submit(ws, run_id, _job,
+               input_summary=text, input_mode=data.get("input_mode") or "raw",
+               mode=data.get("mode") or "fast")
+        self._send_json({
+            "run_id": run_id,
+            "workspace_id": ws,
+            "status": "RUNNING",
+            "poll_status": f"/api/run/{run_id}/status?workspace={ws}",
+            "poll_result": f"/api/run/{run_id}/result?workspace={ws}",
+        }, status=HTTPStatus.ACCEPTED)
 
     # ---------- 6.B.3 SSE endpoint ----------
     def _handle_run_stream(self) -> None:  # type: ignore[no-redef]
