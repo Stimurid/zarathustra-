@@ -247,6 +247,7 @@ _HTML = """<!doctype html>
             <select id="inputMode">
               <option value="raw" selected>raw text</option>
               <option value="auto-slice">auto-slice raw_stream</option>
+              <option value="raw+fabric">raw+fabric (Пик 5)</option>
               <option value="semantic-units">semantic-units</option>
             </select>
           </div>
@@ -650,6 +651,16 @@ def run_web_request(
                 variation_regime=variation_regime,
             )
             ingress_mode = "raw_stream"
+        elif input_mode == "raw+fabric":
+            result = pipe.run_from_raw_text(
+                text=text,
+                mode=mode,
+                critique_regime=critique_regime,
+                variation_regime=variation_regime,
+                source_id="web_ui",
+            )
+            resolved_input_mode = "raw+fabric"
+            ingress_mode = "fabric_snapshot"
         elif input_mode == "units":
             pack = parse_md_units_text(text)
             result = pipe.run_from_units(
