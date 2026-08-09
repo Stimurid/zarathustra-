@@ -77,11 +77,14 @@ class Pipeline:
         voice_max_tokens_override: int | None = None,
         closing_max_tokens_override: int | None = None,
         max_turns_override: int | None = None,
+        workspace_id: str | None = None,
     ) -> None:
+        from .workspaces import validate_workspace_id, DEFAULT_WORKSPACE_ID
         self.config = load_config()
         self.zarathustra = Zarathustra()
         self.retriever = LexicalPersonaRetriever(PERSONAS_DIR)
         self.cultural = CulturalIndex()
+        self.workspace_id = validate_workspace_id(workspace_id or DEFAULT_WORKSPACE_ID)
         # Per-Pipeline overrides — если указаны, применяются к persona_turn +
         # closing_speech (там нужны умные модели). Служебные роли (routing /
         # situation_reading / synthesis / orchestration) остаются на своих
@@ -516,7 +519,8 @@ class Pipeline:
         HARD_RULES §1: mock forbidden. FabricParser сам raise'ает если mock.
         """
         from .fabric import FabricParser, FabricStore
-        from .config import RUNS_DIR
+        from .workspaces import fabric_store_path as _ws_fab_path, RunStore, RunMetadata
+        from datetime import datetime, timezone
 
         run_id = run_id or new_run_id()
 
@@ -525,7 +529,8 @@ class Pipeline:
         parser = FabricParser(fab_client)
         snapshot = parser.parse(text, source_id=source_id, parser_run_id=f"fabric_{run_id}")
 
-        store_path = Path(fabric_store_path) if fabric_store_path else RUNS_DIR / "fabric.sqlite3"
+        store_path = (Path(fabric_store_path) if fabric_store_path
+                      else _ws_fab_path(self.workspace_id))
         store = FabricStore(store_path)
         try:
             store.register_source(
@@ -554,7 +559,34 @@ class Pipeline:
             **(result.run_state.persona_registry_snapshot or {}),
             "_fabric_snapshot_id": snapshot.snapshot_id,
             "_fabric_stats": snapshot.stats,
+            "_workspace_id": self.workspace_id,
         }
+        # Запишем metadata run'а в per-workspace RunStore.
+        try:
+            rstore = RunStore.for_workspace(self.workspace_id)
+            try:
+                rstore.save(RunMetadata(
+                    run_id=result.run_state.run_id,
+                    workspace_id=self.workspace_id,
+                    mode=result.run_state.mode,
+                    status=result.run_state.status,
+                    stopping_reason=result.run_state.stopping_reason or "",
+                    completion_form=(result.run_state.completion.form
+                                     if result.run_state.completion else ""),
+                    input_mode="raw+fabric",
+                    input_summary=text[:200],
+                    snapshot_id=snapshot.snapshot_id,
+                    trace_dir=str(result.trace_dir),
+                    turn_count=len(result.run_state.turns),
+                    voices_used=list(result.memory.voices_called),
+                    created_at=datetime.now(timezone.utc).isoformat(),
+                    finished_at=datetime.now(timezone.utc).isoformat(),
+                    error="; ".join(result.run_state.errors or []),
+                ))
+            finally:
+                rstore.close()
+        except Exception as ex:
+            logger.warning("RunStore.save failed: %s", ex)
         return result
 
     def run_from_units(

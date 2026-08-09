@@ -26,9 +26,56 @@ from .web_ui import serve_web_ui
 # ---------- fabric (Пик 5) ----------
 def _fabric_store(args) -> "FabricStore":
     from .fabric import FabricStore
-    from .config import RUNS_DIR
-    path = Path(args.store) if getattr(args, "store", None) else RUNS_DIR / "fabric.sqlite3"
+    from .workspaces import fabric_store_path, DEFAULT_WORKSPACE_ID
+    if getattr(args, "store", None):
+        path = Path(args.store)
+    else:
+        ws = getattr(args, "workspace", None) or DEFAULT_WORKSPACE_ID
+        path = fabric_store_path(ws)
     return FabricStore(path)
+
+
+# ---------- workspaces (Пик 6.A) ----------
+def _cmd_workspaces_list(_args) -> int:
+    from .workspaces import list_workspaces
+    print(json.dumps(list_workspaces(), ensure_ascii=False, indent=2))
+    return 0
+
+
+def _cmd_runs_list(args) -> int:
+    from .workspaces import RunStore, DEFAULT_WORKSPACE_ID
+    ws = getattr(args, "workspace", None) or DEFAULT_WORKSPACE_ID
+    store = RunStore.for_workspace(ws)
+    try:
+        items = store.list(limit=int(args.limit))
+    finally:
+        store.close()
+    payload = [{
+        "run_id": m.run_id, "workspace_id": m.workspace_id, "mode": m.mode,
+        "status": m.status, "completion_form": m.completion_form,
+        "input_mode": m.input_mode, "snapshot_id": m.snapshot_id,
+        "turn_count": m.turn_count, "voices_used": m.voices_used,
+        "created_at": m.created_at, "trace_dir": m.trace_dir,
+        "input_summary": m.input_summary,
+    } for m in items]
+    print(json.dumps(payload, ensure_ascii=False, indent=2))
+    return 0
+
+
+def _cmd_runs_get(args) -> int:
+    from .workspaces import RunStore, DEFAULT_WORKSPACE_ID
+    ws = getattr(args, "workspace", None) or DEFAULT_WORKSPACE_ID
+    store = RunStore.for_workspace(ws)
+    try:
+        m = store.get(args.run_id)
+    finally:
+        store.close()
+    if not m:
+        print(f"run {args.run_id} not found in workspace {ws}", file=sys.stderr)
+        return 1
+    from dataclasses import asdict
+    print(json.dumps(asdict(m), ensure_ascii=False, indent=2))
+    return 0
 
 
 def _cmd_fabric_parse(args) -> int:
@@ -406,16 +453,19 @@ def build_parser() -> argparse.ArgumentParser:
     fp.add_argument("--text")
     fp.add_argument("--file")
     fp.add_argument("--source-id", default=None)
-    fp.add_argument("--store", default=None, help="Path to SQLite fabric store")
+    fp.add_argument("--store", default=None, help="Path to SQLite fabric store (overrides --workspace)")
+    fp.add_argument("--workspace", default=None, help="Workspace id (default: 'default')")
     fp.set_defaults(func=_cmd_fabric_parse)
 
     fl = fsub.add_parser("snapshot", help="Load and print a snapshot from store")
     fl.add_argument("snapshot_id")
     fl.add_argument("--store", default=None)
+    fl.add_argument("--workspace", default=None)
     fl.set_defaults(func=_cmd_fabric_snapshot)
 
     flist = fsub.add_parser("list", help="List snapshots in store")
     flist.add_argument("--store", default=None)
+    flist.add_argument("--workspace", default=None)
     flist.add_argument("--source-id", default=None)
     flist.set_defaults(func=_cmd_fabric_list)
 
@@ -423,7 +473,25 @@ def build_parser() -> argparse.ArgumentParser:
     fexp.add_argument("snapshot_id")
     fexp.add_argument("--format", choices=["md", "json"], default="md")
     fexp.add_argument("--store", default=None)
+    fexp.add_argument("--workspace", default=None)
     fexp.set_defaults(func=_cmd_fabric_export)
+
+    # ---------- workspaces (Пик 6.A) ----------
+    ws = sub.add_parser("workspaces", help="Multi-tenant workspaces (Пик 6.A)")
+    wsub = ws.add_subparsers(dest="wcmd", required=True)
+    wlist = wsub.add_parser("list", help="List all workspaces on disk")
+    wlist.set_defaults(func=_cmd_workspaces_list)
+
+    runs = sub.add_parser("runs", help="Council run history per workspace")
+    rsub = runs.add_subparsers(dest="rcmd", required=True)
+    rlist = rsub.add_parser("list", help="List recent runs in a workspace")
+    rlist.add_argument("--workspace", default=None)
+    rlist.add_argument("--limit", default=50)
+    rlist.set_defaults(func=_cmd_runs_list)
+    rget = rsub.add_parser("get", help="Get a single run's metadata")
+    rget.add_argument("run_id")
+    rget.add_argument("--workspace", default=None)
+    rget.set_defaults(func=_cmd_runs_get)
 
     return p
 
