@@ -1615,10 +1615,25 @@ def _extract_bearer_token(handler: BaseHTTPRequestHandler) -> str:
 
 
 def _compat_key_is_valid(handler: BaseHTTPRequestHandler) -> bool:
+    """Legacy single-key check — оставлен для backwards-compat.
+    Приоритет: если задан CALIFORNIAN_ID_API_KEYS — валидируем через auth.py.
+    """
+    from . import auth
+    if auth.is_disabled():
+        return True
+    bearer = _extract_bearer_token(handler)
+    if auth.any_keys_configured():
+        label = auth.label_for_bearer(bearer)
+        if not label:
+            return False
+        # rate limit per-label
+        allowed, _remaining, _limit = auth.check_rate_limit(label)
+        return allowed
+    # fallback: legacy env
     expected = os.environ.get(COMPAT_API_KEY_ENV) or ""
     if not expected:
         return False
-    return _extract_bearer_token(handler) == expected
+    return bearer == expected
 
 
 def _messages_to_text(messages: list[dict[str, Any]]) -> str:
@@ -1774,6 +1789,31 @@ class _WebUIHandler(BaseHTTPRequestHandler):
             if data is None:
                 self._send_json({"error": "not found"}, status=HTTPStatus.NOT_FOUND); return
             self._send_json(data); return
+        if self.path.startswith("/api/run/") and self.path.endswith("/export"):
+            run_id = self.path[len("/api/run/"):-len("/export")]
+            ws = self._query_param("workspace") or "default"
+            fmt = (self._query_param("format") or "md").lower()
+            if fmt not in {"json", "md", "bundle"}:
+                self._send_json({"error": f"unknown format {fmt}"},
+                                status=HTTPStatus.BAD_REQUEST); return
+            from . import exporters
+            if fmt == "json":
+                body = exporters.export_json(ws, run_id)
+            elif fmt == "md":
+                body = exporters.export_markdown(ws, run_id)
+            else:
+                body = exporters.export_bundle(ws, run_id)
+            if body is None:
+                self._send_json({"error": "run not found or not ready"},
+                                status=HTTPStatus.NOT_FOUND); return
+            self.send_response(HTTPStatus.OK)
+            self.send_header("Content-Type", exporters.content_type_for(fmt))
+            self.send_header("Content-Length", str(len(body)))
+            self.send_header("Content-Disposition",
+                             f'attachment; filename="{exporters.filename_for(run_id, fmt)}"')
+            self.end_headers()
+            self.wfile.write(body)
+            return
         if self.path.startswith("/api/run/") and self.path.endswith("/result"):
             run_id = self.path[len("/api/run/"):-len("/result")]
             ws = self._query_param("workspace") or "default"
@@ -1786,6 +1826,16 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                 self._send_json({"status": st.get("status", "RUNNING"),
                                  "note": "not ready yet"}, status=HTTPStatus.ACCEPTED); return
             self._send_json(data); return
+        # 8.2 cross-run search
+        if self.path in {"/api/runs/search", "/runs/search"}:
+            from . import cross_run
+            ws = self._query_param("workspace") or "default"
+            q = self._query_param("q") or ""
+            limit = int(self._query_param("limit") or "20")
+            results = cross_run.search_runs(ws, q, limit=limit)
+            self._send_json({"workspace_id": ws, "query": q,
+                             "count": len(results), "results": results})
+            return
         # 6.5 runs list
         if self.path.startswith("/api/runs") or self.path == "/runs":
             from .workspaces import RunStore
@@ -1828,6 +1878,12 @@ class _WebUIHandler(BaseHTTPRequestHandler):
             from . import method_packs
             self._send_json({"methods": method_packs.list_methods()})
             return
+        # 8.3 billing summary
+        if self.path in {"/api/billing", "/billing"}:
+            from . import auth
+            ws = self._query_param("workspace") or None
+            self._send_json(auth.billing_summary(ws))
+            return
         if self.path not in {"/", "/index.html"}:
             self.send_error(HTTPStatus.NOT_FOUND, "Not found")
             return
@@ -1847,6 +1903,22 @@ class _WebUIHandler(BaseHTTPRequestHandler):
             return
         if self.path in {"/api/run/async", "/run/async"}:
             self._handle_run_async()
+            return
+        if self.path in {"/api/reflect/cross_run", "/reflect/cross_run"}:
+            try:
+                length = int(self.headers.get("Content-Length", "0"))
+                raw = self.rfile.read(length) if length else b"{}"
+                data = json.loads(raw.decode("utf-8")) if raw else {}
+            except Exception as exc:
+                self._send_json({"error": f"bad request: {exc}"},
+                                status=HTTPStatus.BAD_REQUEST); return
+            ws = data.get("workspace_id") or "default"
+            a = data.get("run_a") or ""; b = data.get("run_b") or ""
+            if not a or not b:
+                self._send_json({"error": "run_a and run_b required"},
+                                status=HTTPStatus.BAD_REQUEST); return
+            from . import cross_run
+            self._send_json(cross_run.compare_runs(ws, a, b))
             return
         if self.path in {"/v1/chat/completions"}:
             if not _compat_key_is_valid(self):
