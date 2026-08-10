@@ -310,6 +310,90 @@ def _cmd_web_ui(args: argparse.Namespace) -> int:
     return 0
 
 
+# ---------- users (Пик 6.4) ----------
+def _cmd_users_add(args) -> int:
+    from .users import UserStore
+    import getpass
+    password = args.password
+    if not password:
+        password = getpass.getpass(f"Password for {args.username}: ")
+        confirm = getpass.getpass("Repeat: ")
+        if password != confirm:
+            print("error: passwords do not match", file=sys.stderr)
+            return 2
+    store = UserStore()
+    try:
+        roles = [r.strip() for r in (args.roles or "user").split(",") if r.strip()]
+        u = store.add(args.username, password, roles=roles,
+                      rate_limit_per_min=args.rate_limit)
+    except ValueError as ex:
+        print(f"error: {ex}", file=sys.stderr); return 2
+    finally:
+        store.close()
+    print(json.dumps({"username": u.username, "roles": u.roles,
+                      "rate_limit_per_min": u.rate_limit_per_min,
+                      "disabled": u.disabled, "created_at": u.created_at},
+                     ensure_ascii=False, indent=2))
+    return 0
+
+
+def _cmd_users_list(_args) -> int:
+    from .users import UserStore
+    store = UserStore()
+    try:
+        users = store.list()
+    finally:
+        store.close()
+    for u in users:
+        marker = " [disabled]" if u.disabled else ""
+        print(f"{u.username}\t{','.join(u.roles)}\t"
+              f"rl={u.rate_limit_per_min or '-'}\t{u.created_at}{marker}")
+    return 0
+
+
+def _cmd_users_delete(args) -> int:
+    from .users import UserStore
+    store = UserStore()
+    try:
+        ok = store.delete(args.username)
+    finally:
+        store.close()
+    if not ok:
+        print(f"user {args.username} not found", file=sys.stderr); return 1
+    print(f"deleted user {args.username}")
+    return 0
+
+
+def _cmd_users_disable(args) -> int:
+    from .users import UserStore
+    store = UserStore()
+    try:
+        ok = store.set_disabled(args.username, disabled=not args.enable)
+    finally:
+        store.close()
+    if not ok:
+        print(f"user {args.username} not found", file=sys.stderr); return 1
+    print(f"{'enabled' if args.enable else 'disabled'} user {args.username}")
+    return 0
+
+
+def _cmd_users_token(args) -> int:
+    """Issue a JWT for an existing user (admin utility for testing)."""
+    from . import jwt_auth
+    from .users import UserStore
+    store = UserStore()
+    try:
+        u = store.get(args.username)
+    finally:
+        store.close()
+    if not u:
+        print(f"user {args.username} not found", file=sys.stderr); return 1
+    token = jwt_auth.issue_token(sub=u.username, roles=u.roles,
+                                  ttl_sec=int(args.ttl))
+    print(token)
+    return 0
+
+
 def _pretty_print(payload: dict) -> None:
     print(f"=== Калифорнийский Ид — run {payload['run_id']} ({payload['mode']}) ===")
     print(f"Status: {payload['status']}  stopping={payload['stopping_reason']}  turns={payload['turn_count']}")
@@ -444,6 +528,34 @@ def build_parser() -> argparse.ArgumentParser:
     webui.add_argument("--host", default="127.0.0.1")
     webui.add_argument("--port", type=int, default=8765)
     webui.set_defaults(func=_cmd_web_ui)
+
+    # ---------- users (Пик 6.4) ----------
+    usr = sub.add_parser("users", help="User management (JWT auth)")
+    usub = usr.add_subparsers(dest="ucmd", required=True)
+    uadd = usub.add_parser("add", help="Add a new user")
+    uadd.add_argument("username")
+    uadd.add_argument("--password", default=None,
+                      help="If omitted — read from stdin (prompted)")
+    uadd.add_argument("--roles", default="user",
+                      help="Comma-separated roles (default: user)")
+    uadd.add_argument("--rate-limit", type=int, default=None,
+                      help="Override rate limit per minute for this user")
+    uadd.set_defaults(func=_cmd_users_add)
+    ulist = usub.add_parser("list", help="List users")
+    ulist.set_defaults(func=_cmd_users_list)
+    udel = usub.add_parser("delete", help="Delete a user")
+    udel.add_argument("username")
+    udel.set_defaults(func=_cmd_users_delete)
+    udis = usub.add_parser("disable", help="Disable a user (--enable to re-enable)")
+    udis.add_argument("username")
+    udis.add_argument("--enable", action="store_true",
+                      help="Re-enable instead of disabling")
+    udis.set_defaults(func=_cmd_users_disable)
+    utok = usub.add_parser("token", help="Issue JWT for existing user (admin)")
+    utok.add_argument("username")
+    utok.add_argument("--ttl", type=int, default=86400,
+                      help="TTL in seconds (default: 86400 = 24h)")
+    utok.set_defaults(func=_cmd_users_token)
 
     # ---------- fabric (Пик 5) ----------
     fab = sub.add_parser("fabric", help="Own semantic fabric parser (Пик 5)")

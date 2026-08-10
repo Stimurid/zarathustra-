@@ -6,16 +6,40 @@
 
 ## Аутентификация
 
-Два режима:
+Три режима, проверяются по порядку:
 
-1. **Legacy single-key** — env `TINKUY_COMPAT_API_KEY=<key>`. `Bearer <key>`.
+1. **JWT** (Пик 6.4) — `Bearer <jwt-token>`. Токен выдаёт `POST /api/auth/login`
+   или CLI `python -m californian_id users token <username>`. Пользователи
+   хранятся в SQLite (`RUNS_DIR/users.sqlite3`), pbkdf2_hmac password hash.
 2. **Multi-key** (Пик 8.3) — env `CALIFORNIAN_ID_API_KEYS=k1:alice,k2:bob`.
    Каждый ключ имеет label; label используется в rate-limit и billing.
+3. **Legacy single-key** — env `TINKUY_COMPAT_API_KEY=<key>`. `Bearer <key>`.
 
 Отключить auth для dev: `CALIFORNIAN_ID_AUTH_DISABLED=1`.
 
 Rate limit: 30 запросов/минуту per-label по умолчанию. Override:
 `CALIFORNIAN_ID_RATE_LIMIT_PER_MIN=100`.
+
+### JWT flow
+
+```bash
+# создать пользователя (админская команда)
+python -m californian_id users add alice --roles user,admin
+
+# войти → получить токен
+curl -sS -X POST https://tinkuy.mindkampf.ru/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"username":"alice","password":"..."}'
+# → {"token":"eyJ...","token_type":"Bearer","expires_in":86400,"user":{...}}
+
+# использовать в последующих запросах
+curl -sS https://tinkuy.mindkampf.ru/api/auth/me \
+  -H "Authorization: Bearer eyJ..."
+# → {"username":"alice","roles":["user","admin"],"expires_at":...}
+```
+
+JWT: HS256, secret из env `CALIFORNIAN_ID_JWT_SECRET` или автогенерируется
+в `RUNS_DIR/jwt.secret` (chmod 600). TTL default 24h.
 
 ## Endpoint reference
 

@@ -69,9 +69,21 @@ def any_keys_configured() -> bool:
 
 
 def label_for_bearer(bearer: str) -> str | None:
-    """Возвращает label ключа, если bearer валиден; None иначе."""
+    """Возвращает label ключа, если bearer валиден; None иначе.
+
+    6.4.3: сначала пробуем JWT (если выглядит как JWT), затем static keys.
+    """
     if not bearer:
         return None
+    # JWT ветка
+    from . import jwt_auth
+    if jwt_auth.looks_like_jwt(bearer):
+        try:
+            payload = jwt_auth.verify_token(bearer)
+            sub = payload.get("sub") or ""
+            return f"jwt:{sub}" if sub else "jwt:anon"
+        except jwt_auth.JWTError:
+            return None
     info = _KEY_INDEX.get(bearer)
     return info.label if info else None
 

@@ -1615,21 +1615,26 @@ def _extract_bearer_token(handler: BaseHTTPRequestHandler) -> str:
 
 
 def _compat_key_is_valid(handler: BaseHTTPRequestHandler) -> bool:
-    """Legacy single-key check — оставлен для backwards-compat.
-    Приоритет: если задан CALIFORNIAN_ID_API_KEYS — валидируем через auth.py.
+    """Валидация Bearer. Порядок:
+      1. Auth disabled env → True (dev).
+      2. JWT (если Bearer выглядит как JWT) → verify_token.
+      3. Multi-key CALIFORNIAN_ID_API_KEYS → label_for_bearer.
+      4. Legacy TINKUY_COMPAT_API_KEY → строгое сравнение.
     """
-    from . import auth
+    from . import auth, jwt_auth
     if auth.is_disabled():
         return True
     bearer = _extract_bearer_token(handler)
-    if auth.any_keys_configured():
+    if not bearer:
+        return False
+    # (2) JWT ветка — обрабатывает label_for_bearer через ту же функцию.
+    if jwt_auth.looks_like_jwt(bearer) or auth.any_keys_configured():
         label = auth.label_for_bearer(bearer)
         if not label:
             return False
-        # rate limit per-label
         allowed, _remaining, _limit = auth.check_rate_limit(label)
         return allowed
-    # fallback: legacy env
+    # (4) legacy
     expected = os.environ.get(COMPAT_API_KEY_ENV) or ""
     if not expected:
         return False
@@ -1890,6 +1895,26 @@ class _WebUIHandler(BaseHTTPRequestHandler):
             ws = self._query_param("workspace") or None
             self._send_json(budgets.summary(ws))
             return
+        # 6.4.3 whoami
+        if self.path in {"/api/auth/me", "/auth/me"}:
+            from . import jwt_auth
+            bearer = _extract_bearer_token(self)
+            if not bearer or not jwt_auth.looks_like_jwt(bearer):
+                self._send_json({"error": "no jwt in Authorization"},
+                                status=HTTPStatus.UNAUTHORIZED); return
+            try:
+                payload = jwt_auth.verify_token(bearer)
+            except jwt_auth.JWTError as ex:
+                self._send_json({"error": f"invalid token: {ex}"},
+                                status=HTTPStatus.UNAUTHORIZED); return
+            self._send_json({
+                "username": payload.get("sub"),
+                "roles": payload.get("roles") or [],
+                "issued_at": payload.get("iat"),
+                "expires_at": payload.get("exp"),
+                "issuer": payload.get("iss"),
+            })
+            return
         # 9.1 narrative notes list
         if self.path in {"/api/narrative/notes", "/narrative/notes"}:
             from . import narrative_memory
@@ -1938,6 +1963,40 @@ class _WebUIHandler(BaseHTTPRequestHandler):
             window = int(data.get("window") or 10)
             from . import narrative_memory
             self._send_json(narrative_memory.reflect_over_window(ws, window=window))
+            return
+        # 6.4.3 auth
+        if self.path in {"/api/auth/login", "/auth/login"}:
+            try:
+                length = int(self.headers.get("Content-Length", "0"))
+                raw = self.rfile.read(length) if length else b"{}"
+                data = json.loads(raw.decode("utf-8")) if raw else {}
+            except Exception as exc:
+                self._send_json({"error": f"bad request: {exc}"},
+                                status=HTTPStatus.BAD_REQUEST); return
+            username = (data.get("username") or "").strip()
+            password = data.get("password") or ""
+            if not username or not password:
+                self._send_json({"error": "username and password required"},
+                                status=HTTPStatus.BAD_REQUEST); return
+            from . import jwt_auth
+            from .users import UserStore
+            store = UserStore()
+            try:
+                user = store.verify(username, password)
+            finally:
+                store.close()
+            if not user:
+                self._send_json({"error": "invalid credentials"},
+                                status=HTTPStatus.UNAUTHORIZED); return
+            ttl = int(data.get("ttl_sec") or jwt_auth.DEFAULT_TTL_SEC)
+            token = jwt_auth.issue_token(sub=user.username, roles=user.roles,
+                                          ttl_sec=ttl)
+            self._send_json({
+                "token": token,
+                "token_type": "Bearer",
+                "expires_in": ttl,
+                "user": {"username": user.username, "roles": user.roles},
+            })
             return
         if self.path in {"/api/reflect/cross_run", "/reflect/cross_run"}:
             try:
