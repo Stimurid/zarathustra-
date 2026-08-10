@@ -1,0 +1,45 @@
+schema_version: 0.1.0
+line: TINKUY_STANDALONE_MVP_ARCHITECTURE_V1.1 / Пик 7.2
+description: |
+  Жанры риторической подачи закрывающей речи Заратустры.
+  Один и тот же completion в разных жанрах читается принципиально по-разному.
+  Юзер выбирает жанр (default: methodological_consultation).
+
+default_genre: methodological_consultation
+
+genres:
+  academic_critique:
+    display_name: Академическая критика
+    prompt_file: academic_critique.md
+    voice_register: formal_scholarly
+    length: long
+  socratic_questions:
+    display_name: Сократические вопросы
+    prompt_file: socratic_questions.md
+    voice_register: interrogative
+    length: medium
+  methodological_consultation:
+    display_name: Методологическая консультация
+    prompt_file: methodological_consultation.md
+    voice_register: expert_advisor
+    length: long
+  ironic_demolition:
+    display_name: Ироническая демонтаж
+    prompt_file: ironic_demolition.md
+    voice_register: pointed_ironic
+    length: medium
+  supportive_reframing:
+    display_name: Поддерживающий рефрейминг
+    prompt_file: supportive_reframing.md
+    voice_register: warm_analytic
+    length: medium
+  forensic_argument:
+    display_name: Судебная аргументация
+    prompt_file: forensic_argument.md
+    voice_register: prosecutorial_clean
+    length: long
+  short_intervention:
+    display_name: Короткое вмешательство
+    prompt_file: short_intervention.md
+    voice_register: sharp_minimal
+    length: short

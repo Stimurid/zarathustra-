@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+line: TINKUY_STANDALONE_MVP_ARCHITECTURE_V1.1 / Пик 7.4 (канон 106-111)
+description: |
+  Пять диалоговых протоколов. Каждый — способ, которым голос слушает и
+  отвечает. Ортогонален operation: одна и та же операция (attack, defend, …)
+  может исполняться в любом из протоколов.
+
+default_protocol: joint_inquiry
+
+protocols:
+  listening:
+    display_name: Слушание
+    prompt_file: listening.md
+    purpose: Дать пространство другой позиции. Не отвечать, а прояснять.
+  clarifying:
+    display_name: Прояснение
+    prompt_file: clarifying.md
+    purpose: Уточнить, что именно сказано, до того как отвечать.
+  socratic:
+    display_name: Сократический
+    prompt_file: socratic.md
+    purpose: Двигаться только вопросами до grounding или aporia.
+  joint_inquiry:
+    display_name: Совместное исследование
+    prompt_file: joint_inquiry.md
+    purpose: Совместно с собеседником строить конструкцию, а не спорить.
+  problematising:
+    display_name: Проблематизирующий
+    prompt_file: problematising.md
+    purpose: Показать, что предмет разговора — не то, чем кажется.

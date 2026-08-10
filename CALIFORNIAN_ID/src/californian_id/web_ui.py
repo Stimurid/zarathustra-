@@ -259,6 +259,18 @@ _HTML = """<!doctype html>
             </select>
           </div>
           <div>
+            <label for="closingGenre">Жанр закрытия (7.2)</label>
+            <select id="closingGenre">
+              <option value="">— default —</option>
+            </select>
+          </div>
+          <div>
+            <label for="dialogueProtocol">Диалог-протокол (7.4)</label>
+            <select id="dialogueProtocol">
+              <option value="">— default —</option>
+            </select>
+          </div>
+          <div>
             <label for="critique">Critique Regime</label>
             <select id="critique">
               <option value="gentle">gentle</option>
@@ -529,10 +541,33 @@ _HTML = """<!doctype html>
       return (document.getElementById('workspaceId').value || 'default').trim() || 'default';
     }
 
+    async function loadDropdowns() {
+      try {
+        const g = await (await fetch('api/genres')).json();
+        const gs = document.getElementById('closingGenre');
+        (g.genres || []).forEach(x => {
+          const o = document.createElement('option');
+          o.value = x.genre_id; o.textContent = x.display_name;
+          gs.appendChild(o);
+        });
+        if (g.default) gs.value = ''; // keep — using default
+        const p = await (await fetch('api/protocols')).json();
+        const ps = document.getElementById('dialogueProtocol');
+        (p.protocols || []).forEach(x => {
+          const o = document.createElement('option');
+          o.value = x.protocol_id; o.textContent = x.display_name;
+          ps.appendChild(o);
+        });
+      } catch (e) { /* stay silent, dropdowns show only defaults */ }
+    }
+    loadDropdowns();
+
     function buildRequestBody(text) {
       return {
         text,
         workspace_id: currentWorkspace(),
+        closing_genre: document.getElementById('closingGenre').value || null,
+        dialogue_protocol: document.getElementById('dialogueProtocol').value || null,
         runtime_layer: document.getElementById('councilLayer').value,
         input_mode: document.getElementById('inputMode').value,
         mode: document.getElementById('mode').value,
@@ -792,6 +827,8 @@ def run_web_request(
     detail: str = "with_turns",
     event_sink=None,
     workspace_id: str | None = None,
+    closing_genre: str | None = None,
+    dialogue_protocol: str | None = None,
 ) -> dict[str, Any]:
     runtime_layer = runtime_layer if runtime_layer in SUPPORTED_LAYERS else LAYER_PERSONA
     grounding_mode = grounding_mode if grounding_mode in GROUNDING_MODES else "balanced"
@@ -827,6 +864,10 @@ def run_web_request(
         )
         if event_sink is not None:
             pipe.event_sink = event_sink
+        if closing_genre:
+            pipe.closing_genre_id = closing_genre
+        if dialogue_protocol:
+            pipe.dialogue_protocol_id = dialogue_protocol
         resolved_input_mode = input_mode
         ingress_mode = "legacy_raw"
 
@@ -1766,6 +1807,27 @@ class _WebUIHandler(BaseHTTPRequestHandler):
             from .workspaces import list_workspaces
             self._send_json({"workspaces": list_workspaces()})
             return
+        # 7.2 genres list
+        if self.path in {"/api/genres", "/genres"}:
+            from . import rhetorical_genres
+            self._send_json({
+                "genres": rhetorical_genres.list_genres(),
+                "default": rhetorical_genres.default_genre_id(),
+            })
+            return
+        # 7.4 dialogue protocols list
+        if self.path in {"/api/protocols", "/protocols"}:
+            from . import dialogue_protocols as _dp
+            self._send_json({
+                "protocols": _dp.list_protocols(),
+                "default": _dp.default_protocol_id(),
+            })
+            return
+        # 7.1 method packs list
+        if self.path in {"/api/methods", "/methods"}:
+            from . import method_packs
+            self._send_json({"methods": method_packs.list_methods()})
+            return
         if self.path not in {"/", "/index.html"}:
             self.send_error(HTTPStatus.NOT_FOUND, "Not found")
             return
@@ -1830,6 +1892,9 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                 max_turns=_parse_optional_int(data.get("max_turns")),
                 output_format=(data.get("output_format") or "json"),
                 detail=(data.get("detail") or "with_turns"),
+                workspace_id=data.get("workspace_id") or None,
+                closing_genre=data.get("closing_genre") or None,
+                dialogue_protocol=data.get("dialogue_protocol") or None,
             )
             self._send_json(payload)
         except Exception as exc:  # pragma: no cover
@@ -1871,6 +1936,8 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                 closing_max_tokens=_parse_optional_int(data.get("closing_max_tokens")),
                 max_turns=_parse_optional_int(data.get("max_turns")),
                 workspace_id=ws,
+                closing_genre=data.get("closing_genre") or None,
+                dialogue_protocol=data.get("dialogue_protocol") or None,
             )
         submit(ws, run_id, _job,
                input_summary=text, input_mode=data.get("input_mode") or "raw",
@@ -1927,6 +1994,8 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                     max_turns=_parse_optional_int(data.get("max_turns")),
                     event_sink=sink,
                     workspace_id=data.get("workspace_id") or None,
+                    closing_genre=data.get("closing_genre") or None,
+                    dialogue_protocol=data.get("dialogue_protocol") or None,
                 )
                 events.put({"kind": "final_payload", "payload": payload})
             except Exception as ex:  # noqa: BLE001

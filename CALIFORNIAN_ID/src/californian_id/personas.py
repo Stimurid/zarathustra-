@@ -39,6 +39,7 @@ class Persona:
     manifest: dict[str, Any]
     system_prompt: str
     is_fixture: bool = False
+    position_model: dict[str, Any] | None = None  # Пик 7.3 (канон 194-200)
 
     @property
     def enabled(self) -> bool:
@@ -47,6 +48,29 @@ class Persona:
     @property
     def routing(self) -> dict[str, Any]:
         return self.manifest.get("routing") or {}
+
+    def position_model_prompt_block(self) -> str:
+        """Формирует блок position-model для инжекции в persona system-prompt."""
+        pm = self.position_model or {}
+        if not pm:
+            return ""
+        lines: list[str] = ["## Position model (канон 194-200)"]
+        for key in ("primary_object", "ontology", "methods", "distinctions",
+                    "characteristic_operations", "characteristic_failure_modes",
+                    "closure_criteria", "boundary_conditions"):
+            val = pm.get(key)
+            if not val:
+                continue
+            lines.append(f"\n### {key}")
+            if isinstance(val, list):
+                for item in val:
+                    lines.append(f"- {item}")
+            elif isinstance(val, dict):
+                for k, v in val.items():
+                    lines.append(f"- **{k}**: {v}")
+            else:
+                lines.append(str(val).strip())
+        return "\n".join(lines) + "\n"
 
 
 def _load_yaml(path: Path) -> dict[str, Any]:
@@ -95,6 +119,16 @@ def load_persona(package_dir: Path) -> tuple[Persona | None, list[PersonaValidat
     else:
         system_prompt = _load_text(sp_path)
 
+    # Пик 7.3 — optional position_model.yaml
+    position_model: dict[str, Any] | None = None
+    pm_path = package_dir / "position_model.yaml"
+    if pm_path.exists():
+        try:
+            position_model = _load_yaml(pm_path)
+        except yaml.YAMLError as e:
+            issues.append(PersonaValidationIssue(pid, "position_model.yaml",
+                                                 f"yaml error: {e}", severity="warning"))
+
     is_fixture = bool(manifest.get("is_fixture") or manifest.get("status") in {"fixture", "test_fixture"})
 
     if [i for i in issues if i.severity == "error"]:
@@ -111,6 +145,7 @@ def load_persona(package_dir: Path) -> tuple[Persona | None, list[PersonaValidat
             manifest=manifest,
             system_prompt=system_prompt,
             is_fixture=is_fixture,
+            position_model=position_model,
         ),
         issues,
     )

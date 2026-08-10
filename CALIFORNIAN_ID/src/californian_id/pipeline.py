@@ -88,6 +88,10 @@ class Pipeline:
         # 6.B.1 — real-time event sink. Called during run() with structured
         # dicts (`{"kind": "...", ...}`). None = no streaming.
         self.event_sink = None
+        # Пик 7.2 — жанр закрывающей речи. None = дефолт из registry.
+        self.closing_genre_id: str | None = None
+        # Пик 7.4 — диалоговый протокол хода. None = дефолт.
+        self.dialogue_protocol_id: str | None = None
         # Per-Pipeline overrides — если указаны, применяются к persona_turn +
         # closing_speech (там нужны умные модели). Служебные роли (routing /
         # situation_reading / synthesis / orchestration) остаются на своих
@@ -514,7 +518,7 @@ class Pipeline:
 
         completion.closing_speech = self.zarathustra.compose_closing_speech(
             closing_client, state.situation, completion, state.turns, state.argument_map,
-            on_delta=on_delta,
+            on_delta=on_delta, genre_id=self.closing_genre_id,
         )
         if getattr(closing_client, "provider", "mock") != "mock" and not (completion.closing_speech or "").strip():
             raise RuntimeError("zarathustra_closing_speech returned empty text")
@@ -990,8 +994,36 @@ class Pipeline:
             ),
         }, ensure_ascii=False)
 
+        # Пик 7.3 — position model block (если у персоны есть position_model.yaml).
+        pm_block = ""
+        try:
+            pm_block = persona.position_model_prompt_block()
+        except Exception:
+            pm_block = ""
+        # Пик 7.4 — dialogue protocol (если задан на Pipeline).
+        dp_block = ""
+        proto_id = getattr(self, "dialogue_protocol_id", None)
+        if proto_id:
+            try:
+                from . import dialogue_protocols
+                dp = dialogue_protocols.get(proto_id)
+                if dp and dp.prompt_text:
+                    dp_block = (
+                        f"## Dialogue protocol override (Пик 7.4)\n"
+                        f"Protocol: {dp.display_name} — {dp.purpose}\n\n"
+                        f"{dp.prompt_text}"
+                    )
+            except Exception:
+                dp_block = ""
+
+        system_parts = [persona.system_prompt]
+        if pm_block:
+            system_parts.append(pm_block)
+        if dp_block:
+            system_parts.append(dp_block)
+
         messages = [
-            Message(role="system", content=persona.system_prompt),
+            Message(role="system", content="\n\n".join(p for p in system_parts if p)),
             Message(role="user", content=user_payload),
         ]
         result = client.generate(
@@ -1004,6 +1036,8 @@ class Pipeline:
                 "attack_target": prior_turns[-1].persona_id if prior_turns else "previous_turn",
                 "critique_regime": critique_regime,
                 "variation_regime": variation_regime,
+                "dialogue_protocol": proto_id or "",
+                "has_position_model": bool(pm_block),
             },
         )
 

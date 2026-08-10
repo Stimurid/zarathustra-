@@ -792,6 +792,7 @@ class Zarathustra:
         turns: list[TurnRecord],
         argument_map: ArgumentMap,
         on_delta=None,
+        genre_id: str | None = None,
     ) -> str:
         """Финальная связная речь Заратустры (800-2000 слов) по итогу совета.
 
@@ -854,14 +855,30 @@ class Zarathustra:
             ),
         }, ensure_ascii=False)
 
-        messages = [
-            Message(role="system", content=prompt),
-            Message(role="user", content=payload),
-        ]
+        # Пик 7.2 — жанр риторической подачи (опционально).
+        genre_prompt = ""
+        genre_used = ""
+        if genre_id:
+            from . import rhetorical_genres
+            g = rhetorical_genres.get(genre_id)
+            if g and g.prompt_text:
+                genre_prompt = (
+                    f"# Rhetorical genre override (Пик 7.2)\n"
+                    f"Genre: {g.display_name} · register: {g.voice_register}\n\n"
+                    f"{g.prompt_text}"
+                )
+                genre_used = g.genre_id
+
+        messages: list[Message] = []
+        if genre_prompt:
+            messages.append(Message(role="system", content=genre_prompt))
+        messages.append(Message(role="system", content=prompt))
+        messages.append(Message(role="user", content=payload))
         settings = {
             "role": "zarathustra_closing_speech",
             "topic": situation.topic,
             "form": form,
+            "genre": genre_used,
         }
         try:
             if on_delta is not None:

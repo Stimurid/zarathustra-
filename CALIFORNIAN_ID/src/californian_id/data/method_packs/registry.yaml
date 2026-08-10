@@ -1,0 +1,51 @@
+schema_version: 0.1.0
+line: TINKUY_STANDALONE_MVP_ARCHITECTURE_V1.1 / Пик 7.1
+description: |
+  Шесть универсальных методов работы совета над содержанием.
+  Каждый MethodPack — прописная процедура (последовательность шагов + критерии
+  успеха + сигналы срыва). Персона может исполнять метод; Заратустра может
+  назначать метод.
+
+methods:
+  claim_and_logic_analysis:
+    display_name: Анализ тезиса и его логики
+    prompt_file: claim_and_logic_analysis.md
+    triggers_on:
+      - persona.operation in [attack_presupposition, defend, steelman_opponent]
+      - turn contains claim with hidden warrant
+    outputs_expected: [claim, warrant, backing, qualifier, rebuttal_hooks]
+  argument_reconstruction:
+    display_name: Реконструкция аргумента
+    prompt_file: argument_reconstruction.md
+    triggers_on:
+      - text contains multi-step reasoning
+      - implicit premises detected
+    outputs_expected: [premises, inferences, conclusion, missing_links]
+  conceptual_analysis:
+    display_name: Концептуальный анализ
+    prompt_file: conceptual_analysis.md
+    triggers_on:
+      - key term used ambiguously
+      - dispute rests on definition
+    outputs_expected: [term, working_definition, boundary_cases, family_resemblance]
+  ontological_reconstruction:
+    display_name: Онтологическая реконструкция
+    prompt_file: ontological_reconstruction.md
+    triggers_on:
+      - shift_ontology operation
+      - dispute crosses object/relation/process ontologies
+    outputs_expected: [assumed_ontology, alternative_ontologies, cost_of_switch]
+  problematisation:
+    display_name: Проблематизация
+    prompt_file: problematisation.md
+    triggers_on:
+      - problematize_question operation
+      - premise disguised as fact
+    outputs_expected: [surface_question, hidden_normative_ask, transformed_question]
+  socratic_inquiry:
+    display_name: Сократический вопрос
+    prompt_file: socratic_inquiry.md
+    triggers_on:
+      - user offers position without argumentation
+      - dialogue_protocol = socratic
+    outputs_expected: [question_chain, elenchic_move, aporia_or_ground]
