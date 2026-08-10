@@ -1,0 +1,44 @@
+name: frontend-build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'CALIFORNIAN_ID/frontend/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'CALIFORNIAN_ID/frontend/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 'CALIFORNIAN_ID/frontend/package-lock.json'
+
+      - name: Install
+        working-directory: CALIFORNIAN_ID/frontend
+        run: npm ci
+
+      - name: Build
+        working-directory: CALIFORNIAN_ID/frontend
+        run: npm run build
+
+      - name: Verify dist
+        run: |
+          ls -la CALIFORNIAN_ID/src/californian_id/data/frontend/
+          test -f CALIFORNIAN_ID/src/californian_id/data/frontend/index.html
+          test -d CALIFORNIAN_ID/src/californian_id/data/frontend/assets
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tinkuy-live-frontend
+          path: CALIFORNIAN_ID/src/californian_id/data/frontend/

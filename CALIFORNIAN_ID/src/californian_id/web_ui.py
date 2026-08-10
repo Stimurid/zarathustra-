@@ -1845,6 +1845,11 @@ class _WebUIHandler(BaseHTTPRequestHandler):
         else:
             path_only, self.raw_query = raw, ""
         self.path = path_only
+        # B-5.5 Веха 4 — Svelte live UI на /live/*
+        if self.path == "/live" or self.path == "/live/":
+            self._serve_live_index(); return
+        if self.path.startswith("/live/"):
+            self._serve_live_asset(self.path[len("/live/"):]); return
         if self.path in {"/v1/models"}:
             if not _compat_key_is_valid(self):
                 self._send_json({"error": {"message": "unauthorized", "type": "invalid_request_error"}}, status=HTTPStatus.UNAUTHORIZED)
@@ -2163,6 +2168,64 @@ class _WebUIHandler(BaseHTTPRequestHandler):
             self._send_json(payload)
         except Exception as exc:  # pragma: no cover
             self._send_json({"error": str(exc)}, status=HTTPStatus.INTERNAL_SERVER_ERROR)
+
+    # ---------- B-5.5 Веха 4 — Svelte live UI static serve ----------
+    _LIVE_MIME = {
+        ".html": "text/html; charset=utf-8",
+        ".js": "application/javascript; charset=utf-8",
+        ".css": "text/css; charset=utf-8",
+        ".map": "application/json; charset=utf-8",
+        ".svg": "image/svg+xml",
+        ".png": "image/png",
+        ".ico": "image/x-icon",
+        ".woff2": "font/woff2",
+    }
+
+    def _live_dir(self) -> Path:
+        from .config import DATA_ROOT
+        return DATA_ROOT / "frontend"
+
+    def _serve_live_index(self) -> None:
+        idx = self._live_dir() / "index.html"
+        if not idx.exists():
+            self._send_json({
+                "error": "Live UI not built. Run `cd frontend && npm run build`.",
+                "expected_path": str(idx),
+            }, status=HTTPStatus.NOT_FOUND); return
+        body = idx.read_bytes()
+        self.send_response(HTTPStatus.OK)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-cache")
+        self.end_headers()
+        self.wfile.write(body)
+
+    def _serve_live_asset(self, relpath: str) -> None:
+        # anti path traversal
+        from pathlib import PurePosixPath
+        p = PurePosixPath(relpath)
+        if any(part in {"..", ""} for part in p.parts):
+            self.send_error(HTTPStatus.FORBIDDEN, "bad path"); return
+        target = self._live_dir() / relpath
+        try:
+            target = target.resolve()
+            live_root = self._live_dir().resolve()
+            if not str(target).startswith(str(live_root)):
+                self.send_error(HTTPStatus.FORBIDDEN, "escape"); return
+        except Exception:
+            self.send_error(HTTPStatus.NOT_FOUND, "not found"); return
+        if not target.is_file():
+            self.send_error(HTTPStatus.NOT_FOUND, "asset not found"); return
+        body = target.read_bytes()
+        ext = target.suffix.lower()
+        mime = self._LIVE_MIME.get(ext, "application/octet-stream")
+        self.send_response(HTTPStatus.OK)
+        self.send_header("Content-Type", mime)
+        self.send_header("Content-Length", str(len(body)))
+        # assets имена с hash → можем cache надолго; index.html без cache
+        self.send_header("Cache-Control", "public, max-age=31536000, immutable")
+        self.end_headers()
+        self.wfile.write(body)
 
     def log_message(self, format: str, *args: object) -> None:
         return
