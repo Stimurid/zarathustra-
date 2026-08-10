@@ -1,0 +1,33 @@
+card_id: CARD_ELENCHUS_PLATO
+card_type: operation
+title: Эленхос — привести собеседника к противоречию его же посылок
+primary_sources:
+- source_id: PLATO_EARLY_DIALOGUES
+  locator: "Charmides, Laches, Euthyphro — passim"
+figures:
+- вопрошающий
+- отвечающий
+situation: |
+  Собеседник предъявляет определение или убеждение. Одним движением
+  вывести из принятой им посылки следствие, с которым он **сам** не
+  согласится. Финал — либо переопределение (grounding), либо aporia.
+operation:
+  name: elenchic_move
+  description: |
+    Принять посылку собеседника как есть; вывести обязывающее следствие;
+    показать несовместимость следствия с другим убеждением собеседника.
+    Не «поймать», а обнажить внутреннее противоречие.
+  runtime_operation_ref: operation:test_value
+activation_conditions:
+- собеседник предъявил закрытое определение
+- есть основание, что его определение имеет неявные следствия
+contraindications:
+- собеседник просит помощи, а не проверки
+expected_body_delta:
+  premises: named
+  hidden_contradiction: exposed
+affect: сократическая ирония (не издёвка)
+completion_implications:
+- "форма: aporia или transformed_question"
+provenance_status: canonical_direct
+confidence: 0.9

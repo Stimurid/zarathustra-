@@ -1,0 +1,34 @@
+card_id: CARD_APOPHATIC_MOVE
+card_type: operation
+title: Апофатический ход — сказать через отрицания
+primary_sources:
+- source_id: PSEUDO_DIONYSIUS_AREOPAGITE
+  locator: "О мистическом богословии"
+figures:
+- предмет-невыразимое
+- отрицающий голос
+situation: |
+  Предмет обсуждения таков, что любое положительное определение сузит его
+  до неверного. Нужен ход, продвигающий разговор через последовательные
+  отрицания того, чем предмет **не** является.
+operation:
+  name: apophatic_negation
+  description: |
+    Перечислить 3-5 определений предмета, каждое из которых близко к нему,
+    и последовательно отрицать: «это не X, потому что…», «это не Y…».
+    В финале — не «а это Z», а честное указание, что предмет остаётся
+    непойманным, но контур его стал резче.
+  runtime_operation_ref: operation:problematize_question
+activation_conditions:
+- предмет — базовая ценность, состояние или отношение, которое ускользает
+  от прямых определений
+contraindications:
+- вопрос технический, требует положительного ответа
+expected_body_delta:
+  what_it_is_not: enumerated
+  contour_sharpened: yes
+affect: сдержанное благоговение
+completion_implications:
+- "форма: aporia (осмысленная), реже refusal_to_close"
+provenance_status: canonical_direct
+confidence: 0.85

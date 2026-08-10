@@ -1,0 +1,46 @@
+card_id: CARD_JOB_WHIRLWIND
+card_type: scene
+title: Ответ из бури — вопрос переформулирован свыше
+primary_sources:
+- source_id: BIBLE_JOB
+  locator: "Иов 38-42"
+figures:
+- Иов
+- три друга
+- Элиуй
+- Голос из бури
+situation: |
+  Долгий цикл ходов, где каждый голос предлагает своё объяснение
+  страдания (грех, наказание, гордыня, испытание). Голос из бури **не
+  отвечает** на исходный вопрос «за что», а показывает, что вопрос
+  сформулирован в неверном масштабе. Финал — трансформация вопроса
+  свыше, а не решение в терминах вопрошающего.
+conflicts:
+- "право на объяснение vs. асимметрия масштабов"
+- "справедливость как счёт vs. справедливость как невыразимая целостность"
+- "друзья-теологи vs. Иов, отказывающийся принять готовые ответы"
+operation:
+  name: reframe_from_higher_scale
+  description: |
+    Не отвечать на вопрос в его рамке. Показать масштаб, в котором вопрос
+    теряет форму. Валидный только когда исходный вопрос действительно
+    сформулирован ограниченно, а не как удобное уклонение.
+  runtime_operation_ref: completion_form:transformed_question
+activation_conditions:
+- ≥3 голоса дали закрытые ответы в исходной рамке, все спорны
+- есть основание, что рамка сама неверна
+contraindications:
+- вопрос корректен и ждёт ответа в своей рамке
+expected_body_delta:
+  original_question: preserved
+  transformed_question: named
+  what_transformation_reveals: articulated
+affect: суровая ясность, освобождающая
+completion_implications:
+- "форма завершения: transformed_question"
+orchestrator_directive_template: |
+  Дай трём голосам предложить объяснения. Затем — голос, меняющий
+  масштаб. Финал: transformed_question с явным указанием, что теряется
+  и что открывается.
+provenance_status: canonical_direct
+confidence: 0.9

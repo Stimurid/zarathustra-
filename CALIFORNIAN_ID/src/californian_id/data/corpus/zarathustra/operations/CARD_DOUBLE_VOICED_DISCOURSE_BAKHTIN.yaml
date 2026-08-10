@@ -1,0 +1,34 @@
+card_id: CARD_DOUBLE_VOICED_DISCOURSE_BAKHTIN
+card_type: operation
+title: Двуголосое слово — говорить чужое слово, сохраняя дистанцию
+primary_sources:
+- source_id: BAKHTIN_PROBLEMS_DOSTOEVSKY_CREATIVITY_RU
+  locator: "Гл. V, § 3-5"
+figures:
+- голос-цитата
+- голос-держатель дистанции
+situation: |
+  Голос должен воспроизвести позицию оппонента, но не растворяясь в ней.
+  Слушатель должен слышать одновременно **и что говорится**, и **как
+  говорящий к этому относится**.
+operation:
+  name: double_voiced_speech
+  description: |
+    Воспроизвести чужую позицию максимально сильно (steelman), одновременно
+    удерживая один-два маркера дистанции: интонацию, оговорку, курсив
+    в письменном виде. Не пародия, не подмена — двойная слышимость.
+  runtime_operation_ref: operation:steelman_opponent
+activation_conditions:
+- нужно провести чужую позицию через собственный голос
+- прямая цитата не работает (контекст изменился)
+contraindications:
+- позиция оппонента морально невыносима — двуголосие превратится в
+  сокрытие
+expected_body_delta:
+  steelman: performed
+  distance_marker: preserved
+affect: интеллектуальная честность
+completion_implications:
+- "готовит форму: decision_with_dissent или synthesis с явным меньшинством"
+provenance_status: canonical_direct
+confidence: 0.9

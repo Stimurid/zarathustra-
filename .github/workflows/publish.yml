@@ -1,0 +1,38 @@
+name: publish
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build wheel
+        run: |
+          cd CALIFORNIAN_ID
+          python -m pip install --upgrade pip build
+          python -m build
+
+      - name: Publish to PyPI (only if PYPI_TOKEN secret set)
+        if: env.PYPI_TOKEN != ''
+        env:
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          cd CALIFORNIAN_ID
+          python -m pip install --upgrade twine
+          python -m twine upload dist/* -u __token__ -p "$PYPI_TOKEN"
+
+      - name: Upload build artifacts (always)
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: CALIFORNIAN_ID/dist/*

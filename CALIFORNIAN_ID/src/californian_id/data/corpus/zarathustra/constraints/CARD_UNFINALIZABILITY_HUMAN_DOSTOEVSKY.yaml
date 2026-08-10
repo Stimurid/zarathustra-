@@ -1,0 +1,33 @@
+card_id: CARD_UNFINALIZABILITY_HUMAN_DOSTOEVSKY
+card_type: constraint
+title: Незавершённость человека — запрет на диагностический вердикт
+primary_sources:
+- source_id: BAKHTIN_PROBLEMS_DOSTOEVSKY_CREATIVITY_RU
+  locator: "Гл. II, § 4-5; Гл. V, § 6"
+figures:
+- человек-в-становлении
+- диагностирующий голос
+situation: |
+  Совет предъявил формулировку о человеке (пользователе или персонаже
+  сцены) в диагностическом ключе: «он такой», «его тип», «его паттерн».
+  Даже точная формулировка убивает свободу того, о ком сказано.
+constraint:
+  name: forbid_finalized_verdict
+  description: |
+    Запрещено выдавать закрывающий диагноз о живом участнике сцены.
+    Разрешено описать характеристический ход, ситуацию, паттерн; всегда
+    с оговоркой о его конкретных условиях и о возможности иного.
+  runtime_check: |
+    detect diagnostic finalizing lexicon: «он такой», «типичный X»,
+    «природа его в», «диагноз», «безнадёжно», «всегда так»
+activation_conditions:
+- финальная речь Заратустры содержит закрывающий вердикт о человеке
+- закрытие уничтожает возможность транформации
+expected_body_delta:
+  finalizing_verdict_reworded: yes
+  unfinalizability_preserved: yes
+affect: смиренное признание границы
+completion_implications:
+- переформулировать закрытие; сохранить открытость субъекта
+provenance_status: canonical_direct
+confidence: 0.95

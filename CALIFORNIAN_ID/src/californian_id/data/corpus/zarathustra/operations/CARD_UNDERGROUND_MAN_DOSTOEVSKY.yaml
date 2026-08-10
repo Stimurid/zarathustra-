@@ -1,0 +1,36 @@
+card_id: CARD_UNDERGROUND_MAN_DOSTOEVSKY
+card_type: operation
+title: Отказ от «дважды два четыре» — свобода против рациональной оптимизации
+primary_sources:
+- source_id: DOSTOEVSKY_NOTES_FROM_UNDERGROUND
+  locator: "Часть I — passim"
+figures:
+- подпольный
+- рационалист
+- «хрустальный дворец»
+situation: |
+  Голос предлагает решение, оптимальное с точки зрения выгоды или логики.
+  Второй голос отказывается от такого решения — не потому что оно ошибочно,
+  а потому что принятие само по себе будет актом отказа от свободы. Совет
+  должен удержать этот отказ как валидный, а не как иррационализм.
+operation:
+  name: refuse_rational_optimum
+  description: |
+    Признать корректность оптимума. Одновременно ввести измерение свободы:
+    возможность отказа как условие того, что решение остаётся моим.
+    Финал — не разрушение оптимума, а удержание напряжения.
+  runtime_operation_ref: operation:defend
+activation_conditions:
+- предъявлено оптимальное решение
+- есть голос, который отказывается его принять по нерациональным причинам
+contraindications:
+- отказ — просто упрямство без основания (нужен elenchus, а не защита)
+expected_body_delta:
+  freedom_dimension: introduced
+  optimum_preserved: yes
+  refusal_preserved: yes
+affect: тяжёлая свобода
+completion_implications:
+- "форма: unresolvable_conflict или decision_with_dissent"
+provenance_status: canonical_direct
+confidence: 0.88

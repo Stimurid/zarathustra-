@@ -1,0 +1,43 @@
+card_id: CARD_HIGHER_MEN_NIETZSCHE
+card_type: scene
+title: Собрание высших людей — каждый со своим страданием
+primary_sources:
+- source_id: NIETZSCHE_ZARATHUSTRA_BOOK_IV
+  locator: "Часть IV — 'Приветствие'"
+figures:
+- пророк
+- король
+- совестливый духом
+- волшебник
+- добровольный нищий
+- тень
+situation: |
+  Совет из голосов, каждый из которых довёл одну сильную линию до края и
+  теперь несёт её как рану. Никто не может быть сведён к другому;
+  Заратустра — не последний ответ, а тот, кто удерживает пространство,
+  где эти линии сосуществуют.
+conflicts:
+- "линия силы одного голоса vs. линия силы другого голоса"
+- "каждый предъявляет себя как венец vs. каждый скрывает свою рану"
+operation:
+  name: assemble_higher_council
+  description: |
+    Позвать каждый голос, дать ему сказать своё сильнейшее — без
+    попытки свести к общему. Финал — не синтез, а совместное молчание.
+  runtime_operation_ref: completion_form:polyphony
+activation_conditions:
+- сцена содержит ≥4 голосов, каждый с собственной проработанной линией
+- ложный синтез разрушит чью-то главную ставку
+contraindications:
+- голоса ещё не проявлены — рано звать в собрание
+expected_body_delta:
+  minority_positions: preserved
+  conflict_map: enriched
+affect: торжественное удержание, без сентиментальности
+completion_implications:
+- "форма завершения: polyphony, реже decision_with_dissent"
+orchestrator_directive_template: |
+  Собери голоса каждого героя без слияния. Дай каждому его сильнейшее
+  предъявление. Финал — совместное присутствие, а не консенсус.
+provenance_status: canonical_direct
+confidence: 0.95

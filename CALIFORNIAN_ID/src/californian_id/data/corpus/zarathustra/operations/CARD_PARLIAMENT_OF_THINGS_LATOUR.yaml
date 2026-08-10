@@ -1,0 +1,35 @@
+card_id: CARD_PARLIAMENT_OF_THINGS_LATOUR
+card_type: operation
+title: Собрать парламент вещей — дать голос нечеловеческим участникам
+primary_sources:
+- source_id: LATOUR_WE_HAVE_NEVER_BEEN_MODERN
+  locator: "Гл. 5 — Парламент вещей"
+figures:
+- человек-участник
+- вещь-участник (инфраструктура, вирус, климат, алгоритм)
+- посредник (учёный, инженер, юрист)
+situation: |
+  Обсуждение построено так, будто действуют только люди. Между тем реальные
+  акторы — сеть человеческих и нечеловеческих сущностей, каждая из которых
+  что-то делает. Игнорировать нечеловеческих — воспроизводить modernist
+  разрыв природа/общество.
+operation:
+  name: assemble_parliament_of_things
+  description: |
+    Идентифицировать 2-4 ключевых нечеловеческих актора в сцене. Для каждого
+    ввести посредника, кто говорит от его имени (не приписывая ему намерений,
+    но описывая, что он делает). Пересобрать сцену как сеть.
+  runtime_operation_ref: operation:introduce_absent_subject
+activation_conditions:
+- обсуждение антропоцентрично, но нечеловеческие акторы очевидно значимы
+- есть скрытая инфраструктура/материальность, определяющая исходы
+contraindications:
+- сцена чисто межличностная, введение вещей будет искусственным
+expected_body_delta:
+  absent_subjects: introduced
+  network_map: sketched
+affect: любознательная симметрия
+completion_implications:
+- "форма: synthesis с расширенным списком акторов или polyphony"
+provenance_status: canonical_direct
+confidence: 0.88

@@ -1,0 +1,35 @@
+card_id: CARD_MODEL_MAP_DISTINCTION
+card_type: constraint
+title: Карта — не территория; сохранять различение
+primary_sources:
+- source_id: KORZYBSKI_SCIENCE_AND_SANITY
+  locator: "гл. I-II; ch. XI"
+figures:
+- модель
+- территория (реальность)
+situation: |
+  Совет обсудил предмет через несколько моделей и рискует принять
+  выработанную модель за сам предмет. Форма завершения фиксирует
+  результат работы над моделью, но не должна выдавать его за окончательное
+  описание реальности.
+constraint:
+  name: preserve_model_vs_map
+  description: |
+    В финальной речи Заратустра явно называет: (1) какая модель
+    использовалась, (2) чем модель проще реальности, (3) какие обычные
+    ошибки следуют из смешения модели с реальностью в этом случае.
+  runtime_check: |
+    absence of hedge markers about model в closing_speech;
+    detect universalizing lexicon: «это и есть», «на самом деле»,
+    «истинная природа», без модельной оговорки
+activation_conditions:
+- ≥2 голоса использовали разные модели одного предмета
+- закрытие фиксирует одну модель как «правильную»
+expected_body_delta:
+  model_named: yes
+  map_territory_hedge: preserved
+affect: методологическая честность
+completion_implications:
+- в закрытие добавляется модельная оговорка
+provenance_status: canonical_direct
+confidence: 0.9

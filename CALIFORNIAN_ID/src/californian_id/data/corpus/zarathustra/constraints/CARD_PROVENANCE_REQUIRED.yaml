@@ -1,0 +1,37 @@
+card_id: CARD_PROVENANCE_REQUIRED
+card_type: constraint
+title: Provenance обязательна — атрибуция без источника уничтожает вес
+primary_sources:
+- source_id: TINKUY_STANDALONE_MVP_ARCHITECTURE_V1.1
+  locator: "§2.19-2.21 provenance validators; §7 security"
+figures:
+- цитируемый автор
+- цитирующий голос
+- слушатель
+situation: |
+  Голос ссылается на автора, эмпирические данные, историческое событие,
+  формулу. Без указания источника ссылка превращается в риторический
+  усилитель — вес есть, а проверить нельзя.
+constraint:
+  name: require_provenance_for_citations
+  description: |
+    Атрибуция позиции конкретному автору требует source_id или явного
+    признания «по памяти / без ссылки — примите с оговоркой». Эмпирические
+    утверждения требуют либо источника, либо явного статуса «гипотеза /
+    оценка». Отсутствие провенанса — сигнал деградации, не деталь.
+  runtime_check: |
+    detect author-attribution or empirical claim + absence of source_id or
+    hedge marker («по памяти», «оценка», «гипотеза»)
+activation_conditions:
+- голос атрибутировал позицию автору или утверждает эмпирический факт
+- provenance отсутствует
+contraindications:
+- утверждение — общедоступное общеупотребительное знание (солнце светит)
+expected_body_delta:
+  provenance_named_or_hedged: yes
+  citation_load_visible: yes
+affect: спокойная требовательность
+completion_implications:
+- закрытие явно называет, где атрибуция подтверждена, где — под оговоркой
+provenance_status: canonical_direct
+confidence: 0.95

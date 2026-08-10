@@ -1,0 +1,38 @@
+card_id: CARD_STEELMAN_BEFORE_ATTACK
+card_type: constraint
+title: Steelman перед атакой — не разрушать слабой версии позиции
+primary_sources:
+- source_id: RAPOPORT_RULES_OF_DEBATE
+  locator: "Rapoport's rules for productive debate"
+figures:
+- нападающий голос
+- защищающийся голос
+- сильнейшая версия позиции
+situation: |
+  Голос собирается атаковать позицию оппонента. Слабое основание для
+  атаки (слабая формулировка оппонента, соломенное чучело) даёт короткую
+  победу, но лишает совет ценности: атака на steelman — единственная
+  форма атаки, которая продвигает мысль.
+constraint:
+  name: steelman_before_attack
+  description: |
+    Перед attack операцией голос обязан явно предъявить сильнейшую
+    версию оппонентской позиции — как если бы защищал её сам. Только
+    после этого атака валидна. Атака на слабую формулировку блокируется
+    как argumentation:strawman.
+  runtime_check: |
+    attack operation без предшествующей steelman_opponent реплики
+    в prior_turns (в пределах последних 3 ходов)
+activation_conditions:
+- очередной ход = attack или attack_previous
+- позиция оппонента ранее не была усилена
+contraindications:
+- атака на процедурное нарушение, а не на содержание
+expected_body_delta:
+  steelman: performed
+  attack_validity: strengthened
+affect: интеллектуальная дисциплина
+completion_implications:
+- атака, прошедшая через steelman, весомее в conflict_map
+provenance_status: canonical_direct
+confidence: 0.95

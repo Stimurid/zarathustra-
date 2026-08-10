@@ -1,0 +1,43 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install package (editable)
+        run: |
+          python -m pip install --upgrade pip wheel
+          pip install -e ./CALIFORNIAN_ID
+          pip install pytest pyyaml
+
+      - name: Run tests
+        env:
+          PYTHONIOENCODING: utf-8
+          CALIFORNIAN_ID_AUTH_DISABLED: "1"
+        run: |
+          cd CALIFORNIAN_ID
+          python -m pytest tests/ -q --no-header
+
+      - name: Report counts
+        if: always()
+        run: |
+          cd CALIFORNIAN_ID
+          python -m pytest tests/ --collect-only -q --no-header 2>&1 | tail -1 || true

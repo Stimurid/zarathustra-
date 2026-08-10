@@ -551,6 +551,18 @@ class Pipeline:
             "run_id": state.run_id,
             "entrypoint": entrypoint,
         })
+        # 9.1 — persist narrative observation (fail-soft)
+        try:
+            from . import narrative_memory
+            narrative_memory.auto_record_observation(
+                workspace_id=self.workspace_id,
+                run_id=state.run_id,
+                completion_form=completion.form,
+                stopping_reason=state.stopping_reason or "",
+                voices_used=list(memory.voices_called),
+            )
+        except Exception as ex:
+            logger.warning("narrative_memory hook failed: %s", ex)
         trace.dump_state({"state": state.as_json(), "memory": memory.as_dict()})
 
     def run_from_envelope(

@@ -1884,6 +1884,28 @@ class _WebUIHandler(BaseHTTPRequestHandler):
             ws = self._query_param("workspace") or None
             self._send_json(auth.billing_summary(ws))
             return
+        # 9.2 budgets summary
+        if self.path in {"/api/budgets", "/budgets"}:
+            from . import budgets
+            ws = self._query_param("workspace") or None
+            self._send_json(budgets.summary(ws))
+            return
+        # 9.1 narrative notes list
+        if self.path in {"/api/narrative/notes", "/narrative/notes"}:
+            from . import narrative_memory
+            ws = self._query_param("workspace") or "default"
+            kind = self._query_param("kind") or None
+            limit = int(self._query_param("limit") or "50")
+            store = narrative_memory.NarrativeStore.for_workspace(ws)
+            try:
+                notes = store.list(kind=kind, limit=limit)
+            finally:
+                store.close()
+            from dataclasses import asdict
+            self._send_json({"workspace_id": ws,
+                             "count": len(notes),
+                             "notes": [asdict(n) for n in notes]})
+            return
         if self.path not in {"/", "/index.html"}:
             self.send_error(HTTPStatus.NOT_FOUND, "Not found")
             return
@@ -1903,6 +1925,19 @@ class _WebUIHandler(BaseHTTPRequestHandler):
             return
         if self.path in {"/api/run/async", "/run/async"}:
             self._handle_run_async()
+            return
+        if self.path in {"/api/narrative/reflect", "/narrative/reflect"}:
+            try:
+                length = int(self.headers.get("Content-Length", "0"))
+                raw = self.rfile.read(length) if length else b"{}"
+                data = json.loads(raw.decode("utf-8")) if raw else {}
+            except Exception as exc:
+                self._send_json({"error": f"bad request: {exc}"},
+                                status=HTTPStatus.BAD_REQUEST); return
+            ws = data.get("workspace_id") or "default"
+            window = int(data.get("window") or 10)
+            from . import narrative_memory
+            self._send_json(narrative_memory.reflect_over_window(ws, window=window))
             return
         if self.path in {"/api/reflect/cross_run", "/reflect/cross_run"}:
             try:
@@ -1992,6 +2027,12 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                             status=HTTPStatus.BAD_REQUEST); return
         run_id = new_run_id()
         ws = data.get("workspace_id") or "default"
+        # 9.2 hard budget check
+        from . import budgets
+        deny, info = budgets.should_deny(ws)
+        if deny:
+            self._send_json({"error": "budget exceeded", **info},
+                            status=HTTPStatus.TOO_MANY_REQUESTS); return
 
         def _job() -> dict[str, Any]:
             return run_web_request(

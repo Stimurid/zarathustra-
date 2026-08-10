@@ -1,0 +1,35 @@
+card_id: CARD_ETERNAL_RETURN_TEST_NIETZSCHE
+card_type: operation
+title: Тест вечного возвращения — «хочешь ли ты этого ещё раз?»
+primary_sources:
+- source_id: NIETZSCHE_ZARATHUSTRA
+  locator: "Часть III — 'О видении и загадке', 'Выздоравливающий'"
+figures:
+- решение
+- бесконечность повторений
+situation: |
+  Обсуждается план, курс жизни, институциональное решение. Все аргументы
+  «в пользу» сводятся к преходящим удобствам или страху перед изменением.
+  Нужен ход, испытывающий решение через вопрос: «если бы это повторялось
+  бесконечно, ты бы всё равно этого хотел?».
+operation:
+  name: eternal_return_test
+  description: |
+    Задать вопрос теста: «представь, что этот выбор реализуется, а затем
+    повторяется бесконечно во всех деталях. Готов ли ты сказать этому «да»?».
+    Ход — не философский трюк, а инструмент отделения преходящей выгоды
+    от того, что стоит утверждать как ценность.
+  runtime_operation_ref: operation:test_value
+activation_conditions:
+- решение принимается из страха или из инерции
+- есть ощущение, что «через год буду жалеть»
+contraindications:
+- решение операциональное, малое, обратимое
+expected_body_delta:
+  underlying_value: exposed
+  attachment_or_fear: named
+affect: суровая ясность
+completion_implications:
+- "форма: transformed_question или refusal_to_close"
+provenance_status: canonical_direct
+confidence: 0.9
