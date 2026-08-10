@@ -31,6 +31,7 @@ from .models import Message, build_client
 from .personas import PersonaRegistry, load_registry
 from .regimes import CRITIQUE_REGIMES, VARIATION_REGIMES
 from .retrieval import LexicalPersonaRetriever
+from .rhetoric import operation_class
 from .router_scoring import summarize_route_trace
 from .schemas import (
     Action,
@@ -157,6 +158,127 @@ class Pipeline:
         except Exception as ex:
             logger.warning("event_sink failed for %s: %s", kind, ex)
 
+    def _consume_pending(self, run_id: str) -> dict[str, Any]:
+        """B-5.5 Веха 2 — извлечь pending steer/user_voice/attach из runtime_control.
+
+        Возвращает snapshot, применяемый к следующему turn'у:
+          {
+            "steer_override": dict | None,  # первый в очереди
+            "user_voices": list[dict],       # все pending
+            "attachments": list[dict],
+            "persona_weights": dict[str, float],
+          }
+
+        Также mark_applied в audit SQLite.
+        """
+        from . import runtime_control as _rc
+        st = _rc.get(run_id)
+        if st is None:
+            return {"steer_override": None, "user_voices": [], "attachments": [],
+                    "persona_weights": {}}
+        with st.lock:
+            steer = st.pending_steer.pop(0) if st.pending_steer else None
+            user_voices = list(st.pending_user_voice)
+            st.pending_user_voice.clear()
+            attach = list(st.pending_attach)
+            st.pending_attach.clear()
+            weights = dict(st.persona_weights)
+        return {
+            "steer_override": steer,
+            "user_voices": user_voices,
+            "attachments": attach,
+            "persona_weights": weights,
+        }
+
+    def _inject_user_voice(
+        self,
+        state: "RunState",
+        argument_map: "ArgumentMap",
+        memory: "ConversationMemory",
+        vc: dict[str, Any],
+        turn_index: int,
+    ) -> None:
+        """B-5.5 Веха 2 — записать USER_VOICE turn в state.turns."""
+        from .schemas import TurnRecord, Claim, Assumption
+        utterance = (vc.get("utterance") or "").strip()
+        if not utterance:
+            return
+        author = vc.get("author") or "anonymous"
+        persona_hint = vc.get("attach_to_persona") or ""
+        op = vc.get("as_operation") or "user_intervention"
+        turn = TurnRecord(
+            turn_index=turn_index,
+            persona_id="USER_VOICE",
+            operation=op,
+            utterance=utterance,
+            claims=[Claim(text=utterance[:280], confidence=1.0)],
+            confidence=1.0,
+            routing_reason=f"user_voice by {author}",
+            model_provider="human",
+            model_name=f"user:{author}",
+        )
+        state.turns.append(turn)
+        memory.observe_turn(turn)
+        # Записать claim в argument_map, помечая как human
+        argument_map.claims.append(Claim(text=utterance[:280], confidence=1.0))
+        self._emit("user_voice_injected", {
+            "run_id": state.run_id,
+            "turn_index": turn_index,
+            "author": author,
+            "persona_hint": persona_hint,
+            "utterance": utterance[:400],
+        })
+
+    def _checkpoint(self, run_id: str, before_turn_index: int) -> None:
+        """B-5.5 Веха 1 — cooperative checkpoint между ходами.
+
+        Читает runtime_control:
+          - если pause → блокируется до resume/cancel (timeout 60s)
+          - если cancel → бросает RuntimeCancelled
+
+        Не имеет побочных эффектов кроме emit checkpoint_reached / paused / resumed.
+        Веха 2 добавит apply steer / slider / user_voice.
+        """
+        from . import runtime_control
+        st = runtime_control.get(run_id)
+        if st is None:
+            return
+        # snapshot состояния перед возможной блокировкой
+        was_paused = not st.run_event.is_set()
+        if was_paused:
+            self._emit("paused", {
+                "run_id": run_id,
+                "at_turn_index": before_turn_index,
+                "reason": "user_paused",
+            })
+        outcome = runtime_control.wait_if_paused(run_id, timeout_sec=60.0)
+        if outcome == "cancelled":
+            self._emit("cancelled", {
+                "run_id": run_id,
+                "at_turn_index": before_turn_index,
+                "reason": st.cancel_reason or "user_cancelled",
+            })
+            raise runtime_control.RuntimeCancelled(
+                f"run {run_id} cancelled at turn {before_turn_index}: "
+                f"{st.cancel_reason or 'user_cancelled'}"
+            )
+        if outcome == "timeout":
+            # 60s без resume — эмитим предупреждение и продолжаем
+            self._emit("checkpoint_timeout", {
+                "run_id": run_id,
+                "at_turn_index": before_turn_index,
+                "note": "pause exceeded 60s, auto-resuming",
+            })
+        if was_paused and outcome == "running":
+            self._emit("resumed", {
+                "run_id": run_id,
+                "at_turn_index": before_turn_index,
+            })
+        self._emit("checkpoint_reached", {
+            "run_id": run_id,
+            "at_turn_index": before_turn_index,
+        })
+
     def _mode_cfg(self, mode: str) -> dict[str, Any]:
         mode_cfg = dict(self.config.mode_settings(mode) or {})
         if self.max_turns_override and self.max_turns_override > 0:
@@ -190,6 +312,9 @@ class Pipeline:
             "workspace_id": self.workspace_id,
             "input_chars": len(text),
         })
+        # B-5.5 Веха 1 — регистрация runtime control для этого рана.
+        from . import runtime_control as _rc
+        _rc.register(run_id, self.workspace_id)
 
         registry = load_registry()
         state.persona_registry_snapshot = registry.snapshot()
@@ -268,6 +393,20 @@ class Pipeline:
 
         for turn_index in range(max_turns):
             state.transition("STOPPING_CHECK")
+            try:
+                self._checkpoint(state.run_id, turn_index)
+            except _rc.RuntimeCancelled as _cx:
+                # Cancel — не финализируем, возвращаем partial state.
+                state.stopping_reason = f"cancelled:{str(_cx)[:120]}"
+                state.transition("CANCELLED")
+                _rc.unregister(state.run_id)
+                trace.dump_state({"state": state.as_json(), "memory": memory.as_dict()})
+                return PipelineResult(state, memory, trace.dir)
+            # B-5.5 Веха 2 — читаем pending интервенции ДО route.
+            pending = self._consume_pending(state.run_id)
+            for _vc in pending["user_voices"]:
+                self._inject_user_voice(state, argument_map, memory, _vc, turn_index)
+                already_called.append("USER_VOICE")
             if turn_index == 0:
                 # Zarathustra opens with a canonical first voice from cast
                 first = registry_ids[0]
@@ -279,14 +418,17 @@ class Pipeline:
                     state.situation,
                     critique_regime=critique_regime,
                     variation_regime=variation_regime,
+                    persona_weights=pending["persona_weights"] or None,
+                    steer_override=pending["steer_override"],
                 )
                 if decision.next_persona not in registry_ids:
                     decision = type(decision)(next_persona=first, operation="initial_position", reason="seed")
                 else:
-                    decision.operation = "initial_position"
+                    if not pending["steer_override"]:
+                        decision.operation = "initial_position"
                 if decision.trace is not None:
-                    decision.trace["selected_operation"] = "initial_position"
-                    decision.trace["selected_class"] = "stabilize"
+                    decision.trace["selected_operation"] = decision.operation
+                    decision.trace["selected_class"] = operation_class(decision.operation)
             else:
                 decision = self.zarathustra.route_next(
                     routing_client,
@@ -296,7 +438,18 @@ class Pipeline:
                     state.situation,
                     critique_regime=critique_regime,
                     variation_regime=variation_regime,
+                    persona_weights=pending["persona_weights"] or None,
+                    steer_override=pending["steer_override"],
                 )
+            # emit preview для UI
+            self._emit("route_previewed", {
+                "run_id": state.run_id,
+                "turn_index": turn_index,
+                "next_persona": decision.next_persona,
+                "operation": decision.operation,
+                "reason": decision.reason,
+                "was_user_steer": bool(pending["steer_override"]),
+            })
             if decision.trace:
                 route_traces.append(decision.trace)
             trace.event("route", {
@@ -453,7 +606,10 @@ class Pipeline:
 
         state.transition("STOPPING_CHECK")
         state.transition("COMPLETING")
-        self._finalize_council(state, memory, trace, route_traces, entrypoint="run")
+        try:
+            self._finalize_council(state, memory, trace, route_traces, entrypoint="run")
+        finally:
+            _rc.unregister(state.run_id)
         return PipelineResult(state, memory, trace.dir)
 
     def _finalize_council(
@@ -713,6 +869,15 @@ class Pipeline:
             "critique_regime": critique_regime,
             "variation_regime": variation_regime,
         })
+        self._emit("run_started", {
+            "run_id": run_id, "mode": mode,
+            "workspace_id": self.workspace_id,
+            "entrypoint": "run_from_units",
+            "unit_count": len(pack.units),
+        })
+        # B-5.5 Веха 1 — регистрация runtime control.
+        from . import runtime_control as _rc
+        _rc.register(run_id, self.workspace_id)
 
         registry = load_registry()
         state.persona_registry_snapshot = registry.snapshot()
@@ -801,6 +966,20 @@ class Pipeline:
 
         for turn_index in range(max_turns):
             state.transition("STOPPING_CHECK")
+            try:
+                self._checkpoint(state.run_id, turn_index)
+            except _rc.RuntimeCancelled as _cx:
+                # Cancel — не финализируем, возвращаем partial state.
+                state.stopping_reason = f"cancelled:{str(_cx)[:120]}"
+                state.transition("CANCELLED")
+                _rc.unregister(state.run_id)
+                trace.dump_state({"state": state.as_json(), "memory": memory.as_dict()})
+                return PipelineResult(state, memory, trace.dir)
+            # B-5.5 Веха 2 — pending интервенции ДО route.
+            pending = self._consume_pending(state.run_id)
+            for _vc in pending["user_voices"]:
+                self._inject_user_voice(state, state.argument_map, memory, _vc, turn_index)
+                already_called.append("USER_VOICE")
             decision = self.zarathustra.route_next(
                 routing_client,
                 registry_ids,
@@ -809,13 +988,23 @@ class Pipeline:
                 state.situation,
                 critique_regime=critique_regime,
                 variation_regime=variation_regime,
+                persona_weights=pending["persona_weights"] or None,
+                steer_override=pending["steer_override"],
             )
             if turn_index == 0 and decision.next_persona not in registry_ids:
                 decision.next_persona = registry_ids[0]
                 decision.operation = "initial_position"
-            if turn_index == 0 and decision.trace is not None:
+            if turn_index == 0 and decision.trace is not None and not pending["steer_override"]:
                 decision.trace["selected_operation"] = "initial_position"
                 decision.trace["selected_class"] = "stabilize"
+            self._emit("route_previewed", {
+                "run_id": state.run_id,
+                "turn_index": turn_index,
+                "next_persona": decision.next_persona,
+                "operation": decision.operation,
+                "reason": decision.reason,
+                "was_user_steer": bool(pending["steer_override"]),
+            })
             if decision.trace:
                 route_traces.append(decision.trace)
             trace.event("route", {
@@ -918,7 +1107,10 @@ class Pipeline:
 
         state.transition("STOPPING_CHECK")
         state.transition("COMPLETING")
-        self._finalize_council(state, memory, trace, route_traces, entrypoint="run_from_units")
+        try:
+            self._finalize_council(state, memory, trace, route_traces, entrypoint="run_from_units")
+        finally:
+            _rc.unregister(state.run_id)
         return PipelineResult(state, memory, trace.dir)
 
     # ---------- Persona turn ----------

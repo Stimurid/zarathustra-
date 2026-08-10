@@ -323,7 +323,40 @@ class Zarathustra:
         situation: SituationAnalysis,
         critique_regime: str = "balanced",
         variation_regime: str = "normal",
+        persona_weights: dict[str, float] | None = None,
+        steer_override: dict[str, Any] | None = None,
     ) -> RoutingDecision:
+        # B-5.5 Веха 2 — юзер задал прямой override следующего хода.
+        if steer_override and steer_override.get("persona_id"):
+            _pid = str(steer_override["persona_id"])
+            if _pid in registry_ids:
+                _op = str(steer_override.get("operation") or "").strip()
+                if _op not in TURN_OPERATIONS:
+                    _op = self._suggest_operation(turns, situation,
+                                                   critique_regime, variation_regime)
+                return RoutingDecision(
+                    next_persona=_pid,
+                    operation=_op,
+                    reason=f"user_steer: {steer_override.get('reason','') or 'no reason'}",
+                    trace={
+                        "critique_regime": critique_regime,
+                        "variation_regime": variation_regime,
+                        "selected_operation": _op,
+                        "selected_class": operation_class(_op),
+                        "recent_operations": recent_operations(turns, n=3),
+                        "recent_classes": recent_classes(turns, n=3),
+                        "candidate_scores": [],
+                        "selection_reason": ["user_steer_override"],
+                        "user_steer": True,
+                    },
+                )
+        # B-5.5 Веха 2 — sliders: временно исключаем персон с весом ≤ 0.05.
+        weights = persona_weights or {}
+        if weights:
+            filtered = [pid for pid in registry_ids
+                        if weights.get(pid, 1.0) > 0.05]
+            if filtered:
+                registry_ids = filtered
         critique_spec = CRITIQUE_REGIMES[critique_regime]
         variation_spec = VARIATION_REGIMES[variation_regime]
         canonical_op = self._canonical_operation(turns, situation)

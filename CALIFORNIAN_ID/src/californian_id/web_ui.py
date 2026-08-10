@@ -388,6 +388,13 @@ _HTML = """<!doctype html>
           </label>
           <span class="status" id="status">Готово.</span>
         </div>
+        <div class="actions" style="margin-top:0.5em;" id="hilBar">
+          <span style="color:var(--muted);font-size:0.85em;">HIL (B-5.5 Веха 1):</span>
+          <button class="secondary" id="pauseBtn" type="button" disabled>⏸ Pause</button>
+          <button class="secondary" id="resumeBtn" type="button" disabled>▶ Resume</button>
+          <button class="secondary" id="cancelBtn" type="button" disabled>⏹ Cancel</button>
+          <span class="hint" id="hilStatus" style="margin-left:1em;"></span>
+        </div>
         <div class="actions" style="margin-top:0.5em;">
           <button class="secondary" id="historyBtn" type="button">📜 История ранов</button>
           <span id="historyInfo" class="hint"></span>
@@ -675,6 +682,44 @@ _HTML = """<!doctype html>
     }
     document.getElementById('historyBtn').addEventListener('click', refreshHistory);
 
+    // B-5.5 Веха 1 — HIL run control
+    let currentLiveRunId = null;
+    const pauseBtn = document.getElementById('pauseBtn');
+    const resumeBtn = document.getElementById('resumeBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const hilStatus = document.getElementById('hilStatus');
+
+    function setHilEnabled(enabled, runId) {
+      currentLiveRunId = enabled ? runId : null;
+      pauseBtn.disabled = !enabled;
+      resumeBtn.disabled = !enabled;
+      cancelBtn.disabled = !enabled;
+      hilStatus.textContent = enabled ? ('run: ' + runId) : '';
+    }
+
+    async function sendIntervention(kind, payload) {
+      if (!currentLiveRunId) return;
+      try {
+        const r = await fetch('api/run/' + currentLiveRunId + '/intervention', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({kind, payload: payload || {}})
+        });
+        const d = await r.json();
+        if (!r.ok) {
+          hilStatus.textContent = 'Ошибка: ' + (d.error || 'HTTP ' + r.status);
+        } else {
+          hilStatus.textContent = kind + ': accepted · state ' + (d.run_state?.state || '?');
+        }
+      } catch (e) {
+        hilStatus.textContent = 'Ошибка сети: ' + String(e);
+      }
+    }
+
+    pauseBtn.addEventListener('click', () => sendIntervention('pause'));
+    resumeBtn.addEventListener('click', () => sendIntervention('resume'));
+    cancelBtn.addEventListener('click', () => sendIntervention('cancel', {reason: 'user_cancel'}));
+
     async function runStreamed(text, t0, timer) {
       output.textContent = '';
       const response = await fetch('api/run/stream', {
@@ -710,6 +755,15 @@ _HTML = """<!doctype html>
             statusEl.textContent = `Live: ${k} · ${dt}s`;
             if (k === 'run_started') {
               appendLine('=== run ' + evt.run_id + ' (workspace: ' + evt.workspace_id + ') ===');
+              setHilEnabled(true, evt.run_id);
+            } else if (k === 'paused') {
+              appendLine('⏸ paused at turn ' + evt.at_turn_index + ' (reason: ' + evt.reason + ')');
+            } else if (k === 'resumed') {
+              appendLine('▶ resumed at turn ' + evt.at_turn_index);
+            } else if (k === 'cancelled') {
+              appendLine('⏹ cancelled at turn ' + evt.at_turn_index + ' (' + evt.reason + ')');
+            } else if (k === 'checkpoint_timeout') {
+              appendLine('⚠ checkpoint timeout: ' + evt.note);
             } else if (k === 'situation_reading_done') {
               appendLine('  situation: topic=' + JSON.stringify(evt.topic) + ' genre=' + evt.genre);
             } else if (k === 'cast_selected') {
@@ -742,6 +796,7 @@ _HTML = """<!doctype html>
       }
       const dt = Math.floor((Date.now() - t0) / 1000);
       statusEl.textContent = `Готово за ${dt}s (live, ${turnCount} turns).`;
+      setHilEnabled(false, null);
       if (finalPayload && document.getElementById('debug').value === 'true') {
         output.textContent += '\\n\\n--- full payload ---\\n' + JSON.stringify(finalPayload, null, 2);
       }
@@ -862,8 +917,30 @@ def run_web_request(
             max_turns_override=max_turns if (max_turns and max_turns > 0) else None,
             workspace_id=workspace_id,
         )
-        if event_sink is not None:
-            pipe.event_sink = event_sink
+        # B-5.5 Веха 3 — всегда шлём события в WS-подписчиков (если запущены).
+        # Комбинируем с user-supplied event_sink через wrapper.
+        try:
+            from . import ws_endpoint
+            _ws_send = ws_endpoint.register_event_sink
+        except Exception:
+            _ws_send = None
+
+        _user_sink = event_sink
+        def _combined_sink(evt: dict) -> None:
+            if _user_sink is not None:
+                try:
+                    _user_sink(evt)
+                except Exception:
+                    pass
+            if _ws_send is not None:
+                run_id_from_evt = evt.get("run_id")
+                if run_id_from_evt:
+                    try:
+                        _ws_send(run_id_from_evt, evt)
+                    except Exception:
+                        pass
+        pipe.event_sink = _combined_sink
+
         if closing_genre:
             pipe.closing_genre_id = closing_genre
         if dialogue_protocol:
@@ -1794,6 +1871,22 @@ class _WebUIHandler(BaseHTTPRequestHandler):
             if data is None:
                 self._send_json({"error": "not found"}, status=HTTPStatus.NOT_FOUND); return
             self._send_json(data); return
+        # B-5.5 Веха 1 — runtime control snapshot + audit log
+        if self.path.startswith("/api/run/") and self.path.endswith("/control"):
+            run_id = self.path[len("/api/run/"):-len("/control")]
+            from . import runtime_control
+            ws = self._query_param("workspace") or "default"
+            snap = runtime_control.snapshot_state(run_id)
+            store = runtime_control.InterventionStore.for_workspace(ws)
+            try:
+                interventions = store.list_for_run(run_id)
+            finally:
+                store.close()
+            from dataclasses import asdict
+            self._send_json({
+                "run_state": snap,
+                "interventions": [asdict(i) for i in interventions],
+            }); return
         if self.path.startswith("/api/run/") and self.path.endswith("/export"):
             run_id = self.path[len("/api/run/"):-len("/export")]
             ws = self._query_param("workspace") or "default"
@@ -1951,6 +2044,11 @@ class _WebUIHandler(BaseHTTPRequestHandler):
         if self.path in {"/api/run/async", "/run/async"}:
             self._handle_run_async()
             return
+        # B-5.5 Веха 1 — intervention endpoint (pause/resume/cancel + Веха 2 kinds)
+        if self.path.startswith("/api/run/") and self.path.endswith("/intervention"):
+            run_id = self.path[len("/api/run/"):-len("/intervention")]
+            self._handle_intervention(run_id)
+            return
         if self.path in {"/api/narrative/reflect", "/narrative/reflect"}:
             try:
                 length = int(self.headers.get("Content-Length", "0"))
@@ -2069,6 +2167,52 @@ class _WebUIHandler(BaseHTTPRequestHandler):
     def log_message(self, format: str, *args: object) -> None:
         return
 
+    # ---------- B-5.5 Веха 1 intervention endpoint ----------
+    def _handle_intervention(self, run_id: str) -> None:
+        from . import runtime_control, jwt_auth
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            raw = self.rfile.read(length) if length else b"{}"
+            data = json.loads(raw.decode("utf-8")) if raw else {}
+        except Exception as exc:
+            self._send_json({"error": f"bad request: {exc}"},
+                            status=HTTPStatus.BAD_REQUEST); return
+        kind = (data.get("kind") or "").strip().lower()
+        if kind not in runtime_control.INTERVENTION_KINDS:
+            self._send_json({"error": f"unknown kind: {kind}",
+                             "allowed": sorted(runtime_control.INTERVENTION_KINDS)},
+                            status=HTTPStatus.BAD_REQUEST); return
+        # определить author из JWT если есть, иначе anonymous
+        author = "anonymous"
+        bearer = _extract_bearer_token(self)
+        if bearer and jwt_auth.looks_like_jwt(bearer):
+            try:
+                payload_jwt = jwt_auth.verify_token(bearer)
+                author = str(payload_jwt.get("sub") or "anonymous")
+            except jwt_auth.JWTError:
+                pass
+        try:
+            iv = runtime_control.signal(
+                run_id=run_id, kind=kind, author=author,
+                payload=data.get("payload") or {},
+            )
+        except ValueError as ex:
+            self._send_json({"error": str(ex)}, status=HTTPStatus.BAD_REQUEST); return
+        # ответ + snapshot текущего состояния
+        snapshot = runtime_control.snapshot_state(run_id)
+        from dataclasses import asdict
+        self._send_json({
+            "accepted": True,
+            "intervention": {
+                "intervention_id": iv.intervention_id,
+                "run_id": iv.run_id,
+                "kind": iv.kind,
+                "author": iv.author,
+                "created_at": iv.created_at,
+            },
+            "run_state": snapshot,
+        }, status=HTTPStatus.ACCEPTED)
+
     # ---------- 6.3 async job endpoint ----------
     def _handle_run_async(self) -> None:
         from .async_jobs import submit
@@ -2143,11 +2287,25 @@ class _WebUIHandler(BaseHTTPRequestHandler):
 
         events: "queue.Queue[dict | None]" = queue.Queue(maxsize=1024)
 
+        # B-5.5 Веха 3 — параллельная доставка в WS подписчиков (если есть).
+        try:
+            from . import ws_endpoint
+            _ws_bridge = ws_endpoint.register_event_sink
+        except Exception:
+            _ws_bridge = None
+
         def sink(evt: dict) -> None:
             try:
                 events.put(evt, timeout=1)
             except queue.Full:
                 pass
+            if _ws_bridge is not None:
+                run_id_from_evt = evt.get("run_id")
+                if run_id_from_evt:
+                    try:
+                        _ws_bridge(run_id_from_evt, evt)
+                    except Exception:
+                        pass
 
         def worker() -> None:
             try:
@@ -2209,7 +2367,18 @@ class _WebUIHandler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
 
-def serve_web_ui(host: str = "127.0.0.1", port: int = 8765) -> None:
+def serve_web_ui(host: str = "127.0.0.1", port: int = 8765,
+                 ws_port: int | None = None) -> None:
+    # B-5.5 Веха 3 — WebSocket сервер на отдельном порту (+1 к HTTP).
+    ws_port = ws_port if ws_port is not None else port + 1
+    try:
+        from . import ws_endpoint
+        if ws_endpoint.HAS_WEBSOCKETS:
+            ws_endpoint.start_ws_server(host=host, port=ws_port)
+            print(f"WebSocket endpoint on ws://{host}:{ws_port}/ws/run/<id>")
+    except Exception as ex:
+        print(f"WS server failed to start: {ex}")
+
     server = ThreadingHTTPServer((host, port), _WebUIHandler)
     print(f"Zarathustra web UI running on http://{host}:{port}")
     try:
