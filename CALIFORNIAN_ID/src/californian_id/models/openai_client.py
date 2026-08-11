@@ -47,15 +47,29 @@ _INT_SETTING_KEYS = {
     "seed",
 }
 
+# Whitelist: только эти ключи разрешено передавать в OpenAI SDK.
+# Всё остальное (наши prompt-context поля вроде dialogue_protocol, genre,
+# has_position_model и т.д.) отбрасывается.
+_SDK_PASSTHROUGH_KEYS = _FLOAT_SETTING_KEYS | _INT_SETTING_KEYS | {
+    "stop", "user", "response_format", "tool_choice",
+    "parallel_tool_calls", "logit_bias",
+    "stream_options", "reasoning_effort",  # OpenAI newer params
+}
+
 
 def _strip_internal(settings: dict[str, Any]) -> dict[str, Any]:
-    """Remove prompt-only keys and normalize SDK-facing scalar settings."""
+    """Whitelist SDK-facing keys, normalize scalar types.
+
+    B-5.5 fix: раньше был blacklist (_INTERNAL_SETTING_KEYS) — любое новое
+    поле в settings (dialogue_protocol, has_position_model, genre, …) уходило
+    в SDK как unknown kwarg и падало. Теперь whitelist — безопаснее.
+    """
     out = {}
     for k, v in (settings or {}).items():
-        if k in _INTERNAL_SETTING_KEYS:
-            continue
         if v is None:
             continue
+        if k not in _SDK_PASSTHROUGH_KEYS:
+            continue  # наши prompt-context поля — не в SDK
         if k in _FLOAT_SETTING_KEYS:
             try:
                 out[k] = float(v)
@@ -68,8 +82,7 @@ def _strip_internal(settings: dict[str, Any]) -> dict[str, Any]:
             except (TypeError, ValueError):
                 continue
             continue
-        if not isinstance(v, (str, int, float, bool)):
-            # dict/list are prompt context, not SDK parameters.
+        if not isinstance(v, (str, int, float, bool, list, dict)):
             continue
         out[k] = v
     return out
