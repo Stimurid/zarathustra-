@@ -149,12 +149,22 @@ class Pipeline:
         return resolved, base_cfg
 
     def _emit(self, kind: str, payload: dict[str, Any] | None = None) -> None:
-        """6.B — emit real-time event to self.event_sink if set. No-op otherwise."""
+        """6.B — emit real-time event to self.event_sink if set. No-op otherwise.
+
+        B-5.5 race-fix v2: гарантируем run_id в каждом event (WS bridge
+        фильтрует именно по нему). Если payload не содержит run_id — берём
+        из _current_run_id, выставленного в run()/run_from_units() etc.
+        """
         sink = self.event_sink
         if sink is None:
             return
         try:
-            sink({"kind": kind, **(payload or {})})
+            evt = {"kind": kind, **(payload or {})}
+            if "run_id" not in evt:
+                rid = getattr(self, "_current_run_id", None)
+                if rid:
+                    evt["run_id"] = rid
+            sink(evt)
         except Exception as ex:
             logger.warning("event_sink failed for %s: %s", kind, ex)
 
@@ -355,6 +365,7 @@ class Pipeline:
         critique_regime = critique_regime if critique_regime in CRITIQUE_REGIMES else "balanced"
         variation_regime = variation_regime if variation_regime in VARIATION_REGIMES else "normal"
         run_id = run_id or new_run_id()
+        self._current_run_id = run_id  # для _emit fallback
         state = RunState(run_id=run_id, mode=mode, input_text=text)
         state.stamp("run_started")
         trace = TraceRecorder(run_id)
@@ -823,6 +834,7 @@ class Pipeline:
         from datetime import datetime, timezone
 
         run_id = run_id or new_run_id()
+        self._current_run_id = run_id  # для _emit fallback
 
         fab_provider, fab_cfg = self._role_and_cfg("persona_turn")
         fab_client = build_client(fab_provider, fab_cfg)
@@ -909,6 +921,7 @@ class Pipeline:
         critique_regime = critique_regime if critique_regime in CRITIQUE_REGIMES else "balanced"
         variation_regime = variation_regime if variation_regime in VARIATION_REGIMES else "normal"
         run_id = run_id or new_run_id()
+        self._current_run_id = run_id  # для _emit fallback
         input_summary = (
             f"UnitPack: {len(pack.units)} units | "
             f"seminar={pack.seminar_title!r} | "
