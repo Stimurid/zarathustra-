@@ -83,9 +83,22 @@ def submit(
     input_mode: str,
     mode: str,
 ) -> str:
-    """Register + enqueue. Returns run_id."""
+    """Register + enqueue. Returns run_id.
+
+    B-5.5 race-fix (v2): регистрируем run в runtime_control ДО _pool.submit,
+    чтобы WS-subscribers, дошедшие раньше worker'а, видели зарегистрированный
+    state (не UNKNOWN) и попадали в _subscribers[run_id] до эмиссии первых
+    событий pipeline.
+    """
     workspace_id = validate_workspace_id(workspace_id or DEFAULT_WORKSPACE_ID)
     register_pending(workspace_id, run_id, input_summary, input_mode, mode)
+
+    # runtime_control pre-register — subscribe хватает state до worker'а
+    try:
+        from . import runtime_control as _rc
+        _rc.register(run_id, workspace_id)
+    except Exception:
+        pass  # best-effort; Pipeline register тоже вызовет
 
     def _worker() -> None:
         try:
@@ -97,6 +110,27 @@ def submit(
 
     _pool.submit(_worker)
     return run_id
+
+
+_CLIENT_RUN_ID_RE = None
+def is_valid_client_run_id(run_id: str) -> bool:
+    """B-5.5 race-fix: client-provided run_id должен матчить строгий шаблон.
+
+    Формат: `run_` + 8-56 char slug из [a-z0-9_-]. Общий размер 12-60.
+    """
+    import re
+    global _CLIENT_RUN_ID_RE
+    if _CLIENT_RUN_ID_RE is None:
+        _CLIENT_RUN_ID_RE = re.compile(r"^run_[a-z0-9_-]{8,56}$")
+    return bool(run_id and _CLIENT_RUN_ID_RE.match(run_id))
+
+
+def run_id_conflict(workspace_id: str, run_id: str) -> bool:
+    """Проверяет что run_id ещё не занят (нет в RunStore + не в live registry)."""
+    from . import runtime_control as _rc
+    if _rc.get(run_id) is not None:
+        return True
+    return get_status(workspace_id, run_id) is not None
 
 
 def _finalize_success(workspace_id: str, run_id: str, payload: dict[str, Any]) -> None:

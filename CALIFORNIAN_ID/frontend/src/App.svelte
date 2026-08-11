@@ -69,28 +69,58 @@
   }
   if (token) checkToken();
 
+  function makeClientRunId(): string {
+    // B-5.5 race-fix v2: client-provided run_id для subscribe-first pattern.
+    // Backend валидирует по ^run_[a-z0-9_-]{8,56}$
+    const uuid = (crypto.randomUUID?.() ?? Math.random().toString(36).slice(2))
+      .replace(/-/g, '').slice(0, 24).toLowerCase();
+    return `run_${uuid}`;
+  }
+
   async function startRun(): Promise<void> {
     startError = '';
     if (!inputText.trim()) { startError = 'text required'; return; }
     starting = true;
     resetCouncil();
     try {
+      // 1. Генерируем run_id сами
+      const clientRunId = makeClientRunId();
+      runIdInput = clientRunId;
+
+      // 2. Открываем WS с этим run_id, ждём hello frame
+      if (client) client.close();
+      council.runId = clientRunId;
+      client = new WSClient(clientRunId, token || undefined);
+      client.onEvent(applyEvent);
+      client.onState((s) => { council.connState = s; });
+      client.connect();
+      try {
+        await client.awaitHello(8000);
+      } catch (e) {
+        throw new Error('WS not ready: ' + String(e));
+      }
+
+      // 3. Теперь POST run с тем же ID — subscribe уже стоит, events дойдут
       const headers: Record<string, string> = { 'Content-Type': 'application/json' };
       if (token) headers['Authorization'] = `Bearer ${token}`;
       const resp = await fetch('/api/run/async', {
         method: 'POST',
         headers,
         body: JSON.stringify({
-          text: inputText, mode: 'fast', runtime_layer: 'californian_id',
+          run_id: clientRunId,
+          text: inputText,
+          mode: 'fast',
+          runtime_layer: 'californian_id',
           workspace_id: council.workspaceId || 'default'
         })
       });
-      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-      const data = await resp.json();
-      runIdInput = data.run_id;
-      subscribe(data.run_id);
+      if (!resp.ok) {
+        const errData = await resp.json().catch(() => ({error: `HTTP ${resp.status}`}));
+        throw new Error(errData.error || `HTTP ${resp.status}`);
+      }
     } catch (e) {
       startError = String(e);
+      if (client) { client.close(); client = null; }
     } finally {
       starting = false;
     }

@@ -111,6 +111,26 @@ export class WSClient {
     return () => this.stateListeners.delete(listener);
   }
 
+  /** B-5.5 race-fix v2: wait until server sends `hello` frame (subscribe
+   *  acknowledged). Then caller can safely POST /api/run/async с этим run_id
+   *  — не будет race, все events дойдут. */
+  awaitHello(timeoutMs: number = 8000): Promise<Event> {
+    return new Promise((resolve, reject) => {
+      let unsub: () => void = () => { };
+      const timer = window.setTimeout(() => {
+        unsub();
+        reject(new Error('awaitHello timeout'));
+      }, timeoutMs);
+      unsub = this.onEvent((evt) => {
+        if (evt.kind === 'hello') {
+          clearTimeout(timer);
+          unsub();
+          resolve(evt);
+        }
+      });
+    });
+  }
+
   private setState(state: ConnectionState): void {
     if (this.state === state) return;
     this.state = state;

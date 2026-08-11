@@ -783,6 +783,7 @@ class Pipeline:
         self,
         envelope: RawStreamEnvelope | SemanticUnitsEnvelope,
         mode: str | None = None,
+        run_id: str | None = None,
         critique_regime: str = "balanced",
         variation_regime: str = "normal",
     ) -> PipelineResult:

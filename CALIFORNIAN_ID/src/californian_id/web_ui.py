@@ -884,6 +884,7 @@ def run_web_request(
     workspace_id: str | None = None,
     closing_genre: str | None = None,
     dialogue_protocol: str | None = None,
+    run_id: str | None = None,
 ) -> dict[str, Any]:
     runtime_layer = runtime_layer if runtime_layer in SUPPORTED_LAYERS else LAYER_PERSONA
     grounding_mode = grounding_mode if grounding_mode in GROUNDING_MODES else "balanced"
@@ -974,6 +975,7 @@ def run_web_request(
             result = pipe.run_from_raw_text(
                 text=text,
                 mode=mode,
+                run_id=run_id,
                 critique_regime=critique_regime,
                 variation_regime=variation_regime,
                 source_id="web_ui",
@@ -985,6 +987,7 @@ def run_web_request(
             result = pipe.run_from_units(
                 pack,
                 mode=mode,
+                run_id=run_id,
                 critique_regime=critique_regime,
                 variation_regime=variation_regime,
             )
@@ -994,6 +997,7 @@ def run_web_request(
             result = pipe.run(
                 text=text,
                 mode=mode,
+                run_id=run_id,
                 critique_regime=critique_regime,
                 variation_regime=variation_regime,
             )
@@ -2291,8 +2295,24 @@ class _WebUIHandler(BaseHTTPRequestHandler):
         if not text:
             self._send_json({"error": "text is required"},
                             status=HTTPStatus.BAD_REQUEST); return
-        run_id = new_run_id()
         ws = data.get("workspace_id") or "default"
+        # B-5.5 race-fix v2: accept client-provided run_id для subscribe-first.
+        client_rid = (data.get("run_id") or "").strip()
+        if client_rid:
+            from . import async_jobs
+            if not async_jobs.is_valid_client_run_id(client_rid):
+                self._send_json({
+                    "error": "invalid client-provided run_id",
+                    "expected_pattern": "^run_[a-z0-9_-]{8,56}$",
+                }, status=HTTPStatus.BAD_REQUEST); return
+            if async_jobs.run_id_conflict(ws, client_rid):
+                self._send_json({
+                    "error": "run_id conflict — already exists in workspace",
+                    "workspace_id": ws, "run_id": client_rid,
+                }, status=HTTPStatus.CONFLICT); return
+            run_id = client_rid
+        else:
+            run_id = new_run_id()
         # 9.2 hard budget check
         from . import budgets
         deny, info = budgets.should_deny(ws)
@@ -2317,6 +2337,7 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                 workspace_id=ws,
                 closing_genre=data.get("closing_genre") or None,
                 dialogue_protocol=data.get("dialogue_protocol") or None,
+                run_id=run_id,
             )
         submit(ws, run_id, _job,
                input_summary=text, input_mode=data.get("input_mode") or "raw",
