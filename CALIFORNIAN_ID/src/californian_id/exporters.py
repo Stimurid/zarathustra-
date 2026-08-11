@@ -153,6 +153,33 @@ def export_bundle(workspace_id: str, run_id: str) -> bytes | None:
             info.size = len(meta_json)
             info.mtime = int(datetime.now(timezone.utc).timestamp())
             tar.addfile(info, io.BytesIO(meta_json))
+        # B-5.5 Веха 5 — interventions audit (pause/resume/cancel/steer/…)
+        try:
+            from . import runtime_control
+            iv_store = runtime_control.InterventionStore.for_workspace(ws)
+            try:
+                interventions = iv_store.list_for_run(run_id)
+            finally:
+                iv_store.close()
+            if interventions:
+                lines = []
+                for iv in interventions:
+                    lines.append(json.dumps({
+                        "intervention_id": iv.intervention_id,
+                        "kind": iv.kind, "author": iv.author,
+                        "payload": iv.payload,
+                        "at_turn_index": iv.at_turn_index,
+                        "applied": iv.applied,
+                        "applied_at": iv.applied_at,
+                        "created_at": iv.created_at,
+                    }, ensure_ascii=False, default=str))
+                iv_body = ("\n".join(lines) + "\n").encode("utf-8")
+                info = tarfile.TarInfo(name=f"{run_id}/interventions.jsonl")
+                info.size = len(iv_body)
+                info.mtime = int(datetime.now(timezone.utc).timestamp())
+                tar.addfile(info, io.BytesIO(iv_body))
+        except Exception:
+            pass
         # trace_dir (если существует и в пределах workspace)
         if trace_dir_str:
             trace_dir = Path(trace_dir_str)

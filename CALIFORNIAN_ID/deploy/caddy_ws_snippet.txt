@@ -1,0 +1,32 @@
+# B-5.5 Веха 5 — Caddy config для WebSocket-endpoint'а /ws/*
+#
+# Установка (на сервере, вручную):
+#   1. Открой /opt/moderbober/docker-compose.yml или Caddyfile.
+#   2. В блок домена tinkuy.mindkampf.ru добавь этот handle ДО общего reverse_proxy.
+#   3. `docker compose exec caddy caddy reload` (или `systemctl reload caddy`).
+#
+# Порт 8086 — WS сервер, запускается автоматически рядом с HTTP 8085
+# (см. serve_web_ui: ws_port = port + 1).
+
+tinkuy.mindkampf.ru {
+    # ...существующие директивы basicauth / etc...
+
+    # ↓↓↓ ДОБАВИТЬ ↓↓↓
+    handle /ws/* {
+        # basicauth сюда НЕ ставим — WS сам делает JWT verify.
+        reverse_proxy 127.0.0.1:8086 {
+            transport http {
+                versions 1.1
+            }
+            header_up Host {host}
+            header_up X-Real-IP {remote_host}
+        }
+    }
+    # ↑↑↑ добавить ДО общего reverse_proxy для / ↑↑↑
+
+    # существующий reverse_proxy для HTTP endpoints
+    basicauth {
+        # ...
+    }
+    reverse_proxy 127.0.0.1:8085
+}

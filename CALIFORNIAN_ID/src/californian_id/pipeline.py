@@ -158,6 +158,12 @@ class Pipeline:
         except Exception as ex:
             logger.warning("event_sink failed for %s: %s", kind, ex)
 
+    # B-5.5 Веха 5 — accumulator normalized attachments per persona (по-turn'у
+    # они сбрасываются, но накопленные с прошлых checkpoints висят до
+    # применения). Ключ = run_id; value = {"per_persona": {pid: [text,...]},
+    # "general": [text, ...]}.
+    _attach_pending: dict[str, dict[str, Any]] = {}
+
     def _consume_pending(self, run_id: str) -> dict[str, Any]:
         """B-5.5 Веха 2 — извлечь pending steer/user_voice/attach из runtime_control.
 
@@ -180,15 +186,66 @@ class Pipeline:
             steer = st.pending_steer.pop(0) if st.pending_steer else None
             user_voices = list(st.pending_user_voice)
             st.pending_user_voice.clear()
-            attach = list(st.pending_attach)
+            attach_raw = list(st.pending_attach)
             st.pending_attach.clear()
             weights = dict(st.persona_weights)
+
+        # B-5.5 Веха 5 — нормализация attachments; храним в _attach_pending
+        # до применения в _run_persona_turn.
+        from . import attachments as _atmod
+        acc = self._attach_pending.setdefault(run_id,
+                                              {"per_persona": {}, "general": []})
+        normalized_now: list[Any] = []
+        for raw in attach_raw:
+            norm = _atmod.normalize(raw)
+            if norm is None or not norm.text:
+                continue
+            block = _atmod.format_attach_block(norm)
+            if norm.attach_to_persona:
+                acc["per_persona"].setdefault(norm.attach_to_persona,
+                                              []).append(block)
+            else:
+                acc["general"].append(block)
+            normalized_now.append({
+                "filename": norm.filename,
+                "attach_to_persona": norm.attach_to_persona,
+                "chars": len(norm.full_text),
+                "was_truncated": norm.was_truncated,
+                "note": norm.note,
+            })
+        if normalized_now:
+            self._emit("attachment_accepted", {
+                "run_id": run_id,
+                "attachments": normalized_now,
+            })
+
         return {
             "steer_override": steer,
             "user_voices": user_voices,
-            "attachments": attach,
+            "attachments": attach_raw,
             "persona_weights": weights,
         }
+
+    def _pop_persona_attachments(self, run_id: str, persona_id: str) -> list[str]:
+        """Забирает pending attach-блоки для persona (per_persona + general).
+
+        Каждый блок доставляется ровно один раз: per_persona для этого pid +
+        все general (последние — общий контекст для всех, но чтобы не флудить,
+        general применяется только к первому turn'у после accept и очищается).
+        """
+        acc = self._attach_pending.get(run_id)
+        if not acc:
+            return []
+        blocks: list[str] = []
+        persona_blocks = acc["per_persona"].pop(persona_id, [])
+        if persona_blocks:
+            blocks.extend(persona_blocks)
+        # general — flush ко всем ходам подряд? Нет: применяем ко всем,
+        # но чтобы не спамить — забираем всё сразу к этому turn'у.
+        if acc.get("general"):
+            blocks.extend(acc["general"])
+            acc["general"] = []
+        return blocks
 
     def _inject_user_voice(
         self,
@@ -493,6 +550,7 @@ class Pipeline:
                 ],
             })
 
+            self._current_run_id = state.run_id
             turn = self._run_persona_turn(
                 client=persona_turn_client,
                 persona=persona,
@@ -1042,6 +1100,7 @@ class Pipeline:
                 ],
             })
 
+            self._current_run_id = state.run_id
             turn = self._run_persona_turn(
                 client=persona_turn_client,
                 persona=persona,
@@ -1225,6 +1284,18 @@ class Pipeline:
             system_parts.append(pm_block)
         if dp_block:
             system_parts.append(dp_block)
+        # B-5.5 Веха 5 — pending attachments для этой персоны.
+        run_id_ctx = getattr(self, "_current_run_id", None) or ""
+        if run_id_ctx:
+            attach_blocks = self._pop_persona_attachments(run_id_ctx,
+                                                          persona.persona_id)
+            if attach_blocks:
+                system_parts.extend(attach_blocks)
+                self._emit("attachment_injected", {
+                    "run_id": run_id_ctx,
+                    "persona_id": persona.persona_id,
+                    "count": len(attach_blocks),
+                })
 
         messages = [
             Message(role="system", content="\n\n".join(p for p in system_parts if p)),
