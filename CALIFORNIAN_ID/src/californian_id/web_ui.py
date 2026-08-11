@@ -927,6 +927,12 @@ def run_web_request(
             _ws_send = None
 
         _user_sink = event_sink
+        # B-5.5 race-fix v2.1: bridge run_id известен явно (client-provided
+        # или сгенерированный worker'ом). Не полагаемся на evt.get('run_id')
+        # — многие события (situation_reading_done, cast_selected,
+        # turn_completed, closing_*, checkpoint_reached) НЕ содержат run_id
+        # в payload'е, и раньше выкидывались.
+        _bridge_run_id = run_id  # from parameter
         def _combined_sink(evt: dict) -> None:
             if _user_sink is not None:
                 try:
@@ -934,10 +940,14 @@ def run_web_request(
                 except Exception:
                     pass
             if _ws_send is not None:
-                run_id_from_evt = evt.get("run_id")
-                if run_id_from_evt:
+                # Priority: явный run_id из вызова > evt.run_id > skip
+                rid = _bridge_run_id or evt.get("run_id")
+                if rid:
+                    # обеспечить run_id в payload для клиента
+                    if "run_id" not in evt:
+                        evt = {**evt, "run_id": rid}
                     try:
-                        _ws_send(run_id_from_evt, evt)
+                        _ws_send(rid, evt)
                     except Exception:
                         pass
         pipe.event_sink = _combined_sink
