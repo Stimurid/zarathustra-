@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
 
@@ -16,23 +18,32 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Build wheel
+      - name: Build wheel + sdist
+        working-directory: CALIFORNIAN_ID
         run: |
-          cd CALIFORNIAN_ID
-          python -m pip install --upgrade pip build
+          python -m pip install --upgrade pip build twine
           python -m build
+          python -m twine check dist/*
 
-      - name: Publish to PyPI (only if PYPI_TOKEN secret set)
-        if: env.PYPI_TOKEN != ''
+      - name: Show artifacts
+        working-directory: CALIFORNIAN_ID
+        run: ls -lah dist/
+
+      - name: Publish to PyPI
+        working-directory: CALIFORNIAN_ID
         env:
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
         run: |
-          cd CALIFORNIAN_ID
-          python -m pip install --upgrade twine
-          python -m twine upload dist/* -u __token__ -p "$PYPI_TOKEN"
+          if [ -z "$TWINE_PASSWORD" ]; then
+            echo "::warning::PYPI_TOKEN secret not set — skipping upload"
+            exit 0
+          fi
+          python -m twine upload --non-interactive --skip-existing dist/*
 
-      - name: Upload build artifacts (always)
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: dist
+          name: californian_id-dist
           path: CALIFORNIAN_ID/dist/*
+          retention-days: 30
