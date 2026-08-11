@@ -13,10 +13,61 @@
 
   let inputText = $state('');
   let runIdInput = $state('');
-  let token = $state('');
+  let token = $state(localStorage.getItem('tinkuy_jwt') || '');
   let client: WSClient | null = $state(null);
   let starting = $state(false);
   let startError = $state('');
+
+  // Login form state
+  let showLogin = $state(false);
+  let loginUsername = $state('');
+  let loginPassword = $state('');
+  let loginError = $state('');
+  let loggingIn = $state(false);
+  let currentUser = $state<{username: string; roles: string[]} | null>(null);
+
+  async function login(): Promise<void> {
+    loginError = '';
+    if (!loginUsername || !loginPassword) { loginError = 'заполни оба поля'; return; }
+    loggingIn = true;
+    try {
+      const resp = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username: loginUsername, password: loginPassword})
+      });
+      const data = await resp.json();
+      if (!resp.ok) { loginError = data.error || `HTTP ${resp.status}`; return; }
+      token = data.token;
+      currentUser = data.user;
+      localStorage.setItem('tinkuy_jwt', token);
+      showLogin = false;
+      loginPassword = '';
+    } catch (e) {
+      loginError = String(e);
+    } finally {
+      loggingIn = false;
+    }
+  }
+
+  function logout(): void {
+    token = '';
+    currentUser = null;
+    localStorage.removeItem('tinkuy_jwt');
+    if (client) { client.close(); client = null; }
+  }
+
+  async function checkToken(): Promise<void> {
+    if (!token) return;
+    try {
+      const resp = await fetch('/api/auth/me', {
+        headers: {'Authorization': `Bearer ${token}`}
+      });
+      if (resp.ok) currentUser = await resp.json();
+      else { token = ''; localStorage.removeItem('tinkuy_jwt'); }
+    } catch { /* ignore */ }
+  }
+  if (token) checkToken();
 
   async function startRun(): Promise<void> {
     startError = '';
@@ -73,10 +124,61 @@
   </header>
 
   <section class="card">
-    <label style="display:block;margin-bottom:8px;">
-      Токен (JWT — если auth включён):
-      <input type="text" bind:value={token} style="width:100%;margin-top:4px;font-family:monospace;font-size:0.85rem;" placeholder="eyJ..." />
-    </label>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+      <div>
+        {#if currentUser}
+          <span class="pill" style="background:#dfe;">
+            👤 {currentUser.username}
+            {#if currentUser.roles?.length}
+              <span style="color:var(--muted);font-size:0.8em;">
+                · {currentUser.roles.join(', ')}
+              </span>
+            {/if}
+          </span>
+          <button class="ghost" onclick={logout} style="margin-left:6px;font-size:0.85em;">
+            Выйти
+          </button>
+        {:else}
+          <button class="ghost" onclick={() => showLogin = !showLogin}
+                  style="font-size:0.85em;">
+            🔐 {showLogin ? 'Скрыть' : 'Войти'}
+          </button>
+          <span style="color:var(--muted);font-size:0.85em;margin-left:8px;">
+            (или AUTH_DISABLED=1 для dev)
+          </span>
+        {/if}
+      </div>
+    </div>
+
+    {#if showLogin && !currentUser}
+      <div class="card" style="background:#faf7f0;margin-bottom:12px;">
+        <b>Логин</b>
+        <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin-top:8px;align-items:center;">
+          <input type="text" bind:value={loginUsername} placeholder="username"
+                 onkeydown={(e) => e.key === 'Enter' && login()} />
+          <input type="password" bind:value={loginPassword} placeholder="password"
+                 onkeydown={(e) => e.key === 'Enter' && login()} />
+          <button onclick={login} disabled={loggingIn}>
+            {loggingIn ? '...' : 'Войти'}
+          </button>
+        </div>
+        {#if loginError}
+          <p style="color:var(--cancelled);margin:6px 0 0;font-size:0.85em;">{loginError}</p>
+        {/if}
+        <p style="color:var(--muted);font-size:0.8em;margin:6px 0 0;">
+          Создать пользователя: <code>python -m californian_id users add &lt;name&gt;</code>
+        </p>
+      </div>
+    {/if}
+
+    <details style="margin-bottom:10px;">
+      <summary style="cursor:pointer;color:var(--muted);font-size:0.85em;">
+        Ручной токен (JWT)
+      </summary>
+      <input type="text" bind:value={token}
+             style="width:100%;margin-top:4px;font-family:monospace;font-size:0.85rem;"
+             placeholder="eyJ..." />
+    </details>
     <label style="display:block;margin-bottom:8px;">Рабочее пространство:
       <input type="text" bind:value={council.workspaceId} style="width:14em;margin-left:6px;" />
     </label>

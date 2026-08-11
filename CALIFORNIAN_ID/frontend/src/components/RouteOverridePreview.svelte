@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { WSClient } from '../wsClient';
   import { council } from '../stores.svelte';
+  import { onDestroy } from 'svelte';
 
   let { client }: { client: WSClient } = $props();
 
@@ -16,6 +17,43 @@
   let overrideOp = $state('attack');
   let overrideReason = $state('');
 
+  // B-5.5 обход: countdown modal — при route_previewed эмится, у юзера
+  // 3 секунды на override перед реальным turn'ом. Пример: рeдкий turn
+  // (persona не голосовала долго) — можно быстро направить.
+  const COUNTDOWN_SEC = 3;
+  let countdownRemaining = $state(0);
+  let countdownTimer: number | null = null;
+
+  // Reactive: при новом nextPreview стартуем countdown
+  let lastPreviewTurn = $state(-1);
+  $effect(() => {
+    if (council.nextPreview && council.nextPreview.turn_index !== lastPreviewTurn) {
+      lastPreviewTurn = council.nextPreview.turn_index;
+      startCountdown();
+    }
+  });
+
+  function startCountdown(): void {
+    stopCountdown();
+    // Не показываем countdown если это уже был user_steer (юзер сам выбрал)
+    if (council.nextPreview?.wasSteer) return;
+    countdownRemaining = COUNTDOWN_SEC;
+    countdownTimer = window.setInterval(() => {
+      countdownRemaining -= 1;
+      if (countdownRemaining <= 0) stopCountdown();
+    }, 1000);
+  }
+
+  function stopCountdown(): void {
+    if (countdownTimer !== null) {
+      clearInterval(countdownTimer);
+      countdownTimer = null;
+    }
+    countdownRemaining = 0;
+  }
+
+  onDestroy(stopCountdown);
+
   function sendSteer(): void {
     if (!overridePersona) return;
     client.intervention('steer', {
@@ -24,11 +62,28 @@
       reason: overrideReason || 'user override'
     });
     overrideReason = '';
+    stopCountdown();
+  }
+
+  function quickInterrupt(): void {
+    // Отправляем pause; юзер может дальше выбрать steer/user_voice спокойно
+    client.intervention('pause');
+    stopCountdown();
   }
 </script>
 
-<div class="card" style="border-left:3px solid var(--accent-2);">
+<div class="card" style="border-left:3px solid var(--accent-2);
+       {countdownRemaining > 0 ? 'box-shadow: 0 0 0 3px rgba(217,119,6,0.3); animation: pulse 1s infinite;' : ''}">
   <b>Следующий ход</b>
+  {#if countdownRemaining > 0}
+    <span class="pill paused" style="margin-left:8px;">
+      ⏱ через {countdownRemaining}с
+    </span>
+    <button class="ghost" onclick={quickInterrupt}
+            style="float:right;padding:4px 10px;font-size:0.85em;">
+      ⏸ перехватить
+    </button>
+  {/if}
   {#if council.nextPreview}
     <p style="margin:6px 0;">
       Заратустра выбрал:
@@ -63,3 +118,10 @@
     </button>
   </details>
 </div>
+
+<style>
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(217,119,6,0.3); }
+    50% { box-shadow: 0 0 0 6px rgba(217,119,6,0.15); }
+  }
+</style>

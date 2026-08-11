@@ -58,7 +58,7 @@ def test_normalize_bytes_content_decodes_utf8():
 
 
 def test_normalize_rejects_unsupported_ext():
-    n = attachments.normalize({"filename": "x.pdf", "content": "..."})
+    n = attachments.normalize({"filename": "x.exe", "content": "..."})
     assert n is not None
     assert n.text == ""  # unsupported → empty text, note filled
     assert "unsupported" in n.note
@@ -93,6 +93,83 @@ def test_format_attach_block_contains_persona_marker():
     assert "LENS_A" in block
     assert "boost.txt" in block
     assert "аргумент" in block
+
+
+# ---------- PDF/DOCX extractors ----------
+
+def test_normalize_pdf_binary_content():
+    """Синтетический PDF через pypdf writer."""
+    pypdf = pytest.importorskip("pypdf")
+    from io import BytesIO
+    writer = pypdf.PdfWriter()
+    writer.add_blank_page(width=200, height=200)
+    buf = BytesIO()
+    writer.write(buf)
+    raw = buf.getvalue()
+    n = attachments.normalize({"filename": "empty.pdf", "content": raw})
+    assert n is not None
+    assert n.ext == ".pdf"
+    # blank PDF — text пуст, note содержит "empty" hint
+    assert "pdf:" in n.note or "OCR" in n.note or n.note == ""
+
+
+def test_normalize_docx_binary_content():
+    docx = pytest.importorskip("docx")
+    from io import BytesIO
+    doc = docx.Document()
+    doc.add_paragraph("Первый параграф теста")
+    doc.add_paragraph("Второй параграф с русским текстом.")
+    buf = BytesIO()
+    doc.save(buf)
+    raw = buf.getvalue()
+    n = attachments.normalize({"filename": "test.docx", "content": raw})
+    assert n is not None
+    assert n.ext == ".docx"
+    assert "Первый параграф теста" in n.text
+    assert "Второй параграф" in n.text
+    assert "docx:" in n.note
+
+
+def test_normalize_base64_content_decodes():
+    """UI шлёт binary как base64 — normalize должен декодировать."""
+    import base64
+    docx = pytest.importorskip("docx")
+    from io import BytesIO
+    doc = docx.Document()
+    doc.add_paragraph("Через base64")
+    buf = BytesIO()
+    doc.save(buf)
+    b64 = base64.b64encode(buf.getvalue()).decode("ascii")
+
+    n = attachments.normalize({
+        "filename": "b64.docx",
+        "b64_content": b64,
+        "is_base64": True,
+    })
+    assert n is not None
+    assert "Через base64" in n.text
+
+
+def test_normalize_base64_invalid_returns_error_note():
+    n = attachments.normalize({
+        "filename": "bad.pdf",
+        "b64_content": "!!!not-base64-at-all!!!",
+    })
+    # base64.b64decode с validate=False всё равно скушает — content декодируется
+    # в мусор, потом _extract_pdf вернёт fail. Проверяем что note есть.
+    assert n is not None
+    assert n.text == ""
+    assert n.note  # какая-то ошибка
+
+
+def test_normalize_csv_supported():
+    n = attachments.normalize({
+        "filename": "data.csv",
+        "content": "name,value\nfoo,1\nbar,2",
+    })
+    assert n is not None
+    assert "foo" in n.text
+    assert "bar" in n.text
 
 
 # ---------- 5b integration: Pipeline consume_pending normalizes ----------
