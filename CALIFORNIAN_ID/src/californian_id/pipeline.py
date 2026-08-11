@@ -69,6 +69,13 @@ class PipelineResult:
     trace_dir: Path
 
 
+@dataclass
+class PerUnitPipelineResult:
+    """B-1.2 — результат per-unit run: словарь per-unit + meta-совет."""
+    unit_results: dict[str, PipelineResult]
+    meta: PipelineResult | None = None
+
+
 class Pipeline:
     def __init__(
         self,
@@ -901,6 +908,76 @@ class Pipeline:
             logger.warning("RunStore.save failed: %s", ex)
         return result
 
+    def run_per_unit(
+        self,
+        pack: UnitPack,
+        mode: str | None = None,
+        critique_regime: str = "balanced",
+        variation_regime: str = "normal",
+        include_meta: bool = True,
+    ) -> "PerUnitPipelineResult":
+        """B-1.2 per-unit mode: мини-совет на каждый юнит независимо, потом
+        мета-совет над накопленными завершениями.
+
+        Использует focus_on под капотом (нужен B-1.1). Мета-run seed'ится
+        UnitPack'ом из meta-summary юнитов вида "U#: form/rationale".
+
+        Args:
+          pack: исходный UnitPack (все юниты)
+          include_meta: если False — только per-unit, meta=None
+
+        Returns:
+          PerUnitPipelineResult(unit_results={unit_id: PipelineResult}, meta=PipelineResult|None)
+        """
+        results: dict[str, PipelineResult] = {}
+        for u in pack.units:
+            try:
+                r = self.run_from_units(
+                    pack, mode=mode,
+                    critique_regime=critique_regime,
+                    variation_regime=variation_regime,
+                    focus_on=[u.unit_id],
+                )
+                results[u.unit_id] = r
+                self._emit("per_unit_completed", {
+                    "unit_id": u.unit_id,
+                    "form": (r.run_state.completion.form
+                             if r.run_state.completion else ""),
+                    "turns": len(r.run_state.turns),
+                })
+            except Exception as ex:
+                logger.warning("per-unit run failed for %s: %s", u.unit_id, ex)
+
+        meta_result: PipelineResult | None = None
+        if include_meta and results:
+            # Собираем meta-pack из summaries per-unit ranов
+            from dataclasses import replace as _replace
+            from .schemas import SemanticUnit as _SU
+            meta_units: list[_SU] = []
+            for uid, r in results.items():
+                completion = r.run_state.completion
+                form = completion.form if completion else "?"
+                rationale = (completion.rationale if completion else "")[:400]
+                summary = f"Юнит {uid}: форма='{form}'. {rationale}"
+                meta_units.append(_SU(
+                    unit_id=f"meta_{uid}",
+                    title=f"Итог юнита {uid}",
+                    intention="сведения",
+                    abstract=summary,
+                ))
+            meta_pack = _replace(pack, units=meta_units,
+                                  seminar_title=f"meta-совет над {len(results)} юнитами")
+            try:
+                meta_result = self.run_from_units(
+                    meta_pack, mode=mode,
+                    critique_regime=critique_regime,
+                    variation_regime=variation_regime,
+                )
+            except Exception as ex:
+                logger.warning("meta run failed: %s", ex)
+
+        return PerUnitPipelineResult(unit_results=results, meta=meta_result)
+
     def run_from_units(
         self,
         pack: UnitPack,
@@ -908,6 +985,7 @@ class Pipeline:
         run_id: str | None = None,
         critique_regime: str = "balanced",
         variation_regime: str = "normal",
+        focus_on: list[str] | None = None,
     ) -> PipelineResult:
         """Seed council state from a UnitPack instead of raw text.
 
@@ -916,7 +994,27 @@ class Pipeline:
         become typed argument_map claims/supports/attacks/assumptions.
         Source audit (if present) becomes the first chorus_reflection so
         that Zarathustra knows attribution is unreliable.
+
+        B-1.1: focus_on=[unit_id,...] — совет обсуждает подмножество, остальные
+        уходят в chorus_reflections как фон. Если focus_on пуст/None — все.
         """
+        # B-1.1 apply focus filter — новая копия pack без побочек на оригинал.
+        original_pack = pack
+        focus_set: set[str] = set()
+        if focus_on:
+            focus_set = {str(u).strip() for u in focus_on if u}
+            if focus_set:
+                from dataclasses import replace as _replace
+                focused = [u for u in pack.units if u.unit_id in focus_set]
+                background = [u for u in pack.units if u.unit_id not in focus_set]
+                if focused:
+                    pack = _replace(pack, units=focused)
+                # background будет добавлен как chorus_reflection ниже.
+                self._background_units_hint = background
+            else:
+                self._background_units_hint = []
+        else:
+            self._background_units_hint = []
         mode = mode or self.config.default_mode
         critique_regime = critique_regime if critique_regime in CRITIQUE_REGIMES else "balanced"
         variation_regime = variation_regime if variation_regime in VARIATION_REGIMES else "normal"
@@ -970,6 +1068,37 @@ class Pipeline:
             "assumptions": len(state.argument_map.assumptions),
             "unresolved_questions": len(state.body.unresolved_questions_from_pack()),
         })
+        # B-1.1 focus mode: background units → первая chorus reflection
+        bg_units = getattr(self, "_background_units_hint", None) or []
+        if bg_units:
+            bg_titles = [
+                (u.title or (u.text or "")[:80] or u.unit_id) for u in bg_units[:20]
+            ]
+            state.body.chorus_reflections.append(ChorusReflection(
+                at_turn_index=-1,
+                scene_temperature="quiet",
+                who_speaks_most="",
+                who_is_silent=[],
+                signals_observed=[
+                    f"focus_mode: обсуждаются {len(pack.units)} units, "
+                    f"в фоне ещё {len(bg_units)}",
+                ] + [f"bg: {t[:100]}" for t in bg_titles],
+                suggested_next_move=(
+                    "оставайся в focus-подмножестве, background — только фон"
+                ),
+            ))
+            trace.event("focus_mode_applied", {
+                "focus_count": len(pack.units),
+                "background_count": len(bg_units),
+                "focus_ids": [u.unit_id for u in pack.units[:20]],
+            })
+            self._emit("focus_mode_applied", {
+                "run_id": run_id,
+                "focus_count": len(pack.units),
+                "background_count": len(bg_units),
+            })
+        # cleanup hint for next run
+        self._background_units_hint = []
 
         # Cast + council loop unchanged — reuse `run`'s core.
         mode_cfg = self._mode_cfg(mode)

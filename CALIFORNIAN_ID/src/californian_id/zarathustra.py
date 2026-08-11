@@ -242,12 +242,25 @@ class Zarathustra:
 
     # ---- LLM path ----
     def _llm_situation(self, text: str, client: "ModelClient") -> SituationAnalysis:
-        """Ask the model to read the scene using `03_scene_reading.md`."""
+        """Ask the model to read the scene using `03_scene_reading.md`.
+
+        B-1.4: text cap 100_000 (было 20_000). Anthropic Claude ~200K context,
+        OpenAI GPT-4o ~128K, 302.ai models — от 32K до 200K. 100K = ~25 стр,
+        безопасно для большинства провайдеров. Override через env
+        CALIFORNIAN_ID_SITUATION_MAX_CHARS. Cost: чтение ткани дешевле голосов
+        совета (single call, no fallback loop).
+        """
+        import os as _os
         from .models import Message
+        try:
+            cap = int(_os.environ.get("CALIFORNIAN_ID_SITUATION_MAX_CHARS", "100000"))
+        except (TypeError, ValueError):
+            cap = 100_000
+        cap = max(1000, min(cap, 200_000))
         prompt = self.prompt("03_scene_reading.md") or _DEFAULT_SCENE_READING_PROMPT
         messages = [
             Message(role="system", content=prompt),
-            Message(role="user", content=text[:20000]),  # generous cap
+            Message(role="user", content=text[:cap]),
         ]
         result = client.generate(
             messages,
