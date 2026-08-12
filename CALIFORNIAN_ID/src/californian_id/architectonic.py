@@ -10,9 +10,8 @@ The caller applies it if valid.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any
 
-from .schemas import BodyProjection, TurnRecord, to_plain
+from .schemas import BodyProjection, TurnRecord
 
 
 @dataclass

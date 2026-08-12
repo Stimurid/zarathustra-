@@ -1,0 +1,38 @@
+# Добавить в /opt/moderbober/Caddyfile.
+# Порт 8085 — HTTP. Порт 8086 — WebSocket (B-5.5 Веха 3).
+
+tinkuy.mindkampf.ru {
+    # basic_auth — генерация bcrypt:
+    #   docker exec moderbober-caddy caddy hash-password --plaintext '<пароль>'
+    # basic_auth {
+    #     timur <BCRYPT_HASH_HERE>
+    # }
+
+    request_body {
+        max_size 25MB
+    }
+
+    # B-5.5 Веха 4/5 — WebSocket endpoint для live-совета (Svelte UI на /live/).
+    # Caddy автоматически детектит Upgrade: websocket и делает handoff;
+    # HTTP/1.1 required — WS не работает через HTTP/2.
+    handle /ws/* {
+        reverse_proxy host.docker.internal:8086 {
+            transport http {
+                versions 1.1
+                read_timeout 3600s
+                write_timeout 3600s
+            }
+        }
+    }
+
+    # Основной HTTP application (SSE + static /live + REST API).
+    handle {
+        reverse_proxy host.docker.internal:8085 {
+            transport http {
+                read_timeout 300s
+                write_timeout 300s
+                dial_timeout 10s
+            }
+        }
+    }
+}

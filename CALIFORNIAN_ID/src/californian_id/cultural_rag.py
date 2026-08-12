@@ -21,11 +21,9 @@ from __future__ import annotations
 import hashlib
 import math
 import re
-import sys
 from collections import Counter
 from dataclasses import dataclass, field
-from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 import yaml
 

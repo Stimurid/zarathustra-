@@ -16,8 +16,8 @@ from .config import (
     load_config,
 )
 from .affect import AffectBook
-from .architectonic import TurnDelta, reconstruct_turn_delta
-from .argumentation import DisputeAssessment, assess_turn, check_anti_slop
+from .architectonic import reconstruct_turn_delta
+from .argumentation import assess_turn, check_anti_slop
 from .cultural_rag import CulturalIndex, infer_required_function
 from .interaction import assess_input, detect_repetition, to_security_events
 from .ingress import (
@@ -28,7 +28,7 @@ from .ingress import (
 )
 from .memory import ConversationMemory
 from .models import Message, build_client
-from .personas import PersonaRegistry, load_registry
+from .personas import load_registry
 from .regimes import CRITIQUE_REGIMES, VARIATION_REGIMES
 from .retrieval import LexicalPersonaRetriever
 from .rhetoric import operation_class

@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import Any
 
 from .async_jobs import result_path
-from .workspaces import RunStore, validate_workspace_id, workspace_dir
+from .workspaces import RunStore, validate_workspace_id
 
 
 def export_json(workspace_id: str, run_id: str) -> bytes | None:

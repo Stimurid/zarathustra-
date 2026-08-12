@@ -15,7 +15,6 @@ if hasattr(sys.stdout, "buffer"):
     except Exception:
         pass
 
-from .config import RUNS_DIR
 from .persona_layer import PersonaCouncilRuntime, load_persona_layer_registry
 from .personas import load_registry
 from .pipeline import Pipeline

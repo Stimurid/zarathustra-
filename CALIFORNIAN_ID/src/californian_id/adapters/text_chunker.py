@@ -16,8 +16,7 @@ run_from_units.
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass, field
-from typing import Any
+from dataclasses import dataclass
 
 from ..schemas import SemanticUnit, UnitPack
 

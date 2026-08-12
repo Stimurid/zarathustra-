@@ -5,7 +5,7 @@
 """
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 
 AFFECT_STATES = ("neutral", "alert", "restrained_anger", "severe", "ironic")

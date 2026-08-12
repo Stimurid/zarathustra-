@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 import re
 from typing import Any
 
-from .schemas import SemanticUnit, SourceAudit, ToulminBundle, UnitPack
+from .schemas import SemanticUnit, SourceAudit, UnitPack
 
 
 @dataclass
