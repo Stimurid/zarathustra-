@@ -489,14 +489,36 @@ class PersonaCouncilRuntime:
         *,
         enable_nemo8: bool = True,
         force_span: str | None = None,
+        situation_concepts: list[str] | None = None,
     ) -> RoutePlan:
+        """B-3bis.4: если задан situation_concepts (обычно из _llm_situation),
+        добавляем semantic-boost к persona scoring — устраняет keyword-only
+        слепоту (русский текст, другой домен).
+
+        Concept boost = +2.0 per concept-match (сильнее чем keyword +1.5),
+        матч по substring и по token-intersection (case-insensitive).
+        """
         scene_low = scene.lower()
+        concepts_low: list[str] = []
+        if situation_concepts:
+            for c in situation_concepts:
+                c_str = str(c).strip().lower()
+                if c_str and len(c_str) > 1:
+                    concepts_low.append(c_str)
+
         scores: dict[str, float] = {}
         for persona_id in BASE_FALLBACK_ORDER:
             score = 0.0
-            for phrase in self.routing.keywords_for(persona_id):
+            persona_keywords = self.routing.keywords_for(persona_id)
+            for phrase in persona_keywords:
                 if phrase in scene_low:
                     score += 1.0 if " " not in phrase else 1.5
+            # B-3bis.4: semantic boost по concepts из _llm_situation
+            for concept in concepts_low:
+                for phrase in persona_keywords:
+                    if phrase in concept or concept in phrase:
+                        score += 2.0
+                        break  # один concept — один boost на персону
             scores[persona_id] = score
 
         ranked = sorted(BASE_FALLBACK_ORDER, key=lambda pid: (-scores[pid], BASE_FALLBACK_ORDER.index(pid)))
