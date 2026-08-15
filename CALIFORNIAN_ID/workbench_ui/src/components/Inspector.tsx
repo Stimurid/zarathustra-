@@ -4,6 +4,7 @@ import type { DockTab } from './RightDock';
 import { PromptEditor, type EditorHandle, type Marker } from './PromptEditor';
 import { RagPanel } from './RagPanel';
 import { PromptBody, ReadinessBadge } from './BranchPanels';
+import { NodeOverview } from './NodeOverview';
 
 const STEPS = [
   ['clone', 'клонировать'], ['edit', 'сохранить'], ['diff', 'diff'],
@@ -23,11 +24,12 @@ function stateTone(s: string): 'ok' | 'warn' | 'err' | undefined {
 }
 
 export function Inspector({
-  branch, node, tab, onTabChange, onChanged,
+  branch, node, tab, runId, onTabChange, onChanged,
 }: {
-  branch: string; node: Json | null; tab: DockTab;
+  branch: string; node: Json | null; tab: DockTab; runId: string | null;
   onTabChange: (t: DockTab) => void; onChanged: () => void;
 }) {
+  const [lifecycle, setLifecycle] = useState(false);
   const [assetView, setAssetView] = useState<Json | null>(null);
   const [workingId, setWorkingId] = useState<string | null>(null);
   const [source, setSource] = useState('');
@@ -116,7 +118,7 @@ export function Inspector({
   const doClone = () => guard('clone', async () => {
     const r = await api.clone(assetId!, workingId!);
     await loadAsset(assetId!, r.variant.variant_id);
-    onTabChange('source');
+    onTabChange('prompt');
   });
   const doSave = () => guard('edit', async () => {
     await api.saveSource(assetId!, workingId!, source);
@@ -127,27 +129,27 @@ export function Inspector({
     const base = variants.find((v) => v.state === 'BASELINE' && v.origin === 'baseline_file')
       ?? variants.find((v) => v.state === 'BASELINE');
     setDiff(await api.diff(assetId!, base!.variant_id, workingId!));
-    onTabChange('source');
+    onTabChange('prompt');
   });
   const doValidate = () => guard('validate', async () => {
     setValidation(await api.validate(assetId!, workingId!));
     await loadAsset(assetId!, workingId);
-    onTabChange('contract');
+    onTabChange('prompt');
   });
   const doCompile = () => guard('compile', async () => {
     setCompiled(await api.compile(assetId!, workingId!));
     await loadAsset(assetId!, workingId);
-    onTabChange('compiled');
+    onTabChange('prompt');
   });
   const doSmoke = () => guard('smoke', async () => {
     setSmoke(await api.smoke(assetId!, workingId!));
     await loadAsset(assetId!, workingId);
-    onTabChange('contract');
+    onTabChange('prompt');
   });
   const doCompare = () => guard('compare', async () => {
     setCmp(await api.compare(assetId!, workingId!));
     await loadAsset(assetId!, workingId);
-    onTabChange('contract');
+    onTabChange('prompt');
   });
   const doAccept = () => guard('accept', async () => {
     await api.accept(assetId!, workingId!);
@@ -160,7 +162,7 @@ export function Inspector({
   });
   const doRun = () => guard('run', async () => {
     setRun(await api.run(branch, assetId!));
-    onTabChange('runs');
+    onTabChange('run');
   });
   const doRollback = () => guard('rollback', async () => {
     await api.rollback(assetId!);
@@ -175,24 +177,11 @@ export function Inspector({
   };
 
   // ---------------- panels ----------------
-  const overview = (
+  // Declarative-branch detail. It rides under the human overview rather than
+  // competing with it: readiness and a prompt binding without a body are things
+  // to know about a node, not the first thing to say about one.
+  const branchDetail = (
     <>
-      <h2>{n.label}</h2>
-      <div className="row">
-        <Pill text={n.kind} tone={n.kind === 'DETERMINISTIC' ? 'ok' : undefined} />
-        {n.asset_id ? <Pill text="prompt-controlled" /> : <Pill text="без промпта" tone="ok" />}
-      </div>
-      <div className="kv">
-        <div className="k">node_id</div><div className="v mono">{n.node_id}</div>
-        <div className="k">реализация</div><div className="v mono">{n.implementation}</div>
-        <div className="k">источник</div><div className="v mono">{n.source_ref || '—'}</div>
-        <div className="k">контракт выхода</div><div className="v mono">{n.output_contract || '—'}</div>
-        <div className="k">RAG-профиль</div><div className="v mono">{n.rag_profile_id || '—'}</div>
-        <div className="k">редактор промпта</div>
-        <div className="v">{editorAvailable
-          ? <Pill text="доступен" tone="ok" />
-          : <Pill text="недоступен — узел не промптовый" tone="warn" />}</div>
-      </div>
       {n.readiness ? (<>
         <h3>Готовность</h3>
         <div className="row">
@@ -232,83 +221,36 @@ export function Inspector({
           ))}
         </ul>
       </>) : null}
-      {n.note ? <div className="card" style={{ fontSize: 11 }}>{n.note}</div> : null}
-      {n.params?.length ? (<>
-        <h3>Параметры</h3>
-        {n.params.map((p: Json) => (
-          <div key={p.id} className="kv" style={{ marginBottom: 4 }}>
-            <div className="k">{p.id}</div>
-            <div className="v">{String(p.value)} <Pill text={`класс ${p.class}`} /></div>
-          </div>))}
-      </>) : null}
-
-      {assetView ? (<>
-        <h3>Промпт-ассет</h3>
-        <div className="kv">
-          <div className="k">asset_id</div><div className="v mono">{assetView.asset.asset_id}</div>
-          <div className="k">активный вариант</div>
-          <div className="v mono">{assetView.active_variant_id}</div>
-          <div className="k">reference-only</div>
-          <div className="v">{assetView.asset.reference_only
-            ? <Pill text="не подключён к рантайму" tone="warn" /> : 'нет'}</div>
-          <div className="k">профиль компилятора</div>
-          <div className="v mono">{assetView.compiler_profile.profile_id}{' '}
-            <Pill text={assetView.compiler_profile.allow_superprompt
-              ? 'superprompt разрешён' : 'superprompt запрещён'} /></div>
-        </div>
-        {contract && contract.prompt_fields.length ? (<>
-          <h3>Контракт</h3>
-          <div className="row">
-            <Pill text={`промпт/объявлено/потребляется ${contract.summary}`}
-              tone={contract.status === 'OK' ? 'ok' : 'err'} />
-            <Pill text={contract.status} tone={contract.status === 'OK' ? 'ok' : 'err'} />
-          </div>
-          {contract.unconsumed?.length ? (
-            <div className="card">
-              <b style={{ fontSize: 11 }}>Не потребляются ({contract.unconsumed.length}):</b>
-              <div className="mono" style={{ marginTop: 4 }}>{contract.unconsumed.join(', ')}</div>
-            </div>) : null}
-        </>) : null}
-        <h3>Варианты ({variants.length})</h3>
-        {variants.map((v) => (
-          <div key={v.variant_id} className="card" style={{
-            borderColor: v.variant_id === workingId ? 'var(--accent)' : undefined }}>
-            <div className="row" style={{ margin: 0 }}>
-              <Pill text={v.state} tone={stateTone(v.state)} />
-              {v.variant_id === assetView.active_variant_id
-                ? <Pill text="активен" tone="ok" /> : null}
-              <span className="mono">{v.variant_id}</span>
-              <span style={{ flex: 1 }} />
-              <button onClick={() => loadAsset(assetId!, v.variant_id)}>выбрать</button>
-            </div>
-            <div className="mono" style={{ color: 'var(--text-dim)' }}>
-              {v.origin} · {v.source_hash?.slice(0, 12)}</div>
-          </div>))}
-      </>) : (
-        <div className="card" style={{ fontSize: 11 }}>
-          У узла нет промпт-ассета — редактор промпта не открывается.
-          Показаны схема выхода и типизированная конфигурация.
-        </div>)}
     </>
   );
+
+  const variantsPanel = assetView ? (
+    <>
+      <h3>Варианты ({variants.length})</h3>
+      {variants.map((v) => (
+        <div key={v.variant_id} className="card" data-variant={v.variant_id} style={{
+          borderColor: v.variant_id === workingId ? 'var(--accent)' : undefined }}>
+          <div className="row" style={{ margin: 0 }}>
+            <Pill text={v.state} tone={stateTone(v.state)} />
+            {v.variant_id === assetView.active_variant_id
+              ? <Pill text="активен" tone="ok" /> : null}
+            <span className="mono">{v.variant_id}</span>
+            <span style={{ flex: 1 }} />
+            <button onClick={() => loadAsset(assetId!, v.variant_id)}>выбрать</button>
+          </div>
+          <div className="mono" style={{ color: 'var(--text-dim)' }}>
+            {v.origin} · {v.source_hash?.slice(0, 12)}</div>
+        </div>))}
+    </>
+  ) : null;
 
   const sourcePanel = !editorAvailable ? (
     <div className="card">Узел не промпт-управляемый. Редактор недоступен.</div>
   ) : (
     <>
-      <h2>SOURCE</h2>
-      <div className="row">
-        <Pill text={working?.state ?? '—'} tone={stateTone(working?.state ?? '')} />
-        <span className="mono">{workingId}</span>
-      </div>
-      <div className="legend">
-        {regions.map((r) => (
-          <span key={r.name}>
-            <b className={r.kind === 'protected' ? 'p' : 'e'}>
-              {r.kind === 'protected' ? '🔒' : '✎'} {r.name}</b>
-          </span>))}
-      </div>
+      <h3>Текст промпта</h3>
       <div className="row" style={{ gap: 4 }}>
+        <span className="dim">области:</span>
         {regions.map((r) => (
           <button key={r.name} title={r.reason}
             onClick={() => editor.current?.gotoRegion(r.name)}>
@@ -535,11 +477,119 @@ export function Inspector({
     </>
   );
 
-  return (
-    <div className="dock-body">
-      {err ? <div className="card err-text">{err}</div> : null}
-      {editorAvailable ? (
-        <div className="card">
+  // ---------------- ВХОД / ВЫХОД — typed contract in human order -----------
+  const ioPanel = (
+    <>
+      <h2>Вход и выход</h2>
+      <div className="ov-field">
+        <div className="ov-field__label">Получает</div>
+        <div className="ov-field__value" data-io-in>
+          {n.doc?.receives || n.input_contract
+            || <span className="dim">вход не типизирован</span>}
+        </div>
+      </div>
+      <div className="ov-field">
+        <div className="ov-field__label">Выдаёт</div>
+        <div className="ov-field__value" data-io-out>
+          {n.doc?.produces || n.output_contract
+            || <span className="dim">выход не типизирован</span>}
+        </div>
+      </div>
+      <div className="ov-field">
+        <div className="ov-field__label">Куда идёт результат</div>
+        <div className="ov-field__value">
+          {n.doc?.consumers || <span className="dim">потребители не описаны</span>}
+        </div>
+      </div>
+      {node.executions?.length ? (
+        <>
+          <h3>В выбранном запуске</h3>
+          {node.executions.map((e: Json, i: number) => (
+            <div key={i} className="card">
+              <table className="kvt"><tbody>
+                <tr><td>получил</td>
+                  <td><code>{(e.input_object_ids || []).join(', ') || '—'}</code></td></tr>
+                <tr><td>выдал</td>
+                  <td><code>{(e.output_object_ids || []).filter(Boolean).join(', ') || '—'}</code></td></tr>
+              </tbody></table>
+            </div>
+          ))}
+        </>
+      ) : (
+        <p className="ov-empty">
+          Фактические объекты появятся, когда будет выбран запуск.
+        </p>
+      )}
+    </>
+  );
+
+  // ---------------- ПРОМПТ — editorial workflow, CI ladder folded away -----
+  const promptPanel = !editorAvailable ? (
+    <div className="card">Узел не промпт-управляемый — редактор не открывается.</div>
+  ) : (
+    <>
+      <h2>Промпт</h2>
+      <div className="prompt-head" data-prompt-head>
+        <table className="kvt"><tbody>
+          <tr><td>активный вариант</td>
+            <td><code data-active-variant>{assetView?.active_variant_id}</code></td></tr>
+          <tr><td>вы правите</td><td>
+            <code>{workingId}</code>{' '}
+            <span className={`badge ${isBaseline ? 'warn' : 'ok'}`}>
+              {working?.state}</span></td></tr>
+          <tr><td>профиль компиляции</td>
+            <td><code>{assetView?.compiler_profile?.profile_id}</code></td></tr>
+        </tbody></table>
+        {isBaseline ? (
+          <div className="row">
+            <button className="primary" data-prompt-edit-copy
+              disabled={!!busy} onClick={doClone}>Редактировать копию</button>
+            <button data-prompt-diff onClick={doDiff}>Сравнить варианты</button>
+          </div>
+        ) : (
+          <div className="row">
+            <button className="primary" data-prompt-check
+              disabled={!!busy} onClick={doValidate}>Проверить</button>
+            <button data-prompt-test disabled={!!busy} onClick={doSmoke}>
+              Протестировать</button>
+            <button data-prompt-diff onClick={doDiff}>Сравнить с активным</button>
+            <button data-prompt-activate disabled={!!busy} onClick={doActivate}>
+              Активировать</button>
+            <button data-prompt-rollback disabled={!!busy} onClick={doRollback}>
+              Откатить</button>
+          </div>
+        )}
+        {validation ? (
+          <div className="row" data-prompt-verdict>
+            <span className={`badge ${validation.verdict === 'pass' ? 'ok'
+              : validation.verdict === 'warn' ? 'warn' : 'bad'}`}>
+              проверка: {validation.verdict}</span>
+            <span className="badge">{validation.drift_class}</span>
+            <button onClick={() => onTabChange('contracts')}>подробности</button>
+          </div>
+        ) : null}
+        {smoke ? (
+          <div className="row" data-prompt-smoke>
+            <span className={`badge ${smoke.passed ? 'ok' : 'bad'}`}>
+              тест: {smoke.passed ? 'пройден' : 'не пройден'}</span>
+            <span className="badge">{smoke.level}</span>
+          </div>
+        ) : null}
+      </div>
+
+      {sourcePanel}
+      {variantsPanel}
+
+      <button className="ov-tech-toggle" data-lifecycle-toggle
+        onClick={() => setLifecycle((l) => !l)}>
+        Полный жизненный цикл {lifecycle ? '▴' : '▾'}
+      </button>
+      {lifecycle ? (
+        <div className="card" data-lifecycle>
+          <p className="dim">
+            Внутренние стадии. Кнопки выше проходят их за вас; здесь они
+            доступны по отдельности.
+          </p>
           <div className="steps">
             {STEPS.map(([k, label]) => (
               <div key={k} className={`step ${done.has(k) ? 'done' : ''}`}>
@@ -551,17 +601,32 @@ export function Inspector({
                   onClick={ACTIONS[k]}>{busy === k ? '…' : '▸'}</button>
               </div>))}
           </div>
-        </div>) : null}
+          {compiledPanel}
+        </div>
+      ) : null}
+    </>
+  );
 
-      {tab === 'inspector' && overview}
+  return (
+    <div className="dock-body">
+      {err ? <div className="card err-text">{err}</div> : null}
+
+      {tab === 'overview' && (
+        <>
+          <NodeOverview node={node} run={runId ? { run_id: runId } : null}
+            onOpenTab={onTabChange} />
+          {branchDetail}
+        </>
+      )}
+      {tab === 'io' && ioPanel}
+      {tab === 'prompt' && promptPanel}
       {tab === 'rag' && (n.rag_profile_id
-        ? <RagPanel profileId={n.rag_profile_id} onChanged={onChanged} />
-        : <div className="card">Узел не является RAG-узлом.</div>)}
-      {tab === 'source' && sourcePanel}
-      {tab === 'contract' && contractPanel}
-      {tab === 'compiled' && compiledPanel}
-      {tab === 'effects' && effectsPanel}
-      {tab === 'runs' && runsPanel}
+        ? <RagPanel profileId={n.rag_profile_id} onChanged={onChanged}
+            executions={node.executions} runId={runId} />
+        : <div className="card">Узел не является узлом извлечения.</div>)}
+      {tab === 'settings' && effectsPanel}
+      {tab === 'contracts' && contractPanel}
+      {tab === 'run' && runsPanel}
     </div>
   );
 }

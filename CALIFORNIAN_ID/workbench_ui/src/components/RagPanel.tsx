@@ -17,8 +17,9 @@ function Pill({ text, tone }: { text: string; tone?: 'ok' | 'warn' | 'err' }) {
 const gradeTone = (g: string) =>
   g === 'MEASURED' ? 'ok' : g === 'UNKNOWN' ? 'err' : 'warn';
 
-export function RagPanel({ profileId, onChanged }: {
+export function RagPanel({ profileId, onChanged, executions, runId }: {
   profileId: string; onChanged: () => void;
+  executions?: Json[]; runId?: string | null;
 }) {
   const [view, setView] = useState<Json | null>(null);
   const [workingId, setWorkingId] = useState(profileId);
@@ -59,7 +60,38 @@ export function RagPanel({ profileId, onChanged }: {
   return (
     <>
       {err ? <div className="card err-text">{err}</div> : null}
-      <h2>RAG-профиль</h2>
+
+      {/* Runtime evidence for THIS node in THIS run — or an explicit absence.
+          Never a zero: a retrieval that never ran did not return 0 chunks. */}
+      <h2>Извлечение</h2>
+      <div data-rag-runtime>
+        {!runId ? (
+          <p className="ov-empty" data-rag-no-run>
+            Запуск не выбран — показана только действующая конфигурация.
+          </p>
+        ) : !(executions || []).length ? (
+          <p className="ov-empty" data-rag-not-observed>
+            В выбранном запуске этот узел извлечения не наблюдался.
+          </p>
+        ) : (
+          <div className="card" data-rag-observed>
+            {(executions || []).map((e, i) => (
+              <table className="kvt" key={i}><tbody>
+                <tr><td>ход</td><td>{e.turn_index ?? '—'}</td></tr>
+                <tr><td>найдено</td><td><b>{e.retrieved_chunks}</b> фрагментов</td></tr>
+                <tr><td>действовавший top_k</td><td>{e.effective_top_k ?? '—'}</td></tr>
+                <tr><td>что вернулось</td>
+                  <td><code>{(e.output_object_ids || []).filter(Boolean).join(', ') || '—'}</code></td></tr>
+                <tr><td>профиль в прогоне</td>
+                  <td><code>{e.rag_binding?.rag_profile_id || '—'}</code>{' '}
+                    v{e.rag_binding?.version || '—'}</td></tr>
+              </tbody></table>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <h2>Конфигурация</h2>
       <div className="row">
         <Pill text={p.state} tone={p.state === 'ACTIVE' ? 'ok'
           : p.state === 'INCOMPATIBLE' ? 'err' : undefined} />

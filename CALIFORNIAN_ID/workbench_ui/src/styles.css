@@ -241,3 +241,124 @@ pre.diff .del { color: var(--err); }
   padding: 8px; max-height: 320px; overflow: auto;
   border: 1px solid var(--border); border-radius: 5px; background: var(--surface2);
 }
+
+/* ================= product shell ================= */
+.topbar__ident { display: flex; align-items: baseline; gap: 8px; }
+.topbar__branch { font-size: 11px; color: var(--text-dim); }
+.topbar .primary { font-size: 12px; padding: 5px 14px; }
+
+.mainnav {
+  display: flex; align-items: center; gap: 2px; padding: 0 12px;
+  border-bottom: 1px solid var(--border); background: var(--surface);
+  flex-shrink: 0;
+}
+.mainnav > button {
+  background: none; border: none; border-bottom: 2px solid transparent;
+  border-radius: 0; padding: 8px 12px; font-size: 12px; color: var(--text-dim);
+}
+.mainnav > button:hover { color: var(--text); }
+.mainnav > button.sel { color: var(--text); border-bottom-color: var(--accent); font-weight: 600; }
+.mainnav .spacer { flex: 1; }
+.viewsel { display: flex; align-items: center; gap: 3px; font-size: 10px;
+  color: var(--text-dim); padding-right: 10px; }
+.viewsel button { font-size: 10px; padding: 2px 8px; }
+.viewsel button.sel { border-color: var(--accent); color: var(--text); }
+.metric-toggle { display: flex; align-items: center; gap: 4px; font-size: 10px;
+  color: var(--text-dim); }
+
+/* the epistemic mode strip — definition vs one specific run */
+.modebar {
+  display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+  padding: 5px 14px; font-size: 11px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(90deg, rgba(124,140,248,.10), transparent 60%);
+}
+.modebar b { letter-spacing: 1.2px; font-size: 10px; color: var(--accent); }
+.modebar .spacer { flex: 1; }
+.modebar--run { background: linear-gradient(90deg, rgba(53,192,122,.14), transparent 60%); }
+.modebar--run b { color: var(--ok); }
+
+.statusbar {
+  display: flex; align-items: center; gap: 10px; padding: 4px 12px;
+  border-top: 1px solid var(--border); background: var(--surface);
+  flex-shrink: 0; font-size: 10px;
+}
+.statusbar .spacer { flex: 1; }
+.statusbar button { font-size: 10px; padding: 2px 8px; }
+
+/* ---------------- graph node, product form ---------------- */
+.wb-node .label { font-size: 12px; font-weight: 600; margin: 0; }
+.wb-node .kind { margin-top: 2px; color: var(--text-dim); font-size: 9px; }
+.wb-node .meta.ok { color: var(--ok); }
+.wb-node.declared-only { opacity: .55; border-style: dashed; }
+.wb-node.not-executed { opacity: .45; }
+.wb-node.executed { border-color: rgba(53,192,122,.55); }
+
+/* ---------------- human-first inspector ---------------- */
+.ov-field { margin: 10px 0; }
+.ov-field__label {
+  font-size: 9.5px; letter-spacing: .7px; text-transform: uppercase;
+  color: var(--text-dim); margin-bottom: 3px;
+}
+.ov-field__value { font-size: 12px; line-height: 1.5; }
+.ov-list { margin: 2px 0 0; padding-left: 16px; font-size: 11.5px; }
+.ov-list--bad li { color: var(--warn); }
+.ov-warn { font-size: 11px; color: var(--warn); margin: 6px 0; }
+.ov-empty { font-size: 11.5px; color: var(--text-dim); font-style: italic;
+  margin: 6px 0; }
+.ov-runtime { margin-top: 16px; padding-top: 10px; border-top: 1px solid var(--border); }
+.ov-tech-toggle {
+  margin-top: 14px; background: none; border: none; padding: 4px 0;
+  color: var(--text-dim); font-size: 10.5px; letter-spacing: .4px;
+}
+.ov-tech-toggle:hover { color: var(--text); }
+
+.prompt-head { border-bottom: 1px solid var(--border); padding-bottom: 8px;
+  margin-bottom: 10px; }
+
+/* ---------------- run panel ---------------- */
+.run-input {
+  width: 100%; min-height: 96px; resize: vertical; font-size: 12px;
+  line-height: 1.5; background: #10131a; margin-bottom: 8px;
+}
+.fixture-list { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+.fixture {
+  text-align: left; display: flex; flex-direction: column; gap: 2px;
+  font-size: 11px; padding: 6px 8px;
+}
+.run-cta { display: flex; align-items: center; gap: 10px; margin: 14px 0 6px; }
+button.big { font-size: 13px; padding: 8px 20px; }
+
+/* ---------------- run history / compare ---------------- */
+.run-list { display: flex; flex-direction: column; gap: 4px; margin: 8px 0; }
+.run-row { display: flex; gap: 4px; align-items: stretch; }
+.run-row__main {
+  flex: 1; text-align: left; display: flex; flex-direction: column; gap: 2px;
+  font-size: 11px; padding: 6px 8px; min-width: 0;
+}
+.run-row.sel .run-row__main { border-color: var(--accent); }
+.run-row__top { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.run-row__label { font-weight: 600; overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap; }
+.run-row__cmp { display: flex; flex-direction: column; gap: 2px; }
+.run-row__cmp button { font-size: 9px; padding: 2px 6px; }
+.kvt.cmp td { border-bottom: 1px solid rgba(51,57,68,.5); padding: 3px 6px 3px 0; }
+.kvt.cmp td:first-child { width: 34%; }
+.diff-changed td { background: rgba(224,168,60,.10); }
+.diff-changed td:first-child { color: var(--warn); }
+
+/* ---------------- catalogues ---------------- */
+.cat-row {
+  display: block; width: 100%; text-align: left; margin: 5px 0;
+  padding: 8px 10px; font-size: 11px;
+}
+.cat-row__title { font-size: 12px; font-weight: 600; }
+.wb-node { min-width: 190px; max-width: 190px; padding: 6px 8px; }
+.wb-band {
+  border: 1px dashed rgba(224,168,60,.45); border-radius: 10px;
+  background: rgba(224,168,60,.05); pointer-events: none;
+}
+.wb-band__label {
+  position: absolute; top: -9px; left: 12px; padding: 0 6px;
+  background: var(--bg); color: var(--warn); font-size: 10px; white-space: nowrap;
+}

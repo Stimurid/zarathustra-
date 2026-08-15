@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import difflib
+import time
 import uuid
 from typing import Any
 
@@ -29,6 +30,12 @@ from .rag import (
 from .smoke import SmokeHarness, SmokeResult, compare as smoke_compare
 from .store import WorkbenchStore, now_iso
 from .validator import StaticValidator
+
+
+def _input_label(text: str, limit: int = 72) -> str:
+    """A short, honest handle for a run's input — never a summary of it."""
+    flat = " ".join((text or "").split())
+    return flat if len(flat) <= limit else flat[:limit - 1] + "…"
 
 
 def asdict_rag(p: RAGProfile) -> dict[str, Any]:
@@ -146,7 +153,9 @@ class WorkbenchService:
             raise WorkbenchError(f"unknown branch: {branch}")
         return adapter.describe_pipeline(resolved_for)
 
-    def node(self, branch: str, node_id: str, resolved_for: dict[str, str] | None = None) -> dict[str, Any]:
+    def node(self, branch: str, node_id: str,
+             resolved_for: dict[str, str] | None = None,
+             run_id: str | None = None) -> dict[str, Any]:
         proj = self.pipeline(branch, resolved_for)
         node = next((n for n in proj.nodes if n.node_id == node_id), None)
         if node is None:
@@ -160,10 +169,51 @@ class WorkbenchService:
             payload["editor_available"] = False
         payload["editor_available"] = bool(node.asset_id) and not (
             node.asset_id and self.asset(node.asset_id).reference_only)
+        # Controls that reach THIS node — by declared consumer, not by asset
+        # identity. The old test (`control_id == asset_id`) matched nothing, so
+        # the hybrid controls were invisible on every node in the pipeline.
         payload["effects"] = [
             c.to_public() for c in self.adapters[branch].semantic_controls()
-            if c.subject == "asset" and c.control_id == (node.asset_id or "")
+            if c.control_id == (node.asset_id or "\0")
+            or any(node_id in e.consumers for e in c.effects)
         ]
+
+        # Known issues, stated as issues rather than left for the operator to
+        # infer from a badge. Only real ones: a node with nothing wrong gets an
+        # empty list, not a reassuring green claim.
+        issues: list[str] = []
+        if node.asset_id:
+            asset = self.asset(node.asset_id)
+            active_id = self.store.active_variant_id(node.asset_id)
+            active = (self.store.load_variant(node.asset_id, active_id)
+                      if active_id else None)
+            if active is not None:
+                rep = self.adapters[branch].contract_report(node.asset_id,
+                                                            active.source_text)
+                if rep.status != "OK" and rep.prompt_fields:
+                    issues.append(
+                        f"расхождение контракта {rep.summary()} "
+                        f"(полей в промпте / объявлено / потребляется); "
+                        f"{len(rep.unconsumed)} объявленных полей рантайм не читает")
+            if asset.reference_only:
+                issues.append("ассет не подключён к рантайму (reference-only)")
+        if node.topology_status == "DEAD_DECLARATION":
+            issues.append("шаг объявлен в конфигурации, но рантайм его не исполняет")
+        elif node.topology_status == "DECLARATION_DRIFT":
+            issues.append("объявленный порядок расходится с фактическим")
+        payload["known_issues"] = issues
+
+        # Runtime evidence is attached ONLY when a run was explicitly named.
+        # Without it the node payload stays a definition, so the UI cannot
+        # accidentally present the last run as the node's permanent state.
+        payload["run_id"] = run_id
+        payload["executions"] = []
+        if run_id:
+            trace = self.store.read_run(run_id)
+            if trace is None:
+                raise WorkbenchError(f"unknown run: {run_id}")
+            payload["executions"] = [e for e in (trace.get("node_executions") or [])
+                                     if e.get("node_id") == node_id]
         return payload
 
     def asset_view(self, asset_id: str) -> dict[str, Any]:
@@ -822,11 +872,22 @@ class WorkbenchService:
         if bind is None or unbind is None:
             raise WorkbenchError(f"branch {branch} cannot bind a runtime resolver")
         bind(resolver)
+        started = time.time()
+        failure: str | None = None
         try:
             with resolver.pinned(snapshot.as_resolver_view()):
                 observed = entry(text=text, mode=mode)
+        except Exception as exc:                    # noqa: BLE001 — recorded, not hidden
+            # A run that dies halfway is still evidence. Losing it would leave
+            # the operator with no record of what did happen before the failure.
+            failure = f"{type(exc).__name__}: {exc}"
+            observed = {"entrypoint": getattr(adapter, "PRODUCTION_ENTRYPOINT", None),
+                        "run_id": f"failed_{int(started * 1000)}",
+                        "status": "FAILED", "turns": [], "errors": [failure],
+                        "trace_dir": "", "selected_personas": []}
         finally:
             unbind()
+        duration_ms = int((time.time() - started) * 1000)
 
         effective = {}
         for b in snapshot.rag_bindings:
@@ -845,6 +906,12 @@ class WorkbenchService:
             "kind": "PRODUCTION_RUNTIME_VALIDATION",
             "entrypoint": observed["entrypoint"],
             "started_at": snapshot.created_at,
+            "finished_at": now_iso(),
+            "duration_ms": duration_ms,
+            "mode": mode,
+            "input": {"text": text, "label": _input_label(text),
+                      "chars": len(text)},
+            "failure": failure,
             "actor": actor,
             "run_configuration_snapshot": snapshot.to_public(),
             "effective_retrieval": effective,
@@ -855,6 +922,170 @@ class WorkbenchService:
         }
         self.store.write_run(observed["run_id"], trace)
         return trace
+
+    def input_fixtures(self, branch: str) -> list[dict[str, Any]]:
+        """Ready-made inputs so the RUN button is reachable without typing.
+
+        Two sources, both honest about where they came from: fixtures the
+        branch ships, and inputs of runs that already happened.
+        """
+        adapter = self.adapters.get(branch)
+        if adapter is None:
+            raise WorkbenchError(f"unknown branch: {branch}")
+        out: list[dict[str, Any]] = []
+        seen: set[str] = set()
+        for a_id, (b, _) in self._assets.items():
+            if b != branch:
+                continue
+            for f in adapter.fixtures(a_id):
+                if f.fixture_id in seen:
+                    continue
+                seen.add(f.fixture_id)
+                out.append({"id": f.fixture_id, "text": f.text,
+                            "description": f.description, "origin": "branch_fixture"})
+        for t in self.store.list_runs(10):
+            text = (t.get("input") or {}).get("text")
+            if not text or text in {o["text"] for o in out}:
+                continue
+            out.append({"id": t.get("run_id"), "text": text,
+                        "description": (t.get("input") or {}).get("label"),
+                        "origin": "previous_run"})
+        return out
+
+    # ---------------- run history / compare (product surface) ----------------
+
+    def run_index(self, limit: int = 20) -> list[dict[str, Any]]:
+        """Compact list of runs for the history panel.
+
+        Deliberately not the full trace: the history list is a navigation
+        surface, and shipping every node execution to render a row is how a
+        list becomes unusable.
+        """
+        out = []
+        skipped = 0
+        for t in self.store.list_runs(limit * 3):
+            # Bounded prompt-test runs are a different object from a pipeline
+            # run. Mixing them into the run history is how a product surface
+            # turns back into an engineering log.
+            if t.get("kind") != "PRODUCTION_RUNTIME_VALIDATION":
+                skipped += 1
+                continue
+            if len(out) >= limit:
+                break
+            snap = t.get("run_configuration_snapshot") or {}
+            prod = t.get("production") or {}
+            out.append({
+                "run_id": t.get("run_id"),
+                "branch": t.get("branch"),
+                "kind": t.get("kind"),
+                "started_at": t.get("started_at"),
+                "duration_ms": t.get("duration_ms"),
+                "status": prod.get("status") or ("FAILED" if t.get("failure")
+                                                 else "UNKNOWN"),
+                "failure": t.get("failure"),
+                "input_label": (t.get("input") or {}).get("label"),
+                "mode": t.get("mode"),
+                "snapshot_id": snap.get("snapshot_id"),
+                "activation_revision": snap.get("activation_revision"),
+                "prompt_versions": {b["asset_id"]: b.get("version")
+                                    for b in snap.get("prompt_bindings", [])},
+                "rag_versions": {b["engine_id"]: b.get("version")
+                                 for b in snap.get("rag_bindings", [])},
+                "turns": len(prod.get("turns") or []),
+                "node_executions": len(t.get("node_executions") or []),
+            })
+        self._run_index_skipped = skipped
+        return out
+
+    def compare_runs(self, run_a: str, run_b: str) -> dict[str, Any]:
+        """Two runs side by side. States differences; never ranks them.
+
+        There is no evaluation model in this runtime that could justify calling
+        one run better, so this returns what changed and stops there.
+        """
+        a = self.store.read_run(run_a)
+        b = self.store.read_run(run_b)
+        if a is None or b is None:
+            raise WorkbenchError("неизвестный прогон")
+
+        def snap(t):
+            return t.get("run_configuration_snapshot") or {}
+
+        def bindings(t, key, id_field):
+            return {x[id_field]: x for x in snap(t).get(key, [])}
+
+        def diff_bindings(key, id_field, version_field="version"):
+            ba, bb = bindings(a, key, id_field), bindings(b, key, id_field)
+            rows = []
+            for k in sorted(set(ba) | set(bb)):
+                va, vb = ba.get(k, {}), bb.get(k, {})
+                rows.append({
+                    "id": k,
+                    "a": va.get(version_field), "b": vb.get(version_field),
+                    "a_detail": va, "b_detail": vb,
+                    "changed": (va.get(version_field) != vb.get(version_field)
+                                or va.get("source_hash") != vb.get("source_hash")
+                                or va.get("profile_hash") != vb.get("profile_hash")),
+                })
+            return rows
+
+        def per_node(t):
+            counts: dict[str, dict[str, Any]] = {}
+            for ex in t.get("node_executions") or []:
+                c = counts.setdefault(ex["node_id"], {
+                    "node_id": ex["node_id"], "kind": ex.get("node_kind"),
+                    "executions": 0, "retrieved_chunks": None})
+                c["executions"] += 1
+                if ex.get("retrieved_chunks") is not None:
+                    c["retrieved_chunks"] = (c["retrieved_chunks"] or 0) + \
+                        ex["retrieved_chunks"]
+            return counts
+
+        na, nb = per_node(a), per_node(b)
+        node_rows = []
+        for nid in sorted(set(na) | set(nb)):
+            ra, rb = na.get(nid, {}), nb.get(nid, {})
+            node_rows.append({
+                "node_id": nid,
+                "kind": ra.get("kind") or rb.get("kind"),
+                "a_executions": ra.get("executions"), "b_executions": rb.get("executions"),
+                "a_chunks": ra.get("retrieved_chunks"), "b_chunks": rb.get("retrieved_chunks"),
+                "changed": ra.get("executions") != rb.get("executions")
+                or ra.get("retrieved_chunks") != rb.get("retrieved_chunks"),
+            })
+
+        def outcome(t):
+            prod = t.get("production") or {}
+            return {"status": prod.get("status"), "topic": prod.get("topic"),
+                    "genre": prod.get("genre"),
+                    "personas": prod.get("selected_personas") or [],
+                    "turns": len(prod.get("turns") or []),
+                    "errors": prod.get("errors") or []}
+
+        return {
+            "a": {"run_id": run_a, "started_at": a.get("started_at"),
+                  "duration_ms": a.get("duration_ms"),
+                  "input": (a.get("input") or {}).get("label"),
+                  "snapshot_id": snap(a).get("snapshot_id")},
+            "b": {"run_id": run_b, "started_at": b.get("started_at"),
+                  "duration_ms": b.get("duration_ms"),
+                  "input": (b.get("input") or {}).get("label"),
+                  "snapshot_id": snap(b).get("snapshot_id")},
+            "same_input": ((a.get("input") or {}).get("text")
+                           == (b.get("input") or {}).get("text")),
+            "prompt_diff": diff_bindings("prompt_bindings", "asset_id"),
+            "rag_diff": diff_bindings("rag_bindings", "engine_id"),
+            "model_diff": diff_bindings("model_bindings", "role", "model"),
+            "control_diff": diff_bindings("semantic_control_bindings",
+                                          "control_id", "value"),
+            "node_runtime": node_rows,
+            "outcome_a": outcome(a), "outcome_b": outcome(b),
+            "quality_verdict": {
+                "value": None,
+                "reason": "в этом рантайме нет модели оценки, которая позволила "
+                          "бы назвать один прогон лучше другого",
+            },
+        }
 
     # ---------------- branch capability passthrough ----------------
     #

@@ -25,6 +25,7 @@ from workbench_core.branch import (
     EdgeProjection,
     Fixture,
     Invocation,
+    NodeDoc,
     NodeProjection,
     PipelineProjection,
     SemanticControl,
@@ -84,8 +85,156 @@ def _yaml(path: Path) -> dict[str, Any]:
     return yaml.safe_load(_read(path)) or {} if path.exists() else {}
 
 
+#: Human-facing documentation of every production node.
+#:
+#: This is product copy, and it lives with the branch, not in the core: only
+#: this branch knows what "кастинг" means. It answers the questions an operator
+#: actually asks — что это, когда идёт, что получает, что отдаёт, кто потребляет,
+#: чем управляется — before any asset id or hash is shown.
+NODE_DOCS: dict[str, NodeDoc] = {
+    "intake": NodeDoc(
+        purpose="Принимает исходный материал: вставленный текст или файл. "
+                "Ничего не интерпретирует — только фиксирует вход прогона.",
+        when="Самое начало прогона.",
+        receives="Текст или файл от оператора.",
+        produces="RawInput — исходный материал прогона.",
+        consumers="Нормализация."),
+    "normalize_input": NodeDoc(
+        purpose="Приводит вход к единому виду: кодировка, переносы, служебные "
+                "символы. Смысл текста не меняется.",
+        when="Сразу после приёма входа.",
+        receives="RawInput.",
+        produces="NormalisedText.",
+        consumers="Чтение сцены.",
+        controlled_by=["детерминированный код, без промпта"]),
+    "fabric_chain": NodeDoc(
+        purpose="Ткань: двенадцать ступеней разбора, которые режут вход на "
+                "смысловые единицы. Включается только для расширенных режимов входа.",
+        when="Между нормализацией и чтением сцены — если выбран режим входа, "
+             "отличный от raw.",
+        receives="NormalisedText.",
+        produces="UnitPack — набор смысловых единиц.",
+        consumers="Чтение сцены."),
+    "analyze_situation": NodeDoc(
+        purpose="Первичное чтение ситуации: выделяет тему, жанр, рамки, "
+                "ценности, страхи и другие признаки, на которые дальше "
+                "опирается весь совет.",
+        when="Один раз за прогон, после входа и перед кастингом.",
+        receives="Нормализованный текст входа.",
+        produces="SituationAnalysis — разбор ситуации.",
+        consumers="Кастинг, выбор голоса, ход персоны, поиск опор персоны.",
+        controlled_by=["промпт «Чтение сцены»", "модель роли "
+                       "zarathustra_situation_reading"]),
+    "load_persona_registry": NodeDoc(
+        purpose="Загружает реестр персон: кто вообще может участвовать в совете "
+                "и с какими полномочиями.",
+        when="После чтения сцены.",
+        receives="Каталог персон на диске.",
+        produces="PersonaRegistry.",
+        consumers="Кастинг."),
+    "select_initial_voice": NodeDoc(
+        purpose="Первичный кастинг: выбирает, какие персоны вообще войдут в "
+                "совет по этой ситуации. Ранжирование детерминированное, но "
+                "опирается на признаки, полученные моделью.",
+        when="После чтения сцены и загрузки реестра.",
+        receives="SituationAnalysis + PersonaRegistry.",
+        produces="SelectedPersonas.",
+        consumers="Маршрутизация.",
+        controlled_by=["manifest.routing (темы/напряжения персон)",
+                       "position_model персоны"]),
+    "retrieve_initial_context": NodeDoc(
+        purpose="Шаг объявлен в pipeline.yaml, но рантайм его не выполняет. "
+                "Показан отдельным слоем, чтобы объявление не принимали за "
+                "работающий узел. Реальное извлечение идёт внутри цикла совета.",
+        when="Никогда — объявление без исполнения.",
+        receives="—",
+        produces="—",
+        consumers="—"),
+    "route_next": NodeDoc(
+        purpose="Решает, чей ход следующий и какую операцию персона выполняет. "
+                "Это точка, где совет перестаёт быть списком и становится "
+                "процессом.",
+        when="В начале каждой итерации цикла совета.",
+        receives="Состояние прогона, предыдущие ходы, оценки спора.",
+        produces="RoutingDecision — персона и операция следующего хода.",
+        consumers="Опоры персоны, культурный контекст, ход персоны.",
+        controlled_by=["промпт «Вызов головы»", "режим критики (attack_bias)",
+                       "режим вариации (repeat_penalty)"]),
+    "evidence_retrieval": NodeDoc(
+        purpose="Ищет фрагменты из корпуса самой персоны — то, на что она "
+                "может опереться в этом ходе.",
+        when="На каждой итерации цикла, перед ходом персоны.",
+        receives="Тему ситуации и идентификатор персоны.",
+        produces="Фрагменты корпуса персоны (EvidenceChunk[]).",
+        consumers="Ход персоны.",
+        controlled_by=["RAG-профиль «Корпус персон»", "top_k"]),
+    "cultural_context": NodeDoc(
+        purpose="Подмешивает культурные карты — внешние опоры, не принадлежащие "
+                "ни одной персоне. Отвечает за то, чтобы совет не варился "
+                "только в собственном материале.",
+        when="На каждой итерации цикла, перед ходом персоны.",
+        receives="Разбор ситуации и решение маршрутизатора.",
+        produces="Культурные карты (RetrievedCard[]).",
+        consumers="Ход персоны.",
+        controlled_by=["RAG-профиль «Культурные карты»", "top_k",
+                       "требуемая функция карты"]),
+    "persona_turn": NodeDoc(
+        purpose="Собственно ход персоны: она говорит, опираясь на найденные "
+                "фрагменты и карты. Здесь сходятся оба извлечения.",
+        when="На каждой итерации цикла совета.",
+        receives="Опоры персоны, культурные карты и решение о ходе.",
+        produces="TurnRecord — реплика с операцией и провенансом.",
+        consumers="Оценка спора, синтез.",
+        controlled_by=["промпт «Назначение хода»", "модель роли persona_turn",
+                       "режим критики", "режим вариации"]),
+    "assess_turn": NodeDoc(
+        purpose="Оценивает ход по аргументационной схеме: что именно было "
+                "сделано, с чем это спорит, закрыт ли вопрос. Без модели.",
+        when="После каждого хода персоны.",
+        receives="TurnRecord.",
+        produces="DisputeAssessment.",
+        consumers="Чекпойнт и следующая маршрутизация.",
+        controlled_by=["детерминированный код argumentation.assess_turn"]),
+    "checkpoint": NodeDoc(
+        purpose="Точка, где прогон можно остановить или продолжить — вручную "
+                "или по правилу. Отсюда цикл либо идёт на новый ход, либо "
+                "выходит к синтезу.",
+        when="После оценки каждого хода.",
+        receives="Состояние прогона.",
+        produces="Решение: ещё ход или выход из цикла.",
+        consumers="Маршрутизация (новый ход) либо синтез (остановка)."),
+    "synthesize": NodeDoc(
+        purpose="Заключительная речь: собирает ходы совета в связный ответ, "
+                "сохраняя разногласие, а не сглаживая его.",
+        when="Один раз, после выхода из цикла совета.",
+        receives="Все ходы и оценки прогона.",
+        produces="Completion — итоговый текст.",
+        consumers="Проверка результата.",
+        controlled_by=["промпт «Заключительная речь»",
+                       "модель роли zarathustra_closing_speech"]),
+    "validate_output": NodeDoc(
+        purpose="Проверяет итог на соответствие контракту выхода: структура, "
+                "обязательные части, отсутствие запрещённых форм.",
+        when="После синтеза.",
+        receives="Completion.",
+        produces="Результат проверки.",
+        consumers="Сохранение трассы.",
+        controlled_by=["детерминированные правила проверки"]),
+    "persist_trace": NodeDoc(
+        purpose="Записывает всё, что произошло, в трассу прогона: события, "
+                "ходы, конфигурацию. Это то, что потом читает вкладка «Запуски».",
+        when="В конце прогона.",
+        receives="Полное состояние прогона.",
+        produces="events.jsonl и файлы трассы.",
+        consumers="История запусков, сравнение прогонов."),
+}
+
+
 class ZarathustraAdapter:
     branch_id = "zarathustra"
+
+    def node_docs(self) -> dict[str, NodeDoc]:
+        return NODE_DOCS
 
     def __init__(self) -> None:
         self._dep_map = _yaml(DEP_MAP)
@@ -138,7 +287,7 @@ class ZarathustraAdapter:
 
             # ---- объявлено, но не исполняется -----------------------------
             NodeProjection("retrieve_initial_context",
-                           "Извлечение контекста (только объявление)", "RAG",
+                           "Извлечение контекста", "RAG",
                            "— нет runtime-точки входа —",
                            "data/pipeline/pipeline.yaml:29",
                            rag_profile_id="rag.persona_lexical.baseline",
@@ -152,12 +301,12 @@ class ZarathustraAdapter:
                                 "узел evidence_retrieval."),
 
             # ---- настоящий цикл совета ------------------------------------
-            NodeProjection("route_next", "Маршрутизация", "ROUTER",
+            NodeProjection("route_next", "Выбор следующего голоса", "ROUTER",
                            "zarathustra.route_next",
                            "src/californian_id/pipeline.py:~500 → zarathustra.py:390",
                            asset_id="zarathustra.04_head_calling",
                            actual_callers=["Pipeline.run (council loop)"], in_loop=True),
-            NodeProjection("evidence_retrieval", "Извлечение evidence (per-turn)", "RAG",
+            NodeProjection("evidence_retrieval", "Опоры персоны", "RAG",
                            "retrieval.LexicalPersonaRetriever.retrieve",
                            "src/californian_id/pipeline.py:545 → retrieval.py:54",
                            rag_profile_id="rag.persona_lexical.baseline",
@@ -167,7 +316,7 @@ class ZarathustraAdapter:
                            in_loop=True, topology_status="DECLARATION_DRIFT",
                            note="реальный per-turn узел; запрос = state.situation.topic, "
                                 "потребитель = persona_turn; корпуса персон пусты → 0 чанков"),
-            NodeProjection("cultural_context", "Культурные карты (per-turn)", "RAG",
+            NodeProjection("cultural_context", "Культурный контекст", "RAG",
                            "cultural_rag.CulturalIndex.retrieve_cards",
                            "src/californian_id/pipeline.py:561 → cultural_rag.py:276",
                            rag_profile_id="rag.cultural_cards.baseline",
@@ -184,20 +333,20 @@ class ZarathustraAdapter:
                            output_contract="schemas.TurnRecord",
                            actual_callers=["Pipeline.run (council loop)"], in_loop=True,
                            note="фактический потребитель обоих извлечений"),
-            NodeProjection("assess_turn", "Оценка спора", "DETERMINISTIC",
+            NodeProjection("assess_turn", "Оценка хода", "DETERMINISTIC",
                            "argumentation.assess_turn",
                            "src/californian_id/argumentation.py:138",
                            output_contract="data/argumentation/schemas/dispute_assessment.schema.json"),
-            NodeProjection("checkpoint", "HIL-чекпойнт", "HUMAN_GATE",
+            NodeProjection("checkpoint", "Чекпойнт", "HUMAN_GATE",
                            "runtime_control.wait_if_paused",
                            "src/californian_id/runtime_control.py:294"),
             NodeProjection("synthesize", "Синтез", "MODEL_CALL",
                            "zarathustra.closing_speech",
                            "src/californian_id/zarathustra.py:857",
                            asset_id="zarathustra.13_closing_speech"),
-            NodeProjection("validate_output", "Валидация выхода", "DETERMINISTIC",
+            NodeProjection("validate_output", "Проверка результата", "DETERMINISTIC",
                            "pipeline._validate", "src/californian_id/pipeline.py:1636"),
-            NodeProjection("persist_trace", "Трасса", "STORE",
+            NodeProjection("persist_trace", "Сохранение трассы", "STORE",
                            "pipeline.persist_trace", "runs/<run_id>/events.jsonl"),
         ]
 
@@ -226,6 +375,12 @@ class ZarathustraAdapter:
                      if e[:2] != ("normalize_input", "analyze_situation")]
             chain.insert(1, ("normalize_input", "fabric_chain", "NormalisedText"))
             chain.insert(2, ("fabric_chain", "analyze_situation", "UnitPack"))
+
+        # Product copy is attached here, once, rather than repeated at every
+        # construction site — a node without documentation stays undocumented
+        # instead of getting invented prose.
+        for n in nodes:
+            n.doc = NODE_DOCS.get(n.node_id)
 
         edges = [EdgeProjection(f"{a}->{b}", a, b, carries=c) for a, b, c in chain]
         edges.append(EdgeProjection(

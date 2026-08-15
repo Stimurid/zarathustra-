@@ -97,8 +97,12 @@ try {
   check('07_s9_conditional_on_execute',
     s9.includes('execution_status') && s9.includes('EXECUTE'), s9);
 
-  // 7 — S6 human-operation contracts are inspectable
+  // 7 — branch-level contracts are inspectable. In the product IA they live
+  //     under «Запуск», which for a branch with no runtime explains what the
+  //     branch does have instead of only saying it cannot run.
   await p.click('[data-node-id="S6"]');
+  await p.waitForSelector('[data-panel="node-overview"]');
+  await p.click('[data-section="run"]');
   await p.waitForSelector('[data-panel="branch-contracts"]');
   const contracts = await p.$$eval('[data-contract]', (n) =>
     n.map((x) => x.getAttribute('data-contract')));
@@ -135,6 +139,7 @@ try {
   await shot(p, '05_invariants', '18 инвариантов ветки с provenance');
 
   // 12 — STATE VIEW: dispatcher states are not steps
+  await p.click('[data-section="pipeline"]');
   await p.click('button[data-view="state"]');
   await p.waitForSelector('[data-view="state"].state-view');
   const dispatchers = await p.$$eval('[data-state-kind="dispatcher"] [data-state]',
@@ -161,7 +166,7 @@ try {
     'zarathustra must present as live');
   await shot(p, '07_zarathustra_graph', 'та же оболочка, живой рантайм');
 
-  await p.click('button[data-view="radial"]');
+  await p.click('button[data-view="field"]');
   await p.waitForSelector('[data-testid="field-radial"]');
   await shot(p, '08_whitecrow_radial', 'WhiteCrow-проекция тех же типов');
 

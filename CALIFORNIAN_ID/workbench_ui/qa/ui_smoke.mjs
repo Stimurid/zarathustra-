@@ -46,10 +46,18 @@ const run = async () => {
     await page.waitForSelector('.dock-body');
     await page.waitForFunction(() =>
       document.querySelector('.dock-body')?.innerText.includes('17/9/7'));
+    // Product IA: the internal lifecycle ladder lives behind a disclosure.
+    const openLifecycle = async () => {
+      await page.click('.right-dock__tab:has-text("Промпт")');
+      await page.waitForSelector('[data-prompt-head]');
+      if (!(await page.$('[data-lifecycle]')))
+        await page.click('[data-lifecycle-toggle]');
+      await page.waitForSelector('[data-lifecycle]');
+    };
     await shot(page, 'inspector_prompt_node', 'MODEL_CALL, контракт 17/9/7, редактор доступен');
 
-    // 3. SOURCE + clone + edit
-    await page.click('.right-dock__tab:has-text("SOURCE")');
+    // 3. текст промпта + clone + edit
+    await openLifecycle();
     await page.click('button[data-step="clone"]');
     await page.waitForSelector('.cm-content');
     await page.waitForFunction(() =>
@@ -86,23 +94,28 @@ const run = async () => {
     await shot(page, 'compiled_provenance', 'COMPILED + карта провенанса 100%');
 
     // 5. deterministic node — no prompt editor
+    // The product surface names the kind in human terms; the raw enum lives on
+    // the element as data-node-kind and under «Технические детали».
     await page.click('[data-node-id="assess_turn"]');
     await page.waitForFunction(() =>
-      document.querySelector('.dock-body')?.innerText.includes('DETERMINISTIC'));
-    const hasEditorBtn = await page.$('button[data-step="clone"]');
+      document.querySelector('[data-node-kind]')
+        ?.getAttribute('data-node-kind') === 'DETERMINISTIC');
+    const hasEditorBtn = await page.$('.right-dock__tab:has-text("Промпт")');
     steps.push({ step: 'deterministic_has_no_editor', ok: hasEditorBtn === null,
-                 note: 'кнопка клонирования отсутствует в DOM' });
+                 note: 'вкладка «Промпт» не предлагается для такого узла' });
     await shot(page, 'inspector_deterministic', 'DETERMINISTIC без редактора промпта');
 
     // 6. hybrid effects (V054)
-    await page.click('.right-dock__tab:has-text("Эффекты")');
+    await page.click('[data-node-id="persona_turn"]');
+    await page.waitForSelector('[data-panel="node-overview"]');
+    await page.click('.right-dock__tab:has-text("Настройки")');
     await page.waitForFunction(() =>
       document.querySelector('.dock-body')?.innerText.includes('DETERMINISTIC_ALGORITHM'));
     await shot(page, 'effects_v054', 'один контрол — оба класса эффектов');
 
     // 7. RAG inspector
     await page.click('[data-node-id="cultural_context"]');
-    await page.click('.right-dock__tab:has-text("RAG")');
+    await page.click('.right-dock__tab:has-text("Извлечение")');
     // NB: h3 headings are uppercased by CSS text-transform and innerText
     // returns the transformed text, so every text assertion is case-folded.
     await page.waitForFunction(() =>
@@ -141,7 +154,8 @@ const run = async () => {
 
     // 10. telemetry overlay
     await page.click('[data-node-id="analyze_situation"]');
-    await page.click('.right-dock__tab:has-text("Runs")');
+    await page.waitForSelector('[data-panel="node-overview"]');
+    await page.click('.right-dock__tab:has-text("Прогон")');
     const runBtn = await page.$('.dock-body button.primary');
     if (runBtn) {
       await runBtn.click();
@@ -149,7 +163,7 @@ const run = async () => {
         document.querySelector('.dock-body')?.innerText.includes('activation_revision'));
       await shot(page, 'run_trace', 'RunTrace: variant/source/compiled/snapshot');
     }
-    await page.click('header button:has-text("обновить")');
+    await page.click('.statusbar button:has-text("обновить")');
     await page.waitForTimeout(1200);
     await shot(page, 'telemetry_overlay', 'measured/estimated метрики на узлах графа');
   } catch (err) {

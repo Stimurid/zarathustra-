@@ -131,6 +131,26 @@ class StateProjection:
 
 
 @dataclass
+class NodeDoc:
+    """What a node is, in the language of someone who did not build it.
+
+    Separate from ``implementation``/``source_ref`` on purpose: those answer
+    "where is the code", this answers "what is this and why is it here". A
+    branch that has nothing to say leaves it ``None`` and the UI shows the
+    technical identity alone rather than inventing prose.
+    """
+    purpose: str = ""
+    when: str = ""                      # когда выполняется
+    receives: str = ""                  # что получает
+    produces: str = ""                  # что выдаёт
+    consumers: str = ""                 # куда идёт результат
+    controlled_by: list[str] = field(default_factory=list)
+
+    def to_public(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass
 class NodeProjection:
     node_id: str
     label: str
@@ -155,10 +175,12 @@ class NodeProjection:
     readiness: Readiness | None = None
     contract_refs: list[str] = field(default_factory=list)
     prompt_binding: dict[str, Any] | None = None
+    doc: "NodeDoc | None" = None
 
     def to_public(self) -> dict[str, Any]:
         d = asdict(self)
         d["readiness"] = self.readiness.to_public() if self.readiness else None
+        d["doc"] = self.doc.to_public() if self.doc else None
         return d
 
 

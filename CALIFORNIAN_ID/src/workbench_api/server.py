@@ -18,6 +18,7 @@ from typing import Any
 from urllib.parse import parse_qs, unquote, urlparse
 
 from workbench_adapters import SocratesBranchAdapter, ZarathustraAdapter
+from workbench_adapters.runtime_resolver import WorkbenchConfigResolver
 from workbench_core import WorkbenchError, WorkbenchService, WorkbenchStore
 from workbench_core.compiler import ProvenanceError
 from workbench_core.lifecycle import LifecycleError
@@ -39,6 +40,9 @@ def get_service(state_dir: Path | None = None) -> WorkbenchService:
         svc.register_adapter(SocratesBranchAdapter())
         svc.bootstrap()
         svc.bootstrap_rag()
+        # The RUN button drives the real entrypoint, so the resolver that feeds
+        # the production seam must be installed here, not only in tests.
+        svc.install_runtime_resolver(WorkbenchConfigResolver(store))
         _service = svc
     return _service
 
@@ -145,8 +149,8 @@ class Handler(BaseHTTPRequestHandler):
 
         m = re.fullmatch(r"/api/workbench/node/([^/]+)/([^/]+)", path)
         if m:
-            resolved = {k: v[0] for k, v in q.items()}
-            return svc.node(m.group(1), m.group(2), resolved)
+            resolved = {k: v[0] for k, v in q.items() if k != "run_id"}
+            return svc.node(m.group(1), m.group(2), resolved, one("run_id"))
 
         m = re.fullmatch(r"/api/workbench/projection/([^/]+)/([^/]+)", path)
         if m:
@@ -211,6 +215,17 @@ class Handler(BaseHTTPRequestHandler):
 
         if path == "/api/workbench/runs":
             return {"runs": svc.store.list_runs(int(one("limit", "20")))}
+
+        if path == "/api/workbench/run_index":
+            return {"runs": svc.run_index(int(one("limit", "30")))}
+
+        m = re.fullmatch(r"/api/workbench/compare_runs/([^/]+)/([^/]+)", path)
+        if m:
+            return svc.compare_runs(m.group(1), m.group(2))
+
+        m = re.fullmatch(r"/api/workbench/fixtures/([^/]+)", path)
+        if m:
+            return {"fixtures": svc.input_fixtures(m.group(1))}
 
         m = re.fullmatch(r"/api/workbench/run/([^/]+)", path)
         if m:
@@ -301,6 +316,14 @@ class Handler(BaseHTTPRequestHandler):
             return svc.start_run(str(body.get("branch") or "zarathustra"),
                                  str(body.get("asset_id") or ""),
                                  body.get("fixture_id"), actor)
+
+        if path == "/api/workbench/production_run":
+            text = str(body.get("text") or "").strip()
+            if not text:
+                raise WorkbenchError("нужен входной текст")
+            return svc.start_production_run(
+                str(body.get("branch") or "zarathustra"), text,
+                str(body.get("mode") or "fast"), actor)
 
         raise WorkbenchError(f"unknown endpoint: {path}")
 

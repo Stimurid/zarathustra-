@@ -16,8 +16,9 @@ const post = (path: string, body: any = {}) =>
 export const api = {
   graph: (branch: string, inputMode: string) =>
     call(`/pipeline/${branch}/graph?input_mode=${encodeURIComponent(inputMode)}`),
-  node: (branch: string, nodeId: string, inputMode: string) =>
-    call(`/node/${branch}/${nodeId}?input_mode=${encodeURIComponent(inputMode)}`),
+  node: (branch: string, nodeId: string, inputMode: string, runId?: string | null) =>
+    call(`/node/${branch}/${nodeId}?input_mode=${encodeURIComponent(inputMode)}`
+      + (runId ? `&run_id=${encodeURIComponent(runId)}` : '')),
   controls: (branch: string) => call(`/controls/${branch}`),
   asset: (assetId: string) => call(`/asset/${encodeURIComponent(assetId)}`),
   source: (assetId: string, variantId: string) =>
@@ -77,6 +78,15 @@ export const api = {
   branchSnapshot: (branch: string) => call(`/branch/${branch}/snapshot`),
   branchPromptBody: (branch: string, binding: string) =>
     call(`/branch/${branch}/prompt_body/${encodeURIComponent(binding)}`),
+
+  // ---- product surface: run / history / compare ----
+  productionRun: (branch: string, text: string, mode: string) =>
+    post('/production_run', { branch, text, mode }),
+  runIndex: (limit = 30) => call(`/run_index?limit=${limit}`),
+  compareRuns: (a: string, b: string) =>
+    call(`/compare_runs/${encodeURIComponent(a)}/${encodeURIComponent(b)}`),
+  fixtures: (branch: string) => call(`/fixtures/${branch}`),
+  runTrace: (runId: string) => call(`/run/${encodeURIComponent(runId)}`),
 };
 
 export type Json = Record<string, any>;

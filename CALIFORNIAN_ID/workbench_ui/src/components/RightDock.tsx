@@ -4,7 +4,8 @@ import { useState, useCallback, useRef, useEffect, type ReactNode } from 'react'
 // for the DockTab union below, which is the only Workbench-specific seam.
 export type DockMode = 'pinned' | 'overlay';
 export type DockTab =
-  | 'inspector' | 'rag' | 'source' | 'contract' | 'compiled' | 'effects' | 'runs';
+  // subject tabs — what the operator is looking at, not which subsystem owns it
+  | 'overview' | 'io' | 'prompt' | 'rag' | 'settings' | 'contracts' | 'run';
 
 interface RightDockProps {
   children: ReactNode;

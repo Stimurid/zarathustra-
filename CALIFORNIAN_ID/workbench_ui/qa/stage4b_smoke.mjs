@@ -28,7 +28,7 @@ try {
   await shot(p, '01_graph_real_topology', 'реальный порядок + слои DECLARED/ACTUAL');
 
   // 2. switch to the WhiteCrow radial field
-  await p.click('button[data-view="radial"]');
+  await p.click('button[data-view="field"]');
   await p.waitForSelector('[data-testid="field-radial"]');
   await shot(p, '02_radial_field', 'радиальная полевая проекция тех же объектов');
 
@@ -40,7 +40,7 @@ try {
 
   // 4. a RAG item from the field keeps RAG semantics
   await p.click('[data-field-item="cultural_context"]');
-  await p.click('.right-dock__tab:has-text("RAG")');
+  await p.click('.right-dock__tab:has-text("Извлечение")');
   await p.waitForFunction(() =>
     (document.querySelector('.dock-body')?.innerText || '')
       .toLowerCase().includes('эффективные параметры'));
