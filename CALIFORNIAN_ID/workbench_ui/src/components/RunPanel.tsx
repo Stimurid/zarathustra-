@@ -146,6 +146,42 @@ export function RunPanel({
           {(prod?.errors || []).length ? (
             <div className="card err-text">{(prod.errors as string[]).join('\n')}</div>
           ) : null}
+
+          {/* G-S26: which native Tinkuy organs this run actually touched, and
+              which file did the work. Absence is stated, never shown as an
+              empty success. */}
+          {(prod?.native_organs || []).length ? (
+            <>
+              <h3>Нативные органы Тинкуя</h3>
+              <table className="kvt" data-native-organs><tbody>
+                {(prod.native_organs as Json[]).map((o, i) => (
+                  <tr key={i} data-organ={o.organ}>
+                    <td>
+                      {o.organ}
+                      <div className="dim mono">{o.call}</div>
+                    </td>
+                    <td>
+                      <span className={`badge ${o.available ? 'ok' : 'warn'}`}>
+                        {o.available ? 'вызван' : 'не затронут'}
+                      </span>
+                      {o.identity ? (
+                        <div className="dim mono" data-organ-impl>
+                          {o.identity.source_path}:{o.identity.lineno}
+                          {' · '}{o.identity.source_sha256?.slice(0, 12)}
+                        </div>
+                      ) : null}
+                      {o.available && o.counts
+                        ? <div className="dim">{Object.entries(o.counts)
+                            .filter(([, v]) => (v as number) > 0)
+                            .map(([k, v]) => `${k}: ${v}`).join(' · ') || '—'}</div>
+                        : null}
+                      {!o.available ? <div className="dim">{o.reason}</div> : null}
+                    </td>
+                  </tr>
+                ))}
+              </tbody></table>
+            </>
+          ) : null}
           <p className="dim">
             Прогон выбран как контекст — узлы пайплайна показывают его данные.
           </p>

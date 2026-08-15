@@ -1,0 +1,169 @@
+{
+  "test": "LOCAL_GS26_RUNTIME_BLOCKER_TEST",
+  "generated_at": "2026-08-15T21:06:42.409070+00:00",
+  "scope": "local executable repository only — no Drive access, no authority over Socrates generation state",
+  "semantic_fabric": {
+    "verdict": "PASS",
+    "call": "fabric.query",
+    "implementation": {
+      "module": "californian_id.fabric.store",
+      "qualname": "FabricStore.load_snapshot",
+      "source_path": "src/californian_id/fabric/store.py",
+      "source_sha256": "e9e654973a2fa2b3299a9bf69b226699e02e4e695d8951447bfe1b016cb51713",
+      "lineno": 232,
+      "execution_kind": "MODEL_FREE"
+    },
+    "db_path": "C:\\Users\\TIMURS~1\\AppData\\Local\\Temp\\gs26_proof_tj35j7kl\\fabric_proof.sqlite3",
+    "typed_objects_returned": [
+      "FabricBlock",
+      "FabricRelation",
+      "FabricThread",
+      "FabricUnit"
+    ],
+    "counts": {
+      "units": 3,
+      "blocks": 1,
+      "relations": 1,
+      "threads": 1,
+      "evidence": 0,
+      "open_loops": 1
+    },
+    "open_loops": [
+      "чей это вопрос — рынка или факультета?"
+    ],
+    "scene_question": "За что отвечает университет?",
+    "explicit_unavailability": {
+      "available": false,
+      "value_is_none": true,
+      "reason": "хранилище ткани не найдено: C:\\Users\\TIMURS~1\\AppData\\Local\\Temp\\gs26_proof_tj35j7kl\\absent.sqlite3"
+    },
+    "model_involved": false
+  },
+  "argumentation": {
+    "verdict": "PASS",
+    "live_graph": {
+      "call": "argumentation.map_of",
+      "implementation": {
+        "module": "californian_id.schemas",
+        "qualname": "ArgumentMap",
+        "source_path": "src/californian_id/schemas.py",
+        "source_sha256": "62014ab876960d5a0ccb1fc89367752dc04036fcd9239d8f9af0d05a17a36792",
+        "lineno": 111,
+        "execution_kind": "MODEL_FREE"
+      },
+      "run_id": "run_20260815T210642Z_04e18985",
+      "status": "COMPLETED",
+      "turns": 5,
+      "counts": {
+        "claims": 5,
+        "assumptions": 5,
+        "values": 5,
+        "supports": 0,
+        "attacks": 0,
+        "actions": 0,
+        "questions": 5,
+        "unresolved_conflicts": 0
+      },
+      "typed_object": "ArgumentMap",
+      "trace_dir": "C:\\projects\\zarathustra-push\\CALIFORNIAN_ID\\runs\\run_20260815T210642Z_04e18985"
+    },
+    "projection": {
+      "call": "argumentation.project",
+      "implementation": {
+        "module": "californian_id.pipeline",
+        "qualname": "_fabric_snapshot_to_unit_pack",
+        "source_path": "src/californian_id/pipeline.py",
+        "source_sha256": "d6073dcaa193e8b8c21803224d0306ba3b324876c5db733ad9d03c615286572f",
+        "lineno": 1953,
+        "execution_kind": "MODEL_FREE"
+      },
+      "counts": {
+        "arguments": 1,
+        "with_claim": 1,
+        "with_warrant": 1,
+        "with_rebuttal": 1,
+        "toulmin_complete": 1,
+        "units_without_argument": 0
+      },
+      "first_argument": {
+        "claim": "Университет отвечает за мышление, а не за вакансию.",
+        "warrant": "Образование измеряется способностью различать.",
+        "rebuttal": "Родители платят за трудоустройство.",
+        "toulmin_complete": true
+      }
+    },
+    "explicit_unavailability": {
+      "available": false,
+      "value_is_none": true,
+      "reason": "проектор отработал, но снимок не дал ни одной единицы — аргументной структуры в этом снимке нет"
+    },
+    "model_involved_in_projection": false
+  },
+  "working_memory": {
+    "verdict": "PASS",
+    "db_path": "C:\\Users\\TIMURS~1\\AppData\\Local\\Temp\\gs26_proof_tj35j7kl\\narrative_proof.sqlite3",
+    "steps": [
+      {
+        "step": "READ",
+        "available": true,
+        "count": 0,
+        "implementation": {
+          "module": "californian_id.narrative_memory",
+          "qualname": "NarrativeStore.list",
+          "source_path": "src/californian_id/narrative_memory.py",
+          "source_sha256": "df21d0cbac3f484fa5d398668cceb7c15520baa5ebd2200e749cdb5f8ce9520f",
+          "lineno": 94,
+          "execution_kind": "MODEL_FREE"
+        }
+      },
+      {
+        "step": "PROPOSE_THEN_REJECT",
+        "proposal_id": "prop_efb0a62312e8",
+        "persisted_by_proposal": false,
+        "state": "REJECTED",
+        "store_rows_after": 0
+      },
+      {
+        "step": "COMMIT_WITHOUT_AUTHORITY",
+        "available": false,
+        "reason": "шлюз состояния закрыт: шлюз G-S18 не выдал полномочие",
+        "persisted": false,
+        "store_rows_after": 0,
+        "invariant": "порождение информации ≠ полномочие её сохранить"
+      },
+      {
+        "step": "COMMIT_WITH_AUTHORITY",
+        "available": true,
+        "persisted": true,
+        "note_id": "wm_535d1c244db2afe7",
+        "implementation": {
+          "module": "californian_id.narrative_memory",
+          "qualname": "NarrativeStore.add",
+          "source_path": "src/californian_id/narrative_memory.py",
+          "source_sha256": "df21d0cbac3f484fa5d398668cceb7c15520baa5ebd2200e749cdb5f8ce9520f",
+          "lineno": 71,
+          "execution_kind": "MODEL_FREE"
+        }
+      },
+      {
+        "step": "READBACK",
+        "available": true,
+        "text": "Ответственность за мышление ≠ ответственность за трудоустройство.",
+        "rows_in_database": 1,
+        "row_kinds": [
+          "distinction"
+        ]
+      }
+    ]
+  },
+  "verdicts": {
+    "FABRIC_NATIVE_BINDING": "PASS",
+    "ARGUMENTATION_NATIVE_BINDING": "PASS",
+    "WORKING_MEMORY_NATIVE_BINDING": "PASS"
+  },
+  "D-S26-001_LOCAL_REPOSITORY_SIDE": "RESOLVED",
+  "not_claimed": [
+    "G-S26 CLOSED — вне наших полномочий: авторитетное состояние Socrates живёт в Drive, которого у нас нет",
+    "полная интеграция Socrates — здесь доказан рантайм-носитель, не импорт"
+  ]
+}

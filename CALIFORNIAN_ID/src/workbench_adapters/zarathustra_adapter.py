@@ -728,6 +728,7 @@ class ZarathustraAdapter:
         result = pipe.run(text=text, mode=mode, run_id=run_id)
         state = result.run_state
         return {
+            "native_organs": self._native_organ_evidence(state, workspace_id),
             "entrypoint": self.PRODUCTION_ENTRYPOINT,
             "run_id": state.run_id,
             "status": state.status,
@@ -945,6 +946,44 @@ class ZarathustraAdapter:
             "source_ref": "src/californian_id/config.py:_resolve_runs_dir",
             "evidence_grade": "MEASURED",
         }
+
+    # ------------------------------------------------------------------
+    # G-S26: native organ evidence, carried by the ordinary RunTrace
+    # ------------------------------------------------------------------
+
+    def _native_organ_evidence(self, state: Any,
+                               workspace_id: str) -> list[dict[str, Any]]:
+        """Which native Tinkuy organs this run actually touched.
+
+        Read-only observation through ``tinkuy_runtime``. It records the file
+        and hash of the implementation that ran, so a later reader can tell a
+        native call from a reconstruction. An organ the run did not touch is
+        reported as untouched, never as an empty success.
+        """
+        from tinkuy_runtime import argumentation as arg_binding
+        from tinkuy_runtime import fabric as fabric_binding
+
+        out: list[dict[str, Any]] = []
+
+        graph = arg_binding.map_of(getattr(state, "argument_map", None))
+        out.append({**graph.to_public(), "value": None,
+                    "counts": graph.provenance if graph.available else {}})
+
+        # The fabric store is per-workspace and only written by raw-text runs;
+        # a council run over an already-cut pack legitimately leaves it empty.
+        try:
+            from californian_id.workspaces import fabric_store_path
+
+            db = fabric_store_path(workspace_id)
+            listed = fabric_binding.list_snapshots(db)
+            out.append({**listed.to_public(),
+                        "value": (listed.value[:5] if listed.available else None)})
+        except Exception as exc:                                  # noqa: BLE001
+            out.append({"organ": "semantic_fabric", "call": "fabric.list_snapshots",
+                        "available": False, "value": None,
+                        "reason": f"хранилище ткани не адресуемо: {exc}",
+                        "identity": None, "provenance": {}})
+        return out
 
     def legacy_invocation(self, fixture: Fixture) -> Invocation:
         """The OLD code path: the Python constant, not the PromptAsset.
