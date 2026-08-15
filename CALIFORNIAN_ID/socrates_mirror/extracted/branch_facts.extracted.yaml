@@ -1,0 +1,108 @@
+# TEXT_EXTRACTION of the declarative facts the adapter projects.
+# Consolidated from README.md (1FiepAVg0IuRe9ztYY6qbU6X3iuPZFnjR),
+# manifest.yaml (1no6O2N05RpHlOeYMAdmfqaDZTYasnZjA) and
+# prompts/prompt_bindings_v0.3.yaml (1d7AUn8-HDZ1DviUyAGyAUYqLZwl4VYOo).
+# Byte identity is NOT claimed; owner hashes are recorded in source_manifest.yaml.
+generation: G-S24
+owner: LOCAL_SOCRATES
+canonical_claim: false
+shared_tinkuy: READ_ONLY_REFERENCE_SUBSTRATE
+
+generation_boundary:
+  G-S24: full host-neutral declarative S0-S10 PipelinePack
+  G-S25: detailed prompt/schema hierarchy, deterministic migration/idempotence harness
+  G-S26: live host execution
+
+# README.md "Authority invariants", verbatim numbering.
+branch_invariants:
+  - id: AI-1
+    text: Constitution/authority outrank organ/persona preference.
+  - id: AI-2
+    text: Truth is never decided by vote.
+  - id: AI-3
+    text: Arbitration cannot create HUMAN binding.
+  - id: AI-4
+    text: HUMAN binding cannot itself authorize durable state persistence.
+  - id: AI-5
+    text: Tool availability/result cannot settle a normative HUMAN fork.
+  - id: AI-6
+    text: Ontology gaps do not trigger nearest-class coercion.
+  - id: AI-7
+    text: Persona default is NO_PERSONA.
+  - id: AI-8
+    text: Stable SYSTEM-owned work may bypass council and questions.
+  - id: AI-9
+    text: Minority and aporia may survive an action-level choice.
+  - id: AI-10
+    text: Shared Tinkuy stores are referenced, never duplicated.
+
+# pipeline.yaml global_guards (byte-exact source).
+global_guards:
+  - NO_HUMAN_BINDING_FROM_INFERENCE
+  - NO_TRUTH_BY_VOTE
+  - NO_DURABLE_WRITE_FROM_ARBITRATION
+  - NO_FORCED_CLASSIFICATION_ON_SCHEMA_GAP
+  - NO_COUNCIL_THEATRE
+  - NO_PERSONA_BY_DEFAULT
+  - NO_HIDDEN_CHAIN_OF_THOUGHT_IN_TRACE
+  - NO_DUPLICATE_TINKUY_STORES
+
+runtime_profiles:
+  - {id: DIRECT_ASSISTANCE, note: "fast, zero-question by default, council bypass", default: true}
+  - {id: DELIBERATE,        note: "bounded comparison/choice/conflict work"}
+  - {id: DWELL,             note: "permits non-resolution and aporia"}
+  - {id: RESEARCH,          note: "tool/retrieval-heavy, provenance-first"}
+  - {id: CONCEPT_GENESIS,   note: "G-S19 field/genesis branch with constructed-object ledger"}
+  - {id: PUBLIC_TWIN_DEMO,  note: "demo-only baseline/Socrates contrast"}
+
+# prompt_bindings_v0.3.yaml — binding declared vs body available.
+prompt_bindings:
+  binding_id: SOCRATES_V03_PROMPT_BINDINGS
+  version: 0.3.0
+  status: candidate
+  principle: >
+    Critical invariants live in contracts/policies/schemas. Prompts are
+    execution projections, never sole authority.
+  entries:
+    - steps: [S0, S1, S2, S3, S4, S5, S6]
+      binding: CONTRACT_DRIVEN_EXECUTION
+      body_status: DEFERRED_TO_G_S25
+    - steps: [S7, S8]
+      binding: MODE_AND_REFLEXIVITY_GOVERNOR_PROMPT_PACK
+      drive_id: 1FRmTQfj2Vxwmgde_C_u2zX1fbGISGLUL
+      # Fetched at the end of the Stage 4A pass (A14 re-check). Readable, not
+      # rewritable: no runtime consumes it and LOCAL_SOCRATES owns it.
+      body_status: MIRRORED_READ_ONLY
+      mirror_path: prompts/MODE_AND_REFLEXIVITY_GOVERNOR_PROMPT_PACK.md
+      body_fidelity: BYTE_EXACT_UNVERIFIED
+      sections: [P0, P1, P2, P3, P4, P5]
+    - steps: [S9]
+      binding: TINKUY_EXECUTION_ADAPTER
+      body_status: DEFERRED_TO_G_S26
+    - steps: [S10]
+      binding: CONTRACT_DRIVEN_PROVENANCE_AND_WRITE_GATE
+      body_status: DEFERRED_TO_G_S25
+
+component_bindings:
+  S6:
+    contract: contracts/twin_runtime_binding_v0.2.yaml
+    component: SOCRATES_TWIN_RUNTIME_v0.2_candidate
+    drive_id: 1OYFYM0LnIubN1wMdNhfzBj5xQCvtx7mo
+    normal_mode: OWNERSHIP_SLICE_ONLY
+    demo_mode: FULL_TWIN_CONTRAST
+  S7_S8:
+    contract: "G-S23 council/arbiter contracts by reference"
+  S10:
+    contract: state_and_memory/state_write_binding.yaml
+
+structural_evaluation:
+  drive_id: 14gQg_wDXouTnrpBIY0shdhA_6y_5OBh8
+  result: PASS
+  declared_structural_cases: 22
+  named_predicates: "264/264 PASS"
+  steps: "11/11 S0-S10"
+  runtime_profiles: "6/6"
+  typed_terminal_outcomes: 7
+  bounded_retry_dispatcher: true
+  shared_substrate: REFERENCE_ONLY
+  live_proof: DEFERRED_TO_G_S26

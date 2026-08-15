@@ -66,6 +66,17 @@ export const api = {
     call(`/projection/${branch}/${kind}?input_mode=${encodeURIComponent(inputMode)}`),
   retrievalEvents: (runId?: string) =>
     call(`/retrieval_events${runId ? `?run_id=${encodeURIComponent(runId)}` : ''}`),
+
+  // ---- Stage 4A: branches with different runtime maturity ----
+  branches: () => call('/branches'),
+  branchState: (branch: string) => call(`/branch/${branch}/state`),
+  branchInvariants: (branch: string) => call(`/branch/${branch}/invariants`),
+  branchContracts: (branch: string) => call(`/branch/${branch}/contracts`),
+  branchProfiles: (branch: string) => call(`/branch/${branch}/profiles`),
+  branchReadiness: (branch: string) => call(`/branch/${branch}/readiness`),
+  branchSnapshot: (branch: string) => call(`/branch/${branch}/snapshot`),
+  branchPromptBody: (branch: string, binding: string) =>
+    call(`/branch/${branch}/prompt_body/${encodeURIComponent(binding)}`),
 };
 
 export type Json = Record<string, any>;

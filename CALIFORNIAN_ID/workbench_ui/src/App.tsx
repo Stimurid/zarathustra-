@@ -4,8 +4,9 @@ import { PipelineGraph, type GraphEdge, type GraphNode } from './components/Pipe
 import { FieldProjection } from './components/FieldProjection';
 import { Inspector } from './components/Inspector';
 import { RightDock, type DockTab } from './components/RightDock';
-
-const BRANCH = 'zarathustra';
+import {
+  BranchContracts, BranchInvariants, BranchProfiles, BranchReadiness, StateView,
+} from './components/BranchPanels';
 
 const TABS: { id: DockTab; label: string; icon: string }[] = [
   { id: 'inspector', label: 'Узел', icon: '◉' },
@@ -17,15 +18,27 @@ const TABS: { id: DockTab; label: string; icon: string }[] = [
   { id: 'runs', label: 'Runs', icon: '▶' },
 ];
 
+type Branch = {
+  branch: string; pipeline_id: string; version: string; nodes: number;
+  has_live_runtime: boolean; generation: string | null; owner: string | null;
+  capabilities: Record<string, boolean>;
+};
+
 export function App() {
+  const [branches, setBranches] = useState<Branch[]>([]);
+  const [branch, setBranch] = useState('zarathustra');
   const [inputMode, setInputMode] = useState('raw');
   const [graph, setGraph] = useState<{ nodes: GraphNode[]; edges: GraphEdge[] } | null>(null);
-  const [selected, setSelected] = useState<string | null>(null);
+  // WB-021: the selection is owned by a branch. Storing a bare node id let a
+  // branch switch fire `/node/<new branch>/<old node id>` before the reset
+  // effect committed, producing a 404 against a node that never existed there.
+  const [sel, setSel] = useState<{ branch: string; nodeId: string } | null>(null);
+  const selected = sel && sel.branch === branch ? sel.nodeId : null;
   const [node, setNode] = useState<Json | null>(null);
   const [drift, setDrift] = useState<Record<string, string>>({});
   const [telemetry, setTelemetry] = useState<Record<string, any[]>>({});
   const [edgeLabels, setEdgeLabels] = useState<Record<string, string>>({});
-  const [view, setView] = useState<'graph' | 'radial'>('graph');
+  const [view, setView] = useState<'graph' | 'radial' | 'state'>('graph');
   const [field, setField] = useState<Json | null>(null);
   const [tab, setTab] = useState<DockTab>('inspector');
   const [collapsed, setCollapsed] = useState(false);
@@ -33,10 +46,28 @@ export function App() {
   const [mode, setMode] = useState<'pinned' | 'overlay'>('pinned');
   const [err, setErr] = useState('');
 
+  const current = branches.find((b) => b.branch === branch) || null;
+  const caps = current?.capabilities || {};
+  const live = current ? current.has_live_runtime : true;
+
+  useEffect(() => {
+    api.branches().then((d) => setBranches(d.branches || []))
+      .catch((e) => setErr(String(e.message || e)));
+  }, []);
+
   const loadGraph = useCallback(async () => {
     try {
-      const g = await api.graph(BRANCH, inputMode);
+      const g = await api.graph(branch, inputMode);
       setGraph({ nodes: g.nodes, edges: g.edges });
+
+      // A declarative branch has no runs and no drift; asking for them would
+      // manufacture emptiness that reads like a measurement.
+      const bmeta = (await api.branches()).branches.find((b: Branch) => b.branch === branch);
+      if (!bmeta?.has_live_runtime) {
+        setDrift({}); setTelemetry({}); setEdgeLabels({});
+        return;
+      }
+
       const badges: Record<string, string> = {};
       for (const n of g.nodes as GraphNode[]) {
         if (!n.asset_id) continue;
@@ -81,27 +112,33 @@ export function App() {
       setTelemetry(tele);
       setEdgeLabels(elabels);
     } catch (e: any) { setErr(String(e.message || e)); }
-  }, [inputMode]);
+  }, [branch, inputMode]);
 
   useEffect(() => { loadGraph(); }, [loadGraph]);
 
+  // Switching branch must not carry the previous branch's selection or
+  // projection with it: a projection is a branch capability, not a global mode.
+  useEffect(() => {
+    setSel(null); setNode(null); setField(null); setView('graph');
+  }, [branch]);
+
   useEffect(() => {
     if (view !== 'radial') return;
-    api.projection(BRANCH, 'radial', inputMode).then(setField)
+    api.projection(branch, 'radial', inputMode).then(setField)
       .catch((e) => setErr(String(e.message || e)));
-  }, [view, inputMode]);
+  }, [view, branch, inputMode]);
 
   useEffect(() => {
     if (!selected) { setNode(null); return; }
-    api.node(BRANCH, selected, inputMode).then(setNode)
+    api.node(branch, selected, inputMode).then(setNode)
       .catch((e) => setErr(String(e.message || e)));
-  }, [selected, inputMode]);
+  }, [selected, branch, inputMode]);
 
   const onSelect = useCallback((nodeId: string) => {
-    setSelected(nodeId);
+    setSel({ branch, nodeId });
     setTab('inspector');
     setCollapsed(false);
-  }, []);
+  }, [branch]);
 
   const third = Math.round(window.innerWidth / 3);
   const twoThirds = Math.round((window.innerWidth * 2) / 3);
@@ -110,7 +147,21 @@ export function App() {
     <div className="app">
       <header className="topbar">
         <h1>Tinkuy Workbench</h1>
-        <span className="pill">ветка: {BRANCH}</span>
+        <label style={{ fontSize: 11, color: 'var(--text-dim)' }}>
+          ветка{' '}
+          <select data-branch-select value={branch}
+            onChange={(e) => setBranch(e.target.value)}>
+            {branches.map((b) => (
+              <option key={b.branch} value={b.branch}>{b.branch}</option>
+            ))}
+          </select>
+        </label>
+        {current?.generation ? (
+          <span className="pill" data-generation>{current.generation}</span>
+        ) : null}
+        <span className={`pill ${live ? 'ok' : 'warn'}`} data-live-runtime={String(live)}>
+          {live ? 'live runtime' : 'declarative only'}
+        </span>
         <label style={{ fontSize: 11, color: 'var(--text-dim)' }}>
           тип входа{' '}
           <select value={inputMode} onChange={(e) => setInputMode(e.target.value)}>
@@ -125,7 +176,11 @@ export function App() {
           <button data-view="graph" className={view === 'graph' ? 'primary' : ''}
             onClick={() => setView('graph')}>граф</button>{' '}
           <button data-view="radial" className={view === 'radial' ? 'primary' : ''}
-            onClick={() => setView('radial')}>поле (WhiteCrow)</button>
+            onClick={() => setView('radial')}>поле (WhiteCrow)</button>{' '}
+          {caps.state_projection ? (
+            <button data-view="state" className={view === 'state' ? 'primary' : ''}
+              onClick={() => setView('state')}>состояния</button>
+          ) : null}
         </span>
         <div className="spacer" />
         <button onClick={() => setWidth(third)}>⅓</button>
@@ -137,7 +192,9 @@ export function App() {
 
       <div className="main">
         <div className="canvas">
-          {view === 'radial' ? (
+          {view === 'state' ? (
+            <StateView branch={branch} />
+          ) : view === 'radial' ? (
             <FieldProjection projection={field} selectedId={selected}
               onSelect={onSelect} />
           ) : graph ? (
@@ -163,8 +220,16 @@ export function App() {
           onTabChange={setTab}
           tabs={TABS.map((t) => ({ ...t, content: null }))}
         >
-          <Inspector branch={BRANCH} node={node} tab={tab}
+          <Inspector branch={branch} node={node} tab={tab}
             onTabChange={setTab} onChanged={loadGraph} />
+          {tab === 'inspector' && !live ? (
+            <div className="branch-panels" data-branch-panels={branch}>
+              <BranchReadiness branch={branch} />
+              <BranchProfiles branch={branch} />
+              <BranchContracts branch={branch} />
+              <BranchInvariants branch={branch} />
+            </div>
+          ) : null}
         </RightDock>
       </div>
     </div>

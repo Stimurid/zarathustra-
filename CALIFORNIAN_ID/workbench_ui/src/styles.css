@@ -187,3 +187,57 @@ pre.diff .del { color: var(--err); }
 .field-proj__svg { width: 100%; max-width: 760px; height: auto; flex: 0 0 auto; }
 
 .react-flow__attribution { display: none; }
+
+/* ---- Stage 4A: branches with different runtime maturity ---- */
+.dim { color: var(--text-dim); font-size: 10px; }
+.badge {
+  display: inline-block; font-size: 9px; letter-spacing: .4px; padding: 1px 5px;
+  border: 1px solid var(--border); border-radius: 3px; color: var(--text-dim);
+  white-space: nowrap;
+}
+.badge.ok { color: var(--ok); border-color: var(--ok); }
+.badge.warn { color: var(--warn); border-color: var(--warn); }
+.badge.bad { color: var(--err); border-color: var(--err); }
+
+.kvt { width: 100%; border-collapse: collapse; font-size: 11px; }
+.kvt td { padding: 2px 6px 2px 0; vertical-align: top; word-break: break-word; }
+.kvt td:first-child { color: var(--text-dim); width: 46%; }
+
+.inv-list { list-style: none; margin: 4px 0; padding: 0; font-size: 11px; }
+.inv-list li { border-left: 2px solid var(--border); padding: 3px 0 3px 8px;
+  margin-bottom: 5px; }
+
+.profile-row { display: flex; justify-content: space-between; gap: 8px;
+  align-items: flex-start; border: 1px solid var(--border); border-radius: 5px;
+  padding: 6px 8px; margin: 5px 0; font-size: 11px; }
+.profile-row button { font-size: 9px; margin-left: 3px; }
+.profile-row button:disabled { opacity: .4; cursor: not-allowed; }
+
+/* Two panes inside the dock: the node above, the branch below. Without an
+   explicit basis the branch panels squeezed the node panel to a sliver. */
+.branch-panels {
+  flex: 1 1 55%; min-height: 0; overflow: auto;
+  padding: 0 12px 16px; border-top: 1px solid var(--border);
+}
+
+.state-view { height: 100%; overflow: auto; display: flex; gap: 14px;
+  padding: 12px; align-items: flex-start; }
+.state-cols { display: flex; gap: 10px; flex: 1; min-width: 0; }
+.state-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.state-col h4, .state-detail h4 { font-size: 10px; letter-spacing: .5px;
+  text-transform: uppercase; color: var(--text-dim); margin: 8px 0 3px; }
+.state-chip { text-align: left; font-size: 10px; font-family: Consolas, monospace;
+  border: 1px solid var(--border); border-radius: 4px; background: var(--surface2);
+  padding: 4px 6px; cursor: pointer; word-break: break-all; }
+.state-chip:hover { border-color: var(--accent); }
+.state-chip.sel { border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(124,140,248,.25); }
+.state-detail { width: 320px; flex: 0 0 320px; font-size: 11px; }
+.state-detail ul { list-style: none; margin: 0; padding: 0; }
+.state-detail li { margin-bottom: 5px; }
+.prompt-body {
+  font-family: Consolas, monospace; font-size: 10px; line-height: 1.45;
+  white-space: pre-wrap; word-break: break-word; margin: 6px 0;
+  padding: 8px; max-height: 320px; overflow: auto;
+  border: 1px solid var(--border); border-radius: 5px; background: var(--surface2);
+}

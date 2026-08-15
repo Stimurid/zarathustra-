@@ -1,0 +1,71 @@
+pipeline_id: SOCRATES_FULL_PIPELINE
+version: 0.3.0
+status: candidate
+host_neutral: true
+purpose: Constitutional epistemic-regulation and orchestration over shared Tinkuy substrate with bounded reflexivity,
+  ownership protection and traceable intervention selection.
+inputs:
+- UserRequest
+- ContextEnvelope
+- OptionalSourceArtifactSet
+profiles:
+- DIRECT_ASSISTANCE
+- DELIBERATE
+- DWELL
+- RESEARCH
+- CONCEPT_GENESIS
+- PUBLIC_TWIN_DEMO
+default_profile: DIRECT_ASSISTANCE
+steps:
+- id: S0
+  contract: steps/S0_intake_and_context_jurisdiction.yaml
+- id: S1
+  contract: steps/S1_scene_and_telos.yaml
+- id: S2
+  contract: steps/S2_pressure_role_capture_check.yaml
+- id: S3
+  contract: steps/S3_origin_status_authority.yaml
+- id: S4
+  contract: steps/S4_operation_declaration_and_applicability.yaml
+- id: S5
+  contract: steps/S5_attention_memory_imagination_configuration.yaml
+- id: S6
+  contract: steps/S6_human_operation_and_ownership.yaml
+- id: S7
+  contract: steps/S7_reflexive_retreat_council_if_needed.yaml
+  optional: true
+- id: S8
+  contract: steps/S8_intervention_selection.yaml
+- id: S9
+  contract: steps/S9_tinkuy_execution.yaml
+  conditional_on: InterventionSelection.execution_status == EXECUTE
+- id: S10
+  contract: steps/S10_contrast_provenance_state_write_open_loop.yaml
+component_bindings:
+  S6: contracts/twin_runtime_binding_v0.2.yaml
+  S7_S8: G-S23 council/arbiter contracts by reference
+  S10: state_and_memory/state_write_binding.yaml
+shared_substrate:
+  mode: REFERENCE_ONLY
+  write_shared_canon: false
+  registry: contracts/reference_registry.yaml
+global_guards:
+- NO_HUMAN_BINDING_FROM_INFERENCE
+- NO_TRUTH_BY_VOTE
+- NO_DURABLE_WRITE_FROM_ARBITRATION
+- NO_FORCED_CLASSIFICATION_ON_SCHEMA_GAP
+- NO_COUNCIL_THEATRE
+- NO_PERSONA_BY_DEFAULT
+- NO_HIDDEN_CHAIN_OF_THOUGHT_IN_TRACE
+- NO_DUPLICATE_TINKUY_STORES
+failure_policy: policies/failure_retry_escalation_policy.yaml
+trace_contract: contracts/trace_replay_contract.yaml
+state_model: state_model.yaml
+terminal_outcomes:
+- COMPLETED
+- PROVISIONAL_COMPLETED
+- PAUSED_AWAITING_HUMAN_INPUT
+- RETURN_OPERATION
+- PRESERVE_APORIA
+- REFUSED
+- FAILED_EXPLICIT

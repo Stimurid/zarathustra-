@@ -1,0 +1,160 @@
+{
+  "base": "http://127.0.0.1:8790",
+  "steps": [
+    {
+      "step": "01_branch_selector",
+      "note": "options=zarathustra,socrates",
+      "ok": true
+    },
+    {
+      "step": "02_all_eleven_steps",
+      "note": "missing: ",
+      "ok": true
+    },
+    {
+      "step": "01_socrates_pipeline",
+      "note": "S0–S10 + типизированные терминалы из pipeline.yaml",
+      "screenshot": "C:\\projects\\zarathustra-push\\CALIFORNIAN_ID\\workbench_ui\\qa\\screenshots\\s4a_01_socrates_pipeline.png",
+      "ok": true
+    },
+    {
+      "step": "03_declarative_labelled",
+      "note": "gen=G-S24 live=false",
+      "ok": true
+    },
+    {
+      "step": "04_s7_conditional",
+      "note": "условный шаг — не выполняется всегда. ",
+      "ok": true
+    },
+    {
+      "step": "05_prompt_binding_materialised",
+      "note": "MODE_AND_REFLEXIVITY_GOVERNOR_PROMPT_PACK / bindingMODE_AND_REFLEXIVITY_GOVERNOR_PROMPT_PACKтело промптаMIRRORED_READ_ONLY",
+      "ok": true
+    },
+    {
+      "step": "06_body_readable_for_explanation",
+      "note": "только чтение — BYTE_EXACT_UNVERIFIED",
+      "ok": true
+    },
+    {
+      "step": "07_no_editor_over_a_body_we_do_not_own",
+      "note": "0 editors rendered for a prompt nothing executes",
+      "ok": true
+    },
+    {
+      "step": "02_s7_readiness",
+      "note": "S7: тело промпта читаемо, редактор не предлагается",
+      "screenshot": "C:\\projects\\zarathustra-push\\CALIFORNIAN_ID\\workbench_ui\\qa\\screenshots\\s4a_02_s7_readiness.png",
+      "ok": true
+    },
+    {
+      "step": "07_s9_conditional_on_execute",
+      "note": "InterventionSelection.execution_status == EXECUTE",
+      "ok": true
+    },
+    {
+      "step": "08_s6_human_operation_contracts",
+      "note": "pipeline_trace.schema.json,intervention_selection.schema.json,arbitration_record.schema.json,council_recipe.schema.json,competence_after_interaction.schema.json,human_operation_return.schema.json,development_risk.schema.json,ownership_assessment_v0.2.schema.json,human_operation.schema.json,contracts/twin_runtime_binding_v0.2.yaml,G-S23 council/arbiter contracts by reference,state_and_memory/state_write_binding.yaml",
+      "ok": true
+    },
+    {
+      "step": "09_s8_intervention_contract",
+      "note": "pipeline_trace.schema.json,intervention_selection.schema.json,arbitration_record.schema.json,council_recipe.schema.json,competence_after_interaction.schema.json,human_operation_return.schema.json,development_risk.schema.json,ownership_assessment_v0.2.schema.json,human_operation.schema.json,contracts/twin_runtime_binding_v0.2.yaml,G-S23 council/arbiter contracts by reference,state_and_memory/state_write_binding.yaml",
+      "ok": true
+    },
+    {
+      "step": "10_s7_council_arbitration",
+      "note": "pipeline_trace.schema.json,intervention_selection.schema.json,arbitration_record.schema.json,council_recipe.schema.json,competence_after_interaction.schema.json,human_operation_return.schema.json,development_risk.schema.json,ownership_assessment_v0.2.schema.json,human_operation.schema.json,contracts/twin_runtime_binding_v0.2.yaml,G-S23 council/arbiter contracts by reference,state_and_memory/state_write_binding.yaml",
+      "ok": true
+    },
+    {
+      "step": "03_contracts",
+      "note": "контракт-инспектор: S6/S7/S8 привязки со статусом",
+      "screenshot": "C:\\projects\\zarathustra-push\\CALIFORNIAN_ID\\workbench_ui\\qa\\screenshots\\s4a_03_contracts.png",
+      "ok": true
+    },
+    {
+      "step": "11_six_runtime_profiles",
+      "note": "DIRECT_ASSISTANCE,DELIBERATE,DWELL,RESEARCH,CONCEPT_GENESIS,PUBLIC_TWIN_DEMO",
+      "ok": true
+    },
+    {
+      "step": "12_activation_disabled_with_reason",
+      "note": "disabled=true status=WAITING_FOR_G-S26_RUNTIME_BINDING",
+      "ok": true
+    },
+    {
+      "step": "04_profiles_activation_blocked",
+      "note": "профили: inspect можно, activate — нет",
+      "screenshot": "C:\\projects\\zarathustra-push\\CALIFORNIAN_ID\\workbench_ui\\qa\\screenshots\\s4a_04_profiles_activation_blocked.png",
+      "ok": true
+    },
+    {
+      "step": "13_branch_invariants",
+      "note": "18 invariants",
+      "ok": true
+    },
+    {
+      "step": "05_invariants",
+      "note": "18 инвариантов ветки с provenance",
+      "screenshot": "C:\\projects\\zarathustra-push\\CALIFORNIAN_ID\\workbench_ui\\qa\\screenshots\\s4a_05_invariants.png",
+      "ok": true
+    },
+    {
+      "step": "14_state_view_dispatchers",
+      "note": "RETRY_PENDING,ESCALATION_PENDING / 7 terminals",
+      "ok": true
+    },
+    {
+      "step": "15_retry_returns_to_the_exact_step",
+      "note": "12 transitions",
+      "ok": true
+    },
+    {
+      "step": "16_forbidden_transitions_visible",
+      "note": "5",
+      "ok": true
+    },
+    {
+      "step": "06_state_view",
+      "note": "модель состояний: диспетчерские ≠ шаги",
+      "screenshot": "C:\\projects\\zarathustra-push\\CALIFORNIAN_ID\\workbench_ui\\qa\\screenshots\\s4a_06_state_view.png",
+      "ok": true
+    },
+    {
+      "step": "17_back_to_zarathustra_live",
+      "note": "zarathustra must present as live",
+      "ok": true
+    },
+    {
+      "step": "07_zarathustra_graph",
+      "note": "та же оболочка, живой рантайм",
+      "screenshot": "C:\\projects\\zarathustra-push\\CALIFORNIAN_ID\\workbench_ui\\qa\\screenshots\\s4a_07_zarathustra_graph.png",
+      "ok": true
+    },
+    {
+      "step": "08_whitecrow_radial",
+      "note": "WhiteCrow-проекция тех же типов",
+      "screenshot": "C:\\projects\\zarathustra-push\\CALIFORNIAN_ID\\workbench_ui\\qa\\screenshots\\s4a_08_whitecrow_radial.png",
+      "ok": true
+    },
+    {
+      "step": "18_three_branches_no_reload",
+      "note": "zarathustra → whitecrow → socrates",
+      "ok": true
+    },
+    {
+      "step": "09_socrates_after_roundtrip",
+      "note": "возврат в Socrates без перезагрузки",
+      "screenshot": "C:\\projects\\zarathustra-push\\CALIFORNIAN_ID\\workbench_ui\\qa\\screenshots\\s4a_09_socrates_after_roundtrip.png",
+      "ok": true
+    },
+    {
+      "step": "19_zero_console_errors",
+      "note": "",
+      "ok": true
+    }
+  ],
+  "console_errors": []
+}

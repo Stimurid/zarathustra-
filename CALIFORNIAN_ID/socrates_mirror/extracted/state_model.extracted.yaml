@@ -1,0 +1,95 @@
+# TEXT_EXTRACTION of state_model.yaml (Drive 1kAHBbL6oQl4yeBvo-8DfrX3aR5qAzJYL)
+# owner sha256: 6ac42305ea55328429ca23e266ba10d6d455639a9d52a0873bd71fa4084638cd
+# Byte identity is NOT claimed. Structure and semantics are faithful to the
+# connector's text representation of the owner's file. Source of truth = Drive.
+state_model: SOCRATES_FULL_PIPELINE
+version: 0.3.0
+status: candidate
+states:
+  - {id: RECEIVED, kind: active}
+  - {id: S0_INTAKE_AND_CONTEXT_JURISDICTION, kind: active}
+  - {id: S1_SCENE_AND_TELOS, kind: active}
+  - {id: S2_PRESSURE_ROLE_CAPTURE_CHECK, kind: active}
+  - {id: S3_ORIGIN_STATUS_AUTHORITY, kind: active}
+  - {id: S4_OPERATION_DECLARATION_AND_APPLICABILITY, kind: active}
+  - {id: S5_ATTENTION_MEMORY_IMAGINATION_CONFIGURATION, kind: active}
+  - {id: S6_HUMAN_OPERATION_AND_OWNERSHIP, kind: active}
+  - {id: S7_REFLEXIVE_RETREAT_COUNCIL_IF_NEEDED, kind: active}
+  - {id: S8_INTERVENTION_SELECTION, kind: active}
+  - {id: S9_TINKUY_EXECUTION, kind: active}
+  - {id: S10_CONTRAST_PROVENANCE_STATE_WRITE_OPEN_LOOP, kind: active}
+  - {id: RETRY_PENDING, kind: dispatcher}
+  - {id: ESCALATION_PENDING, kind: dispatcher}
+  - {id: PAUSED_AWAITING_HUMAN_INPUT, kind: terminal}
+  - {id: COMPLETED, kind: terminal}
+  - {id: PROVISIONAL_COMPLETED, kind: terminal}
+  - {id: RETURN_OPERATION, kind: terminal}
+  - {id: PRESERVE_APORIA, kind: terminal}
+  - {id: REFUSED, kind: terminal}
+  - {id: FAILED_EXPLICIT, kind: terminal}
+
+transitions:
+  - {from: RECEIVED, to: S0_INTAKE_AND_CONTEXT_JURISDICTION, when: input_envelope_created}
+  - {from: S0_INTAKE_AND_CONTEXT_JURISDICTION, to: S1_SCENE_AND_TELOS, when: step_completed}
+  - {from: S1_SCENE_AND_TELOS, to: S2_PRESSURE_ROLE_CAPTURE_CHECK, when: step_completed}
+  - {from: S2_PRESSURE_ROLE_CAPTURE_CHECK, to: S3_ORIGIN_STATUS_AUTHORITY, when: step_completed}
+  - {from: S3_ORIGIN_STATUS_AUTHORITY, to: S4_OPERATION_DECLARATION_AND_APPLICABILITY, when: step_completed}
+  - {from: S4_OPERATION_DECLARATION_AND_APPLICABILITY, to: S5_ATTENTION_MEMORY_IMAGINATION_CONFIGURATION, when: step_completed}
+  - {from: S5_ATTENTION_MEMORY_IMAGINATION_CONFIGURATION, to: S6_HUMAN_OPERATION_AND_OWNERSHIP, when: step_completed}
+  - {from: S6_HUMAN_OPERATION_AND_OWNERSHIP, to: S7_REFLEXIVE_RETREAT_COUNCIL_IF_NEEDED, when: retreat_or_council_required}
+  - {from: S6_HUMAN_OPERATION_AND_OWNERSHIP, to: S8_INTERVENTION_SELECTION, when: direct_bypass_authorized}
+  - {from: S6_HUMAN_OPERATION_AND_OWNERSHIP, to: PAUSED_AWAITING_HUMAN_INPUT, when: human_binding_or_user_only_evidence_required}
+  - {from: PAUSED_AWAITING_HUMAN_INPUT, to: S6_HUMAN_OPERATION_AND_OWNERSHIP, when: human_input_received_and_scene_still_valid}
+  - {from: S7_REFLEXIVE_RETREAT_COUNCIL_IF_NEEDED, to: S8_INTERVENTION_SELECTION, when: arbitration_completed_or_aporia_typed}
+  - {from: S8_INTERVENTION_SELECTION, to: S9_TINKUY_EXECUTION, when: execution_status_EXECUTE}
+  - {from: S8_INTERVENTION_SELECTION, to: S10_CONTRAST_PROVENANCE_STATE_WRITE_OPEN_LOOP, when: execution_status_DO_NOT_EXECUTE_or_pause_or_refusal}
+  - {from: S9_TINKUY_EXECUTION, to: S10_CONTRAST_PROVENANCE_STATE_WRITE_OPEN_LOOP, when: execution_completed_or_explicit_execution_failure}
+  - {from: S10_CONTRAST_PROVENANCE_STATE_WRITE_OPEN_LOOP, to: COMPLETED, when: "terminal_outcome == COMPLETED"}
+  - {from: S10_CONTRAST_PROVENANCE_STATE_WRITE_OPEN_LOOP, to: PROVISIONAL_COMPLETED, when: "terminal_outcome == PROVISIONAL_COMPLETED"}
+  - {from: S10_CONTRAST_PROVENANCE_STATE_WRITE_OPEN_LOOP, to: RETURN_OPERATION, when: "terminal_outcome == RETURN_OPERATION"}
+  - {from: S10_CONTRAST_PROVENANCE_STATE_WRITE_OPEN_LOOP, to: PRESERVE_APORIA, when: "terminal_outcome == PRESERVE_APORIA"}
+  - {from: S10_CONTRAST_PROVENANCE_STATE_WRITE_OPEN_LOOP, to: REFUSED, when: "terminal_outcome == REFUSED"}
+  - {from: S10_CONTRAST_PROVENANCE_STATE_WRITE_OPEN_LOOP, to: FAILED_EXPLICIT, when: "terminal_outcome == FAILED_EXPLICIT"}
+  - {from: ESCALATION_PENDING, to: S7_REFLEXIVE_RETREAT_COUNCIL_IF_NEEDED, when: reflexive_or_council_recovery_possible}
+  - {from: ESCALATION_PENDING, to: RETURN_OPERATION, when: human_or_external_operation_required}
+  - {from: ESCALATION_PENDING, to: FAILED_EXPLICIT, when: no_authorized_recovery}
+  - {from: RETRY_PENDING, to: ESCALATION_PENDING, when: retry_target_invalid_or_retry_no_longer_safe}
+
+# Every S0..S10 additionally carries the same three failure edges and one
+# exact-step retry edge back from RETRY_PENDING.
+per_step_failure_edges:
+  - {to: RETRY_PENDING, when: transient_failure_and_retry_budget_remaining, context: {retry_target: "<self>"}}
+  - {to: ESCALATION_PENDING, when: authority_contract_or_recoverable_epistemic_failure}
+  - {to: FAILED_EXPLICIT, when: nonrecoverable_failure_or_retry_exhausted}
+per_step_retry_return:
+  from: RETRY_PENDING
+  when: "retry_target == <self> and retry_budget_remaining"
+  note: "Exact-step retry; inputs/authority scope unchanged."
+
+dispatcher_semantics:
+  RETRY_PENDING: >
+    Carries retry_target and has an explicit guarded transition back to each
+    S0-S10; it never advances to a different step.
+  ESCALATION_PENDING: >
+    Routes only to S7, RETURN_OPERATION or FAILED_EXPLICIT.
+
+terminal_semantics:
+  COMPLETED: Authorized intervention executed/finalized with no material unresolved qualification.
+  PROVISIONAL_COMPLETED: Useful response finalized with explicit unresolved/source/tool limitation.
+  PAUSED_AWAITING_HUMAN_INPUT: Run suspended with typed question/returned human operation and resumable context.
+  RETURN_OPERATION: Intellectual operation returned to human/external owner; no silent substitution.
+  PRESERVE_APORIA: Irreducible conflict preserved as output/open loop; no forced synthesis.
+  REFUSED: Refusal is the authorized intervention and grounds are recorded.
+  FAILED_EXPLICIT: Execution could not continue within authority/retry budget; failure is visible and traceable.
+
+forbidden_transitions:
+  - "PAUSED_AWAITING_HUMAN_INPUT -> S9_TINKUY_EXECUTION"
+  - "S7_REFLEXIVE_RETREAT_COUNCIL_IF_NEEDED -> durable_state_write"
+  - "ArbitrationRecord -> HUMAN binding"
+  - "ToolResult -> HUMAN binding"
+  - "Any ontology gap -> forced nearest-class mapping"
+
+retry_budget:
+  default: 1
+  S9_TINKUY_EXECUTION: 2
+  source: README.md "Retry is bounded (default 1; S9 max 2)"

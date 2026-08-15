@@ -3,6 +3,7 @@ import { api, type Json } from '../api';
 import type { DockTab } from './RightDock';
 import { PromptEditor, type EditorHandle, type Marker } from './PromptEditor';
 import { RagPanel } from './RagPanel';
+import { PromptBody, ReadinessBadge } from './BranchPanels';
 
 const STEPS = [
   ['clone', 'клонировать'], ['edit', 'сохранить'], ['diff', 'diff'],
@@ -87,7 +88,10 @@ export function Inspector({
     api.controls(branch).then((r) => setEffects(r.controls)).catch(() => {});
   }, [branch]);
 
-  if (!node) {
+  // WB-021 (same class as the App-level fix): during a branch switch the new
+  // branch arrives before the old node payload is cleared. Rendering that node
+  // issued requests for `<new branch>/<old branch's object>` and 404'd.
+  if (!node || (node.branch && node.branch !== branch)) {
     return <div className="dock-body"><p style={{ color: 'var(--text-dim)' }}>
       Выберите узел графа.</p></div>;
   }
@@ -189,6 +193,45 @@ export function Inspector({
           ? <Pill text="доступен" tone="ok" />
           : <Pill text="недоступен — узел не промптовый" tone="warn" />}</div>
       </div>
+      {n.readiness ? (<>
+        <h3>Готовность</h3>
+        <div className="row">
+          <ReadinessBadge readiness={n.readiness} />
+        </div>
+        <div className="kv">
+          <div className="k">почему</div>
+          <div className="v" data-readiness-reason>{n.readiness.reason || '—'}</div>
+          <div className="k">свидетельство</div>
+          <div className="v mono">{n.readiness.evidence || '—'}</div>
+        </div>
+      </>) : null}
+      {n.optional || n.conditional_on ? (
+        <div className="card" data-conditional={n.node_id} style={{ fontSize: 11 }}>
+          {n.optional ? <b>условный шаг — не выполняется всегда. </b> : null}
+          {n.conditional_on ? <span className="mono">{n.conditional_on}</span> : null}
+        </div>) : null}
+      {n.prompt_binding ? (<>
+        <h3>Привязка промпта</h3>
+        <div className="kv" data-prompt-binding={n.prompt_binding.binding}>
+          <div className="k">binding</div>
+          <div className="v mono">{n.prompt_binding.binding}</div>
+          <div className="k">тело промпта</div>
+          <div className="v"><Pill text={n.prompt_binding.body_status}
+            tone={n.prompt_binding.body_status === 'MIRRORED_READ_ONLY'
+              ? 'ok' : 'warn'} /></div>
+        </div>
+        {n.prompt_binding.body_status === 'MIRRORED_READ_ONLY' ? (
+          <PromptBody branch={branch} binding={n.prompt_binding.binding} />
+        ) : null}
+      </>) : null}
+      {n.contract_refs?.filter(Boolean).length ? (<>
+        <h3>Контракты узла</h3>
+        <ul className="inv-list">
+          {n.contract_refs.filter(Boolean).map((c: string) => (
+            <li key={c} className="mono" data-node-contract={c}>{c}</li>
+          ))}
+        </ul>
+      </>) : null}
       {n.note ? <div className="card" style={{ fontSize: 11 }}>{n.note}</div> : null}
       {n.params?.length ? (<>
         <h3>Параметры</h3>

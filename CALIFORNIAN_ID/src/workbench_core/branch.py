@@ -34,6 +34,102 @@ TopologyStatus = Literal[
 ]
 
 
+#: How mature a source is, independently of whether it executes today. A branch
+#: may legitimately sit at several levels at once; the Workbench shows that
+#: rather than blocking on the least mature part.
+ReadinessLevel = Literal[
+    "DECLARATIVE_READY",     # structure/ordering declared and parseable
+    "CONTRACT_READY",        # input/output contracts named and resolvable
+    "PROMPT_BINDING_READY",  # a binding exists for the step
+    "PROMPT_BODY_READY",     # an editable body actually exists
+    "RUNTIME_BINDING_READY", # a host/runtime binding exists
+    "LIVE_VALIDATED",        # observed executing
+    "NOT_READY",
+]
+
+
+@dataclass
+class Readiness:
+    """Per-object readiness with the reason and the generation that owns it."""
+    level: ReadinessLevel
+    reason: str = ""
+    expected_in: str = ""          # e.g. "G-S25"
+    evidence: str = ""
+
+    def to_public(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass
+class BranchInvariant:
+    """A rule the branch declares about itself, with source provenance.
+
+    Never a WorkbenchCore assumption: the core stores and displays these, it
+    does not enforce or interpret them.
+    """
+    invariant_id: str
+    text: str
+    source_ref: str = ""
+    source_id: str = ""
+
+    def to_public(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass
+class StateNode:
+    state_id: str
+    kind: str                      # active | dispatcher | terminal
+    semantics: str = ""
+
+    def to_public(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass
+class StateTransition:
+    source: str
+    target: str
+    when: str = ""
+    note: str = ""
+    guarded: bool = False
+    forbidden: bool = False
+
+    def to_public(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass
+class StateProjection:
+    """The runtime state machine — a different object from the step topology.
+
+    Kept separate on purpose: `step topology != runtime state machine`, and
+    merging them would lose exactly the distinction Socrates makes explicit.
+    """
+    projection_id: str
+    branch: str
+    version: str
+    states: list[StateNode]
+    transitions: list[StateTransition]
+    forbidden_transitions: list[str] = field(default_factory=list)
+    retry_budget: dict[str, Any] = field(default_factory=dict)
+    dispatcher_semantics: dict[str, str] = field(default_factory=dict)
+    terminal_semantics: dict[str, str] = field(default_factory=dict)
+    source_ref: str = ""
+
+    def to_public(self) -> dict[str, Any]:
+        return {
+            "projection_id": self.projection_id, "branch": self.branch,
+            "version": self.version, "source_ref": self.source_ref,
+            "states": [s.to_public() for s in self.states],
+            "transitions": [t.to_public() for t in self.transitions],
+            "forbidden_transitions": self.forbidden_transitions,
+            "retry_budget": self.retry_budget,
+            "dispatcher_semantics": self.dispatcher_semantics,
+            "terminal_semantics": self.terminal_semantics,
+        }
+
+
 @dataclass
 class NodeProjection:
     node_id: str
@@ -54,9 +150,16 @@ class NodeProjection:
     actual_callers: list[str] = field(default_factory=list)
     actual_callees: list[str] = field(default_factory=list)
     in_loop: bool = False
+    optional: bool = False
+    conditional_on: str = ""
+    readiness: Readiness | None = None
+    contract_refs: list[str] = field(default_factory=list)
+    prompt_binding: dict[str, Any] | None = None
 
     def to_public(self) -> dict[str, Any]:
-        return asdict(self)
+        d = asdict(self)
+        d["readiness"] = self.readiness.to_public() if self.readiness else None
+        return d
 
 
 @dataclass

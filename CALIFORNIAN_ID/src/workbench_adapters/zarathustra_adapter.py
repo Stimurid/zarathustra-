@@ -587,6 +587,135 @@ class ZarathustraAdapter:
             "errors": list(state.errors or []),
         }
 
+    # ------------------------------------------------------------------
+    # A15 — the three Stage 3 snapshot debts, paid inside the adapter
+    # ------------------------------------------------------------------
+
+    #: Roles that actually reach a model boundary in a production run.
+    #: Derived from the call sites, not from the models.yaml key set.
+    PRODUCTION_ROLES = (
+        ("zarathustra_situation_reading", "src/californian_id/zarathustra.py:282"),
+        ("zarathustra_route", "src/californian_id/zarathustra.py:412"),
+        ("persona_turn", "src/californian_id/pipeline.py:1463"),
+        ("zarathustra_closing_speech", "src/californian_id/zarathustra.py:938"),
+        ("synthesis", "src/californian_id/narrative_memory.py:204"),
+    )
+
+    def effective_model_bindings(self) -> list[dict[str, Any]]:
+        """A15-1 — resolve provider/model/preset ONCE, at snapshot time.
+
+        ``resolved_at_call_time`` was an honest placeholder, not a binding: two
+        calls inside one run could disagree and the snapshot would not know.
+        Here the same resolution the runtime performs is executed once, and the
+        result is what the run is pinned to.
+
+        A role whose provider cannot be resolved is recorded as UNRESOLVED with
+        the reason — never silently defaulted, and never faked as mock.
+        """
+        from californian_id.config import load_config
+
+        cfg = load_config()
+        out: list[dict[str, Any]] = []
+        for role, call_site in self.PRODUCTION_ROLES:
+            try:
+                provider = cfg.role_provider(role)
+            except RuntimeError as exc:
+                out.append({
+                    "role": role, "call_site": call_site,
+                    "provider": None, "model": None,
+                    "resolution": "UNRESOLVED",
+                    "reason": str(exc).split(".")[0],
+                    "evidence_grade": "MEASURED",
+                })
+                continue
+            pc = cfg.provider_config(provider)
+            settings = dict(pc.get("settings") or {})
+            out.append({
+                "role": role,
+                "call_site": call_site,
+                "provider": provider,
+                "provider_kind": pc.get("kind", provider),
+                "model": pc.get("model"),
+                "model_profile_id": f"californian_id.role.{role}",
+                "effective_parameters": {
+                    k: settings[k] for k in
+                    ("temperature", "max_tokens", "top_p") if k in settings},
+                "fallbacks": [f.get("model") for f in (pc.get("fallbacks") or [])],
+                "resolution": "RESOLVED_AT_SNAPSHOT",
+                "source_ref": "config/models.yaml · RuntimeConfig.role_provider/"
+                              "provider_config",
+                "evidence_grade": "MEASURED",
+            })
+        return out
+
+    def effective_semantic_controls(self) -> list[dict[str, Any]]:
+        """A15-2 — hybrid controls belong to the frozen configuration.
+
+        A control that changes both prompt behaviour and a deterministic
+        algorithm changes what the run does; leaving it outside the snapshot
+        made two runs indistinguishable in the record while differing in fact.
+        """
+        out: list[dict[str, Any]] = []
+        for c in self.semantic_controls():
+            out.append({
+                "control_id": c.control_id,
+                "label": c.label,
+                "subject": c.subject,
+                "value": c.default,
+                "value_origin": "DEFAULT" if c.default else "ASSET_RESOLVED",
+                "allowed_values": list(c.values),
+                "effect_classes": sorted({e.effect_class for e in c.effects}),
+                "affects_nodes": sorted({n for e in c.effects
+                                         for n in e.consumers}),
+                "source_refs": [e.source_ref for e in c.effects],
+                "evidence_grade": "MEASURED",
+            })
+        return out
+
+    def algorithm_bindings(self) -> list[dict[str, Any]]:
+        """Deterministic configuration this branch runs under."""
+        from californian_id.config import CONFIG_DIR
+
+        out = []
+        for name in ("runtime.yaml", "models.yaml"):
+            p = CONFIG_DIR / name
+            if not p.exists():
+                continue
+            out.append({
+                "config_id": f"californian_id.{name}",
+                "version": self._runtime_version(),
+                "hash": hashlib.sha256(p.read_bytes()).hexdigest(),
+                "source_ref": str(p),
+                "evidence_grade": "MEASURED",
+            })
+        return out
+
+    @staticmethod
+    def _runtime_version() -> str:
+        try:
+            from californian_id import __version__
+
+            return str(__version__)
+        except Exception:
+            return "unknown"
+
+    def storage_binding(self) -> dict[str, Any]:
+        """A15-3 — where this branch writes its run artefacts.
+
+        Recorded in the snapshot so a run is locatable from its configuration
+        alone. The resolution order itself is fixed in ``config.runs_dir()``:
+        explicit configured path first, process cwd never.
+        """
+        from californian_id import config as cid_config
+
+        return {
+            "runs_dir": str(cid_config.RUNS_DIR),
+            "resolved_from": cid_config.RUNS_DIR_ORIGIN,
+            "cwd_dependent": False,
+            "source_ref": "src/californian_id/config.py:_resolve_runs_dir",
+            "evidence_grade": "MEASURED",
+        }
+
     def legacy_invocation(self, fixture: Fixture) -> Invocation:
         """The OLD code path: the Python constant, not the PromptAsset.
 

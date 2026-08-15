@@ -417,6 +417,21 @@ class RunConfigurationSnapshot:
     algorithm_bindings: list[dict[str, Any]] = field(default_factory=list)
     orchestration_binding: dict[str, Any] = field(default_factory=dict)
     contract_bindings: list[dict[str, Any]] = field(default_factory=list)
+    #: A15-2 — semantic hybrids (regimes, thresholds) are configuration too:
+    #: they change what the run does and therefore belong inside the frozen
+    #: picture, not outside it.
+    semantic_control_bindings: list[dict[str, Any]] = field(default_factory=list)
+    #: A15-3 — where the run's own artefacts land. Recorded so that a run is
+    #: reproducible from the snapshot alone, without knowing the cwd it started
+    #: in.
+    storage_binding: dict[str, Any] = field(default_factory=dict)
+
+    def model_binding(self, role: str) -> dict[str, Any] | None:
+        return next((b for b in self.model_bindings if b.get("role") == role), None)
+
+    def semantic_control(self, control_id: str) -> dict[str, Any] | None:
+        return next((b for b in self.semantic_control_bindings
+                     if b.get("control_id") == control_id), None)
 
     def prompt_binding(self, asset_id: str) -> dict[str, Any] | None:
         return next((b for b in self.prompt_bindings
@@ -430,6 +445,10 @@ class RunConfigurationSnapshot:
         """Shape the runtime resolver pins itself to."""
         return {"rag_bindings": {b["engine_id"]: b for b in self.rag_bindings},
                 "prompt_bindings": {b["asset_id"]: b for b in self.prompt_bindings},
+                "model_bindings": {b["role"]: b for b in self.model_bindings
+                                   if b.get("role")},
+                "semantic_controls": {b["control_id"]: b
+                                      for b in self.semantic_control_bindings},
                 "activation_revision": self.activation_revision}
 
     def to_public(self) -> dict[str, Any]:

@@ -1,0 +1,150 @@
+# Socrates G-S24 — READ-ONLY source mirror provenance
+#
+# SOURCE OF TRUTH  : Google Drive, folder 07_SOCRATES_PIPELINE_PACK
+# OWNER            : LOCAL_SOCRATES
+# THIS DIRECTORY   : projection fixture / cache. NOT an authority.
+#                    Nothing here may be edited as if it were the source.
+#
+# content_fidelity:
+#   BYTE_EXACT       decoded from the Drive binary; sha256 matches the owner's
+#                    own G-S24_SHA256SUMS
+#   TEXT_EXTRACTION  obtained through the connector's text representation;
+#                    semantically faithful, byte identity NOT claimed
+#   BYTE_EXACT_UNVERIFIED
+#                    decoded from the Drive binary and size-checked against
+#                    Drive's own metadata, but the owner's checksum manifest
+#                    does not list the file, so nothing authoritative confirms it
+#   NOT_FETCHED      listed in the owner manifest but no direct id was supplied
+#                    and folder enumeration is unavailable to this account
+
+mirror_id: socrates.g_s24.mirror
+generation: G-S24
+owner: LOCAL_SOCRATES
+immutable_source: true
+package_root_drive_id: 10WHFJzLZYP6JblzmZJBk1X3_sdETU4A2
+owner_checksum_manifest:
+  drive_id: 1p-a9C5kiRsYQRrGurK6_GhaDrmBbed_y
+  title: G-S24_SHA256SUMS
+  entries: 37
+imported_at: "2026-08-15"
+
+sources:
+  - source_path: pipeline.yaml
+    drive_id: 1cNyy952FrOL0shWm2J26DVeaFN7l5Tzm
+    drive_title: pipeline.yaml
+    owner_sha256: 9857ff196feb8d57bf61288bd83528d62d520fb1ae4a92a39154bf1a54eb7783
+    local_mirror_path: pipeline.yaml
+    content_fidelity: BYTE_EXACT
+    verified_against_owner_manifest: true
+    source_status: candidate
+
+  - source_path: manifest.yaml
+    drive_id: 1no6O2N05RpHlOeYMAdmfqaDZTYasnZjA
+    drive_title: manifest.yaml
+    owner_sha256: ab3be48060f99973105625c7cc0a90ae7f54a7c7a57d96bbd8425d3ab5443f5c
+    local_mirror_path: extracted/manifest.extracted.yaml
+    content_fidelity: TEXT_EXTRACTION
+    verified_against_owner_manifest: false
+    source_status: candidate
+
+  - source_path: state_model.yaml
+    drive_id: 1kAHBbL6oQl4yeBvo-8DfrX3aR5qAzJYL
+    drive_title: state_model.yaml
+    owner_sha256: 6ac42305ea55328429ca23e266ba10d6d455639a9d52a0873bd71fa4084638cd
+    local_mirror_path: extracted/state_model.extracted.yaml
+    content_fidelity: TEXT_EXTRACTION
+    verified_against_owner_manifest: false
+    source_status: candidate
+
+  - source_path: README.md
+    drive_id: 1FiepAVg0IuRe9ztYY6qbU6X3iuPZFnjR
+    drive_title: README.md
+    owner_sha256: 51788464b4a80392eea2cda06ae636322feaba1fa21e13d1372bc946a2aaf1e0
+    local_mirror_path: extracted/README.extracted.md
+    content_fidelity: TEXT_EXTRACTION
+    verified_against_owner_manifest: false
+    source_status: candidate
+
+  - source_path: prompts/prompt_bindings_v0.3.yaml
+    drive_id: 1d7AUn8-HDZ1DviUyAGyAUYqLZwl4VYOo
+    drive_title: prompt_bindings_v0.3.yaml
+    owner_sha256: 6e36e1d12de755d366a9c79a024d01bd5f0e91069d38406dd0001fd9a2e0c875
+    local_mirror_path: extracted/prompt_bindings_v0.3.extracted.yaml
+    content_fidelity: TEXT_EXTRACTION
+    verified_against_owner_manifest: false
+    source_status: candidate
+
+  - source_path: prompts/MODE_AND_REFLEXIVITY_GOVERNOR_PROMPT_PACK.md
+    drive_id: 1FRmTQfj2Vxwmgde_C_u2zX1fbGISGLUL
+    drive_title: MODE_AND_REFLEXIVITY_GOVERNOR_PROMPT_PACK.md
+    owner_sha256: null            # absent from G-S24_SHA256SUMS — see defect SD-002
+    mirror_sha256: fd67ea16222056d995f4b512bc91eec1a87bbbf89a64b8ecb6d40476485e3156
+    owner_reported_size: 1844
+    local_mirror_path: prompts/MODE_AND_REFLEXIVITY_GOVERNOR_PROMPT_PACK.md
+    content_fidelity: BYTE_EXACT_UNVERIFIED
+    verified_against_owner_manifest: false
+    source_status: candidate
+    fetched_at: "2026-08-15"
+    note: >
+      Referenced by prompt_bindings_v0.3.yaml as the S7-S8 body. Fetched at the
+      end of the Stage 4A pass. Size matches Drive's own metadata (1844 B) and
+      four content anchors agree across two independent reads, but the owner
+      checksum manifest does not list the file at all (SD-002), so there is no
+      authority to verify the hash against — hence BYTE_EXACT_UNVERIFIED, not
+      BYTE_EXACT. Its own title says G-S23; prompt_bindings_v0.3.yaml is G-S24.
+      Generation membership is a question for LOCAL_SOCRATES, not for us.
+
+# Schemas: nine ids were supplied, but only pipeline_trace.schema.json appears
+# in the owner's G-S24 checksum manifest. Recorded as-is; see defect SD-001.
+schemas:
+  - {name: pipeline_trace.schema.json,            drive_id: 1fT3GTEsaCQ7e3Cys0JOy2gl4jxt7YMqr, in_owner_manifest: true,  owner_sha256: cc3e740fa0141cd1c69bfd908a860e499b5b0acf4ddc1f7630b904460bbbcbea}
+  - {name: intervention_selection.schema.json,    drive_id: 1JfcIJK-L8_m5j4tc1Q-azTl7izFEw-6Q, in_owner_manifest: false, owner_sha256: null}
+  - {name: arbitration_record.schema.json,        drive_id: 1BrxmkZ3-eH3LzkLmW6_Ei_vb2wGWOayb, in_owner_manifest: false, owner_sha256: null}
+  - {name: council_recipe.schema.json,            drive_id: 1ds853iGosBfOHA6ezQPayQ1ZulIuVuj0, in_owner_manifest: false, owner_sha256: null}
+  - {name: competence_after_interaction.schema.json, drive_id: 1gIPcHl7RalREx9rc2-p9_mNrL7W74dve, in_owner_manifest: false, owner_sha256: null}
+  - {name: human_operation_return.schema.json,    drive_id: 1vyAOaAM3Z13HWjE1PUCBWY-9QHjnYixO, in_owner_manifest: false, owner_sha256: null}
+  - {name: development_risk.schema.json,          drive_id: 1Z5bEiUt5Z9Poo4_KEP5G478_SGGbYjml, in_owner_manifest: false, owner_sha256: null}
+  - {name: ownership_assessment_v0.2.schema.json, drive_id: 1Y1f-F6Ol5-AR20ozU9LWaj1BJef7WNof, in_owner_manifest: false, owner_sha256: null}
+  - {name: human_operation.schema.json,           drive_id: 1tscrRACQw9fBHtRWqCU-TyA5gwkEAxzU, in_owner_manifest: false, owner_sha256: null}
+
+# Step contracts: names and owner hashes are known from the checksum manifest,
+# but no direct file id was supplied and folder enumeration returns empty for
+# this account. Their BODIES are a precise source gap — not reconstructed.
+step_contracts:
+  folder_drive_id: 1nlNWyA3wkdq54qwBRB9GPd13P07-lttU
+  enumeration_status: EMPTY_FOR_THIS_ACCOUNT
+  bodies: NOT_FETCHED
+  entries:
+    - {step: S0,  path: steps/S0_intake_and_context_jurisdiction.yaml,            owner_sha256: be8ccad8ea65078c96418556eb09a9111857a78e57e07c842d1321e0a5333ac1}
+    - {step: S1,  path: steps/S1_scene_and_telos.yaml,                            owner_sha256: 7e842a2329bc6e1735bdb5ad739ad6a96072c390e27db890a9b7dea4ad9fcc6a}
+    - {step: S2,  path: steps/S2_pressure_role_capture_check.yaml,                owner_sha256: 65efa34b0949174063d8220ecad9c93f6cc2750704ed5773e333f4744169c80c}
+    - {step: S3,  path: steps/S3_origin_status_authority.yaml,                    owner_sha256: 5e96ae2042a515b582541a88d0a194d80ac0ee1d320ca2ca923a8c58732d613f}
+    - {step: S4,  path: steps/S4_operation_declaration_and_applicability.yaml,    owner_sha256: cce347a12703227eece12bd37a315265e0ac21d6ec7b6c95f4505335b5f0180e}
+    - {step: S5,  path: steps/S5_attention_memory_imagination_configuration.yaml, owner_sha256: 1eda1949449107ebe00b154150941d395556408a0223fbce3f6d2aeb4d4263e7}
+    - {step: S6,  path: steps/S6_human_operation_and_ownership.yaml,              owner_sha256: f24315dfc6bd5c7fbc900c3aab78f975eee33b96e574f94c14d998f053ddb0b7}
+    - {step: S7,  path: steps/S7_reflexive_retreat_council_if_needed.yaml,        owner_sha256: 087558c523bb419ca59749cf55b2bbab688514606dc592dec1c7c6679d72b7dc}
+    - {step: S8,  path: steps/S8_intervention_selection.yaml,                     owner_sha256: 61c3020baa226c7a57a0ad72f85463d368746e58e3b82213292c20faaa0ac4d8}
+    - {step: S9,  path: steps/S9_tinkuy_execution.yaml,                           owner_sha256: f72a0860c72b45745131281fb73919196bd4089ef5b0ff7a687cf21dc20e415b}
+    - {step: S10, path: steps/S10_contrast_provenance_state_write_open_loop.yaml, owner_sha256: 0a5099199d4ced3ee3f638dc04fde1525d975217f07f67819aa5c0d3d56f5711}
+
+# Present in the owner manifest, never fetched — no direct ids supplied.
+not_fetched_from_owner_manifest:
+  - CHANGELOG.md
+  - contracts/reference_registry.yaml
+  - contracts/trace_replay_contract.yaml
+  - evaluators/package_structural_evaluator.yaml
+  - examples/direct_assistance_reference_trace.yaml
+  - host_bindings/host_neutral.yaml
+  - policies/failure_retry_escalation_policy.yaml
+  - reference_harness/README.md
+  - runtime_profiles/concept_genesis.yaml
+  - runtime_profiles/deliberate.yaml
+  - runtime_profiles/direct_assistance.yaml
+  - runtime_profiles/dwell.yaml
+  - runtime_profiles/public_twin_demo.yaml
+  - runtime_profiles/research.yaml
+  - state_and_memory/state_write_binding.yaml
+  - tests/G-S24_structural_evaluation.md
+  - tests/G-S24_structural_validation_result.yaml
+  - tests/pipeline_structural_cases.yaml
+  - traces/README.md

@@ -17,7 +17,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import parse_qs, unquote, urlparse
 
-from workbench_adapters import ZarathustraAdapter
+from workbench_adapters import SocratesBranchAdapter, ZarathustraAdapter
 from workbench_core import WorkbenchError, WorkbenchService, WorkbenchStore
 from workbench_core.compiler import ProvenanceError
 from workbench_core.lifecycle import LifecycleError
@@ -36,6 +36,7 @@ def get_service(state_dir: Path | None = None) -> WorkbenchService:
             "WORKBENCH_STATE_DIR", str(DEFAULT_STATE))))
         svc = WorkbenchService(store)
         svc.register_adapter(ZarathustraAdapter())
+        svc.register_adapter(SocratesBranchAdapter())
         svc.bootstrap()
         svc.bootstrap_rag()
         _service = svc
@@ -118,6 +119,24 @@ class Handler(BaseHTTPRequestHandler):
 
         if path == "/api/workbench/pipelines":
             return {"pipelines": svc.pipelines()}
+
+        if path == "/api/workbench/branches":
+            return {"branches": svc.branches()}
+
+        m = re.fullmatch(r"/api/workbench/branch/([^/]+)/"
+                         r"(state|invariants|contracts|profiles|readiness|snapshot)", path)
+        if m:
+            branch, what = m.group(1), m.group(2)
+            fn = {"state": "state_projection", "invariants": "branch_invariants",
+                  "contracts": "contract_bindings", "profiles": "runtime_profiles",
+                  "readiness": "branch_readiness",
+                  "snapshot": "declarative_snapshot"}[what]
+            return {what: svc.branch_feature(branch, fn)}
+
+        m = re.fullmatch(r"/api/workbench/branch/([^/]+)/prompt_body/([^/]+)", path)
+        if m:
+            return {"prompt_body": svc.branch_feature(
+                m.group(1), "prompt_body", unquote(m.group(2)))}
 
         m = re.fullmatch(r"/api/workbench/pipeline/([^/]+)/graph", path)
         if m:

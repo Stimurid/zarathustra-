@@ -7,7 +7,9 @@ Each adapter MAY import ``workbench_core`` plus its own branch runtime.
     socrates_adapter     -> workbench_core + socrates.*                   (pending
                             materialisation of 07_SOCRATES_PIPELINE_PACK)
 """
+from .socrates_adapter import SocratesBranchAdapter
 from .whitecrow_projection import WhiteCrowProjectionAdapter
 from .zarathustra_adapter import ZarathustraAdapter
 
-__all__ = ["ZarathustraAdapter", "WhiteCrowProjectionAdapter"]
+__all__ = ["ZarathustraAdapter", "WhiteCrowProjectionAdapter",
+           "SocratesBranchAdapter"]

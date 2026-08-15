@@ -736,14 +736,36 @@ class WorkbenchService:
                                    or p.source_bindings.get("corpus_root"),
             })
 
-        model_bindings = [{
-            "model_profile_id": adapter.compiler_profile(
-                next(iter([a for a, (b2, _) in self._assets.items()
-                           if b2 == branch]), "")).profile_id,
-            "provider": "resolved_at_call_time",
-            "model": "resolved_at_call_time",
-            "effective_parameters": {"note": "models.yaml/presets, not yet versioned"},
-        }] if self._assets else []
+        # A15-1 — the branch resolves provider/model/parameters once, here, and
+        # the run is pinned to that. A branch that cannot resolve them says so
+        # rather than letting the snapshot claim a binding it does not have.
+        resolve_models = getattr(adapter, "effective_model_bindings", None)
+        if resolve_models is not None:
+            model_bindings = list(resolve_models())
+        else:
+            model_bindings = [{
+                "role": None,
+                "provider": None, "model": None,
+                "resolution": "NOT_APPLICABLE",
+                "reason": f"branch {branch} declares no model boundary",
+                "evidence_grade": "MEASURED",
+            }]
+
+        # A15-2 — semantic hybrids are configuration, so they are frozen too.
+        resolve_controls = getattr(adapter, "effective_semantic_controls", None)
+        semantic_control_bindings = (list(resolve_controls())
+                                     if resolve_controls is not None else [])
+
+        resolve_algorithms = getattr(adapter, "algorithm_bindings", None)
+        algorithm_bindings = (list(resolve_algorithms())
+                              if resolve_algorithms is not None else [])
+
+        # A15-3 — where the run's artefacts land, recorded with the run.
+        resolve_storage = getattr(adapter, "storage_binding", None)
+        storage_binding = (dict(resolve_storage()) if resolve_storage is not None
+                           else {"runs_dir": None, "resolved_from": "NONE",
+                                 "cwd_dependent": False,
+                                 "evidence_grade": "MEASURED"})
 
         contract_bindings = [
             {"contract_id": a.output_object or a.asset_id,
@@ -765,12 +787,12 @@ class WorkbenchService:
             prompt_bindings=prompt_bindings,
             rag_bindings=rag_bindings,
             model_bindings=model_bindings,
-            algorithm_bindings=[{
-                "config_id": "californian_id.runtime.yaml", "version": "0.11.1",
-                "hash": sha256_text("runtime.yaml")}],
-            orchestration_binding={"profile_id": "californian_id.inner_council",
+            algorithm_bindings=algorithm_bindings,
+            orchestration_binding={"profile_id": proj.pipeline_id,
                                    "version": proj.version},
             contract_bindings=contract_bindings,
+            semantic_control_bindings=semantic_control_bindings,
+            storage_binding=storage_binding,
         )
 
     def install_runtime_resolver(self, resolver: Any) -> None:
@@ -833,6 +855,53 @@ class WorkbenchService:
         }
         self.store.write_run(observed["run_id"], trace)
         return trace
+
+    # ---------------- branch capability passthrough ----------------
+    #
+    # The core does not know what these mean; it only knows that an adapter may
+    # or may not offer them. Nothing here is branch-specific.
+
+    def branch_capabilities(self, branch: str) -> dict[str, bool]:
+        a = self.adapters.get(branch)
+        if a is None:
+            raise WorkbenchError(f"unknown branch: {branch}")
+        return {cap: hasattr(a, cap) for cap in (
+            "state_projection", "branch_invariants", "contract_bindings",
+            "runtime_profiles", "declarative_snapshot", "branch_readiness",
+            "production_entrypoint", "rag_profiles", "list_assets",
+        )}
+
+    def branch_feature(self, branch: str, name: str, *args, **kwargs) -> Any:
+        a = self.adapters.get(branch)
+        if a is None:
+            raise WorkbenchError(f"unknown branch: {branch}")
+        fn = getattr(a, name, None)
+        if fn is None:
+            raise WorkbenchError(f"branch {branch} does not offer {name}")
+        result = fn(*args, **kwargs)
+        if hasattr(result, "to_public"):
+            return result.to_public()
+        if isinstance(result, list):
+            return [r.to_public() if hasattr(r, "to_public") else r for r in result]
+        return result
+
+    def branches(self) -> list[dict[str, Any]]:
+        out = []
+        for branch, adapter in self.adapters.items():
+            proj = adapter.describe_pipeline(None)
+            caps = self.branch_capabilities(branch)
+            out.append({
+                "branch": branch,
+                "pipeline_id": proj.pipeline_id,
+                "version": proj.version,
+                "status": proj.status,
+                "nodes": len(proj.nodes),
+                "capabilities": caps,
+                "has_live_runtime": bool(getattr(adapter, "PRODUCTION_ENTRYPOINT", None)),
+                "generation": getattr(adapter, "generation", None),
+                "owner": getattr(adapter, "owner", None),
+            })
+        return out
 
     # ---------------- T6: unified telemetry projection ----------------
 
