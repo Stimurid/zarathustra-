@@ -135,25 +135,32 @@ export function App() {
   }, [branch]);
 
   // ---- telemetry overlay: derived from the SELECTED run, never from "latest" --
+  // Aggregated per node, not per execution: a node that ran five times used to
+  // stack fifteen chips on one card and became unreadable.
   const telemetry = useMemo(() => {
     const out: Record<string, { label: string; value: string; grade: string }[]> = {};
     if (!runTrace || !showMetrics) return out;
-    const dur = runTrace.duration_ms;
+    const byNode = new Map<string, Json[]>();
     for (const e of (runTrace.node_executions || []) as Json[]) {
-      const rows = out[e.node_id] || (out[e.node_id] = []);
-      if (e.retrieved_chunks != null)
-        rows.push({ label: '', value: `${e.retrieved_chunks} фр.`, grade: 'MEASURED' });
-      if (e.effective_top_k != null)
-        rows.push({ label: 'top_k', value: String(e.effective_top_k), grade: 'MEASURED' });
-      if (e.model_binding?.provider)
-        rows.push({ label: '', value: String(e.model_binding.provider), grade: 'MEASURED' });
+      byNode.set(e.node_id, [...(byNode.get(e.node_id) || []), e]);
     }
-    for (const nid of Object.keys(out)) {
-      const n = (runTrace.node_executions || []).filter((x: Json) => x.node_id === nid).length;
-      if (n > 1) out[nid].unshift({ label: '', value: `${n}×`, grade: 'MEASURED' });
-    }
-    if (dur != null && out['persist_trace'] === undefined)
-      out['persist_trace'] = [{ label: 'прогон', value: `${dur} ms`, grade: 'MEASURED' }];
+    byNode.forEach((execs, nid) => {
+      const rows: { label: string; value: string; grade: string }[] = [];
+      if (execs.length > 1) rows.push({ label: '', value: `${execs.length}×`, grade: 'MEASURED' });
+      const chunks = execs.map((e) => e.retrieved_chunks).filter((c) => c != null);
+      if (chunks.length) {
+        const total = chunks.reduce((a: number, b: number) => a + b, 0);
+        rows.push({ label: '', value: `${total} фр.`, grade: 'MEASURED' });
+      }
+      const topK = [...new Set(execs.map((e) => e.effective_top_k).filter((v) => v != null))];
+      if (topK.length) rows.push({ label: 'top_k', value: topK.join('/'), grade: 'MEASURED' });
+      const providers = [...new Set(execs.map((e) => e.model_binding?.provider).filter(Boolean))];
+      if (providers.length) rows.push({ label: '', value: providers.join('/'), grade: 'MEASURED' });
+      out[nid] = rows;
+    });
+    if (runTrace.duration_ms != null && !out['persist_trace'])
+      out['persist_trace'] = [{ label: 'прогон', value: `${runTrace.duration_ms} ms`,
+                               grade: 'MEASURED' }];
     return out;
   }, [runTrace, showMetrics]);
 

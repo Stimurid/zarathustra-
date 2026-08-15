@@ -198,6 +198,23 @@ try {
   check('P5.4 полный жизненный цикл доступен, но убран',
     !!(await p.$('[data-lifecycle-toggle]')) && !(await p.$('[data-lifecycle]')));
 
+  // companion: explains, proposes, never applies
+  await p.click('[data-copilot="explain"]');
+  await p.waitForSelector('[data-copilot-result], [data-copilot-unavailable]');
+  const unavailable = await p.$('[data-copilot-unavailable]');
+  if (unavailable) {
+    check('P5.5 помощник честно молчит без модели',
+      (await unavailable.textContent()).includes('не выдумка'));
+  } else {
+    check('P5.5 ответ помощника помечен как объяснение модели',
+      (await p.textContent('[data-copilot-grade]')).includes('LLM_EXPLANATION'));
+    check('P5.6 mock-ответ назван заглушкой, а не объяснением',
+      !!(await p.$('[data-copilot-mock]')),
+      'mock provider must be disclosed');
+  }
+  check('P5.7 помощник ничего не применяет сам',
+    await p.$eval('[data-action="insert-all"]', (e) => e.tagName === 'BUTTON'));
+
   // ================= P6 — retrieval change =================
   console.log('\nP6 — правка извлечения');
   await p.click('[data-section="rag"]');
@@ -245,14 +262,14 @@ try {
   await p.click('[data-view="field"]');
   await p.waitForSelector('[data-testid="field-radial"]');
   await p.click('[data-field-item="analyze_situation"]');
-  await p.waitForSelector('[data-panel="node-overview"]');
-  check('P8.1 поле открывает тот же инспектор',
-    (await p.textContent('[data-node-title]')).includes('Чтение сцены'));
+  await p.waitForFunction(() =>
+    document.querySelector('[data-node-title]')?.textContent?.includes('Чтение сцены'));
+  check('P8.1 поле открывает тот же инспектор', true);
   await shot(p, '08_field_view.png', 'та же система, другая проекция');
   await p.click('[data-view="graph"]');
   await p.waitForSelector('[data-node-id="analyze_situation"]');
   check('P8.2 возврат без потери выбора',
-    (await p.textContent('[data-node-title]')).includes('Чтение сцены'));
+    (await p.textContent('[data-node-title]') || '').includes('Чтение сцены'));
 
   check('P9 ноль ошибок консоли', errs.length === 0, errs.join(' | '));
   console.log(`\nPRODUCT ACCEPTANCE: ${steps.filter((s) => s.ok).length}/${steps.length} OK`);

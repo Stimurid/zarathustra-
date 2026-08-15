@@ -362,3 +362,7 @@ button.big { font-size: 13px; padding: 8px 20px; }
   position: absolute; top: -9px; left: 12px; padding: 0 6px;
   background: var(--bg); color: var(--warn); font-size: 10px; white-space: nowrap;
 }
+.copilot { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border); }
+.copilot .row button { font-size: 10.5px; }
+/* The run list must not push the comparison out of reach. */
+.run-list { max-height: 46vh; overflow-y: auto; padding-right: 2px; }

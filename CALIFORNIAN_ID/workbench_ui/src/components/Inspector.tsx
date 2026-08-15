@@ -5,6 +5,7 @@ import { PromptEditor, type EditorHandle, type Marker } from './PromptEditor';
 import { RagPanel } from './RagPanel';
 import { PromptBody, ReadinessBadge } from './BranchPanels';
 import { NodeOverview } from './NodeOverview';
+import { PromptCopilot } from './PromptCopilot';
 
 const STEPS = [
   ['clone', 'клонировать'], ['edit', 'сохранить'], ['diff', 'diff'],
@@ -47,9 +48,6 @@ export function Inspector({
   const [done, setDone] = useState<Set<string>>(new Set());
   const editor = useRef<EditorHandle>(null);
   const [sel, setSel] = useState({ from: 0, to: 0, text: '' });
-  const [draft, setDraft] = useState(
-    '- **Скрытый страх** — какая именно тревога делает вопрос срочным для говорящего.');
-  const [draftSel, setDraftSel] = useState('');
 
   const assetId: string | undefined = node?.node?.asset_id ?? undefined;
   const editorAvailable: boolean = !!node?.editor_available;
@@ -282,30 +280,28 @@ export function Inspector({
               Сохранить</button>}
       </div>
 
-      <h3>Черновик генерации → редактор</h3>
-      <textarea className="draft" value={draft} spellCheck={false}
-        onChange={(e) => setDraft(e.target.value)}
-        onSelect={(e) => {
-          const t = e.target as HTMLTextAreaElement;
-          setDraftSel(t.value.slice(t.selectionStart, t.selectionEnd));
-        }} />
-      <div className="row">
-        <button data-action="insert-all" disabled={isBaseline}
-          onClick={() => editor.current?.insertAll(draft)}>INSERT ALL</button>
-        <button data-action="insert-selection" disabled={isBaseline || !draftSel}
-          onClick={() => editor.current?.insertSelection(draftSel)}>INSERT SELECTION</button>
-        <button data-action="apply-diff" disabled={isBaseline || !diff}
-          onClick={() => {
-            const add = (diff?.unified || []).find((l: string) =>
-              l.startsWith('+') && !l.startsWith('+++'));
-            const del = (diff?.unified || []).find((l: string) =>
-              l.startsWith('-') && !l.startsWith('---'));
-            if (!add || !del) { setErr('нет применимого ханка'); return; }
-            const ok = editor.current?.applyDiff(del.slice(1), add.slice(1));
-            if (!ok) setErr('ханк не найден в тексте');
-          }}>APPLY DIFF</button>
-        <button onClick={() => navigator.clipboard?.writeText(draft)}>копировать</button>
-      </div>
+      <PromptCopilot
+        branch={branch}
+        sourceText={source}
+        selection={sel.text}
+        readOnly={isBaseline}
+        onInsertAll={(t) => editor.current?.insertAll(t)}
+        onInsertSelection={(t) => editor.current?.insertSelection(t)}
+      />
+      {diff ? (
+        <div className="row">
+          <button data-action="apply-diff" disabled={isBaseline}
+            onClick={() => {
+              const add = (diff?.unified || []).find((l: string) =>
+                l.startsWith('+') && !l.startsWith('+++'));
+              const del = (diff?.unified || []).find((l: string) =>
+                l.startsWith('-') && !l.startsWith('---'));
+              if (!add || !del) { setErr('нет применимого ханка'); return; }
+              const ok = editor.current?.applyDiff(del.slice(1), add.slice(1));
+              if (!ok) setErr('ханк не найден в тексте');
+            }}>Применить ханк из diff</button>
+        </div>
+      ) : null}
       {diff ? (<>
         <h3>Diff с baseline</h3>
         <div className="row">

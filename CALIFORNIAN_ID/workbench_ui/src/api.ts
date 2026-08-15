@@ -87,6 +87,8 @@ export const api = {
     call(`/compare_runs/${encodeURIComponent(a)}/${encodeURIComponent(b)}`),
   fixtures: (branch: string) => call(`/fixtures/${branch}`),
   runTrace: (runId: string) => call(`/run/${encodeURIComponent(runId)}`),
+  copilot: (branch: string, action: string, source_text: string, selection: string) =>
+    post('/copilot', { branch, action, source_text, selection }),
 };
 
 export type Json = Record<string, any>;

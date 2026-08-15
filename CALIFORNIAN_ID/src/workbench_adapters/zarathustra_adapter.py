@@ -827,6 +827,81 @@ class ZarathustraAdapter:
             })
         return out
 
+    #: What the prompt companion may be asked. Each is a real instruction to a
+    #: real model — nothing here is templated locally and presented as an answer.
+    COPILOT_ACTIONS = {
+        "explain": "Объясни, что делает этот промпт и почему он устроен именно "
+                   "так. Опиши роль каждой части. Не предлагай изменений.",
+        "explain_selection": "Объясни, что делает выделенный фрагмент промпта и "
+                             "как он влияет на выход. Не предлагай изменений.",
+        "find_problem": "Найди в этом промпте конкретные проблемы: "
+                        "противоречия, неоднозначности, требования без "
+                        "проверки, поля, которые модель не сможет заполнить. "
+                        "Только то, что действительно есть в тексте.",
+        "propose_change": "Предложи одно конкретное улучшение этого промпта. "
+                          "Сначала одной фразой — что не так, потом готовый "
+                          "текст замены. Не переписывай промпт целиком.",
+        "rewrite_stricter": "Перепиши выделенный фрагмент строже и однозначнее, "
+                            "сохранив смысл и формат. Верни только новый текст.",
+        "rewrite_softer": "Перепиши выделенный фрагмент мягче, сохранив смысл и "
+                          "формат. Верни только новый текст.",
+        "rewrite_sharper": "Перепиши выделенный фрагмент точнее и короче, "
+                           "сохранив смысл и формат. Верни только новый текст.",
+    }
+
+    def copilot(self, action: str, source_text: str, selection: str = "",
+                context: str = "") -> dict[str, Any]:
+        """Ask the companion about a prompt. Explanation, never mutation.
+
+        The result is text the operator may insert; nothing is applied here.
+        If no provider is configured, that is reported as an absence — a
+        locally-composed sentence dressed up as a model answer would be worse
+        than no answer.
+        """
+        instruction = self.COPILOT_ACTIONS.get(action)
+        if instruction is None:
+            raise KeyError(f"unknown copilot action: {action}")
+        if action.startswith("rewrite") or action == "explain_selection":
+            if not selection.strip():
+                return {"available": False, "action": action,
+                        "reason": "нужен выделенный фрагмент промпта"}
+
+        from californian_id.config import load_config
+
+        cfg = load_config()
+        try:
+            provider = cfg.role_provider("zarathustra_situation_reading")
+        except RuntimeError as exc:
+            return {"available": False, "action": action,
+                    "reason": f"модель не настроена: {str(exc).split('.')[0]}"}
+
+        body = [f"ПРОМПТ:\n{source_text}"]
+        if selection.strip():
+            body.append(f"ВЫДЕЛЕННЫЙ ФРАГМЕНТ:\n{selection}")
+        if context:
+            body.append(f"КОНТЕКСТ:\n{context}")
+
+        from californian_id.models import build_client
+
+        pc = cfg.provider_config(provider)
+        client = build_client(provider, pc)
+        result = client.generate(
+            [Message(role="system", content=instruction),
+             Message(role="user", content="\n\n".join(body))],
+            settings={"role": "workbench_prompt_companion"})
+        text = getattr(result, "text", None) or str(result)
+        return {
+            "available": True,
+            "action": action,
+            "kind": "proposal" if action.startswith("rewrite")
+                    or action == "propose_change" else "explanation",
+            "text": text,
+            "provider": provider,
+            "model": pc.get("model"),
+            "evidence_grade": "LLM_EXPLANATION",
+            "applies_automatically": False,
+        }
+
     def algorithm_bindings(self) -> list[dict[str, Any]]:
         """Deterministic configuration this branch runs under."""
         from californian_id.config import CONFIG_DIR

@@ -317,6 +317,12 @@ class Handler(BaseHTTPRequestHandler):
                                  str(body.get("asset_id") or ""),
                                  body.get("fixture_id"), actor)
 
+        if path == "/api/workbench/copilot":
+            return {"copilot": svc.branch_feature(
+                str(body.get("branch") or "zarathustra"), "copilot",
+                str(body.get("action") or ""), str(body.get("source_text") or ""),
+                str(body.get("selection") or ""), str(body.get("context") or ""))}
+
         if path == "/api/workbench/production_run":
             text = str(body.get("text") or "").strip()
             if not text:
