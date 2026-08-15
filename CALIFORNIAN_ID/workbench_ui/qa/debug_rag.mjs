@@ -1,0 +1,14 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch();
+const p = await b.newPage({ viewport: { width: 1600, height: 950 } });
+p.on('console', (m) => console.log(m.type().toUpperCase(), m.text().slice(0, 200)));
+p.on('response', (r) => { if (r.status() >= 400) console.log('HTTP', r.status(), r.url()); });
+await p.goto('http://127.0.0.1:8790', { waitUntil: 'networkidle' });
+console.log('node present:', !!(await p.$('[data-node-id="cultural_context"]')));
+await p.click('[data-node-id="cultural_context"]');
+await p.waitForTimeout(800);
+console.log('tabs:', await p.$$eval('.right-dock__tab', (es) => es.map((e) => e.textContent)));
+await p.click('.right-dock__tab:has-text("RAG")');
+await p.waitForTimeout(1500);
+console.log('DOCK:', (await p.evaluate(() => document.querySelector('.dock-body')?.innerText || '')).slice(0, 600));
+await b.close();

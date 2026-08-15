@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from .prompt_assets import runtime_block
+
 
 @dataclass(frozen=True)
 class CritiqueRegime:
@@ -18,20 +20,24 @@ class VariationRegime:
     class_repeat_penalty: float
 
 
+# Workbench Stage 0 — the PROMPT_BEHAVIOR half of each regime now comes from
+# data/prompt_assets/{critique,variation}.*.md. The DETERMINISTIC_ALGORITHM half
+# (attack_bias, repeat penalties) is deliberately left exactly where it was:
+# a hybrid control is represented with several effects, never split or moved.
 CRITIQUE_REGIMES: dict[str, CritiqueRegime] = {
     "gentle": CritiqueRegime(
         name="gentle",
-        directness_hint="Критикуй мягко: сначала реконструируй сильную версию позиции, затем возражай без лишней агрессии.",
+        directness_hint=runtime_block("critique.gentle"),
         attack_bias=-0.4,
     ),
     "balanced": CritiqueRegime(
         name="balanced",
-        directness_hint="Критикуй прямо, но по существу: вскрывай допущения, цену и слабости без театральной жестокости.",
+        directness_hint=runtime_block("critique.balanced"),
         attack_bias=0.0,
     ),
     "hard": CritiqueRegime(
         name="hard",
-        directness_hint="Критикуй жёстко: бей в скрытые допущения, цену и внутренние противоречия без смягчающих оборотов.",
+        directness_hint=runtime_block("critique.hard"),
         attack_bias=0.8,
     ),
 }
@@ -40,19 +46,19 @@ CRITIQUE_REGIMES: dict[str, CritiqueRegime] = {
 VARIATION_REGIMES: dict[str, VariationRegime] = {
     "strict": VariationRegime(
         name="strict",
-        prompt_hint="Держи ход близко к канонической операции; избегай лишней импровизации.",
+        prompt_hint=runtime_block("variation.strict"),
         repeat_penalty=0.2,
         class_repeat_penalty=0.1,
     ),
     "normal": VariationRegime(
         name="normal",
-        prompt_hint="Допускай умеренное разнообразие ходов, но не теряй сцепление со сценой.",
+        prompt_hint=runtime_block("variation.normal"),
         repeat_penalty=0.7,
         class_repeat_penalty=0.35,
     ),
     "jazz": VariationRegime(
         name="jazz",
-        prompt_hint="Избегай одинакового риторического паттерна несколько ходов подряд; меняй тип захода и класс операции.",
+        prompt_hint=runtime_block("variation.jazz"),
         repeat_penalty=1.3,
         class_repeat_penalty=0.8,
     ),

@@ -18,6 +18,7 @@ from .ingress import envelope_to_unit_pack, parse_envelope
 from .models import Message, build_client
 from .persona_layer import CouncilRun, PersonaCard, PersonaCouncilRuntime
 from .pipeline import Pipeline
+from . import prompt_assets
 from .regimes import CRITIQUE_REGIMES, VARIATION_REGIMES
 from .schemas import UnitPack, to_plain
 
@@ -1400,48 +1401,23 @@ def _clean_llm_text(text: str) -> str:
 
 
 def _grounding_instruction(mode: str) -> str:
-    if mode == "strict_card":
-        return (
-            "Stay tightly anchored to the selected card. Reuse its operation, distinction, and risk logic closely. "
-            "Do not widen into extra frameworks unless they are necessary to make the card intelligible in the current scene."
-        )
-    if mode == "freer_synthesis":
-        return (
-            "Use the selected card as an anchor, but allow wider synthesis, analogy, and recombination if the scene clearly demands it. "
-            "Grounding must remain legible, yet the response may move beyond the card's immediate wording."
-        )
-    return (
-        "Keep the selected card as the primary anchor, but develop it into a fuller argument responsive to the scene. "
-        "You may widen one level beyond the card, but do not drift into generic abstract commentary."
-    )
+    """Grounding contract text.
+
+    Workbench Stage 0: the text now lives in ``data/prompt_assets/grounding.*.md``
+    instead of this function body. Behaviour is unchanged — byte equality is
+    asserted by ``tests/workbench/test_prompt_extraction_golden.py``.
+    """
+    key = mode if mode in GROUNDING_MODES else "balanced"
+    return prompt_assets.runtime_block(f"grounding.{key}")
 
 
 def _assembly_instruction(mode: str) -> str:
-    if mode == "verdict":
-        return (
-            "Assemble toward a verdict. Name the strongest line, expose the weaker one, and state what should be retained or discarded."
-        )
-    if mode == "dissent_forward":
-        return (
-            "Assemble around the live fracture. Preserve the most important disagreement and let the answer move through that unresolved tension."
-        )
-    if mode == "diagnostic":
-        return (
-            "Assemble as diagnosis. Identify the central framing error, false assumption, or hidden confusion that deforms the whole discussion."
-        )
-    if mode == "projective":
-        return (
-            "Assemble toward the next move. Convert the council into a sharper next question, test, project step, or redesign of the scene."
-        )
-    if mode == "roast":
-        return (
-            "Assemble as merciless compassionate roast. Show the true form of the weak construction, expose its evasions, theatrical substitutes, "
-            "missing courage, and false solidity. Be devastating to the bad frame, but not sadistic toward the humans inside it. "
-            "Mercy stays with persons; destruction falls on confusion, vanity, cowardice, and fake architecture."
-        )
-    return (
-        "Assemble as synthesis. Hold multiple live lines together without erasing real differences, and produce a coherent final answer."
-    )
+    """Assembly contract text (including the ``roast`` / «прожарка» mode).
+
+    Workbench Stage 0: extracted to ``data/prompt_assets/assembly.*.md``.
+    """
+    key = mode if mode in ASSEMBLY_MODES else "synthesis"
+    return prompt_assets.runtime_block(f"assembly.{key}")
 
 
 def _render_text_payload(payload: dict[str, Any], *, detail: str) -> dict[str, Any]:

@@ -28,6 +28,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from . import prompt_assets
 from .config import ZARATHUSTRA_DIR
 from .models import Message, ModelClient
 from .personas import Persona
@@ -153,6 +154,19 @@ class Zarathustra:
             path = self.prompt_dir / name
             self._prompt_cache[name] = path.read_text(encoding="utf-8") if path.exists() else ""
         return self._prompt_cache[name]
+
+    def invalidate_prompt_cache(self, name: str | None = None) -> None:
+        """Drop cached head-zone prompt text.
+
+        Workbench Stage 0: activation of a new prompt variant must take effect
+        without restarting the process. Cache identity in the Workbench also
+        includes the activation revision, so this is defence in depth rather
+        than the sole mechanism.
+        """
+        if name is None:
+            self._prompt_cache.clear()
+        else:
+            self._prompt_cache.pop(name, None)
 
     # ------------------------------------------------------------
     # SPINE ZONE: ситуация
@@ -976,26 +990,18 @@ class Zarathustra:
 # ============================================================
 # ПОДДЕРЖИВАЮЩИЕ ФУНКЦИИ (module level)
 # ============================================================
-_DEFAULT_ROUTE_PROMPT = (
-    "Ты — spine Заратустры. Диспетчер сцены.\n"
-    "Верни JSON: {\"next_persona\":\"<id>\",\"operation\":\"<op>\",\"reason\":\"...\"}."
-)
+# Workbench Stage 0 — these fallbacks moved to data/prompt_assets/zarathustra.*.md.
+# They are still the code-origin BASELINE used when the head-zone .md file is
+# absent; the Workbench registers them as origin="baseline_code".
+# Byte equality with the previous literals is asserted by
+# tests/workbench/test_prompt_extraction_golden.py.
+_DEFAULT_ROUTE_PROMPT = prompt_assets.runtime_block("zarathustra.default_route")
 
+_DEFAULT_CLOSING_SPEECH_PROMPT = prompt_assets.runtime_block(
+    "zarathustra.default_closing_speech")
 
-_DEFAULT_CLOSING_SPEECH_PROMPT = (
-    "Ты — Заратустра. Совет отработал. Напиши связную речь на 800-2000 слов "
-    "по итогу — от первого лица, прозой, без markdown-заголовков. Форма "
-    "завершения определяет тип речи (см. поле form_chosen)."
-)
-
-
-_DEFAULT_SCENE_READING_PROMPT = (
-    "Ты — spine Заратустры. Прочитай сцену и верни валидный JSON:\n"
-    "{\"topic\":\"...\",\"genre\":\"question|statement|normative|long_form|transcript\",\n"
-    " \"stakes\":[...],\"horizons\":[...],\"concepts\":[...],\"tensions\":[...],\n"
-    " \"uncertainties\":[...]}.\n"
-    "Не додумывай — пустой массив предпочтительнее выдумки."
-)
+_DEFAULT_SCENE_READING_PROMPT = prompt_assets.runtime_block(
+    "zarathustra.default_scene_reading")
 
 
 def _truncate_topic(s: str) -> str:

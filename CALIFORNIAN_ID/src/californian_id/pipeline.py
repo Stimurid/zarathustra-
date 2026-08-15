@@ -30,6 +30,7 @@ from .memory import ConversationMemory
 from .models import Message, build_client
 from .personas import load_registry
 from .regimes import CRITIQUE_REGIMES, VARIATION_REGIMES
+from . import runtime_bindings
 from .retrieval import LexicalPersonaRetriever
 from .rhetoric import operation_class
 from .router_scoring import summarize_route_trace
@@ -541,7 +542,11 @@ class Pipeline:
                 state.errors.append(f"router picked unknown persona {decision.next_persona}")
                 continue
 
-            evidence = self.retriever.retrieve(persona.persona_id, state.situation.topic, top_k=2)
+            evidence = self.retriever.retrieve(
+                persona.persona_id, state.situation.topic,
+                top_k=runtime_bindings.retrieval_top_k(
+                    runtime_bindings.ENGINE_PERSONA_LEXICAL, 2),
+            )
 
             # --- B2: cultural cards for THIS turn (advisory but now actually in prompt) ---
             required_fn_for_turn = infer_required_function(
@@ -555,7 +560,8 @@ class Pipeline:
             turn_cards, turn_card_event = self.cultural.retrieve_cards(
                 query=f"{state.situation.topic} {decision.operation} {persona.persona_id}",
                 required_function=required_fn_for_turn,
-                top_k=2,
+                top_k=runtime_bindings.retrieval_top_k(
+                    runtime_bindings.ENGINE_CULTURAL_CARDS, 2),
             )
             trace.event("cultural_context_injected", {
                 "for_persona": persona.persona_id,
@@ -629,7 +635,9 @@ class Pipeline:
             )
             cards, card_event = self.cultural.retrieve_cards(
                 query=state.situation.topic + " " + turn.utterance[:200],
-                required_function=required_fn, top_k=2,
+                required_function=required_fn,
+                top_k=runtime_bindings.retrieval_top_k(
+                    runtime_bindings.ENGINE_CULTURAL_CARDS, 2),
             )
             trace.event("cultural_retrieval", {
                 "required_function": required_fn,
@@ -1220,7 +1228,11 @@ class Pipeline:
             if persona is None:
                 state.errors.append(f"router picked unknown persona {decision.next_persona}")
                 continue
-            evidence = self.retriever.retrieve(persona.persona_id, state.situation.topic, top_k=2)
+            evidence = self.retriever.retrieve(
+                persona.persona_id, state.situation.topic,
+                top_k=runtime_bindings.retrieval_top_k(
+                    runtime_bindings.ENGINE_PERSONA_LEXICAL, 2),
+            )
 
             required_fn_for_turn = infer_required_function(
                 state.body.snapshot_for_head(max_items=4),
@@ -1230,7 +1242,8 @@ class Pipeline:
             turn_cards, turn_card_event = self.cultural.retrieve_cards(
                 query=f"{state.situation.topic} {decision.operation} {persona.persona_id}",
                 required_function=required_fn_for_turn,
-                top_k=2,
+                top_k=runtime_bindings.retrieval_top_k(
+                    runtime_bindings.ENGINE_CULTURAL_CARDS, 2),
             )
             trace.event("cultural_context_injected", {
                 "for_persona": persona.persona_id,
