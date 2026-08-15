@@ -564,6 +564,12 @@ export function Inspector({
             <button onClick={() => onTabChange('contracts')}>подробности</button>
           </div>
         ) : null}
+        {!isBaseline ? (
+          <p className="dim" data-verify-hint>
+            Чтобы увидеть эффект: активируйте версию, запустите пайплайн на том
+            же входе и сравните два прогона во вкладке «Запуски».
+          </p>
+        ) : null}
         {smoke ? (
           <div className="row" data-prompt-smoke>
             <span className={`badge ${smoke.passed ? 'ok' : 'bad'}`}>
