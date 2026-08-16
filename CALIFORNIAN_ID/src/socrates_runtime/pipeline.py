@@ -235,7 +235,8 @@ class PipelineExecutor:
                 self._on_epilogue_empty(state, trace, diag)
                 break
 
-            self._apply_reflective_return(state, reflective_return, trace=trace)
+            self._record_reflective_context(state, reflective_return,
+                                            trace=trace)
 
         decision = self.governor.decide(state)
         if trace is not None:
@@ -267,17 +268,17 @@ class PipelineExecutor:
         """
         results: list[PhaseResult] = []
         start_idx = PHASE_INDEX.get(start_from, 0)
-        # On a reflective re-entry the return_target phase was itself the
-        # site of the revision (S7 wrote the revised operation / scene
-        # directly into state via _apply_reflective_return). Re-running
-        # that phase with its fixture hint or an unrevised prompt would
-        # clobber the revision. Per ADR-S26-022 "changed forward action",
-        # the revision IS the change; the next pass executes FROM the
-        # phase after return_target so downstream work observes the
-        # revised state. First pass always starts at S0.
-        first_pass = (start_from in ("", "S0"))
-        if not first_pass:
-            start_idx = min(start_idx + 1, len(PHASE_ORDER))
+        # On a reflective re-entry we start AT return_target, not after
+        # it. The target phase itself must re-execute and emit a new
+        # validated delta under its normal contract — that is the
+        # semantics of "reflective return to S4/S1/S3" per ADR-S26-022
+        # after defect D-S26-PROJ-002 was recorded. Skipping the target
+        # phase would make the ReflectiveReturn a side-channel state
+        # mutation instead of a governed revision. The target phase
+        # reads ``state.pending_reflective_context`` from its state
+        # snapshot (public typed context, not hidden chain-of-thought)
+        # to build the revised delta; ``_apply_delta`` clears the
+        # context once that phase actually writes into its jurisdiction.
 
         for phase in PHASE_ORDER[start_idx:]:
             if phase in skip_phases:
@@ -417,17 +418,31 @@ class PipelineExecutor:
                 rr.diagnostic_fingerprint = diag.fingerprint()
         return rr
 
-    def _apply_reflective_return(self, state: PipelineState,
-                                 rr: ReflectiveReturn,
-                                 *, trace) -> None:
-        """Record the ReflectiveReturn in lineage and revise state.
+    def _record_reflective_context(self, state: PipelineState,
+                                   rr: ReflectiveReturn,
+                                   *, trace) -> None:
+        """Record the ReflectiveReturn as REVISION CONTEXT on state.
 
-        This is where the governing hypothesis actually changes: the
-        state.operation / scene / origin fields are overwritten with the
-        revised values from ``rr``. The previous P1 record is marked
-        PARTIAL (its objects remain addressable in the lineage); the
-        pending diagnostic is cleared; the outer loop then re-enters
-        from ``rr.return_target``.
+        Repair for defect D-S26-PROJ-002. Semantics:
+
+            * the return is added to lineage.revisions;
+            * the failing projection is marked PARTIAL (its objects
+              remain addressable);
+            * the return is stashed as ``state.pending_reflective_context``,
+              a PUBLIC typed context the target phase reads from its
+              state snapshot to build a revised delta;
+            * ``reentry_from`` is set to the return_target verbatim —
+              the next pass starts AT that phase, not after it;
+            * pending_diagnostic is cleared (it's been reflected on).
+
+        What this method DOES NOT do (contrast with the earlier draft):
+
+            * it does NOT write ``state.operation.kind``,
+              ``state.scene.telos``, or any other state.field. Those
+              writes belong to the target phase's normal delta, produced
+              through its typed contract and jurisdiction. Silently
+              performing them here would make the ReflectiveReturn a
+              side-channel mutation instead of a governed revision.
         """
         state.projection_lineage.add_reflective_return(rr)
         # Mark the projection that triggered this reflection as PARTIAL —
@@ -435,24 +450,18 @@ class PipelineExecutor:
         # withdrawn.
         state.projection_lineage.mark_status(rr.from_projection_id,
                                              ProjectionStatus.PARTIAL)
-        # Apply the revised governing hypothesis, per retreat level.
-        if rr.retreat_level in (RetreatLevel.R1, RetreatLevel.R2):
-            if rr.revised_operation_kind:
-                state.operation = Operation(
-                    kind=rr.revised_operation_kind,
-                    applicable=True, why_not="", open_world_gap=False)
-        if rr.retreat_level == RetreatLevel.R3 and rr.revised_scene_telos:
-            state.scene.telos = rr.revised_scene_telos
-        # ontology_id is not a state field today — it is carried on the
-        # ProjectionSpec of the next projection. The CutterRegistry
-        # reads rr.revised_ontology_id when it constructs P2's spec.
+        state.pending_reflective_context = rr
         state.reentry_from = rr.return_target.value
         state.pending_diagnostic = None
         if trace is not None:
-            trace.record("reflective_return_applied",
+            trace.record("reflective_context_recorded",
                          reflective_return=rr.to_public(),
                          reentry_from=state.reentry_from,
                          lineage=state.projection_lineage.to_public())
+
+    # Backwards-compat alias — some in-pass call sites still use the
+    # historical name. New code should call _record_reflective_context.
+    _apply_reflective_return = _record_reflective_context
 
     # ------------------------------------------------------------------
     # loop-guard events (all deterministic, no LLM)
@@ -526,13 +535,27 @@ class PipelineExecutor:
         if delta.invoke_execution and "invoke_execution" in juris:
             state.execution_invoked = True
         # A phase may emit a ReflectiveReturn *inside* the pass (rather
-        # than only in the epilogue). The application is idempotent —
-        # record + mark P1 partial + revise state.operation/scene per
-        # retreat_level + set ``reentry_from``. The outer loop uses
-        # ``reentry_from`` as the sole marker that another pass is due.
+        # than only in the epilogue). The application is a pure
+        # recording — the record + the failing projection's status
+        # transition + the pending context + reentry_from — no
+        # side-channel writes to state.operation / scene / origin. The
+        # outer loop uses ``reentry_from`` as the sole marker that
+        # another pass is due; the target phase writes the revised
+        # state under its normal jurisdiction.
         if delta.reflective_return is not None and "reflective_return" in juris:
-            self._apply_reflective_return(state, delta.reflective_return,
-                                          trace=None)
+            self._record_reflective_context(state, delta.reflective_return,
+                                            trace=None)
+
+        # Target-phase context consumption. When the phase named as
+        # ``return_target`` on the pending reflective context actually
+        # runs and emits its own delta (this method has just applied
+        # it), the reflection has served its purpose — the context is
+        # cleared so later phases and later passes see the fresh state
+        # only. Kept idempotent: consumption never happens twice for
+        # the same reflection.
+        prc = state.pending_reflective_context
+        if prc is not None and phase == prc.return_target.value:
+            state.pending_reflective_context = None
 
     @staticmethod
     def _clone(state: PipelineState) -> PipelineState:

@@ -273,32 +273,61 @@ def _reflective_hint(next_op: str = "DIFFERENTIATED_ACCOUNT",
 
 
 class _ReflectiveHintExecutor:
-    """Deterministic executor that also carries per-phase reflective_return.
+    """Deterministic executor that carries per-phase reflective_return AND
+    supports iteration-aware hints.
 
-    A regular DeterministicPhaseExecutor projects PhaseHint fields (scene,
-    origin, operation, ownership, triggers, memory_proposal,
-    invoke_council, invoke_execution). It has no reflective_return slot
-    on PhaseHint — deliberately, because inside the runtime that field
-    is only produced by S7. For tests we need to inject one directly, so
-    this executor accepts an explicit ``reflective_returns`` mapping and
-    attaches the object to whichever PhaseDelta a call for that phase
-    produces (using the same MODEL_PRODUCED origin so the pipeline treats
-    it as if S7 emitted it).
+    Three inputs:
+
+    * ``hints`` — first-pass hints, matching what a DeterministicPhaseExecutor
+      would consume.
+    * ``reflective_hints`` — optional per-phase hints used ONLY when
+      ``state_snapshot["projection_lineage"]["revisions"]`` is non-empty
+      (i.e. any pass after a reflection has been recorded). This is the
+      test-infrastructure fix for the D-S26-PROJ-002 defect: a stale
+      first-pass hint must not silently overwrite the reflective
+      revision when the target phase actually re-executes.
+    * ``reflective_returns`` — per-phase :class:`ReflectiveReturn`
+      payload injected on top of the delta (typically for S7). Kept
+      distinct so the test can wire "here is the S4 revision" (via
+      reflective_hints["S4"]) and "here is the S7 reflection that
+      motivates it" (via reflective_returns["S7"]) separately.
+
+    Any phase without an appropriate hint gets an empty delta —
+    identical to a DeterministicPhaseExecutor with no hint. That
+    preserves the important negative property: an EMPTY reflective_hint
+    dict + a first-pass hint that says EXTRACT_CONCEPTS means S4 in
+    pass 2 will re-emit EXTRACT_CONCEPTS. A test asserting that state
+    then still shows EXTRACT_CONCEPTS proves the stale-hint problem is
+    a real one that iteration-aware hints solve.
     """
     mode = ExecutionMode.DETERMINISTIC
 
     def __init__(self, hints: dict[str, PhaseHint],
-                 reflective_returns: dict[str, ReflectiveReturn]) -> None:
+                 reflective_returns: dict[str, ReflectiveReturn],
+                 reflective_hints: dict[str, PhaseHint] | None = None) -> None:
         self.hints = dict(hints)
         self.reflective_returns = dict(reflective_returns)
+        self.reflective_hints = dict(reflective_hints or {})
         self.call_log: list[tuple[str, dict[str, Any]]] = []
+
+    def _hint_for(self, request: PhaseExecutionRequest) -> PhaseHint | None:
+        # A reflection has been recorded ⇒ we are inside a reflective
+        # pass. Prefer the phase's reflective_hint if provided; fall
+        # back to the base hint if not (many downstream phases do not
+        # need to change post-reflection).
+        revisions = request.state_snapshot.get(
+            "projection_lineage", {}).get("revisions", [])
+        in_reflective_pass = bool(revisions)
+        if in_reflective_pass and request.phase in self.reflective_hints:
+            return self.reflective_hints[request.phase]
+        return self.hints.get(request.phase)
 
     def execute(self, request: PhaseExecutionRequest) -> PhaseExecutionResult:
         # Log AT CALL TIME so the test can see order.
         self.call_log.append((request.phase,
                               {"input_text": request.input_text,
                                "state_op": request.state_snapshot["operation"]}))
-        hint = self.hints.get(request.phase)
+        hint = self._hint_for(request)
         delta = PhaseDelta()
         if hint is not None:
             delta.scene = hint.scene
@@ -377,10 +406,16 @@ def test_mismatch_triggers_epilogue_and_second_pass(mount_policy,
                                                      router_registry,
                                                      run_config):
     """P1 mismatch → S7 epilogue produces a ReflectiveReturn (R1, S4) →
-    pass 2 re-enters at S4 → P2 clean. Lineage carries both projections
-    and the ReflectiveReturn that links them.
+    pass 2 re-enters AT S4 → S4 re-executes and emits the revised
+    operation from its normal jurisdiction → P2 clean. Lineage carries
+    both projections and the ReflectiveReturn that links them.
 
-    This is the executable equivalent of the ADR §5 topology diagram.
+    Post D-S26-PROJ-002 repair: the ReflectiveReturn is REVISION
+    CONTEXT recorded on ``state.pending_reflective_context``; it does
+    NOT overwrite ``state.operation`` directly. The target phase reads
+    the context from its state snapshot (via test executor's
+    ``reflective_hints["S4"]``, or in LIVE mode via the mounted body
+    prompt) and produces a fresh typed delta.
     """
     source_text = "extract the concepts (some material is not concept-shaped)"
     from hashlib import sha256
@@ -400,7 +435,16 @@ def test_mismatch_triggers_epilogue_and_second_pass(mount_policy,
         revised_ontology_id="differentiated_v1",
         revised_scene_telos="")
     hints = _system_owner_hints()
-    phase_exec = _ReflectiveHintExecutor(hints, {"S7": rr})
+    # The test-side "S4 sees pending_reflective_context and emits the
+    # revised operation" — an iteration-aware hint. Without this, S4 on
+    # pass 2 would re-emit EXTRACT_CONCEPTS (see stale-hint negative
+    # test below), and the loop would spin.
+    reflective_hints = {
+        "S4": PhaseHint(operation=Operation(kind="DIFFERENTIATED_ACCOUNT",
+                                             applicable=True)),
+    }
+    phase_exec = _ReflectiveHintExecutor(hints, {"S7": rr},
+                                          reflective_hints=reflective_hints)
     executor = PipelineExecutor(mount_policy, router_registry,
                                 projection_step=step)
     state, outcome, _ = executor.run(source_text, phase_exec, run_config,
@@ -416,24 +460,29 @@ def test_mismatch_triggers_epilogue_and_second_pass(mount_policy,
     revision = lineage.revisions[0]
     assert revision.retreat_level == RetreatLevel.R1
     assert revision.return_target == ReturnTarget.S4
-    # State.operation was revised to the new operation.
+    # State.operation was revised — by S4 executing under its normal
+    # contract on pass 2, not by _record_reflective_context writing
+    # directly.
     assert state.operation.kind == "DIFFERENTIATED_ACCOUNT"
     # Source-id invariant: both projections share the same source_id — P2
     # rereads the ORIGINAL source, not P1's derived objects.
     assert lineage.entries[0].source_id == lineage.entries[1].source_id == src_id
+    # Context has been consumed by the target phase (S4 in this case).
+    assert state.pending_reflective_context is None
 
 
-def test_pass_two_starts_after_return_target(mount_policy,
-                                              router_registry, run_config):
-    """Re-entry after ReflectiveReturn skips S0..S4 when return_target=S4.
+def test_pass_two_starts_AT_return_target(mount_policy,
+                                            router_registry, run_config):
+    """Re-entry after ReflectiveReturn starts AT return_target — S4 for
+    an operation revision, S1 for a scene revision, S3 for an origin
+    revision. Post D-S26-PROJ-002 repair.
 
-    The invariant matters: re-entry is scoped to the revision, not a
-    full re-run. The return_target phase itself is the SITE of the
-    revision (S7 wrote the new operation into state during the epilogue),
-    so the next pass executes FROM the phase after return_target — that
-    is the ADR §14 ``changed-forward-action`` requirement made literal.
-    A pass that re-ran S4 would clobber the revision with its original
-    hint or prompt.
+    The invariant matters: reflective return is a governed revision,
+    not a side-channel state mutation. The target phase itself must
+    re-execute, read the pending_reflective_context from its state
+    snapshot, and emit a NEW validated delta under its normal
+    contract. Skipping the target phase would preserve the semantic
+    debt the ADR was designed to close.
     """
     source_text = "differentiated account of a mixed source"
     from hashlib import sha256
@@ -450,28 +499,37 @@ def test_pass_two_starts_after_return_target(mount_policy,
         revised_ontology_id="differentiated_v1",
         revised_scene_telos="")
     hints = _system_owner_hints()
-    phase_exec = _ReflectiveHintExecutor(hints, {"S7": rr})
+    reflective_hints = {
+        "S4": PhaseHint(operation=Operation(kind="DIFFERENTIATED_ACCOUNT",
+                                             applicable=True)),
+    }
+    phase_exec = _ReflectiveHintExecutor(hints, {"S7": rr},
+                                          reflective_hints=reflective_hints)
     executor = PipelineExecutor(mount_policy, router_registry,
                                 projection_step=step)
     executor.run(source_text, phase_exec, run_config, hints=hints)
 
     # Count phases visited in each pass. Pass 1 runs S0..S10 (S7/S9
-    # conditional). Pass 2 starts at S4 → visits S4..S10 (skipping S7
-    # and S9 per current gates for this state).
+    # conditional). Pass 2 starts AT return_target=S4 → visits
+    # S4..S10 (S7 skipped: not council-needed and no fresh reflective
+    # need at this pass's start).
     phases = [p for (p, _) in phase_exec.call_log]
     # Pass 1 first phase must be S0.
     assert phases[0] == "S0"
     # Find the point where the epilogue S7 was invoked, then check the
-    # next non-S7 phase begins pass 2 at S4.
+    # next non-S7 phase begins pass 2 AT S4.
     assert "S7" in phases    # the reflective epilogue
     # Locate pass 2's first *inner* phase: after the last S7 there is a
-    # sequence beginning at PHASE_ORDER[return_target_index + 1] — S5
-    # when return_target=S4.
+    # sequence beginning at return_target — S4 for operation revision.
     last_s7 = len(phases) - 1 - phases[::-1].index("S7")
     pass2 = phases[last_s7 + 1:]
-    assert pass2 and pass2[0] == "S5", (
-        f"pass 2 should start AFTER return_target=S4 (i.e. at S5), "
-        f"got {pass2!r}")
+    assert pass2 and pass2[0] == "S4", (
+        f"pass 2 should start AT return_target=S4, got {pass2!r}")
+    # S4 must be the FIRST phase in pass 2 — proving the target phase
+    # actually re-executes and is not skipped.
+    assert pass2.count("S4") == 1
+    # And a full downstream sequence must follow.
+    assert pass2 == ["S4", "S5", "S6", "S8", "S9", "S10"]
 
 
 # ---------------------------------------------------------- tests: guards
@@ -558,6 +616,115 @@ def test_epilogue_no_reflective_return_stops(mount_policy, router_registry,
 
 
 # ---------------------------------------------------------- tests: distinctions
+
+
+def test_stale_first_pass_hint_does_not_overwrite_reflective_revision(
+        mount_policy, router_registry, run_config):
+    """Post D-S26-PROJ-002 stale-hint negative.
+
+    If the test executor does NOT supply an iteration-aware S4 hint,
+    S4 in pass 2 re-emits the ORIGINAL operation (EXTRACT_CONCEPTS) —
+    NOT the reflective revision. The revision lives only in
+    ``lineage.revisions`` and in ``pending_reflective_context`` at S4
+    entry time; it is NOT silently written to ``state.operation`` by
+    ``_record_reflective_context``.
+
+    Consequence: with a stale hint, the loop enters pass 2 with S4
+    saying EXTRACT_CONCEPTS again → projection_step produces the same
+    diagnostic → same-diagnosis guard fires → loop stops with revisions
+    == 1 and state.operation.kind == "EXTRACT_CONCEPTS". This IS the
+    stale-hint problem, and demonstrating it here proves the earlier
+    _apply_reflective_return draft (which wrote directly to state) was
+    hiding it.
+    """
+    src_id = "src_stale"
+    step = _AlwaysMismatch(src_id)
+    rr = ReflectiveReturn(
+        reflective_id=new_reflective_id(), from_projection_id="",
+        retreat_level=RetreatLevel.R1, return_target=ReturnTarget.S4,
+        reason="OPERATION_MISMATCH",
+        failed_assumption="", what_remains_valid=(),
+        what_changes=("operation",),
+        revised_operation_kind="DIFFERENTIATED_ACCOUNT",
+        revised_ontology_id="differentiated_v1",
+        revised_scene_telos="")
+    hints = _system_owner_hints()
+    # Note: no reflective_hints. S4 in pass 2 will honour the stale
+    # first-pass hint.
+    phase_exec = _ReflectiveHintExecutor(hints, {"S7": rr})
+    executor = PipelineExecutor(mount_policy, router_registry,
+                                projection_step=step)
+    state, _, _ = executor.run("x", phase_exec, run_config, hints=hints)
+
+    # S4 in pass 2 re-emitted EXTRACT_CONCEPTS — the reflection was
+    # NOT silently applied to state.
+    assert state.operation.kind == "EXTRACT_CONCEPTS"
+    # But the reflection IS recorded — proving the loop tried to
+    # revise; the revision just didn't take because the target phase
+    # did not consume the context (its hint was stale).
+    assert len(state.projection_lineage.revisions) == 1
+    revision = state.projection_lineage.revisions[0]
+    assert revision.revised_operation_kind == "DIFFERENTIATED_ACCOUNT"
+    # Same-diagnosis guard fired at end of pass 2.
+    assert step.calls == 2
+
+
+def test_scene_return_actually_re_enters_S1(mount_policy, router_registry,
+                                              run_config):
+    """R3 scene-return: pass 2 re-enters AT S1, S1 emits revised scene,
+    downstream S2..S10 observe the revised scene, and if the caller
+    supplies a reflective_hints["S4"] the operation is re-derived too.
+
+    Post D-S26-PROJ-002 this is the equivalent proof for a scene
+    revision that the operation-return test does for an operation
+    revision: the target phase (S1) re-executes and produces a new
+    validated scene delta under its normal jurisdiction; state is
+    NOT silently mutated by S7.
+    """
+    src_id = "src_scene"
+    step = _SingleMismatchThenClean(src_id)
+    rr = ReflectiveReturn(
+        reflective_id=new_reflective_id(),
+        from_projection_id="",
+        retreat_level=RetreatLevel.R3,
+        return_target=ReturnTarget.S1,
+        reason="SCENE_MISMATCH — the telos was mis-set for this source",
+        failed_assumption="scene was 'extract concepts'",
+        what_remains_valid=(),
+        what_changes=("scene.telos", "operation should be re-derived",),
+        revised_operation_kind="",         # driven from scene by reflective_hint
+        revised_ontology_id="",
+        revised_scene_telos="differentiate the material by kind")
+    hints = _system_owner_hints()
+    reflective_hints = {
+        # S1 emits the revised scene telos.
+        "S1": PhaseHint(scene=Scene(
+            telos="differentiate the material by kind",
+            authority=Authority.SYSTEM)),
+        # S4 re-derives operation from the new scene.
+        "S4": PhaseHint(operation=Operation(kind="DIFFERENTIATED_ACCOUNT",
+                                             applicable=True)),
+    }
+    phase_exec = _ReflectiveHintExecutor(hints, {"S7": rr},
+                                          reflective_hints=reflective_hints)
+    executor = PipelineExecutor(mount_policy, router_registry,
+                                projection_step=step)
+    state, outcome, _ = executor.run("x", phase_exec, run_config, hints=hints)
+
+    # Pass 2 visibly includes S1.
+    phases = [p for (p, _) in phase_exec.call_log]
+    last_s7 = len(phases) - 1 - phases[::-1].index("S7")
+    pass2 = phases[last_s7 + 1:]
+    assert pass2[0] == "S1", (
+        f"scene-return pass 2 must start AT S1, got {pass2!r}")
+    # S1's fresh delta wrote the revised scene.
+    assert state.scene.telos == "differentiate the material by kind"
+    # S4 downstream produced the revised operation from the new scene.
+    assert state.operation.kind == "DIFFERENTIATED_ACCOUNT"
+    # The reflection landed and P2 covered the residue.
+    assert state.projection_lineage.iteration() == 2
+    assert state.projection_lineage.entries[1].status == \
+        ProjectionStatus.ACCEPTED_LOCAL
 
 
 def test_reflective_return_is_not_return_operation():

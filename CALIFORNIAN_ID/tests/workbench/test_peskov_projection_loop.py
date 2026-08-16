@@ -134,26 +134,40 @@ def _hash_source(text: str) -> str:
 
 
 class _ReflectiveHintExecutor:
-    """Deterministic executor that ALSO injects a per-phase reflective_return.
+    """Deterministic executor with iteration-aware hints for reflective
+    passes. See mirror class in ``test_projection_control_loop.py``.
 
-    Used to stand in for a live model's S7 reflection during
-    deterministic tests. The runtime treats the delta the same way it
-    treats a model-produced delta — the reflective_return flows through
-    the outer loop unchanged.
+    Post D-S26-PROJ-002 the runtime does NOT silently write the
+    revised operation into state.operation. The target phase re-runs
+    at return_target and must EMIT the revision from its own delta.
+    ``reflective_hints`` supplies that iteration-aware hint. When
+    ``state_snapshot["projection_lineage"]["revisions"]`` is non-empty
+    (i.e. any pass after a reflection), the phase looks up
+    ``reflective_hints[phase]`` first; only if absent does it fall
+    back to the base ``hints[phase]``.
     """
     mode = ExecutionMode.DETERMINISTIC
 
     def __init__(self, hints: dict[str, PhaseHint],
-                 reflective_returns: dict[str, ReflectiveReturn]) -> None:
+                 reflective_returns: dict[str, ReflectiveReturn],
+                 reflective_hints: dict[str, PhaseHint] | None = None) -> None:
         self.hints = dict(hints)
         self.reflective_returns = dict(reflective_returns)
+        self.reflective_hints = dict(reflective_hints or {})
         self.call_log: list[str] = []
         self.snapshots: list[dict[str, Any]] = []
+
+    def _hint_for(self, request: PhaseExecutionRequest) -> PhaseHint | None:
+        revisions = request.state_snapshot.get(
+            "projection_lineage", {}).get("revisions", [])
+        if revisions and request.phase in self.reflective_hints:
+            return self.reflective_hints[request.phase]
+        return self.hints.get(request.phase)
 
     def execute(self, request: PhaseExecutionRequest) -> PhaseExecutionResult:
         self.call_log.append(request.phase)
         self.snapshots.append(request.state_snapshot)
-        hint = self.hints.get(request.phase)
+        hint = self._hint_for(request)
         delta = PhaseDelta()
         if hint is not None:
             delta.scene = hint.scene
@@ -221,6 +235,18 @@ def _make_executor(mount_policy, router_registry) -> PipelineExecutor:
         projection_step=make_projection_step(build_default_registry()))
 
 
+def _peskov_reflective_hints() -> dict[str, PhaseHint]:
+    """Iteration-aware hints for the Peskov reflective pass.
+
+    Only S4 changes on pass 2 (operation revision R1). Every other
+    phase falls back to its first-pass hint.
+    """
+    return {
+        "S4": PhaseHint(operation=Operation(kind="DIFFERENTIATED_ACCOUNT",
+                                             applicable=True)),
+    }
+
+
 # ---------------------------------------------------------- Peskov acceptance
 
 
@@ -237,7 +263,8 @@ def test_peskov_full_projection_control_loop(mount_policy, router_registry,
     executor = _make_executor(mount_policy, router_registry)
     hints = _peskov_hints()
     phase_exec = _ReflectiveHintExecutor(
-        hints, {"S7": _peskov_reflective_return()})
+        hints, {"S7": _peskov_reflective_return()},
+        reflective_hints=_peskov_reflective_hints())
     state, outcome, results = executor.run(
         PESKOV_SOURCE, phase_exec, run_config, hints=hints)
 
@@ -285,14 +312,23 @@ def test_peskov_full_projection_control_loop(mount_policy, router_registry,
     assert rr.from_projection_id == p1.projection_id
     assert rr.diagnostic_fingerprint == p1_diag.fingerprint()
 
-    # (10) — pass 2 re-entered at S5 (phase AFTER return_target S4);
-    # verify by the call log
+    # (10) — pass 2 re-entered AT S4 (the actual return_target);
+    # verify by the call log. This is the D-S26-PROJ-002 repair
+    # made literal: the target phase must re-execute — not be
+    # skipped — so it can emit the revised operation via its own
+    # normal delta contract.
     phases_visited = phase_exec.call_log
     last_s7_idx = len(phases_visited) - 1 - phases_visited[::-1].index("S7")
     pass2_phases = phases_visited[last_s7_idx + 1:]
-    assert pass2_phases and pass2_phases[0] == "S5", (
-        f"pass 2 must start at S5 (return_target=S4 + 1), got "
-        f"{pass2_phases[0]!r}")
+    assert pass2_phases and pass2_phases[0] == "S4", (
+        f"pass 2 must start AT return_target=S4, got {pass2_phases[0]!r}")
+    # S4 must be the FIRST phase of pass 2 — proving the target
+    # phase actually re-executes rather than being skipped.
+    assert pass2_phases[0] == "S4"
+    # And the full expected downstream sequence follows.
+    assert pass2_phases == ["S4", "S5", "S6", "S8", "S9", "S10"], (
+        f"pass 2 must re-execute S4..S10 (S7 not council-needed here), "
+        f"got {pass2_phases!r}")
 
     # (11, 12) — P2 executed against the ORIGINAL source, with the
     # revised operation, and covered all 6 lines
@@ -359,7 +395,8 @@ def test_peskov_p1_preserved_after_p2(mount_policy, router_registry,
     executor = _make_executor(mount_policy, router_registry)
     hints = _peskov_hints()
     phase_exec = _ReflectiveHintExecutor(
-        hints, {"S7": _peskov_reflective_return()})
+        hints, {"S7": _peskov_reflective_return()},
+        reflective_hints=_peskov_reflective_hints())
     state, _, _ = executor.run(PESKOV_SOURCE, phase_exec, run_config,
                                hints=hints)
     lineage = state.projection_lineage
@@ -385,7 +422,8 @@ def test_peskov_objects_carry_projection_relative_provenance(mount_policy,
     executor = _make_executor(mount_policy, router_registry)
     hints = _peskov_hints()
     phase_exec = _ReflectiveHintExecutor(
-        hints, {"S7": _peskov_reflective_return()})
+        hints, {"S7": _peskov_reflective_return()},
+        reflective_hints=_peskov_reflective_hints())
     state, _, _ = executor.run(PESKOV_SOURCE, phase_exec, run_config,
                                hints=hints)
     lineage = state.projection_lineage
@@ -466,7 +504,8 @@ def test_lineage_preserved_across_reflection(mount_policy, router_registry,
     executor = _make_executor(mount_policy, router_registry)
     hints = _peskov_hints()
     phase_exec = _ReflectiveHintExecutor(
-        hints, {"S7": _peskov_reflective_return()})
+        hints, {"S7": _peskov_reflective_return()},
+        reflective_hints=_peskov_reflective_hints())
     state, _, _ = executor.run(PESKOV_SOURCE, phase_exec, run_config,
                                hints=hints)
     public = state.projection_lineage.to_public()
@@ -562,7 +601,8 @@ def test_reflection_bounded_by_max_iterations_end_to_end(mount_policy,
         projection_step=make_projection_step(scoped))
     hints = _peskov_hints()
     phase_exec = _ReflectiveHintExecutor(
-        hints, {"S7": _peskov_reflective_return()})
+        hints, {"S7": _peskov_reflective_return()},
+        reflective_hints=_peskov_reflective_hints())
     state, _, _ = executor.run(PESKOV_SOURCE, phase_exec, run_config,
                                hints=hints)
     # Reflection was applied once; second projection was a no-op

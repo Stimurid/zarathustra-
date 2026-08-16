@@ -242,6 +242,13 @@ class PipelineState:
     #: was accepted from S7. Set by the epilogue; consumed by the outer
     #: loop; cleared once the next pass starts.
     reentry_from: str = ""
+    #: The ReflectiveReturn that motivates the pending re-entry, exposed
+    #: to the *target phase* on pass 2 so it can produce a NEW validated
+    #: delta under its normal contract instead of having its state
+    #: silently mutated by S7. Public typed context — never hidden
+    #: chain-of-thought. Cleared when the return_target phase applies a
+    #: fresh delta (see :meth:`PipelineExecutor._apply_delta`).
+    pending_reflective_context: Any = None
 
     @property
     def source_id(self) -> str:
@@ -275,4 +282,7 @@ class PipelineState:
                                    if self.pending_diagnostic is not None
                                    else None),
             "reentry_from": self.reentry_from,
+            "pending_reflective_context": (
+                self.pending_reflective_context.to_public()
+                if self.pending_reflective_context is not None else None),
         }

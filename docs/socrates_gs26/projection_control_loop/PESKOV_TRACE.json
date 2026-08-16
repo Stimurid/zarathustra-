@@ -1,6 +1,7 @@
 {
   "case_id": "R8-C03_OPERATION_OBJECT_PESKOV",
   "adr": "ADR-S26-022",
+  "defect_addressed": "D-S26-PROJ-002 (actual target-phase re-entry)",
   "terminal": "ANSWER",
   "operation_final": "DIFFERENTIATED_ACCOUNT",
   "source_id": "src_858f7615aaf7903c",
@@ -17,6 +18,7 @@
     "S9",
     "S10",
     "S7",
+    "S4",
     "S5",
     "S6",
     "S8",
@@ -27,12 +29,12 @@
     "iteration": 2,
     "entries": [
       {
-        "projection_id": "proj_STABLE_7c5a2f96",
+        "projection_id": "proj_STABLE_b1e112a5",
         "spec_fingerprint": "d1da42b5a0650367",
         "source_id": "src_858f7615aaf7903c",
         "objects": [
           {
-            "object_id": "obj_STABLE_584a7874",
+            "object_id": "obj_STABLE_f20888dc",
             "object_family": "concept",
             "source_id": "src_858f7615aaf7903c",
             "source_span": [
@@ -44,7 +46,7 @@
             "confidence": 1.0
           },
           {
-            "object_id": "obj_STABLE_b3b25b1f",
+            "object_id": "obj_STABLE_09b3b895",
             "object_family": "concept",
             "source_id": "src_858f7615aaf7903c",
             "source_span": [
@@ -58,7 +60,7 @@
         ],
         "residue": [
           {
-            "residue_id": "res_STABLE_abeed9cc",
+            "residue_id": "res_STABLE_a7b23d13",
             "source_id": "src_858f7615aaf7903c",
             "source_span": [
               48,
@@ -69,7 +71,7 @@
             "reason": "category 'report' is not in target family ['concept']"
           },
           {
-            "residue_id": "res_STABLE_cf3bc703",
+            "residue_id": "res_STABLE_5eded1e3",
             "source_id": "src_858f7615aaf7903c",
             "source_span": [
               101,
@@ -80,7 +82,7 @@
             "reason": "category 'gesture' is not in target family ['concept']"
           },
           {
-            "residue_id": "res_STABLE_88486b55",
+            "residue_id": "res_STABLE_db3ed451",
             "source_id": "src_858f7615aaf7903c",
             "source_span": [
               144,
@@ -91,7 +93,7 @@
             "reason": "category 'absence' is not in target family ['concept']"
           },
           {
-            "residue_id": "res_STABLE_6e6caa94",
+            "residue_id": "res_STABLE_7aef2cda",
             "source_id": "src_858f7615aaf7903c",
             "source_span": [
               184,
@@ -115,12 +117,12 @@
         "status": "partial"
       },
       {
-        "projection_id": "proj_STABLE_2d1de357",
+        "projection_id": "proj_STABLE_763ad059",
         "spec_fingerprint": "e79de395cb90d51d",
         "source_id": "src_858f7615aaf7903c",
         "objects": [
           {
-            "object_id": "obj_STABLE_29174d80",
+            "object_id": "obj_STABLE_44756473",
             "object_family": "concept",
             "source_id": "src_858f7615aaf7903c",
             "source_span": [
@@ -132,7 +134,7 @@
             "confidence": 1.0
           },
           {
-            "object_id": "obj_STABLE_b3615cfc",
+            "object_id": "obj_STABLE_919cf953",
             "object_family": "report",
             "source_id": "src_858f7615aaf7903c",
             "source_span": [
@@ -144,7 +146,7 @@
             "confidence": 1.0
           },
           {
-            "object_id": "obj_STABLE_b7df777b",
+            "object_id": "obj_STABLE_873f08f8",
             "object_family": "gesture",
             "source_id": "src_858f7615aaf7903c",
             "source_span": [
@@ -156,7 +158,7 @@
             "confidence": 1.0
           },
           {
-            "object_id": "obj_STABLE_83129cec",
+            "object_id": "obj_STABLE_16a6d1fb",
             "object_family": "absence",
             "source_id": "src_858f7615aaf7903c",
             "source_span": [
@@ -168,7 +170,7 @@
             "confidence": 1.0
           },
           {
-            "object_id": "obj_STABLE_8fa63e10",
+            "object_id": "obj_STABLE_730140bf",
             "object_family": "future_work",
             "source_id": "src_858f7615aaf7903c",
             "source_span": [
@@ -180,7 +182,7 @@
             "confidence": 1.0
           },
           {
-            "object_id": "obj_STABLE_68119fb7",
+            "object_id": "obj_STABLE_a4de928a",
             "object_family": "concept",
             "source_id": "src_858f7615aaf7903c",
             "source_span": [
@@ -203,8 +205,8 @@
     ],
     "revisions": [
       {
-        "reflective_id": "refl_STABLE_4133496e",
-        "from_projection_id": "proj_STABLE_7c5a2f96",
+        "reflective_id": "refl_STABLE_dc62124e",
+        "from_projection_id": "proj_STABLE_b1e112a5",
         "retreat_level": "R1",
         "return_target": "S4",
         "reason": "OPERATION_MISMATCH — the source is not uniformly concept-shaped; forcing every fragment into a concept class would violate B03 recognition criteria",
@@ -224,7 +226,7 @@
     ],
     "diagnostics_history": [
       {
-        "projection_id": "proj_STABLE_7c5a2f96",
+        "projection_id": "proj_STABLE_b1e112a5",
         "signals": [
           "OPERATION_MISMATCH",
           "RECOGNITION_FAILURE"
@@ -245,7 +247,7 @@
         "fingerprint": "4628322ac386"
       },
       {
-        "projection_id": "proj_STABLE_2d1de357",
+        "projection_id": "proj_STABLE_763ad059",
         "signals": [],
         "reason": "no material mismatch — projection adequate",
         "residue_ratio": 0.0,
