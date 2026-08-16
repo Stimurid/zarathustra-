@@ -10,9 +10,9 @@ remote: 'https://github.com/Stimurid/zarathustra-.git'
 branch: socrates/gs26-bach-didenko-integration
 start_head: 2ecc070000da153e4d6379df491ecca8de5330ed
 current_head: SET_AT_COMMIT   # updated per commit; see git log for exact SHA
-active_generation: G-BD.4
-completed_generations: [G-BD.0, G-BD.1, G-BD.2, G-BD.3]
-next_generation: G-BD.4
+active_generation: G-BD.5
+completed_generations: [G-BD.0, G-BD.1, G-BD.2, G-BD.3, G-BD.4]
+next_generation: G-BD.5
 blockers: []
 open_defects:
   - id: D-S26-GEN-002
@@ -61,11 +61,11 @@ touched_files:
   - docs/socrates_gs26/current_task/CURRENT_TASK_CHECKLIST.md
 test_state:
   full_backend:
-    tests_passed: 823
+    tests_passed: 830
     tests_skipped: 4
-    delta_vs_start: '+16 hardening + 28 epistemic model + 33 BACH operators = +77 tests since 746 baseline'
+    delta_vs_start: '+16 hardening + 28 epistemic model + 33 BACH operators + 7 v0.3 = +84 tests since 746 baseline'
   ui: NOT_RERUN_UNCHANGED_SURFACE
-  ui_justification: 'G-BD.1/2/3 only touch socrates_runtime + contracts + backend tests + docs; no UI surface changed.'
+  ui_justification: 'G-BD.1/2/3/4 only touch socrates_runtime + contracts + candidate_v0_3 + backend tests + docs; no UI surface changed.'
 live_evidence_state:
   L1: NOT_RUN
   L2: NOT_RUN
@@ -83,6 +83,6 @@ nonclaims:
   - 'Hardening D-S26-GEN-003 proves that PROPOSAL DATA can be authored by S4 and safely compile-bound. LIVE model actually producing such a proposal from an unhinted run remains a G-BD.11 (L5) target and IS NOT YET DEMONSTRATED — this is deterministic proof of the runtime path, not of LIVE production authorship.'
   - 'P001_UNBLOCKED = NO (hardening done; BACH/Didenko integration not started).'
 resume_from:
-  generation: G-BD.4
-  what_to_do_next: 'Semantic bodies v0.3 candidates — CORE, B01, B02, B03, B04, B05, B07, B08, B10 (patch B06/B09 if dependencies require). Preserve 17-section standard. v0.2 files remain frozen controls (do not mutate). Create SEMANTIC_BODY_V03_DELTA_MANIFEST.md alongside. Add router-manifest v0.3 that maps to new bodies (G-BD.5 will add mount policy). Test that v0.3 bodies load through SemanticBodyRegistry alongside v0.2 without breaking existing R8/import controls.'
+  generation: G-BD.5
+  what_to_do_next: 'Routers / mounts / context v0.3 — typed jurisdiction changes (already partly done in G-BD.1 for S4 proposal); mount policy YAML v0.3 that governs BACH-local isolation and Space-scoped mounting; context assembly extension so LIVE phases actually see Space/Scene/Branch/Passport/memory-scope/reflective context. Preserve historical mount manifest as frozen control. Add MOUNT_AND_ROUTER_V03_DELTA.md docs artefact. Test that scoped mount policy loads without breaking v0.2 default.'
 last_updated: '2026-08-17T00:00:00Z'

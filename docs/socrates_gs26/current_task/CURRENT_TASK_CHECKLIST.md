@@ -49,20 +49,23 @@ Update after every generation. Tick items only when the specific gate is met by 
 
 ## G-BD.4 — Semantic bodies v0.3
 
-- [ ] CORE_v0.3_candidate.
-- [ ] B01_v0.3_candidate.
-- [ ] B02_v0.3_candidate.
-- [ ] B03_v0.3_candidate.
-- [ ] B04_v0.3_candidate.
-- [ ] B05_v0.3_candidate.
-- [ ] B07_v0.3_candidate.
-- [ ] B08_v0.3_candidate.
-- [ ] B10_v0.3_candidate.
-- [ ] B06/B09 patched if dependencies require.
-- [ ] 17-section standard preserved.
-- [ ] `SEMANTIC_BODY_V03_DELTA_MANIFEST.md`.
-- [ ] v0.2 files unchanged.
-- [ ] Commit + push.
+- [x] CORE_v0.3_candidate.
+- [x] B01_v0.3_candidate.
+- [x] B02_v0.3_candidate.
+- [x] B03_v0.3_candidate.
+- [x] B04_v0.3_candidate.
+- [x] B05_v0.3_candidate.
+- [x] B07_v0.3_candidate.
+- [x] B08_v0.3_candidate.
+- [x] B10_v0.3_candidate.
+- [x] B06/B09 explicitly not patched this pass — no dependency change requires it (documented in registry manifest).
+- [x] 17-section standard preserved (verified by test).
+- [x] `SEMANTIC_BODY_V03_DELTA_MANIFEST.md`.
+- [x] `semantic_body_registry_v0.3.yaml` registry manifest.
+- [x] v0.2 files unchanged (default `SemanticBodyRegistry()` still loads v0.2 exclusively; test verifies).
+- [x] 7 load/isolation/manifest tests passing.
+- [x] Full backend: 830 passing / 4 skipped (was 823/4).
+- [x] Commit + push.
 
 ## G-BD.5 — Routers / mounts / context v0.3
 
