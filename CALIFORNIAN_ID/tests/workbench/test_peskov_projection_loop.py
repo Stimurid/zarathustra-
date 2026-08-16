@@ -73,6 +73,9 @@ from socrates_runtime.projection import (
     ReturnTarget,
     new_reflective_id,
 )
+from socrates_runtime.capability_resolution import CapabilityResolver
+from socrates_runtime.projection_primitives import (
+    build_default_primitive_registry)
 from socrates_runtime.projection_step import make_projection_step
 from socrates_runtime.routers import RouterRegistry
 from socrates_runtime.semantic import SemanticBodyRegistry
@@ -230,9 +233,12 @@ def _peskov_reflective_return() -> ReflectiveReturn:
 
 
 def _make_executor(mount_policy, router_registry) -> PipelineExecutor:
+    cr = build_default_registry()
+    pr = build_default_primitive_registry()
+    resolver = CapabilityResolver(cr, pr)
     return PipelineExecutor(
         mount_policy, router_registry,
-        projection_step=make_projection_step(build_default_registry()))
+        projection_step=make_projection_step(resolver, cutter_registry=cr))
 
 
 def _peskov_reflective_hints() -> dict[str, PhaseHint]:
@@ -596,9 +602,12 @@ def test_reflection_bounded_by_max_iterations_end_to_end(mount_policy,
         recognition_criteria=("explicit definition",),
         contraindications=(),
         execute=_make_concept_extractor()))
+    scoped_resolver = CapabilityResolver(
+        scoped, build_default_primitive_registry())
     executor = PipelineExecutor(
         mount_policy, router_registry,
-        projection_step=make_projection_step(scoped))
+        projection_step=make_projection_step(scoped_resolver,
+                                              cutter_registry=scoped))
     hints = _peskov_hints()
     phase_exec = _ReflectiveHintExecutor(
         hints, {"S7": _peskov_reflective_return()},
