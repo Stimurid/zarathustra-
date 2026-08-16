@@ -1,0 +1,261 @@
+{
+  "case_id": "R8-C03_OPERATION_OBJECT_PESKOV",
+  "adr": "ADR-S26-022",
+  "terminal": "ANSWER",
+  "operation_final": "DIFFERENTIATED_ACCOUNT",
+  "source_id": "src_858f7615aaf7903c",
+  "source_char_length": 293,
+  "phases_visited": [
+    "S0",
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S8",
+    "S9",
+    "S10",
+    "S7",
+    "S5",
+    "S6",
+    "S8",
+    "S9",
+    "S10"
+  ],
+  "projection_lineage": {
+    "iteration": 2,
+    "entries": [
+      {
+        "projection_id": "proj_STABLE_7c5a2f96",
+        "spec_fingerprint": "d1da42b5a0650367",
+        "source_id": "src_858f7615aaf7903c",
+        "objects": [
+          {
+            "object_id": "obj_STABLE_584a7874",
+            "object_family": "concept",
+            "source_id": "src_858f7615aaf7903c",
+            "source_span": [
+              0,
+              47
+            ],
+            "evidence": "Ontology is the study of what exists.",
+            "recognition_basis": "explicit category marker",
+            "confidence": 1.0
+          },
+          {
+            "object_id": "obj_STABLE_b3b25b1f",
+            "object_family": "concept",
+            "source_id": "src_858f7615aaf7903c",
+            "source_span": [
+              244,
+              293
+            ],
+            "evidence": "Epistemology is the study of knowledge.",
+            "recognition_basis": "explicit category marker",
+            "confidence": 1.0
+          }
+        ],
+        "residue": [
+          {
+            "residue_id": "res_STABLE_abeed9cc",
+            "source_id": "src_858f7615aaf7903c",
+            "source_span": [
+              48,
+              100
+            ],
+            "evidence": "The team met last Thursday to review scope.",
+            "apparent_family": "report",
+            "reason": "category 'report' is not in target family ['concept']"
+          },
+          {
+            "residue_id": "res_STABLE_cf3bc703",
+            "source_id": "src_858f7615aaf7903c",
+            "source_span": [
+              101,
+              143
+            ],
+            "evidence": "The lead nodded acknowledgement.",
+            "apparent_family": "gesture",
+            "reason": "category 'gesture' is not in target family ['concept']"
+          },
+          {
+            "residue_id": "res_STABLE_88486b55",
+            "source_id": "src_858f7615aaf7903c",
+            "source_span": [
+              144,
+              183
+            ],
+            "evidence": "Data for Q3 is not available.",
+            "apparent_family": "absence",
+            "reason": "category 'absence' is not in target family ['concept']"
+          },
+          {
+            "residue_id": "res_STABLE_6e6caa94",
+            "source_id": "src_858f7615aaf7903c",
+            "source_span": [
+              184,
+              243
+            ],
+            "evidence": "We plan to extend this analysis next quarter.",
+            "apparent_family": "future_work",
+            "reason": "category 'future_work' is not in target family ['concept']"
+          }
+        ],
+        "coverage": 0.3333333333333333,
+        "unclassified_spans": [],
+        "recognition_failures": [
+          "report@48-100: not recognised by concept ontology",
+          "gesture@101-143: not recognised by concept ontology",
+          "absence@144-183: not recognised by concept ontology",
+          "future_work@184-243: not recognised by concept ontology"
+        ],
+        "counterexamples": [],
+        "internal_conflicts": [],
+        "status": "partial"
+      },
+      {
+        "projection_id": "proj_STABLE_2d1de357",
+        "spec_fingerprint": "e79de395cb90d51d",
+        "source_id": "src_858f7615aaf7903c",
+        "objects": [
+          {
+            "object_id": "obj_STABLE_29174d80",
+            "object_family": "concept",
+            "source_id": "src_858f7615aaf7903c",
+            "source_span": [
+              0,
+              47
+            ],
+            "evidence": "Ontology is the study of what exists.",
+            "recognition_basis": "differentiated ontology marker",
+            "confidence": 1.0
+          },
+          {
+            "object_id": "obj_STABLE_b3615cfc",
+            "object_family": "report",
+            "source_id": "src_858f7615aaf7903c",
+            "source_span": [
+              48,
+              100
+            ],
+            "evidence": "The team met last Thursday to review scope.",
+            "recognition_basis": "differentiated ontology marker",
+            "confidence": 1.0
+          },
+          {
+            "object_id": "obj_STABLE_b7df777b",
+            "object_family": "gesture",
+            "source_id": "src_858f7615aaf7903c",
+            "source_span": [
+              101,
+              143
+            ],
+            "evidence": "The lead nodded acknowledgement.",
+            "recognition_basis": "differentiated ontology marker",
+            "confidence": 1.0
+          },
+          {
+            "object_id": "obj_STABLE_83129cec",
+            "object_family": "absence",
+            "source_id": "src_858f7615aaf7903c",
+            "source_span": [
+              144,
+              183
+            ],
+            "evidence": "Data for Q3 is not available.",
+            "recognition_basis": "differentiated ontology marker",
+            "confidence": 1.0
+          },
+          {
+            "object_id": "obj_STABLE_8fa63e10",
+            "object_family": "future_work",
+            "source_id": "src_858f7615aaf7903c",
+            "source_span": [
+              184,
+              243
+            ],
+            "evidence": "We plan to extend this analysis next quarter.",
+            "recognition_basis": "differentiated ontology marker",
+            "confidence": 1.0
+          },
+          {
+            "object_id": "obj_STABLE_68119fb7",
+            "object_family": "concept",
+            "source_id": "src_858f7615aaf7903c",
+            "source_span": [
+              244,
+              293
+            ],
+            "evidence": "Epistemology is the study of knowledge.",
+            "recognition_basis": "differentiated ontology marker",
+            "confidence": 1.0
+          }
+        ],
+        "residue": [],
+        "coverage": 1.0,
+        "unclassified_spans": [],
+        "recognition_failures": [],
+        "counterexamples": [],
+        "internal_conflicts": [],
+        "status": "accepted_local"
+      }
+    ],
+    "revisions": [
+      {
+        "reflective_id": "refl_STABLE_4133496e",
+        "from_projection_id": "proj_STABLE_7c5a2f96",
+        "retreat_level": "R1",
+        "return_target": "S4",
+        "reason": "OPERATION_MISMATCH — the source is not uniformly concept-shaped; forcing every fragment into a concept class would violate B03 recognition criteria",
+        "failed_assumption": "the request extract-the-concepts presumed every source line has a concept referent",
+        "what_remains_valid": [
+          "two legitimate concepts recognised in P1 remain addressable"
+        ],
+        "what_changes": [
+          "operation from EXTRACT_CONCEPTS to DIFFERENTIATED_ACCOUNT",
+          "ontology from concept_v1 to differentiated_v1"
+        ],
+        "revised_operation_kind": "DIFFERENTIATED_ACCOUNT",
+        "revised_ontology_id": "differentiated_v1",
+        "revised_scene_telos": "",
+        "diagnostic_fingerprint": "4628322ac386"
+      }
+    ],
+    "diagnostics_history": [
+      {
+        "projection_id": "proj_STABLE_7c5a2f96",
+        "signals": [
+          "OPERATION_MISMATCH",
+          "RECOGNITION_FAILURE"
+        ],
+        "reason": "unclassified families in source: ['absence', 'future_work', 'gesture', 'report']; operation 'DIFFERENTIATED_ACCOUNT' accepts the residue families",
+        "residue_ratio": 0.6666666666666666,
+        "recognition_failure_count": 4,
+        "suggested_operation": "DIFFERENTIATED_ACCOUNT",
+        "suggested_ontology": "marker_scan/differentiated_v1",
+        "suggested_target_family": [
+          "concept",
+          "report",
+          "gesture",
+          "absence",
+          "future_work"
+        ],
+        "mismatch": true,
+        "fingerprint": "4628322ac386"
+      },
+      {
+        "projection_id": "proj_STABLE_2d1de357",
+        "signals": [],
+        "reason": "no material mismatch — projection adequate",
+        "residue_ratio": 0.0,
+        "recognition_failure_count": 0,
+        "suggested_operation": "",
+        "suggested_ontology": "",
+        "suggested_target_family": [],
+        "mismatch": false,
+        "fingerprint": "e3b0c44298fc"
+      }
+    ]
+  }
+}
