@@ -233,6 +233,15 @@ class PipelineState:
     #: reflective return, and the diagnostics that connected them. Empty
     #: for runs that never invoked a projection (direct-assistance path).
     projection_lineage: ProjectionLineage = field(default_factory=ProjectionLineage)
+    #: A projection diagnostic waiting to be judged by the reflective S7
+    #: epilogue. Set by the projection-execution step; consumed and
+    #: cleared by the epilogue. Non-None here means the current pass
+    #: ended with a material mismatch that has not yet been reflected on.
+    pending_diagnostic: Any = None
+    #: The phase the next pass should re-enter at, if a ReflectiveReturn
+    #: was accepted from S7. Set by the epilogue; consumed by the outer
+    #: loop; cleared once the next pass starts.
+    reentry_from: str = ""
 
     @property
     def source_id(self) -> str:
@@ -262,4 +271,8 @@ class PipelineState:
                                 if self.memory_proposal else None),
             "committed_memory_note_id": self.committed_memory_note_id,
             "projection_lineage": self.projection_lineage.to_public(),
+            "pending_diagnostic": (self.pending_diagnostic.to_public()
+                                   if self.pending_diagnostic is not None
+                                   else None),
+            "reentry_from": self.reentry_from,
         }
