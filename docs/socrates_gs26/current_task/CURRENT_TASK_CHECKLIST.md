@@ -38,10 +38,14 @@ Update after every generation. Tick items only when the specific gate is met by 
 
 ## G-BD.3 — BACH operator layer
 
-- [ ] OP-01 … OP-18 with typed trigger/precondition/effect/output/stop/failure semantics.
-- [ ] Wired to projection resolver / scene / memory / attention / reflection where relevant.
-- [ ] No donor-metaphysics inflation.
-- [ ] Commit + push.
+- [x] OP-01 … OP-18 with typed trigger/precondition/effect/output/stop/failure semantics.
+- [x] Wired to existing seams (PROJECTION_SPEC / REFLECTIVE_LOOP / TRANSDUCTION / SCENE_BRANCH / MEMORY_SCOPE / CONFLICT_HOLD / ATTENTION_CONFIG / PASSPORT_ONLY / SEMANTIC_ONLY).
+- [x] Donor-local classification honest: OP-07, OP-08 (fold + unfold-in-medium) donor-local; other 16 transferable global method.
+- [x] Authority invariants: no execute/install/authorize methods on class; registration grants no execution authority.
+- [x] Registry + tests (33) — completeness / bindings / classification / authority / serialisation / seam wiring smoke.
+- [x] `BACH_OPERATOR_IMPLEMENTATION_MAP.md` docs artefact.
+- [x] Full backend: 823 passing / 4 skipped (was 790/4).
+- [x] Commit + push.
 
 ## G-BD.4 — Semantic bodies v0.3
 
