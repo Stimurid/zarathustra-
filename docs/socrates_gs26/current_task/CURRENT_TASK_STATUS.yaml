@@ -10,9 +10,9 @@ remote: 'https://github.com/Stimurid/zarathustra-.git'
 branch: socrates/gs26-bach-didenko-integration
 start_head: 2ecc070000da153e4d6379df491ecca8de5330ed
 current_head: SET_AT_COMMIT   # updated per commit; see git log for exact SHA
-active_generation: G-BD.2
-completed_generations: [G-BD.0, G-BD.1]
-next_generation: G-BD.2
+active_generation: G-BD.3
+completed_generations: [G-BD.0, G-BD.1, G-BD.2]
+next_generation: G-BD.3
 blockers: []
 open_defects:
   - id: D-S26-GEN-002
@@ -61,11 +61,11 @@ touched_files:
   - docs/socrates_gs26/current_task/CURRENT_TASK_CHECKLIST.md
 test_state:
   full_backend:
-    tests_passed: 762
+    tests_passed: 790
     tests_skipped: 4
-    delta_vs_start: '+16 hardening tests (T-PROV-01/02/03/04 families)'
+    delta_vs_start: '+16 hardening + 28 epistemic model = +44 tests since 746 baseline'
   ui: NOT_RERUN_UNCHANGED_SURFACE
-  ui_justification: 'G-BD.1 only touches socrates_runtime + contracts + backend tests; no UI surface changed.'
+  ui_justification: 'G-BD.1 + G-BD.2 only touch socrates_runtime + contracts + backend tests; no UI surface changed.'
 live_evidence_state:
   L1: NOT_RUN
   L2: NOT_RUN
@@ -83,6 +83,6 @@ nonclaims:
   - 'Hardening D-S26-GEN-003 proves that PROPOSAL DATA can be authored by S4 and safely compile-bound. LIVE model actually producing such a proposal from an unhinted run remains a G-BD.11 (L5) target and IS NOT YET DEMONSTRATED — this is deterministic proof of the runtime path, not of LIVE production authorship.'
   - 'P001_UNBLOCKED = NO (hardening done; BACH/Didenko integration not started).'
 resume_from:
-  generation: G-BD.2
-  what_to_do_next: 'Materialise first-class technical objects (EpistemicSpace, WorldModelMount, SceneBranch, EpistemicPassport, MemoryValidityScope, ContextTransduction, ConflictHoldingState). Extend existing state; write schemas + typed dataclasses + validation. Add migrations. Push after each coherent group.'
+  generation: G-BD.3
+  what_to_do_next: 'BACH operator library OP-01..OP-18 — typed operators mapped to existing pipeline / projection / reflective / memory / attention seams. No donor-metaphysics inflation. Structural typed operator records with trigger/precondition/effect/output/stop/failure semantics + provenance. Tests that exercise a subset via the projection loop. Commit + push. Note that many operators are NOT executable primitives; they are semantic operators that the LIVE prompt vocabulary + runtime dispatcher select.'
 last_updated: '2026-08-17T00:00:00Z'

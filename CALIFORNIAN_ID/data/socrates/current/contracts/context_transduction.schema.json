@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs26/context_transduction.schema.json",
+  "title": "ContextTransduction",
+  "description": "Typed cross-space / cross-scene move. HARD INVARIANT: there is no magically neutral summary. Every move declares preserved/transformed/dropped/newly_created/unresolved.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["transition_id", "kind"],
+  "properties": {
+    "transition_id": {"type": "string", "minLength": 1},
+    "kind": {
+      "enum": ["TRANSLATION", "REFRAME", "ONTOLOGICAL_TRANSFER",
+                "TRANSDUCTION", "CONTRAST", "FUNCTIONAL_RHYME",
+                "ANALOGY", "DO_NOT_COLLAPSE"]
+    },
+    "source_space_id": {"type": "string"},
+    "target_space_id": {"type": "string"},
+    "source_scene_id": {"type": "string"},
+    "target_scene_id": {"type": "string"},
+    "source_branch_id": {"type": "string"},
+    "target_branch_id": {"type": "string"},
+    "purpose": {"type": "string"},
+    "authority": {"type": "string"},
+    "source_object_refs": {"type": "array", "items": {"type": "string"}},
+    "preserved": {"type": "array", "items": {"type": "string"}},
+    "transformed": {"type": "array", "items": {"type": "string"}},
+    "dropped": {"type": "array", "items": {"type": "string"}},
+    "newly_created": {"type": "array", "items": {"type": "string"}},
+    "unresolved": {"type": "array", "items": {"type": "string"}},
+    "identity_claims": {"type": "array", "items": {"type": "string"}},
+    "identity_rejections": {"type": "array", "items": {"type": "string"}},
+    "loss_report": {"type": "string"},
+    "new_constraints": {"type": "array", "items": {"type": "string"}},
+    "affordances": {"type": "array", "items": {"type": "string"}},
+    "output_passport_ids": {"type": "array", "items": {"type": "string"}},
+    "reversible": {"type": "boolean"},
+    "return_path": {"type": "string"},
+    "status": {"type": "string"}
+  }
+}

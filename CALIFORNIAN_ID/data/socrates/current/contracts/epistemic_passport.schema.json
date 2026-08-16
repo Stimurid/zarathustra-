@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs26/epistemic_passport.schema.json",
+  "title": "EpistemicPassport",
+  "description": "READ MODEL over stricter typed state. Zero authority to upgrade state. Surfaces conflict, does not smooth it. TruthMode readout is DERIVED — cannot replace origin/status/authority/evidence.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["passport_id"],
+  "properties": {
+    "passport_id": {"type": "string", "minLength": 1},
+    "subject_object_id": {"type": "string"},
+    "origin_source_refs": {"type": "array", "items": {"type": "string"}},
+    "claim_status": {"type": "string"},
+    "action_status": {"type": "string"},
+    "temporal_status": {"type": "string"},
+    "verification_status": {"type": "string"},
+    "authority_type": {"type": "string"},
+    "authority_scope": {"type": "string"},
+    "space_id": {"type": "string"},
+    "scene_id": {"type": "string"},
+    "branch_id": {"type": "string"},
+    "projection_id": {"type": "string"},
+    "memory_validity_scope": {
+      "oneOf": [
+        {"type": "null"},
+        {"enum": ["GLOBAL_SELF", "GLOBAL_BETWEEN", "PROJECT",
+                    "SPACE_OR_DOMAIN", "SCENE", "BRANCH",
+                    "PROJECTION", "INSTRUMENT", "ARCHIVAL_ONLY"]}
+      ]
+    },
+    "world_model_refs": {"type": "array", "items": {"type": "string"}},
+    "operation_of_origin": {"type": "string"},
+    "construction_status": {
+      "enum": ["SOURCE_OWNED", "RECONSTRUCTED", "HYPOTHESIZED",
+                "CONSTRUCTED", "HYBRID", "UNKNOWN"]
+    },
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "known_conflicts": {"type": "array", "items": {"type": "string"}},
+    "known_loss": {"type": "array", "items": {"type": "string"}},
+    "open_questions": {"type": "array", "items": {"type": "string"}},
+    "truth_mode_readout": {"type": "string"}
+  }
+}

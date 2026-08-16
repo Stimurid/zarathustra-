@@ -22,15 +22,19 @@ Update after every generation. Tick items only when the specific gate is met by 
 
 ## G-BD.2 — Technical object model
 
-- [ ] `EpistemicSpace` type + state integration.
-- [ ] `WorldModelMount` with `mount_mode` enum and provenance ≠ activation.
-- [ ] `SceneBranch` (extends S1 Scene).
-- [ ] `EpistemicPassport` read model.
-- [ ] `MemoryValidityScope` extends B05 governed memory view.
-- [ ] `ContextTransduction` / `SpaceTransition` typed record.
-- [ ] `ConflictHoldingState` with families + handling modes.
-- [ ] Migrations + tests.
-- [ ] Commit + push.
+- [x] `EpistemicSpace` type + state integration.
+- [x] `WorldModelMount` with `mount_mode` enum and provenance ≠ activation.
+- [x] `SceneBranch` (extends S1 Scene via SceneRef + SceneRegistry).
+- [x] `EpistemicPassport` read model.
+- [x] `MemoryValidityScope` enum (extends B05 governed memory view).
+- [x] `ContextTransduction` / `SpaceTransition` typed record.
+- [x] `ConflictHoldingState` with families + handling modes.
+- [x] `PipelineState` extended: space_id, scene_id, branch_id, space_registry, scene_registry, context_transductions, conflict_registry, passports (defaults preserve direct-assistance).
+- [x] 6 JSON schemas under `data/socrates/current/contracts/`.
+- [x] 28 tests in `test_epistemic_model.py` — enums / shapes / registries / state integration / id factories / default workspace.
+- [x] `TECHNICAL_OBJECT_MODEL.md` docs artefact.
+- [x] Full backend: 790 passing / 4 skipped (was 762/4).
+- [x] Commit + push.
 
 ## G-BD.3 — BACH operator layer
 

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs26/scene_branch.schema.json",
+  "title": "SceneBranch",
+  "description": "Persistent sibling hypothesis / commitment branch inside a Scene. Two branches under the same parent may hold incompatible local facts, projections, and memory without overwriting each other.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["branch_id", "scene_id"],
+  "properties": {
+    "branch_id": {"type": "string", "minLength": 1},
+    "scene_id": {"type": "string", "minLength": 1},
+    "parent_scene_id": {"type": "string"},
+    "hypothesis": {"type": "string"},
+    "status": {"type": "string"},
+    "local_facts": {"type": "array", "items": {"type": "string"}},
+    "local_commitments": {"type": "array", "items": {"type": "string"}},
+    "memory_scope": {
+      "enum": ["GLOBAL_SELF", "GLOBAL_BETWEEN", "PROJECT",
+                "SPACE_OR_DOMAIN", "SCENE", "BRANCH", "PROJECTION",
+                "INSTRUMENT", "ARCHIVAL_ONLY"]
+    },
+    "active_projection_ids": {"type": "array", "items": {"type": "string"}},
+    "lineage_event": {"type": "string"},
+    "weakened_at": {"type": "string"},
+    "rejected_at": {"type": "string"},
+    "archived_at": {"type": "string"}
+  }
+}

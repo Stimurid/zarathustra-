@@ -16,6 +16,12 @@ from dataclasses import asdict, dataclass, field
 from enum import Enum
 from typing import Any
 
+from .epistemic_model import (
+    ConflictRegistry,
+    DEFAULT_WORKSPACE_SPACE_ID,
+    SceneRegistry,
+    SpaceRegistry,
+)
 from .projection import ProjectionLineage
 
 
@@ -273,6 +279,30 @@ class PipelineState:
     #: field after resolution). None means "no model-produced
     #: proposal this pass".
     pending_projection_proposal: Any = None
+    # -------------------------------------------------- G-BD.2 epistemic model
+    #: Which :class:`EpistemicSpace` this run is currently operating
+    #: in. Defaults to the runtime-default workspace space so ordinary
+    #: direct-assistance runs never need to name a Space.
+    space_id: str = DEFAULT_WORKSPACE_SPACE_ID
+    #: Which Scene inside ``space_id``. Distinct from the S1
+    #: :class:`Scene` payload — this is the DAG node id, not the
+    #: scene's typed content.
+    scene_id: str = ""
+    #: Which SceneBranch (sibling hypothesis) is currently active
+    #: within ``scene_id``. Empty means the trunk scene.
+    branch_id: str = ""
+    #: Registry of :class:`EpistemicSpace` records this run touched.
+    #: Small — most runs stay in the default workspace.
+    space_registry: SpaceRegistry = field(default_factory=SpaceRegistry)
+    #: Scene DAG: scene refs + branches.
+    scene_registry: SceneRegistry = field(default_factory=SceneRegistry)
+    #: All :class:`ContextTransduction` records this run produced.
+    context_transductions: list[Any] = field(default_factory=list)
+    #: Held conflicts (never a defect on their own, per §6.7).
+    conflict_registry: ConflictRegistry = field(default_factory=ConflictRegistry)
+    #: :class:`EpistemicPassport` records rendered at S10 / B10. Read
+    #: model — never used to upgrade state.
+    passports: list[Any] = field(default_factory=list)
 
     @property
     def source_id(self) -> str:
@@ -316,4 +346,13 @@ class PipelineState:
             "pending_projection_proposal": (
                 self.pending_projection_proposal.to_public()
                 if self.pending_projection_proposal is not None else None),
+            "space_id": self.space_id,
+            "scene_id": self.scene_id,
+            "branch_id": self.branch_id,
+            "space_registry": self.space_registry.to_public(),
+            "scene_registry": self.scene_registry.to_public(),
+            "context_transductions": [t.to_public()
+                                       for t in self.context_transductions],
+            "conflict_registry": self.conflict_registry.to_public(),
+            "passports": [p.to_public() for p in self.passports],
         }

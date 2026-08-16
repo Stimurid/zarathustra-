@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs26/world_model_mount.schema.json",
+  "title": "WorldModelMount",
+  "description": "One ontology / world-model mounted into an EpistemicSpace. PROVENANCE != ACTIVATION invariant is encoded structurally.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["mount_id", "space_id", "ontology_ref", "mount_mode"],
+  "properties": {
+    "mount_id": {"type": "string", "minLength": 1},
+    "space_id": {"type": "string", "minLength": 1},
+    "ontology_ref": {"type": "string", "minLength": 1},
+    "mount_mode": {
+      "enum": ["PRIMARY", "OVERLAY", "LENS", "CONTRAST",
+                "NEGATIVE_CONTROL", "ARCHIVAL"]
+    },
+    "provenance": {"type": "string"},
+    "activation_scope": {"type": "string"},
+    "allowed_claims": {"type": "array", "items": {"type": "string"}},
+    "allowed_operations": {"type": "array", "items": {"type": "string"}},
+    "forbidden_collapses": {"type": "array", "items": {"type": "string"}},
+    "entry_trigger": {"type": "string"},
+    "exit_trigger": {"type": "string"},
+    "status": {"type": "string"}
+  }
+}
