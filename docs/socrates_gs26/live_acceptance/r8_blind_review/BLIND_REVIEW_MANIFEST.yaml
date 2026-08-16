@@ -1,0 +1,103 @@
+artifact_id: SOCRATES_R8_BLIND_REVIEW_MANIFEST
+version: 0.1.0
+generation: G-S25R.8E
+source_commit: 5d06a9412ae58502425ec4ad1fe90fdec488cd52
+source_campaign: G-S25R.8
+case_count: 11
+arms_per_case: 3
+output_count: 33
+packets:
+- path: docs/socrates_gs26/live_acceptance/r8_blind_review/R8-C01_SCENE_CAPTURE.review.json
+  sha256: 10e8c46474d85ff5031d64f0b301d566a9aacaadb8718c10975a8ab94ac2fe5e
+  case_id: R8-C01_SCENE_CAPTURE
+  arm_count: 3
+  blind_labels:
+  - ARM_02ee4b4d349ecf47
+  - ARM_28f6a4db0e44d2b7
+  - ARM_76f40be5d4ac5b30
+- path: docs/socrates_gs26/live_acceptance/r8_blind_review/R8-C02_STATUS_TEMPORALITY.review.json
+  sha256: ffa4a76a13b35e79db7e2e6c2e93546c284054114e3fce26150b3006de67b5d0
+  case_id: R8-C02_STATUS_TEMPORALITY
+  arm_count: 3
+  blind_labels:
+  - ARM_8ae8fddf16ec78a8
+  - ARM_bb1ccd80f526a695
+  - ARM_dea07ab9f3cf6b39
+- path: docs/socrates_gs26/live_acceptance/r8_blind_review/R8-C03_OPERATION_OBJECT_PESKOV.review.json
+  sha256: a7bbfdc0595abc394f44b34e064e1aef33fd574e96836ec26040be709f8f72d3
+  case_id: R8-C03_OPERATION_OBJECT_PESKOV
+  arm_count: 3
+  blind_labels:
+  - ARM_45a9040b525b2b5e
+  - ARM_9a1d0a7ae0de4faf
+  - ARM_cadbc82d7180f5fe
+- path: docs/socrates_gs26/live_acceptance/r8_blind_review/R8-C04_ONTOLOGY_GAP.review.json
+  sha256: adb5a2c2e8bcf232830fcf37213d3b528d590b15e4a5337160933e815d5ceca4
+  case_id: R8-C04_ONTOLOGY_GAP
+  arm_count: 3
+  blind_labels:
+  - ARM_3bac21e64306d0c2
+  - ARM_7f2409a13255f3af
+  - ARM_7f502d6e9e504d77
+- path: docs/socrates_gs26/live_acceptance/r8_blind_review/R8-C05_RETRIEVAL_ATTENTION.review.json
+  sha256: 16e99bba033fa1c0c3e2a6b071f77e64848fc17ba98a734eccc1cbe7194a957d
+  case_id: R8-C05_RETRIEVAL_ATTENTION
+  arm_count: 3
+  blind_labels:
+  - ARM_5b1940bd91c663bb
+  - ARM_d1eb8c0982761ea9
+  - ARM_e20e7b86dfcf8188
+- path: docs/socrates_gs26/live_acceptance/r8_blind_review/R8-C06_HUMAN_OWNERSHIP.review.json
+  sha256: 1ec4a8bc53acc447822675e9b3ee4a8cefce1417fee872575d08505084ac34ae
+  case_id: R8-C06_HUMAN_OWNERSHIP
+  arm_count: 3
+  blind_labels:
+  - ARM_9688e3301af7c7d9
+  - ARM_bbd842fd3100cf69
+  - ARM_e139052c9181ef73
+- path: docs/socrates_gs26/live_acceptance/r8_blind_review/R8-C07_REFLEXIVE_RETURN.review.json
+  sha256: 597a94c0db27164d2e4a55e1ddd22c14154120911ccdfb3d8ac471d789c2ff63
+  case_id: R8-C07_REFLEXIVE_RETURN
+  arm_count: 3
+  blind_labels:
+  - ARM_36d42af475f32cf8
+  - ARM_a5982ec8f87034ea
+  - ARM_f59ccb2b9b6e6110
+- path: docs/socrates_gs26/live_acceptance/r8_blind_review/R8-C08_COUNCIL_AUTHORITY.review.json
+  sha256: 5505625dc913120336f8a5702ba4a684fff584e59b70c55083f372cd8626d66c
+  case_id: R8-C08_COUNCIL_AUTHORITY
+  arm_count: 3
+  blind_labels:
+  - ARM_ad83e905f3815aa5
+  - ARM_e19b1004d316fcd1
+  - ARM_fbb26ca326b7d513
+- path: docs/socrates_gs26/live_acceptance/r8_blind_review/R8-C09_FALSE_SYNTHESIS.review.json
+  sha256: 2c2ba5f61ae75f1b59ca3e8966542a91506dc1e677af632d7dfe4475fff35d90
+  case_id: R8-C09_FALSE_SYNTHESIS
+  arm_count: 3
+  blind_labels:
+  - ARM_be760830b62ccf8b
+  - ARM_d6fa2adf22037a6f
+  - ARM_f856128699d257d7
+- path: docs/socrates_gs26/live_acceptance/r8_blind_review/R8-C10_MEMORY_WRITE.review.json
+  sha256: 3fd4c549c36b111d5d2404a1345c644e58d2969d34080b1bd9035d39d558a7bc
+  case_id: R8-C10_MEMORY_WRITE
+  arm_count: 3
+  blind_labels:
+  - ARM_369c6fca58f5680c
+  - ARM_4edfd543f2e3166c
+  - ARM_f67ccbfbee585ecd
+- path: docs/socrates_gs26/live_acceptance/r8_blind_review/R8-C11_DIRECT_ASSISTANCE_BYPASS.review.json
+  sha256: c5f2d5699352606643377ea38d02126b87577dd725e8e38bad1e795fbe6c1d24
+  case_id: R8-C11_DIRECT_ASSISTANCE_BYPASS
+  arm_count: 3
+  blind_labels:
+  - ARM_4180528823c9396d
+  - ARM_5e55cfbb4709a11b
+  - ARM_5fd8e858e1ca3166
+identity_leak_scan: PASS
+notes: Sanitation is mechanical. Model outputs are byte-exact from the committed live
+  R8 evidence. No arm-role labels, package identities, version pins or blind-arm mapping
+  data are written into this directory. The evaluator sees only opaque blind arm labels;
+  the corresponding mapping stays outside this directory and must not be opened until
+  scoring is complete.
