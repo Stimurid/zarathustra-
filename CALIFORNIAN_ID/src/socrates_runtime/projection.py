@@ -171,10 +171,30 @@ def new_projection_id() -> str:
 class ProjectedObject:
     """One typed object a projection recognised in the source.
 
-    ``source_span`` refers to the ORIGINAL source (``source_id`` +
-    character range) — never to a prior projection's derived text. This
-    invariant is what makes P2 an independent re-read rather than a
-    revision of P1's derivations.
+    Provenance fields (D-S26-PROV-004 repair):
+
+        * ``source_id`` + ``source_span`` — the ORIGINAL source and
+          character range this object indexes into. Never a prior
+          projection's derived text — that invariant is what makes P2
+          an independent re-read rather than a revision.
+        * ``projection_id`` — the :class:`ProjectionResult` that
+          produced this object.
+        * ``spec_fingerprint`` — the :class:`SemanticProjectionSpec`
+          or :class:`GeneratedCutterSpec` fingerprint that governed
+          the projection. A reader that carries only the object can
+          still answer "which spec / cutter?" by resolving this.
+        * ``operation_id`` — the operation the projection instantiated.
+        * ``ontology_id`` — the ontology / world-model assumption the
+          spec named.
+        * ``space_id`` / ``scene_id`` / ``branch_id`` — populated once
+          the runtime tracks these (see G-BD.2). Empty string means
+          "not applicable in this run" and remains a valid state — the
+          field exists so a future reader never has to resort to
+          list-position provenance.
+
+    Older stored objects (from before this schema) resolve their
+    provenance transitively via the enclosing :class:`ProjectionResult`.
+    See :func:`migrate_object_provenance` for the back-fill helper.
     """
     object_id: str
     object_family: str
@@ -183,6 +203,13 @@ class ProjectedObject:
     evidence: str
     recognition_basis: str
     confidence: float = 1.0
+    projection_id: str = ""
+    spec_fingerprint: str = ""
+    operation_id: str = ""
+    ontology_id: str = ""
+    space_id: str = ""
+    scene_id: str = ""
+    branch_id: str = ""
 
     def to_public(self) -> dict[str, Any]:
         d = asdict(self)
@@ -194,10 +221,11 @@ class ProjectedObject:
 class Residue:
     """Material the projection did NOT classify as a target object.
 
-    Residue is first-class — it is what forces reflection. A residue entry
-    records the source span, the visible category the material seems to
-    belong to (``apparent_family``), and why the current projection could
-    not accept it (``reason``).
+    Residue is first-class — it is what forces reflection. Provenance
+    fields mirror :class:`ProjectedObject` (D-S26-PROV-004 repair) so
+    a reader that carries only a residue entry can still identify the
+    projection, spec, operation, ontology and (when known)
+    space/scene/branch that produced it.
     """
     residue_id: str
     source_id: str
@@ -205,6 +233,13 @@ class Residue:
     evidence: str
     apparent_family: str
     reason: str
+    projection_id: str = ""
+    spec_fingerprint: str = ""
+    operation_id: str = ""
+    ontology_id: str = ""
+    space_id: str = ""
+    scene_id: str = ""
+    branch_id: str = ""
 
     def to_public(self) -> dict[str, Any]:
         d = asdict(self)
@@ -224,6 +259,29 @@ class ProjectionResult:
     later reclassify P1 as ACCEPTED_LOCAL after P2 covers the residue —
     that reclassification is a lineage update, not a rewrite of this
     result.
+
+    D-S26-PROV-003 explicit lineage relations:
+
+        * ``parent_projection_id`` — the projection this one continues
+          from (empty for P1).
+        * ``revises_projection_id`` — the projection this one revises
+          after a reflective retreat (empty when this is not a
+          reflection-triggered projection).
+        * ``triggered_by_diagnostic_id`` /
+          ``triggered_by_diagnostic_fingerprint`` — the diagnostic
+          that motivated the reflection producing THIS projection
+          (empty when this is not reflection-triggered).
+        * ``reflective_return_id`` — the :class:`ReflectiveReturn` that
+          the reflective epilogue emitted (empty when not applicable).
+        * ``spec_id`` — the spec's identity (for both
+          :class:`SemanticProjectionSpec` and
+          :class:`~capability_resolution.GeneratedCutterSpec`).
+        * ``capability_resolution_id`` — the resolver decision that
+          selected the branch used to produce this projection.
+
+    A trace/replay reader must be able to reconstruct the causal
+    graph P1 → diagnostics → ReflectiveReturn → P2 without list
+    position, by walking these typed relations.
     """
     projection_id: str
     spec_fingerprint: str
@@ -236,6 +294,16 @@ class ProjectionResult:
     counterexamples: list[str] = field(default_factory=list)
     internal_conflicts: list[str] = field(default_factory=list)
     status: ProjectionStatus = ProjectionStatus.EXPLORATORY
+    #: Explicit typed lineage (D-S26-PROV-003 repair). All optional /
+    #: empty-string defaults; the runtime backfills them when it has
+    #: the referenced record. Never derived from list position.
+    parent_projection_id: str = ""
+    revises_projection_id: str = ""
+    triggered_by_diagnostic_id: str = ""
+    triggered_by_diagnostic_fingerprint: str = ""
+    reflective_return_id: str = ""
+    spec_id: str = ""
+    capability_resolution_id: str = ""
 
     def to_public(self) -> dict[str, Any]:
         return {
@@ -250,7 +318,45 @@ class ProjectionResult:
             "counterexamples": list(self.counterexamples),
             "internal_conflicts": list(self.internal_conflicts),
             "status": self.status.value,
+            "parent_projection_id": self.parent_projection_id,
+            "revises_projection_id": self.revises_projection_id,
+            "triggered_by_diagnostic_id": self.triggered_by_diagnostic_id,
+            "triggered_by_diagnostic_fingerprint":
+                self.triggered_by_diagnostic_fingerprint,
+            "reflective_return_id": self.reflective_return_id,
+            "spec_id": self.spec_id,
+            "capability_resolution_id": self.capability_resolution_id,
         }
+
+    def stamp_object_provenance(self, *,
+                                operation_id: str = "",
+                                ontology_id: str = "",
+                                space_id: str = "",
+                                scene_id: str = "",
+                                branch_id: str = "") -> None:
+        """Backfill provenance on every object/residue produced by this
+        projection (D-S26-PROV-004 repair). Called by the runtime once
+        it has the projection_id + spec fingerprint + operation +
+        ontology; safe to call idempotently — existing values (from a
+        pre-hardening projection loaded from an older trace) are
+        preserved.
+        """
+        for o in self.objects:
+            o.projection_id = o.projection_id or self.projection_id
+            o.spec_fingerprint = o.spec_fingerprint or self.spec_fingerprint
+            o.operation_id = o.operation_id or operation_id
+            o.ontology_id = o.ontology_id or ontology_id
+            o.space_id = o.space_id or space_id
+            o.scene_id = o.scene_id or scene_id
+            o.branch_id = o.branch_id or branch_id
+        for r in self.residue:
+            r.projection_id = r.projection_id or self.projection_id
+            r.spec_fingerprint = r.spec_fingerprint or self.spec_fingerprint
+            r.operation_id = r.operation_id or operation_id
+            r.ontology_id = r.ontology_id or ontology_id
+            r.space_id = r.space_id or space_id
+            r.scene_id = r.scene_id or scene_id
+            r.branch_id = r.branch_id or branch_id
 
 
 # ---------------------------------------------------------- diagnostics

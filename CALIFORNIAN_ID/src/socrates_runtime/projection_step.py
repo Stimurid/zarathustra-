@@ -78,6 +78,17 @@ def make_projection_step(resolver: CapabilityResolver,
         if not op_kind:
             return
 
+        # D-S26-GEN-003 proposal path: if S4 (or any prior phase) emitted
+        # a typed ProjectionSynthesisProposal, prefer it. The proposal
+        # supplies the composition; the runtime supplies runtime
+        # provenance. This is where LIVE Socrates authoring its own
+        # declarative cutter proposal becomes executable end-to-end.
+        proposal = state.pending_projection_proposal
+        if proposal is not None:
+            _execute_proposal(state, proposal, resolver)
+            state.pending_projection_proposal = None
+            return
+
         target = _target_family_from_state(state, op_kind, cutter_registry)
         hypotheses = _hypotheses_from_state(state, op_kind)
 
@@ -166,6 +177,18 @@ def _execute_registered(state: PipelineState,
         revises=prev.projection_id if prev else "",
         status=ProjectionStatus.EXPLORATORY)
     result = cap.execute(state.input_text, spec)
+    # D-S26-PROV-003: explicit typed lineage on the ProjectionResult so
+    # a trace reader never has to rely on list position.
+    result.spec_id = spec.projection_id
+    result.parent_projection_id = spec.parent_projection_id
+    result.revises_projection_id = spec.revises
+    result.capability_resolution_id = getattr(
+        resolution, "resolution_id", "") or f"cres:{id(resolution):x}"
+    _apply_reflective_lineage(result, state)
+    # D-S26-PROV-004: stamp full projection-relative provenance onto
+    # every object + residue the cutter produced.
+    result.stamp_object_provenance(
+        operation_id=spec.operation_id, ontology_id=spec.ontology_id)
     state.projection_lineage.add_projection(result)
 
     diag = compute_diagnostics(result, spec, cutter_registry)
@@ -196,13 +219,19 @@ def _execute_synthesised(state: PipelineState,
         "resolver reported CUTTER_SPEC_SYNTHESIS without a compiled "
         "cutter — programming error")
     result = compiled.execute(state.input_text)
-    # Backfill parent_projection_id / revises so lineage reads cleanly.
-    if prev is not None and hasattr(result, "spec_fingerprint"):
-        # ProjectionResult has no parent field of its own — the spec
-        # carries it. We track lineage via ProjectionLineage.entries
-        # ordering (parent = previous entry) and via
-        # revisions[i].from_projection_id.
-        pass
+    # D-S26-PROV-003 repair: explicit typed lineage relations on the
+    # ProjectionResult (not just list position).
+    result.spec_id = compiled.spec.spec_id
+    result.parent_projection_id = (prev.projection_id if prev else "")
+    result.revises_projection_id = compiled.spec.revises
+    result.capability_resolution_id = getattr(
+        resolution, "resolution_id", "") or f"cres:{id(resolution):x}"
+    _apply_reflective_lineage(result, state)
+    # D-S26-PROV-004 repair: stamp full projection-relative provenance
+    # onto every object + residue.
+    result.stamp_object_provenance(
+        operation_id=compiled.spec.operation_id,
+        ontology_id=compiled.spec.ontology_id)
     state.projection_lineage.add_projection(result)
 
     diag = _compute_synthesised_diagnostics(result, resolution)
@@ -215,6 +244,66 @@ def _execute_synthesised(state: PipelineState,
         if result.status == ProjectionStatus.EXPLORATORY:
             state.projection_lineage.mark_status(
                 result.projection_id, ProjectionStatus.ACCEPTED_LOCAL)
+
+
+def _execute_proposal(state: PipelineState,
+                      proposal,
+                      resolver: CapabilityResolver) -> None:
+    """Execute a model-produced :class:`ProjectionSynthesisProposal`
+    end-to-end (D-S26-GEN-003).
+
+    Flow:
+        proposal (unprivileged data)
+        → resolver.resolve_from_proposal (schema/jurisdiction already
+          validated at phase_output parse time; here we compile-bind
+          against the primitive registry)
+        → on success: physical execution against ORIGINAL immutable
+          source; result recorded with full provenance
+        → on bind failure: typed :class:`OrganGap` recorded; no
+          fabricated result.
+    """
+    prev = (state.projection_lineage.entries[-1]
+            if state.projection_lineage.entries else None)
+    resolution = resolver.resolve_from_proposal(
+        proposal, source_id=state.source_id,
+        scene_ref=state.scene.telos,
+        parent_projection_id=(prev.projection_id if prev else ""))
+    state.capability_resolutions.append(resolution)
+    if resolution.kind == CapabilityResolutionKind.CUTTER_SPEC_SYNTHESIS:
+        _execute_synthesised(state, resolution, prev, resolver.cutter_registry)
+        return
+    # ORGAN_GAP path — no fabricated ProjectionResult.
+    _record_organ_gap(state, resolution)
+
+
+def _apply_reflective_lineage(result, state: PipelineState) -> None:
+    """Backfill triggered_by_diagnostic_* and reflective_return_id on a
+    ProjectionResult when the current pass is a reflective re-entry
+    (D-S26-PROV-003 repair). No-op when this is not a reflective pass.
+    """
+    revisions = state.projection_lineage.revisions
+    if not revisions:
+        return
+    last = revisions[-1]
+    diag_fingerprint = getattr(last, "diagnostic_fingerprint", "") or ""
+    # Locate the diagnostic by fingerprint.
+    diag_id = ""
+    for d in state.projection_lineage.diagnostics_history:
+        if d.fingerprint() == diag_fingerprint:
+            diag_id = d.projection_id
+            break
+    if diag_id and not result.triggered_by_diagnostic_id:
+        result.triggered_by_diagnostic_id = diag_id
+    if diag_fingerprint and not result.triggered_by_diagnostic_fingerprint:
+        result.triggered_by_diagnostic_fingerprint = diag_fingerprint
+    reflective_id = getattr(last, "reflective_id", "") or ""
+    if reflective_id and not result.reflective_return_id:
+        result.reflective_return_id = reflective_id
+    # If this is a reflection-triggered projection, revises_projection_id
+    # comes from the ReflectiveReturn's from_projection_id — more
+    # specific than the entries[-1] parent.
+    if last.from_projection_id and not result.revises_projection_id:
+        result.revises_projection_id = last.from_projection_id
 
 
 def _compute_synthesised_diagnostics(result,

@@ -12,12 +12,13 @@ Update after every generation. Tick items only when the specific gate is met by 
 
 ## G-BD.1 — Projection / generative hardening
 
-- [ ] D-S26-GEN-002 fingerprint canonicalisation (params + inputs + wiring).
-- [ ] D-S26-PROV-003 explicit typed lineage relations.
-- [ ] D-S26-PROV-004 direct object/residue provenance refs.
-- [ ] D-S26-GEN-003 `ProjectionSynthesisProposal` + S4 jurisdiction + schema.
-- [ ] Targeted tests: T-PROV-01, T-PROV-02, T-PROV-03, T-PROV-04.
-- [ ] Commit + push.
+- [x] D-S26-GEN-002 fingerprint canonicalisation (params + inputs + wiring).
+- [x] D-S26-PROV-003 explicit typed lineage relations.
+- [x] D-S26-PROV-004 direct object/residue provenance refs.
+- [x] D-S26-GEN-003 `ProjectionSynthesisProposal` + S4 jurisdiction + schema.
+- [x] Targeted tests: T-PROV-01 (5), T-PROV-02 (2), T-PROV-03 (3), T-PROV-04 (6). Total 16 passing.
+- [x] Full backend: 762 passing / 4 skipped (was 746/4; +16 hardening).
+- [x] Commit + push.
 
 ## G-BD.2 — Technical object model
 

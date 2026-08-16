@@ -35,6 +35,9 @@ from .errors import SocratesRuntimeError
 from .identity import SocratesRunConfiguration
 from .mount import MountedContext, TriggerAdmission
 from .projection import ReflectiveReturn
+# Late-import ProjectionSynthesisProposal to avoid a cycle: PhaseDelta
+# only needs the type name for the field annotation; runtime code
+# reads it as-is.
 from .routers import RouterSpec
 from .state import (
     Authority,
@@ -105,6 +108,10 @@ class PhaseDelta:
     #: ``invoke_council`` and from ``Terminal.RETURN_OPERATION`` — see
     #: :class:`socrates_runtime.projection.ReflectiveReturn`.
     reflective_return: ReflectiveReturn | None = None
+    #: S4 payload for a model-produced declarative cutter proposal
+    #: (D-S26-GEN-003). UNPRIVILEGED DATA — subject to schema +
+    #: compile-bind validation by the resolver before any execution.
+    projection_synthesis_proposal: Any = None       # ProjectionSynthesisProposal
 
     origin_kind: str = DeltaOrigin.SYSTEM_DETERMINISTIC
     raw_output: str = ""
@@ -123,6 +130,9 @@ class PhaseDelta:
             "invoke_execution": self.invoke_execution,
             "reflective_return": (self.reflective_return.to_public()
                                   if self.reflective_return else None),
+            "projection_synthesis_proposal": (
+                self.projection_synthesis_proposal.to_public()
+                if self.projection_synthesis_proposal is not None else None),
             "origin_kind": self.origin_kind,
             "parsed": self.parsed,
         }

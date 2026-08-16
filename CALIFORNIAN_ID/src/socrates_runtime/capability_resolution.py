@@ -41,6 +41,7 @@ Authority invariants (ADR §10):
 from __future__ import annotations
 
 import hashlib
+import json
 import re
 import secrets
 from dataclasses import asdict, dataclass, field
@@ -135,12 +136,61 @@ class GeneratedCutterSpec:
     status: str = "exploratory"
 
     def fingerprint(self) -> str:
-        payload = "\n".join([
-            self.operation_id, self.ontology_id, self.segmentation_policy,
-            "|".join(self.target_object_family),
-            "|".join(self.recognition_criteria),
-            "|".join(f"{p.name}:{p.primitive_id}" for p in self.primitives),
-        ])
+        """Canonical content hash — every field with executable meaning.
+
+        Repair for D-S26-GEN-002. The pre-repair implementation omitted
+        primitive params + inputs, so two materially different specs
+        (same operation + primitive ids, different regex or wiring)
+        collapsed to the same fingerprint and the loop dedup guards
+        treated them as one. Canonical rules:
+
+            * every field that changes executable meaning is included;
+            * primitive invocations are serialised in their declared
+              ORDER (order is executable meaning);
+            * each invocation includes name + primitive_id + normalised
+              params + ordered inputs;
+            * params dicts are serialised with sorted keys and
+              deterministic value ordering (via json.dumps sort_keys);
+            * output tuples that name accepted / residue outputs are
+              included (they route data flow);
+            * exclusions / contraindications / applicability_assumptions
+              are included (they alter execution boundaries) with
+              lexicographic canonical ordering — they are declaratively
+              set-shaped, so order is not part of the meaning.
+
+        Two specs with fingerprints equal → same executable meaning.
+        Two specs with different executable meaning → different
+        fingerprints. See test_capability_resolution_hardening.py
+        (T-PROV-01 family) for the guarantees this satisfies.
+        """
+        canonical = {
+            "operation_id": self.operation_id,
+            "ontology_id": self.ontology_id,
+            "segmentation_policy": self.segmentation_policy,
+            "target_object_family": list(self.target_object_family),
+            "recognition_criteria": list(self.recognition_criteria),
+            "evidence_requirements": sorted(self.evidence_requirements),
+            "exclusions": sorted(self.exclusions),
+            "contraindications": sorted(self.contraindications),
+            "applicability_assumptions": sorted(
+                self.applicability_assumptions),
+            "accepted_output": self.accepted_output,
+            "residue_output": self.residue_output,
+            # Primitives serialised in their DECLARED ORDER (invocation
+            # order is executable meaning). Each invocation's params
+            # dict is serialised with sorted keys.
+            "primitives": [
+                {
+                    "name": p.name,
+                    "primitive_id": p.primitive_id,
+                    "params": _canonical_params(p.params),
+                    "inputs": list(p.inputs),
+                }
+                for p in self.primitives
+            ],
+        }
+        payload = json.dumps(canonical, sort_keys=True,
+                             ensure_ascii=False, separators=(",", ":"))
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
 
     def to_public(self) -> dict[str, Any]:
@@ -167,6 +217,161 @@ class GeneratedCutterSpec:
 
 def new_spec_id() -> str:
     return f"cutspec_{secrets.token_hex(6)}"
+
+
+def new_proposal_id() -> str:
+    return f"cutprop_{secrets.token_hex(6)}"
+
+
+@dataclass
+class ProjectionSynthesisProposal:
+    """A LIVE-model-authored declarative CutterSpec proposal (D-S26-GEN-003).
+
+    Distinct from :class:`GeneratedCutterSpec`:
+
+        * a **proposal** is what the model emits in a phase delta —
+          typed, schema-validated, UNPRIVILEGED DATA. It may name a
+          composition graph over EXISTING authorised primitives, plus
+          the operation, target family, ontology hypothesis and other
+          spec ingredients.
+        * a **spec** is what the runtime constructs from an accepted
+          proposal + runtime provenance (projection_id, source_id,
+          scene_ref, parent lineage). Only specs are compile-bound
+          and executed.
+
+    Authority invariants (mirroring GeneratedCutterSpec):
+
+        * cannot mint executor authority;
+        * cannot install code / plugins;
+        * cannot create a shadow provider;
+        * cannot expand the primitive registry;
+        * cannot self-authorise durable state.
+
+    Runtime flow (see :meth:`CapabilityResolver.resolve_proposal`):
+
+        proposal
+        → schema validation (this file + JSON Schema)
+        → semantic/jurisdiction validation (phase_contracts, B03/S4/B08)
+        → materialise as :class:`GeneratedCutterSpec` under runtime
+          provenance
+        → compile_bind against PrimitiveRegistry
+        → physical execution from immutable source
+        → :class:`ProjectionResult` + :class:`ProjectionDiagnostics`
+
+    If any step fails closed → :class:`OrganGap`. The proposal itself
+    NEVER becomes an executable capability.
+    """
+    proposal_id: str
+    operation_id: str
+    target_object_family: tuple[str, ...]
+    ontology_hypothesis: str
+    recognition_criteria: tuple[str, ...]
+    segmentation_policy_hint: str
+    evidence_requirements: tuple[str, ...]
+    exclusions: tuple[str, ...]
+    contraindications: tuple[str, ...]
+    applicability_assumptions: tuple[str, ...]
+    #: Ordered composition graph over EXISTING primitives. Same shape
+    #: as GeneratedCutterSpec.primitives. Every primitive_id is
+    #: validated against the PrimitiveRegistry at compile-bind time —
+    #: an unknown primitive is a bind failure, not a runtime install.
+    primitives: tuple[PrimitiveInvocation, ...]
+    accepted_output: str = ""
+    residue_output: str = ""
+    #: Which prior projection this proposal is revising (empty when
+    #: this is a fresh proposal, not a reflective revision).
+    revises_projection_id: str = ""
+    #: Why: the diagnostic that motivated this proposal.
+    triggered_by_diagnostic_id: str = ""
+    triggered_by_diagnostic_fingerprint: str = ""
+    #: Human-readable rationale from the model (semantic — non-authoritative).
+    rationale: str = ""
+    #: Expected diagnostics / residue policy — what the model expects
+    #: this projection to leave as residue, and why that is acceptable.
+    expected_diagnostics: str = ""
+    expected_residue_policy: str = ""
+
+    def to_public(self) -> dict[str, Any]:
+        return {
+            "proposal_id": self.proposal_id,
+            "operation_id": self.operation_id,
+            "target_object_family": list(self.target_object_family),
+            "ontology_hypothesis": self.ontology_hypothesis,
+            "recognition_criteria": list(self.recognition_criteria),
+            "segmentation_policy_hint": self.segmentation_policy_hint,
+            "evidence_requirements": list(self.evidence_requirements),
+            "exclusions": list(self.exclusions),
+            "contraindications": list(self.contraindications),
+            "applicability_assumptions": list(self.applicability_assumptions),
+            "primitives": [p.to_public() for p in self.primitives],
+            "accepted_output": self.accepted_output,
+            "residue_output": self.residue_output,
+            "revises_projection_id": self.revises_projection_id,
+            "triggered_by_diagnostic_id": self.triggered_by_diagnostic_id,
+            "triggered_by_diagnostic_fingerprint":
+                self.triggered_by_diagnostic_fingerprint,
+            "rationale": self.rationale,
+            "expected_diagnostics": self.expected_diagnostics,
+            "expected_residue_policy": self.expected_residue_policy,
+        }
+
+    def to_spec(self, *, source_id: str, scene_ref: str,
+                spec_id: str = "", version: str = "v0.1_candidate",
+                parent_projection_id: str = "") -> GeneratedCutterSpec:
+        """Materialise as a :class:`GeneratedCutterSpec` with runtime
+        provenance filled in.
+
+        The proposal supplies the composition; the runtime supplies
+        source_id + scene_ref + parent_projection_id. Never
+        the other way around — a proposal that pre-fills runtime
+        provenance would be trying to speak for the runtime.
+        """
+        return GeneratedCutterSpec(
+            spec_id=spec_id or new_spec_id(),
+            version=version,
+            source_id=source_id,
+            scene_ref=scene_ref,
+            operation_id=self.operation_id,
+            ontology_id=(self.ontology_hypothesis
+                          or f"proposal/{self.operation_id.lower()}"),
+            target_object_family=tuple(self.target_object_family),
+            recognition_criteria=tuple(self.recognition_criteria),
+            segmentation_policy=(self.segmentation_policy_hint
+                                 or f"proposal/{self.operation_id.lower()}"),
+            evidence_requirements=tuple(self.evidence_requirements),
+            exclusions=tuple(self.exclusions),
+            contraindications=tuple(self.contraindications),
+            applicability_assumptions=tuple(self.applicability_assumptions),
+            primitives=tuple(self.primitives),
+            accepted_output=self.accepted_output,
+            residue_output=self.residue_output,
+            parent_projection_id=parent_projection_id,
+            revises=self.revises_projection_id,
+            status="exploratory")
+
+
+def _canonical_params(params: dict[str, Any]) -> dict[str, Any]:
+    """Normalise a params dict for fingerprint stability.
+
+    Rules:
+      * keys sorted;
+      * values that are lists/tuples preserved in their declared order
+        (order is meaningful for pattern params) but tuples cast to
+        lists so JSON-round-trip does not alter identity;
+      * nested dicts recursively normalised;
+      * everything else passed through — json.dumps + sort_keys handles
+        the rest.
+    """
+    out: dict[str, Any] = {}
+    for k in sorted(params):
+        v = params[k]
+        if isinstance(v, dict):
+            out[k] = _canonical_params(v)
+        elif isinstance(v, tuple):
+            out[k] = list(v)
+        else:
+            out[k] = v
+    return out
 
 
 # ---------------------------------------------------------- organ gap
@@ -602,6 +807,68 @@ class CapabilityResolver:
         self.cutter_registry = cutter_registry
         self.primitive_registry = primitive_registry
         self.synthesizer = synthesizer or SpecSynthesizer()
+
+    def resolve_from_proposal(self,
+                              proposal: "ProjectionSynthesisProposal",
+                              *, source_id: str, scene_ref: str,
+                              parent_projection_id: str = "",
+                              ) -> CapabilityResolution:
+        """Materialise a model-produced :class:`ProjectionSynthesisProposal`
+        into a :class:`GeneratedCutterSpec` and compile-bind it against
+        the primitive registry (D-S26-GEN-003).
+
+        The proposal supplies the composition; the runtime supplies
+        source_id + scene_ref + parent lineage. Fails closed on any
+        typed bind error → :class:`OrganGap` per the same three-branch
+        contract.
+
+        The proposal itself never becomes executable — only the
+        compiled cutter (a composition of already-registered
+        primitives) executes. The proposal cannot install code,
+        expand the registry, or mint executor authority.
+        """
+        spec = proposal.to_spec(source_id=source_id, scene_ref=scene_ref,
+                                parent_projection_id=parent_projection_id)
+        try:
+            compiled = compile_bind(spec, self.primitive_registry)
+        except BindingError as exc:
+            gap = OrganGap(
+                gap_id=new_gap_id(),
+                source_ref=source_id, scene_ref=scene_ref,
+                required_operation=proposal.operation_id,
+                required_attention_structure=(
+                    proposal.segmentation_policy_hint or "unspecified"),
+                insufficient_registered_capabilities=(
+                    tuple(self.cutter_registry.known_operations())),
+                insufficient_declarative_primitives=(
+                    tuple(self.primitive_registry.known())),
+                missing_capability_hypothesis=(
+                    f"model proposal for {proposal.operation_id!r} could "
+                    f"not compile-bind against registered primitives"),
+                evidence=(f"BindingError: {exc}",),
+                affected_scene_telos=scene_ref,
+                possible_development_direction=(
+                    "extend primitive registry or narrow the proposal"),
+                status="unresolved")
+            return CapabilityResolution(
+                kind=CapabilityResolutionKind.ORGAN_GAP,
+                operation_id=proposal.operation_id,
+                reason=(f"proposal {proposal.proposal_id} for operation "
+                        f"{proposal.operation_id!r} failed compile-bind: "
+                        f"{exc}"),
+                organ_gap=gap)
+        return CapabilityResolution(
+            kind=CapabilityResolutionKind.CUTTER_SPEC_SYNTHESIS,
+            operation_id=proposal.operation_id,
+            reason=(f"MODEL_PRODUCED proposal {proposal.proposal_id} "
+                    f"compile-bound against primitives "
+                    f"[{', '.join(p.primitive_id for p in spec.primitives)}]"),
+            generated_spec=spec, compiled_cutter=compiled,
+            binding_evidence={
+                **compiled.binding_evidence,
+                "proposal_id": proposal.proposal_id,
+                "proposal_origin": "MODEL_PRODUCED",
+            })
 
     def resolve(self, req: CapabilityRequest) -> CapabilityResolution:
         # (1) REGISTERED

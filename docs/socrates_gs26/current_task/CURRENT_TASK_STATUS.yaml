@@ -9,35 +9,63 @@ repository: 'C:/projects/zarathustra-push'
 remote: 'https://github.com/Stimurid/zarathustra-.git'
 branch: socrates/gs26-bach-didenko-integration
 start_head: 2ecc070000da153e4d6379df491ecca8de5330ed
-current_head: 2ecc070000da153e4d6379df491ecca8de5330ed   # updated per commit
-active_generation: G-BD.0
-completed_generations: []
-next_generation: G-BD.1
+current_head: SET_AT_COMMIT   # updated per commit; see git log for exact SHA
+active_generation: G-BD.2
+completed_generations: [G-BD.0, G-BD.1]
+next_generation: G-BD.2
 blockers: []
 open_defects:
   - id: D-S26-GEN-002
     summary: 'GeneratedCutterSpec.fingerprint() omits primitive params + inputs; collision risk.'
-    status: OPEN
-    target_generation: G-BD.1
+    status: RESOLVED
+    resolved_in_generation: G-BD.1
+    evidence: 'src/socrates_runtime/capability_resolution.py:GeneratedCutterSpec.fingerprint (canonical JSON serialization of every executable-meaning field, including primitive invocation ORDER + params + inputs). Tests: tests/workbench/test_capability_resolution_hardening.py::TestFingerprintCanonicalisation (5 tests).'
   - id: D-S26-PROV-003
     summary: 'Synthesised P1→P2 lineage relies on list position; no explicit typed relations.'
-    status: OPEN
-    target_generation: G-BD.1
+    status: RESOLVED
+    resolved_in_generation: G-BD.1
+    evidence: 'src/socrates_runtime/projection.py:ProjectionResult (added parent_projection_id, revises_projection_id, triggered_by_diagnostic_id/fingerprint, reflective_return_id, spec_id, capability_resolution_id). Backfilled by _execute_registered / _execute_synthesised / _apply_reflective_lineage in projection_step.py. Tests: tests/workbench/test_capability_resolution_hardening.py::TestExplicitLineage.'
   - id: D-S26-PROV-004
     summary: 'ProjectedObject/Residue lack direct refs to projection/spec/operation/ontology.'
-    status: OPEN
-    target_generation: G-BD.1
+    status: RESOLVED
+    resolved_in_generation: G-BD.1
+    evidence: 'src/socrates_runtime/projection.py:ProjectedObject + Residue (added projection_id, spec_fingerprint, operation_id, ontology_id, space_id, scene_id, branch_id); ProjectionResult.stamp_object_provenance() idempotent backfill. Called from _execute_registered + _execute_synthesised. Tests: tests/workbench/test_capability_resolution_hardening.py::TestObjectProvenance (3 tests).'
   - id: D-S26-GEN-003
-    summary: 'S4 output contract does not admit model-produced ProjectionSynthesisProposal; LIVE Socrates cannot author its own declarative cutter proposal.'
-    status: OPEN
-    target_generation: G-BD.1
-touched_files: []
+    summary: 'S4 output contract does not admit model-produced ProjectionSynthesisProposal.'
+    status: RESOLVED
+    resolved_in_generation: G-BD.1
+    evidence: |
+      Full path implemented:
+        * ProjectionSynthesisProposal typed dataclass in capability_resolution.py (unprivileged data; no execute/install/authorize/mint/deploy methods; verified by test)
+        * data/socrates/current/contracts/projection_synthesis_proposal.schema.json (public JSON Schema)
+        * phase_contracts.py: S4 output contract admits projection_synthesis_proposal; JURISDICTION[S4] extended
+        * phase_output.py: _build_projection_synthesis_proposal
+        * phase_executor.py: PhaseDelta.projection_synthesis_proposal (Any type to avoid cycle)
+        * pipeline.py: _apply_delta pushes proposal to state.pending_projection_proposal
+        * state.py: pending_projection_proposal field, public in to_public
+        * capability_resolution.py: CapabilityResolver.resolve_from_proposal (compile-bind or ORGAN_GAP)
+        * projection_step.py: _execute_proposal branch, preferred when state.pending_projection_proposal is set
+      Tests: tests/workbench/test_capability_resolution_hardening.py::TestProposalPath (4 tests) + TestS4ContractAcceptsProposal (2 tests including S4 round-trip through parse_and_validate_output).
+touched_files:
+  - CALIFORNIAN_ID/src/socrates_runtime/capability_resolution.py
+  - CALIFORNIAN_ID/src/socrates_runtime/projection.py
+  - CALIFORNIAN_ID/src/socrates_runtime/phase_contracts.py
+  - CALIFORNIAN_ID/src/socrates_runtime/phase_executor.py
+  - CALIFORNIAN_ID/src/socrates_runtime/phase_output.py
+  - CALIFORNIAN_ID/src/socrates_runtime/pipeline.py
+  - CALIFORNIAN_ID/src/socrates_runtime/projection_step.py
+  - CALIFORNIAN_ID/src/socrates_runtime/state.py
+  - CALIFORNIAN_ID/data/socrates/current/contracts/projection_synthesis_proposal.schema.json
+  - CALIFORNIAN_ID/tests/workbench/test_capability_resolution_hardening.py
+  - docs/socrates_gs26/current_task/CURRENT_TASK_STATUS.yaml
+  - docs/socrates_gs26/current_task/CURRENT_TASK_CHECKLIST.md
 test_state:
   full_backend:
-    tests_passed: 746
+    tests_passed: 762
     tests_skipped: 4
-    at_sha: 2ecc070000da153e4d6379df491ecca8de5330ed
+    delta_vs_start: '+16 hardening tests (T-PROV-01/02/03/04 families)'
   ui: NOT_RERUN_UNCHANGED_SURFACE
+  ui_justification: 'G-BD.1 only touches socrates_runtime + contracts + backend tests; no UI surface changed.'
 live_evidence_state:
   L1: NOT_RUN
   L2: NOT_RUN
@@ -49,11 +77,12 @@ live_evidence_state:
   L8: NOT_RUN
 nonclaims:
   - 'No LIVE evidence claimed yet.'
-  - 'BACH content not yet materialised as typed objects.'
+  - 'BACH content not yet materialised as typed objects (G-BD.2 target).'
   - 'Didenko coverage not yet started.'
   - 'v0.2 semantic bodies and R8 evidence remain immutable frozen controls.'
-  - 'P001_UNBLOCKED = NO (only start-state established; hardening not yet done).'
+  - 'Hardening D-S26-GEN-003 proves that PROPOSAL DATA can be authored by S4 and safely compile-bound. LIVE model actually producing such a proposal from an unhinted run remains a G-BD.11 (L5) target and IS NOT YET DEMONSTRATED — this is deterministic proof of the runtime path, not of LIVE production authorship.'
+  - 'P001_UNBLOCKED = NO (hardening done; BACH/Didenko integration not started).'
 resume_from:
-  generation: G-BD.1
-  what_to_do_next: 'Start hardening defects D-S26-GEN-002 / -PROV-003 / -PROV-004 / -GEN-003 with targeted tests, then commit + push.'
+  generation: G-BD.2
+  what_to_do_next: 'Materialise first-class technical objects (EpistemicSpace, WorldModelMount, SceneBranch, EpistemicPassport, MemoryValidityScope, ContextTransduction, ConflictHoldingState). Extend existing state; write schemas + typed dataclasses + validation. Add migrations. Push after each coherent group.'
 last_updated: '2026-08-17T00:00:00Z'

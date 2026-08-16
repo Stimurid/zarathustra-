@@ -265,6 +265,14 @@ class PipelineState:
     #: ``target_object_family`` + ``required_attention_structure`` a
     #: synthesis or organ-gap branch needs. Empty = no hypothesis.
     operation_hypotheses: dict[str, Any] = field(default_factory=dict)
+    #: A model-produced :class:`ProjectionSynthesisProposal` awaiting
+    #: resolver validation + compile-bind + execution (D-S26-GEN-003).
+    #: Set by S4's delta when the model authored a proposal; consumed
+    #: by the projection step (which routes it through
+    #: :meth:`CapabilityResolver.resolve_from_proposal` and clears the
+    #: field after resolution). None means "no model-produced
+    #: proposal this pass".
+    pending_projection_proposal: Any = None
 
     @property
     def source_id(self) -> str:
@@ -305,4 +313,7 @@ class PipelineState:
                 r.to_public() for r in self.capability_resolutions],
             "operation_target_family": list(self.operation_target_family),
             "operation_hypotheses": dict(self.operation_hypotheses),
+            "pending_projection_proposal": (
+                self.pending_projection_proposal.to_public()
+                if self.pending_projection_proposal is not None else None),
         }

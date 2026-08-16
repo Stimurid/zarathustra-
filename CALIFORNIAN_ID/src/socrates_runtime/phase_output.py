@@ -35,6 +35,11 @@ from .projection import (
     ReturnTarget,
     new_reflective_id,
 )
+from .capability_resolution import (
+    PrimitiveInvocation,
+    ProjectionSynthesisProposal,
+    new_proposal_id,
+)
 from .state import (
     Authority,
     MemoryProposal,
@@ -215,7 +220,54 @@ def _build_delta(phase: str, obj: dict[str, Any]) -> PhaseDelta:
         raise JurisdictionViolation(
             f"{phase}: not authorised to write reflective_return")
 
+    if ("projection_synthesis_proposal" in obj
+            and "projection_synthesis_proposal" in juris):
+        prop = obj["projection_synthesis_proposal"]
+        if prop is not None:
+            delta.projection_synthesis_proposal = \
+                _build_projection_synthesis_proposal(prop)
+    elif ("projection_synthesis_proposal" in obj
+          and "projection_synthesis_proposal" not in juris):
+        raise JurisdictionViolation(
+            f"{phase}: not authorised to write "
+            f"projection_synthesis_proposal")
+
     return delta
+
+
+def _build_projection_synthesis_proposal(
+        d: dict[str, Any]) -> ProjectionSynthesisProposal:
+    prims = tuple(
+        PrimitiveInvocation(
+            name=str(p.get("name") or ""),
+            primitive_id=str(p.get("primitive_id") or ""),
+            params=dict(p.get("params") or {}),
+            inputs=tuple(p.get("inputs") or ()))
+        for p in (d.get("primitives") or ()))
+    return ProjectionSynthesisProposal(
+        proposal_id=str(d.get("proposal_id") or new_proposal_id()),
+        operation_id=str(d.get("operation_id") or ""),
+        target_object_family=tuple(d.get("target_object_family") or ()),
+        ontology_hypothesis=str(d.get("ontology_hypothesis") or ""),
+        recognition_criteria=tuple(d.get("recognition_criteria") or ()),
+        segmentation_policy_hint=str(d.get("segmentation_policy_hint") or ""),
+        evidence_requirements=tuple(d.get("evidence_requirements") or ()),
+        exclusions=tuple(d.get("exclusions") or ()),
+        contraindications=tuple(d.get("contraindications") or ()),
+        applicability_assumptions=tuple(d.get("applicability_assumptions")
+                                         or ()),
+        primitives=prims,
+        accepted_output=str(d.get("accepted_output") or ""),
+        residue_output=str(d.get("residue_output") or ""),
+        revises_projection_id=str(d.get("revises_projection_id") or ""),
+        triggered_by_diagnostic_id=str(d.get("triggered_by_diagnostic_id")
+                                        or ""),
+        triggered_by_diagnostic_fingerprint=str(
+            d.get("triggered_by_diagnostic_fingerprint") or ""),
+        rationale=str(d.get("rationale") or ""),
+        expected_diagnostics=str(d.get("expected_diagnostics") or ""),
+        expected_residue_policy=str(d.get("expected_residue_policy") or ""),
+    )
 
 
 def _build_reflective_return(d: dict[str, Any]) -> ReflectiveReturn:

@@ -44,6 +44,60 @@ def _trigger_array_schema() -> dict[str, Any]:
     }
 
 
+def _projection_synthesis_proposal_schema() -> dict[str, Any]:
+    """S4 payload for a model-produced declarative cutter proposal
+    (D-S26-GEN-003 repair).
+
+    UNPRIVILEGED DATA. The proposal may name a composition graph over
+    EXISTING primitives; the runtime validates + compile-binds it
+    before any execution. See
+    ``data/socrates/current/contracts/projection_synthesis_proposal.schema.json``.
+    """
+    return {
+        "type": ["object", "null"],
+        "additionalProperties": False,
+        "required": ["proposal_id", "operation_id",
+                     "target_object_family", "primitives"],
+        "properties": {
+            "proposal_id": {"type": "string"},
+            "operation_id": {"type": "string"},
+            "target_object_family": {
+                "type": "array", "items": {"type": "string"},
+                "minItems": 1},
+            "ontology_hypothesis": {"type": "string"},
+            "recognition_criteria": {"type": "array",
+                                     "items": {"type": "string"}},
+            "segmentation_policy_hint": {"type": "string"},
+            "evidence_requirements": {"type": "array",
+                                      "items": {"type": "string"}},
+            "exclusions": {"type": "array", "items": {"type": "string"}},
+            "contraindications": {"type": "array",
+                                  "items": {"type": "string"}},
+            "applicability_assumptions": {"type": "array",
+                                          "items": {"type": "string"}},
+            "primitives": {
+                "type": "array", "minItems": 1,
+                "items": {
+                    "type": "object", "additionalProperties": False,
+                    "required": ["name", "primitive_id"],
+                    "properties": {
+                        "name": {"type": "string"},
+                        "primitive_id": {"type": "string"},
+                        "params": {"type": "object"},
+                        "inputs": {"type": "array",
+                                   "items": {"type": "string"}}}}},
+            "accepted_output": {"type": "string"},
+            "residue_output": {"type": "string"},
+            "revises_projection_id": {"type": "string"},
+            "triggered_by_diagnostic_id": {"type": "string"},
+            "triggered_by_diagnostic_fingerprint": {"type": "string"},
+            "rationale": {"type": "string"},
+            "expected_diagnostics": {"type": "string"},
+            "expected_residue_policy": {"type": "string"},
+        },
+    }
+
+
 def _reflective_return_schema() -> dict[str, Any]:
     """S7 payload for internal reflective retreat.
 
@@ -177,6 +231,12 @@ CONTRACTS: dict[str, dict[str, Any]] = {
                 },
             },
             "triggers": _trigger_array_schema(),
+            #: D-S26-GEN-003: LIVE Socrates may propose a typed
+            #: declarative cutter spec here — unprivileged data,
+            #: subject to schema validation + compile-bind by the
+            #: resolver before any execution.
+            "projection_synthesis_proposal":
+                _projection_synthesis_proposal_schema(),
         },
     },
     "S5": {
@@ -256,7 +316,8 @@ JURISDICTION: dict[str, frozenset[str]] = {
     "S1": frozenset({"scene", "triggers"}),
     "S2": frozenset({"triggers"}),
     "S3": frozenset({"origin", "triggers"}),
-    "S4": frozenset({"operation", "triggers"}),
+    "S4": frozenset({"operation", "triggers",
+                      "projection_synthesis_proposal"}),
     "S5": frozenset({"triggers", "memory_proposal"}),
     "S6": frozenset({"ownership", "triggers", "memory_proposal"}),
     "S7": frozenset({"triggers", "invoke_council", "reflective_return"}),

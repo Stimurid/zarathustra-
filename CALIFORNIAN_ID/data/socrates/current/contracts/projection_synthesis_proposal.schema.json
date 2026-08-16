@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs26/projection_synthesis_proposal.schema.json",
+  "title": "ProjectionSynthesisProposal",
+  "description": "D-S26-GEN-003: LIVE-model-authored declarative cutter proposal. UNPRIVILEGED DATA. Cannot mint executor authority, install code, expand the primitive registry, or create a shadow provider. Runtime materialises as GeneratedCutterSpec under its own provenance, compile-binds against the PrimitiveRegistry, and physically executes — OR emits ORGAN_GAP on any bind failure. Emitted from S4 phase deltas only (see socrates.phase.S4).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["proposal_id", "operation_id",
+               "target_object_family", "primitives"],
+  "properties": {
+    "proposal_id": {"type": "string", "minLength": 1},
+    "operation_id": {"type": "string", "minLength": 1},
+    "target_object_family": {
+      "type": "array", "items": {"type": "string"}, "minItems": 1
+    },
+    "ontology_hypothesis": {"type": "string"},
+    "recognition_criteria": {"type": "array", "items": {"type": "string"}},
+    "segmentation_policy_hint": {"type": "string"},
+    "evidence_requirements": {"type": "array", "items": {"type": "string"}},
+    "exclusions": {"type": "array", "items": {"type": "string"}},
+    "contraindications": {"type": "array", "items": {"type": "string"}},
+    "applicability_assumptions": {"type": "array", "items": {"type": "string"}},
+    "primitives": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["name", "primitive_id"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "primitive_id": {"type": "string", "minLength": 1},
+          "params": {"type": "object"},
+          "inputs": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "accepted_output": {"type": "string"},
+    "residue_output": {"type": "string"},
+    "revises_projection_id": {"type": "string"},
+    "triggered_by_diagnostic_id": {"type": "string"},
+    "triggered_by_diagnostic_fingerprint": {"type": "string"},
+    "rationale": {"type": "string"},
+    "expected_diagnostics": {"type": "string"},
+    "expected_residue_policy": {"type": "string"}
+  }
+}

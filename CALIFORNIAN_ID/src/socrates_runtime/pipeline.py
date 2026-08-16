@@ -546,6 +546,16 @@ class PipelineExecutor:
             self._record_reflective_context(state, delta.reflective_return,
                                             trace=None)
 
+        # D-S26-GEN-003: S4 may emit a typed ProjectionSynthesisProposal.
+        # Push it into state.pending_projection_proposal so the
+        # projection step (which runs after the linear pass) can route
+        # it through the resolver. Idempotent — a later phase's empty
+        # proposal does not clear an earlier one.
+        proposal = getattr(delta, "projection_synthesis_proposal", None)
+        if proposal is not None and \
+                "projection_synthesis_proposal" in juris:
+            state.pending_projection_proposal = proposal
+
         # Target-phase context consumption. When the phase named as
         # ``return_target`` on the pending reflective context actually
         # runs and emits its own delta (this method has just applied
