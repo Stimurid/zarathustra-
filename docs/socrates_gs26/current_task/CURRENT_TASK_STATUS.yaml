@@ -1,0 +1,59 @@
+# Durable status for SOCRATES-GS26X-BACH-DIDENKO-20260817-001.
+# Updated by every generation checkpoint. Owner-verified single source
+# of truth for resume state. Do NOT depend on chat memory.
+
+task_id: SOCRATES-GS26X-BACH-DIDENKO-20260817-001
+status: IN_PROGRESS
+authority_date: '2026-08-17'
+repository: 'C:/projects/zarathustra-push'
+remote: 'https://github.com/Stimurid/zarathustra-.git'
+branch: socrates/gs26-bach-didenko-integration
+start_head: 2ecc070000da153e4d6379df491ecca8de5330ed
+current_head: 2ecc070000da153e4d6379df491ecca8de5330ed   # updated per commit
+active_generation: G-BD.0
+completed_generations: []
+next_generation: G-BD.1
+blockers: []
+open_defects:
+  - id: D-S26-GEN-002
+    summary: 'GeneratedCutterSpec.fingerprint() omits primitive params + inputs; collision risk.'
+    status: OPEN
+    target_generation: G-BD.1
+  - id: D-S26-PROV-003
+    summary: 'Synthesised P1→P2 lineage relies on list position; no explicit typed relations.'
+    status: OPEN
+    target_generation: G-BD.1
+  - id: D-S26-PROV-004
+    summary: 'ProjectedObject/Residue lack direct refs to projection/spec/operation/ontology.'
+    status: OPEN
+    target_generation: G-BD.1
+  - id: D-S26-GEN-003
+    summary: 'S4 output contract does not admit model-produced ProjectionSynthesisProposal; LIVE Socrates cannot author its own declarative cutter proposal.'
+    status: OPEN
+    target_generation: G-BD.1
+touched_files: []
+test_state:
+  full_backend:
+    tests_passed: 746
+    tests_skipped: 4
+    at_sha: 2ecc070000da153e4d6379df491ecca8de5330ed
+  ui: NOT_RERUN_UNCHANGED_SURFACE
+live_evidence_state:
+  L1: NOT_RUN
+  L2: NOT_RUN
+  L3: NOT_RUN
+  L4: NOT_RUN
+  L5: NOT_RUN
+  L6: NOT_RUN
+  L7: NOT_RUN
+  L8: NOT_RUN
+nonclaims:
+  - 'No LIVE evidence claimed yet.'
+  - 'BACH content not yet materialised as typed objects.'
+  - 'Didenko coverage not yet started.'
+  - 'v0.2 semantic bodies and R8 evidence remain immutable frozen controls.'
+  - 'P001_UNBLOCKED = NO (only start-state established; hardening not yet done).'
+resume_from:
+  generation: G-BD.1
+  what_to_do_next: 'Start hardening defects D-S26-GEN-002 / -PROV-003 / -PROV-004 / -GEN-003 with targeted tests, then commit + push.'
+last_updated: '2026-08-17T00:00:00Z'
