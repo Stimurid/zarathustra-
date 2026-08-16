@@ -249,6 +249,22 @@ class PipelineState:
     #: chain-of-thought. Cleared when the return_target phase applies a
     #: fresh delta (see :meth:`PipelineExecutor._apply_delta`).
     pending_reflective_context: Any = None
+    #: Every :class:`CapabilityResolution` the projection step made on
+    #: this run, in order. Records whether each operation was resolved
+    #: as REGISTERED_CAPABILITY, CUTTER_SPEC_SYNTHESIS, or ORGAN_GAP,
+    #: plus the reason and any generated spec / organ gap. Public typed
+    #: evidence — a trace reader can prove *why* each branch was chosen.
+    capability_resolutions: list[Any] = field(default_factory=list)
+    #: Optional operation-specific target family override (opt-in for
+    #: callers that want to steer the resolver without registering a
+    #: whole cutter). Empty tuple means "let the resolver infer".
+    operation_target_family: tuple[str, ...] = ()
+    #: Optional synthesis hypotheses per operation kind. Consumed by
+    #: :class:`CapabilityResolver` via the projection step. Enables a
+    #: caller (or a live prompt) to supply the ``regex_pattern`` +
+    #: ``target_object_family`` + ``required_attention_structure`` a
+    #: synthesis or organ-gap branch needs. Empty = no hypothesis.
+    operation_hypotheses: dict[str, Any] = field(default_factory=dict)
 
     @property
     def source_id(self) -> str:
@@ -285,4 +301,8 @@ class PipelineState:
             "pending_reflective_context": (
                 self.pending_reflective_context.to_public()
                 if self.pending_reflective_context is not None else None),
+            "capability_resolutions": [
+                r.to_public() for r in self.capability_resolutions],
+            "operation_target_family": list(self.operation_target_family),
+            "operation_hypotheses": dict(self.operation_hypotheses),
         }

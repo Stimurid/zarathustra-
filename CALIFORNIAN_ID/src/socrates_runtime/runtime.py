@@ -27,8 +27,13 @@ from .errors import (
     HistoricalFallbackForbidden,
     SocratesRuntimeError,
 )
+from .capability_resolution import CapabilityResolver
 from .cutter_registry import CutterRegistry, build_default_registry
 from .governor import InterventionGovernor
+from .projection_primitives import (
+    PrimitiveRegistry,
+    build_default_primitive_registry,
+)
 from .identity import SocratesIdentity, SocratesRunConfiguration
 from .mount import MountedContext, SemanticMountPolicy
 from .phase_executor import (
@@ -94,7 +99,9 @@ class SocratesRuntime:
                  routers_dir: Path | None = None,
                  trace_dir: Path | None = None,
                  registry: SemanticBodyRegistry | None = None,
-                 cutter_registry: CutterRegistry | None = None) -> None:
+                 cutter_registry: CutterRegistry | None = None,
+                 primitive_registry: PrimitiveRegistry | None = None,
+                 capability_resolver: CapabilityResolver | None = None) -> None:
         self.registry = registry or SemanticBodyRegistry(
             semantic_dir=semantic_dir, mount_dir=mount_dir)
         self.mount_policy = SemanticMountPolicy(self.registry,
@@ -107,9 +114,22 @@ class SocratesRuntime:
         # is registered leave the projection step a no-op — the
         # direct-assistance fast path is not affected.
         self.cutter_registry = cutter_registry or build_default_registry()
+        # ADR-S26-023: the three-branch capability resolver
+        # (REGISTERED → SYNTHESIS → ORGAN_GAP). The default primitive
+        # registry ships four generic primitives sufficient for
+        # pattern-based synthesis; more can be registered by callers
+        # that supply their own PrimitiveRegistry.
+        self.primitive_registry = (primitive_registry
+                                    or build_default_primitive_registry())
+        self.capability_resolver = (capability_resolver
+                                     or CapabilityResolver(
+                                         self.cutter_registry,
+                                         self.primitive_registry))
         self.executor = PipelineExecutor(
             self.mount_policy, self.router_registry, self.governor,
-            projection_step=make_projection_step(self.cutter_registry))
+            projection_step=make_projection_step(
+                self.capability_resolver,
+                cutter_registry=self.cutter_registry))
         self.identity = SocratesIdentity.bootstrap()
         self.trace_dir = Path(trace_dir) if trace_dir else Path.cwd() / "runs" / "socrates"
 

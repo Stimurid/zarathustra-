@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs26/capability_resolution.schema.json",
+  "title": "CapabilityResolution",
+  "description": "ADR-S26-023 typed record of the three-branch capability resolver's decision. Every non-registered result must carry the typed reason the earlier branches failed — no silent branch selection.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind", "operation_id", "reason"],
+  "properties": {
+    "kind": {
+      "enum": ["REGISTERED_CAPABILITY", "CUTTER_SPEC_SYNTHESIS",
+               "ORGAN_GAP"]
+    },
+    "operation_id": {"type": "string", "minLength": 1},
+    "reason": {"type": "string", "minLength": 1},
+    "registered_capability_id": {"type": "string"},
+    "generated_spec": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "generated_cutter_spec.schema.json"}
+      ]
+    },
+    "binding_evidence": {"type": "object"},
+    "organ_gap": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "organ_gap.schema.json"}
+      ]
+    }
+  }
+}

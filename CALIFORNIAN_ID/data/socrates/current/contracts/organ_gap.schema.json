@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs26/organ_gap.schema.json",
+  "title": "OrganGap",
+  "description": "ADR-S26-023 typed record that the runtime lacks an authorised way to physically execute the required kind of look. Distinct from SOURCE_GAP and from SCENE_GAP. Emitted only when BOTH registered-capability lookup AND declarative composition through existing primitives have failed with typed reasons. Never a shortcut. `activation_authority` is always the constant string 'NONE'.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "gap_id", "source_ref", "required_operation",
+    "required_attention_structure",
+    "insufficient_registered_capabilities",
+    "insufficient_declarative_primitives",
+    "missing_capability_hypothesis", "evidence",
+    "activation_authority"
+  ],
+  "properties": {
+    "gap_id": {"type": "string", "minLength": 1},
+    "source_ref": {"type": "string"},
+    "scene_ref": {"type": "string"},
+    "required_operation": {"type": "string", "minLength": 1},
+    "required_attention_structure": {"type": "string"},
+    "insufficient_registered_capabilities": {
+      "type": "array", "items": {"type": "string"}
+    },
+    "insufficient_declarative_primitives": {
+      "type": "array", "items": {"type": "string"}
+    },
+    "missing_capability_hypothesis": {"type": "string"},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "counterexamples": {"type": "array", "items": {"type": "string"}},
+    "affected_scene_telos": {"type": "string"},
+    "possible_development_direction": {"type": "string"},
+    "status": {"type": "string"},
+    "activation_authority": {"const": "NONE"}
+  }
+}
