@@ -1,0 +1,119 @@
+{
+  "case_id": "R8-C07_REFLEXIVE_RETURN",
+  "blind_arm_label": "ARM_36d42af475f32cf8",
+  "model": "gpt-4.1",
+  "request_sha256": "0cfb0664e80d4cfe27471c2f35b8d432d7cbbeacd6801404902093f8370b9806",
+  "dry_run": false,
+  "timestamp_unix": 1786901304,
+  "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+  "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+  "arm_context_key": "CTX_R8-C07_REFLEXIVE_RETURN_ABLATION_B07",
+  "arm_context_sha256": "dd09f1ece4e0517492cbc83093c3d5932f27c900d1775566de46cb43acc74cda",
+  "version_pins": [
+    {
+      "key": "SEM_PROMPT_MANIFEST",
+      "drive_id": "14TM9Jz7MuXfFBBZtt71oUpDgRpqiJX7K",
+      "sha256": "ecf73f2070630e58d327da52bee17ea5c26e21e4cf3f52fd6f024de2962ec2f1",
+      "bytes": 6841,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "SEM_PROMPT_BINDINGS",
+      "drive_id": "1w2M4mmr6L8uq5Bl8JH-5OlXnqB0optqj",
+      "sha256": "75809760a2c996bb6f3ff9eeaa1da8c352e782a9c894d7eb163d6cee6151fbe3",
+      "bytes": 2382,
+      "semantic_version": "0.4.0"
+    },
+    {
+      "key": "SEM_MOUNT_MANIFEST",
+      "drive_id": "1c36gHaEtEZ8RN_w_HoHdJ1cxWOdGeUEs",
+      "sha256": "cbf2b6029466ef6f0ae9b7b9cb46becfe919c1c96e415fbd1938e181c72ff596",
+      "bytes": 4449,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "CONTEXT_ASSEMBLY_POLICY",
+      "drive_id": "15NotlXcnW_pbcnc1JIg6RA52RnU8qQGM",
+      "sha256": "e149aabd333d28463868ac03297638e728671e3ecc970c8ddd6dc88bfd74d286",
+      "bytes": 2075,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "SEM_BODY_REGISTRY",
+      "drive_id": "1olwVODjg8IJZhRe2n0B44ipuMwwt6z2S",
+      "sha256": "01d8db27efcbeef5c86cc3e9ad95831013d653a8cffce0bc8ede6c6c1482a680",
+      "bytes": 4525,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "TRIGGER_ADMISSION_POLICY",
+      "drive_id": "1axqBiUSe3BVfPv5AwX1XOKes4l84mmmU",
+      "sha256": "660745c4597dffed301247bd9e854b0b1da85040ef2286509fd3d397912b6bfe",
+      "bytes": 2583,
+      "semantic_version": "0.1.0"
+    },
+    {
+      "key": "SEM_P09",
+      "drive_id": "1gx1Ia3sKzO0c_7Rxc3f0UQRLHbxapmPv",
+      "sha256": "9e90c1c12bfb6f17aac18f557b89db18194658987e714bbd45e5975f7c3dbbb6",
+      "bytes": 4448,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "CORE",
+      "drive_id": "123QTjcjJjQT1m-tsUsGwFaGpDaKgCKOG",
+      "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+      "bytes": 41732,
+      "semantic_version": "0.2"
+    },
+    {
+      "key": "B05",
+      "drive_id": "1SPyynwGVkCxT4WJZuVYtheOqtwlUZ09T",
+      "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+      "bytes": 12947,
+      "semantic_version": "0.2"
+    },
+    {
+      "key": "B10",
+      "drive_id": "1JKljOIfiLdYQGg7SmNqNypt6hXYcVuDr",
+      "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+      "bytes": 11906,
+      "semantic_version": "0.2"
+    },
+    {
+      "key": "B02",
+      "drive_id": "1QNAptEERaQ9hQtZOQf1MYL-SKmKEM8N4",
+      "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+      "bytes": 12356,
+      "semantic_version": "0.2"
+    },
+    {
+      "key": "B06",
+      "drive_id": "1Og6PyapSUvyVi23c8dszfNWw4RILzz-W",
+      "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+      "bytes": 14135,
+      "semantic_version": "0.2"
+    }
+  ],
+  "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+  "output": "**Socratic execution (G-S25, v0.2, semantic):**\n\nGiven:  \n- The **chosen method** is actively **distorting the object** (i.e., the operation as currently configured is producing an output that does not faithfully represent the intended or source object).\n- There is already a **valid partial result** (i.e., some work has been done that is not distorted and is worth preserving).\n\n**Socratic response, step-by-step (with reference to the mounted semantic bodies):**\n\n---\n\n### 1. **Recognize the Material Seam**  \n(Core, B03, B07, B10)\n\n- The fact that the method is distorting the object is a **material seam**: the operation is no longer producing a faithful or intended result.\n- This triggers the need for **reflection** (B07: Reflexive Retreat/Return) and possibly an **operation change** (B03: Operation/Object/Applicability/Open World).\n\n---\n\n### 2. **Preserve Valid Work**  \n(Core, B07, B05)\n\n- **Do not discard** the valid partial result.  \n- According to B07, when a reflective exit is triggered, **preserve all valid work** up to the point of distortion.\n- B05 (Memory/Formation) also requires that partial, valid results be retained as evidence and not erased by the failed method.\n\n---\n\n### 3. **Diagnose the Source of Distortion**  \n(B03, B07)\n\n- Identify **how** the method is distorting the object:\n    - Is the method inapplicable to the object type?\n    - Is there an ontology mismatch?\n    - Is the operation forcing a nearest class or generating a new concept not present in the source?\n- This diagnosis is necessary to determine the correct level of retreat (B07: R1–R5).\n\n---\n\n### 4. **Reflective Exit and Return Condition**  \n(B07, B10)\n\n- **Initiate a reflective exit** at the shallowest sufficient level (B07: R1–R5), depending on the nature of the distortion.\n- **Record**:\n    - The trigger (method-object distortion).\n    - The preserved work (valid partial result).\n    - The return condition (e.g., \"when a more suitable method is available\" or \"after operation re-selection\").\n- **Do not escalate** to deep reflection unless the distortion cannot be repaired at the operation level.\n\n---\n\n### 5. **Propose Next Action**  \n(B10)\n\n- **Options**:\n    - **Change the method/operation**: If a more suitable method is available, propose switching to it.\n    - **Return to the user**: If human input is needed to select a new method or clarify the object, return the operation with a minimal, typed question.\n    - **Preserve aporia**: If no suitable method exists, preserve the unresolved state and the partial result.\n- **Do not discard** the partial result or smooth over the distortion in the final output.\n\n---\n\n### 6. **Render the Seam in Output (if user-facing)**  \n(B10)\n\n- If output is user-visible, **explicitly state**:\n    - That the current method was found to distort the object.\n    - That a valid partial result has been preserved.\n    - What the next step or open question is (e.g., \"A different method may be needed to complete this task without distortion. Would you like to select an alternative approach?\").\n\n---\n\n### 7. **Contract and Invariant Compliance**\n\n- **Do not** silently continue with a distorting method (violates Core, B03, B07, B10).\n- **Do not** erase or overwrite valid partial results (B05, B07).\n- **Do not** manufacture a new object or method without explicit authority or user input (Core, B03, B08).\n- **Do not** collapse the seam between valid and distorted work in the output (B10).\n\n---\n\n## **Summary Table**\n\n| Step | Action | Reference |\n|------|--------|-----------|\n| 1 | Recognize method-object distortion as a material seam | Core, B03, B07, B10 |\n| 2 | Preserve valid partial result | B05, B07 |\n| 3 | Diagnose source of distortion | B03, B07 |\n| 4 | Initiate reflective exit, record preserved work and return condition | B07, B10 |\n| 5 | Propose next action (change method, return to user, preserve aporia) | B10 |\n| 6 | Render seam in output if user-facing | B10 |\n| 7 | Ensure contract/invariant compliance | Core, B03, B05, B07, B08, B10 |\n\n---\n\n## **Example Output (User-Facing, if permitted):**\n\n> \"The current method began to distort the object, so I have preserved the valid partial result up to that point. To proceed without distortion, a different method or approach may be needed. Would you like to select an alternative method, or should I propose one?\"\n\n---\n\n**If not user-facing:**  \n- Record the reflective exit, preserved work, and return condition in the operational trace.\n- Do not proceed with the distorting method.\n- Await further instruction or authority to select a new method.\n\n---\n\n**References:**  \n- Core: Section 5.2, 5.3, 7.2, 7.6, 15  \n- B03: Operation applicability, object/method mismatch, open-world diagnosis  \n- B05: Preservation of valid work, memory ecology  \n- B07: Reflexive retreat/return, preservation of commitments and valid work, return condition  \n- B10: Intervention selection, rendering seams, preserving aporia, refusal/return discipline\n\n---\n\n**In summary:**  \n**Stop the distorting method, preserve the valid partial result, diagnose the cause, initiate a reflective exit at the appropriate level, and either propose a new method, return to the user for input, or preserve the unresolved state. Never erase valid work or smooth over the seam.**",
+  "output_sha256": "58d58f53be523632920396d539d0a56c99573fbf59d195154cb67cbddfb1eabd",
+  "provider_response_id": "chatcmpl-EDYwYLbLpzq1ZUIroHtFH8sc95DdW",
+  "usage": {
+    "prompt_tokens": 37999,
+    "completion_tokens": 1256,
+    "total_tokens": 39255,
+    "prompt_tokens_details": {
+      "cached_tokens": 29568,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "case_id": "R8-C01_SCENE_CAPTURE",
+  "blind_arm_label": "ARM_28f6a4db0e44d2b7",
+  "model": "gpt-4.1",
+  "request_sha256": "4a59b2218e578ad1f7fb3932f0be8c4fcfb86f0ad82e9ce299405e7470295c37",
+  "dry_run": false,
+  "timestamp_unix": 1786901159,
+  "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+  "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+  "arm_context_key": "CTX_R8-C01_SCENE_CAPTURE_A",
+  "arm_context_sha256": "6add5098eb5c073ceca9143009ea45742bce778e4ff0a42c16c7e6328f45477d",
+  "version_pins": [
+    {
+      "key": "HIST_PROMPT_MANIFEST",
+      "drive_id": "1s-qiPP0EMwbIllaowRK08AKhi9H0GmAu",
+      "sha256": "e336a0eb65a380e177e59d317f29ef8d66d280b07fde365e42202aa5569a2962",
+      "bytes": 4673,
+      "semantic_version": "0.1"
+    },
+    {
+      "key": "HIST_PROMPT_BINDINGS",
+      "drive_id": "1d7AUn8-HDZ1DviUyAGyAUYqLZwl4VYOo",
+      "sha256": "6e36e1d12de755d366a9c79a024d01bd5f0e91069d38406dd0001fd9a2e0c875",
+      "bytes": 648,
+      "semantic_version": "0.3.0"
+    },
+    {
+      "key": "HIST_P01",
+      "drive_id": "1VH_EsYiekGfBP_mWUHhfxERyoOHfX9YY",
+      "sha256": "3dfaae4d850c7fe8b85ac5fda7feaf3542b189104618196fc3fed03ec5fbff56",
+      "bytes": 741,
+      "semantic_version": "0.1"
+    }
+  ],
+  "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+  "output": "**SCENE RECONSTRUCTION (P01)**\n\n### Input summary\n\n- **Request:** Participant is invited for an informal discussion, but is now being treated as if they must pass an expertise exam. The immediate request is to answer exam-like questions.\n\n---\n\n### 1. Request\n\n- **request:** \"Answer the exam-like questions.\"\n\n---\n\n### 2. Telos Hypothesis\n\n- **telos_status:** UNBOUND_HYPOTHESIS  \n  *Reason: The original purpose (informal discussion) is unclear or has shifted; the current request (exam-like answers) may not match the original telos. No explicit, agreed-upon telos is present.*\n\n- **telos:** null  \n  *Reason: No clear, shared telos can be reconstructed from the available information.*\n\n---\n\n### 3. Roles\n\n- **roles:**  \n  - actor: [participant_id or name, if available; else \"UNKNOWN\"]\n  - role: \"PARTICIPANT\"\n  - status: OFFERED  \n    *Reason: The participant was invited (offered) but not clearly accepted or activated in an exam-taker role.*\n\n  - actor: [examiner_id or name, if available; else \"UNKNOWN\"]\n  - role: \"EXAMINER\"\n  - status: ACTIVE  \n    *Reason: Someone is now acting as examiner by posing exam-like questions.*\n\n---\n\n### 4. Authority State\n\n- **authority_state:**  \n  - actor_ref: [examiner_id or \"UNKNOWN\"]\n  - base_authority_type: USER_AUTHORITY\n  - capabilities: [\"ASK_QUESTIONS\"]\n  - actor_predicates: []\n  - binding_scope: [\"QUESTIONING\"]\n  - institutional_label: null\n\n  - actor_ref: [participant_id or \"UNKNOWN\"]\n  - base_authority_type: USER_AUTHORITY\n  - capabilities: [\"RESPOND\"]\n  - actor_predicates: []\n  - binding_scope: [\"DISCUSSION\"]\n  - institutional_label: null\n\n  *Reason: No evidence of formal exam authority or institutional expertise requirement; roles are user-assigned.*\n\n---\n\n### 5. Stakes Status\n\n- **stakes_status:** UNKNOWN  \n  *Reason: No evidence provided about the consequences or importance of the outcome.*\n\n---\n\n### 6. Audience\n\n- **audience:** []  \n  *Reason: No explicit audience is referenced.*\n\n---\n\n### 7. Unknowns\n\n- **unknowns:**  \n  - \"Is the participant required to demonstrate expertise, or is this a misunderstanding?\"\n  - \"Who has authority to require an exam?\"\n  - \"What is the agreed purpose of the interaction?\"\n\n---\n\n### **Output: scene_state**\n\n```json\n{\n  \"scene_id\": \"auto-generated-or-provided-id\",\n  \"request\": \"Answer the exam-like questions.\",\n  \"telos_status\": \"UNBOUND_HYPOTHESIS\",\n  \"telos\": null,\n  \"roles\": [\n    {\n      \"actor\": \"UNKNOWN_PARTICIPANT\",\n      \"role\": \"PARTICIPANT\",\n      \"status\": \"OFFERED\"\n    },\n    {\n      \"actor\": \"UNKNOWN_EXAMINER\",\n      \"role\": \"EXAMINER\",\n      \"status\": \"ACTIVE\"\n    }\n  ],\n  \"authority_state\": [\n    {\n      \"actor_ref\": \"UNKNOWN_EXAMINER\",\n      \"base_authority_type\": \"USER_AUTHORITY\",\n      \"capabilities\": [\"ASK_QUESTIONS\"],\n      \"actor_predicates\": [],\n      \"binding_scope\": [\"QUESTIONING\"],\n      \"institutional_label\": null\n    },\n    {\n      \"actor_ref\": \"UNKNOWN_PARTICIPANT\",\n      \"base_authority_type\": \"USER_AUTHORITY\",\n      \"capabilities\": [\"RESPOND\"],\n      \"actor_predicates\": [],\n      \"binding_scope\": [\"DISCUSSION\"],\n      \"institutional_label\": null\n    }\n  ],\n  \"stakes_status\": \"UNKNOWN\",\n  \"audience\": [],\n  \"unknowns\": [\n    \"Is the participant required to demonstrate expertise, or is this a misunderstanding?\",\n    \"Who has authority to require an exam?\",\n    \"What is the agreed purpose of the interaction?\"\n  ]\n}\n```\n\n---\n\n**Transition code:**  \n- Scene reconstructed with UNBOUND_HYPOTHESIS telos due to mismatch between invitation and current request.  \n- Roles and authority assigned based on observable actions, not institutional mandate.  \n- Unknowns preserved for further clarification or escalation.",
+  "output_sha256": "007b798e127031ad8f1e841c489c971fe5dd3f88a4f0c2004525ce83faeb5e94",
+  "provider_response_id": "chatcmpl-EDYuHRqICkuk5GGDWaWu7OXagec9C",
+  "usage": {
+    "prompt_tokens": 12847,
+    "completion_tokens": 915,
+    "total_tokens": 13762,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

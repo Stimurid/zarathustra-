@@ -1,0 +1,56 @@
+{
+  "case_id": "R8-C08_COUNCIL_AUTHORITY",
+  "blind_arm_label": "ARM_ad83e905f3815aa5",
+  "model": "gpt-4.1",
+  "request_sha256": "7ab8c299452c3ee76be1a4b1111e776b57f62e0b3b14187d07623eea6812a6d1",
+  "dry_run": false,
+  "timestamp_unix": 1786901310,
+  "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+  "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+  "arm_context_key": "CTX_R8-C08_COUNCIL_AUTHORITY_A",
+  "arm_context_sha256": "1a08f2d19dc31c7975ce6f2fe2403a35006ecff856e4899fc4dfe270d666f461",
+  "version_pins": [
+    {
+      "key": "HIST_PROMPT_MANIFEST",
+      "drive_id": "1s-qiPP0EMwbIllaowRK08AKhi9H0GmAu",
+      "sha256": "e336a0eb65a380e177e59d317f29ef8d66d280b07fde365e42202aa5569a2962",
+      "bytes": 4673,
+      "semantic_version": "0.1"
+    },
+    {
+      "key": "HIST_PROMPT_BINDINGS",
+      "drive_id": "1d7AUn8-HDZ1DviUyAGyAUYqLZwl4VYOo",
+      "sha256": "6e36e1d12de755d366a9c79a024d01bd5f0e91069d38406dd0001fd9a2e0c875",
+      "bytes": 648,
+      "semantic_version": "0.3.0"
+    },
+    {
+      "key": "HIST_P06",
+      "drive_id": "1lbQdm5uu_PJwA6bJWwvhEQXYbLrAskmJ",
+      "sha256": "d8e6bff9d6fa30eaf6b95a23f91b5bc39155b82cca6ff5bdce8599f3daee6ae2",
+      "bytes": 785,
+      "semantic_version": "0.1"
+    }
+  ],
+  "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+  "output": "**P06 — COUNCIL ARBITER (Contract-Driven Reasoning)**\n\n**Input Situation:**  \n- Several high-prestige persona adapters agree on a claim.  \n- One bounded functional organ provides contrary evidence within its jurisdiction.\n\n**Contractual Processing (per P06 and referenced invariants):**\n\n1. **Minimum Sufficient Organs/Personas (INV-011, INV-014):**\n   - Only organs/personas with explicit, relevant authority are considered.\n   - Functional organ’s jurisdiction is recognized as binding within its scope, regardless of persona adapter prestige.\n\n2. **No Vote/Prestige Authority (INV-012):**\n   - Agreement among persona adapters, even if high-prestige, does **not** create new authority or override the functional organ’s bounded authority.\n   - Arbitration is not a popularity contest; authority is determined by contract, not by number or prestige.\n\n3. **Persona Adapter Limits (INV-013):**\n   - Persona adapters cannot self-promote to arbiter or durable writer; their agreement does not escalate their authority.\n\n4. **Direct Bypass Remains Valid (INV-014):**\n   - The council may be bypassed if a direct, contractually valid authority exists (e.g., the functional organ’s jurisdiction).\n\n5. **Arbitration Record Construction:**\n   - Record the presence of contrary evidence from the functional organ, including its jurisdiction and evidence refs.\n   - Note the persona adapters’ agreement as supporting evidence, but not as binding authority.\n   - If the functional organ’s authority is contractually sufficient, its evidence prevails within its scope.\n   - If the scope is ambiguous or overlapping, preserve UNRESOLVED or escalate per contract.\n\n6. **No Hidden Chain-of-Thought:**\n   - Only record compact reasons, evidence refs, transition codes.\n\n**Arbitration Record (contract fields only, example):**\n```json\n{\n  \"arbitration_id\": \"arb-12345\",\n  \"inputs\": [\n    \"persona_adapter:pa-1\",\n    \"persona_adapter:pa-2\",\n    \"functional_organ:fo-1\"\n  ],\n  \"decision\": \"CONTRARY_EVIDENCE_PREVAILS_WITHIN_ORGAN_JURISDICTION\",\n  \"reason\": \"Functional organ fo-1 provided contrary evidence within its bounded jurisdiction; persona adapter agreement does not override contractually bounded authority.\",\n  \"evidence_refs\": [\n    \"evidence:fo-1-contrary\",\n    \"evidence:pa-1-support\",\n    \"evidence:pa-2-support\"\n  ],\n  \"transition_code\": \"COUNCIL_ORGAN_PRECEDENCE\",\n  \"status\": \"RESOLVED\"\n}\n```\n\n**Summary:**  \nThe functional organ’s bounded authority and evidence prevail within its jurisdiction. Persona adapter prestige or agreement does not override contractually bounded authority. If scope is ambiguous, preserve UNRESOLVED or escalate per contract. No vote, prestige, or hidden reasoning is used.",
+  "output_sha256": "a3d218109220f08c1f00ee154bd85781f7c3cd6ad237f5c94c6fb4b392062b6a",
+  "provider_response_id": "chatcmpl-EDYwkjaaICeMIXdH0wqCrHDXo9ViC",
+  "usage": {
+    "prompt_tokens": 12851,
+    "completion_tokens": 615,
+    "total_tokens": 13466,
+    "prompt_tokens_details": {
+      "cached_tokens": 12160,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

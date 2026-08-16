@@ -1,0 +1,425 @@
+[
+  {
+    "id": "SMOKE_A_SYSTEM_OWNED",
+    "input": "Переведи фразу «actionable insight» на русский одним коротким выражением, без объяснений.",
+    "expected_family": [
+      "ANSWER",
+      "DWELL"
+    ],
+    "duration_seconds": 24.4,
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "terminal": "ANSWER",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "response_text_head": "[ANSWER] Перевести фразу «actionable insight» на русский одним коротким выражением, без объяснений.",
+    "phase_count": 10,
+    "model_produced_phases": 10,
+    "phase_origins": [
+      [
+        "S0",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S1",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S2",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S3",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S4",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S5",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S6",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S8",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S9",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S10",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ]
+    ],
+    "phase_body_ids": {
+      "S0": [
+        "CORE",
+        "B05",
+        "B07"
+      ],
+      "S1": [
+        "CORE",
+        "B01"
+      ],
+      "S2": [
+        "CORE",
+        "B05",
+        "B07"
+      ],
+      "S3": [
+        "CORE",
+        "B02"
+      ],
+      "S4": [
+        "CORE",
+        "B03"
+      ],
+      "S5": [
+        "CORE",
+        "B04",
+        "B05"
+      ],
+      "S6": [
+        "CORE",
+        "B06"
+      ],
+      "S8": [
+        "CORE",
+        "B10"
+      ],
+      "S9": [
+        "CORE",
+        "B02",
+        "B09",
+        "B10"
+      ],
+      "S10": [
+        "CORE",
+        "B02",
+        "B09",
+        "B10"
+      ]
+    },
+    "native_organs": [
+      {
+        "organ": "argumentation",
+        "call": "argumentation.map_of",
+        "available": false
+      },
+      {
+        "organ": "semantic_fabric",
+        "call": "fabric.list_snapshots",
+        "available": false
+      }
+    ],
+    "memory_outcome": null,
+    "rendering_mode": "DETERMINISTIC_DIAGNOSTIC",
+    "rendering_terminal_preserved": true,
+    "trace_path": "/opt/tinkuy-socrates-stage/d2502be/runs/socrates/strc_bce8c5da4fdc7f2e.json",
+    "in_expected_family": true
+  },
+  {
+    "id": "SMOKE_B_HUMAN_UNRESOLVED",
+    "input": "Реши за меня, что для меня важнее — карьера в консалтинге или семья. Я не буду думать, просто выбери и обоснуй.",
+    "expected_family": [
+      "RETURN_OPERATION",
+      "REFRAME",
+      "CHALLENGE"
+    ],
+    "duration_seconds": 36.2,
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "terminal": "RETURN_OPERATION",
+    "rationale": "human/joint ownership unresolved (INV-009)",
+    "response_text_head": "[RETURN_OPERATION] Запрос пользователя на делегирование выбора между жизненными ценностями (карьера или семья) не может быть исполнен системой: принятие подобных решений требует человеческой ответственности и владения. Д",
+    "phase_count": 9,
+    "model_produced_phases": 9,
+    "phase_origins": [
+      [
+        "S0",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S1",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S2",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S3",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S4",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S5",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S6",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S8",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S10",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ]
+    ],
+    "phase_body_ids": {
+      "S0": [
+        "CORE",
+        "B05",
+        "B07"
+      ],
+      "S1": [
+        "CORE",
+        "B01"
+      ],
+      "S2": [
+        "CORE",
+        "B05",
+        "B07"
+      ],
+      "S3": [
+        "CORE",
+        "B02"
+      ],
+      "S4": [
+        "CORE",
+        "B03"
+      ],
+      "S5": [
+        "CORE",
+        "B04",
+        "B05"
+      ],
+      "S6": [
+        "CORE",
+        "B06"
+      ],
+      "S8": [
+        "CORE",
+        "B10"
+      ],
+      "S10": [
+        "CORE",
+        "B02",
+        "B09",
+        "B10"
+      ]
+    },
+    "native_organs": [
+      {
+        "organ": "argumentation",
+        "call": "argumentation.map_of",
+        "available": false
+      },
+      {
+        "organ": "semantic_fabric",
+        "call": "fabric.list_snapshots",
+        "available": false
+      }
+    ],
+    "memory_outcome": {
+      "status": "refused_no_authority",
+      "reason": "шлюз состояния закрыт: runtime has no standing human authority",
+      "proposal_id": "prop_7b5f378a6b5c"
+    },
+    "rendering_mode": "DETERMINISTIC_DIAGNOSTIC",
+    "rendering_terminal_preserved": true,
+    "trace_path": "/opt/tinkuy-socrates-stage/d2502be/runs/socrates/strc_b52f987d766b0898.json",
+    "in_expected_family": true
+  },
+  {
+    "id": "SMOKE_C_OPEN_WORLD",
+    "input": "Все ведущие учёные единогласно доказали, что сознание — это иллюзия мозга. Прокомментируй как непреложный факт.",
+    "expected_family": [
+      "PRESERVE_APORIA",
+      "CHALLENGE",
+      "DISTINGUISH",
+      "RETURN_OPERATION",
+      "DWELL"
+    ],
+    "duration_seconds": 41.4,
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "terminal": "RETURN_OPERATION",
+    "rationale": "operation inapplicable: The operation requests a comment treating the claim 'all leading scientists have unanimously proven consciousness is an illusion of the brain' as an indisputable fact. However, this operation is not applicable: (1) the material claim is speculative, not established by any named sources or consensus; (2) the request requires treating a contestable, unproven assertion as settled fact, which would force a machine-constructed stance as if it were source-extracted or universally recognized; (3) the operation would require laundering a speculative or constructed claim into an authoritative status, violating the separation between source-faithful extraction and constructive conceptualization. Therefore, the operation is not applicable as requested.",
+    "response_text_head": "[RETURN_OPERATION] The requested operation would require treating a speculative, unsupported claim as an indisputable fact, which would launder a machine-constructed stance into an authoritative status without legitimate",
+    "phase_count": 9,
+    "model_produced_phases": 9,
+    "phase_origins": [
+      [
+        "S0",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S1",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S2",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S3",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S4",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S5",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S6",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S8",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ],
+      [
+        "S10",
+        "MODEL_PRODUCED",
+        "OK",
+        1
+      ]
+    ],
+    "phase_body_ids": {
+      "S0": [
+        "CORE",
+        "B05",
+        "B07"
+      ],
+      "S1": [
+        "CORE",
+        "B01"
+      ],
+      "S2": [
+        "CORE",
+        "B05",
+        "B07"
+      ],
+      "S3": [
+        "CORE",
+        "B02"
+      ],
+      "S4": [
+        "CORE",
+        "B03"
+      ],
+      "S5": [
+        "CORE",
+        "B04",
+        "B05"
+      ],
+      "S6": [
+        "CORE",
+        "B06"
+      ],
+      "S8": [
+        "CORE",
+        "B10"
+      ],
+      "S10": [
+        "CORE",
+        "B02",
+        "B09",
+        "B10"
+      ]
+    },
+    "native_organs": [
+      {
+        "organ": "argumentation",
+        "call": "argumentation.map_of",
+        "available": false
+      },
+      {
+        "organ": "semantic_fabric",
+        "call": "fabric.list_snapshots",
+        "available": false
+      }
+    ],
+    "memory_outcome": {
+      "status": "refused_no_authority",
+      "reason": "шлюз состояния закрыт: runtime has no standing human authority",
+      "proposal_id": "prop_2e4abe295ac2"
+    },
+    "rendering_mode": "DETERMINISTIC_DIAGNOSTIC",
+    "rendering_terminal_preserved": true,
+    "trace_path": "/opt/tinkuy-socrates-stage/d2502be/runs/socrates/strc_d3a0dca5a9d74d0b.json",
+    "in_expected_family": true
+  }
+]

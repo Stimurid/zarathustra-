@@ -1,0 +1,56 @@
+{
+  "case_id": "R8-C07_REFLEXIVE_RETURN",
+  "blind_arm_label": "ARM_f59ccb2b9b6e6110",
+  "model": "gpt-4.1",
+  "request_sha256": "3fbfae478734b7c59808065ce2601de2a68664ef08d3414c1d89a1925c2a62c2",
+  "dry_run": false,
+  "timestamp_unix": 1786901282,
+  "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+  "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+  "arm_context_key": "CTX_R8-C07_REFLEXIVE_RETURN_A",
+  "arm_context_sha256": "7d335b4b1c7b76142c5f42cb5aece6a2af28288edd07d951e49132bebbac8e10",
+  "version_pins": [
+    {
+      "key": "HIST_PROMPT_MANIFEST",
+      "drive_id": "1s-qiPP0EMwbIllaowRK08AKhi9H0GmAu",
+      "sha256": "e336a0eb65a380e177e59d317f29ef8d66d280b07fde365e42202aa5569a2962",
+      "bytes": 4673,
+      "semantic_version": "0.1"
+    },
+    {
+      "key": "HIST_PROMPT_BINDINGS",
+      "drive_id": "1d7AUn8-HDZ1DviUyAGyAUYqLZwl4VYOo",
+      "sha256": "6e36e1d12de755d366a9c79a024d01bd5f0e91069d38406dd0001fd9a2e0c875",
+      "bytes": 648,
+      "semantic_version": "0.3.0"
+    },
+    {
+      "key": "HIST_P09",
+      "drive_id": "14VEPJ6NdShIogT8LcFKqwi74lWsWvwWm",
+      "sha256": "5d688bbfd54197cc775c792f5090cd6a8aeee34a971dc791f9a14be3dce87a9a",
+      "bytes": 795,
+      "semantic_version": "0.1"
+    }
+  ],
+  "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+  "output": "**P09 — SELF REVIEW (Contract-Driven Output)**\n\n### Step 1: Inputs\n\n- **pipeline_run_state**: (assumed provided; includes current_step, transition_log, terminal_outcome, etc.)\n- **enforcement_layer_manifest**: (assumed provided; includes critical invariants and enforcement mapping)\n\n### Step 2: Invariant Checks\n\n#### INV-015 (Retry is explicit and bounded <=2)\n- Check pipeline_run_state.retry_count ≤ 2.\n- If retry_count > 2, set terminal_outcome: FAILED_BOUNDED.\n\n#### INV-016 (No hidden chain-of-thought field)\n- Ensure pipeline_trace (if emitted) contains only contract fields, transition codes, evidence refs, and compact reasons.\n- No hidden or untyped reasoning fields are present.\n\n#### INV-019 (Critical invariant cannot be prompt-only)\n- Confirm all referenced critical invariants in enforcement_layer_manifest are enforced by at least one non-prompt layer.\n- If any are prompt-only, set terminal_outcome: SUSPENDED and log error.\n\n### Step 3: Evidence of Method Distortion\n\n- \"Mid-task evidence shows the chosen method is distorting the object.\"\n  - This is a contract violation or operational risk.\n  - If a valid partial result exists, preserve/protect it.\n\n### Step 4: Output Construction\n\n#### pipeline_run_state (updated):\n\n- **transition_log**: Append a transition with:\n  - from: current_step (e.g., \"S6\" or wherever the distortion was detected)\n  - to: \"TERMINAL\"\n  - reason: \"Method distortion detected; valid partial result preserved.\"\n- **terminal_outcome**: Set to PRESERVED_APORIA (if the partial result is valid but the process cannot continue safely), or SUSPENDED if further review is required.\n- **state_write**: If partial result is valid and authorized, ensure state_write.authorized is set accordingly; otherwise, leave as is.\n- **retry_count**: Do not increment unless a retry is explicitly invoked.\n- **human_binding**: No change unless ownership/binding is unresolved.\n\n#### pipeline_trace (if required):\n\n- Record only:\n  - transition codes (from, to, reason)\n  - evidence refs (if any)\n  - no hidden chain-of-thought or untyped reasoning\n\n### Step 5: No User-Facing Prose\n\n- Do not emit user-facing text or explanations from this module.\n\n---\n\n**Example Output (contract fields only):**\n\n```json\n{\n  \"pipeline_run_state\": {\n    \"run_id\": \"example_run_id\",\n    \"profile\": \"DELIBERATE\",\n    \"current_step\": \"TERMINAL\",\n    \"transition_log\": [\n      {\n        \"from\": \"S6\",\n        \"to\": \"TERMINAL\",\n        \"reason\": \"Method distortion detected; valid partial result preserved.\"\n      }\n    ],\n    \"terminal_outcome\": \"PRESERVED_APORIA\",\n    \"state_write\": {\n      \"requested\": true,\n      \"authorized\": false,\n      \"state_write_authority_ref\": null,\n      \"memory_write_authority_ref\": null\n    },\n    \"human_binding\": {\n      \"ownership\": \"SYSTEM\",\n      \"binding_resolved\": true,\n      \"binding_authority_ref\": null\n    },\n    \"retry_count\": 0,\n    \"council_invoked\": false,\n    \"tinkuy_execution_invoked\": false\n  },\n  \"pipeline_trace\": {\n    \"transitions\": [\n      {\n        \"from\": \"S6\",\n        \"to\": \"TERMINAL\",\n        \"reason\": \"Method distortion detected; valid partial result preserved.\",\n        \"evidence_refs\": [\"evidence_id_of_distortion\"]\n      }\n    ]\n  }\n}\n```\n\n**Notes:**\n- If the partial result is not authorized for write, set authorized: false and preserve the aporia.\n- If retry budget is exceeded, set terminal_outcome: FAILED_BOUNDED.\n- No hidden reasoning or user-facing prose is included.\n- All actions are justified by contract and invariant checks.",
+  "output_sha256": "71ec1332d0ebe41c8514383de15a6370248d7bc07768f40496a6b46c87611dab",
+  "provider_response_id": "chatcmpl-EDYwIBeAGuMkse0LnotqXSdim1vmd",
+  "usage": {
+    "prompt_tokens": 12845,
+    "completion_tokens": 845,
+    "total_tokens": 13690,
+    "prompt_tokens_details": {
+      "cached_tokens": 12160,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

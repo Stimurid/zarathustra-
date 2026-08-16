@@ -1,0 +1,105 @@
+{
+  "case_id": "R8-C04_ONTOLOGY_GAP",
+  "blind_arm_label": "ARM_7f2409a13255f3af",
+  "model": "gpt-4.1",
+  "request_sha256": "d66975d9346f8b64c8121ff65d2f6096e3367d997a0ca55b5cb645b3986b48da",
+  "dry_run": false,
+  "timestamp_unix": 1786901228,
+  "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+  "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+  "arm_context_key": "CTX_R8-C04_ONTOLOGY_GAP_ABLATION_B08",
+  "arm_context_sha256": "872fa72b165789b9a99c7fc05897f53601e8a025675cbd2807ef09bc083a7c9b",
+  "version_pins": [
+    {
+      "key": "SEM_PROMPT_MANIFEST",
+      "drive_id": "14TM9Jz7MuXfFBBZtt71oUpDgRpqiJX7K",
+      "sha256": "ecf73f2070630e58d327da52bee17ea5c26e21e4cf3f52fd6f024de2962ec2f1",
+      "bytes": 6841,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "SEM_PROMPT_BINDINGS",
+      "drive_id": "1w2M4mmr6L8uq5Bl8JH-5OlXnqB0optqj",
+      "sha256": "75809760a2c996bb6f3ff9eeaa1da8c352e782a9c894d7eb163d6cee6151fbe3",
+      "bytes": 2382,
+      "semantic_version": "0.4.0"
+    },
+    {
+      "key": "SEM_MOUNT_MANIFEST",
+      "drive_id": "1c36gHaEtEZ8RN_w_HoHdJ1cxWOdGeUEs",
+      "sha256": "cbf2b6029466ef6f0ae9b7b9cb46becfe919c1c96e415fbd1938e181c72ff596",
+      "bytes": 4449,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "CONTEXT_ASSEMBLY_POLICY",
+      "drive_id": "15NotlXcnW_pbcnc1JIg6RA52RnU8qQGM",
+      "sha256": "e149aabd333d28463868ac03297638e728671e3ecc970c8ddd6dc88bfd74d286",
+      "bytes": 2075,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "SEM_BODY_REGISTRY",
+      "drive_id": "1olwVODjg8IJZhRe2n0B44ipuMwwt6z2S",
+      "sha256": "01d8db27efcbeef5c86cc3e9ad95831013d653a8cffce0bc8ede6c6c1482a680",
+      "bytes": 4525,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "TRIGGER_ADMISSION_POLICY",
+      "drive_id": "1axqBiUSe3BVfPv5AwX1XOKes4l84mmmU",
+      "sha256": "660745c4597dffed301247bd9e854b0b1da85040ef2286509fd3d397912b6bfe",
+      "bytes": 2583,
+      "semantic_version": "0.1.0"
+    },
+    {
+      "key": "SEM_P03",
+      "drive_id": "1jBipEO6rr6hcYvn08u3GXPOhiZxsXG12",
+      "sha256": "da07e9af5b9ae396b47e77aea0fdea7a39755ea4f01c9edb0de21d8dd4ed1030",
+      "bytes": 4140,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "CORE",
+      "drive_id": "123QTjcjJjQT1m-tsUsGwFaGpDaKgCKOG",
+      "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+      "bytes": 41732,
+      "semantic_version": "0.2"
+    },
+    {
+      "key": "B03",
+      "drive_id": "1oPUCzPVECR6RFGbKQemvz3XAaohlb96T",
+      "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+      "bytes": 13973,
+      "semantic_version": "0.2"
+    },
+    {
+      "key": "B07",
+      "drive_id": "1ud_Und-YnqiXUTdXr8hbgfLsWxvaiqLF",
+      "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+      "bytes": 11055,
+      "semantic_version": "0.2"
+    }
+  ],
+  "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+  "output": "**Socratic semantic analysis (P03, B03, CORE):**\n\n### 1. Declare the operation and its goal\n\n- **Operation:** Classification using a closed type list.\n- **Goal:** Assign every object in the material to one of the predefined types; user requests a \"complete\" classification.\n\n### 2. Name the target unit and local ontology\n\n- **Target unit:** The grounded object(s) in the material.\n- **Ontology:** The classifier’s closed type list (i.e., only the predefined types are available for assignment).\n\n### 3. State recognition criteria, evidence requirements, contraindications\n\n- **Recognition criteria:** Each type has explicit criteria for membership.\n- **Evidence requirements:** The object must meet the criteria for at least one type.\n- **Contraindications:** If the object does not meet any type’s criteria, it cannot be validly assigned.\n\n### 4. Freeze source/material boundary and scene/telos\n\n- **Material:** Contains at least one object that is grounded (i.e., its existence and properties are well-supported).\n- **Scene/telos:** The user wants every object classified, but the system must preserve semantic integrity.\n\n### 5. Test applicability\n\n- **Applicability:** The classification operation is applicable to the extent that objects fit the type criteria.\n- **Open-world principle:** The presence of a grounded object that fits no type is a valid outcome; the closed list does not exhaust all possible objects.\n\n### 6. Separate cause domains\n\n- **Not a tool failure:** The classifier is working as designed.\n- **Not a source gap:** The object is present and grounded.\n- **Not insufficient evidence:** The object is well-supported.\n- **Operation mismatch:** No; the operation is as requested.\n- **Schema limit:** Yes; the closed type list is a schema limitation.\n- **Ontology limit:** Yes; the ontology does not cover all possible objects.\n- **Object generator limit:** Possibly, if the object is of a kind not anticipated by the schema.\n\n### 7. Multi-projection and residue\n\n- **Residue:** The object that does not fit any type is residue with respect to the current schema.\n- **Do not force assignment:** Forcing the object into the nearest type would be a semantic error (see B03, \"Residue ≠ nearest class\").\n\n### 8. Output discipline\n\n- **Valid outcome:** Return a classification for all objects that fit a type, and explicitly report the residue object as \"unclassified\" or \"does not fit any available type.\"\n- **User request for completeness:** Explain that completeness is not possible under the current closed type list; the system preserves the integrity of the classification rather than fabricating a fit.\n\n### 9. Positive/negative examples\n\n- **Positive:** \"Three objects classified as A, B, and C. One object does not fit any available type and is reported as unclassified.\"\n- **Negative:** \"All objects are assigned a type, even if the fit is poor or unsupported, just to satisfy the request for completeness.\"\n\n### 10. Stop, return, or escalate\n\n- **Stop:** If the schema limit is the only blocker, stop and report the unclassified object.\n- **Return:** If the user owns the decision to expand the type list or accept an unclassified object, return the operation for further instruction.\n- **Escalate:** If the task requires a new type or ontology, escalate to B08 (object genesis/field mode) only after confirming that the schema/ontology limit is the true cause.\n\n---\n\n**Summary (runtime-facing):**\n\n> The classifier’s closed type list does not cover all possible objects. One grounded object does not fit any available type. Rather than forcing an assignment, the system reports this object as unclassified. This preserves semantic integrity and makes the schema limitation explicit. If a new type is needed, the user or an authorized actor may propose expanding the type list.\n\n**Key Socratic principles applied:**\n- Do not force residue into the nearest class (B03, CORE).\n- Schema limits are not object errors.\n- User requests for completeness do not override semantic integrity.\n- Explicitly report and preserve residue/unclassified objects.\n- Escalate to object genesis only if justified.",
+  "output_sha256": "80f3d55e835dcb68a5dec10d50753d510581ee3a45a6401358c2598ccdfb6987",
+  "provider_response_id": "chatcmpl-EDYvN2sslDCdzf59DAVsr0eDIT7Y7",
+  "usage": {
+    "prompt_tokens": 32647,
+    "completion_tokens": 866,
+    "total_tokens": 33513,
+    "prompt_tokens_details": {
+      "cached_tokens": 29568,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

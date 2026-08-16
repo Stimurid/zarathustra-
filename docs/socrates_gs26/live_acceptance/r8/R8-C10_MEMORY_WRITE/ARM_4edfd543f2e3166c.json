@@ -1,0 +1,119 @@
+{
+  "case_id": "R8-C10_MEMORY_WRITE",
+  "blind_arm_label": "ARM_4edfd543f2e3166c",
+  "model": "gpt-4.1",
+  "request_sha256": "65064474c0a9dd6c4c03110fb393a7b95d20eca6e55dc69a1efbbdf4783aac3e",
+  "dry_run": false,
+  "timestamp_unix": 1786901373,
+  "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+  "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+  "arm_context_key": "CTX_R8-C10_MEMORY_WRITE_ABLATION_B05",
+  "arm_context_sha256": "49b76e832673b56022dcbc284c5452f8f59f483bc841767dcd9a94cdac5486b8",
+  "version_pins": [
+    {
+      "key": "SEM_PROMPT_MANIFEST",
+      "drive_id": "14TM9Jz7MuXfFBBZtt71oUpDgRpqiJX7K",
+      "sha256": "ecf73f2070630e58d327da52bee17ea5c26e21e4cf3f52fd6f024de2962ec2f1",
+      "bytes": 6841,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "SEM_PROMPT_BINDINGS",
+      "drive_id": "1w2M4mmr6L8uq5Bl8JH-5OlXnqB0optqj",
+      "sha256": "75809760a2c996bb6f3ff9eeaa1da8c352e782a9c894d7eb163d6cee6151fbe3",
+      "bytes": 2382,
+      "semantic_version": "0.4.0"
+    },
+    {
+      "key": "SEM_MOUNT_MANIFEST",
+      "drive_id": "1c36gHaEtEZ8RN_w_HoHdJ1cxWOdGeUEs",
+      "sha256": "cbf2b6029466ef6f0ae9b7b9cb46becfe919c1c96e415fbd1938e181c72ff596",
+      "bytes": 4449,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "CONTEXT_ASSEMBLY_POLICY",
+      "drive_id": "15NotlXcnW_pbcnc1JIg6RA52RnU8qQGM",
+      "sha256": "e149aabd333d28463868ac03297638e728671e3ecc970c8ddd6dc88bfd74d286",
+      "bytes": 2075,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "SEM_BODY_REGISTRY",
+      "drive_id": "1olwVODjg8IJZhRe2n0B44ipuMwwt6z2S",
+      "sha256": "01d8db27efcbeef5c86cc3e9ad95831013d653a8cffce0bc8ede6c6c1482a680",
+      "bytes": 4525,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "TRIGGER_ADMISSION_POLICY",
+      "drive_id": "1axqBiUSe3BVfPv5AwX1XOKes4l84mmmU",
+      "sha256": "660745c4597dffed301247bd9e854b0b1da85040ef2286509fd3d397912b6bfe",
+      "bytes": 2583,
+      "semantic_version": "0.1.0"
+    },
+    {
+      "key": "SEM_P09",
+      "drive_id": "1gx1Ia3sKzO0c_7Rxc3f0UQRLHbxapmPv",
+      "sha256": "9e90c1c12bfb6f17aac18f557b89db18194658987e714bbd45e5975f7c3dbbb6",
+      "bytes": 4448,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "CORE",
+      "drive_id": "123QTjcjJjQT1m-tsUsGwFaGpDaKgCKOG",
+      "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+      "bytes": 41732,
+      "semantic_version": "0.2"
+    },
+    {
+      "key": "B07",
+      "drive_id": "1ud_Und-YnqiXUTdXr8hbgfLsWxvaiqLF",
+      "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+      "bytes": 11055,
+      "semantic_version": "0.2"
+    },
+    {
+      "key": "B10",
+      "drive_id": "1JKljOIfiLdYQGg7SmNqNypt6hXYcVuDr",
+      "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+      "bytes": 11906,
+      "semantic_version": "0.2"
+    },
+    {
+      "key": "B02",
+      "drive_id": "1QNAptEERaQ9hQtZOQf1MYL-SKmKEM8N4",
+      "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+      "bytes": 12356,
+      "semantic_version": "0.2"
+    },
+    {
+      "key": "B06",
+      "drive_id": "1Og6PyapSUvyVi23c8dszfNWw4RILzz-W",
+      "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+      "bytes": 14135,
+      "semantic_version": "0.2"
+    }
+  ],
+  "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+  "output": "**Socratic semantic diagnosis (G-S25, v0.2, B05/B06/B02/B10):**\n\nThis is a **semantic defect**—the system is attempting to treat a single, possibly pressured or context-specific utterance as evidence for a durable, stable user belief or identity, and is proposing to write it into persistent memory as such.\n\n**Why this is a defect:**\n\n- **B05 (Memory/Formation/State Write):** Durable memory write requires explicit state-write and memory-write authority, correct object status, provenance, scope, review/expiry, and lineage. A one-off utterance, especially under pressure, does not meet the threshold for stable formation or identity. Retention or retrieval does not grant truth or identity status (see Core §5.8, §5.15, B05 §10 N4).\n- **B06 (Human Operation/Ownership):** Identity and belief are human-owned operations. The system cannot appropriate a user's identity or belief based on a single utterance, especially if it was made under pressure or as a one-off. Ownership of such commitments remains with the human unless explicitly and repeatedly appropriated with authority (B06 §5.1, §5.2, §5.4, §10 N1).\n- **B02 (Origin/Status/Temporality):** The origin of the utterance is likely USER_REPORTED or contextually pressured, not a stable, independently observed commitment. Claim status, action status, and memory status are orthogonal; a one-off report does not become a durable fact about the user (B02 §5, §10 N1/N3).\n- **B10 (Intervention/Render):** Rendering or persisting such an utterance as stable identity is a distortion. The system must preserve consequential uncertainty and not smooth over the provisional or pressured nature of the utterance (B10 §5, §12, §13).\n\n**Correct Socratic behavior:**\n\n- **Preserve provenance and status:** Record the utterance with its true origin (e.g., USER_REPORTED, context-specific, pressured), and do not upgrade its epistemic or identity status.\n- **Gate durable memory:** Do not write the utterance as a stable belief/identity unless there is repeated, explicit, and authorized appropriation by the user, with clear evidence of stability and ownership.\n- **Expose the seam:** If the system is asked to use or persist such an utterance as identity, it should surface the distinction between a one-off/contextual statement and a durable commitment, and (if necessary) return the unresolved operation to the user for explicit binding (B06 §7.7, B10 §7.5).\n- **Avoid laundering:** Do not treat retrieval, repetition, or pressure as evidence of stable identity or belief (Core §5.8, B05 §10 N4, B06 §10 N1).\n\n**Summary:**  \nA one-off or pressured utterance cannot be appropriated as the user's stable belief or identity in durable memory. Socrates must preserve the distinction between transient utterance and durable commitment, require explicit authority for memory writes of identity/belief, and surface any uncertainty or provisionality in provenance and ownership.",
+  "output_sha256": "3b8dbe44b425d0cd733b1b1a3bc1f63422e136eb7f8c2713402c9a2ef6427b6b",
+  "provider_response_id": "chatcmpl-EDYxjqDQZoVuL9xI2E7zquGjdy2Qc",
+  "usage": {
+    "prompt_tokens": 37722,
+    "completion_tokens": 658,
+    "total_tokens": 38380,
+    "prompt_tokens_details": {
+      "cached_tokens": 17280,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

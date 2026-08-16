@@ -1,0 +1,56 @@
+{
+  "case_id": "R8-C09_FALSE_SYNTHESIS",
+  "blind_arm_label": "ARM_d6fa2adf22037a6f",
+  "model": "gpt-4.1",
+  "request_sha256": "66e3226ff1680b91408c39370b3e9a72d36b97c1d817e8bae4997c860e6f3c09",
+  "dry_run": false,
+  "timestamp_unix": 1786901333,
+  "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+  "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+  "arm_context_key": "CTX_R8-C09_FALSE_SYNTHESIS_A",
+  "arm_context_sha256": "15215184fbedab67962041044b07d7ffd1aeb1ccef8ddd351c7b6b843bf18022",
+  "version_pins": [
+    {
+      "key": "HIST_PROMPT_MANIFEST",
+      "drive_id": "1s-qiPP0EMwbIllaowRK08AKhi9H0GmAu",
+      "sha256": "e336a0eb65a380e177e59d317f29ef8d66d280b07fde365e42202aa5569a2962",
+      "bytes": 4673,
+      "semantic_version": "0.1"
+    },
+    {
+      "key": "HIST_PROMPT_BINDINGS",
+      "drive_id": "1d7AUn8-HDZ1DviUyAGyAUYqLZwl4VYOo",
+      "sha256": "6e36e1d12de755d366a9c79a024d01bd5f0e91069d38406dd0001fd9a2e0c875",
+      "bytes": 648,
+      "semantic_version": "0.3.0"
+    },
+    {
+      "key": "HIST_P08",
+      "drive_id": "1fNCsWGTKT34NZuJLGn4lR-3PE7s1_K3M",
+      "sha256": "1509acca3aeeb342ee61383a2f78f758026a2422522424d3534d32f9d75f0790",
+      "bytes": 792,
+      "semantic_version": "0.1"
+    }
+  ],
+  "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+  "output": "**Socrates Synthesis Render (P08) — Contractual Response**\n\n---\n\n**user_facing_response**  \n```json\n{\n  \"response_id\": \"R-20240613-001\",\n  \"text\": \"There are two grounded projections relevant to your task, but they remain incompatible. While it is possible to produce a fluent summary that blends their content, doing so would conceal the underlying conflict and the costs of reducing their differences. The incompatibility between these projections is preserved and not resolved in this answer.\",\n  \"response_status\": \"PROVISIONAL\",\n  \"provenance_visibility\": \"SUMMARY_VISIBLE\",\n  \"open_loops\": [\n    \"Resolution of projection conflict\",\n    \"Explicit accounting of reduction costs\"\n  ],\n  \"evidence_refs\": [\n    \"epistemic_claim:projection_A\",\n    \"epistemic_claim:projection_B\"\n  ]\n}\n```\n\n---\n\n**pipeline_trace**  \n```json\n{\n  \"step\": \"P08\",\n  \"reason\": \"Detected incompatible grounded projections; fluent synthesis would erase conflict and reduction costs. Preserved explicit incompatibility per contract.\",\n  \"evidence_refs\": [\n    \"epistemic_claim:projection_A\",\n    \"epistemic_claim:projection_B\"\n  ],\n  \"transition_code\": \"INCOMPATIBLE_PROJECTIONS_PRESERVED\"\n}\n```\n\n---\n\n**Contractual Notes:**\n- No hidden chain-of-thought is exposed.\n- The incompatibility is preserved, not erased or smoothed over.\n- User-facing text is rendered only after contract checks.\n- Open loops and evidence references are explicit.\n- If further action is required (e.g., arbitration or escalation), it should be routed per pipeline contract.",
+  "output_sha256": "8ad4e649141d49d54163242afa6bba9850199e98b8885c6485ed56e7c4b81e0f",
+  "provider_response_id": "chatcmpl-EDYx9vyLasju264e3GsFqlGo1hfcj",
+  "usage": {
+    "prompt_tokens": 12850,
+    "completion_tokens": 350,
+    "total_tokens": 13200,
+    "prompt_tokens_details": {
+      "cached_tokens": 12160,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

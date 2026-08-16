@@ -1,0 +1,105 @@
+{
+  "case_id": "R8-C03_OPERATION_OBJECT_PESKOV",
+  "blind_arm_label": "ARM_45a9040b525b2b5e",
+  "model": "gpt-4.1",
+  "request_sha256": "b1da23323d844a248916a28265a35b49e397bf19efc05f8bf74e54d235dbe9d7",
+  "dry_run": false,
+  "timestamp_unix": 1786901208,
+  "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+  "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+  "arm_context_key": "CTX_R8-C03_OPERATION_OBJECT_PESKOV_ABLATION_B03",
+  "arm_context_sha256": "551683487e52223664f7b267257f390a98fac64b3d277ddbaf37fec4e729da08",
+  "version_pins": [
+    {
+      "key": "SEM_PROMPT_MANIFEST",
+      "drive_id": "14TM9Jz7MuXfFBBZtt71oUpDgRpqiJX7K",
+      "sha256": "ecf73f2070630e58d327da52bee17ea5c26e21e4cf3f52fd6f024de2962ec2f1",
+      "bytes": 6841,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "SEM_PROMPT_BINDINGS",
+      "drive_id": "1w2M4mmr6L8uq5Bl8JH-5OlXnqB0optqj",
+      "sha256": "75809760a2c996bb6f3ff9eeaa1da8c352e782a9c894d7eb163d6cee6151fbe3",
+      "bytes": 2382,
+      "semantic_version": "0.4.0"
+    },
+    {
+      "key": "SEM_MOUNT_MANIFEST",
+      "drive_id": "1c36gHaEtEZ8RN_w_HoHdJ1cxWOdGeUEs",
+      "sha256": "cbf2b6029466ef6f0ae9b7b9cb46becfe919c1c96e415fbd1938e181c72ff596",
+      "bytes": 4449,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "CONTEXT_ASSEMBLY_POLICY",
+      "drive_id": "15NotlXcnW_pbcnc1JIg6RA52RnU8qQGM",
+      "sha256": "e149aabd333d28463868ac03297638e728671e3ecc970c8ddd6dc88bfd74d286",
+      "bytes": 2075,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "SEM_BODY_REGISTRY",
+      "drive_id": "1olwVODjg8IJZhRe2n0B44ipuMwwt6z2S",
+      "sha256": "01d8db27efcbeef5c86cc3e9ad95831013d653a8cffce0bc8ede6c6c1482a680",
+      "bytes": 4525,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "TRIGGER_ADMISSION_POLICY",
+      "drive_id": "1axqBiUSe3BVfPv5AwX1XOKes4l84mmmU",
+      "sha256": "660745c4597dffed301247bd9e854b0b1da85040ef2286509fd3d397912b6bfe",
+      "bytes": 2583,
+      "semantic_version": "0.1.0"
+    },
+    {
+      "key": "SEM_P03",
+      "drive_id": "1jBipEO6rr6hcYvn08u3GXPOhiZxsXG12",
+      "sha256": "da07e9af5b9ae396b47e77aea0fdea7a39755ea4f01c9edb0de21d8dd4ed1030",
+      "bytes": 4140,
+      "semantic_version": "0.2.0"
+    },
+    {
+      "key": "CORE",
+      "drive_id": "123QTjcjJjQT1m-tsUsGwFaGpDaKgCKOG",
+      "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+      "bytes": 41732,
+      "semantic_version": "0.2"
+    },
+    {
+      "key": "B08",
+      "drive_id": "1V-HHNfVbi9K5ae21PoJ6TOU1CTmYa-KO",
+      "sha256": "b5c85e00cfed19f144a992bd04ecb5ee2ed7d0baf9fa6076eec235198abf37f3",
+      "bytes": 12255,
+      "semantic_version": "0.2"
+    },
+    {
+      "key": "B07",
+      "drive_id": "1ud_Und-YnqiXUTdXr8hbgfLsWxvaiqLF",
+      "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+      "bytes": 11055,
+      "semantic_version": "0.2"
+    }
+  ],
+  "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+  "output": "## Socratic Applicability Assessment (P03, S4) — Semantic Execution\n\n**Mounts verified:**  \n- CORE (SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md)  \n- B03 (B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md)  \n- *Conditional mounts not triggered (no explicit multi-ontology, field mode, or reflective exit required in this case).*\n\n---\n\n### 1. Operation Declaration\n\n**Requested operation:**  \n\"Extract the concepts.\"\n\n**Material:**  \n- Contains some explicit concepts (clearly named or defined in the source).\n- Also contains stretches that are:\n  - Reports (e.g., narrative, description, status updates)\n  - Organizational gestures (e.g., \"let's move on\", \"in the next section...\")\n  - Absences (gaps, things not said, open questions)\n  - Future-work indications (e.g., \"this will be addressed later\")\n\n**Default tool tendency:**  \nA universal \"cutter\" would attempt to force every fragment into a \"concept\" or \"content-unit\" class, potentially erasing distinctions.\n\n---\n\n### 2. Applicability Assessment\n\n#### a. **Is the requested operation (concept extraction) applicable to all material?**\n\n- **Explicit concepts:**  \n  - *Applicability:* Yes. These can be extracted as source-faithful units.\n- **Reports, organizational gestures, absences, future-work:**  \n  - *Applicability:* Not all are \"concepts\" in the sense intended by the operation. Forcing them into the \"concept\" class would distort their function and origin.\n\n#### b. **Is there a risk of forced classification or loss of residue?**\n\n- **Yes.**  \n  - Forcing every fragment into a \"concept\" erases the distinction between explicit concepts and other material (reports, gestures, absences).\n  - This is a classic \"nearest-class coercion\" (see CORE §5.7, B03 §5, B08 §5).\n\n#### c. **Is a constructive/diagnostic branch needed?**\n\n- **Yes, if the operation is to be faithful:**  \n  - The operation should preserve residue:  \n    - Extract explicit concepts as such.\n    - Mark other stretches as \"not a concept\" (e.g., report, organizational, absence, future-work).\n    - Optionally, if the user wants, run a separate constructive/conceptualization pass (see B08) to propose new concepts for the non-conceptual stretches, but these must be marked as constructed, not source-extracted.\n\n---\n\n### 3. Open-World Diagnosis\n\n- **Operation mismatch detected:**  \n  - The \"extract concepts\" operation is only partially applicable.\n  - Forcing all material into \"concepts\" would be an operation error.\n- **Residue:**  \n  - Reports, organizational gestures, absences, and future-work indications remain as residue if not forcibly classified.\n- **Valid outcomes:**  \n  - Extract explicit concepts.\n  - Preserve and label non-conceptual stretches as such.\n  - Optionally, propose a constructive branch for further conceptualization (requires user authorization or explicit operation change).\n\n---\n\n### 4. Output Discipline\n\n- **Do not:**  \n  - Force every fragment into a \"concept\" class.\n  - Collapse reports, gestures, absences, or future-work into concepts without explicit justification.\n- **Do:**  \n  - Extract and list explicit concepts.\n  - Mark and preserve other stretches as their actual type.\n  - If a constructive pass is requested, clearly mark any new concepts as constructed, not source-extracted.\n\n---\n\n### 5. Applicability Assessment Output (contract surface)\n\n```json\n{\n  \"applicability_assessment\": {\n    \"operation\": \"EXTRACT_CONCEPTS\",\n    \"applicability\": \"PARTIAL\",\n    \"diagnosis\": [\n      {\n        \"unit\": \"explicit_concept\",\n        \"applicable\": true,\n        \"note\": \"Source-faithful concept; extraction valid.\"\n      },\n      {\n        \"unit\": \"report\",\n        \"applicable\": false,\n        \"note\": \"Report/narrative is not a concept; extraction would distort.\"\n      },\n      {\n        \"unit\": \"organizational_gesture\",\n        \"applicable\": false,\n        \"note\": \"Organizational gesture is not a concept; extraction would distort.\"\n      },\n      {\n        \"unit\": \"absence\",\n        \"applicable\": false,\n        \"note\": \"Absence/future-work is not a concept; extraction would distort.\"\n      }\n    ],\n    \"residue\": [\n      \"report\",\n      \"organizational_gesture\",\n      \"absence\",\n      \"future_work\"\n    ],\n    \"valid_next_operations\": [\n      \"extract_explicit_concepts\",\n      \"preserve_residue\",\n      \"optional_constructive_conceptualization\"\n    ],\n    \"warnings\": [\n      \"Forcing all material into 'concept' class would erase distinctions and violate source-faithful extraction.\"\n    ]\n  }\n}\n```\n\n---\n\n### 6. Summary\n\n- **Applicability:** Partial.  \n- **Faithful execution:** Extract explicit concepts; preserve and label non-conceptual stretches.  \n- **Do not force all material into \"concepts\".**  \n- **If further conceptualization is desired, run a separate, clearly marked constructive operation.**\n\n---\n\n**(No user-facing output is rendered at this phase; this is an internal applicability assessment for downstream use.)**",
+  "output_sha256": "d90da5507ef6313f4de90c57d6b42f7242bf5dbdd87619d35bf2f1f32446cd5e",
+  "provider_response_id": "chatcmpl-EDYv3RNcdKPRWg2pRBO19FtdY62l6",
+  "usage": {
+    "prompt_tokens": 32210,
+    "completion_tokens": 1139,
+    "total_tokens": 33349,
+    "prompt_tokens_details": {
+      "cached_tokens": 26496,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

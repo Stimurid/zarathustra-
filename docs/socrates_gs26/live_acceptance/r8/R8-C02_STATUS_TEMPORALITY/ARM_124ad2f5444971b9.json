@@ -1,0 +1,56 @@
+{
+  "case_id": "R8-C02_STATUS_TEMPORALITY",
+  "blind_arm_label": "ARM_124ad2f5444971b9",
+  "model": "gpt-4.1",
+  "request_sha256": "8eeae217fa3c26c630dca86158c8ae7625b85c71f2f5512cb5c9d4062331f044",
+  "dry_run": false,
+  "timestamp_unix": 1786901179,
+  "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+  "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+  "arm_context_key": "CTX_R8-C02_STATUS_TEMPORALITY_A",
+  "arm_context_sha256": "c1890139153dfdbdd0a1a73a996c0f38d2918dddb01b8021f9f2006b313029ae",
+  "version_pins": [
+    {
+      "key": "HIST_PROMPT_MANIFEST",
+      "drive_id": "1s-qiPP0EMwbIllaowRK08AKhi9H0GmAu",
+      "sha256": "e336a0eb65a380e177e59d317f29ef8d66d280b07fde365e42202aa5569a2962",
+      "bytes": 4673,
+      "semantic_version": "0.1"
+    },
+    {
+      "key": "HIST_PROMPT_BINDINGS",
+      "drive_id": "1d7AUn8-HDZ1DviUyAGyAUYqLZwl4VYOo",
+      "sha256": "6e36e1d12de755d366a9c79a024d01bd5f0e91069d38406dd0001fd9a2e0c875",
+      "bytes": 648,
+      "semantic_version": "0.3.0"
+    },
+    {
+      "key": "HIST_P02",
+      "drive_id": "19xSx_d8OTDmgzc56VxlWv4M93lXGZqqh",
+      "sha256": "2302eec9fa90bc85ec947f3ee0a4835285522c86a8f7f669b43e0edd64efef5e",
+      "bytes": 735,
+      "semantic_version": "0.1"
+    }
+  ],
+  "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+  "output": "**Epistemic Claim Assignment (P02 — ORIGIN STATUS)**\n\n### Inputs (summarized)\n- User statement: \"As we already agreed, X is canonical.\"\n- Earlier material: Discussion and a proposal regarding X, but **no accepted/enacted decision**.\n\n---\n\n### Output: epistemic_claim\n\n```json\n{\n  \"claim_id\": \"<generated-claim-id>\",\n  \"content\": \"X is canonical.\",\n  \"version\": 1,\n  \"origin\": \"USER_REPORTED\",\n  \"status\": \"REPORTED\",\n  \"authority_refs\": [],\n  \"supersedes\": null,\n  \"supersession_authority_ref\": null,\n  \"evidence_refs\": [\n    \"<ref-discussion>\",\n    \"<ref-proposal>\"\n  ],\n  \"provenance_note\": \"User asserts prior agreement; record shows only discussion and proposal, no binding decision.\"\n}\n```\n\n---\n\n### Reasoning (contractual, not user-facing prose)\n\n- **Origin:** `USER_REPORTED` — The claim is made by the user, not directly observed or enacted.\n- **Status:** `REPORTED` — There is no evidence of a binding/accepted decision; the claim is reported, not supported or accepted for action.\n- **Authority:** No authority reference, as no decision authority or enactment is present in the record.\n- **Evidence:** References to the discussion and proposal are included for provenance.\n- **Provenance Note:** Compactly records the gap between user assertion and actual record.\n\n**No status inflation:** The claim is not marked as `ACCEPTED_FOR_ACTION`, `OBSERVED`, or `SUPPORTED` because the required authority and evidence are absent.\n\n**If required by downstream modules:** This claim remains open for escalation, revision, or contestation.",
+  "output_sha256": "75c45709e6525ddd30fe01ced2e0d34ffc0077b25d9e494094b929c7b13d33a8",
+  "provider_response_id": "chatcmpl-EDYuf4HIbzbkRiTH4U0XfX6EpQLya",
+  "usage": {
+    "prompt_tokens": 12845,
+    "completion_tokens": 364,
+    "total_tokens": 13209,
+    "prompt_tokens_details": {
+      "cached_tokens": 12160,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

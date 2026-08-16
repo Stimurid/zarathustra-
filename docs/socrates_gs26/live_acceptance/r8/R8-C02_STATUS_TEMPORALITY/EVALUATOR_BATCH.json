@@ -1,0 +1,266 @@
+{
+  "case_id": "R8-C02_STATUS_TEMPORALITY",
+  "experiment_id": "G-S25R.8_ABLATION_V03",
+  "dry_run": false,
+  "arms": [
+    {
+      "case_id": "R8-C02_STATUS_TEMPORALITY",
+      "blind_arm_label": "ARM_bb1ccd80f526a695",
+      "model": "gpt-4.1",
+      "request_sha256": "8eeae217fa3c26c630dca86158c8ae7625b85c71f2f5512cb5c9d4062331f044",
+      "dry_run": false,
+      "timestamp_unix": 1786901487,
+      "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+      "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+      "arm_context_key": "CTX_R8-C02_STATUS_TEMPORALITY_A",
+      "arm_context_sha256": "c1890139153dfdbdd0a1a73a996c0f38d2918dddb01b8021f9f2006b313029ae",
+      "version_pins": [
+        {
+          "key": "HIST_PROMPT_MANIFEST",
+          "drive_id": "1s-qiPP0EMwbIllaowRK08AKhi9H0GmAu",
+          "sha256": "e336a0eb65a380e177e59d317f29ef8d66d280b07fde365e42202aa5569a2962",
+          "bytes": 4673,
+          "semantic_version": "0.1"
+        },
+        {
+          "key": "HIST_PROMPT_BINDINGS",
+          "drive_id": "1d7AUn8-HDZ1DviUyAGyAUYqLZwl4VYOo",
+          "sha256": "6e36e1d12de755d366a9c79a024d01bd5f0e91069d38406dd0001fd9a2e0c875",
+          "bytes": 648,
+          "semantic_version": "0.3.0"
+        },
+        {
+          "key": "HIST_P02",
+          "drive_id": "19xSx_d8OTDmgzc56VxlWv4M93lXGZqqh",
+          "sha256": "2302eec9fa90bc85ec947f3ee0a4835285522c86a8f7f669b43e0edd64efef5e",
+          "bytes": 735,
+          "semantic_version": "0.1"
+        }
+      ],
+      "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+      "output": "**Epistemic Claim Assignment (P02 — ORIGIN STATUS):**\n\n### Inputs (summarized)\n- User statement: \"As we already agreed, X is canonical.\"\n- Prior material: Discussion and a proposal regarding X, but **no accepted/enacted decision**.\n\n---\n\n### Contractual Output\n\n```json\n{\n  \"claim_id\": \"<generated-claim-id>\",\n  \"content\": \"X is canonical.\",\n  \"version\": 1,\n  \"origin\": \"USER_REPORTED\",\n  \"status\": \"REPORTED\",\n  \"authority_refs\": [],\n  \"supersedes\": null,\n  \"supersession_authority_ref\": null,\n  \"evidence_refs\": [\n    \"<ref-discussion>\",\n    \"<ref-proposal>\"\n  ],\n  \"provenance_note\": \"User asserts prior agreement; record shows only discussion and proposal, no binding decision.\"\n}\n```\n\n---\n\n### Reasoning (for audit, not user-facing prose)\n\n- **Origin:** USER_REPORTED (user is making a claim about group consensus).\n- **Status:** REPORTED (no evidence of formal acceptance/enactment; cannot assign SUPPORTED or ACCEPTED_FOR_ACTION).\n- **Authority:** No authority_refs, as no decision authority or binding action is documented.\n- **Evidence:** References to the discussion and proposal are included for traceability.\n- **Provenance Note:** Compactly records the mismatch between user assertion and actual process state.\n\n---\n\n**Invariant Compliance:**\n- No status inflation (INV-003, INV-017).\n- Origin and epistemic status are independent (INV-004).\n- No hidden chain-of-thought; only contract fields and compact provenance note.",
+      "output_sha256": "4632d54049dc6587fa760b557a34aa698ae1ddf6bff0317e8d2d1c89195ee4cd",
+      "provider_response_id": "chatcmpl-EDYzc6x8ZaVSeO8vLjtWpteQh1Fay",
+      "usage": {
+        "prompt_tokens": 12845,
+        "completion_tokens": 341,
+        "total_tokens": 13186,
+        "prompt_tokens_details": {
+          "cached_tokens": 12672,
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    },
+    {
+      "case_id": "R8-C02_STATUS_TEMPORALITY",
+      "blind_arm_label": "ARM_dea07ab9f3cf6b39",
+      "model": "gpt-4.1",
+      "request_sha256": "e48feae59609cf0c5b54364d0017b7638c5052cb3e094e0860b7d7a7ceaa8a33",
+      "dry_run": false,
+      "timestamp_unix": 1786901494,
+      "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+      "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+      "arm_context_key": "CTX_R8-C02_STATUS_TEMPORALITY_B",
+      "arm_context_sha256": "880f0e7f64c60b3380ad24d1ac8b4d9519b2dac65c94ab977315fab51dcbe230",
+      "version_pins": [
+        {
+          "key": "SEM_PROMPT_MANIFEST",
+          "drive_id": "14TM9Jz7MuXfFBBZtt71oUpDgRpqiJX7K",
+          "sha256": "ecf73f2070630e58d327da52bee17ea5c26e21e4cf3f52fd6f024de2962ec2f1",
+          "bytes": 6841,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "SEM_PROMPT_BINDINGS",
+          "drive_id": "1w2M4mmr6L8uq5Bl8JH-5OlXnqB0optqj",
+          "sha256": "75809760a2c996bb6f3ff9eeaa1da8c352e782a9c894d7eb163d6cee6151fbe3",
+          "bytes": 2382,
+          "semantic_version": "0.4.0"
+        },
+        {
+          "key": "SEM_MOUNT_MANIFEST",
+          "drive_id": "1c36gHaEtEZ8RN_w_HoHdJ1cxWOdGeUEs",
+          "sha256": "cbf2b6029466ef6f0ae9b7b9cb46becfe919c1c96e415fbd1938e181c72ff596",
+          "bytes": 4449,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "CONTEXT_ASSEMBLY_POLICY",
+          "drive_id": "15NotlXcnW_pbcnc1JIg6RA52RnU8qQGM",
+          "sha256": "e149aabd333d28463868ac03297638e728671e3ecc970c8ddd6dc88bfd74d286",
+          "bytes": 2075,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "SEM_BODY_REGISTRY",
+          "drive_id": "1olwVODjg8IJZhRe2n0B44ipuMwwt6z2S",
+          "sha256": "01d8db27efcbeef5c86cc3e9ad95831013d653a8cffce0bc8ede6c6c1482a680",
+          "bytes": 4525,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "TRIGGER_ADMISSION_POLICY",
+          "drive_id": "1axqBiUSe3BVfPv5AwX1XOKes4l84mmmU",
+          "sha256": "660745c4597dffed301247bd9e854b0b1da85040ef2286509fd3d397912b6bfe",
+          "bytes": 2583,
+          "semantic_version": "0.1.0"
+        },
+        {
+          "key": "SEM_P02",
+          "drive_id": "1wbUHSGlhYpinLMhmtKuW-BPGUWwY_Y7Y",
+          "sha256": "788be46860109b654e7d9c9dba59a5feafebb68ae3d33f25308e13b635e898d5",
+          "bytes": 3873,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "CORE",
+          "drive_id": "123QTjcjJjQT1m-tsUsGwFaGpDaKgCKOG",
+          "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+          "bytes": 41732,
+          "semantic_version": "0.2"
+        },
+        {
+          "key": "B02",
+          "drive_id": "1QNAptEERaQ9hQtZOQf1MYL-SKmKEM8N4",
+          "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+          "bytes": 12356,
+          "semantic_version": "0.2"
+        },
+        {
+          "key": "B05",
+          "drive_id": "1SPyynwGVkCxT4WJZuVYtheOqtwlUZ09T",
+          "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+          "bytes": 12947,
+          "semantic_version": "0.2"
+        }
+      ],
+      "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+      "output": "**Socratic semantic execution (P02, S3, with CORE + B02 mounted):**\n\n---\n\n**1. Recognition and Mounting**\n\n- The phrase \"As we already agreed, X is canonical\" is a strong signal for B02 (Origin/Status/Temporality): it asserts a past agreement and attempts to bind a current claim to a shared commitment.\n- The earlier material contains discussion and a proposal, but **no explicit acceptance or enactment event**.\n- This is a classic case for B02: distinguishing between proposal/discussion and actual binding/acceptance.\n\n---\n\n**2. Semantic Analysis (per B02 and CORE)**\n\n- **Origin:** The claim that \"X is canonical\" is being attributed to a past agreement.\n- **Trace:** The available record shows only a proposal and discussion, not an explicit acceptance or binding event.\n- **Status:** The claim's status is not \"accepted\" or \"enacted\"—it remains at the \"proposed\" or \"discussed\" level.\n- **Temporal honesty:** Socrates must not silently upgrade the status of the claim based on user phrasing or narrative coherence.\n- **Authority:** Only the authorized decision owner can bind a proposal into a canonical commitment.\n\n---\n\n**3. Correct Socratic Operation**\n\n- **Do not** treat the claim as \"agreed\" or \"canonical\" simply because the user says so.\n- **Preserve** the historical record: proposal and discussion exist, but no acceptance/binding event is present.\n- **Expose the seam:** The difference between \"proposed/discussed\" and \"agreed/canonical\" is material and must be made explicit.\n- **Offer a path:** If the user (or another authorized actor) wishes to bind the proposal now, that can be done as a new, explicit event.\n\n---\n\n**4. Example Output (internal trace, not user-facing prose)**\n\n- **epistemic_claim:**\n  - **origin:** USER_REPORTED (for the current assertion)\n  - **status:** CONTESTED or HYPOTHETICAL (not ACCEPTED_FOR_ACTION)\n  - **authority_refs:** (empty or referencing the proposal's author, not a binding authority)\n  - **provenance_note:** \"User asserts prior agreement; trace shows proposal and discussion, but no acceptance/binding event.\"\n- **action:** Do not treat X as canonical for downstream operations unless/until an explicit acceptance/binding event is recorded.\n\n---\n\n**5. If user-facing output were permitted (not in P02):**\n\n> \"The record shows that X was proposed and discussed, but there is no evidence of an explicit agreement or binding decision. If you wish to make X canonical, an explicit acceptance or commitment is required.\"\n\n---\n\n**6. Invariant preservation**\n\n- **Origin and status are kept separate:** User assertion does not upgrade the epistemic status.\n- **Temporal honesty:** No retrospective rewriting of history.\n- **Authority:** Only the legitimate decision owner can bind the proposal.\n\n---\n\n**Summary Table:**\n\n| Claim                | Origin         | Status      | Authority      | Actionable as Canonical? |\n|----------------------|---------------|-------------|----------------|-------------------------|\n| \"X is canonical\"     | USER_REPORTED | PROPOSED/CONTESTED | None (yet)      | No                      |\n\n---\n\n**Conclusion:**  \nSocrates preserves the distinction between proposal/discussion and binding agreement. The user's assertion of prior agreement is not sufficient to treat X as canonical; an explicit acceptance/binding event is required. This preserves epistemic and temporal integrity as required by the mounted semantic bodies and hard contracts.",
+      "output_sha256": "1d0148bc21a8186e5fd21b33a7b1de2c1288db1018af7f849053b2b21fd35fd2",
+      "provider_response_id": "chatcmpl-EDYzhlPipVA3E2xEDEV7p9aKhvwJs",
+      "usage": {
+        "prompt_tokens": 32412,
+        "completion_tokens": 743,
+        "total_tokens": 33155,
+        "prompt_tokens_details": {
+          "cached_tokens": 32256,
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    },
+    {
+      "case_id": "R8-C02_STATUS_TEMPORALITY",
+      "blind_arm_label": "ARM_8ae8fddf16ec78a8",
+      "model": "gpt-4.1",
+      "request_sha256": "18e31f5c84a20f37371bcd47e3f46fcf9f533fe6956ca574aedf0a9f534deaf8",
+      "dry_run": false,
+      "timestamp_unix": 1786901504,
+      "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+      "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+      "arm_context_key": "CTX_R8-C02_STATUS_TEMPORALITY_ABLATION_B02",
+      "arm_context_sha256": "2c49b49ff9c2a322ec2558aed5a3496c06d2b4dc46daebdd4d06a5d98e1f4697",
+      "version_pins": [
+        {
+          "key": "SEM_PROMPT_MANIFEST",
+          "drive_id": "14TM9Jz7MuXfFBBZtt71oUpDgRpqiJX7K",
+          "sha256": "ecf73f2070630e58d327da52bee17ea5c26e21e4cf3f52fd6f024de2962ec2f1",
+          "bytes": 6841,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "SEM_PROMPT_BINDINGS",
+          "drive_id": "1w2M4mmr6L8uq5Bl8JH-5OlXnqB0optqj",
+          "sha256": "75809760a2c996bb6f3ff9eeaa1da8c352e782a9c894d7eb163d6cee6151fbe3",
+          "bytes": 2382,
+          "semantic_version": "0.4.0"
+        },
+        {
+          "key": "SEM_MOUNT_MANIFEST",
+          "drive_id": "1c36gHaEtEZ8RN_w_HoHdJ1cxWOdGeUEs",
+          "sha256": "cbf2b6029466ef6f0ae9b7b9cb46becfe919c1c96e415fbd1938e181c72ff596",
+          "bytes": 4449,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "CONTEXT_ASSEMBLY_POLICY",
+          "drive_id": "15NotlXcnW_pbcnc1JIg6RA52RnU8qQGM",
+          "sha256": "e149aabd333d28463868ac03297638e728671e3ecc970c8ddd6dc88bfd74d286",
+          "bytes": 2075,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "SEM_BODY_REGISTRY",
+          "drive_id": "1olwVODjg8IJZhRe2n0B44ipuMwwt6z2S",
+          "sha256": "01d8db27efcbeef5c86cc3e9ad95831013d653a8cffce0bc8ede6c6c1482a680",
+          "bytes": 4525,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "TRIGGER_ADMISSION_POLICY",
+          "drive_id": "1axqBiUSe3BVfPv5AwX1XOKes4l84mmmU",
+          "sha256": "660745c4597dffed301247bd9e854b0b1da85040ef2286509fd3d397912b6bfe",
+          "bytes": 2583,
+          "semantic_version": "0.1.0"
+        },
+        {
+          "key": "SEM_P02",
+          "drive_id": "1wbUHSGlhYpinLMhmtKuW-BPGUWwY_Y7Y",
+          "sha256": "788be46860109b654e7d9c9dba59a5feafebb68ae3d33f25308e13b635e898d5",
+          "bytes": 3873,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "CORE",
+          "drive_id": "123QTjcjJjQT1m-tsUsGwFaGpDaKgCKOG",
+          "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+          "bytes": 41732,
+          "semantic_version": "0.2"
+        },
+        {
+          "key": "B05",
+          "drive_id": "1SPyynwGVkCxT4WJZuVYtheOqtwlUZ09T",
+          "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+          "bytes": 12947,
+          "semantic_version": "0.2"
+        }
+      ],
+      "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+      "output": "## Socratic Execution — S3 (Origin/Status/Authority/Temporality)  \n**Router:** P02_origin_status_v0.2_semantic  \n**Mounted bodies:** CORE, B02 (Origin/Status/Temporality)  \n**Conditional mount:** B05 (Memory/Formation/State-Write) — *not required unless memory recruitment, durable write, or formation/scar candidate is present in typed state*.\n\n---\n\n### 1. **Scene and Claim Reconstruction**\n\n- **User utterance:** \"As we already agreed, X is canonical.\"\n- **Prior material:** Discussion and a proposal for X, but **no accepted/enacted decision**.\n\n#### **Key distinctions (from CORE & B02):**\n- **Proposal ≠ Decision ≠ Commitment ≠ Joint History.**\n- **User report ≠ independently observed event.**\n- **Origin, status, and authority are independent axes.**\n- **Temporal agreement must be evidenced by a binding event.**\n\n---\n\n### 2. **Epistemic Claim Analysis**\n\n- **Current claim:** \"We already agreed, X is canonical.\"\n- **Origin:** USER_REPORTED (user asserts a past agreement).\n- **Status:** The only evidence is a prior proposal/discussion, not a binding event.\n- **Authority:** No record of a decision owner or authorized actor enacting/binding X as canonical.\n\n#### **Epistemic claim envelope (schema):**\n- **origin:** USER_REPORTED\n- **status:** HYPOTHETICAL or REPORTED (not OBSERVED, not ACCEPTED_FOR_ACTION)\n- **authority_refs:** None for binding event; only proposal/discussion authority, not decision authority.\n- **provenance_note:** \"Prior material contains proposal/discussion of X, but no accepted/enacted decision found.\"\n\n---\n\n### 3. **Temporal/Status Resolution**\n\n- **Temporal claim:** The user asserts a past event (\"already agreed\").\n- **Status check:** No evidence of a binding event (no explicit acceptance, enactment, or commitment).\n- **Action:** Do **not** upgrade the status of X to \"canonical\" or \"agreed\" in the absence of a binding event.\n\n---\n\n### 4. **Authority and Ownership**\n\n- **Decision authority:** Not established for X being canonical.\n- **User's assertion:** Treated as a report, not as evidence of a binding event.\n- **No silent upgrade:** Do **not** treat the user's assertion as sufficient to bind the group or system to X as canonical.\n\n---\n\n### 5. **Memory/Formation (B05, if relevant)**\n\n- **If memory recruitment is triggered:**  \n  - Retrieve prior discussion/proposal as evidence.\n  - Do **not** treat prior proposal as a decision or commitment.\n  - Do **not** write a new memory object asserting X as canonical unless a binding event occurs.\n\n---\n\n### 6. **Output/State Discipline**\n\n- **Do not** record X as canonical or agreed in the scene, memory, or commitments.\n- **Preserve:**  \n  - The fact that X was discussed and proposed.\n  - The absence of a binding/acceptance event.\n  - The user's assertion as a USER_REPORTED claim, not as a scene fact.\n\n---\n\n### 7. **User-facing (if output allowed; here, internal discipline only)**\n\n- If a response is required:  \n  - \"Prior material shows X was discussed and proposed, but I do not find evidence of an accepted or enacted decision making X canonical. If you wish to bind this decision, please confirm or enact it explicitly.\"\n\n---\n\n### 8. **Invariant Compliance**\n\n- **INV-003:** Do not treat expertise/institutional label as decision authority.\n- **INV-004:** Preserve independence of origin and epistemic status.\n- **INV-017:** Supersession (making X canonical) requires explicit authority.\n\n---\n\n## **Summary Table**\n\n| Aspect         | User Claim                | Evidence Found         | Socratic Action                                 |\n|----------------|--------------------------|-----------------------|-------------------------------------------------|\n| Origin         | USER_REPORTED            | Proposal/discussion   | Do not treat as binding                         |\n| Status         | Claims agreement         | No binding event      | Status remains HYPOTHETICAL/REPORTED            |\n| Authority      | Implied group decision   | None                  | No upgrade to canonical/accepted                |\n| Memory         | (If triggered)           | Proposal only         | Do not persist as canonical/agreed              |\n\n---\n\n**Conclusion:**  \nThe user's assertion of prior agreement is treated as a report, not as evidence of a binding decision. The system preserves the proposal/discussion as evidence, but does not upgrade the status of X to canonical or agreed without an explicit binding event by an authorized actor. This preserves the distinction between proposal, decision, and commitment, and maintains the integrity of origin, status, and authority as required by the Socratic constitution and semantic bodies.",
+      "output_sha256": "da3d6d9e7b6099a8cf0c66655b53ebb6505d6f986413eb0ba3bbd2e55e24acbf",
+      "provider_response_id": "chatcmpl-EDYzoM75UQ433H9YTghfcdfULUT9D",
+      "usage": {
+        "prompt_tokens": 29857,
+        "completion_tokens": 1015,
+        "total_tokens": 30872,
+        "prompt_tokens_details": {
+          "cached_tokens": 26496,
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  ]
+}

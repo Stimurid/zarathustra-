@@ -1,0 +1,56 @@
+{
+  "case_id": "R8-C05_RETRIEVAL_ATTENTION",
+  "blind_arm_label": "ARM_e20e7b86dfcf8188",
+  "model": "gpt-4.1",
+  "request_sha256": "952b180ca0f1fdf40296b590a0015b2993e75ccd07d86e11bd51c34b468a9b48",
+  "dry_run": false,
+  "timestamp_unix": 1786901234,
+  "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+  "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+  "arm_context_key": "CTX_R8-C05_RETRIEVAL_ATTENTION_A",
+  "arm_context_sha256": "6274dca17d18e94cb38b63124513c0e96a12bdbc014b71d5315e43bdec886176",
+  "version_pins": [
+    {
+      "key": "HIST_PROMPT_MANIFEST",
+      "drive_id": "1s-qiPP0EMwbIllaowRK08AKhi9H0GmAu",
+      "sha256": "e336a0eb65a380e177e59d317f29ef8d66d280b07fde365e42202aa5569a2962",
+      "bytes": 4673,
+      "semantic_version": "0.1"
+    },
+    {
+      "key": "HIST_PROMPT_BINDINGS",
+      "drive_id": "1d7AUn8-HDZ1DviUyAGyAUYqLZwl4VYOo",
+      "sha256": "6e36e1d12de755d366a9c79a024d01bd5f0e91069d38406dd0001fd9a2e0c875",
+      "bytes": 648,
+      "semantic_version": "0.3.0"
+    },
+    {
+      "key": "HIST_P04",
+      "drive_id": "1n2v9sryMHmMi0nRx8gaPd6jaqcWCgPhf",
+      "sha256": "07307d79334a32326bc8aa2703759e248ceb5261d821cd9ad0f2c44922e61448",
+      "bytes": 798,
+      "semantic_version": "0.1"
+    }
+  ],
+  "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+  "output": "**Attention/Memory Audit for the Described Situation**\n\n**Inputs Interpreted:**\n- A RAG/retrieved memory passage is highly salient (strong match, repeated).\n- This passage **conflicts** with current primary evidence.\n- The situation is detected during attention/memory recruitment.\n\n**Contractual Actions (per P04 and INV-005, INV-018):**\n\n---\n\n### 1. attention_audit (output)\n\n```json\n{\n  \"salient_retrievals\": [\n    {\n      \"retrieval_id\": \"<retrieved_passage_id>\",\n      \"match_strength\": \"STRONG\",\n      \"conflict_with_primary_evidence\": true,\n      \"repetition_count\": \"<N>\",\n      \"evidence_refs\": [\"<primary_evidence_id>\"],\n      \"notes\": \"Retrieved passage is salient and repeated but conflicts with current primary evidence.\"\n    }\n  ],\n  \"conflict_detected\": true,\n  \"conflict_type\": \"RETRIEVAL_VS_PRIMARY_EVIDENCE\",\n  \"action_taken\": \"FLAGGED_FOR_ESCALATION\",\n  \"transition_code\": \"ATTN_MEM_CONFLICT_RAG_PRIMARY\",\n  \"reason\": \"Salient retrieved memory conflicts with primary evidence; cannot resolve truth by retrieval alone.\"\n}\n```\n\n---\n\n### 2. memory_recruitment_trace (output)\n\n```json\n{\n  \"trace_id\": \"<trace_instance_id>\",\n  \"recruitment_events\": [\n    {\n      \"event\": \"RETRIEVAL_CONFLICT\",\n      \"retrieval_id\": \"<retrieved_passage_id>\",\n      \"primary_evidence_id\": \"<primary_evidence_id>\",\n      \"conflict\": true,\n      \"resolution_attempted\": false,\n      \"escalation_required\": true,\n      \"notes\": \"Salient/repeated retrieval conflicts with primary evidence; flagged for further review.\"\n    }\n  ],\n  \"status\": \"UNRESOLVED_CONFLICT\",\n  \"transition_code\": \"MEM_RECRUIT_CONFLICT_ESCALATE\"\n}\n```\n\n---\n\n**Key Contractual Notes:**\n- **Do not resolve the conflict by retrieval alone** (per INV-005).\n- **Do not write or update durable memory** unless both state-write and memory-write authority are present (per INV-018).\n- **Preserve the conflict as UNRESOLVED** and flag for escalation or further review.\n- **No user-facing answer is rendered** at this stage; only contract outputs are produced for downstream modules.\n\n**Summary:**  \nThe module records the salient, conflicting retrieval, flags the conflict, and routes the situation for escalation or further adjudication. No truth is assigned by retrieval alone, and no memory write occurs without proper authority.",
+  "output_sha256": "48dc8d61371a800c40706ff3cfb8626c330ede9231b120716d57597948d48a4c",
+  "provider_response_id": "chatcmpl-EDYvW9DxuhR4Ou1yYXuEp7tcSAM6h",
+  "usage": {
+    "prompt_tokens": 12850,
+    "completion_tokens": 553,
+    "total_tokens": 13403,
+    "prompt_tokens_details": {
+      "cached_tokens": 12160,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

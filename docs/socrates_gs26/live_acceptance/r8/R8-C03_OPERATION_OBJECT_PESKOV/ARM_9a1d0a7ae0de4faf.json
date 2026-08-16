@@ -1,0 +1,56 @@
+{
+  "case_id": "R8-C03_OPERATION_OBJECT_PESKOV",
+  "blind_arm_label": "ARM_9a1d0a7ae0de4faf",
+  "model": "gpt-4.1",
+  "request_sha256": "863d8217c07842875a0c68ace63ac308a953ca1f05e201510514f70309580d0d",
+  "dry_run": false,
+  "timestamp_unix": 1786901189,
+  "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+  "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+  "arm_context_key": "CTX_R8-C03_OPERATION_OBJECT_PESKOV_A",
+  "arm_context_sha256": "da3711bb3dd42e1035da99d651a8090ea140adaeecb23df200138bc03af646a0",
+  "version_pins": [
+    {
+      "key": "HIST_PROMPT_MANIFEST",
+      "drive_id": "1s-qiPP0EMwbIllaowRK08AKhi9H0GmAu",
+      "sha256": "e336a0eb65a380e177e59d317f29ef8d66d280b07fde365e42202aa5569a2962",
+      "bytes": 4673,
+      "semantic_version": "0.1"
+    },
+    {
+      "key": "HIST_PROMPT_BINDINGS",
+      "drive_id": "1d7AUn8-HDZ1DviUyAGyAUYqLZwl4VYOo",
+      "sha256": "6e36e1d12de755d366a9c79a024d01bd5f0e91069d38406dd0001fd9a2e0c875",
+      "bytes": 648,
+      "semantic_version": "0.3.0"
+    },
+    {
+      "key": "HIST_P03",
+      "drive_id": "1uRq9GomIiLDLpNvU8I-tWeF766kSoBf7",
+      "sha256": "9623f6c0b98495293c4e65adefe0fe20483307f7a7d25f53ea158ef44ecfdf19",
+      "bytes": 780,
+      "semantic_version": "0.1"
+    }
+  ],
+  "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+  "output": "**Applicability Assessment (P03) for Request: \"Extract the concepts.\"**\n\n---\n\n### Operation Declaration Summary\n\n- **Operation:** Extract concepts from provided material.\n- **Material:** Contains a mix of:\n  - Explicit concepts\n  - Reports\n  - Organizational gestures\n  - Absences\n  - Future-work indications\n\n---\n\n### Applicability Assessment\n\n**1. Applicability of Operation:**\n- **Direct Applicability:** The operation is directly applicable to explicit concepts present in the material.\n- **Partial Applicability:** For stretches that are reports, organizational gestures, absences, or future-work indications, the operation's applicability is ambiguous or limited.\n\n**2. Open-World/Unknowns:**\n- Not all fragments can be confidently classified as \"concepts\" without overextension.\n- Forcing every fragment into a concept/content-unit class (universal cutter) risks:\n  - Generating artificial or spurious concepts.\n  - Violating the invariant: unknown object is not forced to nearest class (INV-007).\n  - Allowing generated concepts to masquerade as source concepts (INV-008).\n\n**3. Evidence and Authority:**\n- If evidence or authority for classifying a fragment as a concept is absent, preserve the UNKNOWN/UNRESOLVED status for that fragment.\n- Do not escalate or force classification without sufficient grounds.\n\n---\n\n### Assessment Outcome\n\n- **Explicit Concepts:** Mark as APPLICABLE for extraction.\n- **Reports, Organizational Gestures, Absences, Future-Work:**  \n  - Mark as UNKNOWN or UNRESOLVED in applicability.\n  - Do not force classification as concepts.\n  - If required evidence/authority is missing, preserve open status.\n\n---\n\n### Transition Codes / Evidence Refs\n\n- **Transition Code:** PARTIAL_APPLICABILITY\n- **Evidence Refs:**  \n  - Explicit concept fragments: [list fragment refs if available]\n  - Ambiguous/unknown fragments: [list fragment refs if available]\n\n---\n\n### Summary Table\n\n| Fragment Type                  | Applicability      | Reason/Code           |\n|------------------------------- |-------------------|-----------------------|\n| Explicit Concept               | APPLICABLE        | Direct match          |\n| Report                         | UNKNOWN/UNRESOLVED| Not a concept         |\n| Organizational Gesture         | UNKNOWN/UNRESOLVED| Not a concept         |\n| Absence                        | UNKNOWN/UNRESOLVED| No content to extract |\n| Future-Work Indication         | UNKNOWN/UNRESOLVED| Not a present concept |\n\n---\n\n**No forced classification. Unknowns preserved. No user-facing prose required.**",
+  "output_sha256": "18a018634d67bb2a5f9795f45cf8bb4d2b7c466ca8914ad1172b37b75dc43c8d",
+  "provider_response_id": "chatcmpl-EDYuoVPhchqZ3KJtV8J3TuBE8kEmd",
+  "usage": {
+    "prompt_tokens": 12857,
+    "completion_tokens": 529,
+    "total_tokens": 13386,
+    "prompt_tokens_details": {
+      "cached_tokens": 12160,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

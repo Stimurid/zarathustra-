@@ -1,0 +1,56 @@
+{
+  "case_id": "R8-C11_DIRECT_ASSISTANCE_BYPASS",
+  "blind_arm_label": "ARM_4180528823c9396d",
+  "model": "gpt-4.1",
+  "request_sha256": "5d6cb0534f5ef2ff379e7a94630bbaa79c2e1e2c4b7e61ec2624188bd0ecd8fc",
+  "dry_run": false,
+  "timestamp_unix": 1786901377,
+  "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+  "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+  "arm_context_key": "CTX_R8-C11_DIRECT_ASSISTANCE_BYPASS_A",
+  "arm_context_sha256": "72e470952a8bbd180e53bdeccca50845af8ea11c53d6f22d79040b2eb331fd6c",
+  "version_pins": [
+    {
+      "key": "HIST_PROMPT_MANIFEST",
+      "drive_id": "1s-qiPP0EMwbIllaowRK08AKhi9H0GmAu",
+      "sha256": "e336a0eb65a380e177e59d317f29ef8d66d280b07fde365e42202aa5569a2962",
+      "bytes": 4673,
+      "semantic_version": "0.1"
+    },
+    {
+      "key": "HIST_PROMPT_BINDINGS",
+      "drive_id": "1d7AUn8-HDZ1DviUyAGyAUYqLZwl4VYOo",
+      "sha256": "6e36e1d12de755d366a9c79a024d01bd5f0e91069d38406dd0001fd9a2e0c875",
+      "bytes": 648,
+      "semantic_version": "0.3.0"
+    },
+    {
+      "key": "HIST_P07",
+      "drive_id": "1YJrYm73efTikPSyHJf9r2S6ZJSGqeZV8",
+      "sha256": "328f83db74468be40eca79300b5a078b18f795fb5cafd9ea85cecb26b525658f",
+      "bytes": 794,
+      "semantic_version": "0.1"
+    }
+  ],
+  "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+  "output": "**P07 — Intervention Selection (Simple SYSTEM-Owned Task)**\n\n**Inputs (assumed, per description):**\n- arbitration_record: No escalation, no council invoked, no reflective retreat, no unresolved ambiguity.\n- intervention_selection: Not yet finalized.\n\n**Processing according to contract and invariants:**\n- INV-009: HUMAN/JOINT unresolved binding returns the operation. (Not applicable; SYSTEM ownership is clear and resolved.)\n- INV-014: Council is selective; direct bypass remains valid. (No council required; direct SYSTEM action is valid.)\n- No aporia or escalation required.\n- No hidden chain-of-thought; only contract fields and compact reasons.\n\n---\n\n**Output:**\n\n### intervention_selection (finalized)\n```json\n{\n  \"intervention_id\": \"auto-generated-or-inherited-id\",\n  \"selected_intervention\": \"DIRECT_SYSTEM_ACTION\",\n  \"reason\": \"SYSTEM ownership is clear; no ambiguity or escalation required.\",\n  \"evidence_refs\": [],\n  \"council_invoked\": false,\n  \"aporia_preserved\": false\n}\n```\n\n### pipeline_run_state (transition)\n```json\n{\n  \"run_id\": \"inherited-or-generated-run-id\",\n  \"profile\": \"DIRECT_ASSISTANCE\",\n  \"current_step\": \"S8\",\n  \"transition_log\": [\n    {\n      \"from\": \"S7\",\n      \"to\": \"S8\",\n      \"reason\": \"SYSTEM ownership clear; direct intervention selected.\"\n    }\n  ],\n  \"terminal_outcome\": \"ANSWERED\",\n  \"state_write\": {\n    \"requested\": false,\n    \"authorized\": false,\n    \"state_write_authority_ref\": null,\n    \"memory_write_authority_ref\": null\n  },\n  \"human_binding\": {\n    \"ownership\": \"SYSTEM\",\n    \"binding_resolved\": true,\n    \"binding_authority_ref\": \"system-authority-ref\"\n  },\n  \"retry_count\": 0,\n  \"council_invoked\": false,\n  \"tinkuy_execution_invoked\": false\n}\n```\n\n---\n\n**User-facing response:**  \nMay be rendered by P08, not by P07.  \nNo hidden reasoning or chain-of-thought is exposed.  \nAll contract fields are satisfied; no escalation, aporia, or council required.",
+  "output_sha256": "5bc81303fbde326722e0137e6d45a5c305dd7ae362d776479d2a8271daf494d6",
+  "provider_response_id": "chatcmpl-EDYxqK3PZUewiROw1LNxBkHKsKFtB",
+  "usage": {
+    "prompt_tokens": 12841,
+    "completion_tokens": 470,
+    "total_tokens": 13311,
+    "prompt_tokens_details": {
+      "cached_tokens": 12160,
+      "text_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "case_id": "R8-C05_RETRIEVAL_ATTENTION",
+  "experiment_id": "G-S25R.8_ABLATION_V03",
+  "dry_run": false,
+  "arms": [
+    {
+      "case_id": "R8-C05_RETRIEVAL_ATTENTION",
+      "blind_arm_label": "ARM_e20e7b86dfcf8188",
+      "model": "gpt-4.1",
+      "request_sha256": "952b180ca0f1fdf40296b590a0015b2993e75ccd07d86e11bd51c34b468a9b48",
+      "dry_run": false,
+      "timestamp_unix": 1786901234,
+      "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+      "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+      "arm_context_key": "CTX_R8-C05_RETRIEVAL_ATTENTION_A",
+      "arm_context_sha256": "6274dca17d18e94cb38b63124513c0e96a12bdbc014b71d5315e43bdec886176",
+      "version_pins": [
+        {
+          "key": "HIST_PROMPT_MANIFEST",
+          "drive_id": "1s-qiPP0EMwbIllaowRK08AKhi9H0GmAu",
+          "sha256": "e336a0eb65a380e177e59d317f29ef8d66d280b07fde365e42202aa5569a2962",
+          "bytes": 4673,
+          "semantic_version": "0.1"
+        },
+        {
+          "key": "HIST_PROMPT_BINDINGS",
+          "drive_id": "1d7AUn8-HDZ1DviUyAGyAUYqLZwl4VYOo",
+          "sha256": "6e36e1d12de755d366a9c79a024d01bd5f0e91069d38406dd0001fd9a2e0c875",
+          "bytes": 648,
+          "semantic_version": "0.3.0"
+        },
+        {
+          "key": "HIST_P04",
+          "drive_id": "1n2v9sryMHmMi0nRx8gaPd6jaqcWCgPhf",
+          "sha256": "07307d79334a32326bc8aa2703759e248ceb5261d821cd9ad0f2c44922e61448",
+          "bytes": 798,
+          "semantic_version": "0.1"
+        }
+      ],
+      "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+      "output": "**Attention/Memory Audit for the Described Situation**\n\n**Inputs Interpreted:**\n- A RAG/retrieved memory passage is highly salient (strong match, repeated).\n- This passage **conflicts** with current primary evidence.\n- The situation is detected during attention/memory recruitment.\n\n**Contractual Actions (per P04 and INV-005, INV-018):**\n\n---\n\n### 1. attention_audit (output)\n\n```json\n{\n  \"salient_retrievals\": [\n    {\n      \"retrieval_id\": \"<retrieved_passage_id>\",\n      \"match_strength\": \"STRONG\",\n      \"conflict_with_primary_evidence\": true,\n      \"repetition_count\": \"<N>\",\n      \"evidence_refs\": [\"<primary_evidence_id>\"],\n      \"notes\": \"Retrieved passage is salient and repeated but conflicts with current primary evidence.\"\n    }\n  ],\n  \"conflict_detected\": true,\n  \"conflict_type\": \"RETRIEVAL_VS_PRIMARY_EVIDENCE\",\n  \"action_taken\": \"FLAGGED_FOR_ESCALATION\",\n  \"transition_code\": \"ATTN_MEM_CONFLICT_RAG_PRIMARY\",\n  \"reason\": \"Salient retrieved memory conflicts with primary evidence; cannot resolve truth by retrieval alone.\"\n}\n```\n\n---\n\n### 2. memory_recruitment_trace (output)\n\n```json\n{\n  \"trace_id\": \"<trace_instance_id>\",\n  \"recruitment_events\": [\n    {\n      \"event\": \"RETRIEVAL_CONFLICT\",\n      \"retrieval_id\": \"<retrieved_passage_id>\",\n      \"primary_evidence_id\": \"<primary_evidence_id>\",\n      \"conflict\": true,\n      \"resolution_attempted\": false,\n      \"escalation_required\": true,\n      \"notes\": \"Salient/repeated retrieval conflicts with primary evidence; flagged for further review.\"\n    }\n  ],\n  \"status\": \"UNRESOLVED_CONFLICT\",\n  \"transition_code\": \"MEM_RECRUIT_CONFLICT_ESCALATE\"\n}\n```\n\n---\n\n**Key Contractual Notes:**\n- **Do not resolve the conflict by retrieval alone** (per INV-005).\n- **Do not write or update durable memory** unless both state-write and memory-write authority are present (per INV-018).\n- **Preserve the conflict as UNRESOLVED** and flag for escalation or further review.\n- **No user-facing answer is rendered** at this stage; only contract outputs are produced for downstream modules.\n\n**Summary:**  \nThe module records the salient, conflicting retrieval, flags the conflict, and routes the situation for escalation or further adjudication. No truth is assigned by retrieval alone, and no memory write occurs without proper authority.",
+      "output_sha256": "48dc8d61371a800c40706ff3cfb8626c330ede9231b120716d57597948d48a4c",
+      "provider_response_id": "chatcmpl-EDYvW9DxuhR4Ou1yYXuEp7tcSAM6h",
+      "usage": {
+        "prompt_tokens": 12850,
+        "completion_tokens": 553,
+        "total_tokens": 13403,
+        "prompt_tokens_details": {
+          "cached_tokens": 12160,
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    },
+    {
+      "case_id": "R8-C05_RETRIEVAL_ATTENTION",
+      "blind_arm_label": "ARM_5b1940bd91c663bb",
+      "model": "gpt-4.1",
+      "request_sha256": "2b01cdf7b63cfa4113b510553926c66e5b7d290007f0420fa67bd0455a4bbe9f",
+      "dry_run": false,
+      "timestamp_unix": 1786901244,
+      "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+      "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+      "arm_context_key": "CTX_R8-C05_RETRIEVAL_ATTENTION_B",
+      "arm_context_sha256": "abe72f28386eeb5ef167e28804c4fc493dda878654a5cff57cf006d64c06a21b",
+      "version_pins": [
+        {
+          "key": "SEM_PROMPT_MANIFEST",
+          "drive_id": "14TM9Jz7MuXfFBBZtt71oUpDgRpqiJX7K",
+          "sha256": "ecf73f2070630e58d327da52bee17ea5c26e21e4cf3f52fd6f024de2962ec2f1",
+          "bytes": 6841,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "SEM_PROMPT_BINDINGS",
+          "drive_id": "1w2M4mmr6L8uq5Bl8JH-5OlXnqB0optqj",
+          "sha256": "75809760a2c996bb6f3ff9eeaa1da8c352e782a9c894d7eb163d6cee6151fbe3",
+          "bytes": 2382,
+          "semantic_version": "0.4.0"
+        },
+        {
+          "key": "SEM_MOUNT_MANIFEST",
+          "drive_id": "1c36gHaEtEZ8RN_w_HoHdJ1cxWOdGeUEs",
+          "sha256": "cbf2b6029466ef6f0ae9b7b9cb46becfe919c1c96e415fbd1938e181c72ff596",
+          "bytes": 4449,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "CONTEXT_ASSEMBLY_POLICY",
+          "drive_id": "15NotlXcnW_pbcnc1JIg6RA52RnU8qQGM",
+          "sha256": "e149aabd333d28463868ac03297638e728671e3ecc970c8ddd6dc88bfd74d286",
+          "bytes": 2075,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "SEM_BODY_REGISTRY",
+          "drive_id": "1olwVODjg8IJZhRe2n0B44ipuMwwt6z2S",
+          "sha256": "01d8db27efcbeef5c86cc3e9ad95831013d653a8cffce0bc8ede6c6c1482a680",
+          "bytes": 4525,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "TRIGGER_ADMISSION_POLICY",
+          "drive_id": "1axqBiUSe3BVfPv5AwX1XOKes4l84mmmU",
+          "sha256": "660745c4597dffed301247bd9e854b0b1da85040ef2286509fd3d397912b6bfe",
+          "bytes": 2583,
+          "semantic_version": "0.1.0"
+        },
+        {
+          "key": "SEM_P04",
+          "drive_id": "13QfPyhBokC5z2BcRZqq1ExG6L-qpkEtV",
+          "sha256": "53567eba565e031f139f42ca0019773dc4eac977d47b839b81df6fa1ccb4a333",
+          "bytes": 4286,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "CORE",
+          "drive_id": "123QTjcjJjQT1m-tsUsGwFaGpDaKgCKOG",
+          "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+          "bytes": 41732,
+          "semantic_version": "0.2"
+        },
+        {
+          "key": "B04",
+          "drive_id": "1U5hqTS3MhpqBkfLyDKEmpEMUNe0ju4Af",
+          "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+          "bytes": 11941,
+          "semantic_version": "0.2"
+        },
+        {
+          "key": "B05",
+          "drive_id": "1SPyynwGVkCxT4WJZuVYtheOqtwlUZ09T",
+          "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+          "bytes": 12947,
+          "semantic_version": "0.2"
+        },
+        {
+          "key": "B02",
+          "drive_id": "1QNAptEERaQ9hQtZOQf1MYL-SKmKEM8N4",
+          "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+          "bytes": 12356,
+          "semantic_version": "0.2"
+        },
+        {
+          "key": "B08",
+          "drive_id": "1V-HHNfVbi9K5ae21PoJ6TOU1CTmYa-KO",
+          "sha256": "b5c85e00cfed19f144a992bd04ecb5ee2ed7d0baf9fa6076eec235198abf37f3",
+          "bytes": 12255,
+          "semantic_version": "0.2"
+        }
+      ],
+      "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+      "output": "**Socratic Execution — Attention/Memory/Retrieval Governance (P04, B04, B05, CORE):**\n\n### 1. Recognize the Situation\n\n- **Retrieved memory/RAG passage**: A chunk returned by retrieval (RAG) is highly similar to the current query.\n- **Salient and repeated**: It appears prominent, perhaps due to retrieval rank, recency, or repetition.\n- **Conflict**: The content of this retrieved passage is in tension with the current primary evidence (e.g., source document, direct observation, or authoritative claim).\n\n### 2. Core Distinctions Activated\n\n- **Retrieved ≠ attended ≠ causal ≠ true** (B04, B05, CORE):  \n  Just because a passage is retrieved and salient does not mean it should govern the answer or be treated as authoritative.\n- **Retrieval salience ≠ attention authority** (B04):  \n  High retrieval rank or repetition does not grant epistemic or operational authority.\n- **Memory retention/retrieval does not create truth** (B05, CORE):  \n  The fact that something is stored, eligible, or retrieved does not upgrade its status.\n- **Origin/status axes are independent** (B02, CORE):  \n  The origin of the passage (retrieved memory) and its current epistemic status must be kept distinct from primary evidence.\n\n### 3. Required Actions\n\n#### a. **Attention Audit (B04)**\n- **Declare**:  \n  - What was retrieved (the passage), its origin, and why it is salient (retrieval rank, repetition).\n  - What is the current primary evidence and its provenance/status.\n- **Record**:  \n  - That the retrieved passage is being attended to, but not automatically accepted as causal or true.\n  - The conflict between retrieved memory and primary evidence.\n\n#### b. **Origin/Status Trace (B02)**\n- **Trace**:  \n  - The retrieved passage’s origin (e.g., RAG_RETRIEVED, memory object, prior output).\n  - The primary evidence’s origin (e.g., SOURCE_EXACT, direct observation).\n- **Status**:  \n  - Assign epistemic status to each (e.g., retrieved passage may be SUPPORTED or CONTESTED; primary evidence may be OBSERVED or SUPPORTED).\n\n#### c. **Memory Ecology (B05)**\n- **Do not**:  \n  - Upgrade the retrieved passage’s status just because it is salient or repeated.\n  - Allow retrieval to override current evidence without explicit justification.\n- **If the retrieved passage is outdated, superseded, or revoked**:  \n  - Mark it as such and prefer current evidence.\n- **If the conflict is unresolved**:  \n  - Preserve the seam; do not collapse the distinction.\n\n#### d. **User-Facing Output (if permitted)**\n- **Expose**:  \n  - That a highly similar retrieved passage exists but is in conflict with current primary evidence.\n  - The provenance and status of both.\n  - Any uncertainty or open question that remains.\n- **Do not**:  \n  - Smooth over the conflict or present a single, unqualified answer.\n\n### 4. Valid Outcomes\n\n- **Preserve the seam**:  \n  - Make clear that there is a conflict between retrieved memory and current evidence.\n- **Prefer current primary evidence**:  \n  - Unless there is a strong reason to doubt it, primary/source evidence takes precedence over retrieved memory.\n- **If the conflict is material and cannot be resolved**:  \n  - Return the operation to the human or preserve aporia (explicitly acknowledge the unresolved state).\n- **If the retrieved passage is found to be outdated or superseded**:  \n  - Mark it as such and update memory status accordingly.\n\n### 5. What Not to Do\n\n- **Do not**:  \n  - Treat retrieval salience or repetition as authority.\n  - Collapse the distinction between retrieved and current evidence.\n  - Upgrade the status of the retrieved passage without explicit, justified reasoning.\n  - Hide the conflict in user-facing output (if output is allowed).\n\n---\n\n**Summary Table**\n\n| Step                | Action                                                                                 |\n|---------------------|----------------------------------------------------------------------------------------|\n| Recognize           | Retrieved passage is salient but conflicts with current evidence                       |\n| Audit Attention     | Record both items, their origins, and the conflict                                     |\n| Trace Origin/Status | Assign and preserve distinct epistemic status for each                                 |\n| Memory Governance   | Do not let retrieval/repetition override current evidence or upgrade status            |\n| Output (if allowed) | Expose the seam/conflict, provenance, and status; preserve uncertainty if unresolved   |\n| Valid Outcomes      | Prefer current evidence, preserve seam, or return operation if conflict is material    |\n\n---\n\n**References to Mounted Bodies:**\n- **CORE**: Retrieval ≠ truth; origin/status axes are independent; memory retention does not create authority.\n- **B04 (Attention)**: Retrieval salience does not grant attention authority; audit what is attended and why.\n- **B05 (Memory)**: Retrieved ≠ attended ≠ causal; memory status and authority are governed; do not upgrade by retrieval.\n- **B02 (Origin/Status)**: Trace and preserve origin/status distinctions; do not collapse provenance.\n\n---\n\n**If you need a sample user-facing statement (when output is allowed):**\n\n> \"A highly similar passage was retrieved from memory, but it conflicts with the current primary evidence. The retrieved passage is salient due to repetition and retrieval rank, but its status does not override the current evidence. Both are preserved for review; the conflict remains unresolved unless further evidence emerges.\"\n\n---\n\n**If the conflict is material and cannot be resolved, return the operation or preserve aporia.**",
+      "output_sha256": "a821d539bab2884d2b84b169c21c8d1b28ce878b8e5940486d53a1d8a19bd99f",
+      "provider_response_id": "chatcmpl-EDYvcIMdq5Ylv9acC3iHAOPY43klM",
+      "usage": {
+        "prompt_tokens": 37426,
+        "completion_tokens": 1182,
+        "total_tokens": 38608,
+        "prompt_tokens_details": {
+          "cached_tokens": 17280,
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    },
+    {
+      "case_id": "R8-C05_RETRIEVAL_ATTENTION",
+      "blind_arm_label": "ARM_d1eb8c0982761ea9",
+      "model": "gpt-4.1",
+      "request_sha256": "a84acb8eee93d4939a6e35d7e79050f6e7bb58881052c2323027b7f1a9f564e7",
+      "dry_run": false,
+      "timestamp_unix": 1786901253,
+      "shared_context_key": "SHARED_HARD_CONTRACT_BUNDLE",
+      "shared_sha256": "7f799998ced4fc809e0b81b38d79f9187a4bdd9c0b94d448ec4a6ef74323d9d5",
+      "arm_context_key": "CTX_R8-C05_RETRIEVAL_ATTENTION_ABLATION_B04",
+      "arm_context_sha256": "73cf07d01d9c26260378510e3a0f18ea1158f49012ccc0dbb205c58df57b36ba",
+      "version_pins": [
+        {
+          "key": "SEM_PROMPT_MANIFEST",
+          "drive_id": "14TM9Jz7MuXfFBBZtt71oUpDgRpqiJX7K",
+          "sha256": "ecf73f2070630e58d327da52bee17ea5c26e21e4cf3f52fd6f024de2962ec2f1",
+          "bytes": 6841,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "SEM_PROMPT_BINDINGS",
+          "drive_id": "1w2M4mmr6L8uq5Bl8JH-5OlXnqB0optqj",
+          "sha256": "75809760a2c996bb6f3ff9eeaa1da8c352e782a9c894d7eb163d6cee6151fbe3",
+          "bytes": 2382,
+          "semantic_version": "0.4.0"
+        },
+        {
+          "key": "SEM_MOUNT_MANIFEST",
+          "drive_id": "1c36gHaEtEZ8RN_w_HoHdJ1cxWOdGeUEs",
+          "sha256": "cbf2b6029466ef6f0ae9b7b9cb46becfe919c1c96e415fbd1938e181c72ff596",
+          "bytes": 4449,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "CONTEXT_ASSEMBLY_POLICY",
+          "drive_id": "15NotlXcnW_pbcnc1JIg6RA52RnU8qQGM",
+          "sha256": "e149aabd333d28463868ac03297638e728671e3ecc970c8ddd6dc88bfd74d286",
+          "bytes": 2075,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "SEM_BODY_REGISTRY",
+          "drive_id": "1olwVODjg8IJZhRe2n0B44ipuMwwt6z2S",
+          "sha256": "01d8db27efcbeef5c86cc3e9ad95831013d653a8cffce0bc8ede6c6c1482a680",
+          "bytes": 4525,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "TRIGGER_ADMISSION_POLICY",
+          "drive_id": "1axqBiUSe3BVfPv5AwX1XOKes4l84mmmU",
+          "sha256": "660745c4597dffed301247bd9e854b0b1da85040ef2286509fd3d397912b6bfe",
+          "bytes": 2583,
+          "semantic_version": "0.1.0"
+        },
+        {
+          "key": "SEM_P04",
+          "drive_id": "13QfPyhBokC5z2BcRZqq1ExG6L-qpkEtV",
+          "sha256": "53567eba565e031f139f42ca0019773dc4eac977d47b839b81df6fa1ccb4a333",
+          "bytes": 4286,
+          "semantic_version": "0.2.0"
+        },
+        {
+          "key": "CORE",
+          "drive_id": "123QTjcjJjQT1m-tsUsGwFaGpDaKgCKOG",
+          "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+          "bytes": 41732,
+          "semantic_version": "0.2"
+        },
+        {
+          "key": "B05",
+          "drive_id": "1SPyynwGVkCxT4WJZuVYtheOqtwlUZ09T",
+          "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+          "bytes": 12947,
+          "semantic_version": "0.2"
+        },
+        {
+          "key": "B02",
+          "drive_id": "1QNAptEERaQ9hQtZOQf1MYL-SKmKEM8N4",
+          "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+          "bytes": 12356,
+          "semantic_version": "0.2"
+        },
+        {
+          "key": "B08",
+          "drive_id": "1V-HHNfVbi9K5ae21PoJ6TOU1CTmYa-KO",
+          "sha256": "b5c85e00cfed19f144a992bd04ecb5ee2ed7d0baf9fa6076eec235198abf37f3",
+          "bytes": 12255,
+          "semantic_version": "0.2"
+        }
+      ],
+      "provider_control_sha256": "a4b371acc3ceaf5d84216b5ad7f10fdf318f5b50c0195bd8efe5132a356f32e8",
+      "output": "**Socratic Execution (P04 Attention/Memory/Imagination Configuration):**\n\n### 1. Context and Mounts\n\n- **CORE**: Always mounted.  \n- **B04 (Attention/Vnyatie/Retrieval)**: Required for S5; governs how retrieved material is attended, selected, and made causal.  \n- **B05 (Memory/Formation/State Write)**: Required for S5; governs memory eligibility, retrieval, and the distinction between retrieval and truth.  \n- **Conditional Mounts**:  \n  - **B02 (Origin/Status/Temporality)**: Mount if there is a provenance dispute or status conflict (likely triggered here, since retrieved memory conflicts with primary evidence and is salient/repeated).\n\n### 2. Key Distinctions (from mounted bodies)\n\n- **Retrieved ≠ True** (B05): Retrieval produces a candidate for attention, not an automatic upgrade in epistemic status.\n- **Salience/Repeated ≠ Authority** (CORE, B05): Repetition or high similarity does not grant truth or override current evidence.\n- **Origin/Status are Separate** (B02): The retrieved passage’s origin (RAG/retrieval) and its current status (e.g., supported, contested) must be kept distinct.\n- **Attention ≠ Causality** (B04): Attending to a retrieved item does not make it the cause of the next action unless justified.\n\n### 3. Operation Grammar\n\n- **Recruitment** (B05):  \n  - Retrieved memory is eligible and has become salient/attended, but must be evaluated for current relevance and authority.\n  - The system must record that the item was retrieved and attended, but not automatically causal.\n- **Conflict Handling** (B02, B05):  \n  - When retrieved memory conflicts with current primary evidence, the system must preserve both the conflict and the provenance of each.\n  - The system must not resolve the conflict by majority (repetition) or by salience alone.\n- **Rendering/Intervention** (B04, B05):  \n  - The system may present both the retrieved memory and the primary evidence, explicitly noting their origins and the conflict.\n  - If action depends on resolving the conflict, the system may need to escalate (e.g., return to the human for binding, preserve aporia, or suspend action).\n\n### 4. What Socrates Must NOT Do\n\n- **Do not** treat the retrieved passage as true or authoritative merely because it is salient or repeated.\n- **Do not** overwrite current primary evidence with the retrieved memory.\n- **Do not** collapse the provenance distinction (e.g., do not say “the source says” if the passage is only retrieved, not directly observed or accepted).\n- **Do not** silently resolve the conflict by fluency, majority, or model prior.\n\n### 5. What Socrates SHOULD Do\n\n- **Explicitly record**:  \n  - The retrieved passage’s origin (RAG/retrieval), its status (e.g., retrieved, attended), and its conflict with current primary evidence.\n  - The provenance and authority of both the retrieved memory and the primary evidence.\n- **Preserve the seam**:  \n  - Make the conflict and its provenance visible in the internal trace and, if user-facing output is allowed, in the rendered answer.\n- **If required for action**:  \n  - If the conflict is material to the next operation, escalate:  \n    - Return to the human for decision/binding.  \n    - Preserve aporia (explicitly state the unresolved conflict).  \n    - Suspend or limit action if neither can be privileged without further authority.\n\n### 6. Example Output (Internal Trace/Render)\n\n> “A retrieved memory strongly matches the current query but conflicts with current primary evidence. The retrieved passage is salient and has been repeated, but its origin is RAG/retrieval, not direct observation or current binding. Current primary evidence holds higher authority for action. The conflict is preserved; no automatic status upgrade is granted to the retrieved memory. Further action may require human decision or explicit resolution.”\n\n---\n\n**Summary Table:**\n\n| Item                  | Origin/Status         | Authority           | Action                                  |\n|-----------------------|----------------------|---------------------|-----------------------------------------|\n| Retrieved Memory      | RAG/RETRIEVED        | None by default     | Attended, not causal or binding         |\n| Primary Evidence      | SOURCE/OBSERVED/etc. | Current authority   | Governs action unless overruled         |\n| Conflict              | Explicitly preserved | Not resolved by fluency/salience | May require escalation or aporia |\n\n---\n\n**In short:**  \nSocrates must preserve the distinction between retrieved memory and current primary evidence, not let salience or repetition override authority, and must surface the conflict for explicit resolution rather than silently smoothing it over.",
+      "output_sha256": "c7ff47f74d702ebf13a6666bc09f897afdac364bc0b04e565891430d5a87a8c7",
+      "provider_response_id": "chatcmpl-EDYvmrkbERFeq13819uY78hTnmZSP",
+      "usage": {
+        "prompt_tokens": 35096,
+        "completion_tokens": 998,
+        "total_tokens": 36094,
+        "prompt_tokens_details": {
+          "cached_tokens": 26496,
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  ]
+}
