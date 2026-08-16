@@ -29,6 +29,12 @@ from .phase_contracts import (
     output_contract_for,
 )
 from .phase_executor import PhaseDelta            # type: ignore[import]  # runtime
+from .projection import (
+    ReflectiveReturn,
+    RetreatLevel,
+    ReturnTarget,
+    new_reflective_id,
+)
 from .state import (
     Authority,
     MemoryProposal,
@@ -201,7 +207,32 @@ def _build_delta(phase: str, obj: dict[str, Any]) -> PhaseDelta:
     if "invoke_execution" in obj and "invoke_execution" in juris:
         delta.invoke_execution = bool(obj["invoke_execution"])
 
+    if "reflective_return" in obj and "reflective_return" in juris:
+        rr = obj["reflective_return"]
+        if rr is not None:
+            delta.reflective_return = _build_reflective_return(rr)
+    elif "reflective_return" in obj and "reflective_return" not in juris:
+        raise JurisdictionViolation(
+            f"{phase}: not authorised to write reflective_return")
+
     return delta
+
+
+def _build_reflective_return(d: dict[str, Any]) -> ReflectiveReturn:
+    return ReflectiveReturn(
+        reflective_id=str(d.get("reflective_id") or new_reflective_id()),
+        from_projection_id=str(d.get("from_projection_id") or ""),
+        retreat_level=RetreatLevel(d.get("retreat_level", "R1")),
+        return_target=ReturnTarget(d.get("return_target", "S4")),
+        reason=str(d.get("reason") or ""),
+        failed_assumption=str(d.get("failed_assumption") or ""),
+        what_remains_valid=tuple(d.get("what_remains_valid") or ()),
+        what_changes=tuple(d.get("what_changes") or ()),
+        revised_operation_kind=str(d.get("revised_operation_kind") or ""),
+        revised_ontology_id=str(d.get("revised_ontology_id") or ""),
+        revised_scene_telos=str(d.get("revised_scene_telos") or ""),
+        diagnostic_fingerprint=str(d.get("diagnostic_fingerprint") or ""),
+    )
 
 
 def _build_scene(d: dict[str, Any]) -> Scene:

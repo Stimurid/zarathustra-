@@ -44,6 +44,41 @@ def _trigger_array_schema() -> dict[str, Any]:
     }
 
 
+def _reflective_return_schema() -> dict[str, Any]:
+    """S7 payload for internal reflective retreat.
+
+    Distinct from ``invoke_council`` (which is the human/council-facing
+    branch of S7) and from the ``Terminal.RETURN_OPERATION`` human return.
+    See ``data/socrates/current/contracts/reflective_return.schema.json``.
+    """
+    return {
+        "type": ["object", "null"],
+        "additionalProperties": False,
+        "required": ["reflective_id", "from_projection_id", "retreat_level",
+                     "return_target", "reason", "failed_assumption",
+                     "what_remains_valid", "what_changes"],
+        "properties": {
+            "reflective_id": {"type": "string"},
+            "from_projection_id": {"type": "string"},
+            "retreat_level": {"type": "string",
+                              "enum": ["R0", "R1", "R2", "R3",
+                                       "R4", "R5", "R6"]},
+            "return_target": {"type": "string",
+                              "enum": ["S1", "S3", "S4"]},
+            "reason": {"type": "string"},
+            "failed_assumption": {"type": "string"},
+            "what_remains_valid": {"type": "array",
+                                   "items": {"type": "string"}},
+            "what_changes": {"type": "array",
+                             "items": {"type": "string"}},
+            "revised_operation_kind": {"type": "string"},
+            "revised_ontology_id": {"type": "string"},
+            "revised_scene_telos": {"type": "string"},
+            "diagnostic_fingerprint": {"type": "string"},
+        },
+    }
+
+
 def _memory_proposal_schema() -> dict[str, Any]:
     return {
         "type": ["object", "null"],
@@ -180,6 +215,7 @@ CONTRACTS: dict[str, dict[str, Any]] = {
         "properties": {
             "invoke_council": {"type": "boolean"},
             "triggers": _trigger_array_schema(),
+            "reflective_return": _reflective_return_schema(),
         },
     },
     "S8": {
@@ -223,7 +259,7 @@ JURISDICTION: dict[str, frozenset[str]] = {
     "S4": frozenset({"operation", "triggers"}),
     "S5": frozenset({"triggers", "memory_proposal"}),
     "S6": frozenset({"ownership", "triggers", "memory_proposal"}),
-    "S7": frozenset({"triggers", "invoke_council"}),
+    "S7": frozenset({"triggers", "invoke_council", "reflective_return"}),
     "S8": frozenset({"triggers", "invoke_execution"}),
     "S9": frozenset({"invoke_execution", "memory_proposal"}),
     "S10": frozenset({"memory_proposal", "triggers"}),

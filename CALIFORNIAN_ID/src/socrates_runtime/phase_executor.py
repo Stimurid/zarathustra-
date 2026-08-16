@@ -34,6 +34,7 @@ from typing import Any, Protocol
 from .errors import SocratesRuntimeError
 from .identity import SocratesRunConfiguration
 from .mount import MountedContext, TriggerAdmission
+from .projection import ReflectiveReturn
 from .routers import RouterSpec
 from .state import (
     Authority,
@@ -100,6 +101,10 @@ class PhaseDelta:
     memory_proposal: MemoryProposal | None = None
     invoke_council: bool = False
     invoke_execution: bool = False
+    #: S7 payload for the internal reflective-return loop. Distinct from
+    #: ``invoke_council`` and from ``Terminal.RETURN_OPERATION`` — see
+    #: :class:`socrates_runtime.projection.ReflectiveReturn`.
+    reflective_return: ReflectiveReturn | None = None
 
     origin_kind: str = DeltaOrigin.SYSTEM_DETERMINISTIC
     raw_output: str = ""
@@ -116,6 +121,8 @@ class PhaseDelta:
                                 if self.memory_proposal else None),
             "invoke_council": self.invoke_council,
             "invoke_execution": self.invoke_execution,
+            "reflective_return": (self.reflective_return.to_public()
+                                  if self.reflective_return else None),
             "origin_kind": self.origin_kind,
             "parsed": self.parsed,
         }

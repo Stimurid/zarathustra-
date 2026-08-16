@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs26/projection_spec.schema.json",
+  "title": "SemanticProjectionSpec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "projection_id",
+    "source_id",
+    "operation_id",
+    "ontology_id",
+    "target_object_family",
+    "recognition_criteria",
+    "segmentation_policy"
+  ],
+  "properties": {
+    "projection_id": {"type": "string", "minLength": 1},
+    "source_id": {"type": "string", "minLength": 1},
+    "scene_ref": {"type": "string"},
+    "operation_id": {"type": "string", "minLength": 1},
+    "ontology_id": {"type": "string", "minLength": 1},
+    "target_object_family": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "recognition_criteria": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "segmentation_policy": {"type": "string", "minLength": 1},
+    "evidence_requirements": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "applicability_assumptions": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "contraindications": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "parent_projection_id": {"type": "string"},
+    "revises": {"type": "string"},
+    "status": {
+      "enum": ["exploratory", "accepted_local", "partial", "rejected"]
+    },
+    "fingerprint": {"type": "string"}
+  }
+}

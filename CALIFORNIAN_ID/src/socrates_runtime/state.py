@@ -11,9 +11,12 @@ consumer needs it.
 """
 from __future__ import annotations
 
+import hashlib
 from dataclasses import asdict, dataclass, field
 from enum import Enum
 from typing import Any
+
+from .projection import ProjectionLineage
 
 
 # ---------------------------------------------------------- roles
@@ -226,11 +229,27 @@ class PipelineState:
     memory_proposal: MemoryProposal | None = None
     #: Committed write's note_id, if the WM gate authorised the proposal.
     committed_memory_note_id: str = ""
+    #: Projection-control-loop bookkeeping — every projection, every
+    #: reflective return, and the diagnostics that connected them. Empty
+    #: for runs that never invoked a projection (direct-assistance path).
+    projection_lineage: ProjectionLineage = field(default_factory=ProjectionLineage)
+
+    @property
+    def source_id(self) -> str:
+        """Stable content id for the ORIGINAL source of this run.
+
+        Derived deterministically from ``input_text`` so P1 and P2 share
+        the same ``source_id`` — the invariant that lets a trace prove
+        "P2 rereads original source" (never derived-from-P1).
+        """
+        digest = hashlib.sha256((self.input_text or "").encode("utf-8")).hexdigest()
+        return f"src_{digest[:16]}"
 
     def to_public(self) -> dict[str, Any]:
         return {
             "run_id": self.run_id,
             "input_text": self.input_text,
+            "source_id": self.source_id,
             "phase": self.phase,
             "scene": self.scene.to_public(),
             "origin": self.origin.to_public(),
@@ -242,4 +261,5 @@ class PipelineState:
             "memory_proposal": (self.memory_proposal.to_public()
                                 if self.memory_proposal else None),
             "committed_memory_note_id": self.committed_memory_note_id,
+            "projection_lineage": self.projection_lineage.to_public(),
         }

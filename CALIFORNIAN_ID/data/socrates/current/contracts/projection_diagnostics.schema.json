@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs26/projection_diagnostics.schema.json",
+  "title": "ProjectionDiagnostics",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["projection_id", "signals", "reason",
+               "residue_ratio", "recognition_failure_count"],
+  "properties": {
+    "projection_id": {"type": "string", "minLength": 1},
+    "signals": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "OPERATION_MISMATCH",
+          "ONTOLOGY_LIMIT",
+          "MULTI_ONTOLOGY",
+          "OBJECT_GENERATOR_LIMIT",
+          "RECOGNITION_FAILURE",
+          "FORCED_COMPLETENESS",
+          "SCENE_MISMATCH",
+          "APPLICABILITY_FAILURE"
+        ]
+      }
+    },
+    "reason": {"type": "string"},
+    "residue_ratio": {"type": "number", "minimum": 0, "maximum": 1},
+    "recognition_failure_count": {"type": "integer", "minimum": 0},
+    "suggested_operation": {"type": "string"},
+    "suggested_ontology": {"type": "string"},
+    "suggested_target_family": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "mismatch": {"type": "boolean"},
+    "fingerprint": {"type": "string"}
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs26/projection_result.schema.json",
+  "title": "ProjectionResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "projection_id",
+    "spec_fingerprint",
+    "source_id",
+    "objects",
+    "residue",
+    "coverage",
+    "status"
+  ],
+  "properties": {
+    "projection_id": {"type": "string", "minLength": 1},
+    "spec_fingerprint": {"type": "string", "minLength": 1},
+    "source_id": {"type": "string", "minLength": 1},
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["object_id", "object_family", "source_id",
+                     "source_span", "evidence", "recognition_basis"],
+        "properties": {
+          "object_id": {"type": "string", "minLength": 1},
+          "object_family": {"type": "string", "minLength": 1},
+          "source_id": {"type": "string", "minLength": 1},
+          "source_span": {
+            "type": "array",
+            "items": {"type": "integer", "minimum": 0},
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "evidence": {"type": "string"},
+          "recognition_basis": {"type": "string"},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      }
+    },
+    "residue": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["residue_id", "source_id", "source_span",
+                     "evidence", "apparent_family", "reason"],
+        "properties": {
+          "residue_id": {"type": "string", "minLength": 1},
+          "source_id": {"type": "string", "minLength": 1},
+          "source_span": {
+            "type": "array",
+            "items": {"type": "integer", "minimum": 0},
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "evidence": {"type": "string"},
+          "apparent_family": {"type": "string"},
+          "reason": {"type": "string"}
+        }
+      }
+    },
+    "coverage": {"type": "number", "minimum": 0, "maximum": 1},
+    "unclassified_spans": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {"type": "integer", "minimum": 0},
+        "minItems": 2, "maxItems": 2
+      }
+    },
+    "recognition_failures": {"type": "array", "items": {"type": "string"}},
+    "counterexamples": {"type": "array", "items": {"type": "string"}},
+    "internal_conflicts": {"type": "array", "items": {"type": "string"}},
+    "status": {
+      "enum": ["exploratory", "accepted_local", "partial", "rejected"]
+    }
+  }
+}
