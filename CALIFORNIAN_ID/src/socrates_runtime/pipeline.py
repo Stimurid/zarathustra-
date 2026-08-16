@@ -1,25 +1,27 @@
-"""S0..S10 state machine — the operational shape of one Socrates run.
+"""S0..S10 state machine — driven by a :class:`PhaseExecutor`.
 
-Executes the phases in order, but treats S7 (council) and S9 (execution)
-as CONDITIONAL: the pipeline may go S6 → S8 → S10 without ever entering
-the council, and may pause at S6 with a HUMAN return before S8/S9.
+The executor is a *seam*: the pipeline sends it a
+:class:`PhaseExecutionRequest`, gets back a :class:`PhaseDelta`, and mutates
+:class:`PipelineState` through the phase's jurisdiction. Three seams share
+the same shape:
 
-For every phase the executor:
+    DeterministicPhaseExecutor   — reads caller-supplied ``PhaseHint``s
+    LiveModelPhaseExecutor       — calls the real provider
+    TestDoublePhaseExecutor      — the live code path with a canned provider
 
-    1. asks the mount policy for the required + admitted-conditional bodies,
-    2. updates the typed state with the phase's contribution,
-    3. records a trace event with mount + state diff.
+Rules the pipeline enforces regardless of which executor runs:
 
-Semantic bodies exist as text; without a live LLM they cannot literally be
-executed. What can be executed deterministically is the *state machine*:
-mount is applied, contracts are checked, transitions are typed. When a
-live provider is later attached, the router bodies become the prompts fed
-to it — the pipeline shape does not change.
-
-The parameter that gives a caller control over how a phase updates state is
-:class:`PhaseHint`. In deterministic mode the hints come from the caller's
-fixture; in a live mode they will come from a model call parsed against the
-router's output contract. The pipeline itself sees only typed data.
+    * S7 stays CONDITIONAL — invoked only on typed council triggers or
+      an explicit ``invoke_council`` from a phase output;
+    * S9 stays CONDITIONAL on SYSTEM authority + applicability + no
+      open-world gap;
+    * a phase's delta may only touch fields inside its jurisdiction
+      (enforced by the parser; the pipeline additionally rejects any
+      illegal-mutation deltas that slip past);
+    * a phase whose executor returns ``PROVIDER_UNAVAILABLE`` /
+      ``RETRIES_EXHAUSTED`` / ``INVALID_OUTPUT`` in LIVE mode ends the run
+      with an explicit ``FAILED_EXPLICIT`` terminal — the pipeline never
+      silently substitutes deterministic values for a failed provider.
 """
 from __future__ import annotations
 
@@ -29,12 +31,22 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from .errors import (
-    ConditionalTriggerRejected,
     SemanticContextBudgetExceeded,
     SemanticMountMissing,
 )
 from .governor import GovernorDecision, InterventionGovernor, apply_decision
 from .mount import MountedContext, SemanticMountPolicy, TriggerAdmission
+from .phase_contracts import jurisdiction_for
+from .phase_executor import (
+    DeltaOrigin,
+    DeterministicPhaseExecutor,
+    ExecutionMode,
+    PhaseDelta,
+    PhaseExecutionRequest,
+    PhaseExecutionResult,
+    PhaseExecutor,
+    ProviderStatus,
+)
 from .routers import RouterRegistry, RouterSpec
 from .state import (
     Authority,
@@ -52,13 +64,11 @@ from .state import (
 
 @dataclass
 class PhaseHint:
-    """Typed input a phase applies to state.
+    """Backward-compat typed delta a fixture can supply.
 
-    All fields are optional; a phase without a hint leaves state unchanged
-    (except for the phase marker). This is how the pipeline is executable
-    end-to-end without a model — a caller supplies typed hints in tests, and
-    the phase applies them deterministically. A live LLM executor would
-    produce the same hints from parsed structured output.
+    The pipeline itself no longer reads hints directly — they reach it via
+    :class:`DeterministicPhaseExecutor`. Kept as a class because existing
+    tests + Arena participants build it explicitly.
     """
     scene: Scene | None = None
     origin: Origin | None = None
@@ -66,7 +76,6 @@ class PhaseHint:
     ownership: Ownership | None = None
     triggers: list[TriggerAdmission] = field(default_factory=list)
     memory_proposal: MemoryProposal | None = None
-    #: Phases that legitimately fold their outcome into a state field.
     invoke_council: bool = False
     invoke_execution: bool = False
 
@@ -80,10 +89,11 @@ class PhaseResult:
     phase: str
     router: RouterSpec
     mount: MountedContext
+    execution: PhaseExecutionResult
 
 
 class PipelineExecutor:
-    """One executor per run — orchestrates S0..S10 with typed hints."""
+    """One executor per run — sequences S0..S10 through a PhaseExecutor."""
 
     def __init__(self, mount_policy: SemanticMountPolicy,
                  router_registry: RouterRegistry,
@@ -95,37 +105,38 @@ class PipelineExecutor:
     # ------------------------------------------------------------------
 
     def run(self, input_text: str,
-            hints: dict[str, PhaseHint] | None = None,
+            phase_executor: PhaseExecutor,
+            run_configuration,                               # SocratesRunConfiguration
             *,
+            hints: dict[str, PhaseHint] | None = None,
             trace=None,
-            skip_phases: frozenset[str] = frozenset()) -> tuple[
-                PipelineState, TerminalOutcome, list[PhaseResult]]:
-        """Execute S0..S10 with typed hints, return (state, outcome, phases)."""
-        hints = hints or {}
+            skip_phases: frozenset[str] = frozenset(),
+            ) -> tuple[PipelineState, TerminalOutcome, list[PhaseResult]]:
+        """Execute S0..S10 through ``phase_executor``.
+
+        ``hints`` is honoured only by the deterministic executor; the live
+        executor ignores it. Passing hints in a LIVE run does not change
+        the run — it just gets recorded as unused fixture data in the
+        trace, which is what we want (a caller can't smuggle fixture
+        semantics into live behaviour).
+        """
         state = PipelineState(
             run_id=f"srun_{secrets.token_hex(8)}",
             input_text=input_text)
         results: list[PhaseResult] = []
-        early_terminal: Terminal | None = None
 
         for phase in PHASE_ORDER:
             if phase in skip_phases:
                 continue
-            # S7 (council) is CONDITIONAL — only invoked when a prior phase
-            # asked for it OR the current state legitimately needs it.
-            if phase == "S7" and not self._council_needed(state, hints):
+            if phase == "S7" and not self._council_needed(state):
                 continue
-            # S9 (execution) is CONDITIONAL on authority and applicability.
             if phase == "S9" and not self._execution_authorized(state):
                 continue
 
             router = self.routers.router_for_phase(phase)
-            hint = hints.get(phase, PhaseHint())
             state_before = self._clone(state)
             try:
-                mount = self.mount_policy.mount(
-                    router.module_id, phase,
-                    proposed_triggers=hint.triggers)
+                mount = self.mount_policy.mount(router.module_id, phase)
             except (SemanticMountMissing, SemanticContextBudgetExceeded) as exc:
                 early_terminal = (Terminal.SEMANTIC_MOUNT_MISSING
                                   if "not present" in str(exc)
@@ -140,12 +151,49 @@ class PipelineExecutor:
                     terminal=early_terminal, response_text="",
                     rationale=str(exc)), results
 
-            self._apply_hint(state, hint)
+            request = PhaseExecutionRequest(
+                phase=phase, router=router, mounted=mount,
+                input_text=input_text,
+                state_snapshot=state.to_public(),
+                run_configuration=run_configuration,
+                max_retries=1,
+            )
+            execution = phase_executor.execute(request)
+
+            # In LIVE mode, a non-OK provider status is a hard stop —
+            # never a deterministic pretend-success.
+            if (execution.mode == ExecutionMode.LIVE
+                    and execution.provider_status != ProviderStatus.OK):
+                if trace is not None:
+                    trace.record_failure(
+                        f"live_phase_{execution.provider_status.lower()}",
+                        execution.error,
+                        extra={"phase": phase, "router": router.module_id,
+                               "attempts": execution.attempts,
+                               "provider": execution.provider_id,
+                               "model": execution.model_id})
+                    trace.record("phase_executed", phase=phase,
+                                 router_id=router.module_id,
+                                 mount=mount.to_public(),
+                                 execution=execution.to_public())
+                state.phase = phase
+                return state, TerminalOutcome(
+                    terminal=Terminal.FAILED_EXPLICIT, response_text="",
+                    rationale=(f"live phase {phase} failed: "
+                               f"{execution.provider_status}: "
+                               f"{execution.error}")), results
+
+            self._apply_delta(phase, state, execution.delta)
             state.phase = phase
-            results.append(PhaseResult(phase=phase, router=router, mount=mount))
+            results.append(PhaseResult(phase=phase, router=router,
+                                        mount=mount, execution=execution))
             if trace is not None:
-                trace.record_phase(phase, router.module_id, mount,
-                                   state_before, state)
+                trace.record("phase_executed", phase=phase,
+                             router_id=router.module_id,
+                             mount=mount.to_public(),
+                             execution=execution.to_public(),
+                             state_diff=_diff_public(state_before.to_public(),
+                                                     state.to_public()))
 
         decision = self.governor.decide(state)
         if trace is not None:
@@ -157,41 +205,42 @@ class PipelineExecutor:
     # ------------------------------------------------------------------
 
     @staticmethod
-    def _council_needed(state: PipelineState, hints: dict[str, PhaseHint]) -> bool:
-        # Legitimate invocations: explicit hint, or an admitted trigger family
-        # like COUNCIL_REQUIRED / TYPED_VETO / MINORITY_MATERIAL.
-        if hints.get("S7") and hints["S7"].invoke_council:
-            return True
+    def _council_needed(state: PipelineState) -> bool:
         council_causes = {"COUNCIL_REQUIRED", "TYPED_VETO", "MINORITY_MATERIAL"}
         return bool(set(state.admitted_trigger_causes) & council_causes)
 
     @staticmethod
     def _execution_authorized(state: PipelineState) -> bool:
-        # S9 = Tinkuy execution. Only run when SYSTEM owns AND operation
-        # remains applicable AND there is no open-world gap that would make
-        # execution premature.
         return (state.ownership.owner == Authority.SYSTEM
                 and state.operation.applicable
                 and not state.operation.open_world_gap)
 
-    def _apply_hint(self, state: PipelineState, hint: PhaseHint) -> None:
-        if hint.scene is not None:
-            state.scene = hint.scene
-        if hint.origin is not None:
-            state.origin = hint.origin
-        if hint.operation is not None:
-            state.operation = hint.operation
-        if hint.ownership is not None:
-            state.ownership = hint.ownership
-        if hint.triggers:
+    def _apply_delta(self, phase: str, state: PipelineState,
+                     delta: PhaseDelta) -> None:
+        """Mutate state through the phase's jurisdiction.
+
+        A delta produced by a well-formed parser only carries fields the
+        phase owns; we re-check here as a defense in depth against a future
+        executor that constructs deltas directly.
+        """
+        juris = jurisdiction_for(phase)
+        if delta.scene is not None and "scene" in juris:
+            state.scene = delta.scene
+        if delta.origin is not None and "origin" in juris:
+            state.origin = delta.origin
+        if delta.operation is not None and "operation" in juris:
+            state.operation = delta.operation
+        if delta.ownership is not None and "ownership" in juris:
+            state.ownership = delta.ownership
+        if delta.triggers and "triggers" in juris:
             state.admitted_trigger_causes = tuple(
                 dict.fromkeys(list(state.admitted_trigger_causes)
-                              + [t.trigger_id for t in hint.triggers]))
-        if hint.memory_proposal is not None:
-            state.memory_proposal = hint.memory_proposal
-        if hint.invoke_council:
+                              + [t.trigger_id for t in delta.triggers]))
+        if delta.memory_proposal is not None and "memory_proposal" in juris:
+            state.memory_proposal = delta.memory_proposal
+        if delta.invoke_council and "invoke_council" in juris:
             state.council_invoked = True
-        if hint.invoke_execution:
+        if delta.invoke_execution and "invoke_execution" in juris:
             state.execution_invoked = True
 
     @staticmethod
@@ -201,9 +250,10 @@ class PipelineExecutor:
     @staticmethod
     def _render_response(state: PipelineState,
                          decision: GovernorDecision) -> str:
-        # Deterministic rendering: a short, honest sentence that names the
-        # terminal and any rationale. A live LLM executor would produce a
-        # nicer surface here from B10; without it, we do not synthesise.
+        # A diagnostic surface — the live renderer (see
+        # :func:`socrates_runtime.renderer.render_terminal`) uses B10 when a
+        # provider is available; this fallback keeps runs debuggable when
+        # no live path is wired.
         if decision.terminal == Terminal.ANSWER:
             return (f"[ANSWER] {state.scene.telos or state.input_text}"
                     if state.scene.telos else "[ANSWER] (deterministic)")
@@ -218,3 +268,10 @@ class PipelineExecutor:
         return f"[{decision.terminal.value}]"
 
 
+def _diff_public(before: dict[str, Any], after: dict[str, Any]) -> dict[str, Any]:
+    out: dict[str, Any] = {}
+    for key in sorted(set(before) | set(after)):
+        b, a = before.get(key), after.get(key)
+        if b != a:
+            out[key] = {"before": b, "after": a}
+    return out

@@ -227,7 +227,7 @@ class Handler(BaseHTTPRequestHandler):
                 raise WorkbenchError(str(exc)) from None
 
         try:
-            from socrates_runtime import SocratesRuntime
+            from socrates_runtime import ExecutionMode, SocratesRuntime
             from socrates_runtime.runtime import resolve_configuration
         except ImportError as exc:
             raise WorkbenchError(
@@ -241,8 +241,33 @@ class Handler(BaseHTTPRequestHandler):
             semantic_pack_version=runtime.identity.pack.version,
             semantic_pack_sha256=runtime.identity.pack.source_bundle_sha256,
         )
-        result = runtime.run(text, configuration=run_config)
-        return {"run": result.to_public()}
+
+        # Execution mode is explicit. Body may pass execution_mode='LIVE'|
+        # 'DETERMINISTIC'|'TEST_DOUBLE'. LIVE with no provider fails
+        # explicitly — never silently deterministic.
+        raw_mode = str(body.get("execution_mode") or ExecutionMode.DETERMINISTIC).upper()
+        if raw_mode not in {ExecutionMode.LIVE, ExecutionMode.DETERMINISTIC,
+                             ExecutionMode.TEST_DOUBLE}:
+            raise WorkbenchError(
+                f"execution_mode must be LIVE | DETERMINISTIC | TEST_DOUBLE "
+                f"(got {raw_mode!r})")
+
+        result = runtime.run(text, configuration=run_config, mode=raw_mode)
+        payload = result.to_public()
+        # Surface a compact view distinguishing model_produced vs
+        # deterministic phases so a UI can render provenance.
+        payload["provenance_summary"] = {
+            "execution_mode": result.execution_mode,
+            "provider_id": result.provider_id,
+            "model_id": result.model_id,
+            "phase_origins": [
+                {"phase": p["phase"],
+                 "origin_kind": p["execution"]["delta"]["origin_kind"],
+                 "provider_status": p["execution"]["provider_status"],
+                 "attempts": p["execution"]["attempts"]}
+                for p in result.mounted_phases],
+        }
+        return {"run": payload}
 
     @staticmethod
     def _as_prompt_selections(body: dict[str, Any], *, present_only: bool = False):

@@ -34,6 +34,19 @@ from .errors import (
 )
 from .identity import SocratesIdentity, SocratesRunConfiguration
 from .mount import MountedContext, SemanticMountPolicy, TriggerAdmission
+from .phase_executor import (
+    DeltaOrigin,
+    DeterministicPhaseExecutor,
+    ExecutionMode,
+    LiveModelPhaseExecutor,
+    PhaseDelta,
+    PhaseExecutionRequest,
+    PhaseExecutionResult,
+    PhaseExecutor,
+    ProviderStatus,
+    TestDoublePhaseExecutor,
+)
+from .renderer import RenderingResult, render_terminal
 from .runtime import SocratesRuntime, SocratesRunResult
 from .semantic import BodyRecord, SemanticBodyRegistry
 from .state import (
@@ -47,9 +60,19 @@ from .trace import SocratesRunTrace
 
 __all__ = [
     "BodyRecord",
+    "DeltaOrigin",
+    "DeterministicPhaseExecutor",
+    "ExecutionMode",
+    "LiveModelPhaseExecutor",
     "MountedContext",
     "Ownership",
+    "PhaseDelta",
+    "PhaseExecutionRequest",
+    "PhaseExecutionResult",
+    "PhaseExecutor",
     "PipelineState",
+    "ProviderStatus",
+    "RenderingResult",
     "Scene",
     "SemanticBodyRegistry",
     "SemanticContextBudgetExceeded",
@@ -64,5 +87,7 @@ __all__ = [
     "SocratesRuntimeError",
     "Terminal",
     "TerminalOutcome",
+    "TestDoublePhaseExecutor",
     "TriggerAdmission",
+    "render_terminal",
 ]

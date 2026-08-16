@@ -1,22 +1,20 @@
-"""SocratesRuntime — the public entrypoint.
+"""SocratesRuntime — composition root.
 
-Composition root — pulls together identity, registry, mount, routers,
-pipeline, governor, native organs, workspace and trace. Callers should not
-touch the pieces directly for a normal run.
+Ties together identity, registry, mount, routers, pipeline, governor,
+phase executor, native organs, workspace and trace. Callers who just want
+to run Socrates go through :meth:`SocratesRuntime.run`.
 
-Native organ bindings are used unchanged from :mod:`tinkuy_runtime`:
+Execution modes are explicit; there is no silent fallback from LIVE to
+deterministic when a provider is missing. A LIVE run with no provider
+returns ``FAILED_EXPLICIT`` with a typed reason.
 
-    fabric.query                — semantic fabric read
-    argumentation.map_of        — live argument graph of any run
-    working_memory.commit_if_authorized  — the WM gate this runtime USES,
-                                           never bypasses.
-
-The workspace_id used for the durable Working Memory store comes from the
-resolved :class:`SocratesRunConfiguration`; a per-user config produces
-per-user WM without this runtime needing to know a User type exists.
+Native organ bindings (fabric / argumentation / working_memory) are used
+unchanged from :mod:`tinkuy_runtime`. The runtime never mints its own
+write authority.
 """
 from __future__ import annotations
 
+import os
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
@@ -32,7 +30,15 @@ from .errors import (
 from .governor import InterventionGovernor
 from .identity import SocratesIdentity, SocratesRunConfiguration
 from .mount import MountedContext, SemanticMountPolicy
-from .pipeline import PipelineExecutor, PhaseHint, PhaseResult
+from .phase_executor import (
+    DeterministicPhaseExecutor,
+    ExecutionMode,
+    LiveModelPhaseExecutor,
+    PhaseExecutor,
+    TestDoublePhaseExecutor,
+)
+from .pipeline import PhaseHint, PipelineExecutor, PhaseResult
+from .renderer import RenderingResult, render_terminal
 from .routers import RouterRegistry
 from .semantic import SemanticBodyRegistry
 from .state import PipelineState, Terminal, TerminalOutcome
@@ -43,9 +49,8 @@ from .trace import SocratesRunTrace
 class SocratesRunResult:
     """Everything one run produced.
 
-    Kept flat so a Workbench / Arena reader can pick fields off it without
-    walking a hierarchy. ``trace_path`` is where the JSON trace landed on
-    disk; readers that want the full document read from there.
+    Kept flat so a Workbench / Arena reader can pick fields off without
+    walking a hierarchy.
     """
     run_id: str
     trace_id: str
@@ -56,6 +61,10 @@ class SocratesRunResult:
     memory_outcome: dict[str, Any] | None = None
     trace_path: str = ""
     duration_ms: int = 0
+    execution_mode: str = ExecutionMode.DETERMINISTIC
+    provider_id: str = ""
+    model_id: str = ""
+    rendering: RenderingResult | None = None
 
     def to_public(self) -> dict[str, Any]:
         return {
@@ -67,6 +76,10 @@ class SocratesRunResult:
             "memory_outcome": self.memory_outcome,
             "trace_path": self.trace_path,
             "duration_ms": self.duration_ms,
+            "execution_mode": self.execution_mode,
+            "provider_id": self.provider_id,
+            "model_id": self.model_id,
+            "rendering": self.rendering.to_public() if self.rendering else None,
         }
 
 
@@ -94,30 +107,56 @@ class SocratesRuntime:
 
     def refuse_historical(self, requested_from: str = "runtime.entrypoint"
                           ) -> None:
-        """Public form of the same rule the mount enforces internally."""
         self.mount_policy.refuse_historical_fallback(requested_from)
 
     def run(self, input_text: str,
             configuration: SocratesRunConfiguration | None = None,
-            hints: dict[str, PhaseHint] | None = None) -> SocratesRunResult:
+            *,
+            mode: str = ExecutionMode.DETERMINISTIC,
+            hints: dict[str, PhaseHint] | None = None,
+            phase_executor: PhaseExecutor | None = None,
+            rendering_client: Any = None,
+            ) -> SocratesRunResult:
         """One end-to-end Socrates run.
 
-        Configuration is optional — a run without it uses defaults and
-        records ``pipeline_config_id=""`` in the trace, which is honest
-        rather than silent.
+        Mode selection:
+            DETERMINISTIC — use :class:`DeterministicPhaseExecutor` with the
+                            supplied ``hints`` (default; fixtures & tests).
+            LIVE          — must be given a ``phase_executor`` (usually
+                            :class:`LiveModelPhaseExecutor`). If none is
+                            provided we look for provider environment via
+                            ``californian_id.config``; missing → FAILED_EXPLICIT.
+            TEST_DOUBLE   — must be given a ``TestDoublePhaseExecutor``.
+
+        There is deliberately no silent fallback from LIVE to DETERMINISTIC.
         """
         config = configuration or SocratesRunConfiguration(
             semantic_pack_version=self.identity.pack.version,
             semantic_pack_sha256=self.identity.pack.source_bundle_sha256,
         )
-        # A CUSTOM_CONSTITUTIONAL_VARIANT is allowed to *run* but recorded
-        # verbatim in the trace — Workbench refuses to publish it as line
-        # default; here the runtime just remembers the label.
         trace = SocratesRunTrace.start(self.identity, config)
+        trace.record("execution_mode_requested", mode=mode)
+
+        try:
+            phase_exec = self._resolve_phase_executor(
+                mode, hints=hints, phase_executor=phase_executor, trace=trace)
+        except SocratesRuntimeError as exc:
+            outcome = TerminalOutcome(
+                terminal=Terminal.FAILED_EXPLICIT, response_text="",
+                rationale=str(exc))
+            trace.record_failure("phase_executor_unavailable", str(exc))
+            trace.complete(outcome)
+            path = trace.write_to(self.trace_dir)
+            return SocratesRunResult(
+                run_id="pre_run", trace_id=trace.trace_id, terminal=outcome,
+                state=PipelineState(run_id="pre_run", input_text=input_text),
+                trace_path=str(path), duration_ms=trace.duration_ms,
+                execution_mode=mode)
 
         try:
             state, outcome, phases = self.executor.run(
-                input_text, hints=hints, trace=trace)
+                input_text, phase_exec, config,
+                hints=hints or {}, trace=trace)
         except SocratesRuntimeError as exc:
             trace.record_failure(type(exc).__name__, str(exc))
             outcome = TerminalOutcome(
@@ -126,52 +165,129 @@ class SocratesRuntime:
             state = PipelineState(run_id="pre_run", input_text=input_text)
             phases = []
 
+        # Final rendering — bounded by the terminal.
+        rendering = None
+        if outcome.terminal not in {Terminal.FAILED_EXPLICIT,
+                                     Terminal.SEMANTIC_MOUNT_MISSING,
+                                     Terminal.SEMANTIC_CONTEXT_BUDGET_EXCEEDED}:
+            rendering = render_terminal(state, outcome,
+                                         client=rendering_client)
+            if rendering.text:
+                # Replace ONLY the response text; the terminal object stays.
+                outcome = TerminalOutcome(
+                    terminal=outcome.terminal,
+                    response_text=rendering.text,
+                    rationale=outcome.rationale,
+                    memory_proposal=outcome.memory_proposal)
+            trace.record("rendering", **rendering.to_public())
+
         native = self._call_native_organs(config, state, trace)
         memory = self._commit_memory_if_any(config, state, trace)
         trace.complete(outcome)
         trace_path = trace.write_to(self.trace_dir)
 
         return SocratesRunResult(
-            run_id=state.run_id,
-            trace_id=trace.trace_id,
-            terminal=outcome,
+            run_id=state.run_id, trace_id=trace.trace_id, terminal=outcome,
             state=state,
             mounted_phases=[
                 {"phase": p.phase, "router": p.router.module_id,
-                 "mount": p.mount.to_public()} for p in phases],
-            native_organs=native,
-            memory_outcome=memory,
-            trace_path=str(trace_path),
-            duration_ms=trace.duration_ms,
+                 "mount": p.mount.to_public(),
+                 "execution": p.execution.to_public()}
+                for p in phases],
+            native_organs=native, memory_outcome=memory,
+            trace_path=str(trace_path), duration_ms=trace.duration_ms,
+            execution_mode=phase_exec.mode,
+            provider_id=getattr(phase_exec, "provider_id", ""),
+            model_id=getattr(phase_exec, "model_id", ""),
+            rendering=rendering,
         )
+
+    # ------------------------------------------------------------------
+
+    def _resolve_phase_executor(self, mode: str, *,
+                                hints, phase_executor,
+                                trace) -> PhaseExecutor:
+        if mode == ExecutionMode.DETERMINISTIC:
+            return phase_executor or DeterministicPhaseExecutor(hints=hints)
+        if mode == ExecutionMode.TEST_DOUBLE:
+            if phase_executor is None:
+                raise SocratesRuntimeError(
+                    "TEST_DOUBLE mode requires an explicit phase_executor")
+            return phase_executor
+        if mode == ExecutionMode.LIVE:
+            if phase_executor is not None:
+                return phase_executor
+            client = self._build_live_client(trace)
+            if client is None:
+                raise SocratesRuntimeError(
+                    "LIVE mode requested but no provider is available "
+                    "(no SOCRATES_R8_PROVIDER_API_KEY / API_302AI_KEY / "
+                    "ANTHROPIC_API_KEY / OPENAI_API_KEY set)")
+            return LiveModelPhaseExecutor(client)
+        raise SocratesRuntimeError(f"unknown execution mode: {mode!r}")
+
+    @staticmethod
+    def _build_live_client(trace: SocratesRunTrace):
+        """Try to build a real provider client from environment.
+
+        We prefer the R8-specific overrides when set, otherwise fall back
+        to the runtime's normal provider resolution.
+        """
+        try:
+            from californian_id.config import load_config
+            from .models import build_client
+        except ImportError:
+            return None
+
+        if os.environ.get("SOCRATES_R8_PROVIDER_API_KEY"):
+            base_url = os.environ.get("SOCRATES_R8_PROVIDER_BASE_URL") or ""
+            model = os.environ.get("SOCRATES_R8_MODEL_ID") or ""
+            if not base_url or not model:
+                trace.record("live_provider_partial",
+                             note="R8 api key present but base_url/model missing")
+                return None
+            provider_cfg = {
+                "kind": "openai_compatible",
+                "env_key": "SOCRATES_R8_PROVIDER_API_KEY",
+                "base_url": base_url,
+                "model": model,
+                "label": "socrates_r8_provider",
+                "settings": {"temperature": 0.0},
+            }
+            try:
+                return build_client("socrates_r8_provider", provider_cfg)
+            except Exception as exc:                          # noqa: BLE001
+                trace.record("live_provider_build_error", error=str(exc))
+                return None
+
+        try:
+            cfg = load_config()
+            provider = cfg.role_provider("persona_turn")
+        except Exception:                                     # noqa: BLE001
+            return None
+        provider_cfg = cfg.provider_config(provider)
+        try:
+            return build_client(provider, provider_cfg)
+        except Exception as exc:                              # noqa: BLE001
+            trace.record("live_provider_build_error", error=str(exc))
+            return None
 
     # ------------------------------------------------------------------
 
     def _call_native_organs(self, config: SocratesRunConfiguration,
                             state: PipelineState,
                             trace: SocratesRunTrace) -> list[dict[str, Any]]:
-        """Ask the three native organs for their current status.
-
-        Argumentation and fabric are always evidence: argumentation returns
-        the live typed graph, fabric returns the workspace's current
-        snapshot list (or 'not observed' if the workspace has none). The
-        runtime does not fabricate values — an untouched organ is reported
-        as unavailable with a reason.
-        """
         out: list[dict[str, Any]] = []
 
-        # -- argumentation.map_of — this runtime does not yet build the
-        #    ArgumentMap directly; report unavailable honestly.
         arg_result = arg_binding.map_of(None)
         out.append(arg_result.to_public())
         trace.record_native_organ(arg_result)
 
-        # -- fabric.list_snapshots for the run's workspace
         try:
             from californian_id.workspaces import fabric_store_path
             db = fabric_store_path(config.workspace_id or "default")
             fab_result = fabric_binding.list_snapshots(db)
-        except Exception as exc:                          # noqa: BLE001
+        except Exception as exc:                              # noqa: BLE001
             fab_result_public = {"organ": "semantic_fabric",
                                  "call": "fabric.list_snapshots",
                                  "available": False, "value": None,
@@ -192,12 +308,6 @@ class SocratesRuntime:
                               state: PipelineState,
                               trace: SocratesRunTrace
                               ) -> dict[str, Any] | None:
-        """If the pipeline produced a memory proposal, commit through the WM gate.
-
-        The runtime does NOT self-authorise. Without an explicit authority,
-        the gate refuses and the proposal stays a proposal — recorded, not
-        persisted. That is the invariant the WM binding was built for.
-        """
         if state.memory_proposal is None:
             return None
         prop_res = wm_binding.propose_write(
@@ -209,9 +319,6 @@ class SocratesRuntime:
             trace.record_memory_proposal(state.memory_proposal, "propose_refused")
             return {"status": "propose_refused", "reason": prop_res.reason}
         proposal = prop_res.value
-        # Without a User-authority handoff, the runtime constructs an
-        # explicitly-denied WriteAuthority and lets the gate refuse. A live
-        # human-in-the-loop pathway would inject a granted authority here.
         from tinkuy_runtime.working_memory import WriteAuthority
         commit = wm_binding.commit_if_authorized(
             proposal,
@@ -224,22 +331,12 @@ class SocratesRuntime:
                 "proposal_id": proposal.proposal_id}
 
 
-# Convenience — resolve a :class:`SocratesRunConfiguration` from an authenticated
-# user + a PipelineConfig, without this file importing workbench_configs.
-
-
-def resolve_configuration(pipeline_config: Any,                       # PipelineConfig
-                          user: Any | None = None,                     # workbench_auth.User
+def resolve_configuration(pipeline_config: Any,
+                          user: Any | None = None,
                           workspace_id: str | None = None,
                           semantic_pack_version: str = "",
                           semantic_pack_sha256: str = ""
                           ) -> SocratesRunConfiguration:
-    """Build a :class:`SocratesRunConfiguration` from an existing PipelineConfig.
-
-    Kept as a free function so it never becomes a hard dependency of the
-    runtime; the runtime accepts a plain :class:`SocratesRunConfiguration`
-    from any caller.
-    """
     return SocratesRunConfiguration(
         pipeline_config_id=getattr(pipeline_config, "config_id", "") if pipeline_config else "",
         workspace_id=workspace_id

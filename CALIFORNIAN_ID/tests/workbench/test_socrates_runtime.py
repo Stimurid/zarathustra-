@@ -365,17 +365,21 @@ def test_terminal_answer_when_conditions_clear(runtime):
 
 
 def test_council_invoked_via_typed_trigger(runtime):
+    """S7 is CONDITIONAL — it fires only when a prior phase's admitted
+    trigger causes name a council reason. We inject COUNCIL_REQUIRED via
+    S6 (which has 'triggers' in its jurisdiction) so it lands in state
+    BEFORE the pipeline decides whether S7 runs."""
     triggers = [TriggerAdmission(
         trigger_id="COUNCIL_REQUIRED",
         generating_state_ref="state.scene.authority",
         cause_object_ref="council.decision",
         source_status="typed_state",
-        phase_relevance="P06",
+        phase_relevance="P05",
         materiality_reason="minority position at risk")]
     hints = {
         "S6": PhaseHint(ownership=Ownership(owner=Authority.SYSTEM,
-                                             human_resolved=True)),
-        "S7": PhaseHint(triggers=triggers, invoke_council=True),
+                                             human_resolved=True),
+                        triggers=triggers),
     }
     result = runtime.run("нужен ли совет?", hints=hints)
     phases = [p["phase"] for p in result.mounted_phases]
@@ -427,7 +431,8 @@ def test_trace_records_identity_and_mount(runtime):
     assert trace["identity"]["pack"]["source_bundle_sha256"].startswith("12b4e621")
     assert trace["identity"]["mount_policy_version"]
     # every phase event has body-level identity
-    phase_events = [e for e in trace["events"] if e["kind"] == "phase_completed"]
+    # Since G-S26L the event name is phase_executed (was phase_completed).
+    phase_events = [e for e in trace["events"] if e["kind"] == "phase_executed"]
     assert phase_events
     for e in phase_events:
         for body in e["payload"]["mount"]["required"]:
