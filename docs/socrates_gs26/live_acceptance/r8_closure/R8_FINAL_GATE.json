@@ -1,0 +1,146 @@
+{
+  "artifact_id": "SOCRATES_R8_FINAL_GATE",
+  "behavioral_ablation": {
+    "behavioural_degradation_cases": 0,
+    "detail": {
+      "R8-C02_STATUS_TEMPORALITY": {
+        "B": 39,
+        "C": 39,
+        "target": "B02"
+      },
+      "R8-C03_OPERATION_OBJECT_PESKOV": {
+        "B": 40,
+        "C": 38,
+        "target": "B03"
+      },
+      "R8-C04_ONTOLOGY_GAP": {
+        "B": 40,
+        "C": 38,
+        "target": "B08"
+      },
+      "R8-C05_RETRIEVAL_ATTENTION": {
+        "B": 39,
+        "C": 39,
+        "target": "B04"
+      },
+      "R8-C06_HUMAN_OWNERSHIP": {
+        "B": 40,
+        "C": 40,
+        "target": "B06"
+      },
+      "R8-C07_REFLEXIVE_RETURN": {
+        "B": 40,
+        "C": 40,
+        "target": "B07"
+      },
+      "R8-C08_COUNCIL_AUTHORITY": {
+        "B": 40,
+        "C": 40,
+        "target": "B09"
+      },
+      "R8-C09_FALSE_SYNTHESIS": {
+        "B": 40,
+        "C": 40,
+        "target": "B08"
+      },
+      "R8-C10_MEMORY_WRITE": {
+        "B": 40,
+        "C": 39,
+        "target": "B05"
+      },
+      "R8-C11_DIRECT_ASSISTANCE_BYPASS": {
+        "B": 40,
+        "C": 40,
+        "target": "B10"
+      }
+    },
+    "verdict": "NOT_DEMONSTRATED"
+  },
+  "c01_unblinded": {
+    "A_fatal_failures": [],
+    "A_total": 40,
+    "B_fatal_failures": [],
+    "B_total": 40,
+    "C_fatal_failures": [],
+    "C_total": 40,
+    "ablation_verdict": "NO_MATERIAL_DIFFERENCE",
+    "c_ablation_role": "C_ABLATION_MINUS_B01",
+    "case_id": "R8-C01_SCENE_CAPTURE",
+    "delta_BminusA": 0,
+    "delta_BminusC": 0,
+    "evaluator": {
+      "latency_ms": 7024,
+      "model": "gpt-4.1",
+      "provider_label": "302ai",
+      "usage": {
+        "completion_tokens": 668,
+        "completion_tokens_details": {
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "reasoning_tokens": 0,
+          "text_tokens": 0
+        },
+        "prompt_tokens": 3626,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 4294
+      }
+    },
+    "packet_sha256": "8a59d21f1f57f1441c1b30842fb8a28cec36a1dc36505a11f9bf4316657cc22d",
+    "pair_verdict": "NO_MATERIAL_DIFFERENCE",
+    "rubric_sha256": "038fa24bb917229416211cc0d0899019557a591d4a8222e47217ed0233090f78",
+    "score_file_sha256": "250d763d4233778ab1c9abd0993f2b4cb9613df8874738b9cb7fe6805c0206af"
+  },
+  "direct_assistance_regression": {
+    "case": "R8-C11_DIRECT_ASSISTANCE_BYPASS",
+    "regressed": false,
+    "verdict": "NO_MATERIAL_DIFFERENCE"
+  },
+  "fatal_regressions": [],
+  "final_verdict": "PARTIAL",
+  "generation": "G-S25R.8F",
+  "live_execution": {
+    "notes": "reused from previously accepted 33/33 live outputs",
+    "provider": "302ai",
+    "total_arms": 33
+  },
+  "mount_negative_ablation": {
+    "b08_classification": "CONDITIONAL_NOT_MANDATORY",
+    "mandatory_bodies_fail_closed": 9,
+    "mandatory_bodies_tested": 9,
+    "verdict": "PASS"
+  },
+  "request_integrity": {
+    "arms": 33,
+    "matches": 33,
+    "mismatches": 0,
+    "user_payload_evaluation_metadata_leak": false
+  },
+  "semantic_improvement": {
+    "extra_B_BETTER_count": 1,
+    "extra_families_verdicts": {
+      "R8-C05_RETRIEVAL_ATTENTION": "B_BETTER"
+    },
+    "gate_threshold": 7,
+    "required_B_BETTER_count": 6,
+    "required_families_total": 10,
+    "required_verdicts": {
+      "R8-C01_SCENE_CAPTURE": "NO_MATERIAL_DIFFERENCE",
+      "R8-C02_STATUS_TEMPORALITY": "NO_MATERIAL_DIFFERENCE",
+      "R8-C03_OPERATION_OBJECT_PESKOV": "B_BETTER",
+      "R8-C04_ONTOLOGY_GAP": "B_BETTER",
+      "R8-C06_HUMAN_OWNERSHIP": "B_BETTER",
+      "R8-C07_REFLEXIVE_RETURN": "B_BETTER",
+      "R8-C08_COUNCIL_AUTHORITY": "NO_MATERIAL_DIFFERENCE",
+      "R8-C09_FALSE_SYNTHESIS": "B_BETTER",
+      "R8-C10_MEMORY_WRITE": "B_BETTER",
+      "R8-C11_DIRECT_ASSISTANCE_BYPASS": "NO_MATERIAL_DIFFERENCE"
+    },
+    "verdict": "FAIL"
+  },
+  "version": "0.1.0"
+}
