@@ -1,0 +1,275 @@
+prompt_pack: SOCRATES_PROMPT_PACK_v0.2_SEMANTIC
+version: 0.2.0
+generation: G-S25R.7
+status: candidate
+mount_manifest_drive_id: 1c36gHaEtEZ8RN_w_HoHdJ1cxWOdGeUEs
+context_policy_drive_id: 15NotlXcnW_pbcnc1JIg6RA52RnU8qQGM
+body_registry_drive_id: 1olwVODjg8IJZhRe2n0B44ipuMwwt6z2S
+historical_baseline_manifest: 1s-qiPP0EMwbIllaowRK08AKhi9H0GmAu
+historical_baseline_immutable: true
+modules:
+- module_id: P00
+  file: P00_constitutional_checksum_v0.2_semantic.md
+  pipeline_phases:
+  - S0
+  - S2
+  purpose: constitutional mount, continuity, role/pressure capture guard
+  required_semantic_bodies:
+  - CORE
+  - B05
+  - B07
+  conditional_semantic_bodies: []
+  input_contract_refs:
+  - actor_state
+  - role_authority_resolution
+  output_contract_refs:
+  - actor_state
+  - pipeline_run_state
+  critical_invariant_refs:
+  - INV-002
+  - INV-003
+  - INV-019
+  user_visible_output_allowed: false
+  historical_control_file: P00_constitutional_checksum.md
+  historical_fallback_allowed: false
+  prompt_only_critical_invariant: false
+- module_id: P01
+  file: P01_scene_reconstruction_v0.2_semantic.md
+  pipeline_phases:
+  - S1
+  purpose: scene/telos/role/authority reconstruction
+  required_semantic_bodies:
+  - CORE
+  - B01
+  conditional_semantic_bodies:
+  - B06
+  input_contract_refs:
+  - scene_state
+  - actor_state
+  output_contract_refs:
+  - scene_state
+  critical_invariant_refs:
+  - INV-001
+  - INV-002
+  user_visible_output_allowed: false
+  historical_control_file: P01_scene_reconstruction.md
+  historical_fallback_allowed: false
+  prompt_only_critical_invariant: false
+- module_id: P02
+  file: P02_origin_status_v0.2_semantic.md
+  pipeline_phases:
+  - S3
+  purpose: origin/status/authority/temporality
+  required_semantic_bodies:
+  - CORE
+  - B02
+  conditional_semantic_bodies:
+  - B05
+  input_contract_refs:
+  - epistemic_claim
+  - role_authority_resolution
+  output_contract_refs:
+  - epistemic_claim
+  critical_invariant_refs:
+  - INV-003
+  - INV-004
+  - INV-017
+  user_visible_output_allowed: false
+  historical_control_file: P02_origin_status.md
+  historical_fallback_allowed: false
+  prompt_only_critical_invariant: false
+- module_id: P03
+  file: P03_applicability_v0.2_semantic.md
+  pipeline_phases:
+  - S4
+  purpose: operation declaration, applicability, open-world diagnosis
+  required_semantic_bodies:
+  - CORE
+  - B03
+  conditional_semantic_bodies:
+  - B08
+  - B07
+  input_contract_refs:
+  - operation_declaration
+  - applicability_assessment
+  - ontology_gap_event
+  output_contract_refs:
+  - applicability_assessment
+  critical_invariant_refs:
+  - INV-007
+  - INV-008
+  user_visible_output_allowed: false
+  historical_control_file: P03_applicability.md
+  historical_fallback_allowed: false
+  prompt_only_critical_invariant: false
+- module_id: P04
+  file: P04_attention_memory_v0.2_semantic.md
+  pipeline_phases:
+  - S5
+  purpose: attention/retrieval/memory/imagination configuration
+  required_semantic_bodies:
+  - CORE
+  - B04
+  - B05
+  conditional_semantic_bodies:
+  - B02
+  - B08
+  input_contract_refs:
+  - attention_plan
+  - memory_recruitment_trace
+  - state_write_decision
+  output_contract_refs:
+  - attention_audit
+  - memory_recruitment_trace
+  critical_invariant_refs:
+  - INV-005
+  - INV-018
+  user_visible_output_allowed: false
+  historical_control_file: P04_attention_memory.md
+  historical_fallback_allowed: false
+  prompt_only_critical_invariant: false
+- module_id: P05
+  file: P05_ownership_v0.2_semantic.md
+  pipeline_phases:
+  - S6
+  purpose: human-operation ownership, binding, direct/return branch
+  required_semantic_bodies:
+  - CORE
+  - B06
+  conditional_semantic_bodies:
+  - B01
+  - B02
+  - B05
+  input_contract_refs:
+  - human_operation
+  - ownership_assessment
+  - development_risk
+  output_contract_refs:
+  - human_operation_return
+  - pipeline_run_state
+  critical_invariant_refs:
+  - INV-006
+  - INV-009
+  - INV-010
+  user_visible_output_allowed: false
+  historical_control_file: P05_ownership.md
+  historical_fallback_allowed: false
+  prompt_only_critical_invariant: false
+- module_id: P06
+  file: P06_council_arbiter_v0.2_semantic.md
+  pipeline_phases:
+  - S7
+  purpose: minimum-sufficient council and arbitration
+  required_semantic_bodies:
+  - CORE
+  - B09
+  conditional_semantic_bodies:
+  - B02
+  - B07
+  - B08
+  input_contract_refs:
+  - council_recipe
+  - organ_contribution
+  - persona_adapter
+  output_contract_refs:
+  - arbitration_record
+  critical_invariant_refs:
+  - INV-011
+  - INV-012
+  - INV-013
+  - INV-014
+  user_visible_output_allowed: false
+  historical_control_file: P06_council_arbiter.md
+  historical_fallback_allowed: false
+  prompt_only_critical_invariant: false
+- module_id: P07
+  file: P07_intervention_v0.2_semantic.md
+  pipeline_phases:
+  - S8
+  purpose: intervention selection and question purpose
+  required_semantic_bodies:
+  - CORE
+  - B10
+  conditional_semantic_bodies:
+  - B06
+  - B07
+  - B09
+  - B08
+  input_contract_refs:
+  - arbitration_record
+  - intervention_selection
+  output_contract_refs:
+  - intervention_selection
+  - pipeline_run_state
+  critical_invariant_refs:
+  - INV-009
+  - INV-014
+  user_visible_output_allowed: true
+  historical_control_file: P07_intervention.md
+  historical_fallback_allowed: false
+  prompt_only_critical_invariant: false
+- module_id: P08
+  file: P08_synthesis_render_v0.2_semantic.md
+  pipeline_phases:
+  - S8
+  - S9
+  - S10
+  purpose: authorized synthesis/render without semantic smoothing
+  required_semantic_bodies:
+  - CORE
+  - B02
+  - B09
+  - B10
+  conditional_semantic_bodies:
+  - B03
+  - B08
+  - B05
+  input_contract_refs:
+  - pipeline_run_state
+  - epistemic_claim
+  output_contract_refs:
+  - user_facing_response
+  - pipeline_trace
+  critical_invariant_refs:
+  - INV-004
+  - INV-016
+  user_visible_output_allowed: true
+  historical_control_file: P08_synthesis_render.md
+  historical_fallback_allowed: false
+  prompt_only_critical_invariant: false
+- module_id: P09
+  file: P09_self_review_v0.2_semantic.md
+  pipeline_phases:
+  - S10
+  purpose: bounded self-review, retry, provenance/state-write/open-loop closure
+  required_semantic_bodies:
+  - CORE
+  - B05
+  - B07
+  - B10
+  conditional_semantic_bodies:
+  - B02
+  - B06
+  input_contract_refs:
+  - pipeline_run_state
+  - enforcement_layer_manifest
+  output_contract_refs:
+  - pipeline_run_state
+  - pipeline_trace
+  critical_invariant_refs:
+  - INV-015
+  - INV-016
+  - INV-019
+  user_visible_output_allowed: false
+  historical_control_file: P09_self_review.md
+  historical_fallback_allowed: false
+  prompt_only_critical_invariant: false
+global_fail_closed:
+- SEMANTIC_MOUNT_MISSING
+- SEMANTIC_VERSION_MISMATCH
+- SEMANTIC_SUMMARY_SUBSTITUTION
+- SEMANTIC_CONTEXT_BUDGET_EXCEEDED
+- SEMANTIC_CONTRACT_DRIFT
+- SOURCE_BINDING_MISSING
+rule: Routers orchestrate exact full-body mounts and hard contracts. They create no
+  new semantic doctrine and never serve as semantic substitutes.

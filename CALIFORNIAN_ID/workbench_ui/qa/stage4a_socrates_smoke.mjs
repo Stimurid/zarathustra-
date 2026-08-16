@@ -59,10 +59,11 @@ try {
     `missing: ${steps011.filter((s) => !nodeIds.includes(s)).join(',')}`);
   await shot(p, '01_socrates_pipeline', 'S0–S10 + типизированные терминалы из pipeline.yaml');
 
-  // 3 — the branch is labelled declarative, with its generation
+  // 3 — the branch labels its generation. Socrates keeps live=false at
+  // the Workbench-service level; its live runtime uses a separate endpoint.
   const gen = await p.textContent('[data-generation]');
   const liveFlag = await p.getAttribute('[data-live-runtime]', 'data-live-runtime');
-  check('03_declarative_labelled', gen.trim() === 'G-S24' && liveFlag === 'false',
+  check('03_generation_labelled', gen.trim() === 'G-S24' && liveFlag === 'false',
     `gen=${gen} live=${liveFlag}`);
 
   // 4 — conditional S7 is presented as conditional, not as an always-step
@@ -128,8 +129,11 @@ try {
   const activateDisabled = await p.$$eval('[data-profile-activate]',
     (n) => n.every((x) => x.disabled));
   const activationStatus = await p.textContent('[data-activation-status]');
+  // Runtime profiles still cannot be activated — the deterministic runtime
+  // does not exercise them; live activation waits for the LLM executor.
   check('12_activation_disabled_with_reason',
-    activateDisabled && activationStatus.includes('WAITING_FOR_G-S26'),
+    activateDisabled && (activationStatus.includes('WAITING_FOR_G-S26')
+                         || activationStatus.includes('PARTIAL_LIVE')),
     `disabled=${activateDisabled} status=${activationStatus}`);
   await shot(p, '04_profiles_activation_blocked', 'профили: inspect можно, activate — нет');
 

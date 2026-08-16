@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/control_plane_snapshot.schema.json",
+  "title": "Control Plane Snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status_owners",
+    "governing_specifications",
+    "claim_owners",
+    "anchors",
+    "schema_dialects"
+  ],
+  "properties": {
+    "status_owners": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "governing_specifications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "claim_owners": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "schema_dialects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "object",
+          "schema_id",
+          "current"
+        ],
+        "properties": {
+          "object": {
+            "type": "string"
+          },
+          "schema_id": {
+            "type": "string"
+          },
+          "current": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

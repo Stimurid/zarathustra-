@@ -1,0 +1,216 @@
+prompt_pack: SOCRATES_PROMPT_PACK_v0.1
+status: candidate
+hierarchy_order:
+- P00
+- P01
+- P02
+- P03
+- P04
+- P05
+- P06
+- P07
+- P08
+- P09
+modules:
+- module_id: P00
+  purpose: Mount current constitution/commitments and reject incompatible role or
+    authority capture
+  input_contract_refs:
+  - actor_state
+  - role_authority_resolution
+  output_contract_refs:
+  - actor_state
+  - pipeline_run_state
+  critical_invariant_refs:
+  - INV-002
+  - INV-003
+  - INV-019
+  prompt_only_critical_invariant: false
+  file: P00_constitutional_checksum.md
+  user_visible_output_allowed: false
+- module_id: P01
+  purpose: Reconstruct request, telos hypothesis, roles, stakes and decision owner
+    without inventing scene facts
+  input_contract_refs:
+  - scene_state
+  - actor_state
+  output_contract_refs:
+  - scene_state
+  critical_invariant_refs:
+  - INV-001
+  - INV-002
+  prompt_only_critical_invariant: false
+  file: P01_scene_reconstruction.md
+  user_visible_output_allowed: false
+- module_id: P02
+  purpose: Assign origin/status/provenance and authority without status inflation
+  input_contract_refs:
+  - epistemic_claim
+  - role_authority_resolution
+  output_contract_refs:
+  - epistemic_claim
+  critical_invariant_refs:
+  - INV-003
+  - INV-004
+  - INV-017
+  prompt_only_critical_invariant: false
+  file: P02_origin_status.md
+  user_visible_output_allowed: false
+- module_id: P03
+  purpose: Declare operation and test applicability/open-world outcomes before forcing
+    classification
+  input_contract_refs:
+  - operation_declaration
+  - applicability_assessment
+  - ontology_gap_event
+  output_contract_refs:
+  - applicability_assessment
+  critical_invariant_refs:
+  - INV-007
+  - INV-008
+  prompt_only_critical_invariant: false
+  file: P03_applicability.md
+  user_visible_output_allowed: false
+- module_id: P04
+  purpose: Configure attention/retrieval and memory recruitment while preserving truth/write
+    boundaries
+  input_contract_refs:
+  - attention_plan
+  - memory_recruitment_trace
+  - state_write_decision
+  output_contract_refs:
+  - attention_audit
+  - memory_recruitment_trace
+  critical_invariant_refs:
+  - INV-005
+  - INV-018
+  prompt_only_critical_invariant: false
+  file: P04_attention_memory.md
+  user_visible_output_allowed: false
+- module_id: P05
+  purpose: Resolve operation ownership/binding and return HUMAN/JOINT work when unresolved
+  input_contract_refs:
+  - human_operation
+  - ownership_assessment
+  - development_risk
+  output_contract_refs:
+  - human_operation_return
+  - pipeline_run_state
+  critical_invariant_refs:
+  - INV-006
+  - INV-009
+  - INV-010
+  prompt_only_critical_invariant: false
+  file: P05_ownership.md
+  user_visible_output_allowed: false
+- module_id: P06
+  purpose: Select minimum sufficient organs/personas and arbitrate grounds without
+    vote/prestige authority
+  input_contract_refs:
+  - council_recipe
+  - organ_contribution
+  - persona_adapter
+  output_contract_refs:
+  - arbitration_record
+  critical_invariant_refs:
+  - INV-011
+  - INV-012
+  - INV-013
+  - INV-014
+  prompt_only_critical_invariant: false
+  file: P06_council_arbiter.md
+  user_visible_output_allowed: false
+- module_id: P07
+  purpose: Choose bounded intervention and question purpose; preserve aporia where
+    warranted
+  input_contract_refs:
+  - arbitration_record
+  - intervention_selection
+  output_contract_refs:
+  - intervention_selection
+  - pipeline_run_state
+  critical_invariant_refs:
+  - INV-009
+  - INV-014
+  prompt_only_critical_invariant: false
+  file: P07_intervention.md
+  user_visible_output_allowed: true
+- module_id: P08
+  purpose: Render user-facing answer from authorised state while keeping operational
+    trace separate
+  input_contract_refs:
+  - pipeline_run_state
+  - epistemic_claim
+  output_contract_refs:
+  - user_facing_response
+  - pipeline_trace
+  critical_invariant_refs:
+  - INV-004
+  - INV-016
+  prompt_only_critical_invariant: false
+  file: P08_synthesis_render.md
+  user_visible_output_allowed: true
+- module_id: P09
+  purpose: Check invariants, authority, provenance, memory-write, completion and retry
+    budget without recursive theatre
+  input_contract_refs:
+  - pipeline_run_state
+  - enforcement_layer_manifest
+  output_contract_refs:
+  - pipeline_run_state
+  - pipeline_trace
+  critical_invariant_refs:
+  - INV-015
+  - INV-016
+  - INV-019
+  prompt_only_critical_invariant: false
+  file: P09_self_review.md
+  user_visible_output_allowed: false
+separation:
+  hidden_operational_trace: typed state/transition/evidence codes only; no hidden
+    chain-of-thought
+  user_facing_response: rendered only at P07/P08 after contract checks
+rule: Prompts may guide execution but may not be sole bearer of a critical invariant.
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+binding_id: SOCRATES_V03_PROMPT_BINDINGS
+version: 0.3.0
+status: candidate
+principle: Critical invariants live in contracts/policies/schemas. Prompts are execution projections, never sole
+  authority.
+bindings:
+  S0-S6: CONTRACT_DRIVEN_EXECUTION / detailed prompt hierarchy deferred to G-S25
+  S7-S8:
+    drive_id: 1FRmTQfj2Vxwmgde_C_u2zX1fbGISGLUL
+    name: MODE_AND_REFLEXIVITY_GOVERNOR_PROMPT_PACK
+  S9: TINKUY_EXECUTION_ADAPTER / concrete host binding deferred to G-S26
+  S10: CONTRACT_DRIVEN_PROVENANCE_AND_WRITE_GATE
+g25_handoff: G-S25 materializes complete prompt hierarchy and reference harness without changing these contract
+  invariants.
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+# P01 — SCENE RECONSTRUCTION
+
+Purpose: Reconstruct request, telos hypothesis, roles, stakes and decision owner without inventing scene facts.
+
+## Inputs
+- scene_state
+- actor_state
+
+## Output contracts
+- scene_state
+
+## Hard constraints
+- INV-001
+- INV-002
+- Treat referenced schemas/policies as authority; do not repair a schema conflict by prose.
+- Emit only contract fields / user-facing response required by this module.
+- Do not expose or request hidden chain-of-thought; record compact reasons, evidence refs and transition codes only.
+- If required evidence/authority is absent, preserve UNKNOWN/UNRESOLVED or route to the typed return/escalation path.
+
+## User-facing rule
+No direct user-facing prose is required from this module.

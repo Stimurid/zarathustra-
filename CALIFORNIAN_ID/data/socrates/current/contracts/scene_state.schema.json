@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/scene_state.schema.json",
+  "title": "Socrates Scene State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "scene_id",
+    "request",
+    "telos_status",
+    "roles",
+    "authority_state",
+    "stakes_status"
+  ],
+  "properties": {
+    "scene_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "request": {
+      "type": "string",
+      "minLength": 1
+    },
+    "telos_status": {
+      "enum": [
+        "UNBOUND_HYPOTHESIS",
+        "PROVISIONAL",
+        "BOUND",
+        "REVISED",
+        "REVOKED",
+        "UNRESOLVED"
+      ]
+    },
+    "telos": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "actor",
+          "role",
+          "status"
+        ],
+        "properties": {
+          "actor": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "OFFERED",
+              "ACCEPTED",
+              "ACTIVE",
+              "REVISED",
+              "REVOKED",
+              "SUPERSEDED"
+            ]
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "authority_state": {
+      "type": "array",
+      "items": {
+        "$ref": "role_authority_resolution.schema.json"
+      },
+      "minItems": 1
+    },
+    "stakes_status": {
+      "enum": [
+        "UNKNOWN",
+        "LOW",
+        "MATERIAL",
+        "HIGH"
+      ]
+    },
+    "audience": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

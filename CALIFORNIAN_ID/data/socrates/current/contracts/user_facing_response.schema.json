@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/user_facing_response.schema.json",
+  "title": "User Facing Response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "response_id",
+    "text",
+    "response_status",
+    "provenance_visibility",
+    "open_loops"
+  ],
+  "properties": {
+    "response_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "text": {
+      "type": "string"
+    },
+    "response_status": {
+      "enum": [
+        "FINAL",
+        "PROVISIONAL",
+        "QUESTION",
+        "RETURN_OPERATION",
+        "REFUSAL",
+        "PRESERVE_APORIA",
+        "SUSPENDED"
+      ]
+    },
+    "provenance_visibility": {
+      "enum": [
+        "SHADOW_INTERNAL",
+        "SUMMARY_VISIBLE",
+        "EXPLICIT_REFERENCES"
+      ]
+    },
+    "open_loops": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+}

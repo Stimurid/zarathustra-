@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/migration_record.schema.json",
+  "title": "Schema Migration Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "object",
+    "from_schema",
+    "to_schema",
+    "change_class",
+    "field_map",
+    "semantic_changes",
+    "authority_changes",
+    "losses",
+    "tests",
+    "approved_by"
+  ],
+  "properties": {
+    "object": {
+      "type": "string",
+      "minLength": 1
+    },
+    "from_schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "to_schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "change_class": {
+      "enum": [
+        "patch",
+        "minor",
+        "major"
+      ]
+    },
+    "field_map": {
+      "type": "object"
+    },
+    "semantic_changes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authority_changes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "losses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "approved_by": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

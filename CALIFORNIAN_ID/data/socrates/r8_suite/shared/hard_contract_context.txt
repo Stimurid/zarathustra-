@@ -1,0 +1,1711 @@
+version: 0.1.0
+critical_invariants:
+- id: INV-001
+  statement: request is not telos
+  enforced_by:
+  - scene_state.schema.json
+  - evaluator
+  prompt_only: false
+- id: INV-002
+  statement: role is not identity
+  enforced_by:
+  - actor_state.schema.json
+  - scene_state.schema.json
+  - policy
+  prompt_only: false
+- id: INV-003
+  statement: expertise/institution label is not decision authority
+  enforced_by:
+  - role_authority_resolution.schema.json
+  - authority_crosswalk imported schema
+  prompt_only: false
+- id: INV-004
+  statement: origin and epistemic status are independent axes
+  enforced_by:
+  - epistemic_claim.schema.json
+  - evaluator
+  prompt_only: false
+- id: INV-005
+  statement: retrieval or retention does not grant truth
+  enforced_by:
+  - imported memory schemas
+  - policy
+  - evaluator
+  prompt_only: false
+- id: INV-006
+  statement: binding authority is separate from persistence authority
+  enforced_by:
+  - pipeline_run_state.schema.json
+  - imported state_write_decision
+  - evaluator
+  prompt_only: false
+- id: INV-007
+  statement: unknown object is not forced to nearest class
+  enforced_by:
+  - imported applicability_assessment
+  - evaluator
+  prompt_only: false
+- id: INV-008
+  statement: generated concept cannot masquerade as source concept
+  enforced_by:
+  - imported concept_object_genesis_ledger
+  - epistemic_claim.schema.json
+  - evaluator
+  prompt_only: false
+- id: INV-009
+  statement: HUMAN/JOINT unresolved binding returns the operation
+  enforced_by:
+  - pipeline_run_state.schema.json
+  - imported ownership_assessment
+  - evaluator
+  prompt_only: false
+- id: INV-010
+  statement: no-question execution has zero question payload
+  enforced_by:
+  - imported human_operation_return
+  - evaluator
+  prompt_only: false
+- id: INV-011
+  statement: functional organ and PersonaAdapter are distinct
+  enforced_by:
+  - imported functional_organ_card
+  - imported persona_adapter
+  - policy
+  prompt_only: false
+- id: INV-012
+  statement: veto does not create truth-by-vote or new authority
+  enforced_by:
+  - imported arbitration_record
+  - policy
+  - evaluator
+  prompt_only: false
+- id: INV-013
+  statement: PersonaAdapter cannot self-promote to arbiter or durable writer
+  enforced_by:
+  - imported persona_adapter
+  - policy
+  - evaluator
+  prompt_only: false
+- id: INV-014
+  statement: council is selective; direct bypass remains valid
+  enforced_by:
+  - pipeline_run_state.schema.json
+  - policy
+  - evaluator
+  prompt_only: false
+- id: INV-015
+  statement: retry is explicit and bounded <=2
+  enforced_by:
+  - pipeline_run_state.schema.json
+  - G-S24 state_model
+  - evaluator
+  prompt_only: false
+- id: INV-016
+  statement: operational trace has no hidden chain-of-thought field
+  enforced_by:
+  - imported pipeline_trace
+  - evaluator
+  prompt_only: false
+- id: INV-017
+  statement: supersession requires explicit authority
+  enforced_by:
+  - epistemic_claim.schema.json
+  - evaluator
+  prompt_only: false
+- id: INV-018
+  statement: durable memory write requires state-write + memory-write authority
+  enforced_by:
+  - pipeline_run_state.schema.json
+  - imported state_write_decision
+  - evaluator
+  prompt_only: false
+- id: INV-019
+  statement: critical invariant cannot be prompt-only
+  enforced_by:
+  - enforcement_manifest_validator
+  - prompt_module_contract.schema.json
+  prompt_only: false
+- id: INV-020
+  statement: control plane has unique current owners and no duplicate completion anchor
+  enforced_by:
+  - control_consistency_validator
+  prompt_only: false
+- id: INV-021
+  statement: one current schema dialect per first-class object
+  enforced_by:
+  - schema_catalog_validator
+  prompt_only: false
+- id: INV-022
+  statement: same fixture + mocked outputs replays same transitions
+  enforced_by:
+  - reference_harness
+  prompt_only: false
+- id: INV-023
+  statement: same deterministic run is idempotent at state digest
+  enforced_by:
+  - reference_harness
+  prompt_only: false
+- id: INV-024
+  statement: migration cannot silently remove required fields or upgrade status/authority
+  enforced_by:
+  - schema_migration_policy
+  - migration_validator
+  prompt_only: false
+acceptance: Every critical invariant has at least one non-prompt enforcement layer.
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+schema_catalog_version: 0.1.0
+draft: 2020-12
+policy: Existing CURRENT schemas remain at original Drive identity; G-S25 does not
+  create copy-derived dialects. Missing package/runtime schemas are local G-S25 authorities.
+imported_current_schemas:
+- object: authority_crosswalk
+  drive_id: 1w5b4NPgY-XVxoo9vzJimBqu_5fbQ8XHT
+  generation: G-S15
+  prior_validation_evidence: 1nfh03MfzXCL-iUJPQoTtVjuGszmCpHga
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: operation_declaration
+  drive_id: 1b7Yol3eaO0IOabHD5Bnnzu6Dhy75Q5-C
+  generation: G-S16
+  prior_validation_evidence: 1bQ-5jdSesN6FYZ6hm9jjIM_zHFU4Oudn
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: applicability_assessment
+  drive_id: 1ZtAYgwAjU7a55aF6rfnQ-qgsTHK0U7JI
+  generation: G-S16
+  prior_validation_evidence: 1bQ-5jdSesN6FYZ6hm9jjIM_zHFU4Oudn
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: ontology_gap_event
+  drive_id: 1Jl4ce3-9ejZlMEiF9V_9OoAFCMuhKKGE
+  generation: G-S16
+  prior_validation_evidence: 1bQ-5jdSesN6FYZ6hm9jjIM_zHFU4Oudn
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: attention_plan
+  drive_id: 1293jEcJt8FN2OGBnUbBT_eFJaJeH3R9i
+  generation: G-S17
+  prior_validation_evidence: 1_7e8ypAM2Hbc5BVEBn5QxVFWp-G4KT0b
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: attention_audit
+  drive_id: 1DuzhXxz-ksM9554Q5is3IyXKv9UoaSgE
+  generation: G-S17
+  prior_validation_evidence: 1_7e8ypAM2Hbc5BVEBn5QxVFWp-G4KT0b
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: memory_object_base
+  drive_id: 1xiPyXalYIU5-kN-Ns07dt29lsfrP0qnR
+  generation: G-S18
+  prior_validation_evidence: 15tILs5KOLVxGTG21oKsn_k9CpDD9_nTv
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: trajectory_memory
+  drive_id: 10KNYJ98eKYFWYem_VR3QX42dwnDPeNgn
+  generation: G-S18
+  prior_validation_evidence: 15tILs5KOLVxGTG21oKsn_k9CpDD9_nTv
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: instrument_self_memory
+  drive_id: 1IliaudcPskixeha7HFn-KWzxLvmHueGG
+  generation: G-S18
+  prior_validation_evidence: 15tILs5KOLVxGTG21oKsn_k9CpDD9_nTv
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: governed_commitment_memory
+  drive_id: 1KlM9wrl2GpAn5KgpyO6e5glB9ZBfKv0Z
+  generation: G-S18
+  prior_validation_evidence: 15tILs5KOLVxGTG21oKsn_k9CpDD9_nTv
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: retrieval_mode
+  drive_id: 1EA0mgKfdPFzayNit5e9nChKLrcmtLUaA
+  generation: G-S18
+  prior_validation_evidence: 15tILs5KOLVxGTG21oKsn_k9CpDD9_nTv
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: state_write_decision
+  drive_id: 1sWV7wgJt_OArAUtXm5g8_PM8DIKQS5Gc
+  generation: G-S18
+  prior_validation_evidence: 15tILs5KOLVxGTG21oKsn_k9CpDD9_nTv
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: memory_recruitment_trace
+  drive_id: 1J5FbbpyeNKOTehDD1DjKn15nk1MIaDbB
+  generation: G-S18
+  prior_validation_evidence: 15tILs5KOLVxGTG21oKsn_k9CpDD9_nTv
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: user_model_hypothesis
+  drive_id: 1BJaZ7MR2eUWzYhjEa2-JfutWucWG2tit
+  generation: G-S18
+  prior_validation_evidence: 15tILs5KOLVxGTG21oKsn_k9CpDD9_nTv
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: compaction_envelope
+  drive_id: 1eggql4oJZBcIPtjTiLz5XQUfMNo38dJP
+  generation: G-S18
+  prior_validation_evidence: 15tILs5KOLVxGTG21oKsn_k9CpDD9_nTv
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: reentry_evidence
+  drive_id: 1nsMzAE9ugXFBVyH0TTfxoaHCy0ZQw0mB
+  generation: G-S18
+  prior_validation_evidence: 15tILs5KOLVxGTG21oKsn_k9CpDD9_nTv
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: field_mode
+  drive_id: 1wyjeCw0SfUsjylCoevQ969YJwL66OBlh
+  generation: G-S19
+  prior_validation_evidence: 18DJZ1eKg2wYXx-Tz6h0ZRdJ9pE0_QZxw
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: field_transition
+  drive_id: 197VvFO9pzt8f0H-8bVbDx925RGdVHs8N
+  generation: G-S19
+  prior_validation_evidence: 18DJZ1eKg2wYXx-Tz6h0ZRdJ9pE0_QZxw
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: operator_application_trace
+  drive_id: 1xYZmq6nNWl57_CiKUKur2FcmbvOvNAHW
+  generation: G-S19
+  prior_validation_evidence: 18DJZ1eKg2wYXx-Tz6h0ZRdJ9pE0_QZxw
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: concept_object_genesis_ledger
+  drive_id: 1TdfQien0izihaT4QUkzCLNMflhr2rQ8v
+  generation: G-S19
+  prior_validation_evidence: 18DJZ1eKg2wYXx-Tz6h0ZRdJ9pE0_QZxw
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: novelty_level
+  drive_id: 1TPvhvYfo8DJYhmFoCovgABGnaWf5yCgu
+  generation: G-S19
+  prior_validation_evidence: 18DJZ1eKg2wYXx-Tz6h0ZRdJ9pE0_QZxw
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: human_operation
+  drive_id: 1tscrRACQw9fBHtRWqCU-TyA5gwkEAxzU
+  generation: G-S20
+  prior_validation_evidence: 1vM5M7pWefIyFagdSR80nlP_joDaZY-ri
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: ownership_assessment
+  drive_id: 1Y1f-F6Ol5-AR20ozU9LWaj1BJef7WNof
+  generation: G-S20
+  prior_validation_evidence: 1vM5M7pWefIyFagdSR80nlP_joDaZY-ri
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: development_risk
+  drive_id: 1Z5bEiUt5Z9Poo4_KEP5G478_SGGbYjml
+  generation: G-S20
+  prior_validation_evidence: 1vM5M7pWefIyFagdSR80nlP_joDaZY-ri
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: human_operation_return
+  drive_id: 1vyAOaAM3Z13HWjE1PUCBWY-9QHjnYixO
+  generation: G-S20
+  prior_validation_evidence: 1vM5M7pWefIyFagdSR80nlP_joDaZY-ri
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: competence_after_interaction
+  drive_id: 1gIPcHl7RalREx9rc2-p9_mNrL7W74dve
+  generation: G-S20
+  prior_validation_evidence: 1vM5M7pWefIyFagdSR80nlP_joDaZY-ri
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: functional_organ_card
+  drive_id: 1-tfftFmWqjO65PACX8Yh2KaVWXrw2GE1
+  generation: G-S21
+  prior_validation_evidence: 1Ta8qPe_VEFrIj3fIalwY4liuB4NxAaJb
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: organ_contribution
+  drive_id: 1eS0HwcHmMk8zWJk6DhbSVZUsierfAQHL
+  generation: G-S21
+  prior_validation_evidence: 1Ta8qPe_VEFrIj3fIalwY4liuB4NxAaJb
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: persona_adapter
+  drive_id: 1bnstTS4bvKoROXA-gpqGIvwhfN6iC3-p
+  generation: G-S22
+  prior_validation_evidence: 1gIWqN5pxjYnFq-7U8rEk7meRa5WHy3Q1
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: council_recipe
+  drive_id: 1ds853iGosBfOHA6ezQPayQ1ZulIuVuj0
+  generation: G-S23
+  prior_validation_evidence: 1Fnas7pX7L07guZe2i7zep-yqkEqQvTZD
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: arbitration_record
+  drive_id: 1BrxmkZ3-eH3LzkLmW6_Ei_vb2wGWOayb
+  generation: G-S23
+  prior_validation_evidence: 1Fnas7pX7L07guZe2i7zep-yqkEqQvTZD
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: intervention_selection
+  drive_id: 1JfcIJK-L8_m5j4tc1Q-azTl7izFEw-6Q
+  generation: G-S23
+  prior_validation_evidence: 1Fnas7pX7L07guZe2i7zep-yqkEqQvTZD
+  status: CURRENT_IMPORTED_BY_REFERENCE
+- object: pipeline_trace
+  drive_id: 1fT3GTEsaCQ7e3Cys0JOy2gl4jxt7YMqr
+  generation: G-S24
+  prior_validation_evidence: 117Z49CLUfXcKQVevl67vFjuoTsFii7N3
+  status: CURRENT_IMPORTED_BY_REFERENCE
+gs25_local_schemas:
+- object: actor_state
+  file: actor_state.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+- object: scene_state
+  file: scene_state.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+- object: role_authority_resolution
+  file: role_authority_resolution.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+- object: reflective_exit
+  file: reflective_exit.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+- object: epistemic_claim
+  file: epistemic_claim.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+- object: temporal_commitment
+  file: temporal_commitment.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+- object: pipeline_run_state
+  file: pipeline_run_state.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+- object: prompt_module_contract
+  file: prompt_module_contract.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+- object: harness_case
+  file: harness_case.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+- object: control_plane_snapshot
+  file: control_plane_snapshot.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+- object: user_facing_response
+  file: user_facing_response.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+- object: migration_record
+  file: migration_record.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+- object: schema_catalog_contract
+  file: schema_catalog_contract.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+- object: enforcement_manifest_contract
+  file: enforcement_manifest_contract.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+- object: reference_harness_result
+  file: reference_harness_result.schema.json
+  status: CURRENT_GS25_SCHEMA_CANDIDATE
+uniqueness_rule: At most one CURRENT schema dialect per first-class object; migration
+  versions require explicit predecessor relation and migration record.
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/actor_state.schema.json",
+  "title": "Socrates Actor State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "actor_state_id",
+    "constitution_ref",
+    "layers",
+    "current_mode",
+    "revision"
+  ],
+  "properties": {
+    "actor_state_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "constitution_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "current_mode": {
+      "enum": [
+        "DIRECT_ASSISTANCE",
+        "DELIBERATE",
+        "DWELL",
+        "RESEARCH",
+        "CONCEPT_GENESIS",
+        "PUBLIC_TWIN_DEMO",
+        "CORE_ONLY_MODE",
+        "VOICELESS_CONSTITUTIONAL_MODE"
+      ]
+    },
+    "layers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "CORE",
+        "FORMATION",
+        "SCENE",
+        "STATE",
+        "OPERATION"
+      ],
+      "properties": {
+        "CORE": {
+          "type": "object"
+        },
+        "FORMATION": {
+          "type": "object"
+        },
+        "SCENE": {
+          "type": "object"
+        },
+        "STATE": {
+          "type": "object"
+        },
+        "OPERATION": {
+          "type": "object"
+        }
+      }
+    },
+    "persona_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pressure_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+}
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/scene_state.schema.json",
+  "title": "Socrates Scene State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "scene_id",
+    "request",
+    "telos_status",
+    "roles",
+    "authority_state",
+    "stakes_status"
+  ],
+  "properties": {
+    "scene_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "request": {
+      "type": "string",
+      "minLength": 1
+    },
+    "telos_status": {
+      "enum": [
+        "UNBOUND_HYPOTHESIS",
+        "PROVISIONAL",
+        "BOUND",
+        "REVISED",
+        "REVOKED",
+        "UNRESOLVED"
+      ]
+    },
+    "telos": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "actor",
+          "role",
+          "status"
+        ],
+        "properties": {
+          "actor": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "OFFERED",
+              "ACCEPTED",
+              "ACTIVE",
+              "REVISED",
+              "REVOKED",
+              "SUPERSEDED"
+            ]
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "authority_state": {
+      "type": "array",
+      "items": {
+        "$ref": "role_authority_resolution.schema.json"
+      },
+      "minItems": 1
+    },
+    "stakes_status": {
+      "enum": [
+        "UNKNOWN",
+        "LOW",
+        "MATERIAL",
+        "HIGH"
+      ]
+    },
+    "audience": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/role_authority_resolution.schema.json",
+  "title": "Role and Authority Resolution",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "actor_ref",
+    "base_authority_type",
+    "capabilities",
+    "actor_predicates",
+    "binding_scope"
+  ],
+  "properties": {
+    "actor_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "base_authority_type": {
+      "enum": [
+        "USER_AUTHORITY",
+        "SYSTEM_AUTHORITY",
+        "DOMAIN_AUTHORITY",
+        "PROCEDURAL_AUTHORITY",
+        "TOOL_AUTHORITY",
+        "REPRESENTATIONAL_AUTHORITY",
+        "DELEGATED_AUTHORITY",
+        "JOINT_AUTHORITY",
+        "NO_AUTHORITY"
+      ]
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "actor_predicates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "binding_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "institutional_label": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "base_authority_type": {
+            "const": "NO_AUTHORITY"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "binding_scope": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/reflective_exit.schema.json",
+  "title": "Reflective Exit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "exit_id",
+    "trigger",
+    "depth",
+    "preserved_work",
+    "preserved_commitments",
+    "return_condition",
+    "return_action"
+  ],
+  "properties": {
+    "exit_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trigger": {
+      "type": "string",
+      "minLength": 1
+    },
+    "depth": {
+      "enum": [
+        "R0",
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6"
+      ]
+    },
+    "preserved_work": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "preserved_commitments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "return_condition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "return_action": {
+      "enum": [
+        "RETURN_CHANGED_OPERATION",
+        "RETURN_CHANGED_ROLE",
+        "RETURN_CHANGED_SCENE",
+        "PROPOSE_CONSTITUTIONAL_AMENDMENT",
+        "PRESERVE_APORIA",
+        "SUSPEND_WITH_REASON"
+      ]
+    },
+    "metaphysical_claim": {
+      "const": false
+    }
+  }
+}
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/epistemic_claim.schema.json",
+  "title": "Epistemic Claim Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_id",
+    "content",
+    "origin",
+    "status",
+    "authority_refs",
+    "version"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content": {},
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "origin": {
+      "enum": [
+        "SOURCE_EXACT",
+        "RAG_RETRIEVED",
+        "TOOL_RESULT",
+        "MODEL_PRIOR_ASSOCIATION",
+        "INFERRED",
+        "RECONSTRUCTED",
+        "USER_REPORTED",
+        "HUMAN_DECIDED",
+        "MACHINE_PROPOSAL",
+        "JOINTLY_CONSTRUCTED",
+        "UNKNOWN_ORIGIN"
+      ]
+    },
+    "status": {
+      "enum": [
+        "OBSERVED",
+        "REPORTED",
+        "SUPPORTED",
+        "HYPOTHETICAL",
+        "CONTESTED",
+        "ACCEPTED_FOR_ACTION",
+        "SUPERSEDED",
+        "REVOKED",
+        "UNRESOLVED"
+      ]
+    },
+    "authority_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "supersession_authority_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "provenance_note": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "SUPERSEDED"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "supersedes",
+          "supersession_authority_ref"
+        ],
+        "properties": {
+          "supersedes": {
+            "type": "string",
+            "minLength": 1
+          },
+          "supersession_authority_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "origin": {
+            "const": "MACHINE_PROPOSAL"
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "properties": {
+            "status": {
+              "const": "OBSERVED"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/temporal_commitment.schema.json",
+  "title": "Temporal Commitment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "commitment_id",
+    "proposition",
+    "status",
+    "binding_authority_refs",
+    "created_at",
+    "history"
+  ],
+  "properties": {
+    "commitment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposition": {},
+    "status": {
+      "enum": [
+        "PROPOSED",
+        "BOUND",
+        "REVISED",
+        "REVOKED",
+        "SUPERSEDED",
+        "UNRESOLVED"
+      ]
+    },
+    "binding_authority_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "history": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "event",
+          "at"
+        ],
+        "properties": {
+          "event": {
+            "enum": [
+              "CREATED",
+              "BOUND",
+              "REVISED",
+              "REVOKED",
+              "SUPERSEDED"
+            ]
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "authority_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "prior_version_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "durable_write_authority_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "BOUND",
+              "REVISED",
+              "REVOKED",
+              "SUPERSEDED"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "binding_authority_refs": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/pipeline_run_state.schema.json",
+  "title": "Pipeline Run State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "profile",
+    "current_step",
+    "transition_log",
+    "terminal_outcome",
+    "state_write",
+    "human_binding"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile": {
+      "enum": [
+        "DIRECT_ASSISTANCE",
+        "DELIBERATE",
+        "DWELL",
+        "RESEARCH",
+        "CONCEPT_GENESIS",
+        "PUBLIC_TWIN_DEMO"
+      ]
+    },
+    "current_step": {
+      "enum": [
+        "S0",
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S10",
+        "TERMINAL"
+      ]
+    },
+    "transition_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to",
+          "reason"
+        ],
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "terminal_outcome": {
+      "enum": [
+        "ANSWERED",
+        "PROVISIONAL",
+        "RETURNED_TO_HUMAN",
+        "REFUSED",
+        "PRESERVED_APORIA",
+        "SUSPENDED",
+        "FAILED_BOUNDED",
+        "NOT_TERMINAL"
+      ]
+    },
+    "state_write": {
+      "type": "object",
+      "required": [
+        "requested",
+        "authorized"
+      ],
+      "properties": {
+        "requested": {
+          "type": "boolean"
+        },
+        "authorized": {
+          "type": "boolean"
+        },
+        "state_write_authority_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "memory_write_authority_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "human_binding": {
+      "type": "object",
+      "required": [
+        "ownership",
+        "binding_resolved"
+      ],
+      "properties": {
+        "ownership": {
+          "enum": [
+            "SYSTEM",
+            "HUMAN",
+            "JOINT",
+            "UNRESOLVED"
+          ]
+        },
+        "binding_resolved": {
+          "type": "boolean"
+        },
+        "binding_authority_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "retry_count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "council_invoked": {
+      "type": "boolean"
+    },
+    "tinkuy_execution_invoked": {
+      "type": "boolean"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "state_write": {
+            "properties": {
+              "authorized": {
+                "const": true
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "state_write": {
+            "required": [
+              "state_write_authority_ref",
+              "memory_write_authority_ref"
+            ],
+            "properties": {
+              "state_write_authority_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "memory_write_authority_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "human_binding": {
+            "properties": {
+              "ownership": {
+                "enum": [
+                  "HUMAN",
+                  "JOINT"
+                ]
+              },
+              "binding_resolved": {
+                "const": false
+              }
+            },
+            "required": [
+              "ownership",
+              "binding_resolved"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "terminal_outcome": {
+            "const": "RETURNED_TO_HUMAN"
+          }
+        }
+      }
+    }
+  ]
+}
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/prompt_module_contract.schema.json",
+  "title": "Prompt Module Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "module_id",
+    "purpose",
+    "input_contract_refs",
+    "output_contract_refs",
+    "critical_invariant_refs",
+    "prompt_only_critical_invariant",
+    "file"
+  ],
+  "properties": {
+    "module_id": {
+      "type": "string",
+      "pattern": "^P[0-9]{2}$"
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_contract_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "output_contract_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "critical_invariant_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "prompt_only_critical_invariant": {
+      "const": false
+    },
+    "file": {
+      "type": "string",
+      "minLength": 1
+    },
+    "user_visible_output_allowed": {
+      "type": "boolean"
+    }
+  }
+}
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/harness_case.schema.json",
+  "title": "Deterministic Harness Case",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "family",
+    "expect_valid",
+    "input",
+    "mocked_step_outputs",
+    "expected",
+    "error_codes"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "family": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expect_valid": {
+      "type": "boolean"
+    },
+    "input": {
+      "type": "object"
+    },
+    "mocked_step_outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "step",
+          "delta"
+        ],
+        "properties": {
+          "step": {
+            "enum": [
+              "S0",
+              "S1",
+              "S2",
+              "S3",
+              "S4",
+              "S5",
+              "S6",
+              "S7",
+              "S8",
+              "S9",
+              "S10"
+            ]
+          },
+          "delta": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "required": [
+        "terminal_outcome"
+      ],
+      "properties": {
+        "terminal_outcome": {
+          "type": "string"
+        },
+        "transition_steps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "state_subset": {
+          "type": "object"
+        }
+      }
+    },
+    "error_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+}
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/control_plane_snapshot.schema.json",
+  "title": "Control Plane Snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status_owners",
+    "governing_specifications",
+    "claim_owners",
+    "anchors",
+    "schema_dialects"
+  ],
+  "properties": {
+    "status_owners": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "governing_specifications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "claim_owners": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "schema_dialects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "object",
+          "schema_id",
+          "current"
+        ],
+        "properties": {
+          "object": {
+            "type": "string"
+          },
+          "schema_id": {
+            "type": "string"
+          },
+          "current": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/user_facing_response.schema.json",
+  "title": "User Facing Response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "response_id",
+    "text",
+    "response_status",
+    "provenance_visibility",
+    "open_loops"
+  ],
+  "properties": {
+    "response_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "text": {
+      "type": "string"
+    },
+    "response_status": {
+      "enum": [
+        "FINAL",
+        "PROVISIONAL",
+        "QUESTION",
+        "RETURN_OPERATION",
+        "REFUSAL",
+        "PRESERVE_APORIA",
+        "SUSPENDED"
+      ]
+    },
+    "provenance_visibility": {
+      "enum": [
+        "SHADOW_INTERNAL",
+        "SUMMARY_VISIBLE",
+        "EXPLICIT_REFERENCES"
+      ]
+    },
+    "open_loops": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+}
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/migration_record.schema.json",
+  "title": "Schema Migration Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "object",
+    "from_schema",
+    "to_schema",
+    "change_class",
+    "field_map",
+    "semantic_changes",
+    "authority_changes",
+    "losses",
+    "tests",
+    "approved_by"
+  ],
+  "properties": {
+    "object": {
+      "type": "string",
+      "minLength": 1
+    },
+    "from_schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "to_schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "change_class": {
+      "enum": [
+        "patch",
+        "minor",
+        "major"
+      ]
+    },
+    "field_map": {
+      "type": "object"
+    },
+    "semantic_changes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authority_changes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "losses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "approved_by": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/schema_catalog_contract.schema.json",
+  "title": "Schema Catalog Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_catalog_version",
+    "draft",
+    "policy",
+    "imported_current_schemas",
+    "gs25_local_schemas",
+    "uniqueness_rule"
+  ],
+  "properties": {
+    "schema_catalog_version": {
+      "type": "string"
+    },
+    "draft": {
+      "const": "2020-12"
+    },
+    "policy": {
+      "type": "string"
+    },
+    "imported_current_schemas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "object",
+          "drive_id",
+          "generation",
+          "prior_validation_evidence",
+          "status"
+        ]
+      }
+    },
+    "gs25_local_schemas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "object",
+          "file",
+          "status"
+        ]
+      }
+    },
+    "uniqueness_rule": {
+      "type": "string"
+    }
+  }
+}
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/enforcement_manifest_contract.schema.json",
+  "title": "Enforcement Layer Manifest Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "critical_invariants",
+    "acceptance"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "acceptance": {
+      "type": "string"
+    },
+    "critical_invariants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "statement",
+          "enforced_by",
+          "prompt_only"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "enforced_by": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "prompt_only": {
+            "const": false
+          }
+        }
+      }
+    }
+  }
+}
+
+
+--- SOCRATES SOURCE ARTIFACT BOUNDARY ---
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/reference_harness_result.schema.json",
+  "title": "Reference Harness Result",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_meta_validation",
+    "schema_instance_validation",
+    "prompt_contract_validation",
+    "harness_cases",
+    "migration_cases",
+    "replay_idempotence",
+    "summary"
+  ],
+  "properties": {
+    "schema_meta_validation": {
+      "type": "array"
+    },
+    "schema_instance_validation": {
+      "type": "array"
+    },
+    "prompt_contract_validation": {
+      "type": "array"
+    },
+    "harness_cases": {
+      "type": "array"
+    },
+    "migration_cases": {
+      "type": "array"
+    },
+    "replay_idempotence": {
+      "type": "array"
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "counts",
+        "totals",
+        "prompt_only_critical_invariants",
+        "pass"
+      ],
+      "properties": {
+        "counts": {
+          "type": "object"
+        },
+        "totals": {
+          "type": "object"
+        },
+        "prompt_only_critical_invariants": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "pass": {
+          "const": true
+        }
+      }
+    }
+  }
+}

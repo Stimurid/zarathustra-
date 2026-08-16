@@ -1,0 +1,118 @@
+artifact_id: SOCRATES_R8_BUNDLE_BUILD_VALIDATION
+version: 0.3.0
+status: PASS_STATIC_DRY_RUN_ONLY
+suite_check:
+  status: PASS
+  case_count: 11
+  checks:
+  - case_id: R8-C01_SCENE_CAPTURE
+    pass: true
+    arm_count: 3
+  - case_id: R8-C02_STATUS_TEMPORALITY
+    pass: true
+    arm_count: 3
+  - case_id: R8-C03_OPERATION_OBJECT_PESKOV
+    pass: true
+    arm_count: 3
+  - case_id: R8-C04_ONTOLOGY_GAP
+    pass: true
+    arm_count: 3
+  - case_id: R8-C05_RETRIEVAL_ATTENTION
+    pass: true
+    arm_count: 3
+  - case_id: R8-C06_HUMAN_OWNERSHIP
+    pass: true
+    arm_count: 3
+  - case_id: R8-C07_REFLEXIVE_RETURN
+    pass: true
+    arm_count: 3
+  - case_id: R8-C08_COUNCIL_AUTHORITY
+    pass: true
+    arm_count: 3
+  - case_id: R8-C09_FALSE_SYNTHESIS
+    pass: true
+    arm_count: 3
+  - case_id: R8-C10_MEMORY_WRITE
+    pass: true
+    arm_count: 3
+  - case_id: R8-C11_DIRECT_ASSISTANCE_BYPASS
+    pass: true
+    arm_count: 3
+  artifact_count: 90
+dry_run_cases:
+- case_id: R8-C01_SCENE_CAPTURE
+  returncode: 0
+  stdout: '{"case_id": "R8-C01_SCENE_CAPTURE", "arms": 3, "dry_run": true, "shared_control_equal":
+    true, "provider_control_equal": true, "evaluator_batch": "/mnt/data/r8_bundle_v0.3/results/R8-C01_SCENE_CAPTURE/EVALUATOR_BATCH.json"}'
+  stderr: ''
+  pass: true
+- case_id: R8-C02_STATUS_TEMPORALITY
+  returncode: 0
+  stdout: '{"case_id": "R8-C02_STATUS_TEMPORALITY", "arms": 3, "dry_run": true, "shared_control_equal":
+    true, "provider_control_equal": true, "evaluator_batch": "/mnt/data/r8_bundle_v0.3/results/R8-C02_STATUS_TEMPORALITY/EVALUATOR_BATCH.json"}'
+  stderr: ''
+  pass: true
+- case_id: R8-C03_OPERATION_OBJECT_PESKOV
+  returncode: 0
+  stdout: '{"case_id": "R8-C03_OPERATION_OBJECT_PESKOV", "arms": 3, "dry_run": true,
+    "shared_control_equal": true, "provider_control_equal": true, "evaluator_batch":
+    "/mnt/data/r8_bundle_v0.3/results/R8-C03_OPERATION_OBJECT_PESKOV/EVALUATOR_BATCH.json"}'
+  stderr: ''
+  pass: true
+- case_id: R8-C04_ONTOLOGY_GAP
+  returncode: 0
+  stdout: '{"case_id": "R8-C04_ONTOLOGY_GAP", "arms": 3, "dry_run": true, "shared_control_equal":
+    true, "provider_control_equal": true, "evaluator_batch": "/mnt/data/r8_bundle_v0.3/results/R8-C04_ONTOLOGY_GAP/EVALUATOR_BATCH.json"}'
+  stderr: ''
+  pass: true
+- case_id: R8-C05_RETRIEVAL_ATTENTION
+  returncode: 0
+  stdout: '{"case_id": "R8-C05_RETRIEVAL_ATTENTION", "arms": 3, "dry_run": true, "shared_control_equal":
+    true, "provider_control_equal": true, "evaluator_batch": "/mnt/data/r8_bundle_v0.3/results/R8-C05_RETRIEVAL_ATTENTION/EVALUATOR_BATCH.json"}'
+  stderr: ''
+  pass: true
+- case_id: R8-C06_HUMAN_OWNERSHIP
+  returncode: 0
+  stdout: '{"case_id": "R8-C06_HUMAN_OWNERSHIP", "arms": 3, "dry_run": true, "shared_control_equal":
+    true, "provider_control_equal": true, "evaluator_batch": "/mnt/data/r8_bundle_v0.3/results/R8-C06_HUMAN_OWNERSHIP/EVALUATOR_BATCH.json"}'
+  stderr: ''
+  pass: true
+- case_id: R8-C07_REFLEXIVE_RETURN
+  returncode: 0
+  stdout: '{"case_id": "R8-C07_REFLEXIVE_RETURN", "arms": 3, "dry_run": true, "shared_control_equal":
+    true, "provider_control_equal": true, "evaluator_batch": "/mnt/data/r8_bundle_v0.3/results/R8-C07_REFLEXIVE_RETURN/EVALUATOR_BATCH.json"}'
+  stderr: ''
+  pass: true
+- case_id: R8-C08_COUNCIL_AUTHORITY
+  returncode: 0
+  stdout: '{"case_id": "R8-C08_COUNCIL_AUTHORITY", "arms": 3, "dry_run": true, "shared_control_equal":
+    true, "provider_control_equal": true, "evaluator_batch": "/mnt/data/r8_bundle_v0.3/results/R8-C08_COUNCIL_AUTHORITY/EVALUATOR_BATCH.json"}'
+  stderr: ''
+  pass: true
+- case_id: R8-C09_FALSE_SYNTHESIS
+  returncode: 0
+  stdout: '{"case_id": "R8-C09_FALSE_SYNTHESIS", "arms": 3, "dry_run": true, "shared_control_equal":
+    true, "provider_control_equal": true, "evaluator_batch": "/mnt/data/r8_bundle_v0.3/results/R8-C09_FALSE_SYNTHESIS/EVALUATOR_BATCH.json"}'
+  stderr: ''
+  pass: true
+- case_id: R8-C10_MEMORY_WRITE
+  returncode: 0
+  stdout: '{"case_id": "R8-C10_MEMORY_WRITE", "arms": 3, "dry_run": true, "shared_control_equal":
+    true, "provider_control_equal": true, "evaluator_batch": "/mnt/data/r8_bundle_v0.3/results/R8-C10_MEMORY_WRITE/EVALUATOR_BATCH.json"}'
+  stderr: ''
+  pass: true
+- case_id: R8-C11_DIRECT_ASSISTANCE_BYPASS
+  returncode: 0
+  stdout: '{"case_id": "R8-C11_DIRECT_ASSISTANCE_BYPASS", "arms": 3, "dry_run": true,
+    "shared_control_equal": true, "provider_control_equal": true, "evaluator_batch":
+    "/mnt/data/r8_bundle_v0.3/results/R8-C11_DIRECT_ASSISTANCE_BYPASS/EVALUATOR_BATCH.json"}'
+  stderr: ''
+  pass: true
+negative_tamper_test:
+  returncode: 2
+  stderr: R8_BRIDGE_FAIL:ValueError:SOURCE_HASH_OR_SIZE_MISMATCH:B03
+  pass: true
+live_provider_call:
+  status: NOT_RUN
+  reason: CURRENT_CONTAINER_DNS_CANNOT_RESOLVE_tinkuy.mindkampf.ru_AND_NO_PROVIDER_CREDENTIALS
+nonclaim: No provider/model behavior was evaluated.

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/reflective_exit.schema.json",
+  "title": "Reflective Exit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "exit_id",
+    "trigger",
+    "depth",
+    "preserved_work",
+    "preserved_commitments",
+    "return_condition",
+    "return_action"
+  ],
+  "properties": {
+    "exit_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trigger": {
+      "type": "string",
+      "minLength": 1
+    },
+    "depth": {
+      "enum": [
+        "R0",
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6"
+      ]
+    },
+    "preserved_work": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "preserved_commitments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "return_condition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "return_action": {
+      "enum": [
+        "RETURN_CHANGED_OPERATION",
+        "RETURN_CHANGED_ROLE",
+        "RETURN_CHANGED_SCENE",
+        "PROPOSE_CONSTITUTIONAL_AMENDMENT",
+        "PRESERVE_APORIA",
+        "SUSPEND_WITH_REASON"
+      ]
+    },
+    "metaphysical_claim": {
+      "const": false
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/harness_case.schema.json",
+  "title": "Deterministic Harness Case",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "family",
+    "expect_valid",
+    "input",
+    "mocked_step_outputs",
+    "expected",
+    "error_codes"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "family": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expect_valid": {
+      "type": "boolean"
+    },
+    "input": {
+      "type": "object"
+    },
+    "mocked_step_outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "step",
+          "delta"
+        ],
+        "properties": {
+          "step": {
+            "enum": [
+              "S0",
+              "S1",
+              "S2",
+              "S3",
+              "S4",
+              "S5",
+              "S6",
+              "S7",
+              "S8",
+              "S9",
+              "S10"
+            ]
+          },
+          "delta": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "required": [
+        "terminal_outcome"
+      ],
+      "properties": {
+        "terminal_outcome": {
+          "type": "string"
+        },
+        "transition_steps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "state_subset": {
+          "type": "object"
+        }
+      }
+    },
+    "error_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/temporal_commitment.schema.json",
+  "title": "Temporal Commitment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "commitment_id",
+    "proposition",
+    "status",
+    "binding_authority_refs",
+    "created_at",
+    "history"
+  ],
+  "properties": {
+    "commitment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposition": {},
+    "status": {
+      "enum": [
+        "PROPOSED",
+        "BOUND",
+        "REVISED",
+        "REVOKED",
+        "SUPERSEDED",
+        "UNRESOLVED"
+      ]
+    },
+    "binding_authority_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "history": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "event",
+          "at"
+        ],
+        "properties": {
+          "event": {
+            "enum": [
+              "CREATED",
+              "BOUND",
+              "REVISED",
+              "REVOKED",
+              "SUPERSEDED"
+            ]
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "authority_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "prior_version_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "durable_write_authority_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "BOUND",
+              "REVISED",
+              "REVOKED",
+              "SUPERSEDED"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "binding_authority_refs": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}

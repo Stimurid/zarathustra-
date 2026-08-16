@@ -201,12 +201,14 @@ def test_branch_readiness_matrix_is_honest(adapter):
     assert m["pipeline_structure"] == "DECLARATIVE_READY"
     assert m["state_model"] == "DECLARATIVE_READY"
     assert m["runtime_profiles"] == "DECLARATIVE_READY"
-    assert "partial" in m["prompt_hierarchy"].lower()
-    # one of four bindings has a body — the qualifier must survive
-    assert m["prompt_bodies"].startswith("PROMPT_BODY_READY")
-    assert "S7-S8 only" in m["prompt_bodies"]
-    assert m["live_runtime"] == "NOT_READY"
-    assert r["live_runtime_status"] == "WAITING_FOR_G-S26_RUNTIME_BINDING"
+    # After G-S25R.8 bundle import, prompt bodies (CORE + B01..B10 +
+    # SEM_P00..P09) are all materialised under data/socrates/current/.
+    assert m["prompt_hierarchy"] == "PROMPT_BODY_READY"
+    assert m["prompt_bodies"] == "PROMPT_BODY_READY"
+    # Runtime is orchestration-deterministic — an LLM executor for phase
+    # bodies remains outstanding (external R8 credential dependency).
+    assert m["live_runtime"] == "PARTIAL_LIVE_ORCHESTRATION_DETERMINISTIC"
+    assert r["live_runtime_status"] == "PARTIAL_LIVE_ORCHESTRATION_DETERMINISTIC"
 
 
 def test_every_step_declares_readiness(adapter):
@@ -351,9 +353,13 @@ def test_six_profiles_inspectable_but_not_activatable(adapter):
     for p in profiles:
         assert set(p["available_actions"]) == {
             "inspect", "compare", "clone_candidate", "validate_declaratively"}
+        # Runtime profiles (DIRECT_ASSISTANCE, DELIBERATE, ...) still
+        # cannot be *activated* — they influence persona casting and
+        # counsel invocation, which the deterministic runtime does not
+        # exercise. Live activation waits for the R8 LLM executor.
         assert p["activate_in_live_runtime"]["enabled"] is False
         assert p["activate_in_live_runtime"]["status"] == \
-            "WAITING_FOR_G-S26_RUNTIME_BINDING"
+            "PARTIAL_LIVE_ORCHESTRATION_DETERMINISTIC"
 
 
 # ------------------------------------------------------- A11/A12 no false claim
@@ -367,8 +373,14 @@ def test_snapshot_is_declarative_not_executed(adapter):
     assert snap["pipeline"]["hash"]
 
 
-def test_socrates_has_no_production_entrypoint(adapter, svc):
+def test_socrates_has_no_workbench_entrypoint_by_design(adapter, svc):
+    """SocratesRuntime takes a SocratesRunConfiguration, not (text, mode).
+
+    The runtime is real (see :mod:`socrates_runtime` and the /api/workbench/
+    socrates/run endpoint), but the branch does not adopt the generic
+    Workbench entrypoint shape. LIVE_RUNTIME_STATUS reflects the change."""
     assert adapter.PRODUCTION_ENTRYPOINT is None
+    assert adapter.LIVE_RUNTIME_STATUS == "PARTIAL_LIVE_ORCHESTRATION_DETERMINISTIC"
     with pytest.raises(Exception):
         svc.start_production_run("socrates", "text")
 
@@ -391,6 +403,9 @@ def test_one_core_three_branches(svc):
     assert z["capabilities"]["rag_profiles"] is True
 
     s = branches["socrates"]
+    # Socrates keeps has_live_runtime=False at the WorkbenchService level —
+    # its live runtime uses its own endpoint (see socrates_runtime) rather
+    # than adopting the generic start_production_run signature.
     assert s["has_live_runtime"] is False
     assert s["generation"] == "G-S24"
     assert s["owner"] == "LOCAL_SOCRATES"

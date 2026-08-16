@@ -1,0 +1,503 @@
+artifact_id: SOCRATES_R8_EXECUTION_SUITE
+version: 0.3.0
+status: READY_FOR_LIVE_PROVIDER_EXECUTION
+generation: G-S25R.8
+materialization_lock:
+  relative_path: materialization_lock.yaml
+  expected_sha256: e6f2d6941d0d0326043d8b0f3198ab1ad8a60cd5bc8f085bf2559825b91dd212
+provider:
+  base_url_env: SOCRATES_R8_PROVIDER_BASE_URL
+  api_key_env: SOCRATES_R8_PROVIDER_API_KEY
+  model_env: SOCRATES_R8_MODEL_ID
+  parameters:
+    temperature: 0
+experiment:
+  experiment_id: G-S25R.8_ABLATION_V03
+  tool_policy: IDENTICAL_NONE_UNLESS_CASE_EXPLICIT
+  source_policy: IDENTICAL_FROZEN_CASE_INPUT
+  context_policy: IDENTICAL_SHARED_HARD_CONTRACT_BUNDLE
+  blind: true
+shared_context_key: SHARED_HARD_CONTRACT_BUNDLE
+cases:
+  R8-C01_SCENE_CAPTURE:
+    check_family: scene_capture
+    primary_router: P01
+    ablation_target: B01
+    arms:
+      A_HISTORICAL:
+        context_key: CTX_R8-C01_SCENE_CAPTURE_A
+        version_pin_keys:
+        - HIST_PROMPT_MANIFEST
+        - HIST_PROMPT_BINDINGS
+        - HIST_P01
+        evaluation_role: CONTROL_COMPRESSED
+      B_SEMANTIC:
+        context_key: CTX_R8-C01_SCENE_CAPTURE_B
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P01
+        - CORE
+        - B01
+        - B06
+        evaluation_role: SEMANTIC_RECOVERY
+      C_ABLATION_MINUS_B01:
+        context_key: CTX_R8-C01_SCENE_CAPTURE_ABLATION_B01
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P01
+        - CORE
+        - B06
+        evaluation_role: EVALUATION_ONLY_ABLATION
+        omitted_key: B01
+  R8-C02_STATUS_TEMPORALITY:
+    check_family: source_reconstruction_distinction
+    primary_router: P02
+    ablation_target: B02
+    arms:
+      A_HISTORICAL:
+        context_key: CTX_R8-C02_STATUS_TEMPORALITY_A
+        version_pin_keys:
+        - HIST_PROMPT_MANIFEST
+        - HIST_PROMPT_BINDINGS
+        - HIST_P02
+        evaluation_role: CONTROL_COMPRESSED
+      B_SEMANTIC:
+        context_key: CTX_R8-C02_STATUS_TEMPORALITY_B
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P02
+        - CORE
+        - B02
+        - B05
+        evaluation_role: SEMANTIC_RECOVERY
+      C_ABLATION_MINUS_B02:
+        context_key: CTX_R8-C02_STATUS_TEMPORALITY_ABLATION_B02
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P02
+        - CORE
+        - B05
+        evaluation_role: EVALUATION_ONLY_ABLATION
+        omitted_key: B02
+  R8-C03_OPERATION_OBJECT_PESKOV:
+    check_family: operation_object_confusion
+    primary_router: P03
+    ablation_target: B03
+    arms:
+      A_HISTORICAL:
+        context_key: CTX_R8-C03_OPERATION_OBJECT_PESKOV_A
+        version_pin_keys:
+        - HIST_PROMPT_MANIFEST
+        - HIST_PROMPT_BINDINGS
+        - HIST_P03
+        evaluation_role: CONTROL_COMPRESSED
+      B_SEMANTIC:
+        context_key: CTX_R8-C03_OPERATION_OBJECT_PESKOV_B
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P03
+        - CORE
+        - B03
+        - B08
+        - B07
+        evaluation_role: SEMANTIC_RECOVERY
+      C_ABLATION_MINUS_B03:
+        context_key: CTX_R8-C03_OPERATION_OBJECT_PESKOV_ABLATION_B03
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P03
+        - CORE
+        - B08
+        - B07
+        evaluation_role: EVALUATION_ONLY_ABLATION
+        omitted_key: B03
+  R8-C04_ONTOLOGY_GAP:
+    check_family: ontology_gap
+    primary_router: P03
+    ablation_target: B08
+    arms:
+      A_HISTORICAL:
+        context_key: CTX_R8-C04_ONTOLOGY_GAP_A
+        version_pin_keys:
+        - HIST_PROMPT_MANIFEST
+        - HIST_PROMPT_BINDINGS
+        - HIST_P03
+        evaluation_role: CONTROL_COMPRESSED
+      B_SEMANTIC:
+        context_key: CTX_R8-C04_ONTOLOGY_GAP_B
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P03
+        - CORE
+        - B03
+        - B08
+        - B07
+        evaluation_role: SEMANTIC_RECOVERY
+      C_ABLATION_MINUS_B08:
+        context_key: CTX_R8-C04_ONTOLOGY_GAP_ABLATION_B08
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P03
+        - CORE
+        - B03
+        - B07
+        evaluation_role: EVALUATION_ONLY_ABLATION
+        omitted_key: B08
+  R8-C05_RETRIEVAL_ATTENTION:
+    check_family: retrieval_attention
+    primary_router: P04
+    ablation_target: B04
+    arms:
+      A_HISTORICAL:
+        context_key: CTX_R8-C05_RETRIEVAL_ATTENTION_A
+        version_pin_keys:
+        - HIST_PROMPT_MANIFEST
+        - HIST_PROMPT_BINDINGS
+        - HIST_P04
+        evaluation_role: CONTROL_COMPRESSED
+      B_SEMANTIC:
+        context_key: CTX_R8-C05_RETRIEVAL_ATTENTION_B
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P04
+        - CORE
+        - B04
+        - B05
+        - B02
+        - B08
+        evaluation_role: SEMANTIC_RECOVERY
+      C_ABLATION_MINUS_B04:
+        context_key: CTX_R8-C05_RETRIEVAL_ATTENTION_ABLATION_B04
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P04
+        - CORE
+        - B05
+        - B02
+        - B08
+        evaluation_role: EVALUATION_ONLY_ABLATION
+        omitted_key: B04
+  R8-C06_HUMAN_OWNERSHIP:
+    check_family: human_ownership
+    primary_router: P05
+    ablation_target: B06
+    arms:
+      A_HISTORICAL:
+        context_key: CTX_R8-C06_HUMAN_OWNERSHIP_A
+        version_pin_keys:
+        - HIST_PROMPT_MANIFEST
+        - HIST_PROMPT_BINDINGS
+        - HIST_P05
+        evaluation_role: CONTROL_COMPRESSED
+      B_SEMANTIC:
+        context_key: CTX_R8-C06_HUMAN_OWNERSHIP_B
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P05
+        - CORE
+        - B06
+        - B01
+        - B02
+        - B05
+        evaluation_role: SEMANTIC_RECOVERY
+      C_ABLATION_MINUS_B06:
+        context_key: CTX_R8-C06_HUMAN_OWNERSHIP_ABLATION_B06
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P05
+        - CORE
+        - B01
+        - B02
+        - B05
+        evaluation_role: EVALUATION_ONLY_ABLATION
+        omitted_key: B06
+  R8-C07_REFLEXIVE_RETURN:
+    check_family: reflexive_return
+    primary_router: P09
+    ablation_target: B07
+    arms:
+      A_HISTORICAL:
+        context_key: CTX_R8-C07_REFLEXIVE_RETURN_A
+        version_pin_keys:
+        - HIST_PROMPT_MANIFEST
+        - HIST_PROMPT_BINDINGS
+        - HIST_P09
+        evaluation_role: CONTROL_COMPRESSED
+      B_SEMANTIC:
+        context_key: CTX_R8-C07_REFLEXIVE_RETURN_B
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P09
+        - CORE
+        - B05
+        - B07
+        - B10
+        - B02
+        - B06
+        evaluation_role: SEMANTIC_RECOVERY
+      C_ABLATION_MINUS_B07:
+        context_key: CTX_R8-C07_REFLEXIVE_RETURN_ABLATION_B07
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P09
+        - CORE
+        - B05
+        - B10
+        - B02
+        - B06
+        evaluation_role: EVALUATION_ONLY_ABLATION
+        omitted_key: B07
+  R8-C08_COUNCIL_AUTHORITY:
+    check_family: council_authority
+    primary_router: P06
+    ablation_target: B09
+    arms:
+      A_HISTORICAL:
+        context_key: CTX_R8-C08_COUNCIL_AUTHORITY_A
+        version_pin_keys:
+        - HIST_PROMPT_MANIFEST
+        - HIST_PROMPT_BINDINGS
+        - HIST_P06
+        evaluation_role: CONTROL_COMPRESSED
+      B_SEMANTIC:
+        context_key: CTX_R8-C08_COUNCIL_AUTHORITY_B
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P06
+        - CORE
+        - B09
+        - B02
+        - B07
+        - B08
+        evaluation_role: SEMANTIC_RECOVERY
+      C_ABLATION_MINUS_B09:
+        context_key: CTX_R8-C08_COUNCIL_AUTHORITY_ABLATION_B09
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P06
+        - CORE
+        - B02
+        - B07
+        - B08
+        evaluation_role: EVALUATION_ONLY_ABLATION
+        omitted_key: B09
+  R8-C09_FALSE_SYNTHESIS:
+    check_family: false_synthesis
+    primary_router: P08
+    ablation_target: B08
+    arms:
+      A_HISTORICAL:
+        context_key: CTX_R8-C09_FALSE_SYNTHESIS_A
+        version_pin_keys:
+        - HIST_PROMPT_MANIFEST
+        - HIST_PROMPT_BINDINGS
+        - HIST_P08
+        evaluation_role: CONTROL_COMPRESSED
+      B_SEMANTIC:
+        context_key: CTX_R8-C09_FALSE_SYNTHESIS_B
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P08
+        - CORE
+        - B02
+        - B09
+        - B10
+        - B03
+        - B08
+        - B05
+        evaluation_role: SEMANTIC_RECOVERY
+      C_ABLATION_MINUS_B08:
+        context_key: CTX_R8-C09_FALSE_SYNTHESIS_ABLATION_B08
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P08
+        - CORE
+        - B02
+        - B09
+        - B10
+        - B03
+        - B05
+        evaluation_role: EVALUATION_ONLY_ABLATION
+        omitted_key: B08
+  R8-C10_MEMORY_WRITE:
+    check_family: memory_write
+    primary_router: P09
+    ablation_target: B05
+    arms:
+      A_HISTORICAL:
+        context_key: CTX_R8-C10_MEMORY_WRITE_A
+        version_pin_keys:
+        - HIST_PROMPT_MANIFEST
+        - HIST_PROMPT_BINDINGS
+        - HIST_P09
+        evaluation_role: CONTROL_COMPRESSED
+      B_SEMANTIC:
+        context_key: CTX_R8-C10_MEMORY_WRITE_B
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P09
+        - CORE
+        - B05
+        - B07
+        - B10
+        - B02
+        - B06
+        evaluation_role: SEMANTIC_RECOVERY
+      C_ABLATION_MINUS_B05:
+        context_key: CTX_R8-C10_MEMORY_WRITE_ABLATION_B05
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P09
+        - CORE
+        - B07
+        - B10
+        - B02
+        - B06
+        evaluation_role: EVALUATION_ONLY_ABLATION
+        omitted_key: B05
+  R8-C11_DIRECT_ASSISTANCE_BYPASS:
+    check_family: direct_assistance_bypass
+    primary_router: P07
+    ablation_target: B10
+    arms:
+      A_HISTORICAL:
+        context_key: CTX_R8-C11_DIRECT_ASSISTANCE_BYPASS_A
+        version_pin_keys:
+        - HIST_PROMPT_MANIFEST
+        - HIST_PROMPT_BINDINGS
+        - HIST_P07
+        evaluation_role: CONTROL_COMPRESSED
+      B_SEMANTIC:
+        context_key: CTX_R8-C11_DIRECT_ASSISTANCE_BYPASS_B
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P07
+        - CORE
+        - B10
+        - B06
+        - B07
+        - B09
+        - B08
+        evaluation_role: SEMANTIC_RECOVERY
+      C_ABLATION_MINUS_B10:
+        context_key: CTX_R8-C11_DIRECT_ASSISTANCE_BYPASS_ABLATION_B10
+        version_pin_keys:
+        - SEM_PROMPT_MANIFEST
+        - SEM_PROMPT_BINDINGS
+        - SEM_MOUNT_MANIFEST
+        - CONTEXT_ASSEMBLY_POLICY
+        - SEM_BODY_REGISTRY
+        - TRIGGER_ADMISSION_POLICY
+        - SEM_P07
+        - CORE
+        - B06
+        - B07
+        - B09
+        - B08
+        evaluation_role: EVALUATION_ONLY_ABLATION
+        omitted_key: B10

@@ -1,0 +1,154 @@
+version: 0.1.0
+critical_invariants:
+- id: INV-001
+  statement: request is not telos
+  enforced_by:
+  - scene_state.schema.json
+  - evaluator
+  prompt_only: false
+- id: INV-002
+  statement: role is not identity
+  enforced_by:
+  - actor_state.schema.json
+  - scene_state.schema.json
+  - policy
+  prompt_only: false
+- id: INV-003
+  statement: expertise/institution label is not decision authority
+  enforced_by:
+  - role_authority_resolution.schema.json
+  - authority_crosswalk imported schema
+  prompt_only: false
+- id: INV-004
+  statement: origin and epistemic status are independent axes
+  enforced_by:
+  - epistemic_claim.schema.json
+  - evaluator
+  prompt_only: false
+- id: INV-005
+  statement: retrieval or retention does not grant truth
+  enforced_by:
+  - imported memory schemas
+  - policy
+  - evaluator
+  prompt_only: false
+- id: INV-006
+  statement: binding authority is separate from persistence authority
+  enforced_by:
+  - pipeline_run_state.schema.json
+  - imported state_write_decision
+  - evaluator
+  prompt_only: false
+- id: INV-007
+  statement: unknown object is not forced to nearest class
+  enforced_by:
+  - imported applicability_assessment
+  - evaluator
+  prompt_only: false
+- id: INV-008
+  statement: generated concept cannot masquerade as source concept
+  enforced_by:
+  - imported concept_object_genesis_ledger
+  - epistemic_claim.schema.json
+  - evaluator
+  prompt_only: false
+- id: INV-009
+  statement: HUMAN/JOINT unresolved binding returns the operation
+  enforced_by:
+  - pipeline_run_state.schema.json
+  - imported ownership_assessment
+  - evaluator
+  prompt_only: false
+- id: INV-010
+  statement: no-question execution has zero question payload
+  enforced_by:
+  - imported human_operation_return
+  - evaluator
+  prompt_only: false
+- id: INV-011
+  statement: functional organ and PersonaAdapter are distinct
+  enforced_by:
+  - imported functional_organ_card
+  - imported persona_adapter
+  - policy
+  prompt_only: false
+- id: INV-012
+  statement: veto does not create truth-by-vote or new authority
+  enforced_by:
+  - imported arbitration_record
+  - policy
+  - evaluator
+  prompt_only: false
+- id: INV-013
+  statement: PersonaAdapter cannot self-promote to arbiter or durable writer
+  enforced_by:
+  - imported persona_adapter
+  - policy
+  - evaluator
+  prompt_only: false
+- id: INV-014
+  statement: council is selective; direct bypass remains valid
+  enforced_by:
+  - pipeline_run_state.schema.json
+  - policy
+  - evaluator
+  prompt_only: false
+- id: INV-015
+  statement: retry is explicit and bounded <=2
+  enforced_by:
+  - pipeline_run_state.schema.json
+  - G-S24 state_model
+  - evaluator
+  prompt_only: false
+- id: INV-016
+  statement: operational trace has no hidden chain-of-thought field
+  enforced_by:
+  - imported pipeline_trace
+  - evaluator
+  prompt_only: false
+- id: INV-017
+  statement: supersession requires explicit authority
+  enforced_by:
+  - epistemic_claim.schema.json
+  - evaluator
+  prompt_only: false
+- id: INV-018
+  statement: durable memory write requires state-write + memory-write authority
+  enforced_by:
+  - pipeline_run_state.schema.json
+  - imported state_write_decision
+  - evaluator
+  prompt_only: false
+- id: INV-019
+  statement: critical invariant cannot be prompt-only
+  enforced_by:
+  - enforcement_manifest_validator
+  - prompt_module_contract.schema.json
+  prompt_only: false
+- id: INV-020
+  statement: control plane has unique current owners and no duplicate completion anchor
+  enforced_by:
+  - control_consistency_validator
+  prompt_only: false
+- id: INV-021
+  statement: one current schema dialect per first-class object
+  enforced_by:
+  - schema_catalog_validator
+  prompt_only: false
+- id: INV-022
+  statement: same fixture + mocked outputs replays same transitions
+  enforced_by:
+  - reference_harness
+  prompt_only: false
+- id: INV-023
+  statement: same deterministic run is idempotent at state digest
+  enforced_by:
+  - reference_harness
+  prompt_only: false
+- id: INV-024
+  statement: migration cannot silently remove required fields or upgrade status/authority
+  enforced_by:
+  - schema_migration_policy
+  - migration_validator
+  prompt_only: false
+acceptance: Every critical invariant has at least one non-prompt enforcement layer.

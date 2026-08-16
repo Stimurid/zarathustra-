@@ -69,9 +69,15 @@ class SocratesBranchAdapter:
     generation = "G-S24"
     owner = "LOCAL_SOCRATES"
 
-    #: There is no runtime entrypoint. Absence is declared, not simulated.
+    #: This adapter's ``PRODUCTION_ENTRYPOINT`` intentionally stays ``None``:
+    #: the Workbench's generic ``start_production_run`` expects a
+    #: ``(text, mode)`` entrypoint, which the Socrates runtime does not have
+    #: (it takes a :class:`SocratesRunConfiguration`). Socrates has its own
+    #: HTTP entrypoint at ``POST /api/workbench/socrates/run``. The branch
+    #: remains a declarative surface in Workbench; live runs go through the
+    #: Socrates endpoint and the Arena SocratesParticipant.
     PRODUCTION_ENTRYPOINT = None
-    LIVE_RUNTIME_STATUS = "WAITING_FOR_G-S26_RUNTIME_BINDING"
+    LIVE_RUNTIME_STATUS = "PARTIAL_LIVE_ORCHESTRATION_DETERMINISTIC"
 
     def __init__(self) -> None:
         self.pipeline = _load("pipeline.yaml")
@@ -172,12 +178,14 @@ class SocratesBranchAdapter:
                 "step_declarations": "DECLARATIVE_READY",
                 "runtime_profiles": "DECLARATIVE_READY",
                 "trace_schema": "CONTRACT_READY",
-                "prompt_hierarchy": "PROMPT_BINDING_READY (partial)",
-                # One of four bindings has a materialised body. Saying
-                # "PROMPT_BODY_READY" without the qualifier would overclaim by
-                # three quarters.
-                "prompt_bodies": "PROMPT_BODY_READY (S7-S8 only, read-only)",
-                "live_runtime": "NOT_READY",
+                # G-S25R.8 semantic pack imported into data/socrates/current/;
+                # CORE + B01..B10 + SEM_P00..P09 all materialised.
+                "prompt_hierarchy": "PROMPT_BODY_READY",
+                "prompt_bodies": "PROMPT_BODY_READY",
+                # socrates_runtime executes S0..S10 with deterministic
+                # orchestration; a live LLM executor for phase bodies is
+                # future R8 work.
+                "live_runtime": "PARTIAL_LIVE_ORCHESTRATION_DETERMINISTIC",
             },
             "live_runtime_status": self.LIVE_RUNTIME_STATUS,
             "generation_boundary": self.facts.get("generation_boundary", {}),

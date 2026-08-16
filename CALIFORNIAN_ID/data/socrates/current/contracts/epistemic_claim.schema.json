@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/epistemic_claim.schema.json",
+  "title": "Epistemic Claim Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_id",
+    "content",
+    "origin",
+    "status",
+    "authority_refs",
+    "version"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content": {},
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "origin": {
+      "enum": [
+        "SOURCE_EXACT",
+        "RAG_RETRIEVED",
+        "TOOL_RESULT",
+        "MODEL_PRIOR_ASSOCIATION",
+        "INFERRED",
+        "RECONSTRUCTED",
+        "USER_REPORTED",
+        "HUMAN_DECIDED",
+        "MACHINE_PROPOSAL",
+        "JOINTLY_CONSTRUCTED",
+        "UNKNOWN_ORIGIN"
+      ]
+    },
+    "status": {
+      "enum": [
+        "OBSERVED",
+        "REPORTED",
+        "SUPPORTED",
+        "HYPOTHETICAL",
+        "CONTESTED",
+        "ACCEPTED_FOR_ACTION",
+        "SUPERSEDED",
+        "REVOKED",
+        "UNRESOLVED"
+      ]
+    },
+    "authority_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "supersession_authority_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "provenance_note": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "SUPERSEDED"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "supersedes",
+          "supersession_authority_ref"
+        ],
+        "properties": {
+          "supersedes": {
+            "type": "string",
+            "minLength": 1
+          },
+          "supersession_authority_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "origin": {
+            "const": "MACHINE_PROPOSAL"
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "properties": {
+            "status": {
+              "const": "OBSERVED"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

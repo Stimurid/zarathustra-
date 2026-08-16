@@ -7,6 +7,7 @@ nothing about the engine underneath.
 from __future__ import annotations
 
 from .baseline import BaselineSingleAgent
+from .socrates import SocratesParticipant
 from .zarathustra import ZarathustraParticipant
 
-__all__ = ["BaselineSingleAgent", "ZarathustraParticipant"]
+__all__ = ["BaselineSingleAgent", "SocratesParticipant", "ZarathustraParticipant"]

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/schema_catalog_contract.schema.json",
+  "title": "Schema Catalog Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_catalog_version",
+    "draft",
+    "policy",
+    "imported_current_schemas",
+    "gs25_local_schemas",
+    "uniqueness_rule"
+  ],
+  "properties": {
+    "schema_catalog_version": {
+      "type": "string"
+    },
+    "draft": {
+      "const": "2020-12"
+    },
+    "policy": {
+      "type": "string"
+    },
+    "imported_current_schemas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "object",
+          "drive_id",
+          "generation",
+          "prior_validation_evidence",
+          "status"
+        ]
+      }
+    },
+    "gs25_local_schemas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "object",
+          "file",
+          "status"
+        ]
+      }
+    },
+    "uniqueness_rule": {
+      "type": "string"
+    }
+  }
+}

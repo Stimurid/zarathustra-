@@ -1,0 +1,41 @@
+artifact_id: G-S25R_R8_PAIRED_RUN_CONTRACT
+version: 0.1.0
+status: candidate
+execution_status: PREPARED_NOT_RUN
+pair_invariants:
+  base_model: MUST_MATCH_EXACTLY
+  provider: MUST_MATCH_EXACTLY
+  provider_model_parameters: MUST_MATCH_EXACTLY
+  source_snapshot: MUST_MATCH_EXACTLY
+  tool_permissions: MUST_MATCH_EXACTLY
+  hard_contract_versions: MUST_MATCH_EXACTLY
+  case_payload: MUST_MATCH_EXACTLY
+  context_budget: MUST_MATCH_EXACTLY
+  evaluator_rubric: MUST_MATCH_EXACTLY
+  independent_invocations: true
+  independent_trace_ids: true
+arm_A:
+  semantic_surface: historical G-S25 P00-P09 only
+  prompt_manifest_drive_id: 1s-qiPP0EMwbIllaowRK08AKhi9H0GmAu
+  prompt_bindings_drive_id: 1d7AUn8-HDZ1DviUyAGyAUYqLZwl4VYOo
+  semantic_bodies_mounted: false
+  label: CONTROL_COMPRESSED
+arm_B:
+  semantic_surface: R7 v0.2 routers + R6 exact full R5 v0.2 semantic bodies
+  prompt_manifest_drive_id: 14TM9Jz7MuXfFBBZtt71oUpDgRpqiJX7K
+  prompt_bindings_drive_id: 1w2M4mmr6L8uq5Bl8JH-5OlXnqB0optqj
+  semantic_mount_manifest_drive_id: 1c36gHaEtEZ8RN_w_HoHdJ1cxWOdGeUEs
+  semantic_bodies_mounted: true
+  label: SEMANTIC_RECOVERY
+randomization:
+  arm_order_randomized: true
+  blind_labels:
+  - ARM_X
+  - ARM_Y
+  evaluator_unblind_after_scoring: true
+prohibited_shortcuts:
+- reuse same generated answer for both arms
+- hand-author a Socrates success output
+- score expected architecture instead of observed output
+- infer behavioral superiority from static prompt length
+- count same-session self-simulation as independent paired provider evidence

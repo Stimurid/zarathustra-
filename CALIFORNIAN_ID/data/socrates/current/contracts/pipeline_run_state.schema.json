@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/pipeline_run_state.schema.json",
+  "title": "Pipeline Run State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "profile",
+    "current_step",
+    "transition_log",
+    "terminal_outcome",
+    "state_write",
+    "human_binding"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile": {
+      "enum": [
+        "DIRECT_ASSISTANCE",
+        "DELIBERATE",
+        "DWELL",
+        "RESEARCH",
+        "CONCEPT_GENESIS",
+        "PUBLIC_TWIN_DEMO"
+      ]
+    },
+    "current_step": {
+      "enum": [
+        "S0",
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S10",
+        "TERMINAL"
+      ]
+    },
+    "transition_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to",
+          "reason"
+        ],
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "terminal_outcome": {
+      "enum": [
+        "ANSWERED",
+        "PROVISIONAL",
+        "RETURNED_TO_HUMAN",
+        "REFUSED",
+        "PRESERVED_APORIA",
+        "SUSPENDED",
+        "FAILED_BOUNDED",
+        "NOT_TERMINAL"
+      ]
+    },
+    "state_write": {
+      "type": "object",
+      "required": [
+        "requested",
+        "authorized"
+      ],
+      "properties": {
+        "requested": {
+          "type": "boolean"
+        },
+        "authorized": {
+          "type": "boolean"
+        },
+        "state_write_authority_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "memory_write_authority_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "human_binding": {
+      "type": "object",
+      "required": [
+        "ownership",
+        "binding_resolved"
+      ],
+      "properties": {
+        "ownership": {
+          "enum": [
+            "SYSTEM",
+            "HUMAN",
+            "JOINT",
+            "UNRESOLVED"
+          ]
+        },
+        "binding_resolved": {
+          "type": "boolean"
+        },
+        "binding_authority_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "retry_count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "council_invoked": {
+      "type": "boolean"
+    },
+    "tinkuy_execution_invoked": {
+      "type": "boolean"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "state_write": {
+            "properties": {
+              "authorized": {
+                "const": true
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "state_write": {
+            "required": [
+              "state_write_authority_ref",
+              "memory_write_authority_ref"
+            ],
+            "properties": {
+              "state_write_authority_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "memory_write_authority_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "human_binding": {
+            "properties": {
+              "ownership": {
+                "enum": [
+                  "HUMAN",
+                  "JOINT"
+                ]
+              },
+              "binding_resolved": {
+                "const": false
+              }
+            },
+            "required": [
+              "ownership",
+              "binding_resolved"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "terminal_outcome": {
+            "const": "RETURNED_TO_HUMAN"
+          }
+        }
+      }
+    }
+  ]
+}

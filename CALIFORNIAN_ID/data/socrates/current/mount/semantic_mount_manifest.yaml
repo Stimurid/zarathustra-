@@ -1,0 +1,183 @@
+artifact_id: SOCRATES_SEMANTIC_MOUNT_MANIFEST
+version: 0.2.0
+generation: G-S25R.6
+status: candidate
+body_registry_ref: semantic_body_registry.yaml
+body_registry_drive_ref: 1olwVODjg8IJZhRe2n0B44ipuMwwt6z2S
+principles:
+- CORE is mounted for every Socrates execution before any prompt/router semantic interpretation.
+- Required phase bodies are selected deterministically by router/phase, never by semantic retrieval similarity.
+- Conditional bodies require typed triggers and are logged in MountTrace.
+- Missing required body, wrong exact identity, wrong semantic version, or prohibited summary substitution fails
+  explicitly.
+- Context pressure may remove optional examples/personas/retrieval before semantic bodies; it may not silently compress
+  or omit required semantics.
+- Historical G-S25 P00-P09 are control evidence and cannot serve as semantic fallback.
+mounts:
+  P00:
+    pipeline_phases:
+    - S0
+    - S2
+    required:
+    - CORE
+    - B05
+    - B07
+    conditional: []
+    purpose: constitutional mount, continuity, role/pressure capture guard
+  P01:
+    pipeline_phases:
+    - S1
+    required:
+    - CORE
+    - B01
+    conditional:
+    - B06
+    purpose: scene/telos/role/authority reconstruction
+  P02:
+    pipeline_phases:
+    - S3
+    required:
+    - CORE
+    - B02
+    conditional:
+    - B05
+    purpose: origin/status/authority/temporality
+  P03:
+    pipeline_phases:
+    - S4
+    required:
+    - CORE
+    - B03
+    conditional:
+    - B08
+    - B07
+    purpose: operation declaration, applicability, open-world diagnosis
+  P04:
+    pipeline_phases:
+    - S5
+    required:
+    - CORE
+    - B04
+    - B05
+    conditional:
+    - B02
+    - B08
+    purpose: attention/retrieval/memory/imagination configuration
+  P05:
+    pipeline_phases:
+    - S6
+    required:
+    - CORE
+    - B06
+    conditional:
+    - B01
+    - B02
+    - B05
+    purpose: human-operation ownership, binding, direct/return branch
+  P06:
+    pipeline_phases:
+    - S7
+    required:
+    - CORE
+    - B09
+    conditional:
+    - B02
+    - B07
+    - B08
+    purpose: minimum-sufficient council and arbitration
+  P07:
+    pipeline_phases:
+    - S8
+    required:
+    - CORE
+    - B10
+    conditional:
+    - B06
+    - B07
+    - B09
+    - B08
+    purpose: intervention selection and question purpose
+  P08:
+    pipeline_phases:
+    - S8
+    - S9
+    - S10
+    required:
+    - CORE
+    - B02
+    - B09
+    - B10
+    conditional:
+    - B03
+    - B08
+    - B05
+    purpose: authorized synthesis/render without semantic smoothing
+  P09:
+    pipeline_phases:
+    - S10
+    required:
+    - CORE
+    - B05
+    - B07
+    - B10
+    conditional:
+    - B02
+    - B06
+    purpose: bounded self-review, retry, provenance/state-write/open-loop closure
+conditional_triggers:
+  B01:
+  - SCENE_TRANSITION
+  - ROLE_CAPTURE
+  - TELOS_MATERIALITY
+  - DECISION_OWNER_UNCLEAR
+  B02:
+  - STATUS_DISPUTE
+  - TEMPORAL_STALE
+  - PROVENANCE_DISPUTE
+  - BINDING_HISTORY_MATERIAL
+  B03:
+  - OPERATION_CHANGE
+  - APPLICABILITY_UNCERTAIN
+  - CLASSIFICATION_PRESSURE
+  B04:
+  - ATTENTION_SELECTION_MATERIAL
+  - RETRIEVAL_SALIENCE_PRESSURE
+  - VNYATIE_REQUIRED
+  B05:
+  - MEMORY_RECRUITMENT
+  - DURABLE_WRITE_CANDIDATE
+  - FORMATION_OR_SCAR_CANDIDATE
+  B06:
+  - HUMAN_BINDING_MATERIAL
+  - OWNERSHIP_UNRESOLVED
+  - QUESTION_PURPOSE_BINDING
+  B07:
+  - REFLECTIVE_EXIT_REQUIRED
+  - ROLE_CAPTURE
+  - FRAME_GENERATED_FAILURE
+  - SELF_REVIEW_RECURSION
+  B08:
+  - MULTI_ONTOLOGY
+  - OBJECT_GENERATOR_LIMIT
+  - FIELD_MODE_REQUESTED
+  - CONSTRUCTIVE_BRANCH
+  B09:
+  - COUNCIL_REQUIRED
+  - TYPED_VETO
+  - MINORITY_MATERIAL
+  - PERSONA_ADAPTER_REQUESTED
+  B10:
+  - INTERVENTION_SELECTION
+  - RENDER
+  - SELF_REVIEW
+  - QUESTION_PURPOSE
+failure_outcomes:
+  SEMANTIC_MOUNT_MISSING: required body absent/unreadable/not exact identity
+  SEMANTIC_VERSION_MISMATCH: exact body exists but version does not match manifest
+  SEMANTIC_SUMMARY_SUBSTITUTION: summary/index offered instead of mandatory full body
+  SEMANTIC_CONTEXT_BUDGET_EXCEEDED: mandatory semantic set cannot fit after all optional layers removed
+  SEMANTIC_CONTRACT_DRIFT: semantic body and hard contract prescribe materially incompatible interpretation/state
+  SOURCE_BINDING_MISSING: body requires an exact upstream semantic/source binding that is unavailable or stale
+failure_policy: FAIL_EXPLICIT_OR_RETURN_OPERATION; never silently fall back to historical tiny prompts or model
+  priors.
+pre_review_superseded_manifest: 1USEHFLMGDtckAW3BlprEox9XLzN9LemL

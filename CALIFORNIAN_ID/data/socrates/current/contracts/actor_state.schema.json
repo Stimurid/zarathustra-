@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/actor_state.schema.json",
+  "title": "Socrates Actor State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "actor_state_id",
+    "constitution_ref",
+    "layers",
+    "current_mode",
+    "revision"
+  ],
+  "properties": {
+    "actor_state_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "constitution_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "current_mode": {
+      "enum": [
+        "DIRECT_ASSISTANCE",
+        "DELIBERATE",
+        "DWELL",
+        "RESEARCH",
+        "CONCEPT_GENESIS",
+        "PUBLIC_TWIN_DEMO",
+        "CORE_ONLY_MODE",
+        "VOICELESS_CONSTITUTIONAL_MODE"
+      ]
+    },
+    "layers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "CORE",
+        "FORMATION",
+        "SCENE",
+        "STATE",
+        "OPERATION"
+      ],
+      "properties": {
+        "CORE": {
+          "type": "object"
+        },
+        "FORMATION": {
+          "type": "object"
+        },
+        "SCENE": {
+          "type": "object"
+        },
+        "STATE": {
+          "type": "object"
+        },
+        "OPERATION": {
+          "type": "object"
+        }
+      }
+    },
+    "persona_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pressure_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+}

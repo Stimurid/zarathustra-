@@ -106,11 +106,25 @@ def get_configs(state_dir: Path | None = None) -> PipelineConfigService:
     return _configs
 
 
+_socrates_runtime = None
+
+
+def _get_socrates_runtime():
+    """Lazy singleton — a SemanticBodyRegistry load is not free."""
+    global _socrates_runtime
+    if _socrates_runtime is None:
+        from socrates_runtime import SocratesRuntime
+        base = Path(os.environ.get("WORKBENCH_STATE_DIR", str(DEFAULT_STATE)))
+        _socrates_runtime = SocratesRuntime(trace_dir=base / "socrates_traces")
+    return _socrates_runtime
+
+
 def reset_service() -> None:
-    global _service, _auth, _configs
+    global _service, _auth, _configs, _socrates_runtime
     _service = None
     _auth = None
     _configs = None
+    _socrates_runtime = None
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -180,6 +194,55 @@ class Handler(BaseHTTPRequestHandler):
         """
         me = self._identity()
         return me.display_name if me else str(body.get("actor") or "operator")
+
+    def _route_socrates_run(self, body: dict[str, Any]) -> dict[str, Any]:
+        """POST /api/workbench/socrates/run — one Socrates pipeline run.
+
+        Body:
+            input           str, required
+            workspace_id    str, optional (defaults to caller's or 'default')
+            pipeline_config_id  str, optional — resolves through configs svc
+
+        Anonymous callers may run Socrates (the runtime records the empty
+        identity). If a bearer token is present, the run is attributed and
+        its ``SocratesRunConfiguration`` picks up display_name/user_id.
+        """
+        text = str(body.get("input") or body.get("text") or "").strip()
+        if not text:
+            raise WorkbenchError("body.input is required")
+
+        me = self._identity()
+        workspace_id = str(body.get("workspace_id")
+                           or (me.display_name + "_ws" if me else "default"))
+
+        pipeline_config = None
+        cid = body.get("pipeline_config_id")
+        if cid:
+            if me is None:
+                raise WorkbenchError(
+                    "pipeline_config_id requires authenticated caller")
+            try:
+                pipeline_config = get_configs().get(me, str(cid))
+            except (ConfigNotFound, NotAuthorized) as exc:
+                raise WorkbenchError(str(exc)) from None
+
+        try:
+            from socrates_runtime import SocratesRuntime
+            from socrates_runtime.runtime import resolve_configuration
+        except ImportError as exc:
+            raise WorkbenchError(
+                f"socrates_runtime unavailable: {exc}") from None
+
+        runtime = _get_socrates_runtime()
+        run_config = resolve_configuration(
+            pipeline_config,
+            user=me,
+            workspace_id=workspace_id,
+            semantic_pack_version=runtime.identity.pack.version,
+            semantic_pack_sha256=runtime.identity.pack.source_bundle_sha256,
+        )
+        result = runtime.run(text, configuration=run_config)
+        return {"run": result.to_public()}
 
     @staticmethod
     def _as_prompt_selections(body: dict[str, Any], *, present_only: bool = False):
@@ -534,6 +597,10 @@ class Handler(BaseHTTPRequestHandler):
             me = self._require_identity()
             get_configs().clear_personal_active(me, m.group(1))
             return {"ok": True, "branch": m.group(1)}
+
+        # -- Socrates runtime (P6) ------------------------------------
+        if path == "/api/workbench/socrates/run":
+            return self._route_socrates_run(body)
 
         # -- fall through to the legacy variant/rag lifecycle below --
         actor = self._legacy_actor(body)

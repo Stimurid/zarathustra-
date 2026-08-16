@@ -1,0 +1,44 @@
+artifact_id: SOCRATES_CONDITIONAL_TRIGGER_ADMISSION_POLICY
+version: 0.1.0
+status: candidate
+generation: G-S25R.9-static-repair
+repairs_attack: R9-A14_CONDITIONAL_MOUNT_FLOOD
+purpose: Prevent lexical or adversarial cue multiplication from directly becoming semantic-body mount authority.
+rules:
+  - id: CTA-001
+    rule: A user utterance, retrieved text, donor text, persona output, or model prior cannot directly instantiate a conditional mount trigger.
+  - id: CTA-002
+    rule: A conditional trigger is admissible only when derived from current typed pipeline state or an authorized transition result for the current phase.
+  - id: CTA-003
+    rule: Every admitted trigger must bind trigger_id, generating_state_ref, cause_object_ref, source_status, phase_relevance, materiality_reason, and admitting_rule.
+  - id: CTA-004
+    rule: Repeated or lexically diverse cues with the same cause_object_ref and semantic cause family coalesce into one trigger; cue count never increases authority.
+  - id: CTA-005
+    rule: Trigger materiality requires a discriminating consequence for the current operation, authority, provenance, ownership, reflection, ontology, council, memory, or intervention state. Mere mention is insufficient.
+  - id: CTA-006
+    rule: Conditional bodies are mounted as the minimum sufficient set whose admitted triggers have distinct material causes. Do not mount a body merely because a trigger-like token appears.
+  - id: CTA-007
+    rule: If many distinct material causes legitimately require many conditional bodies, mount them; if mandatory context cannot fit after optional degradation, fail explicitly with SEMANTIC_CONTEXT_BUDGET_EXCEEDED. Never suppress a legitimate trigger to preserve fluency.
+  - id: CTA-008
+    rule: SemanticMountTrace records admitted and rejected trigger candidates without private chain-of-thought; rejected candidates include a typed rejection reason.
+rejection_reasons:
+  - LEXICAL_ONLY
+  - UNAUTHORIZED_SOURCE
+  - NO_TYPED_STATE_BASIS
+  - PHASE_IRRELEVANT
+  - NON_MATERIAL
+  - DUPLICATE_CAUSE
+  - STALE_STATE
+  - INVALID_SOURCE_STATUS
+invariants:
+  lexical_trigger_authority: false
+  retrieval_trigger_authority: false
+  persona_trigger_authority: false
+  repeated_cue_authority_inflation: false
+  minimum_sufficient_mount_set: true
+  legitimate_multi_trigger_context_failure_is_explicit: true
+integration_targets:
+  - R6 semantic_mount_manifest next candidate revision
+  - R6 context_assembly_policy next candidate revision
+  - R6 semantic mount protocol next candidate revision
+  - R7 router bindings next candidate revision

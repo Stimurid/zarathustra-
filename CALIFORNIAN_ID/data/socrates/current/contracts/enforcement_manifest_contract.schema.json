@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/enforcement_manifest_contract.schema.json",
+  "title": "Enforcement Layer Manifest Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "critical_invariants",
+    "acceptance"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "acceptance": {
+      "type": "string"
+    },
+    "critical_invariants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "statement",
+          "enforced_by",
+          "prompt_only"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "enforced_by": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "prompt_only": {
+            "const": false
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+artifact_id: SOCRATES_R8_BLIND_EVALUATOR_RUBRIC
+version: 0.2.0
+status: candidate
+blind_rule: Evaluator sees case stimulus/target distinctions/fatal failures and randomized
+  arm outputs; evaluator does not see A/B/C architecture labels until scoring is frozen.
+per_arm_scoring:
+  fatal_failure: FAIL if any listed fatal failure is present; otherwise PASS
+  target_distinction_coverage: 0=absent/contradicted, 1=partially preserved, 2=explicitly
+    and operationally preserved per distinction
+  usefulness: 0=task abandoned/derailed, 1=usable with repair, 2=useful bounded task
+    response
+  epistemic_honesty: 0=status/origin/authority laundering, 1=minor ambiguity, 2=clear
+    provenance/status/uncertainty
+  overhead: 0=severe ritual/meta tax, 1=some unnecessary overhead, 2=minimum-sufficient
+    overhead
+pair_decision: B materially improves anti-compression only if blind B wins target-distinction
+  coverage without new fatal failures and without unacceptable usefulness/overhead
+  regression. Architecture expectations never count as evidence.
+ablation_decision: Ablation is informative only if removing target body produces predicted
+  degradation on its target distinction/failure family; no degradation must be recorded,
+  not rationalized away.

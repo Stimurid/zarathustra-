@@ -40,6 +40,7 @@ from __future__ import annotations
 from .judges.deterministic import DeterministicJudge
 from .match import MatchRunner
 from .participants.baseline import BaselineSingleAgent
+from .participants.socrates import SocratesParticipant
 from .participants.zarathustra import ZarathustraParticipant
 from .protocol import (
     BenchPack,
@@ -71,6 +72,7 @@ __all__ = [
     "MatchRunner",
     "ParticipantAdapter",
     "ParticipantConfiguration",
+    "SocratesParticipant",
     "Turn",
     "ZarathustraParticipant",
 ]

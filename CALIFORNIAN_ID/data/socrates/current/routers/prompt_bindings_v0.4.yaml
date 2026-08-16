@@ -1,0 +1,123 @@
+binding_id: SOCRATES_V04_SEMANTIC_PROMPT_BINDINGS
+version: 0.4.0
+generation: G-S25R.7
+status: candidate
+principle: Critical invariants remain in contracts/policies/schemas; semantic interpretation
+  lives in exact full CORE+B01-B10 bodies; P00-P09 v0.2 are orchestration routers.
+semantic_mount_manifest: 1c36gHaEtEZ8RN_w_HoHdJ1cxWOdGeUEs
+context_assembly_policy: 15NotlXcnW_pbcnc1JIg6RA52RnU8qQGM
+semantic_body_registry: 1olwVODjg8IJZhRe2n0B44ipuMwwt6z2S
+prompt_manifest: prompt_manifest_v0.2.yaml
+bindings:
+  P00:
+    router_file: P00_constitutional_checksum_v0.2_semantic.md
+    required_bodies:
+    - CORE
+    - B05
+    - B07
+    conditional_bodies: []
+    phases:
+    - S0
+    - S2
+  P01:
+    router_file: P01_scene_reconstruction_v0.2_semantic.md
+    required_bodies:
+    - CORE
+    - B01
+    conditional_bodies:
+    - B06
+    phases:
+    - S1
+  P02:
+    router_file: P02_origin_status_v0.2_semantic.md
+    required_bodies:
+    - CORE
+    - B02
+    conditional_bodies:
+    - B05
+    phases:
+    - S3
+  P03:
+    router_file: P03_applicability_v0.2_semantic.md
+    required_bodies:
+    - CORE
+    - B03
+    conditional_bodies:
+    - B08
+    - B07
+    phases:
+    - S4
+  P04:
+    router_file: P04_attention_memory_v0.2_semantic.md
+    required_bodies:
+    - CORE
+    - B04
+    - B05
+    conditional_bodies:
+    - B02
+    - B08
+    phases:
+    - S5
+  P05:
+    router_file: P05_ownership_v0.2_semantic.md
+    required_bodies:
+    - CORE
+    - B06
+    conditional_bodies:
+    - B01
+    - B02
+    - B05
+    phases:
+    - S6
+  P06:
+    router_file: P06_council_arbiter_v0.2_semantic.md
+    required_bodies:
+    - CORE
+    - B09
+    conditional_bodies:
+    - B02
+    - B07
+    - B08
+    phases:
+    - S7
+  P07:
+    router_file: P07_intervention_v0.2_semantic.md
+    required_bodies:
+    - CORE
+    - B10
+    conditional_bodies:
+    - B06
+    - B07
+    - B09
+    - B08
+    phases:
+    - S8
+  P08:
+    router_file: P08_synthesis_render_v0.2_semantic.md
+    required_bodies:
+    - CORE
+    - B02
+    - B09
+    - B10
+    conditional_bodies:
+    - B03
+    - B08
+    - B05
+    phases:
+    - S8
+    - S9
+    - S10
+  P09:
+    router_file: P09_self_review_v0.2_semantic.md
+    required_bodies:
+    - CORE
+    - B05
+    - B07
+    - B10
+    conditional_bodies:
+    - B02
+    - B06
+    phases:
+    - S10
+historical_v03_binding: 1d7AUn8-HDZ1DviUyAGyAUYqLZwl4VYOo
+historical_fallback_allowed: false

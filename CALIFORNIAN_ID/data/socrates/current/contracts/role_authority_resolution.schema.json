@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/role_authority_resolution.schema.json",
+  "title": "Role and Authority Resolution",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "actor_ref",
+    "base_authority_type",
+    "capabilities",
+    "actor_predicates",
+    "binding_scope"
+  ],
+  "properties": {
+    "actor_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "base_authority_type": {
+      "enum": [
+        "USER_AUTHORITY",
+        "SYSTEM_AUTHORITY",
+        "DOMAIN_AUTHORITY",
+        "PROCEDURAL_AUTHORITY",
+        "TOOL_AUTHORITY",
+        "REPRESENTATIONAL_AUTHORITY",
+        "DELEGATED_AUTHORITY",
+        "JOINT_AUTHORITY",
+        "NO_AUTHORITY"
+      ]
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "actor_predicates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "binding_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "institutional_label": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "base_authority_type": {
+            "const": "NO_AUTHORITY"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "binding_scope": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}

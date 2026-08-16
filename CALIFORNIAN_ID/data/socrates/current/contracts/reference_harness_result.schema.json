@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tinkuy.local/socrates/gs25/reference_harness_result.schema.json",
+  "title": "Reference Harness Result",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_meta_validation",
+    "schema_instance_validation",
+    "prompt_contract_validation",
+    "harness_cases",
+    "migration_cases",
+    "replay_idempotence",
+    "summary"
+  ],
+  "properties": {
+    "schema_meta_validation": {
+      "type": "array"
+    },
+    "schema_instance_validation": {
+      "type": "array"
+    },
+    "prompt_contract_validation": {
+      "type": "array"
+    },
+    "harness_cases": {
+      "type": "array"
+    },
+    "migration_cases": {
+      "type": "array"
+    },
+    "replay_idempotence": {
+      "type": "array"
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "counts",
+        "totals",
+        "prompt_only_critical_invariants",
+        "pass"
+      ],
+      "properties": {
+        "counts": {
+          "type": "object"
+        },
+        "totals": {
+          "type": "object"
+        },
+        "prompt_only_critical_invariants": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "pass": {
+          "const": true
+        }
+      }
+    }
+  }
+}
