@@ -1,0 +1,243 @@
+{
+  "adr": "ADR-S26-023 BASIC",
+  "produced_from": "CALIFORNIAN_ID/tests/workbench/test_capability_resolution.py",
+  "primitive_registry_known": [
+    "CoverageComputer",
+    "FamilyClassifier",
+    "SpanScanner",
+    "TargetFilter"
+  ],
+  "cutter_registry_known": [
+    "DIFFERENTIATED_ACCOUNT",
+    "EXTRACT_CONCEPTS"
+  ],
+  "test_A_NOVEL_PROJECTION_SYNTHESIS": {
+    "operation_id": "EXTRACT_PRIORITY_TAGS",
+    "source_shape": "hash-tag prefixed lines (#label: body)",
+    "source_char_length": 318,
+    "resolution": {
+      "kind": "CUTTER_SPEC_SYNTHESIS",
+      "operation_id": "EXTRACT_PRIORITY_TAGS",
+      "reason": "no registered capability for 'EXTRACT_PRIORITY_TAGS'; synthesised spec cutspec_STABLE_d0ef4b1d composes existing primitives [SpanScanner, FamilyClassifier, TargetFilter, CoverageComputer]",
+      "registered_capability_id": "",
+      "generated_spec": {
+        "spec_id": "cutspec_STABLE_d0ef4b1d",
+        "version": "v0.1_candidate",
+        "source_id": "src_priority_test",
+        "scene_ref": "review the backlog by priority",
+        "operation_id": "EXTRACT_PRIORITY_TAGS",
+        "ontology_id": "hash_tag_v1",
+        "target_object_family": [
+          "priority-high",
+          "priority-medium",
+          "priority-low"
+        ],
+        "recognition_criteria": [
+          "lines beginning with #<label>: <body>"
+        ],
+        "segmentation_policy": "synthesised/pattern_scan/extract_priority_tags",
+        "evidence_requirements": [
+          "regex_pattern='^#(?P<label>[a-z-]+):\\\\s*(?P<body>.*)$'"
+        ],
+        "exclusions": [],
+        "contraindications": [],
+        "applicability_assumptions": [
+          "source contains one target per line labelled by pattern"
+        ],
+        "primitives": [
+          {
+            "name": "scan",
+            "primitive_id": "SpanScanner",
+            "params": {
+              "pattern": "^#(?P<label>[a-z-]+):\\s*(?P<body>.*)$",
+              "flags": 8,
+              "label_group": "label",
+              "body_group": "body"
+            },
+            "inputs": []
+          },
+          {
+            "name": "classify",
+            "primitive_id": "FamilyClassifier",
+            "params": {
+              "family_map": {
+                "priority-high": "priority-high",
+                "priority-medium": "priority-medium",
+                "priority-low": "priority-low"
+              },
+              "case_insensitive": true
+            },
+            "inputs": [
+              "scan"
+            ]
+          },
+          {
+            "name": "split",
+            "primitive_id": "TargetFilter",
+            "params": {
+              "target_family": [
+                "priority-high",
+                "priority-medium",
+                "priority-low"
+              ]
+            },
+            "inputs": [
+              "classify"
+            ]
+          },
+          {
+            "name": "coverage",
+            "primitive_id": "CoverageComputer",
+            "params": {},
+            "inputs": [
+              "split"
+            ]
+          }
+        ],
+        "accepted_output": "split",
+        "residue_output": "",
+        "parent_projection_id": "",
+        "revises": "",
+        "status": "exploratory",
+        "fingerprint": "5bb7da1fbec310a8"
+      },
+      "binding_evidence": {
+        "spec_id": "cutspec_STABLE_d0ef4b1d",
+        "spec_fingerprint": "5bb7da1fbec310a8",
+        "resolved_primitives": [
+          {
+            "name": "scan",
+            "primitive_id": "SpanScanner",
+            "class": "socrates_runtime.projection_primitives.SpanScanner",
+            "contract": {
+              "id": "SpanScanner",
+              "input": "str (source_text)",
+              "output": "list[LabeledSpan]",
+              "params": {
+                "pattern": "^#(?P<label>[a-z-]+):\\s*(?P<body>.*)$",
+                "label_group": "label",
+                "body_group": "body"
+              }
+            }
+          },
+          {
+            "name": "classify",
+            "primitive_id": "FamilyClassifier",
+            "class": "socrates_runtime.projection_primitives.FamilyClassifier",
+            "contract": {
+              "id": "FamilyClassifier",
+              "input": "list[LabeledSpan]",
+              "output": "list[ClassifiedSpan]",
+              "params": {
+                "family_map": {
+                  "priority-high": "priority-high",
+                  "priority-medium": "priority-medium",
+                  "priority-low": "priority-low"
+                },
+                "case_insensitive": true
+              }
+            }
+          },
+          {
+            "name": "split",
+            "primitive_id": "TargetFilter",
+            "class": "socrates_runtime.projection_primitives.TargetFilter",
+            "contract": {
+              "id": "TargetFilter",
+              "input": "list[ClassifiedSpan]",
+              "output": "tuple[list[ClassifiedSpan], list[ClassifiedSpan]]",
+              "params": {
+                "target_family": [
+                  "priority-high",
+                  "priority-medium",
+                  "priority-low"
+                ]
+              }
+            }
+          },
+          {
+            "name": "coverage",
+            "primitive_id": "CoverageComputer",
+            "class": "socrates_runtime.projection_primitives.CoverageComputer",
+            "contract": {
+              "id": "CoverageComputer",
+              "input": "tuple[list, list]",
+              "output": "float",
+              "params": {}
+            }
+          }
+        ],
+        "registered_lookup_failure": "operation_id not registered"
+      },
+      "organ_gap": null
+    },
+    "execution_summary": {
+      "objects": 4,
+      "residue": 2,
+      "coverage": 0.6666666666666666,
+      "object_families": [
+        "priority-high",
+        "priority-low",
+        "priority-medium"
+      ],
+      "residue_families": [
+        "status-closed",
+        "status-open"
+      ],
+      "first_object_provenance": {
+        "source_id": "src_priority_test",
+        "source_span": [
+          0,
+          56
+        ],
+        "evidence": "fix login crash reported by early-access",
+        "recognition_basis": "synthesised composition: SpanScanner → FamilyClassifier → TargetFilter → CoverageComputer",
+        "confidence": 1.0
+      }
+    }
+  },
+  "test_B_TRUE_ORGAN_GAP": {
+    "operation_id": "DETECT_NARRATIVE_ARC",
+    "source_shape": "coherent English narrative (no markers)",
+    "source_char_length": 184,
+    "resolution": {
+      "kind": "ORGAN_GAP",
+      "operation_id": "DETECT_NARRATIVE_ARC",
+      "reason": "neither registered capability nor declarative composition satisfies 'DETECT_NARRATIVE_ARC': registered=operation_id not registered; synthesis=SpecUnsynthesizable: no pattern-based synthesis hypothesis for operation 'DETECT_NARRATIVE_ARC' (hypotheses: []); this synthesizer supports pattern-scan compositions only",
+      "registered_capability_id": "",
+      "generated_spec": null,
+      "binding_evidence": {},
+      "organ_gap": {
+        "gap_id": "gap_STABLE_86774229",
+        "source_ref": "src_narrative_gap",
+        "scene_ref": "structural analysis",
+        "required_operation": "DETECT_NARRATIVE_ARC",
+        "required_attention_structure": "sequence-order analysis with dramatic classification",
+        "insufficient_registered_capabilities": [
+          "DIFFERENTIATED_ACCOUNT",
+          "EXTRACT_CONCEPTS"
+        ],
+        "insufficient_declarative_primitives": [
+          "CoverageComputer",
+          "FamilyClassifier",
+          "SpanScanner",
+          "TargetFilter"
+        ],
+        "missing_capability_hypothesis": "no primitive or composition can produce 'DETECT_NARRATIVE_ARC' with target family ['setup', 'confrontation', 'resolution']",
+        "evidence": [
+          "operation_id not registered",
+          "SpecUnsynthesizable: no pattern-based synthesis hypothesis for operation 'DETECT_NARRATIVE_ARC' (hypotheses: []); this synthesizer supports pattern-scan compositions only"
+        ],
+        "counterexamples": [],
+        "affected_scene_telos": "structural analysis",
+        "possible_development_direction": "introduce a primitive capable of the required attention structure ('sequence-order analysis with dramatic classification')",
+        "status": "unresolved",
+        "activation_authority": "NONE"
+      }
+    },
+    "authority_invariant": {
+      "activation_authority": "NONE",
+      "organ_gap_class_methods_that_grant_auth": []
+    }
+  }
+}
