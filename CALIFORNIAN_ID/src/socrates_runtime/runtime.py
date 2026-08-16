@@ -27,6 +27,7 @@ from .errors import (
     HistoricalFallbackForbidden,
     SocratesRuntimeError,
 )
+from .cutter_registry import CutterRegistry, build_default_registry
 from .governor import InterventionGovernor
 from .identity import SocratesIdentity, SocratesRunConfiguration
 from .mount import MountedContext, SemanticMountPolicy
@@ -38,6 +39,7 @@ from .phase_executor import (
     TestDoublePhaseExecutor,
 )
 from .pipeline import PhaseHint, PipelineExecutor, PhaseResult
+from .projection_step import make_projection_step
 from .renderer import RenderingResult, render_terminal
 from .routers import RouterRegistry
 from .semantic import SemanticBodyRegistry
@@ -91,15 +93,23 @@ class SocratesRuntime:
                  mount_dir: Path | None = None,
                  routers_dir: Path | None = None,
                  trace_dir: Path | None = None,
-                 registry: SemanticBodyRegistry | None = None) -> None:
+                 registry: SemanticBodyRegistry | None = None,
+                 cutter_registry: CutterRegistry | None = None) -> None:
         self.registry = registry or SemanticBodyRegistry(
             semantic_dir=semantic_dir, mount_dir=mount_dir)
         self.mount_policy = SemanticMountPolicy(self.registry,
                                                  mount_dir=mount_dir)
         self.router_registry = RouterRegistry(routers_dir=routers_dir)
         self.governor = InterventionGovernor()
+        # Default CutterRegistry ships the two capabilities used by the
+        # ADR-S26-022 Peskov proof (EXTRACT_CONCEPTS +
+        # DIFFERENTIATED_ACCOUNT). Operations for which no capability
+        # is registered leave the projection step a no-op — the
+        # direct-assistance fast path is not affected.
+        self.cutter_registry = cutter_registry or build_default_registry()
         self.executor = PipelineExecutor(
-            self.mount_policy, self.router_registry, self.governor)
+            self.mount_policy, self.router_registry, self.governor,
+            projection_step=make_projection_step(self.cutter_registry))
         self.identity = SocratesIdentity.bootstrap()
         self.trace_dir = Path(trace_dir) if trace_dir else Path.cwd() / "runs" / "socrates"
 
