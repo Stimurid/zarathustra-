@@ -19,6 +19,28 @@ from urllib.parse import parse_qs, unquote, urlparse
 
 from workbench_adapters import SocratesBranchAdapter, ZarathustraAdapter
 from workbench_adapters.runtime_resolver import WorkbenchConfigResolver
+from workbench_auth import (
+    AuthError,
+    InvalidCode,
+    Role,
+    TokenError,
+    UnknownUser,
+    User,
+    WorkbenchAuth,
+    WorkbenchAuthStore,
+)
+from workbench_auth.tokens import looks_like_bearer
+from workbench_configs import (
+    ConfigError,
+    ConfigNotFound,
+    NotAuthorized,
+    PipelineConfigService,
+    PipelineConfigStore,
+    PromptFragmentOverlay,
+    PromptVariantSelection,
+    RAGProfileSelection,
+    SemanticControlOverride,
+)
 from workbench_core import WorkbenchError, WorkbenchService, WorkbenchStore
 from workbench_core.compiler import ProvenanceError
 from workbench_core.lifecycle import LifecycleError
@@ -28,6 +50,8 @@ DEFAULT_STATE = ROOT / "workbench_state"
 UI_DIST = ROOT / "workbench_ui" / "dist"
 
 _service: WorkbenchService | None = None
+_auth: WorkbenchAuth | None = None
+_configs: PipelineConfigService | None = None
 
 
 def get_service(state_dir: Path | None = None) -> WorkbenchService:
@@ -47,9 +71,46 @@ def get_service(state_dir: Path | None = None) -> WorkbenchService:
     return _service
 
 
+def get_auth(state_dir: Path | None = None) -> WorkbenchAuth:
+    global _auth
+    if _auth is None:
+        base = state_dir or Path(os.environ.get(
+            "WORKBENCH_STATE_DIR", str(DEFAULT_STATE)))
+        _auth = WorkbenchAuth(WorkbenchAuthStore(base / "auth.sqlite3"),
+                              state_dir=base)
+        # Bootstrap once: if no users exist, mint a seed admin code and print
+        # it. On subsequent starts, ``ensure_seed_admin`` is a no-op.
+        seed = _auth.ensure_seed_admin(note="startup-seed")
+        if seed is not None:
+            print(f"[workbench-auth] seed admin code: {seed.code}",
+                  flush=True)
+    return _auth
+
+
+def get_configs(state_dir: Path | None = None) -> PipelineConfigService:
+    global _configs
+    if _configs is None:
+        base = state_dir or Path(os.environ.get(
+            "WORKBENCH_STATE_DIR", str(DEFAULT_STATE)))
+        svc = get_service(state_dir)
+
+        def regions_for_asset(_branch: str, asset_id: str) -> list[Any]:
+            try:
+                return list(svc.asset(asset_id).regions)
+            except WorkbenchError:
+                return []
+
+        _configs = PipelineConfigService(
+            PipelineConfigStore(base / "configs.sqlite3"),
+            regions_for_asset=regions_for_asset)
+    return _configs
+
+
 def reset_service() -> None:
-    global _service
+    global _service, _auth, _configs
     _service = None
+    _auth = None
+    _configs = None
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -78,6 +139,84 @@ class Handler(BaseHTTPRequestHandler):
 
     def log_message(self, fmt: str, *args: object) -> None:  # quiet
         return
+
+    # ---------------- identity ----------------
+
+    def _identity(self) -> User | None:
+        """Extract and verify the caller identity from Authorization header.
+
+        Returns ``None`` for anonymous callers — endpoints that need identity
+        raise if this is ``None``. Never falls back to a "default operator",
+        because that would make anonymous edits look like real ones.
+        """
+        token = looks_like_bearer(self.headers.get("Authorization"))
+        if not token:
+            return None
+        try:
+            return get_auth().verify(token)
+        except (TokenError, UnknownUser):
+            return None
+
+    def _require_identity(self) -> User:
+        me = self._identity()
+        if me is None:
+            raise WorkbenchError("требуется авторизация: заголовок "
+                                 "Authorization: Bearer <token>")
+        return me
+
+    def _require_role(self, user: User, *allowed: str) -> None:
+        if not any(user.has_role(r) for r in allowed):
+            raise WorkbenchError(
+                f"недостаточно прав: нужна одна из ролей {sorted(set(allowed))}")
+
+    def _legacy_actor(self, body: dict[str, Any]) -> str:
+        """Actor for legacy variant/rag lifecycle endpoints.
+
+        Prefer a verified identity if present — a signed-in user's actions
+        should be attributed to them, not to whichever string the client sent
+        as ``actor``. Falls back to the body's ``actor`` (or the historical
+        default ``"operator"``) when the caller is anonymous, so pre-auth
+        tooling keeps working.
+        """
+        me = self._identity()
+        return me.display_name if me else str(body.get("actor") or "operator")
+
+    @staticmethod
+    def _as_prompt_selections(body: dict[str, Any], *, present_only: bool = False):
+        raw = body.get("prompt_selections")
+        if raw is None:
+            return None if present_only else []
+        return [PromptVariantSelection(asset_id=str(x["asset_id"]),
+                                       variant_id=str(x["variant_id"]))
+                for x in raw]
+
+    @staticmethod
+    def _as_prompt_overlays(body: dict[str, Any], *, present_only: bool = False):
+        raw = body.get("prompt_overlays")
+        if raw is None:
+            return None if present_only else []
+        return [PromptFragmentOverlay(asset_id=str(x["asset_id"]),
+                                      region_id=str(x["region_id"]),
+                                      text=str(x.get("text") or ""))
+                for x in raw]
+
+    @staticmethod
+    def _as_rag_selections(body: dict[str, Any], *, present_only: bool = False):
+        raw = body.get("rag_selections")
+        if raw is None:
+            return None if present_only else []
+        return [RAGProfileSelection(engine_id=str(x["engine_id"]),
+                                    profile_id=str(x["profile_id"]))
+                for x in raw]
+
+    @staticmethod
+    def _as_semantic_overrides(body: dict[str, Any], *, present_only: bool = False):
+        raw = body.get("semantic_overrides")
+        if raw is None:
+            return None if present_only else []
+        return [SemanticControlOverride(control_id=str(x["control_id"]),
+                                        value=str(x.get("value") or ""))
+                for x in raw]
 
     # ---------------- routing ----------------
 
@@ -120,6 +259,48 @@ class Handler(BaseHTTPRequestHandler):
 
         if path == "/api/workbench/health":
             return {"ok": True, "branches": sorted(svc.adapters)}
+
+        # ---------------- identity + configs (L1) ----------------
+
+        if path == "/api/workbench/auth/status":
+            me = self._identity()
+            return {"authenticated": me is not None,
+                    "user": me.to_public() if me else None}
+
+        if path == "/api/workbench/me":
+            return {"user": self._require_identity().to_public()}
+
+        if path == "/api/workbench/auth/codes":
+            me = self._require_identity()
+            self._require_role(me, Role.CURATOR, Role.ADMIN)
+            only_unredeemed = one("only_unredeemed", "false") == "true"
+            reveal = one("reveal", "false") == "true" and me.has_role(Role.ADMIN)
+            codes = get_auth().store.list_codes(only_unredeemed=only_unredeemed)
+            return {"codes": [c.to_public(reveal_code=reveal) for c in codes]}
+
+        if path == "/api/workbench/configs":
+            me = self._require_identity()
+            configs = get_configs().list(me, branch=one("branch"))
+            return {"configs": [c.to_public() for c in configs]}
+
+        m = re.fullmatch(r"/api/workbench/configs/([^/]+)", path)
+        if m:
+            me = self._require_identity()
+            try:
+                cfg = get_configs().get(me, m.group(1))
+            except ConfigNotFound as exc:
+                raise WorkbenchError(str(exc)) from None
+            except NotAuthorized as exc:
+                raise WorkbenchError(str(exc)) from None
+            return {"config": cfg.to_public()}
+
+        m = re.fullmatch(r"/api/workbench/effective/([^/]+)", path)
+        if m:
+            # Anonymous callers may ask what the branch default is — used by
+            # the UI landing page. Identified callers see their own resolution.
+            cfg = get_configs().effective_for_run(self._identity(), m.group(1))
+            return {"config": cfg.to_public() if cfg else None,
+                    "branch": m.group(1)}
 
         if path == "/api/workbench/pipelines":
             return {"pipelines": svc.pipelines()}
@@ -240,7 +421,122 @@ class Handler(BaseHTTPRequestHandler):
 
     def _route_post(self, path: str, body: dict[str, Any]) -> Any:
         svc = get_service()
-        actor = str(body.get("actor") or "operator")
+
+        # ---------------- identity + configs (L1) ----------------
+
+        if path == "/api/workbench/auth/redeem":
+            try:
+                result = get_auth().redeem(
+                    str(body.get("code") or ""),
+                    str(body.get("display_name") or ""),
+                    password=str(body.get("password") or ""))
+            except InvalidCode as exc:
+                raise WorkbenchError(str(exc)) from None
+            return {"session": result.session.to_public()}
+
+        if path == "/api/workbench/auth/login":
+            try:
+                session = get_auth().login(
+                    str(body.get("display_name") or ""),
+                    str(body.get("password") or ""))
+            except AuthError as exc:
+                raise WorkbenchError(str(exc)) from None
+            return {"session": session.to_public()}
+
+        if path == "/api/workbench/auth/mint":
+            me = self._require_identity()
+            roles = list(body.get("roles") or [Role.USER])
+            try:
+                code = get_auth().mint_code(
+                    roles, minted_by_user=me,
+                    expires_in_hours=int(body.get("expires_in_hours") or 168),
+                    note=str(body.get("note") or ""))
+            except AuthError as exc:
+                raise WorkbenchError(str(exc)) from None
+            # Full code is returned once, at mint time — never listed later.
+            return {"code": code.to_public(reveal_code=True)}
+
+        if path == "/api/workbench/auth/password":
+            me = self._require_identity()
+            try:
+                get_auth().set_password(me, str(body.get("password") or ""))
+            except AuthError as exc:
+                raise WorkbenchError(str(exc)) from None
+            return {"ok": True}
+
+        # -- configs --
+
+        if path == "/api/workbench/configs":
+            me = self._require_identity()
+            try:
+                cfg = get_configs().create(
+                    me,
+                    workspace_id=str(body.get("workspace_id") or "default"),
+                    branch=str(body.get("branch") or ""),
+                    name=str(body.get("name") or ""),
+                    description=str(body.get("description") or ""),
+                    prompt_selections=self._as_prompt_selections(body),
+                    prompt_overlays=self._as_prompt_overlays(body),
+                    rag_selections=self._as_rag_selections(body),
+                    semantic_overrides=self._as_semantic_overrides(body),
+                    model_binding=body.get("model_binding") or {},
+                    parent_config_id=str(body.get("parent_config_id") or ""))
+            except (ConfigError, NotAuthorized) as exc:
+                raise WorkbenchError(str(exc)) from None
+            return {"config": cfg.to_public()}
+
+        m = re.fullmatch(r"/api/workbench/configs/([^/]+)/update", path)
+        if m:
+            me = self._require_identity()
+            try:
+                cfg = get_configs().update(
+                    me, m.group(1),
+                    name=body.get("name"),
+                    description=body.get("description"),
+                    prompt_selections=self._as_prompt_selections(body, present_only=True),
+                    prompt_overlays=self._as_prompt_overlays(body, present_only=True),
+                    rag_selections=self._as_rag_selections(body, present_only=True),
+                    semantic_overrides=self._as_semantic_overrides(body, present_only=True),
+                    model_binding=body.get("model_binding"))
+            except (ConfigError, ConfigNotFound, NotAuthorized) as exc:
+                raise WorkbenchError(str(exc)) from None
+            return {"config": cfg.to_public()}
+
+        m = re.fullmatch(r"/api/workbench/configs/([^/]+)/personal_activate", path)
+        if m:
+            me = self._require_identity()
+            try:
+                cfg = get_configs().personal_activate(me, m.group(1))
+            except (ConfigNotFound, NotAuthorized) as exc:
+                raise WorkbenchError(str(exc)) from None
+            return {"config": cfg.to_public(), "scope": "personal"}
+
+        m = re.fullmatch(r"/api/workbench/configs/([^/]+)/publish", path)
+        if m:
+            me = self._require_identity()
+            try:
+                cfg = get_configs().publish_as_line_default(me, m.group(1))
+            except (ConfigNotFound, NotAuthorized) as exc:
+                raise WorkbenchError(str(exc)) from None
+            return {"config": cfg.to_public(), "scope": "line_default"}
+
+        m = re.fullmatch(r"/api/workbench/configs/([^/]+)/delete", path)
+        if m:
+            me = self._require_identity()
+            try:
+                get_configs().delete(me, m.group(1))
+            except (ConfigNotFound, NotAuthorized) as exc:
+                raise WorkbenchError(str(exc)) from None
+            return {"ok": True, "config_id": m.group(1)}
+
+        m = re.fullmatch(r"/api/workbench/personal_active/([^/]+)/clear", path)
+        if m:
+            me = self._require_identity()
+            get_configs().clear_personal_active(me, m.group(1))
+            return {"ok": True, "branch": m.group(1)}
+
+        # -- fall through to the legacy variant/rag lifecycle below --
+        actor = self._legacy_actor(body)
 
         m = re.fullmatch(r"/api/workbench/asset/([^/]+)/variant/([^/]+)/clone", path)
         if m:
