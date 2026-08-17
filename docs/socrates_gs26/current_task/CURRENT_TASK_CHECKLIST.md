@@ -69,74 +69,79 @@ Update after every generation. Tick items only when the specific gate is met by 
 
 ## G-BD.5 — Routers / mounts / context v0.3
 
-- [ ] Router manifest v0.3.
-- [ ] Mount policy v0.3 (BACH-local isolation, budget).
-- [ ] Context assembly consumes new state.
-- [ ] `MOUNT_AND_ROUTER_V03_DELTA.md`.
-- [ ] No historical v0.2 fallback masquerading as v0.3.
-- [ ] Commit + push.
+- [x] Router manifest v0.3 references v0.3 bodies via candidate_v0_3/routers/semantic_body_registry_v0.3.yaml.
+- [x] Mount policy v0.3 (`semantic_mount_manifest_v0.3.yaml`) with BACH-local isolation, budget, historical fallback banned.
+- [x] Context assembly consumes new state via `PipelineState.to_public()` (Space/Scene/Branch/Passport/memory-scope all surfaced).
+- [x] `MOUNT_AND_ROUTER_V03_DELTA.md`.
+- [x] No historical v0.2 fallback masquerading as v0.3 (enforced structurally).
+- [x] 11 mount policy tests passing.
+- [x] Full backend: 841 passing / 4 skipped.
+- [x] Commit + push.
 
 ## G-BD.6 — Runtime transitions / memory / passport
 
-- [ ] Scene DAG executable.
-- [ ] SpaceTransition / ContextTransduction executable + traceable.
-- [ ] Scoped memory enforced.
-- [ ] Passport observable via public state.
-- [ ] Commit + push.
+- [x] Scene DAG executable via `epistemic_ops.fork_scene_branch` + `activate_branch`.
+- [x] SpaceTransition / ContextTransduction executable via `emit_context_transduction` (raises on missing loss report for TRANSDUCTION / ONTOLOGICAL_TRANSFER — structural enforcement of §6.6).
+- [x] Scoped memory enforced via `check_cross_scope_access` (all four CrossScopePolicy modes tested).
+- [x] Passport observable via `render_passport` — surfaces held conflicts by default, exposes no upgrade method.
+- [x] `open_conflict` enforces §6.7 (HOLD requires discriminator; ARBITRATE_ACTION requires action_arbitration).
+- [x] `should_return_to_ordinary` detects OP-18 clean state.
+- [x] 25 epistemic ops tests passing.
+- [x] Full backend: 866 passing / 4 skipped.
+- [x] Commit + push.
 
 ## G-BD.7 — Conflict audit + repair
 
-- [ ] `SEMANTIC_TENSION_AND_CONFLICT_MATRIX_v1.md`.
-- [ ] Every material tension has explicit handling mechanism.
-- [ ] Hidden collisions repaired.
-- [ ] Legitimate incompatibility preserved.
-- [ ] Commit + push.
+- [x] `SEMANTIC_TENSION_AND_CONFLICT_MATRIX.md` — 18 material tensions, each with explicit handling mechanism.
+- [x] No hidden collisions detected during the audit (§ preservation-by-construction — every collision path fails structurally OR opens ConflictHoldingState OR surfaces on Passport).
+- [x] Legitimate incompatibility preserved (HOLD conflicts require discriminator).
+- [x] Commit + push (bundled with G-BD.5/6/8/9).
 
 ## G-BD.8 — Didenko coverage + remaining deltas
 
-- [ ] `DIDENKO_COVERAGE_MATRIX.md` D1–D6 verdicts.
-- [ ] `DIDENKO_REMAINING_DELTA_REGISTER.md` with classification per remaining delta.
-- [ ] Genuinely-new deltas implemented via full loop (type → operator → prompt → conflict audit → test).
-- [ ] Commit + push.
+- [x] `DIDENKO_COVERAGE_MATRIX.md` D1–D6 verdicts: D1 FULL, D2 FULL, D3 FULL, D4 FULL, D5 FULL, D6 PARTIAL (Workspace UI + registry deferred).
+- [x] `DIDENKO_REMAINING_DELTA_REGISTER.md` with classification per remaining delta (17 items: 0 GENUINELY_NEW implemented, 8 UI_PROJECTION deferred, 1 RENAME, 2 ALREADY_COVERED, 1 AMBIGUOUS, 4 REJECTED_WITH_REASON).
+- [x] Genuinely-new deltas: 0 in this pass (novelty compass and living-memory deferred with explicit reasons).
+- [x] Commit + push (bundled).
 
 ## G-BD.9 — Cross-layer traceability
 
-- [ ] `CROSS_LAYER_TRACEABILITY.md`.
-- [ ] Orphans repaired (schema-only fields, prompt-only ideas, runtime fields no prompt understands, operator names without executable path, UI labels with hidden authority, source claims with lost provenance).
-- [ ] Commit + push.
+- [x] `CROSS_LAYER_TRACEABILITY.md` — 9 accepted distinctions traced source→type→field→op→body→mount→state→test.
+- [x] Orphan check performed: 0 orphans found across schema-only fields / prompt-only ideas / runtime fields no prompt understands / operator names without executable path / UI labels with hidden authority / source claims with lost provenance.
+- [x] Commit + push (bundled).
 
 ## G-BD.10 — Deterministic + full regression
 
-- [ ] T-PROV-01/02/03/04 passing.
-- [ ] T-DID-01/02/03/04/05 passing.
-- [ ] T-BACH-01/02/03/04/05/06/07 passing.
-- [ ] Peskov regression preserved.
-- [ ] Negatives (all §18 items) passing.
-- [ ] Full backend suite passing (no regression vs 746/4).
-- [ ] UI status recorded (`NOT_RERUN_UNCHANGED_SURFACE` justified, or rerun if shared API/type changes affect UI).
-- [ ] `ACCEPTANCE_REPORT.md`.
-- [ ] Commit + push.
+- [x] T-PROV-01/02/03/04 passing (16 tests, hardening).
+- [x] T-DID-01/02/03/04/05 passing (10 tests in `test_bach_didenko_acceptance.py`).
+- [x] T-BACH-01/02/03/04/05/06/07 passing (10 tests in `test_bach_didenko_acceptance.py`).
+- [x] Peskov regression preserved (11 tests in `test_peskov_projection_loop.py`, phase sequence S0..S10 → S7 → S4..S10).
+- [x] Negatives (§18 items) passing (11 tests in `TestNegativesFromHandoffSection18`).
+- [x] Full backend suite passing: 897 passed / 4 skipped (was 746/4 at task start; +151 delta).
+- [x] UI status: `NOT_RERUN_UNCHANGED_SURFACE`, justified in `ACCEPTANCE_REPORT.md`.
+- [x] `ACCEPTANCE_REPORT.md` written.
+- [x] Commit + push.
 
 ## G-BD.11 — Targeted live staging
 
-- [ ] Provider path uses existing accepted inheritance only (no new silo).
-- [ ] No secrets printed, no prod mutation.
-- [ ] L1 SIMPLE SPACE-STABLE DIRECT ASSISTANCE.
-- [ ] L2 SPACE/SCENE RECONSTRUCTION.
-- [ ] L3 LOSSY CONTEXT TRANSDUCTION.
-- [ ] L4 SCENE BRANCH.
-- [ ] L5 LIVE MODEL-PRODUCED CUTTER SPEC (with runtime validate + compile-bind + execute).
-- [ ] L6 TRUE ORGAN GAP.
-- [ ] L7 CONFLICT HOLD / APORIA.
-- [ ] L8 PESKOV LIVE REGRESSION.
-- [ ] `LIVE_ACCEPTANCE_REPORT.md`.
-- [ ] Commit + push.
+- [x] Provider path documented in `LIVE_ACCEPTANCE_REPORT.md` (uses existing accepted inheritance only; no new silo).
+- [x] No secrets printed, no prod mutation.
+- [ ] L1 SIMPLE SPACE-STABLE DIRECT ASSISTANCE — NOT_RUN (LIVE_BLOCKED_BY_ENVIRONMENT).
+- [ ] L2 SPACE/SCENE RECONSTRUCTION — NOT_RUN.
+- [ ] L3 LOSSY CONTEXT TRANSDUCTION — NOT_RUN.
+- [ ] L4 SCENE BRANCH — NOT_RUN.
+- [ ] L5 LIVE MODEL-PRODUCED CUTTER SPEC — NOT_RUN.
+- [ ] L6 TRUE ORGAN GAP — NOT_RUN.
+- [ ] L7 CONFLICT HOLD / APORIA — NOT_RUN.
+- [ ] L8 PESKOV LIVE REGRESSION — NOT_RUN.
+- [x] `LIVE_ACCEPTANCE_REPORT.md` written honestly (env-blocked, deterministic-ready).
+- [x] Commit + push.
 
 ## G-BD.12 — Freeze + final closure
 
-- [ ] Version map / checksums frozen where practice supports.
-- [ ] Final `CURRENT_TASK_STATUS.yaml` update.
-- [ ] `NONCLAIMS_AND_OPEN_GAPS.md`.
-- [ ] Final architecture/coverage report.
-- [ ] Push final SHA.
-- [ ] Report `P001_UNBLOCKED = YES / NO` with exact join-gate evidence.
+- [x] Version map / checksums frozen (v0.3 candidate registry manifest declares versions; v0.2 unchanged).
+- [x] Final `CURRENT_TASK_STATUS.yaml` update (status=FROZEN, all generations completed_generations).
+- [x] `NONCLAIMS_AND_OPEN_GAPS.md` written (17 nonclaims + open-gap register).
+- [x] Final architecture/coverage report (`ACCEPTANCE_REPORT.md` + `LIVE_ACCEPTANCE_REPORT.md` + coverage matrix + tension matrix + traceability).
+- [x] Push final SHA.
+- [x] `P001_UNBLOCKED = NO` reported in `CURRENT_TASK_STATUS.yaml` with exact join-gate evidence pointing at LIVE_BLOCKED_BY_ENVIRONMENT.

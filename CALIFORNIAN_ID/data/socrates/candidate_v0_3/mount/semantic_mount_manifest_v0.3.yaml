@@ -1,0 +1,207 @@
+# Semantic mount manifest v0.3 — candidate
+# Governs which bodies mount at which phase under what admission
+# policy. Extends v0.2 mount_manifest with:
+#   * BACH-local isolation (donor-local operators only mount when
+#     their donor is explicitly authorised on the current Space);
+#   * WorldModelMount PROVENANCE != ACTIVATION invariant;
+#   * SEMANTIC_CONTEXT_BUDGET_EXCEEDED fails explicitly if a
+#     mandatory context won't fit;
+#   * historical v0.2 fallback banned (no silent v0.2 substitution).
+#
+# Loaded via SemanticMountPolicy(registry, mount_dir=<v0.3 mount dir>)
+# together with a scoped SemanticBodyRegistry (see
+# tests/workbench/test_semantic_v0_3.py). Default runs continue to
+# use v0.2 mount policy from data/socrates/current/mount/.
+
+version: v0.3_candidate
+generation: G-S26X G-BD.5
+
+# ------------------------------------------------ mandatory bodies
+
+# Every S-phase gets its declared mandatory body / bodies.
+mandatory:
+  CORE:
+    mount_class: CORE
+    phases: [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10]
+    summary_substitution_allowed: false
+    reason: constitutional body; loaded on every phase
+  B01:
+    mount_class: PHASE
+    phases: [S1]
+    summary_substitution_allowed: false
+  B02:
+    mount_class: PHASE
+    phases: [S3]
+    summary_substitution_allowed: false
+  B03:
+    mount_class: PHASE
+    phases: [S4]
+    summary_substitution_allowed: false
+  B04:
+    mount_class: PHASE
+    phases: [S2]
+    summary_substitution_allowed: false
+  B05:
+    mount_class: PHASE
+    phases: [S5, S10]
+    summary_substitution_allowed: false
+  B06:
+    mount_class: PHASE
+    phases: [S6]
+    summary_substitution_allowed: false
+  B07:
+    mount_class: CONDITIONAL
+    phases: [S7]
+    summary_substitution_allowed: false
+    admission:
+      cause_ids:
+        - COUNCIL_REQUIRED
+        - TYPED_VETO
+        - MINORITY_MATERIAL
+        - REFLECTIVE_MISMATCH_PENDING
+  B08:
+    mount_class: CONDITIONAL_NEIGHBOR
+    phases: [S4, S7]
+    summary_substitution_allowed: false
+    admission:
+      cause_ids:
+        - MULTI_ONTOLOGY_MOUNT
+        - OPERATION_MISMATCH
+        - REVISE_APPARATUS_INVOKED
+  B09:
+    mount_class: PHASE
+    phases: [S8]
+    summary_substitution_allowed: false
+  B10:
+    mount_class: PHASE
+    phases: [S10]
+    summary_substitution_allowed: false
+
+# ------------------------------------------------ context budget
+
+context_budget:
+  soft_bytes: 96000
+  hard_bytes: 128000
+  # Mandatory bodies that do not fit fail explicitly (no summary
+  # substitution). Optional context may be degraded first.
+  on_hard_exceeded: SEMANTIC_CONTEXT_BUDGET_EXCEEDED
+  optional_degradation_order:
+    - retrieved_corpus_samples
+    - archival_context
+    - overlay_mounts
+
+# ------------------------------------------------ BACH-local isolation
+
+# Donor-local operators are only admitted when the current Space
+# explicitly mounts the donor's world (WorldModelMount whose
+# ontology_ref matches donor). Lexical mention has ZERO admission
+# authority (typed state / authorized transition only).
+bach_local_isolation:
+  donor: BACH
+  donor_local_operator_ids:
+    - OP-07   # FOLD / ABSTRACT_DETERMINACY
+    - OP-08   # UNFOLD_IN_MEDIUM
+  admission_rule: >
+    A donor-local operator is admitted only if the run's
+    active EpistemicSpace has a WorldModelMount with
+    ontology_ref matching the donor AND mount_mode in
+    {PRIMARY, OVERLAY, LENS}. NEGATIVE_CONTROL / ARCHIVAL
+    mounts do not grant activation. CONTRAST mounts activate
+    only to enable BOARD_SEAM_CHECK (OP-11), not the operator
+    itself.
+  forbidden:
+    - lexical_cue_auto_mount
+    - donor_local_becomes_global_premise
+    - donor_mount_leaks_across_spaces
+
+# ------------------------------------------------ transferable operators
+
+# Non-donor-local BACH operators are transferable METHOD; they may
+# be dispatched in any Space whose activation_scope permits them.
+transferable_operators:
+  ids:
+    - OP-01
+    - OP-02
+    - OP-03
+    - OP-04
+    - OP-05
+    - OP-06
+    - OP-09
+    - OP-10
+    - OP-11
+    - OP-12
+    - OP-13
+    - OP-14
+    - OP-15
+    - OP-16
+    - OP-17
+    - OP-18
+  admission_rule: >
+    Available by default in every Space. Space policy may restrict
+    (e.g. a Space that forbids ONTOLOGICAL_TRANSFER) but never mint
+    executor authority. Registration of a transferable operator
+    grants NAMED DISPOSITION only (see bach_operators.py).
+
+# ------------------------------------------------ trigger admission (CTA)
+
+# Extends v0.2 CTA-001..008. Every trigger MUST derive from typed
+# state or an authorized transition. Lexical cues, retrieved text,
+# donor text, persona text, model prior — all have ZERO direct
+# trigger authority.
+trigger_admission:
+  authority_sources:
+    - typed_state
+    - authorized_transition
+  forbidden_sources:
+    - lexical_cue
+    - retrieved_text
+    - donor_text
+    - persona_text
+    - model_prior
+  new_causes_in_v0_3:
+    - id: REFLECTIVE_MISMATCH_PENDING
+      source_status: typed_state
+      derives_from: state.pending_diagnostic.mismatch
+      admits_body: B07
+    - id: MULTI_ONTOLOGY_MOUNT
+      source_status: typed_state
+      derives_from: len(state.space_registry.get(state.space_id).world_model_mounts) > 1
+      admits_body: B08
+    - id: OPERATION_MISMATCH
+      source_status: typed_state
+      derives_from: any(s == OPERATION_MISMATCH for s in state.pending_diagnostic.signals)
+      admits_body: B08
+    - id: REVISE_APPARATUS_INVOKED
+      source_status: authorized_transition
+      derives_from: OP-10 dispatched
+      admits_body: B08
+    - id: CROSS_SPACE_TRANSDUCTION_PENDING
+      source_status: authorized_transition
+      derives_from: OP-04 dispatched or ContextTransduction record proposed
+      admits_body: B07
+
+# ------------------------------------------------ historical fallback
+
+historical_fallback:
+  allowed: false
+  reason: >
+    v0.3 must not silently masquerade as v0.2. If a v0.3 body is
+    unavailable, mount MUST fail explicitly (SEMANTIC_MOUNT_MISSING).
+    Callers who want v0.2 semantics must construct a v0.2 scoped
+    registry + policy explicitly.
+
+# ------------------------------------------------ WorldModelMount rules
+
+world_model_mounts:
+  provenance_vs_activation: >
+    Every mount records `provenance` (where the ontology came from,
+    e.g. donor:BACH) AND `activation_scope` (where the mount is
+    active, e.g. bach_local_or_explicitly_mounted). Runtime never
+    derives one from the other.
+  mount_modes:
+    PRIMARY: dominant world model for this Space
+    OVERLAY: additional lens for this Space
+    LENS: interpretive frame used alongside PRIMARY
+    CONTRAST: mounted for board-seam comparison, does not grant activation
+    NEGATIVE_CONTROL: mounted to detect illicit use, does not grant activation
+    ARCHIVAL: historical reference, does not grant activation

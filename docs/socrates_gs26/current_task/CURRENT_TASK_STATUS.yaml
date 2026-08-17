@@ -10,9 +10,10 @@ remote: 'https://github.com/Stimurid/zarathustra-.git'
 branch: socrates/gs26-bach-didenko-integration
 start_head: 2ecc070000da153e4d6379df491ecca8de5330ed
 current_head: SET_AT_COMMIT   # updated per commit; see git log for exact SHA
-active_generation: G-BD.5
-completed_generations: [G-BD.0, G-BD.1, G-BD.2, G-BD.3, G-BD.4]
-next_generation: G-BD.5
+status: FROZEN
+active_generation: G-BD.12
+completed_generations: [G-BD.0, G-BD.1, G-BD.2, G-BD.3, G-BD.4, G-BD.5, G-BD.6, G-BD.7, G-BD.8, G-BD.9, G-BD.10, G-BD.11, G-BD.12]
+next_generation: (none — task closed pending owner decision on LIVE re-run)
 blockers: []
 open_defects:
   - id: D-S26-GEN-002
@@ -61,12 +62,14 @@ touched_files:
   - docs/socrates_gs26/current_task/CURRENT_TASK_CHECKLIST.md
 test_state:
   full_backend:
-    tests_passed: 830
+    tests_passed: 897
     tests_skipped: 4
-    delta_vs_start: '+16 hardening + 28 epistemic model + 33 BACH operators + 7 v0.3 = +84 tests since 746 baseline'
+    delta_vs_start: '+16 hardening + 28 epistemic model + 33 BACH operators + 7 v0.3 + 11 mount v0.3 + 25 epistemic ops + 31 T-DID/T-BACH = +151 tests since 746 baseline'
   ui: NOT_RERUN_UNCHANGED_SURFACE
-  ui_justification: 'G-BD.1/2/3/4 only touch socrates_runtime + contracts + candidate_v0_3 + backend tests + docs; no UI surface changed.'
+  ui_justification: 'All G-BD generations only touch socrates_runtime + contracts + candidate_v0_3 + backend tests + docs; no UI surface changed.'
 live_evidence_state:
+  overall: LIVE_BLOCKED_BY_ENVIRONMENT
+  reason: 'Local execution context lacks provider credentials (/etc/tinkuy/tinkuy.env absent; API_302AI_KEY not set). Per handoff §19 last paragraph the pass is forbidden from fabricating live evidence when no live run occurred. Runtime substrate is deterministically ready — see LIVE_ACCEPTANCE_REPORT.md.'
   L1: NOT_RUN
   L2: NOT_RUN
   L3: NOT_RUN
@@ -76,13 +79,26 @@ live_evidence_state:
   L7: NOT_RUN
   L8: NOT_RUN
 nonclaims:
-  - 'No LIVE evidence claimed yet.'
-  - 'BACH content not yet materialised as typed objects (G-BD.2 target).'
-  - 'Didenko coverage not yet started.'
-  - 'v0.2 semantic bodies and R8 evidence remain immutable frozen controls.'
-  - 'Hardening D-S26-GEN-003 proves that PROPOSAL DATA can be authored by S4 and safely compile-bound. LIVE model actually producing such a proposal from an unhinted run remains a G-BD.11 (L5) target and IS NOT YET DEMONSTRATED — this is deterministic proof of the runtime path, not of LIVE production authorship.'
-  - 'P001_UNBLOCKED = NO (hardening done; BACH/Didenko integration not started).'
+  - 'See NONCLAIMS_AND_OPEN_GAPS.md for the full authoritative list (17 nonclaims + open gaps by category).'
+  - 'Headline nonclaims: LIVE evidence blocked (env credentials absent); R8 not rerun; BASIC primitive substrate only (four generic primitives); donor-local doctrine stays donor-local; P001_UNBLOCKED = NO.'
+p001_unblocked:
+  status: NO
+  reason: 'Per handoff §20 join gate: hardening PASS + BACH/Didenko v0.3 technical+semantic PASS + conflict audit PASS + Didenko coverage FULL/PARTIAL + cross-layer traceability PASS + deterministic tests PASS + full backend regression PASS. But targeted live campaign L1–L8 NOT PASS (LIVE_BLOCKED_BY_ENVIRONMENT). Any single missing condition is NO per §20.'
 resume_from:
-  generation: G-BD.5
-  what_to_do_next: 'Routers / mounts / context v0.3 — typed jurisdiction changes (already partly done in G-BD.1 for S4 proposal); mount policy YAML v0.3 that governs BACH-local isolation and Space-scoped mounting; context assembly extension so LIVE phases actually see Space/Scene/Branch/Passport/memory-scope/reflective context. Preserve historical mount manifest as frozen control. Add MOUNT_AND_ROUTER_V03_DELTA.md docs artefact. Test that scoped mount policy loads without breaking v0.2 default.'
+  generation: (none)
+  what_to_do_next: |
+    Task is FROZEN at final SHA on branch socrates/gs26-bach-didenko-integration.
+    All G-BD.0..G-BD.12 generations closed as documented in
+    CURRENT_TASK_CHECKLIST.md. On any future pass:
+      1. Read ACCEPTANCE_REPORT.md and LIVE_ACCEPTANCE_REPORT.md
+         to see exactly what was proved vs deferred.
+      2. Read NONCLAIMS_AND_OPEN_GAPS.md for the durable open-gap
+         list — every follow-up target is enumerated there.
+      3. If the owner authorises a LIVE re-run on an environment
+         that carries production credentials, exercise L1–L8 per
+         handoff §19 and update LIVE_ACCEPTANCE_REPORT.md +
+         CURRENT_TASK_STATUS.yaml live_evidence_state in place.
+      4. P001_UNBLOCKED can only flip to YES after L1–L8 PASS
+         plus L5 model-produced-proposal PASS plus L8 Peskov
+         PASS. Do not flip prematurely.
 last_updated: '2026-08-17T00:00:00Z'
