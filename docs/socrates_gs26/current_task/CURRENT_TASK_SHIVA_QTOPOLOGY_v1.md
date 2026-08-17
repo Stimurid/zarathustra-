@@ -77,13 +77,22 @@ Sections 1..13 of §7 verbatim.
 |---|---|
 | §0.1 Entry verify | DONE — HEAD == 144eb1e, prod aa23242 confirmed |
 | §0.3 Durable checkpoint + verbatim handoff commit + push | IN_PROGRESS |
-| B2R inspect existing seams | pending |
-| B2R design `InterventionPlan` (reuse or new narrow) | pending |
-| B2R implement + tests | pending |
-| B2R deploy + live smokes | pending |
-| B2R gate PASS/PARTIAL/FAIL | pending |
-| B2Q current-state audit | pending — GATED on B2R PASS |
+| B2R inspect existing seams | DONE — Explore agent survey; reused MAX_PROJECTION_ITERATIONS + post-terminal hook |
+| B2R design `InterventionPlan` (reuse or new narrow) | DONE — new narrow module `socrates_runtime/intervention_plan.py` |
+| B2R implement + tests | DONE — 24 new tests, 1101 passed / 4 skipped / 0 failed |
+| B2R deploy + live smokes | DONE — deployed `dc1d1bf`; 7 live smokes on `/api/socrates/run` |
+| B2R gate PASS/PARTIAL/FAIL | **PASS** — see `CHECKPOINT_B2R_SHIVA_DEEP_LIVE.md` |
+| B2Q current-state audit | pending — GATED on B2R PASS (now unblocked) |
 | B2Q policy/tests | pending |
 | B2Q deploy + live smokes | pending |
 | B2Q gate | pending |
 | B3 (optional) | pending — GATED on both |
+
+## B2R closure ledger
+
+Pushed SHA: `dc1d1bf` — 1101 passed / 4 skipped / 0 failed
+Deployed SHA: `dc1d1bf` at 2026-08-17 17:02:50 MSK
+Rollback: `/opt/tinkuy/rollback_snapshot_pre_dc1d1bf.tar.gz`
+Evidence: `docs/socrates_gs26/real_socrates_route/b2r/soc_b2r_*.json` (7 files)
+Checkpoint doc: `docs/socrates_gs26/real_socrates_route/CHECKPOINT_B2R_SHIVA_DEEP_LIVE.md`
+Dialogue log preserved: 3 → 10 records at `/srv/tinkuy/dialogue_log/dialogues.jsonl`

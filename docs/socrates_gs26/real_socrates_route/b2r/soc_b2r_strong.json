@@ -1,0 +1,1428 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_84aa34675657b69b",
+  "trace_id": "strc_6617f0b574647098",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "В стандартной арифметике целых чисел утверждение \"2 + 2 = 4\" выдерживает максимальный стресс-тест и не опровергается.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Даже при максимальном эпистемическом давлении и стресс-тесте утверждение '2 + 2 = 4 в стандартной арифметике целых чисел' сохраняет свою истинность, поскольку опирается на определение операций сложения и числовых обозначений в рамках выбранной формальной системы. Стресс-тест может выявить только границы применимости утверждения (например, при смене системы аксиом или переходе к нестандартным структурам), но не опровергает его в исходной системе.",
+      "grounds": "В процессе стресс-теста не обнаружено внутренних противоречий или альтернативных трактовок, которые могли бы поколебать истинность утверждения в пределах стандартной арифметики целых чисел. Все попытки подвергнуть сомнению позицию приводят к необходимости выхода за рамки определённой системы или смены интерпретации символов, что не входит в заявленные условия."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "The request is to stress-test the claim '2 + 2 = 4 in standard integer arithmetic'. This is a classic, stable, system-owned arithmetic claim with explicit operands and operation. No consequential scene/telos/role/authority ambiguity is present. No memory recruitment, formation, or deep reflection is required. No triggers for B05 or B07 are material at this phase.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15207,
+        "tokens_out": 97,
+        "latency_ms": 7241,
+        "error": "",
+        "request_hash": "fa64d78cec24e16be0b3a166f4c32d9ce66ffe052b1dba45598f7f9f66247f45",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2095,
+            "sha256": "2a18ac48479df90f"
+          },
+          {
+            "role": "user",
+            "bytes": 268,
+            "sha256": "0bc59f140a27893f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.",
+            "role_hint": "стресс-тестер, аналитик",
+            "authority": "system",
+            "materials": [
+              "Утверждение: 2 + 2 = 4 в стандартной арифметике целых чисел."
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.",
+              "role_hint": "стресс-тестер, аналитик",
+              "authority": "system",
+              "materials": [
+                "Утверждение: 2 + 2 = 4 в стандартной арифметике целых чисел."
+              ]
+            },
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13255,
+        "tokens_out": 108,
+        "latency_ms": 3121,
+        "error": "",
+        "request_hash": "4459cfdc6cb9732edf36a4eddbdfd84e39394bc1f44f86766ac84eca7dc2c849",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2094,
+            "sha256": "3f14e234343f67ab"
+          },
+          {
+            "role": "user",
+            "bytes": 268,
+            "sha256": "0bc59f140a27893f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "TRIG_B07_RETREAT_PRESSURE",
+              "generating_state_ref": "intervention_plan.epistemic_pressure:MAX, rhetorical_harshness:PROFANE, liberatory_pressure:HIGH",
+              "cause_object_ref": "scene.telos: 'Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.'",
+              "source_status": "typed_state",
+              "phase_relevance": "S2 — High epistemic/rhetorical/liberatory pressure may force operation or scene retreat even on trivial arithmetic.",
+              "materiality_reason": "The request applies maximal stress to a foundational arithmetic claim; B07 is triggered to check for scene/role/operation capture, pressure-induced retreat, or inappropriate escalation.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "TRIG_B07_RETREAT_PRESSURE",
+                "generating_state_ref": "intervention_plan.epistemic_pressure:MAX, rhetorical_harshness:PROFANE, liberatory_pressure:HIGH",
+                "cause_object_ref": "scene.telos: 'Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.'",
+                "source_status": "typed_state",
+                "phase_relevance": "S2 — High epistemic/rhetorical/liberatory pressure may force operation or scene retreat even on trivial arithmetic.",
+                "materiality_reason": "The request applies maximal stress to a foundational arithmetic claim; B07 is triggered to check for scene/role/operation capture, pressure-induced retreat, or inappropriate escalation."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15249,
+        "tokens_out": 188,
+        "latency_ms": 4324,
+        "error": "",
+        "request_hash": "00e85d228aec1fe5f80a2bf840d5039ec9472bc7ff2ad76dae3930e29fb573f5",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 2414,
+            "sha256": "920056cad9f682c4"
+          },
+          {
+            "role": "user",
+            "bytes": 268,
+            "sha256": "0bc59f140a27893f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "attributed",
+            "sources_named": [],
+            "binding_authority": "system",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_e0bfcd718ae6",
+              "generating_state_ref": "intervention_plan.epistemic_pressure:MAX, rhetorical_harshness:PROFANE, liberatory_pressure:HIGH",
+              "cause_object_ref": "scene.telos: 'Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.'",
+              "source_status": "typed_state",
+              "phase_relevance": "Epistemic pressure and rhetorical harshness require explicit origin/status/authority separation to prevent collapse of mathematical certainty into rhetorical force.",
+              "materiality_reason": "Stress-testing a foundational mathematical claim under maximal challenge risks conflating system-owned attribution with universal truth status. Explicit origin/status/authority tracking is required.",
+              "admitting_rule": "Mount B02 for origin/status/authority/temporality; do not upgrade status or authority by rhetorical pressure."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "attributed",
+              "sources_named": [],
+              "binding_authority": "system",
+              "temporal_stale": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_e0bfcd718ae6",
+                "generating_state_ref": "intervention_plan.epistemic_pressure:MAX, rhetorical_harshness:PROFANE, liberatory_pressure:HIGH",
+                "cause_object_ref": "scene.telos: 'Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.'",
+                "source_status": "typed_state",
+                "phase_relevance": "Epistemic pressure and rhetorical harshness require explicit origin/status/authority separation to prevent collapse of mathematical certainty into rhetorical force.",
+                "materiality_reason": "Stress-testing a foundational mathematical claim under maximal challenge risks conflating system-owned attribution with universal truth status. Explicit origin/status/authority tracking is required.",
+                "admitting_rule": "Mount B02 for origin/status/authority/temporality; do not upgrade status or authority by rhetorical pressure."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13338,
+        "tokens_out": 254,
+        "latency_ms": 6327,
+        "error": "",
+        "request_hash": "5a525ba4417fb7d423fe5ae805e0f14cc49a4bc2226b375d2be27c5c40ca9a6b",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 3518,
+            "sha256": "5a36aa8d1626554a"
+          },
+          {
+            "role": "user",
+            "bytes": 268,
+            "sha256": "0bc59f140a27893f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "STRESS_TEST_PROPOSITION",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "STRESS_TEST_PROPOSITION",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14680,
+        "tokens_out": 41,
+        "latency_ms": 2618,
+        "error": "",
+        "request_hash": "122304ee209da94ab7c3dc782b40ee4da4b899b884521c360b868fbf3883dd9d",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 4606,
+            "sha256": "bdf47a3003fa84ac"
+          },
+          {
+            "role": "user",
+            "bytes": 268,
+            "sha256": "0bc59f140a27893f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Даже при максимальном эпистемическом давлении и стресс-тесте утверждение '2 + 2 = 4 в стандартной арифметике целых чисел' сохраняет свою истинность, поскольку опирается на определение операций сложения и числовых обозначений в рамках выбранной формальной системы. Стресс-тест может выявить только границы применимости утверждения (например, при смене системы аксиом или переходе к нестандартным структурам), но не опровергает его в исходной системе.",
+            "grounds": "В процессе стресс-теста не обнаружено внутренних противоречий или альтернативных трактовок, которые могли бы поколебать истинность утверждения в пределах стандартной арифметики целых чисел. Все попытки подвергнуть сомнению позицию приводят к необходимости выхода за рамки определённой системы или смены интерпретации символов, что не входит в заявленные условия."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Даже при максимальном эпистемическом давлении и стресс-тесте утверждение '2 + 2 = 4 в стандартной арифметике целых чисел' сохраняет свою истинность, поскольку опирается на определение операций сложения и числовых обозначений в рамках выбранной формальной системы. Стресс-тест может выявить только границы применимости утверждения (например, при смене системы аксиом или переходе к нестандартным структурам), но не опровергает его в исходной системе.",
+              "grounds": "В процессе стресс-теста не обнаружено внутренних противоречий или альтернативных трактовок, которые могли бы поколебать истинность утверждения в пределах стандартной арифметики целых чисел. Все попытки подвергнуть сомнению позицию приводят к необходимости выхода за рамки определённой системы или смены интерпретации символов, что не входит в заявленные условия."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16118,
+        "tokens_out": 233,
+        "latency_ms": 5618,
+        "error": "",
+        "request_hash": "09bf198ceb7108fdfdacea9170ede7629af27383d0a6cc5d1ed041a6e0f272b6",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 4629,
+            "sha256": "bdf5dfe7ed11e7c3"
+          },
+          {
+            "role": "user",
+            "bytes": 268,
+            "sha256": "0bc59f140a27893f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "system",
+            "human_resolved": true,
+            "return_reason": "Операция стресс-тестирования утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел, полностью системная: критерии применимости, допустимые методы и границы интерпретации заданы явно и не требуют человеческого решения или присвоения. Нет скрытого выбора ценности, идентичности, риска или личного смысла — задача строго формальная. Поэтому операция полностью SYSTEM-owned, возврат или уточняющий вопрос не требуется."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Даже при максимальном эпистемическом давлении и стресс-тесте утверждение '2 + 2 = 4 в стандартной арифметике целых чисел' сохраняет свою истинность, поскольку опирается на определение операций сложения и числовых обозначений в рамках выбранной формальной системы. Стресс-тест может выявить только границы применимости утверждения (например, при смене системы аксиом или переходе к нестандартным структурам), но не опровергает его в исходной системе.",
+            "grounds": "В процессе стресс-теста не обнаружено внутренних противоречий или альтернативных трактовок, которые могли бы поколебать истинность утверждения в пределах стандартной арифметики целых чисел. Все попытки подвергнуть сомнению позицию приводят к необходимости выхода за рамки определённой системы или смены интерпретации символов, что не входит в заявленные условия."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "Операция стресс-тестирования утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел, полностью системная: критерии применимости, допустимые методы и границы интерпретации заданы явно и не требуют человеческого решения или присвоения. Нет скрытого выбора ценности, идентичности, риска или личного смысла — задача строго формальная. Поэтому операция полностью SYSTEM-owned, возврат или уточняющий вопрос не требуется."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Даже при максимальном эпистемическом давлении и стресс-тесте утверждение '2 + 2 = 4 в стандартной арифметике целых чисел' сохраняет свою истинность, поскольку опирается на определение операций сложения и числовых обозначений в рамках выбранной формальной системы. Стресс-тест может выявить только границы применимости утверждения (например, при смене системы аксиом или переходе к нестандартным структурам), но не опровергает его в исходной системе.",
+              "grounds": "В процессе стресс-теста не обнаружено внутренних противоречий или альтернативных трактовок, которые могли бы поколебать истинность утверждения в пределах стандартной арифметики целых чисел. Все попытки подвергнуть сомнению позицию приводят к необходимости выхода за рамки определённой системы или смены интерпретации символов, что не входит в заявленные условия."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14378,
+        "tokens_out": 366,
+        "latency_ms": 8095,
+        "error": "",
+        "request_hash": "da726858ff3308c8bdee668f302efd71bdf30faa0791a217107c437b195bf86b",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 6190,
+            "sha256": "62cb881ddf3ea5e1"
+          },
+          {
+            "role": "user",
+            "bytes": 268,
+            "sha256": "0bc59f140a27893f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13971,
+        "tokens_out": 15,
+        "latency_ms": 1976,
+        "error": "",
+        "request_hash": "2059537ac9ba620615e1e4adf1bcdbfd75af6d8d24a447138fad19ff55520748",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 6967,
+            "sha256": "1f46de26de761fee"
+          },
+          {
+            "role": "user",
+            "bytes": 268,
+            "sha256": "0bc59f140a27893f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S9",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S9",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Даже при максимальном эпистемическом давлении и стресс-тесте утверждение '2 + 2 = 4 в стандартной арифметике целых чисел' сохраняет свою истинность, поскольку опирается на определение операций сложения и числовых обозначений в рамках выбранной формальной системы. Стресс-тест может выявить только границы применимости утверждения (например, при смене системы аксиом или переходе к нестандартным структурам), но не опровергает его в исходной системе.",
+            "grounds": "В процессе стресс-теста не обнаружено внутренних противоречий или альтернативных трактовок, которые могли бы поколебать истинность утверждения в пределах стандартной арифметики целых чисел. Все попытки подвергнуть сомнению позицию приводят к необходимости выхода за рамки определённой системы или смены интерпретации символов, что не входит в заявленные условия."
+          },
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Даже при максимальном эпистемическом давлении и стресс-тесте утверждение '2 + 2 = 4 в стандартной арифметике целых чисел' сохраняет свою истинность, поскольку опирается на определение операций сложения и числовых обозначений в рамках выбранной формальной системы. Стресс-тест может выявить только границы применимости утверждения (например, при смене системы аксиом или переходе к нестандартным структурам), но не опровергает его в исходной системе.",
+              "grounds": "В процессе стресс-теста не обнаружено внутренних противоречий или альтернативных трактовок, которые могли бы поколебать истинность утверждения в пределах стандартной арифметики целых чисел. Все попытки подвергнуть сомнению позицию приводят к необходимости выхода за рамки определённой системы или смены интерпретации символов, что не входит в заявленные условия."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 18835,
+        "tokens_out": 234,
+        "latency_ms": 4720,
+        "error": "",
+        "request_hash": "f016ded234a2570a6ae981ff2549e924bfb5e909b47b2648aaa00b23c3beecd5",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 870,
+            "sha256": "b3c49d62f2113bb1"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "d84c9263f7722a13"
+          },
+          {
+            "role": "user",
+            "bytes": 6966,
+            "sha256": "5fcb96bf7311426e"
+          },
+          {
+            "role": "user",
+            "bytes": 268,
+            "sha256": "0bc59f140a27893f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_e0bfcd718ae6",
+              "generating_state_ref": "intervention_plan.epistemic_pressure:MAX, rhetorical_harshness:PROFANE, liberatory_pressure:HIGH",
+              "cause_object_ref": "scene.telos: 'Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.'",
+              "source_status": "typed_state",
+              "phase_relevance": "TYPE_GAP",
+              "materiality_reason": "Попытка применить экстремальное давление и агрессивную риторику для выявления границ или слабых мест в утверждении не приводит к внутреннему противоречию в пределах исходной системы. Возникает типовой разрыв: дальнейшее давление требует выхода за пределы заданной формальной системы (например, смены аксиоматики или интерпретации), что не входит в исходные условия стресс-теста.",
+              "admitting_rule": "Не найдено валидного триггера для дальнейшей эскалации внутри текущей формальной системы; зафиксирован типовой разрыв (TYPE_GAP) вместо форсированной попытки построить несуществующее возражение."
+            },
+            {
+              "trigger_id": "tgap_891430919b9b",
+              "generating_state_ref": "intervention_plan.epistemic_pressure:MAX, rhetorical_harshness:PROFANE, liberatory_pressure:HIGH",
+              "cause_object_ref": "scene.telos: 'Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.'",
+              "source_status": "typed_state",
+              "phase_relevance": "TYPE_GAP",
+              "materiality_reason": "Вторая попытка эскалации (например, через альтернативные интерпретации символов или радикальные риторические стратегии) не приводит к появлению внутреннего конфликта или альтернативной трактовки в рамках стандартной арифметики целых чисел. Фиксируется еще один типовой разрыв.",
+              "admitting_rule": "Повторное применение максимального давления не приводит к появлению нового содержательного возражения; фиксируется дополнительный типовой разрыв (TYPE_GAP) вместо искусственного создания псевдо-контраргумента."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Даже при максимальном эпистемическом давлении и стресс-тесте утверждение '2 + 2 = 4 в стандартной арифметике целых чисел' сохраняет свою истинность, поскольку опирается на определение операций сложения и числовых обозначений в рамках выбранной формальной системы. Стресс-тест может выявить только границы применимости утверждения (например, при смене системы аксиом или переходе к нестандартным структурам), но не опровергает его в исходной системе.",
+            "grounds": "В процессе стресс-теста не обнаружено внутренних противоречий или альтернативных трактовок, которые могли бы поколебать истинность утверждения в пределах стандартной арифметики целых чисел. Все попытки подвергнуть сомнению позицию приводят к необходимости выхода за рамки определённой системы или смены интерпретации символов, что не входит в заявленные условия."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Даже при максимальном эпистемическом давлении и стресс-тесте утверждение '2 + 2 = 4 в стандартной арифметике целых чисел' сохраняет свою истинность, поскольку опирается на определение операций сложения и числовых обозначений в рамках выбранной формальной системы. Стресс-тест может выявить только границы применимости утверждения (например, при смене системы аксиом или переходе к нестандартным структурам), но не опровергает его в исходной системе.",
+              "grounds": "В процессе стресс-теста не обнаружено внутренних противоречий или альтернативных трактовок, которые могли бы поколебать истинность утверждения в пределах стандартной арифметики целых чисел. Все попытки подвергнуть сомнению позицию приводят к необходимости выхода за рамки определённой системы или смены интерпретации символов, что не входит в заявленные условия."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_e0bfcd718ae6",
+                "generating_state_ref": "intervention_plan.epistemic_pressure:MAX, rhetorical_harshness:PROFANE, liberatory_pressure:HIGH",
+                "cause_object_ref": "scene.telos: 'Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.'",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP",
+                "materiality_reason": "Попытка применить экстремальное давление и агрессивную риторику для выявления границ или слабых мест в утверждении не приводит к внутреннему противоречию в пределах исходной системы. Возникает типовой разрыв: дальнейшее давление требует выхода за пределы заданной формальной системы (например, смены аксиоматики или интерпретации), что не входит в исходные условия стресс-теста.",
+                "admitting_rule": "Не найдено валидного триггера для дальнейшей эскалации внутри текущей формальной системы; зафиксирован типовой разрыв (TYPE_GAP) вместо форсированной попытки построить несуществующее возражение."
+              },
+              {
+                "trigger_id": "tgap_891430919b9b",
+                "generating_state_ref": "intervention_plan.epistemic_pressure:MAX, rhetorical_harshness:PROFANE, liberatory_pressure:HIGH",
+                "cause_object_ref": "scene.telos: 'Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.'",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP",
+                "materiality_reason": "Вторая попытка эскалации (например, через альтернативные интерпретации символов или радикальные риторические стратегии) не приводит к появлению внутреннего конфликта или альтернативной трактовки в рамках стандартной арифметики целых чисел. Фиксируется еще один типовой разрыв.",
+                "admitting_rule": "Повторное применение максимального давления не приводит к появлению нового содержательного возражения; фиксируется дополнительный типовой разрыв (TYPE_GAP) вместо искусственного создания псевдо-контраргумента."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19033,
+        "tokens_out": 759,
+        "latency_ms": 17003,
+        "error": "",
+        "request_hash": "debc94c5b1d13f5c49646eadc6de7843aed791e05595a8b3eca3429393e30d53",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 6966,
+            "sha256": "ba651c55493af621"
+          },
+          {
+            "role": "user",
+            "bytes": 268,
+            "sha256": "0bc59f140a27893f"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_84aa34675657b69b",
+    "input_text": "Утверждение: 2 + 2 = 4 в стандартной арифметике целых чисел. Стресс-тестируй эту позицию.",
+    "source_id": "src_9bacef2efc7bd84e",
+    "phase": "S10",
+    "scene": {
+      "telos": "Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.",
+      "role_hint": "стресс-тестер, аналитик",
+      "authority": "system",
+      "materials": [
+        "Утверждение: 2 + 2 = 4 в стандартной арифметике целых чисел."
+      ]
+    },
+    "origin": {
+      "status": "attributed",
+      "sources_named": [],
+      "binding_authority": "system",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "STRESS_TEST_PROPOSITION",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "system",
+      "human_resolved": true,
+      "return_reason": "Операция стресс-тестирования утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел, полностью системная: критерии применимости, допустимые методы и границы интерпретации заданы явно и не требуют человеческого решения или присвоения. Нет скрытого выбора ценности, идентичности, риска или личного смысла — задача строго формальная. Поэтому операция полностью SYSTEM-owned, возврат или уточняющий вопрос не требуется."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_f8e8d201fc30",
+        "proposed_trigger_type_id": "tgap_e0bfcd718ae6",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "intervention_plan.epistemic_pressure:MAX, rhetorical_harshness:PROFANE, liberatory_pressure:HIGH",
+        "cause_object_ref": "scene.telos: 'Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.'",
+        "phase_relevance": "TYPE_GAP",
+        "materiality_reason": "Попытка применить экстремальное давление и агрессивную риторику для выявления границ или слабых мест в утверждении не приводит к внутреннему противоречию в пределах исходной системы. Возникает типовой разрыв: дальнейшее давление требует выхода за пределы заданной формальной системы (например, смены аксиоматики или интерпретации), что не входит в исходные условия стресс-теста.",
+        "payload": {
+          "legacy_admitting_rule": "Не найдено валидного триггера для дальнейшей эскалации внутри текущей формальной системы; зафиксирован типовой разрыв (TYPE_GAP) вместо форсированной попытки построить несуществующее возражение.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      },
+      {
+        "candidate_id": "tcand_e77342629b4f",
+        "proposed_trigger_type_id": "tgap_891430919b9b",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "intervention_plan.epistemic_pressure:MAX, rhetorical_harshness:PROFANE, liberatory_pressure:HIGH",
+        "cause_object_ref": "scene.telos: 'Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.'",
+        "phase_relevance": "TYPE_GAP",
+        "materiality_reason": "Вторая попытка эскалации (например, через альтернативные интерпретации символов или радикальные риторические стратегии) не приводит к появлению внутреннего конфликта или альтернативной трактовки в рамках стандартной арифметики целых чисел. Фиксируется еще один типовой разрыв.",
+        "payload": {
+          "legacy_admitting_rule": "Повторное применение максимального давления не приводит к появлению нового содержательного возражения; фиксируется дополнительный типовой разрыв (TYPE_GAP) вместо искусственного создания псевдо-контраргумента.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_f65281fae14b",
+        "candidate_id": "tcand_7b26e94b0147",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'TRIG_B07_RETREAT_PRESSURE' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_861744adbd93",
+        "candidate_id": "tcand_6277e307cacb",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_e0bfcd718ae6' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_e0bfcd718ae6",
+        "candidate_id": "tcand_7b26e94b0147",
+        "cause_object_ref": "scene.telos: 'Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.'",
+        "generating_state_ref": "intervention_plan.epistemic_pressure:MAX, rhetorical_harshness:PROFANE, liberatory_pressure:HIGH",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'TRIG_B07_RETREAT_PRESSURE' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_891430919b9b",
+        "candidate_id": "tcand_6277e307cacb",
+        "cause_object_ref": "scene.telos: 'Провести стресс-тест утверждения о том, что 2 + 2 = 4 в стандартной арифметике целых чисел.'",
+        "generating_state_ref": "intervention_plan.epistemic_pressure:MAX, rhetorical_harshness:PROFANE, liberatory_pressure:HIGH",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_e0bfcd718ae6' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Даже при максимальном эпистемическом давлении и стресс-тесте утверждение '2 + 2 = 4 в стандартной арифметике целых чисел' сохраняет свою истинность, поскольку опирается на определение операций сложения и числовых обозначений в рамках выбранной формальной системы. Стресс-тест может выявить только границы применимости утверждения (например, при смене системы аксиом или переходе к нестандартным структурам), но не опровергает его в исходной системе.",
+      "grounds": "В процессе стресс-теста не обнаружено внутренних противоречий или альтернативных трактовок, которые могли бы поколебать истинность утверждения в пределах стандартной арифметики целых чисел. Все попытки подвергнуть сомнению позицию приводят к необходимости выхода за рамки определённой системы или смены интерпретации символов, что не входит в заявленные условия."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": []
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "bald_ape",
+      "epistemic_pressure": "MAX",
+      "rhetorical_harshness": "PROFANE",
+      "liberatory_pressure": "HIGH",
+      "max_projection_iterations": 7,
+      "counterexample_budget": 5,
+      "reconstruction_required": true,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": true,
+      "executed": true,
+      "survived_flag": true,
+      "survival_reason": "[bald_ape] no honest invalidation succeeded; treat as legitimate survival, not defeat of the critic.",
+      "reconstruction_note": "[bald_ape] reconstruction pass: distinguish surviving core from failed premises; report both explicitly; do not laundry rhetorical pressure into new attribution.",
+      "release_kind": "RECONSTRUCT",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    }
+  },
+  "rendering": {
+    "text": "В стандартной арифметике целых чисел утверждение \"2 + 2 = 4\" выдерживает максимальный стресс-тест и не опровергается.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 499,
+    "tokens_out": 36,
+    "latency_ms": 1717,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_6617f0b574647098.json",
+  "duration_ms": 62922,
+  "intervention_profile": "bald_ape",
+  "intervention_plan": {
+    "profile_name": "bald_ape",
+    "epistemic_pressure": "MAX",
+    "rhetorical_harshness": "PROFANE",
+    "liberatory_pressure": "HIGH",
+    "max_projection_iterations": 7,
+    "counterexample_budget": 5,
+    "reconstruction_required": true,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": true,
+    "executed": true,
+    "survived_flag": true,
+    "survival_reason": "[bald_ape] no honest invalidation succeeded; treat as legitimate survival, not defeat of the critic.",
+    "reconstruction_note": "[bald_ape] reconstruction pass: distinguish surviving core from failed premises; report both explicitly; do not laundry rhetorical pressure into new attribution.",
+    "release_kind": "RECONSTRUCT",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  }
+}

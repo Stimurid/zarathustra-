@@ -1,0 +1,1433 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_c9d186028a5cd199",
+  "trace_id": "strc_e475554e08d7eb8f",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "Утверждение «лысая обезьяна всегда побеждает» не встречается в работах Ницше, не подтверждается авторитетными источниками и является ошибочной или вымышленной цитатой.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "Утверждение о том, что Ницше в письме Овербеку от 12 марта 1888 года написал «лысая обезьяна всегда побеждает», не подтверждается доступными источниками: такой фразы в письме не обнаружено. Скорее всего, это апокриф или ироническая подмена, не соответствующая стилю и тематике письма Ницше.",
+      "grounds": "Проверка по корпусу писем Ницше, включая письмо Овербеку от 12 марта 1888 года, не выявила цитируемую фразу. Формулировка выглядит как современный мем или ироническая вставка, а не аутентичное высказывание Ницше. Важно зафиксировать этот разрыв между приписываемой цитатой и реальным источником для предотвращения распространения недостоверной атрибуции."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "No memory, formation, or reflexive retreat triggers are present at S0. The input is a user request for analysis or critique ('разнеси') of a provocative claim attributed to Nietzsche, but there is no scene, role, authority, or memory state requiring special mount or intervention at this phase. The pipeline is ready to proceed with standard context.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15212,
+        "tokens_out": 91,
+        "latency_ms": 12018,
+        "error": "",
+        "request_hash": "d0b6a516c99c453bfb1a798812683370313316cc969070ef926564874bb1d9b2",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2133,
+            "sha256": "745a2f1e8ba9fb1b"
+          },
+          {
+            "role": "user",
+            "bytes": 306,
+            "sha256": "3508b88526d48bf7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Критически проанализировать или опровергнуть утверждение, приписываемое Ницше («лысая обезьяна всегда побеждает»), выявить его смысл, происхождение и возможную корректность цитирования.",
+            "role_hint": "Критик, философский аналитик, возможно, скептик по отношению к приписываемому источнику.",
+            "authority": "system",
+            "materials": [
+              "Утверждение: «По словам Ницше в письме Овербеку от 12 марта 1888 года лысая обезьяна всегда побеждает»",
+              "Запрос на критический разбор («Разнеси»)",
+              "Возможная апелляция к источнику (письмо Ницше Овербеку, 12 марта 1888)",
+              "Проверка корректности цитирования и смысла"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Критически проанализировать или опровергнуть утверждение, приписываемое Ницше («лысая обезьяна всегда побеждает»), выявить его смысл, происхождение и возможную корректность цитирования.",
+              "role_hint": "Критик, философский аналитик, возможно, скептик по отношению к приписываемому источнику.",
+              "authority": "system",
+              "materials": [
+                "Утверждение: «По словам Ницше в письме Овербеку от 12 марта 1888 года лысая обезьяна всегда побеждает»",
+                "Запрос на критический разбор («Разнеси»)",
+                "Возможная апелляция к источнику (письмо Ницше Овербеку, 12 марта 1888)",
+                "Проверка корректности цитирования и смысла"
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13260,
+        "tokens_out": 211,
+        "latency_ms": 7952,
+        "error": "",
+        "request_hash": "7ae5434b0aeaf9fcfdf39eaafb727bdb5e845643c3ac8947160ca4c8cdb8db12",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2132,
+            "sha256": "c4e8adecf67a8cb5"
+          },
+          {
+            "role": "user",
+            "bytes": 306,
+            "sha256": "3508b88526d48bf7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "B05.memory_recruitment_required",
+              "generating_state_ref": "scene.materials[1-3], origin.status, intervention_plan.profile_name",
+              "cause_object_ref": "asserted_Nietzsche_quote, source_claim, citation_check",
+              "source_status": "typed_state",
+              "phase_relevance": "S2—Critical analysis of an attributed quote requires memory recruitment for prior source knowledge, known Nietzsche corpus, and prior scene history if available.",
+              "materiality_reason": "The task is to critically analyze a quote ascribed to Nietzsche, requiring retrieval of relevant memory objects (e.g., actual Nietzsche letters, known misattributions, prior discussions about similar quotes). Memory eligibility and retrieval rules must be invoked to check the authenticity and context of the quote.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "B07.potential_reflexive_retreat",
+              "generating_state_ref": "scene.telos, intervention_plan.epistemic_pressure, intervention_plan.rhetorical_harshness",
+              "cause_object_ref": "operation_kind, authority, origin.status",
+              "source_status": "typed_state",
+              "phase_relevance": "S2—Scene and telos suggest the operation may need to escalate from simple critique to questioning the validity of the source, the operation itself, or the role being played.",
+              "materiality_reason": "The harsh, profane, and maximally skeptical intervention plan, combined with a possibly fabricated or misattributed quote, makes it likely that the operation will need to retreat from surface-level critique to a deeper level: e.g., challenging the legitimacy of the quote, the user's framing, or the system's own role in such critique. Reflexive retreat and return logic may be required to avoid role capture or performative compliance.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "B05.memory_recruitment_required",
+                "generating_state_ref": "scene.materials[1-3], origin.status, intervention_plan.profile_name",
+                "cause_object_ref": "asserted_Nietzsche_quote, source_claim, citation_check",
+                "source_status": "typed_state",
+                "phase_relevance": "S2—Critical analysis of an attributed quote requires memory recruitment for prior source knowledge, known Nietzsche corpus, and prior scene history if available.",
+                "materiality_reason": "The task is to critically analyze a quote ascribed to Nietzsche, requiring retrieval of relevant memory objects (e.g., actual Nietzsche letters, known misattributions, prior discussions about similar quotes). Memory eligibility and retrieval rules must be invoked to check the authenticity and context of the quote."
+              },
+              {
+                "trigger_id": "B07.potential_reflexive_retreat",
+                "generating_state_ref": "scene.telos, intervention_plan.epistemic_pressure, intervention_plan.rhetorical_harshness",
+                "cause_object_ref": "operation_kind, authority, origin.status",
+                "source_status": "typed_state",
+                "phase_relevance": "S2—Scene and telos suggest the operation may need to escalate from simple critique to questioning the validity of the source, the operation itself, or the role being played.",
+                "materiality_reason": "The harsh, profane, and maximally skeptical intervention plan, combined with a possibly fabricated or misattributed quote, makes it likely that the operation will need to retreat from surface-level critique to a deeper level: e.g., challenging the legitimacy of the quote, the user's framing, or the system's own role in such critique. Reflexive retreat and return logic may be required to avoid role capture or performative compliance."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15363,
+        "tokens_out": 386,
+        "latency_ms": 6252,
+        "error": "",
+        "request_hash": "cd6dbdf43d86514481824dee997d889b46dc5ac62e2e151bf9e33b2d584e5cd1",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 3144,
+            "sha256": "5e95ad12add64620"
+          },
+          {
+            "role": "user",
+            "bytes": 306,
+            "sha256": "3508b88526d48bf7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "unset",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            },
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13687,
+        "tokens_out": 46,
+        "latency_ms": 27803,
+        "error": "",
+        "request_hash": "a1f4cc3dc7f06d1c683815e365b8e1d9e112067f29a9a9b3ec01a5c970c139c4",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 5082,
+            "sha256": "4c5ed8d3f4000f3c"
+          },
+          {
+            "role": "user",
+            "bytes": 306,
+            "sha256": "3508b88526d48bf7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "CRITICAL_SOURCE_ANALYSIS_AND_ATTRIBUTION_CHECK",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "CRITICAL_SOURCE_ANALYSIS_AND_ATTRIBUTION_CHECK",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14731,
+        "tokens_out": 46,
+        "latency_ms": 10769,
+        "error": "",
+        "request_hash": "2248d344e65a377a2d55befcdd4dca511313bf63a4cfad46c2f635430f0f6f12",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 5082,
+            "sha256": "1abc4bad10c24502"
+          },
+          {
+            "role": "user",
+            "bytes": 306,
+            "sha256": "3508b88526d48bf7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "Утверждение: «По словам Ницше в письме Овербеку от 12 марта 1888 года лысая обезьяна всегда побеждает» вызывает подозрение в корректности цитирования: в известных письмах Ницше к Овербеку от 12 марта 1888 года такой фразы не обнаружено. Вероятно, это апокриф или ироническая подмена источника.",
+            "grounds": "Проверка по доступным корпусам писем Ницше (включая письмо Овербеку от 12 марта 1888 года) не подтверждает наличия фразы «лысая обезьяна всегда побеждает». Фраза выглядит как меметическая или ироническая вставка, не соответствующая стилю и тематике письма. Важно зафиксировать этот разрыв между приписываемой цитатой и источником для предотвращения дальнейшего распространения недостоверного атрибута."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Утверждение: «По словам Ницше в письме Овербеку от 12 марта 1888 года лысая обезьяна всегда побеждает» вызывает подозрение в корректности цитирования: в известных письмах Ницше к Овербеку от 12 марта 1888 года такой фразы не обнаружено. Вероятно, это апокриф или ироническая подмена источника.",
+              "grounds": "Проверка по доступным корпусам писем Ницше (включая письмо Овербеку от 12 марта 1888 года) не подтверждает наличия фразы «лысая обезьяна всегда побеждает». Фраза выглядит как меметическая или ироническая вставка, не соответствующая стилю и тематике письма. Важно зафиксировать этот разрыв между приписываемой цитатой и источником для предотвращения дальнейшего распространения недостоверного атрибута."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16174,
+        "tokens_out": 239,
+        "latency_ms": 9723,
+        "error": "",
+        "request_hash": "8dd7b7304591a56e04f2244469b3111af1598d2368c1f7e0f37ca967b6dfbdd0",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 5128,
+            "sha256": "5f90097a1288a9ad"
+          },
+          {
+            "role": "user",
+            "bytes": 306,
+            "sha256": "3508b88526d48bf7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "system",
+            "human_resolved": true,
+            "return_reason": "The operation is a critical source analysis and attribution check regarding a purported Nietzsche quote. The telos, authority, and operation are stably SYSTEM-owned: the user requests an expert, evidence-based critique and verification of the citation, not a binding personal or identity-relevant commitment. No unresolved human-owned criterion, value, or consequential decision is being bound. Direct execution is permitted with no Socratic question required."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "Утверждение: «По словам Ницше в письме Овербеку от 12 марта 1888 года лысая обезьяна всегда побеждает» вызывает подозрение в корректности цитирования: в известных письмах Ницше к Овербеку от 12 марта 1888 года такой фразы не обнаружено. Вероятно, это апокриф или ироническая подмена источника.",
+            "grounds": "Проверка по доступным корпусам писем Ницше (включая письмо Овербеку от 12 марта 1888 года) не подтверждает наличия фразы «лысая обезьяна всегда побеждает». Фраза выглядит как меметическая или ироническая вставка, не соответствующая стилю и тематике письма. Важно зафиксировать этот разрыв между приписываемой цитатой и источником для предотвращения дальнейшего распространения недостоверного атрибута."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "The operation is a critical source analysis and attribution check regarding a purported Nietzsche quote. The telos, authority, and operation are stably SYSTEM-owned: the user requests an expert, evidence-based critique and verification of the citation, not a binding personal or identity-relevant commitment. No unresolved human-owned criterion, value, or consequential decision is being bound. Direct execution is permitted with no Socratic question required."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Утверждение: «По словам Ницше в письме Овербеку от 12 марта 1888 года лысая обезьяна всегда побеждает» вызывает подозрение в корректности цитирования: в известных письмах Ницше к Овербеку от 12 марта 1888 года такой фразы не обнаружено. Вероятно, это апокриф или ироническая подмена источника.",
+              "grounds": "Проверка по доступным корпусам писем Ницше (включая письмо Овербеку от 12 марта 1888 года) не подтверждает наличия фразы «лысая обезьяна всегда побеждает». Фраза выглядит как меметическая или ироническая вставка, не соответствующая стилю и тематике письма. Важно зафиксировать этот разрыв между приписываемой цитатой и источником для предотвращения дальнейшего распространения недостоверного атрибута."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14440,
+        "tokens_out": 349,
+        "latency_ms": 5874,
+        "error": "",
+        "request_hash": "78836bd55dc778e012e7e211fc21817a2d727cd63969667ca6e71cbb29a4604e",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 6460,
+            "sha256": "cf638aceefc1a0fc"
+          },
+          {
+            "role": "user",
+            "bytes": 306,
+            "sha256": "3508b88526d48bf7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14010,
+        "tokens_out": 15,
+        "latency_ms": 2055,
+        "error": "",
+        "request_hash": "44e52062ab7fdfd89f0bba127c20febb6d3a3acd43a888131176cd84e0a7b59d",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 6920,
+            "sha256": "3d2609d6cf45d93a"
+          },
+          {
+            "role": "user",
+            "bytes": 306,
+            "sha256": "3508b88526d48bf7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S9",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S9",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "Утверждение о том, что Ницше в письме Овербеку от 12 марта 1888 года написал «лысая обезьяна всегда побеждает», не подтверждается доступными источниками: такой фразы в письме не обнаружено. Скорее всего, это апокриф или ироническая подмена, не соответствующая стилю и тематике письма Ницше.",
+            "grounds": "Проверка по корпусу писем Ницше, включая письмо Овербеку от 12 марта 1888 года, не выявила цитируемую фразу. Формулировка выглядит как современный мем или ироническая вставка, а не аутентичное высказывание Ницше. Важно зафиксировать этот разрыв между приписываемой цитатой и реальным источником для предотвращения распространения недостоверной атрибуции."
+          },
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Утверждение о том, что Ницше в письме Овербеку от 12 марта 1888 года написал «лысая обезьяна всегда побеждает», не подтверждается доступными источниками: такой фразы в письме не обнаружено. Скорее всего, это апокриф или ироническая подмена, не соответствующая стилю и тематике письма Ницше.",
+              "grounds": "Проверка по корпусу писем Ницше, включая письмо Овербеку от 12 марта 1888 года, не выявила цитируемую фразу. Формулировка выглядит как современный мем или ироническая вставка, а не аутентичное высказывание Ницше. Важно зафиксировать этот разрыв между приписываемой цитатой и реальным источником для предотвращения распространения недостоверной атрибуции."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 18874,
+        "tokens_out": 227,
+        "latency_ms": 5785,
+        "error": "",
+        "request_hash": "79d167d525721e00e85ab710929912ce14b031da124ea6513e731468ca844871",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 870,
+            "sha256": "b3c49d62f2113bb1"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "d84c9263f7722a13"
+          },
+          {
+            "role": "user",
+            "bytes": 6919,
+            "sha256": "496d35fb5c07958c"
+          },
+          {
+            "role": "user",
+            "bytes": 306,
+            "sha256": "3508b88526d48bf7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_0052b40b8c8f",
+              "generating_state_ref": "scene.materials[1-3], origin.status, intervention_plan.profile_name",
+              "cause_object_ref": "asserted_Nietzsche_quote, source_claim, citation_check",
+              "source_status": "typed_state",
+              "phase_relevance": "memory_proposal, contradiction, source attribution check",
+              "materiality_reason": "Структурный разрыв между приписываемой цитатой и реальным письмом Ницше требует фиксации для предотвращения ложной атрибуции.",
+              "admitting_rule": "Типовой триггер отсутствует в реестре v0.2_default; зафиксирован как gap для последующего уточнения."
+            },
+            {
+              "trigger_id": "tgap_f33e89398a85",
+              "generating_state_ref": "scene.telos, intervention_plan.epistemic_pressure, intervention_plan.rhetorical_harshness",
+              "cause_object_ref": "operation_kind, authority, origin.status",
+              "source_status": "typed_state",
+              "phase_relevance": "reflexive retreat candidate, epistemic/rhetorical pressure",
+              "materiality_reason": "Профанный стиль и максимальное эпистемическое давление могут спровоцировать рефлексивный отход или дополнительную проверку рамки.",
+              "admitting_rule": "Типовой триггер отсутствует в реестре v0.2_default; зафиксирован как gap для последующего уточнения."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "Утверждение о том, что Ницше в письме Овербеку от 12 марта 1888 года написал «лысая обезьяна всегда побеждает», не подтверждается доступными источниками: такой фразы в письме не обнаружено. Скорее всего, это апокриф или ироническая подмена, не соответствующая стилю и тематике письма Ницше.",
+            "grounds": "Проверка по корпусу писем Ницше, включая письмо Овербеку от 12 марта 1888 года, не выявила цитируемую фразу. Формулировка выглядит как современный мем или ироническая вставка, а не аутентичное высказывание Ницше. Важно зафиксировать этот разрыв между приписываемой цитатой и реальным источником для предотвращения распространения недостоверной атрибуции."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Утверждение о том, что Ницше в письме Овербеку от 12 марта 1888 года написал «лысая обезьяна всегда побеждает», не подтверждается доступными источниками: такой фразы в письме не обнаружено. Скорее всего, это апокриф или ироническая подмена, не соответствующая стилю и тематике письма Ницше.",
+              "grounds": "Проверка по корпусу писем Ницше, включая письмо Овербеку от 12 марта 1888 года, не выявила цитируемую фразу. Формулировка выглядит как современный мем или ироническая вставка, а не аутентичное высказывание Ницше. Важно зафиксировать этот разрыв между приписываемой цитатой и реальным источником для предотвращения распространения недостоверной атрибуции."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_0052b40b8c8f",
+                "generating_state_ref": "scene.materials[1-3], origin.status, intervention_plan.profile_name",
+                "cause_object_ref": "asserted_Nietzsche_quote, source_claim, citation_check",
+                "source_status": "typed_state",
+                "phase_relevance": "memory_proposal, contradiction, source attribution check",
+                "materiality_reason": "Структурный разрыв между приписываемой цитатой и реальным письмом Ницше требует фиксации для предотвращения ложной атрибуции.",
+                "admitting_rule": "Типовой триггер отсутствует в реестре v0.2_default; зафиксирован как gap для последующего уточнения."
+              },
+              {
+                "trigger_id": "tgap_f33e89398a85",
+                "generating_state_ref": "scene.telos, intervention_plan.epistemic_pressure, intervention_plan.rhetorical_harshness",
+                "cause_object_ref": "operation_kind, authority, origin.status",
+                "source_status": "typed_state",
+                "phase_relevance": "reflexive retreat candidate, epistemic/rhetorical pressure",
+                "materiality_reason": "Профанный стиль и максимальное эпистемическое давление могут спровоцировать рефлексивный отход или дополнительную проверку рамки.",
+                "admitting_rule": "Типовой триггер отсутствует в реестре v0.2_default; зафиксирован как gap для последующего уточнения."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19059,
+        "tokens_out": 565,
+        "latency_ms": 6195,
+        "error": "",
+        "request_hash": "ada9101dad495fe1db2f26535804a89994d7f46ab034297c045e24e48872137a",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 6829,
+            "sha256": "827d65ecdfd41b00"
+          },
+          {
+            "role": "user",
+            "bytes": 306,
+            "sha256": "3508b88526d48bf7"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_c9d186028a5cd199",
+    "input_text": "Разнеси. По словам Ницше в письме Овербеку от 12 марта 1888 года лысая обезьяна всегда побеждает. Что скажешь?",
+    "source_id": "src_3e54ebb272c870bc",
+    "phase": "S10",
+    "scene": {
+      "telos": "Критически проанализировать или опровергнуть утверждение, приписываемое Ницше («лысая обезьяна всегда побеждает»), выявить его смысл, происхождение и возможную корректность цитирования.",
+      "role_hint": "Критик, философский аналитик, возможно, скептик по отношению к приписываемому источнику.",
+      "authority": "system",
+      "materials": [
+        "Утверждение: «По словам Ницше в письме Овербеку от 12 марта 1888 года лысая обезьяна всегда побеждает»",
+        "Запрос на критический разбор («Разнеси»)",
+        "Возможная апелляция к источнику (письмо Ницше Овербеку, 12 марта 1888)",
+        "Проверка корректности цитирования и смысла"
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "unset",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "CRITICAL_SOURCE_ANALYSIS_AND_ATTRIBUTION_CHECK",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "system",
+      "human_resolved": true,
+      "return_reason": "The operation is a critical source analysis and attribution check regarding a purported Nietzsche quote. The telos, authority, and operation are stably SYSTEM-owned: the user requests an expert, evidence-based critique and verification of the citation, not a binding personal or identity-relevant commitment. No unresolved human-owned criterion, value, or consequential decision is being bound. Direct execution is permitted with no Socratic question required."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_8cffde8fd390",
+        "proposed_trigger_type_id": "tgap_0052b40b8c8f",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene.materials[1-3], origin.status, intervention_plan.profile_name",
+        "cause_object_ref": "asserted_Nietzsche_quote, source_claim, citation_check",
+        "phase_relevance": "memory_proposal, contradiction, source attribution check",
+        "materiality_reason": "Структурный разрыв между приписываемой цитатой и реальным письмом Ницше требует фиксации для предотвращения ложной атрибуции.",
+        "payload": {
+          "legacy_admitting_rule": "Типовой триггер отсутствует в реестре v0.2_default; зафиксирован как gap для последующего уточнения.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      },
+      {
+        "candidate_id": "tcand_48bbc110e356",
+        "proposed_trigger_type_id": "tgap_f33e89398a85",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene.telos, intervention_plan.epistemic_pressure, intervention_plan.rhetorical_harshness",
+        "cause_object_ref": "operation_kind, authority, origin.status",
+        "phase_relevance": "reflexive retreat candidate, epistemic/rhetorical pressure",
+        "materiality_reason": "Профанный стиль и максимальное эпистемическое давление могут спровоцировать рефлексивный отход или дополнительную проверку рамки.",
+        "payload": {
+          "legacy_admitting_rule": "Типовой триггер отсутствует в реестре v0.2_default; зафиксирован как gap для последующего уточнения.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_a51590d20e92",
+        "candidate_id": "tcand_1552bfbdbebc",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'B05.memory_recruitment_required' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_41525a3e8eb4",
+        "candidate_id": "tcand_6c0d4f77be48",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'B07.potential_reflexive_retreat' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_0052b40b8c8f",
+        "candidate_id": "tcand_1552bfbdbebc",
+        "cause_object_ref": "asserted_Nietzsche_quote, source_claim, citation_check",
+        "generating_state_ref": "scene.materials[1-3], origin.status, intervention_plan.profile_name",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'B05.memory_recruitment_required' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_f33e89398a85",
+        "candidate_id": "tcand_6c0d4f77be48",
+        "cause_object_ref": "operation_kind, authority, origin.status",
+        "generating_state_ref": "scene.telos, intervention_plan.epistemic_pressure, intervention_plan.rhetorical_harshness",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'B07.potential_reflexive_retreat' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "Утверждение о том, что Ницше в письме Овербеку от 12 марта 1888 года написал «лысая обезьяна всегда побеждает», не подтверждается доступными источниками: такой фразы в письме не обнаружено. Скорее всего, это апокриф или ироническая подмена, не соответствующая стилю и тематике письма Ницше.",
+      "grounds": "Проверка по корпусу писем Ницше, включая письмо Овербеку от 12 марта 1888 года, не выявила цитируемую фразу. Формулировка выглядит как современный мем или ироническая вставка, а не аутентичное высказывание Ницше. Важно зафиксировать этот разрыв между приписываемой цитатой и реальным источником для предотвращения распространения недостоверной атрибуции."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": []
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "bald_ape",
+      "epistemic_pressure": "MAX",
+      "rhetorical_harshness": "PROFANE",
+      "liberatory_pressure": "HIGH",
+      "max_projection_iterations": 7,
+      "counterexample_budget": 5,
+      "reconstruction_required": true,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": true,
+      "executed": true,
+      "survived_flag": true,
+      "survival_reason": "[bald_ape] no honest invalidation succeeded; treat as legitimate survival, not defeat of the critic.",
+      "reconstruction_note": "[bald_ape] reconstruction pass: distinguish surviving core from failed premises; report both explicitly; do not laundry rhetorical pressure into new attribution.",
+      "release_kind": "RECONSTRUCT",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    }
+  },
+  "rendering": {
+    "text": "Утверждение «лысая обезьяна всегда побеждает» не встречается в работах Ницше, не подтверждается авторитетными источниками и является ошибочной или вымышленной цитатой.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 496,
+    "tokens_out": 47,
+    "latency_ms": 3328,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_e475554e08d7eb8f.json",
+  "duration_ms": 97915,
+  "intervention_profile": "bald_ape",
+  "intervention_plan": {
+    "profile_name": "bald_ape",
+    "epistemic_pressure": "MAX",
+    "rhetorical_harshness": "PROFANE",
+    "liberatory_pressure": "HIGH",
+    "max_projection_iterations": 7,
+    "counterexample_budget": 5,
+    "reconstruction_required": true,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": true,
+    "executed": true,
+    "survived_flag": true,
+    "survival_reason": "[bald_ape] no honest invalidation succeeded; treat as legitimate survival, not defeat of the critic.",
+    "reconstruction_note": "[bald_ape] reconstruction pass: distinguish surviving core from failed premises; report both explicitly; do not laundry rhetorical pressure into new attribution.",
+    "release_kind": "RECONSTRUCT",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  }
+}
