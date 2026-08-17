@@ -1,80 +1,47 @@
-task_id: SOCRATES-GS26-RUNTIME-SHIVA-20260817-001
+task_id: SOCRATES-GS26-3A-PLUS-CURSOR-20260818-001
 status: IN_PROGRESS
-authority_date: '2026-08-17'
+authority_date: '2026-08-18'
 repository: 'C:/projects/zarathustra-push'
 remote: 'https://github.com/Stimurid/zarathustra-.git'
 
-start_branch: socrates/gs26-trigger-causal-admission
-start_head: 94944834a69af2d95e5dd6e8a461a34668b65959
-production_at_start: c9f1ad1e992eb68c896679f06955f675cf88715b
+start_branch: socrates/gs26-real-socrates-and-shiva
+start_head: 06ef2f87adb4a90986b9094e7a879fd72b69b0f9
+production_at_start: 2236a4c
 
 work_branch: socrates/gs26-real-socrates-and-shiva
 current_head: SET_AT_COMMIT
 
-package_order:
-  - B0_DURABLE_CHECKPOINT
-  - B1_REAL_SOCRATES_ENDPOINT_AND_LIVE_DEPLOY
-  - B2_SHIVA_BALD_APE_AND_LIVE_DEPLOY
-  - B3_WIRE_3A_3B_3C_3E_3F
-  - B4_OPTIONAL_V03_BRIDGE
+current_package: 3A_PLUS_CONTEXT_CONTINUITY
+completed_packages:
+  - B2Q_R_NATURAL_QUESTION_INFERENCE
+next_package: STOP_AFTER_3A_PLUS
 
-current_package: B0_DURABLE_CHECKPOINT
-completed_packages: []
-next_package: B1_REAL_SOCRATES_ENDPOINT_AND_LIVE_DEPLOY
+continuity_decision: ADD_MINIMAL_SERVER_CONTEXT_STORE
+
+cursor_constraints:
+  - LOCAL_FOREGROUND_ONLY
+  - HTTPS_GIT_ONLY
+  - NO_MCP_DRIVE_GITHUB
+  - NO_PROXY_SSH_DEPLOY
 
 open_defects:
-  - id: D-S26-LIVE-API-001
-    summary: 'Previous /api/run smokes went through persona_layer, not SocratesRuntime. They are not live evidence for SocratesRuntime / ADR-S26-022 / ADR-S26-023 / D-S26-TRIG-001 / 3A-F.'
+  - id: D-S26-QSEL-003
+    summary: QUESTION remains post-terminal rendering subtype not first-class governor terminal.
     status: OPEN
-    target_package: B1
-  - id: D-S26-WIRE-001
-    summary: 'Phase 3A/B/C/E/F modules added tests but did not modify running SocratesRuntime / PipelineExecutor / API composition.'
-    status: OPEN
-    target_package: B3
+    nonblocking: true
 
 resume_from:
-  package: B1_REAL_SOCRATES_ENDPOINT_AND_LIVE_DEPLOY
+  package: 3A_PLUS_CONTEXT_CONTINUITY
   what_to_do_next: |
-    Implement POST /api/socrates/run route in web_ui.py (or the smallest
-    adjacent authenticated handler). Route must:
-      * require existing Caddy basic auth (bypassing it is out of scope);
-      * accept { text, execution_mode="LIVE", ... };
-      * construct SocratesRuntime with existing default registries
-        + provider factory;
-      * call SocratesRuntime.run(...) and return a response with
-        runtime_layer="socrates_runtime" + run_id + trace_id +
-        terminal + mounted_phases + provider_id + model_id + rendering
-        (never hidden CoT);
-      * NOT reuse the persona_layer /api/run pipeline.
-    Add unit tests: handler dispatches to SocratesRuntime, response
-    fields present, invalid control fields do not mint authority.
-    Then deploy exact green descendant + run 5 smokes A/B/C/D/E via
-    the new route. Prove runtime_layer=socrates_runtime in each
-    saved response.
-
-live_evidence:
-  socrates_route: NOT_YET_CREATED
-  smoke_A_direct_via_socrates: NOT_RUN
-  smoke_B_reflective_via_socrates: NOT_RUN
-  smoke_C_context_pressure_via_socrates: NOT_RUN
-  smoke_D_organ_gap_via_socrates: NOT_RUN
-  smoke_E_model_proposal_via_socrates: NOT_RUN
-  shiva_normal_vs_bald_ape: NOT_RUN
-  shiva_strong_position_survives: NOT_RUN
-  shiva_fabrication_negative: NOT_RUN
+    Implement server-side ContextStore, context_id API, recognition pass,
+    SceneContract, branch/Space transitions; tests T1-T23; deploy; LIVE-C1..C10.
 
 regression:
-  full_backend_floor: 1039
+  full_backend_floor: 1174
   full_backend_current: SET_AFTER_TESTS
 
 nonclaims:
-  - 'Owner decision agenda remains unresolved (dyad / co-individuation / development / reflexive depth / truth-mode).'
-  - 'P-HYBRID-1/2/3 (Phase 3D) remain UNADOPTED.'
-  - 'CONTINUOUS_DEVELOPMENT (Phase 3E) remains PRODUCTION-INACTIVE.'
-  - 'D-S26-ATTR-001 remains FUTURE.'
-  - 'D-S26-DLG-001 remains FUTURE.'
-  - 'R9 / P001 / Kvaqin / G-S27 / G-S28 NOT RUN.'
-  - 'Aiye / Sayena / Academy NOT MUTATED.'
-  - 'Broad user Workspace / Hypergit / Sensecape / activation-probes / Flow research NOT STARTED.'
-  - 'candidate_v0_3 semantic bodies remain NON_RUNTIME_CANDIDATE (until B4 optional).'
-last_updated: '2026-08-17'
+  - '3B/3C/3D/3E/3F NOT STARTED.'
+  - 'D-S26-QSEL-003 unchanged unless proven in this package.'
+  - 'Space memory namespace may remain PARTIAL_FOUNDATION.'
+last_updated: '2026-08-18'
