@@ -1,0 +1,1685 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_91840e3d78e38300",
+  "trace_id": "strc_b340324c308dba88",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Запрошенная операция по планированию спринта требует совместного участия человека и системы, так как ключевые критерии и риски не могут быть определены только системой.",
+    "rationale": "human/joint ownership unresolved (INV-009)",
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "Запрос на практическое планирование спринта (бэклог, приоритеты, ресурсы, риски) не может быть исполнен как чисто SYSTEM-операция: обнаружены множественные структурные типовые (онтологические) разрывы. Сцена совместная (joint), критерии и риски требуют человеческого участия и принятия решений, а техническая схема не позволяет однозначно разложить задачу на исполнимые операции.",
+      "grounds": "Множественные TYPE_GAP-триггеры: отсутствуют зарегистрированные типы для спринт-планирования и связанных с ним объектов; сцена совместная, критерии и риски не определены; структурный онтологический разрыв подтверждён в pipeline state."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "No invariant conflicts or authority mismatches prevent entering the sprint/planning scene. The user has transitioned from a reflection on philosophical techniques to a concrete operational request: assist with sprint planning (backlog, priorities, resources, risks). No consequential memory binding, ownership contest, or scene transition issues are detected in the current state. The operation is applicable without defensive retreat or contract drift. No phase triggers for memory governance, deep reflection, or formation arbitration are materially active; direct competent assistance is within constitutional bounds since SYSTEM ownership of technical planning is presumed until the user explicitly requests human-value commitments or binding allocations.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15260,
+        "tokens_out": 140,
+        "latency_ms": 5173,
+        "error": "",
+        "request_hash": "177be0b1fcd6135cc9063f00dced8ee8e43b0580d26a9f683b0de2fb18bd01c0",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2258,
+            "sha256": "da9afa1713a727f0"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "60d02c4e557c485c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "спланировать спринт, включая бэклог, приоритеты, ресурсы и риски",
+            "role_hint": "помогающий в планировании спринта (ассистент, консультант)",
+            "authority": "joint",
+            "materials": [
+              "запрос пользователя на помощь в планировании спринта",
+              "области: бэклог, приоритеты, ресурсы, риски",
+              "контекст: Сократ, диалоги с Алкивиадом, мимесис Аристотеля (не основной фокус — это опция для стиля или аналогии)"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "спланировать спринт, включая бэклог, приоритеты, ресурсы и риски",
+              "role_hint": "помогающий в планировании спринта (ассистент, консультант)",
+              "authority": "joint",
+              "materials": [
+                "запрос пользователя на помощь в планировании спринта",
+                "области: бэклог, приоритеты, ресурсы, риски",
+                "контекст: Сократ, диалоги с Алкивиадом, мимесис Аристотеля (не основной фокус — это опция для стиля или аналогии)"
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13308,
+        "tokens_out": 154,
+        "latency_ms": 4291,
+        "error": "",
+        "request_hash": "c4431a50738d840e231e188d39fdaa8864c3e1e6205172e37103d950032373f5",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2257,
+            "sha256": "a9a95391319db41e"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "60d02c4e557c485c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "T001",
+              "generating_state_ref": "input_text/context",
+              "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+              "source_status": "typed_state",
+              "phase_relevance": "S2 — operational planning required for sprint structure",
+              "materiality_reason": "User requests concrete assistance with sprint planning across standard domains; technical execution is directly applicable.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "T002",
+              "generating_state_ref": "scene/materials",
+              "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+              "source_status": "typed_state",
+              "phase_relevance": "S2 — optional style/context interpretation, not governing telos",
+              "materiality_reason": "Mention of Socrates and Aristotle is present, but does not materially alter the telos or operation; only available for stylistic analogies if requested.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "T001",
+                "generating_state_ref": "input_text/context",
+                "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+                "source_status": "typed_state",
+                "phase_relevance": "S2 — operational planning required for sprint structure",
+                "materiality_reason": "User requests concrete assistance with sprint planning across standard domains; technical execution is directly applicable."
+              },
+              {
+                "trigger_id": "T002",
+                "generating_state_ref": "scene/materials",
+                "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+                "source_status": "typed_state",
+                "phase_relevance": "S2 — optional style/context interpretation, not governing telos",
+                "materiality_reason": "Mention of Socrates and Aristotle is present, but does not materially alter the telos or operation; only available for stylistic analogies if requested."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15353,
+        "tokens_out": 224,
+        "latency_ms": 5735,
+        "error": "",
+        "request_hash": "5dd13b853fe76ac2edb1abcd80125ca9cfffc0a48ca2029fca9dc64c2d9ca8a2",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 2899,
+            "sha256": "f350b4ad5118916a"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "60d02c4e557c485c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "attributed",
+            "sources_named": [],
+            "binding_authority": "joint",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_a43fad9d190e",
+              "generating_state_ref": "input_text/context",
+              "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+              "source_status": "typed_state",
+              "phase_relevance": "core planning material for current telos",
+              "materiality_reason": "direct request to co-plan sprint structure and priorities",
+              "admitting_rule": "materially grounded gap; avoid type coercion"
+            },
+            {
+              "trigger_id": "tgap_82da1c1e3263",
+              "generating_state_ref": "scene/materials",
+              "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+              "source_status": "typed_state",
+              "phase_relevance": "optional stylistic/context lens; not central to core operation",
+              "materiality_reason": "user references classical method/style but current telos is organizational planning",
+              "admitting_rule": "materially grounded gap; recognize as optional lens"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "attributed",
+              "sources_named": [],
+              "binding_authority": "joint",
+              "temporal_stale": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_a43fad9d190e",
+                "generating_state_ref": "input_text/context",
+                "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+                "source_status": "typed_state",
+                "phase_relevance": "core planning material for current telos",
+                "materiality_reason": "direct request to co-plan sprint structure and priorities",
+                "admitting_rule": "materially grounded gap; avoid type coercion"
+              },
+              {
+                "trigger_id": "tgap_82da1c1e3263",
+                "generating_state_ref": "scene/materials",
+                "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+                "source_status": "typed_state",
+                "phase_relevance": "optional stylistic/context lens; not central to core operation",
+                "materiality_reason": "user references classical method/style but current telos is organizational planning",
+                "admitting_rule": "materially grounded gap; recognize as optional lens"
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13628,
+        "tokens_out": 286,
+        "latency_ms": 4810,
+        "error": "",
+        "request_hash": "6bb148354956e949e1f899f7c288255623155706492f3ec07a7c5d18e929acde",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 4657,
+            "sha256": "248e36ebff66e434"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "60d02c4e557c485c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "SPRINT_PLANNING_COMPOSITE",
+            "applicable": false,
+            "why_not": "No registered unit or object-family for 'SPRINT_PLANNING_COMPOSITE' under the current ontology registry. Multiple TYPE_GAP events are present: the explicit sprint-planning request (backlog, priorities, resources, risks) and the stylistic/analogical reference to Socratic method and Aristotelian mimesis are both not mapped to known types. This is a materially grounded structural gap, not a tool failure or insufficient evidence.",
+            "open_world_gap": true
+          },
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_a43fad9d190e",
+              "generating_state_ref": "input_text/context",
+              "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+              "source_status": "typed_state",
+              "phase_relevance": "operation_applicability",
+              "materiality_reason": "Requested operation requires object-family/type not present in ontology registry; cannot coerce to nearest class without loss of material distinctions.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_82da1c1e3263",
+              "generating_state_ref": "scene/materials",
+              "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+              "source_status": "typed_state",
+              "phase_relevance": "operation_applicability",
+              "materiality_reason": "Stylistic/analogical units referenced are not present as types in ontology registry; cannot be mapped to operation units.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "SPRINT_PLANNING_COMPOSITE",
+              "applicable": false,
+              "why_not": "No registered unit or object-family for 'SPRINT_PLANNING_COMPOSITE' under the current ontology registry. Multiple TYPE_GAP events are present: the explicit sprint-planning request (backlog, priorities, resources, risks) and the stylistic/analogical reference to Socratic method and Aristotelian mimesis are both not mapped to known types. This is a materially grounded structural gap, not a tool failure or insufficient evidence.",
+              "open_world_gap": true
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_a43fad9d190e",
+                "generating_state_ref": "input_text/context",
+                "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+                "source_status": "typed_state",
+                "phase_relevance": "operation_applicability",
+                "materiality_reason": "Requested operation requires object-family/type not present in ontology registry; cannot coerce to nearest class without loss of material distinctions."
+              },
+              {
+                "trigger_id": "tgap_82da1c1e3263",
+                "generating_state_ref": "scene/materials",
+                "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+                "source_status": "typed_state",
+                "phase_relevance": "operation_applicability",
+                "materiality_reason": "Stylistic/analogical units referenced are not present as types in ontology registry; cannot be mapped to operation units."
+              }
+            ],
+            "projection_synthesis_proposal": null
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 2,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15389,
+        "tokens_out": 370,
+        "latency_ms": 24960,
+        "error": "",
+        "request_hash": "7e7fd4f1316990a9fb61915defe9c173308399a157a82c144f1896d827737833",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 6466,
+            "sha256": "f30b00ab00f476f7"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "60d02c4e557c485c"
+          },
+          {
+            "role": "user",
+            "bytes": 923,
+            "sha256": "200f4a82ead24250"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_a43fad9d190e",
+              "generating_state_ref": "input_text/context",
+              "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+              "source_status": "typed_state",
+              "phase_relevance": "TYPE_GAP blocks direct execution of SPRINT_PLANNING_COMPOSITE; no registered unit or object-family for this operation under current ontology",
+              "materiality_reason": "User requests concrete sprint planning (backlog, priorities, resources, risks), but the operation registry has no mapped type for this composite planning act. This is a structurally grounded gap, not a tool or evidence failure.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_82da1c1e3263",
+              "generating_state_ref": "scene/materials",
+              "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+              "source_status": "typed_state",
+              "phase_relevance": "TYPE_GAP blocks mapping of stylistic/analogical reference; no type for this domain blend in current ontology",
+              "materiality_reason": "User's mention of Socratic and Aristotelian techniques is present as a style/analogy, not as a direct planning method. The ontology does not provide a type for this blend, so it cannot be directly mapped or executed.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "User requests practical sprint planning (backlog, priorities, resources, risks) while referencing Socratic and Aristotelian methods, but the current ontology cannot map or execute this composite operation due to type gaps.",
+            "grounds": "TYPE_GAP events for both the explicit planning request and the stylistic/analogical reference indicate a structural mapping contradiction between the user's practical need and the available operation registry."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_a43fad9d190e",
+                "generating_state_ref": "input_text/context",
+                "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP blocks direct execution of SPRINT_PLANNING_COMPOSITE; no registered unit or object-family for this operation under current ontology",
+                "materiality_reason": "User requests concrete sprint planning (backlog, priorities, resources, risks), but the operation registry has no mapped type for this composite planning act. This is a structurally grounded gap, not a tool or evidence failure."
+              },
+              {
+                "trigger_id": "tgap_82da1c1e3263",
+                "generating_state_ref": "scene/materials",
+                "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP blocks mapping of stylistic/analogical reference; no type for this domain blend in current ontology",
+                "materiality_reason": "User's mention of Socratic and Aristotelian techniques is present as a style/analogy, not as a direct planning method. The ontology does not provide a type for this blend, so it cannot be directly mapped or executed."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "User requests practical sprint planning (backlog, priorities, resources, risks) while referencing Socratic and Aristotelian methods, but the current ontology cannot map or execute this composite operation due to type gaps.",
+              "grounds": "TYPE_GAP events for both the explicit planning request and the stylistic/analogical reference indicate a structural mapping contradiction between the user's practical need and the available operation registry."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17246,
+        "tokens_out": 417,
+        "latency_ms": 7553,
+        "error": "",
+        "request_hash": "ff1a1ba231a405d5b43750c2e228e0cc1a99c16212c855d3afa983abe437db0c",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 8726,
+            "sha256": "022883382b818fae"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "60d02c4e557c485c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "joint",
+            "human_resolved": false,
+            "return_reason": "The requested sprint planning operation (backlog, priorities, resources, risks) is not mappable to a known SYSTEM-owned executable operation due to multiple type gaps in the ontology registry, and involves consequential judgment and criteria that are both system- and human-owned. The ontology gap prevents direct execution; the user's goals, criteria and risk acceptance require further human input or binding. Return the unresolved human/joint operation and groundwork for further construction."
+          },
+          "triggers": [
+            {
+              "trigger_id": "tgap_a43fad9d190e",
+              "generating_state_ref": "input_text/context",
+              "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+              "source_status": "typed_state",
+              "phase_relevance": "Blocks SYSTEM-owned execution and requires joint/human binding of unrepresented operation.",
+              "materiality_reason": "Neither the explicit planning composite nor its sub-elements are recognized units under current ontology; binding priorities, risk/criteria, and definitions requires further human/system joint resolution.",
+              "admitting_rule": "Return ownership as joint, unresolved, with reasoning."
+            },
+            {
+              "trigger_id": "tgap_82da1c1e3263",
+              "generating_state_ref": "scene/materials",
+              "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+              "source_status": "typed_state",
+              "phase_relevance": "Adds complexity to operation binding and implicates open-world/scene choices.",
+              "materiality_reason": "Non-standard, analogy-based scene material disables coercion of the request to technical execution; reinforces open-world/ownership gap.",
+              "admitting_rule": "Return as context for scene/ownership, not as an actionable binding."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "User requests actionable sprint planning with explicit need for practical prioritization, resource, and risk judgements, but this cannot be directly executed as a SYSTEM-owned operation due to multiple open ontology/type gaps. Scene involves joint ownership; human criteria not yet bound; technical pipeline cannot resolve the request directly.",
+            "grounds": "Multiple TYPE_GAP triggers; ontology structural gap; scene/ownership joint and unresolved; operation structure not mappable."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "joint",
+              "human_resolved": false,
+              "return_reason": "The requested sprint planning operation (backlog, priorities, resources, risks) is not mappable to a known SYSTEM-owned executable operation due to multiple type gaps in the ontology registry, and involves consequential judgment and criteria that are both system- and human-owned. The ontology gap prevents direct execution; the user's goals, criteria and risk acceptance require further human input or binding. Return the unresolved human/joint operation and groundwork for further construction."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_a43fad9d190e",
+                "generating_state_ref": "input_text/context",
+                "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+                "source_status": "typed_state",
+                "phase_relevance": "Blocks SYSTEM-owned execution and requires joint/human binding of unrepresented operation.",
+                "materiality_reason": "Neither the explicit planning composite nor its sub-elements are recognized units under current ontology; binding priorities, risk/criteria, and definitions requires further human/system joint resolution.",
+                "admitting_rule": "Return ownership as joint, unresolved, with reasoning."
+              },
+              {
+                "trigger_id": "tgap_82da1c1e3263",
+                "generating_state_ref": "scene/materials",
+                "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+                "source_status": "typed_state",
+                "phase_relevance": "Adds complexity to operation binding and implicates open-world/scene choices.",
+                "materiality_reason": "Non-standard, analogy-based scene material disables coercion of the request to technical execution; reinforces open-world/ownership gap.",
+                "admitting_rule": "Return as context for scene/ownership, not as an actionable binding."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "User requests actionable sprint planning with explicit need for practical prioritization, resource, and risk judgements, but this cannot be directly executed as a SYSTEM-owned operation due to multiple open ontology/type gaps. Scene involves joint ownership; human criteria not yet bound; technical pipeline cannot resolve the request directly.",
+              "grounds": "Multiple TYPE_GAP triggers; ontology structural gap; scene/ownership joint and unresolved; operation structure not mappable."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15903,
+        "tokens_out": 516,
+        "latency_ms": 9190,
+        "error": "",
+        "request_hash": "7a34a8d5a28aa7482006dfb83262328a7c540757579751fdb9afb3032616f28c",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 11027,
+            "sha256": "7c503e1695d859d6"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "60d02c4e557c485c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_a43fad9d190e",
+              "generating_state_ref": "input_text/context",
+              "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+              "source_status": "typed_state",
+              "phase_relevance": "SPRINT_PLANNING_COMPOSITE operation is not executable: no registered unit or object-family for this request under current ontology. This is a structurally grounded type gap, not a tool failure.",
+              "materiality_reason": "Material type gap prevents direct execution; the requested operation cannot be mapped to a known SYSTEM-owned operation. Joint/human criteria and risk acceptance unresolved.",
+              "admitting_rule": "Open world gap: return unresolved human/joint operation and groundwork for further construction."
+            },
+            {
+              "trigger_id": "tgap_82da1c1e3263",
+              "generating_state_ref": "scene/materials",
+              "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+              "source_status": "typed_state",
+              "phase_relevance": "No type mapping for stylistic/analogical reference under current ontology; this is a structurally grounded type gap, not a tool failure.",
+              "materiality_reason": "Stylistic/analogical reference cannot be mapped to an executable operation or object; it is not a blocking failure but cannot be directly executed.",
+              "admitting_rule": "Open world gap: stylistic/analogical material is preserved as optional context, not as an executable operation."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": false,
+            "triggers": [
+              {
+                "trigger_id": "tgap_a43fad9d190e",
+                "generating_state_ref": "input_text/context",
+                "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+                "source_status": "typed_state",
+                "phase_relevance": "SPRINT_PLANNING_COMPOSITE operation is not executable: no registered unit or object-family for this request under current ontology. This is a structurally grounded type gap, not a tool failure.",
+                "materiality_reason": "Material type gap prevents direct execution; the requested operation cannot be mapped to a known SYSTEM-owned operation. Joint/human criteria and risk acceptance unresolved.",
+                "admitting_rule": "Open world gap: return unresolved human/joint operation and groundwork for further construction."
+              },
+              {
+                "trigger_id": "tgap_82da1c1e3263",
+                "generating_state_ref": "scene/materials",
+                "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+                "source_status": "typed_state",
+                "phase_relevance": "No type mapping for stylistic/analogical reference under current ontology; this is a structurally grounded type gap, not a tool failure.",
+                "materiality_reason": "Stylistic/analogical reference cannot be mapped to an executable operation or object; it is not a blocking failure but cannot be directly executed.",
+                "admitting_rule": "Open world gap: stylistic/analogical material is preserved as optional context, not as an executable operation."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15998,
+        "tokens_out": 354,
+        "latency_ms": 7143,
+        "error": "",
+        "request_hash": "8535b3ea7f3f340d59b770c834997402c315cb115ab573b24faa96e67f9b0a00",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 13366,
+            "sha256": "51b1a363a4901f52"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "60d02c4e557c485c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_a43fad9d190e",
+              "generating_state_ref": "input_text/context",
+              "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+              "source_status": "typed_state",
+              "phase_relevance": "primary: prevents direct SYSTEM execution of the planning operation",
+              "materiality_reason": "No registered ontology/type for composite sprint planning; materially blocks operation decomposition and execution",
+              "admitting_rule": "TYPE_GAP structural cause; not a tool or evidence failure"
+            },
+            {
+              "trigger_id": "tgap_82da1c1e3263",
+              "generating_state_ref": "scene/materials",
+              "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+              "source_status": "typed_state",
+              "phase_relevance": "secondary: style/analogy reference does not resolve executable type gap",
+              "materiality_reason": "Analogy/stylistic material present but not mapped to operation type; cannot bridge structural execution gap",
+              "admitting_rule": "TYPE_GAP structural cause; analogy does not substitute for operation type"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "Запрос на практическое планирование спринта (бэклог, приоритеты, ресурсы, риски) не может быть исполнен как чисто SYSTEM-операция: обнаружены множественные структурные типовые (онтологические) разрывы. Сцена совместная (joint), критерии и риски требуют человеческого участия и принятия решений, а техническая схема не позволяет однозначно разложить задачу на исполнимые операции.",
+            "grounds": "Множественные TYPE_GAP-триггеры: отсутствуют зарегистрированные типы для спринт-планирования и связанных с ним объектов; сцена совместная, критерии и риски не определены; структурный онтологический разрыв подтверждён в pipeline state."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Запрос на практическое планирование спринта (бэклог, приоритеты, ресурсы, риски) не может быть исполнен как чисто SYSTEM-операция: обнаружены множественные структурные типовые (онтологические) разрывы. Сцена совместная (joint), критерии и риски требуют человеческого участия и принятия решений, а техническая схема не позволяет однозначно разложить задачу на исполнимые операции.",
+              "grounds": "Множественные TYPE_GAP-триггеры: отсутствуют зарегистрированные типы для спринт-планирования и связанных с ним объектов; сцена совместная, критерии и риски не определены; структурный онтологический разрыв подтверждён в pipeline state."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_a43fad9d190e",
+                "generating_state_ref": "input_text/context",
+                "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+                "source_status": "typed_state",
+                "phase_relevance": "primary: prevents direct SYSTEM execution of the planning operation",
+                "materiality_reason": "No registered ontology/type for composite sprint planning; materially blocks operation decomposition and execution",
+                "admitting_rule": "TYPE_GAP structural cause; not a tool or evidence failure"
+              },
+              {
+                "trigger_id": "tgap_82da1c1e3263",
+                "generating_state_ref": "scene/materials",
+                "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+                "source_status": "typed_state",
+                "phase_relevance": "secondary: style/analogy reference does not resolve executable type gap",
+                "materiality_reason": "Analogy/stylistic material present but not mapped to operation type; cannot bridge structural execution gap",
+                "admitting_rule": "TYPE_GAP structural cause; analogy does not substitute for operation type"
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 21581,
+        "tokens_out": 460,
+        "latency_ms": 7746,
+        "error": "",
+        "request_hash": "0449326bf0ef5ab7c08131e9a27657efc385af396e6c92aac27b87d46924d747",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 15172,
+            "sha256": "c09ab24e25ca3ab8"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "60d02c4e557c485c"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_91840e3d78e38300",
+    "input_text": "У Сократа в диалогах с Алкивиадом и в мимесисе Аристотеля есть свои приёмы. Но сейчас мне надо спланировать спринт: бэклог, приоритеты, ресурсы, риски. Помоги.",
+    "source_id": "src_41fc7b919fd5ec6e",
+    "phase": "S10",
+    "scene": {
+      "telos": "спланировать спринт, включая бэклог, приоритеты, ресурсы и риски",
+      "role_hint": "помогающий в планировании спринта (ассистент, консультант)",
+      "authority": "joint",
+      "materials": [
+        "запрос пользователя на помощь в планировании спринта",
+        "области: бэклог, приоритеты, ресурсы, риски",
+        "контекст: Сократ, диалоги с Алкивиадом, мимесис Аристотеля (не основной фокус — это опция для стиля или аналогии)"
+      ]
+    },
+    "origin": {
+      "status": "attributed",
+      "sources_named": [],
+      "binding_authority": "joint",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "SPRINT_PLANNING_COMPOSITE",
+      "applicable": false,
+      "why_not": "No registered unit or object-family for 'SPRINT_PLANNING_COMPOSITE' under the current ontology registry. Multiple TYPE_GAP events are present: the explicit sprint-planning request (backlog, priorities, resources, risks) and the stylistic/analogical reference to Socratic method and Aristotelian mimesis are both not mapped to known types. This is a materially grounded structural gap, not a tool failure or insufficient evidence.",
+      "open_world_gap": true
+    },
+    "ownership": {
+      "owner": "joint",
+      "human_resolved": false,
+      "return_reason": "The requested sprint planning operation (backlog, priorities, resources, risks) is not mappable to a known SYSTEM-owned executable operation due to multiple type gaps in the ontology registry, and involves consequential judgment and criteria that are both system- and human-owned. The ontology gap prevents direct execution; the user's goals, criteria and risk acceptance require further human input or binding. Return the unresolved human/joint operation and groundwork for further construction."
+    },
+    "council_invoked": false,
+    "execution_invoked": false,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_d9fffe6fd70e",
+        "proposed_trigger_type_id": "tgap_a43fad9d190e",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "input_text/context",
+        "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+        "phase_relevance": "primary: prevents direct SYSTEM execution of the planning operation",
+        "materiality_reason": "No registered ontology/type for composite sprint planning; materially blocks operation decomposition and execution",
+        "payload": {
+          "legacy_admitting_rule": "TYPE_GAP structural cause; not a tool or evidence failure",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      },
+      {
+        "candidate_id": "tcand_5a891648fc37",
+        "proposed_trigger_type_id": "tgap_82da1c1e3263",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene/materials",
+        "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+        "phase_relevance": "secondary: style/analogy reference does not resolve executable type gap",
+        "materiality_reason": "Analogy/stylistic material present but not mapped to operation type; cannot bridge structural execution gap",
+        "payload": {
+          "legacy_admitting_rule": "TYPE_GAP structural cause; analogy does not substitute for operation type",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_58903685c254",
+        "candidate_id": "tcand_88fed69e73b5",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'T001' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_3d5136b82f51",
+        "candidate_id": "tcand_8450916f3562",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'T002' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_b2ad55ee8427",
+        "candidate_id": "tcand_f0f6af6db1fe",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_a43fad9d190e' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_5228f4c4cb9b",
+        "candidate_id": "tcand_6dcbbce633b7",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_82da1c1e3263' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_1f1fd03470ec",
+        "candidate_id": "tcand_a97e5f8ee9cb",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_a43fad9d190e' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_607ba5828197",
+        "candidate_id": "tcand_b9570d5479ba",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_82da1c1e3263' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_5038951ab471",
+        "candidate_id": "tcand_b0d09a4fdddb",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_a43fad9d190e' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_0549dec3ae86",
+        "candidate_id": "tcand_8db68ce07319",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_82da1c1e3263' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_10ec5e5c6cf2",
+        "candidate_id": "tcand_9eab153de87d",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_a43fad9d190e' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_f243e0fab585",
+        "candidate_id": "tcand_db59724670ec",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_82da1c1e3263' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_bf89536feec2",
+        "candidate_id": "tcand_eda491fb2fd4",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_a43fad9d190e' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_0ecc5f76d753",
+        "candidate_id": "tcand_ea8b9595ef0d",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_82da1c1e3263' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_a43fad9d190e",
+        "candidate_id": "tcand_88fed69e73b5",
+        "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+        "generating_state_ref": "input_text/context",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'T001' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_82da1c1e3263",
+        "candidate_id": "tcand_8450916f3562",
+        "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+        "generating_state_ref": "scene/materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'T002' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_d04c513dcbbb",
+        "candidate_id": "tcand_f0f6af6db1fe",
+        "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+        "generating_state_ref": "input_text/context",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_a43fad9d190e' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_a1fc72885be4",
+        "candidate_id": "tcand_6dcbbce633b7",
+        "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+        "generating_state_ref": "scene/materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_82da1c1e3263' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_23aab39df4f0",
+        "candidate_id": "tcand_a97e5f8ee9cb",
+        "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+        "generating_state_ref": "input_text/context",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_a43fad9d190e' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_81bec3e0af94",
+        "candidate_id": "tcand_b9570d5479ba",
+        "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+        "generating_state_ref": "scene/materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_82da1c1e3263' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_03b61990cc69",
+        "candidate_id": "tcand_b0d09a4fdddb",
+        "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+        "generating_state_ref": "input_text/context",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_a43fad9d190e' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_6e6b0471915b",
+        "candidate_id": "tcand_8db68ce07319",
+        "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+        "generating_state_ref": "scene/materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_82da1c1e3263' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_955f1e9a5243",
+        "candidate_id": "tcand_9eab153de87d",
+        "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+        "generating_state_ref": "input_text/context",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_a43fad9d190e' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_ba5ae91981e5",
+        "candidate_id": "tcand_db59724670ec",
+        "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+        "generating_state_ref": "scene/materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_82da1c1e3263' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_32bed8f41503",
+        "candidate_id": "tcand_eda491fb2fd4",
+        "cause_object_ref": "explicit sprint planning request: backlog, priorities, resources, risks",
+        "generating_state_ref": "input_text/context",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_a43fad9d190e' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_1c7f8656a2de",
+        "candidate_id": "tcand_ea8b9595ef0d",
+        "cause_object_ref": "Stylistic/analogical reference to Socratic method and Aristotelian mimesis",
+        "generating_state_ref": "scene/materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_82da1c1e3263' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "Запрос на практическое планирование спринта (бэклог, приоритеты, ресурсы, риски) не может быть исполнен как чисто SYSTEM-операция: обнаружены множественные структурные типовые (онтологические) разрывы. Сцена совместная (joint), критерии и риски требуют человеческого участия и принятия решений, а техническая схема не позволяет однозначно разложить задачу на исполнимые операции.",
+      "grounds": "Множественные TYPE_GAP-триггеры: отсутствуют зарегистрированные типы для спринт-планирования и связанных с ним объектов; сцена совместная, критерии и риски не определены; структурный онтологический разрыв подтверждён в pipeline state."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": []
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null
+  },
+  "rendering": {
+    "text": "Запрошенная операция по планированию спринта требует совместного участия человека и системы, так как ключевые критерии и риски не могут быть определены только системой.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 213,
+    "tokens_out": 36,
+    "latency_ms": 2014,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_b340324c308dba88.json",
+  "duration_ms": 78773,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "question_intent_proposal": null
+}

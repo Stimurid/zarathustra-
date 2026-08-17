@@ -65,14 +65,28 @@ Sub-steps in strict order:
 | Step | Status |
 |---|---|
 | §0.1 Entry verify | DONE — HEAD == 20fdaa6, prod == 60678ad via VM hash |
-| §0.3 Durable checkpoint + handoff verbatim | IN_PROGRESS |
-| §3 Re-verify existing authority | pending |
-| §4 Design QuestionIntentProposal + inference | pending |
-| §7 Material-specific drafting path | pending |
-| §5 Extend plan for origin + natural-text activation | pending |
-| §10 R1..R15 tests | pending |
-| §14 Full backend ≥ 1147 | pending |
-| §14 Deploy | pending |
-| §11 LIVE-R1..R7 (natural, no topology) | pending |
-| §12 Gate review | pending |
-| §13 Optional 3A | pending — gated on B2Q-R PASS + room |
+| §0.3 Durable checkpoint + handoff verbatim | DONE — 5f89529 |
+| §3 Re-verify existing authority | DONE — no typed governor exists (unchanged from B2Q audit) |
+| §4 Design QuestionIntentProposal + inference | DONE — new module `socrates_runtime/question_intent_inference.py` |
+| §7 Material-specific drafting path | DONE — `candidate_question` per fork; `text_source=MODEL_MATERIAL` |
+| §5 Extend plan for origin + natural-text activation | DONE — `plan.origin` + inference gated on LIVE + overlayable terminal |
+| §10 R1..R15 tests | DONE — 27 new tests, all green |
+| §14 Full backend ≥ 1147 | DONE — 1174 passed / 4 skipped / 0 failed (+27) |
+| §14 Deploy | DONE — deployed 2236a4c |
+| §11 LIVE-R1..R7 (natural, no topology) | DONE — 7/7 PASS; all runtime_layer=socrates_runtime; R4/R6 respect terminal sovereignty; R7 rejects source instruction |
+| §12 Gate review | **PASS** — all 14 criteria met |
+| §13 Optional 3A | NOT STARTED — per §17 stop rule; deploy cycles + SSH timeouts consumed safe margin |
+
+## B2Q-R closure ledger
+
+Pushed SHA: `2236a4c` — 1174 passed / 4 skipped / 0 failed
+Deployed SHA: `2236a4c` at 2026-08-17 23:40:03 MSK
+Rollback (fresh): `/opt/tinkuy/rollback_snapshot_pre_2236a4c.tar.gz`
+Rollback ancestry: pre_60678ad, pre_4ffbaf8, pre_dc1d1bf also preserved
+Evidence: `docs/socrates_gs26/real_socrates_route/b2q_r/qsp_r*.json` (7 files)
+Audit + architecture: `docs/socrates_gs26/real_socrates_route/B2Q_AUDIT_AND_ARCHITECTURE.md` (from prior B2Q pass)
+Checkpoint doc: `docs/socrates_gs26/real_socrates_route/CHECKPOINT_B2Q_R_NATURAL_QUESTION_LIVE.md`
+Dialogue log preserved: 33 → 43 records at `/srv/tinkuy/dialogue_log/dialogues.jsonl`
+Defects closed: D-S26-QSEL-001, D-S26-QSEL-002
+New follow-up: D-S26-QSEL-003 (QUESTION as first-class governor terminal)
+Next frontier: **3A CONTEXT-TRANSITION SOVEREIGNTY** — deferred to next session per §17.

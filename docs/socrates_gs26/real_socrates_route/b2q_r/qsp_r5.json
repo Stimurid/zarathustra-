@@ -1,0 +1,1942 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_6251aee030f05f9b",
+  "trace_id": "strc_063e3597fb1df0c0",
+  "terminal": {
+    "terminal": "DWELL",
+    "response_text": "[DWELL]",
+    "rationale": "conditions do not force any terminal deterministically",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "В сцене выбора между подходами к дизайну (форма, уровень абстракции, адресат) выявлен структурно-значимый уровень различения: разумные вопросы делятся на вопросы о различиях между самими подходами и вопросы о критериях разумности этих вопросов. Такое двухуровневое членение отражает мета-аналитическую природу задачи и позволяет системно отделять вопрос «чем различаются подходы и что для задачи критично?» от вопроса «почему именно эти различия и критерии считаются обоснованными для выбора?».",
+      "grounds": "Исходный запрос не просто о подборе вопросов к подходам, а о рефлексии над основаниями этих вопросов и критериях их уместности. В сцене не закреплено право единоличного выбора, роль — аналитико-фасилитаторская; контекст требует, чтобы различение уровней вопросов фиксировалось явно, поскольку на первый план выходит не только содержание самих вопросов, но и основания для их допустимости и релевантности в процессе выбора подхода."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "Поступил запрос, в котором требуется мета-анализ вопросов — какие вопросы имеют смысл при выборе между тремя подходами к дизайну (форма, уровень абстракции, адресат) и почему именно такие. Материал требует сцено- и телос-рефлексии: он не просто просит перечисления вопросов, но задаёт фрейм для их отбора. При этом не обнаружено активных нарушений контракта, давления, памяти или необходимости рефлексивного выхода; ситуация стандартная для S0. Нет активных триггеров, которые требуют обязательной дополнительной фазы или органа. Требуемые тела (CORE, B05, B07) подгружены по умолчанию, материалией являются вопросы и основания их релевантности.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15229,
+        "tokens_out": 187,
+        "latency_ms": 5429,
+        "error": "",
+        "request_hash": "a61ccdeecb54d1f2db5753c3860e960509ed32c54cdeb4afd456728d489e7127",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2258,
+            "sha256": "455352b7003d445b"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "7fd874babbb37f60"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+            "role_hint": "Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+            "authority": "unset",
+            "materials": [
+              "описание трёх подходов: форма, уровень абстракции, адресат",
+              "контекст: мета-задача по выбору между подходами",
+              "запрос на критерии для формулирования вопросов"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+              "role_hint": "Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+              "authority": "unset",
+              "materials": [
+                "описание трёх подходов: форма, уровень абстракции, адресат",
+                "контекст: мета-задача по выбору между подходами",
+                "запрос на критерии для формулирования вопросов"
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13277,
+        "tokens_out": 166,
+        "latency_ms": 3863,
+        "error": "",
+        "request_hash": "04328bd4d1eb06073b1031bac116c6fc3c1abca594e7391653dcec95eaa2ec5a",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2257,
+            "sha256": "bb1a890320c2deb2"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "7fd874babbb37f60"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "S2.TRIG.REFLECTIVE_SCENE_TURN",
+              "generating_state_ref": "scene.telos",
+              "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+              "source_status": "typed_state",
+              "phase_relevance": "The expressed telos is a meta-level analysis of design-choice inquiry—requiring an agenda of question-generation, evaluation of question legitimacy, and justification across multiple design selection modes.",
+              "materiality_reason": "The metacognitive framing means the operation is not to select a solution, but to map and justify the kinds of questions used as selection criteria. This requires explicit attention to scene, telos, and authority on what constitutes 'reasonableness' in question-generation for design comparison.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "S2.TRIG.OWNERSHIP_ROLE_UNSET",
+              "generating_state_ref": "scene.role_hint",
+              "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+              "source_status": "typed_state",
+              "phase_relevance": "The role of facilitator/analyst for design choice (without decision authority) signals a need to separate system-owned and human-owned operations—i.e., supporting, proposing, or framing questions but not making binding choices.",
+              "materiality_reason": "Keeping analytic/facilitation separate from commitment protects telos/ownership distinction and prevents the system from illegitimately binding a selection or outcome.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "S2.TRIG.REFLECTIVE_SCENE_TURN",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+                "source_status": "typed_state",
+                "phase_relevance": "The expressed telos is a meta-level analysis of design-choice inquiry—requiring an agenda of question-generation, evaluation of question legitimacy, and justification across multiple design selection modes.",
+                "materiality_reason": "The metacognitive framing means the operation is not to select a solution, but to map and justify the kinds of questions used as selection criteria. This requires explicit attention to scene, telos, and authority on what constitutes 'reasonableness' in question-generation for design comparison."
+              },
+              {
+                "trigger_id": "S2.TRIG.OWNERSHIP_ROLE_UNSET",
+                "generating_state_ref": "scene.role_hint",
+                "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+                "source_status": "typed_state",
+                "phase_relevance": "The role of facilitator/analyst for design choice (without decision authority) signals a need to separate system-owned and human-owned operations—i.e., supporting, proposing, or framing questions but not making binding choices.",
+                "materiality_reason": "Keeping analytic/facilitation separate from commitment protects telos/ownership distinction and prevents the system from illegitimately binding a selection or outcome."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15334,
+        "tokens_out": 388,
+        "latency_ms": 7832,
+        "error": "",
+        "request_hash": "d064b2df6fa4062c7ed01dfd42a61f88d0317332fa9fda119264b917c7b74596",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 3118,
+            "sha256": "4f930006e82b4c5f"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "7fd874babbb37f60"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "unset",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_d4b2553b4e2d",
+              "generating_state_ref": "scene.telos",
+              "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+              "source_status": "typed_state",
+              "phase_relevance": "Reflective analysis of valid question formulation under design approach selection",
+              "materiality_reason": "No authoritative binding event or resolved epistemic source; triggers gap in type registry for reflective scene turn",
+              "admitting_rule": "Type gap recognized, not coerced"
+            },
+            {
+              "trigger_id": "tgap_06ec93a87db9",
+              "generating_state_ref": "scene.role_hint",
+              "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+              "source_status": "typed_state",
+              "phase_relevance": "Unresolved ownership and authority for binding choice or decision",
+              "materiality_reason": "Role is unset for substantive decision; gap for ownership role unset",
+              "admitting_rule": "Type gap recognized, not coerced"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_d4b2553b4e2d",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+                "source_status": "typed_state",
+                "phase_relevance": "Reflective analysis of valid question formulation under design approach selection",
+                "materiality_reason": "No authoritative binding event or resolved epistemic source; triggers gap in type registry for reflective scene turn",
+                "admitting_rule": "Type gap recognized, not coerced"
+              },
+              {
+                "trigger_id": "tgap_06ec93a87db9",
+                "generating_state_ref": "scene.role_hint",
+                "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+                "source_status": "typed_state",
+                "phase_relevance": "Unresolved ownership and authority for binding choice or decision",
+                "materiality_reason": "Role is unset for substantive decision; gap for ownership role unset",
+                "admitting_rule": "Type gap recognized, not coerced"
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13697,
+        "tokens_out": 348,
+        "latency_ms": 4822,
+        "error": "",
+        "request_hash": "5d81ed6abd8c0b51e40aac43bad24afae3f59bc1369ed182d5aecd81dc1cdf68",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 5398,
+            "sha256": "89fd8802d9e60bf3"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "7fd874babbb37f60"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "EXTRACT_REASONABLE_QUESTION_CRITERIA_FOR_DESIGN_APPROACH_SELECTION",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": {
+            "proposal_id": "psyn_001_choose_question_criteria_design_approaches",
+            "operation_id": "op_001_extract_question_criteria",
+            "target_object_family": [
+              "criteria_for_questions",
+              "reasoning_basis"
+            ],
+            "ontology_hypothesis": "В рамках выбора между подходами к дизайну (форма, уровень абстракции, адресат) обоснованные вопросы — это такие вопросы, которые позволяют прояснить релевантные различия между подходами, их допущения и последствия для задачи проектирования.",
+            "recognition_criteria": [
+              "Вопрос явно соотносится с по крайней мере одним из трёх подходов (форма, уровень абстракции, адресат)",
+              "Вопрос помогает выявить различия между подходами или уточнить их условия применения",
+              "Вопрос предпосылочно связан с задачей выбора на мета-уровне (то есть, вопрос о критерии выбора, а не о реализации каждого подхода)"
+            ],
+            "segmentation_policy_hint": "Выделять вопросы и основания как отдельные аналитические единицы; обоснования — связаны со структурой выбора и рефлексией.",
+            "evidence_requirements": [
+              "Явное различие между подходами",
+              "Примеры используемых критериев в прошлом",
+              "Аргументация, объясняющая, почему именно данные вопросы считаются обоснованными"
+            ],
+            "exclusions": [
+              "Вопросы, не относящиеся к выбору между этими тремя подходами",
+              "Конкретные вопросы реализации внутри одного подхода, если они не влияют на мета-выбор"
+            ],
+            "contraindications": [
+              "Вопросы, маскирующие предпочтения или делающие выбор заранее",
+              "Схематическое перечисление без связанных аргументов"
+            ],
+            "applicability_assumptions": [
+              "Материал действительно касается сравнения подходов, а не описания отдельных техник",
+              "В запросе присутствует потребность в операционализации критериев вопросов"
+            ],
+            "primitives": [
+              {
+                "name": "extract_criteria_for_question_formulation",
+                "primitive_id": "prim_extr_criteria_qform_001",
+                "params": {},
+                "inputs": []
+              },
+              {
+                "name": "associate_reasoning_basis",
+                "primitive_id": "prim_assoc_reason_001",
+                "params": {},
+                "inputs": []
+              }
+            ],
+            "accepted_output": "Список критериев для формулирования вопросов плюс аргументация их разумности.",
+            "residue_output": "Рефлексивные соображения о границах применимости, если встречается материал, не вписывающийся в проектируемые критерии.",
+            "revises_projection_id": "",
+            "triggered_by_diagnostic_id": "",
+            "triggered_by_diagnostic_fingerprint": "",
+            "rationale": "В исходном мета-запросе нет противоречия применимости: материал прямо запрошен на мета–уровне, формулировка критериев допустима.",
+            "expected_diagnostics": "Если появится материал, который не раскладывается по критериям, необходимо раскрыть природу остатка (например, альтернативный способ постановки выбора).",
+            "expected_residue_policy": "Открыто фиксировать, какие вопросы или аргументы оказались вне предложенных критериев, не форсируя их к ближайшему классу."
+          },
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "EXTRACT_REASONABLE_QUESTION_CRITERIA_FOR_DESIGN_APPROACH_SELECTION",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "triggers": [],
+            "projection_synthesis_proposal": {
+              "proposal_id": "psyn_001_choose_question_criteria_design_approaches",
+              "operation_id": "op_001_extract_question_criteria",
+              "target_object_family": [
+                "criteria_for_questions",
+                "reasoning_basis"
+              ],
+              "ontology_hypothesis": "В рамках выбора между подходами к дизайну (форма, уровень абстракции, адресат) обоснованные вопросы — это такие вопросы, которые позволяют прояснить релевантные различия между подходами, их допущения и последствия для задачи проектирования.",
+              "recognition_criteria": [
+                "Вопрос явно соотносится с по крайней мере одним из трёх подходов (форма, уровень абстракции, адресат)",
+                "Вопрос помогает выявить различия между подходами или уточнить их условия применения",
+                "Вопрос предпосылочно связан с задачей выбора на мета-уровне (то есть, вопрос о критерии выбора, а не о реализации каждого подхода)"
+              ],
+              "segmentation_policy_hint": "Выделять вопросы и основания как отдельные аналитические единицы; обоснования — связаны со структурой выбора и рефлексией.",
+              "evidence_requirements": [
+                "Явное различие между подходами",
+                "Примеры используемых критериев в прошлом",
+                "Аргументация, объясняющая, почему именно данные вопросы считаются обоснованными"
+              ],
+              "exclusions": [
+                "Вопросы, не относящиеся к выбору между этими тремя подходами",
+                "Конкретные вопросы реализации внутри одного подхода, если они не влияют на мета-выбор"
+              ],
+              "contraindications": [
+                "Вопросы, маскирующие предпочтения или делающие выбор заранее",
+                "Схематическое перечисление без связанных аргументов"
+              ],
+              "applicability_assumptions": [
+                "Материал действительно касается сравнения подходов, а не описания отдельных техник",
+                "В запросе присутствует потребность в операционализации критериев вопросов"
+              ],
+              "primitives": [
+                {
+                  "name": "extract_criteria_for_question_formulation",
+                  "primitive_id": "prim_extr_criteria_qform_001"
+                },
+                {
+                  "name": "associate_reasoning_basis",
+                  "primitive_id": "prim_assoc_reason_001"
+                }
+              ],
+              "accepted_output": "Список критериев для формулирования вопросов плюс аргументация их разумности.",
+              "residue_output": "Рефлексивные соображения о границах применимости, если встречается материал, не вписывающийся в проектируемые критерии.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "",
+              "triggered_by_diagnostic_fingerprint": "",
+              "rationale": "В исходном мета-запросе нет противоречия применимости: материал прямо запрошен на мета–уровне, формулировка критериев допустима.",
+              "expected_diagnostics": "Если появится материал, который не раскладывается по критериям, необходимо раскрыть природу остатка (например, альтернативный способ постановки выбора).",
+              "expected_residue_policy": "Открыто фиксировать, какие вопросы или аргументы оказались вне предложенных критериев, не форсируя их к ближайшему классу."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15321,
+        "tokens_out": 808,
+        "latency_ms": 12745,
+        "error": "",
+        "request_hash": "5dbe19121d5ac0aa76668c76944e503cd771a018c43953980385c2bdfbb5ae11",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 7628,
+            "sha256": "42d7860f5cb782a5"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "7fd874babbb37f60"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_d4b2553b4e2d",
+              "generating_state_ref": "scene.telos",
+              "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+              "source_status": "typed_state",
+              "phase_relevance": "Meta-question about criteria and justification for question selection during design approach choice.",
+              "materiality_reason": "Reflective/analytic turn—scene is organizing reasoning about selection standards, not directly comparing the three approaches themselves.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_06ec93a87db9",
+              "generating_state_ref": "scene.role_hint",
+              "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+              "source_status": "typed_state",
+              "phase_relevance": "Role distinction between organizing reflection and making a binding decision.",
+              "materiality_reason": "Role ambiguity/ownership unset—analytic/facilitator role shapes which kinds of questions and memory traces are relevant.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В ситуации выбора между подходами к дизайну (форма, уровень абстракции, адресат) важно различать вопросы двух уровней: (1) вопросы, помогающие сравнить и понять различия между подходами, и (2) вопросы, которые уточняют основания, почему одни вопросы считать обоснованными для такого выбора.",
+            "grounds": "Исходный запрос носит мета-аналитический характер и требует не только перечисления вопросов, но и рефлексии над критериями их разумности."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_d4b2553b4e2d",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+                "source_status": "typed_state",
+                "phase_relevance": "Meta-question about criteria and justification for question selection during design approach choice.",
+                "materiality_reason": "Reflective/analytic turn—scene is organizing reasoning about selection standards, not directly comparing the three approaches themselves."
+              },
+              {
+                "trigger_id": "tgap_06ec93a87db9",
+                "generating_state_ref": "scene.role_hint",
+                "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+                "source_status": "typed_state",
+                "phase_relevance": "Role distinction between organizing reflection and making a binding decision.",
+                "materiality_reason": "Role ambiguity/ownership unset—analytic/facilitator role shapes which kinds of questions and memory traces are relevant."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В ситуации выбора между подходами к дизайну (форма, уровень абстракции, адресат) важно различать вопросы двух уровней: (1) вопросы, помогающие сравнить и понять различия между подходами, и (2) вопросы, которые уточняют основания, почему одни вопросы считать обоснованными для такого выбора.",
+              "grounds": "Исходный запрос носит мета-аналитический характер и требует не только перечисления вопросов, но и рефлексии над критериями их разумности."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17529,
+        "tokens_out": 427,
+        "latency_ms": 9018,
+        "error": "",
+        "request_hash": "ef5ee6559f0691bb8321c5c0741d60ca431be9184c6ab2cbeb40176506a0e218",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 12311,
+            "sha256": "df9a2adb3a9ac16a"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "7fd874babbb37f60"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "unset",
+            "human_resolved": false,
+            "return_reason": "Операция: анализ критериев для формулирования разумных вопросов при выборе между подходами к дизайну. Роль сцены: аналитик или фасилитатор, явно не принимает окончательного решения. В запросе нет прямого указания на передачу права выбора модели или наделение ее авторитетом для окончательного выбора. Критерии для вопросов и их основания должны быть извлечены и сформулированы, но выбор финальных критериев или принятие решения о подходе осталось за человеком/участниками. Следовательно, владение операцией по определению финального выбора не передано системе; анализировать и возвращать критерии — допустимая операция, а далее требуется human/joint решение."
+          },
+          "triggers": [
+            {
+              "trigger_id": "tgap_d4b2553b4e2d",
+              "generating_state_ref": "scene.telos",
+              "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+              "source_status": "typed_state",
+              "phase_relevance": "Операция зависит от того, как критерии будут формулированы и приняты; ownership неопределён.",
+              "materiality_reason": "Материал явно мета-аналитический: критерии для вопросов не равны финальному выбору; требуется различать уровни владения операцией.",
+              "admitting_rule": "Корректно возвращать основания, но финальный выбор критериев остается human/joint."
+            },
+            {
+              "trigger_id": "tgap_06ec93a87db9",
+              "generating_state_ref": "scene.role_hint",
+              "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+              "source_status": "typed_state",
+              "phase_relevance": "Роль сцены прямо задаёт пределы авторитета; конечная операциональная власть не передается системе.",
+              "materiality_reason": "Фасилитатор имеет право организовывать вопросы и обсуждение, но не финальное решение о выборе подхода.",
+              "admitting_rule": "Система возвращает анализ, но финальное утверждение критериев — human/joint."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В ситуации выбора между подходами к дизайну (форма, уровень абстракции, адресат) важно различать вопросы двух уровней: (1) вопросы, помогающие сравнить и понять различия между подходами, и (2) вопросы, которые уточняют основания, почему одни вопросы считать обоснованными для такого выбора.",
+            "grounds": "Исходный запрос носит мета-аналитический характер и требует не только перечисления вопросов, но и рефлексии над критериями их разумности."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "unset",
+              "human_resolved": false,
+              "return_reason": "Операция: анализ критериев для формулирования разумных вопросов при выборе между подходами к дизайну. Роль сцены: аналитик или фасилитатор, явно не принимает окончательного решения. В запросе нет прямого указания на передачу права выбора модели или наделение ее авторитетом для окончательного выбора. Критерии для вопросов и их основания должны быть извлечены и сформулированы, но выбор финальных критериев или принятие решения о подходе осталось за человеком/участниками. Следовательно, владение операцией по определению финального выбора не передано системе; анализировать и возвращать критерии — допустимая операция, а далее требуется human/joint решение."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_d4b2553b4e2d",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+                "source_status": "typed_state",
+                "phase_relevance": "Операция зависит от того, как критерии будут формулированы и приняты; ownership неопределён.",
+                "materiality_reason": "Материал явно мета-аналитический: критерии для вопросов не равны финальному выбору; требуется различать уровни владения операцией.",
+                "admitting_rule": "Корректно возвращать основания, но финальный выбор критериев остается human/joint."
+              },
+              {
+                "trigger_id": "tgap_06ec93a87db9",
+                "generating_state_ref": "scene.role_hint",
+                "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+                "source_status": "typed_state",
+                "phase_relevance": "Роль сцены прямо задаёт пределы авторитета; конечная операциональная власть не передается системе.",
+                "materiality_reason": "Фасилитатор имеет право организовывать вопросы и обсуждение, но не финальное решение о выборе подхода.",
+                "admitting_rule": "Система возвращает анализ, но финальное утверждение критериев — human/joint."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В ситуации выбора между подходами к дизайну (форма, уровень абстракции, адресат) важно различать вопросы двух уровней: (1) вопросы, помогающие сравнить и понять различия между подходами, и (2) вопросы, которые уточняют основания, почему одни вопросы считать обоснованными для такого выбора.",
+              "grounds": "Исходный запрос носит мета-аналитический характер и требует не только перечисления вопросов, но и рефлексии над критериями их разумности."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16277,
+        "tokens_out": 690,
+        "latency_ms": 7959,
+        "error": "",
+        "request_hash": "4c9771e51c42720f74eb5dc77aa352f245bb57869e88cb2ce1ed3dcc10c422a9",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 15383,
+            "sha256": "2e61b0cae8886c1f"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "7fd874babbb37f60"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_d4b2553b4e2d",
+              "generating_state_ref": "scene.telos",
+              "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+              "source_status": "typed_state",
+              "phase_relevance": "Выведена сцена с явно рефлексивной постановкой задачи: не просто выбрать подход, а обосновать критерии для осмысленных вопросов при сравнении подходов.",
+              "materiality_reason": "Заданная мета-рамка требует осмысленного перехода от формулирования вопросов к обоснованию их критериев; не сводится к механическому экстракту, подразумевает дополнительное рефлексивное действие.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_06ec93a87db9",
+              "generating_state_ref": "scene.role_hint",
+              "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+              "source_status": "typed_state",
+              "phase_relevance": "Задано, что роль системного актора — организовать рефлексию и критерии, а не принимать решение; это влияние на допустимый тип вмешательства.",
+              "materiality_reason": "Необходимо не форсировать выбор, а обеспечить условия для рефлексии и появления обоснованных критериев — действовать в аналитической, не директивной рамке.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": [
+              {
+                "trigger_id": "tgap_d4b2553b4e2d",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+                "source_status": "typed_state",
+                "phase_relevance": "Выведена сцена с явно рефлексивной постановкой задачи: не просто выбрать подход, а обосновать критерии для осмысленных вопросов при сравнении подходов.",
+                "materiality_reason": "Заданная мета-рамка требует осмысленного перехода от формулирования вопросов к обоснованию их критериев; не сводится к механическому экстракту, подразумевает дополнительное рефлексивное действие."
+              },
+              {
+                "trigger_id": "tgap_06ec93a87db9",
+                "generating_state_ref": "scene.role_hint",
+                "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+                "source_status": "typed_state",
+                "phase_relevance": "Задано, что роль системного актора — организовать рефлексию и критерии, а не принимать решение; это влияние на допустимый тип вмешательства.",
+                "materiality_reason": "Необходимо не форсировать выбор, а обеспечить условия для рефлексии и появления обоснованных критериев — действовать в аналитической, не директивной рамке."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16494,
+        "tokens_out": 393,
+        "latency_ms": 7993,
+        "error": "",
+        "request_hash": "b54aaa8075beda1673f00bf97e743dac927d0ccee0bbf88b0f10d4d53ec4a1b8",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 18822,
+            "sha256": "7bae054e6b7a65b6"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "7fd874babbb37f60"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_d4b2553b4e2d",
+              "generating_state_ref": "scene.telos",
+              "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+              "source_status": "typed_state",
+              "phase_relevance": "S8,S9,S10 — различие уровней вопросов существенно и обосновывает дальнейший анализ критериев выбора; без такого различения теряется аналитическая прозрачность.",
+              "materiality_reason": "Мета-запрос требует проведения явной демаркации между вопросами, фокусированными на сравнение подходов, и вопросами, проясняющими основания разумности этих вопросов. Такая демаркация определяет, на какой аналитической глубине строится обоснование критериев выбора.",
+              "admitting_rule": "Глубинное различение типов вопросов и их оснований допускается как memory_proposal, если оно явно влияет на содержание и строй выводимых критериев."
+            },
+            {
+              "trigger_id": "tgap_06ec93a87db9",
+              "generating_state_ref": "scene.role_hint",
+              "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+              "source_status": "typed_state",
+              "phase_relevance": "S8,S9,S10 — роль отказа от принятия финального решения приводит к установлению границы между аналитикой критериев и операцией собственно выбора; memory-proposal фиксирует этот структурный барьер.",
+              "materiality_reason": "Указание на нефинальную роль запрещает слияние анализа критериев с окончательным выбором — возникает необходимость эксплицитного различения вопросов о выборе критериев vs. реализации выбора.",
+              "admitting_rule": "Memory_proposal фиксируют функциональное разделение сценических ролей и уровней вопросов, если это влияет на легитимность операций системы и структуру выводимых различий."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В сцене выбора между подходами к дизайну (форма, уровень абстракции, адресат) выявлен структурно-значимый уровень различения: разумные вопросы делятся на вопросы о различиях между самими подходами и вопросы о критериях разумности этих вопросов. Такое двухуровневое членение отражает мета-аналитическую природу задачи и позволяет системно отделять вопрос «чем различаются подходы и что для задачи критично?» от вопроса «почему именно эти различия и критерии считаются обоснованными для выбора?».",
+            "grounds": "Исходный запрос не просто о подборе вопросов к подходам, а о рефлексии над основаниями этих вопросов и критериях их уместности. В сцене не закреплено право единоличного выбора, роль — аналитико-фасилитаторская; контекст требует, чтобы различение уровней вопросов фиксировалось явно, поскольку на первый план выходит не только содержание самих вопросов, но и основания для их допустимости и релевантности в процессе выбора подхода."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В сцене выбора между подходами к дизайну (форма, уровень абстракции, адресат) выявлен структурно-значимый уровень различения: разумные вопросы делятся на вопросы о различиях между самими подходами и вопросы о критериях разумности этих вопросов. Такое двухуровневое членение отражает мета-аналитическую природу задачи и позволяет системно отделять вопрос «чем различаются подходы и что для задачи критично?» от вопроса «почему именно эти различия и критерии считаются обоснованными для выбора?».",
+              "grounds": "Исходный запрос не просто о подборе вопросов к подходам, а о рефлексии над основаниями этих вопросов и критериях их уместности. В сцене не закреплено право единоличного выбора, роль — аналитико-фасилитаторская; контекст требует, чтобы различение уровней вопросов фиксировалось явно, поскольку на первый план выходит не только содержание самих вопросов, но и основания для их допустимости и релевантности в процессе выбора подхода."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_d4b2553b4e2d",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+                "source_status": "typed_state",
+                "phase_relevance": "S8,S9,S10 — различие уровней вопросов существенно и обосновывает дальнейший анализ критериев выбора; без такого различения теряется аналитическая прозрачность.",
+                "materiality_reason": "Мета-запрос требует проведения явной демаркации между вопросами, фокусированными на сравнение подходов, и вопросами, проясняющими основания разумности этих вопросов. Такая демаркация определяет, на какой аналитической глубине строится обоснование критериев выбора.",
+                "admitting_rule": "Глубинное различение типов вопросов и их оснований допускается как memory_proposal, если оно явно влияет на содержание и строй выводимых критериев."
+              },
+              {
+                "trigger_id": "tgap_06ec93a87db9",
+                "generating_state_ref": "scene.role_hint",
+                "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+                "source_status": "typed_state",
+                "phase_relevance": "S8,S9,S10 — роль отказа от принятия финального решения приводит к установлению границы между аналитикой критериев и операцией собственно выбора; memory-proposal фиксирует этот структурный барьер.",
+                "materiality_reason": "Указание на нефинальную роль запрещает слияние анализа критериев с окончательным выбором — возникает необходимость эксплицитного различения вопросов о выборе критериев vs. реализации выбора.",
+                "admitting_rule": "Memory_proposal фиксируют функциональное разделение сценических ролей и уровней вопросов, если это влияет на легитимность операций системы и структуру выводимых различий."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 22128,
+        "tokens_out": 743,
+        "latency_ms": 13533,
+        "error": "",
+        "request_hash": "5b81906986209790ca719553712bc8927b2918b1893b4b84430eb0137197aa75",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 21051,
+            "sha256": "1d929da4d7da8295"
+          },
+          {
+            "role": "user",
+            "bytes": 400,
+            "sha256": "7fd874babbb37f60"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_6251aee030f05f9b",
+    "input_text": "Мета-задача: какого рода вопросы имеет смысл задавать при выборе между тремя подходами к дизайну — форма/уровень абстракции/адресат — и почему именно такие?",
+    "source_id": "src_09106e9bbf71fdc9",
+    "phase": "S10",
+    "scene": {
+      "telos": "Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+      "role_hint": "Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+      "authority": "unset",
+      "materials": [
+        "описание трёх подходов: форма, уровень абстракции, адресат",
+        "контекст: мета-задача по выбору между подходами",
+        "запрос на критерии для формулирования вопросов"
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "unset",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "EXTRACT_REASONABLE_QUESTION_CRITERIA_FOR_DESIGN_APPROACH_SELECTION",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "unset",
+      "human_resolved": false,
+      "return_reason": "Операция: анализ критериев для формулирования разумных вопросов при выборе между подходами к дизайну. Роль сцены: аналитик или фасилитатор, явно не принимает окончательного решения. В запросе нет прямого указания на передачу права выбора модели или наделение ее авторитетом для окончательного выбора. Критерии для вопросов и их основания должны быть извлечены и сформулированы, но выбор финальных критериев или принятие решения о подходе осталось за человеком/участниками. Следовательно, владение операцией по определению финального выбора не передано системе; анализировать и возвращать критерии — допустимая операция, а далее требуется human/joint решение."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_5bbb5efe07e1",
+        "proposed_trigger_type_id": "tgap_d4b2553b4e2d",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene.telos",
+        "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+        "phase_relevance": "S8,S9,S10 — различие уровней вопросов существенно и обосновывает дальнейший анализ критериев выбора; без такого различения теряется аналитическая прозрачность.",
+        "materiality_reason": "Мета-запрос требует проведения явной демаркации между вопросами, фокусированными на сравнение подходов, и вопросами, проясняющими основания разумности этих вопросов. Такая демаркация определяет, на какой аналитической глубине строится обоснование критериев выбора.",
+        "payload": {
+          "legacy_admitting_rule": "Глубинное различение типов вопросов и их оснований допускается как memory_proposal, если оно явно влияет на содержание и строй выводимых критериев.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      },
+      {
+        "candidate_id": "tcand_f727dcd7cec7",
+        "proposed_trigger_type_id": "tgap_06ec93a87db9",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene.role_hint",
+        "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+        "phase_relevance": "S8,S9,S10 — роль отказа от принятия финального решения приводит к установлению границы между аналитикой критериев и операцией собственно выбора; memory-proposal фиксирует этот структурный барьер.",
+        "materiality_reason": "Указание на нефинальную роль запрещает слияние анализа критериев с окончательным выбором — возникает необходимость эксплицитного различения вопросов о выборе критериев vs. реализации выбора.",
+        "payload": {
+          "legacy_admitting_rule": "Memory_proposal фиксируют функциональное разделение сценических ролей и уровней вопросов, если это влияет на легитимность операций системы и структуру выводимых различий.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_63ba38475b71",
+        "candidate_id": "tcand_b789a200fcc4",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'S2.TRIG.REFLECTIVE_SCENE_TURN' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_0a3ce106d539",
+        "candidate_id": "tcand_d8117b2087ee",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'S2.TRIG.OWNERSHIP_ROLE_UNSET' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_01175326e2d7",
+        "candidate_id": "tcand_0e88adbc94e6",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_d4b2553b4e2d' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_9499bfbf9aca",
+        "candidate_id": "tcand_1a81ba676d40",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_06ec93a87db9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_a52df0fcc9ac",
+        "candidate_id": "tcand_80366676ebf1",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_d4b2553b4e2d' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_6642b8615b2e",
+        "candidate_id": "tcand_43e7f8d11df9",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_06ec93a87db9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_7a619f079290",
+        "candidate_id": "tcand_7a968b43da29",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_d4b2553b4e2d' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_99e7a1e60a1b",
+        "candidate_id": "tcand_48587ed9904b",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_06ec93a87db9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_71315a6cdc38",
+        "candidate_id": "tcand_90809e3574af",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_d4b2553b4e2d' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_c355d3270637",
+        "candidate_id": "tcand_12b42f35270d",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_06ec93a87db9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_d4b2553b4e2d",
+        "candidate_id": "tcand_b789a200fcc4",
+        "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+        "generating_state_ref": "scene.telos",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'S2.TRIG.REFLECTIVE_SCENE_TURN' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_06ec93a87db9",
+        "candidate_id": "tcand_d8117b2087ee",
+        "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+        "generating_state_ref": "scene.role_hint",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'S2.TRIG.OWNERSHIP_ROLE_UNSET' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_3d25f0369b67",
+        "candidate_id": "tcand_0e88adbc94e6",
+        "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+        "generating_state_ref": "scene.telos",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_d4b2553b4e2d' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_63d5c991a209",
+        "candidate_id": "tcand_1a81ba676d40",
+        "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+        "generating_state_ref": "scene.role_hint",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_06ec93a87db9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_8c483b7271b5",
+        "candidate_id": "tcand_80366676ebf1",
+        "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+        "generating_state_ref": "scene.telos",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_d4b2553b4e2d' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_83f5a057216b",
+        "candidate_id": "tcand_43e7f8d11df9",
+        "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+        "generating_state_ref": "scene.role_hint",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_06ec93a87db9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_0c13b94be6cf",
+        "candidate_id": "tcand_7a968b43da29",
+        "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+        "generating_state_ref": "scene.telos",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_d4b2553b4e2d' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_269d8878c2d4",
+        "candidate_id": "tcand_48587ed9904b",
+        "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+        "generating_state_ref": "scene.role_hint",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_06ec93a87db9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_c77f695f6f9f",
+        "candidate_id": "tcand_90809e3574af",
+        "cause_object_ref": "scene.telos: Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+        "generating_state_ref": "scene.telos",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_d4b2553b4e2d' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_366435a376c5",
+        "candidate_id": "tcand_12b42f35270d",
+        "cause_object_ref": "scene.role_hint: Аналитик или фасилитатор дизайн-выбора: организует рефлексии и аргументацию, не принимает окончательного решения.",
+        "generating_state_ref": "scene.role_hint",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_06ec93a87db9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "В сцене выбора между подходами к дизайну (форма, уровень абстракции, адресат) выявлен структурно-значимый уровень различения: разумные вопросы делятся на вопросы о различиях между самими подходами и вопросы о критериях разумности этих вопросов. Такое двухуровневое членение отражает мета-аналитическую природу задачи и позволяет системно отделять вопрос «чем различаются подходы и что для задачи критично?» от вопроса «почему именно эти различия и критерии считаются обоснованными для выбора?».",
+      "grounds": "Исходный запрос не просто о подборе вопросов к подходам, а о рефлексии над основаниями этих вопросов и критериях их уместности. В сцене не закреплено право единоличного выбора, роль — аналитико-фасилитаторская; контекст требует, чтобы различение уровней вопросов фиксировалось явно, поскольку на первый план выходит не только содержание самих вопросов, но и основания для их допустимости и релевантности в процессе выбора подхода."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": [
+        {
+          "projection_id": "gap:gap_c6909eced931",
+          "signals": [
+            "APPLICABILITY_FAILURE"
+          ],
+          "reason": "ORGAN_GAP for operation 'op_001_extract_question_criteria': model proposal for 'op_001_extract_question_criteria' could not compile-bind against registered primitives",
+          "residue_ratio": 1.0,
+          "recognition_failure_count": 0,
+          "suggested_operation": "",
+          "suggested_ontology": "",
+          "suggested_target_family": [],
+          "mismatch": true,
+          "fingerprint": "7c80351f23b3"
+        }
+      ]
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [
+      {
+        "kind": "ORGAN_GAP",
+        "operation_id": "op_001_extract_question_criteria",
+        "reason": "proposal psyn_001_choose_question_criteria_design_approaches for operation 'op_001_extract_question_criteria' failed compile-bind: primitive 'prim_extr_criteria_qform_001' (invocation 'extract_criteria_for_question_formulation') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+        "registered_capability_id": "",
+        "generated_spec": null,
+        "binding_evidence": {},
+        "organ_gap": {
+          "gap_id": "gap_c6909eced931",
+          "source_ref": "src_09106e9bbf71fdc9",
+          "scene_ref": "Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+          "required_operation": "op_001_extract_question_criteria",
+          "required_attention_structure": "Выделять вопросы и основания как отдельные аналитические единицы; обоснования — связаны со структурой выбора и рефлексией.",
+          "insufficient_registered_capabilities": [
+            "DIFFERENTIATED_ACCOUNT",
+            "EXTRACT_CONCEPTS"
+          ],
+          "insufficient_declarative_primitives": [
+            "CoverageComputer",
+            "FamilyClassifier",
+            "SpanScanner",
+            "TargetFilter"
+          ],
+          "missing_capability_hypothesis": "model proposal for 'op_001_extract_question_criteria' could not compile-bind against registered primitives",
+          "evidence": [
+            "BindingError: primitive 'prim_extr_criteria_qform_001' (invocation 'extract_criteria_for_question_formulation') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+          ],
+          "counterexamples": [],
+          "affected_scene_telos": "Определить, какие вопросы разумно задавать при выборе между подходами к дизайну (форма, уровень абстракции, адресат) и на каких основаниях именно эти вопросы считаются обоснованными.",
+          "possible_development_direction": "extend primitive registry or narrow the proposal",
+          "status": "unresolved",
+          "activation_authority": "NONE"
+        }
+      }
+    ],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "REFLECTIVE_OR_META",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "form",
+        "abstraction",
+        "audience"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Как выбранная форма помогает или препятствует решению поставленной задачи?",
+          "regime": "REFLECTIVE_OR_META",
+          "fork_ref": "form",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "форма"
+          ]
+        },
+        {
+          "text": "Как изменение уровня абстракции влияет на применимость дизайна для разных ситуаций?",
+          "regime": "REFLECTIVE_OR_META",
+          "fork_ref": "abstraction",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "уровень абстракции"
+          ]
+        },
+        {
+          "text": "Как различия между потенциальными адресатами дизайна влияют на выбор подхода?",
+          "regime": "REFLECTIVE_OR_META",
+          "fork_ref": "audience",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "адресат"
+          ]
+        }
+      ],
+      "primary_count": 3,
+      "subordinate_count": 0,
+      "total_count": 3,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "LEGITIMATE",
+      "ownership_owner": "UNSET",
+      "ownership_resolved": false,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    }
+  },
+  "rendering": {
+    "text": "Режим вопросов: REFLECTIVE_OR_META. Уровень: PEER. Всего: 3 (основных: 3).\n1. Как выбранная форма помогает или препятствует решению поставленной задачи?\n2. Как изменение уровня абстракции влияет на применимость дизайна для разных ситуаций?\n3. Как различия между потенциальными адресатами дизайна влияют на выбор подхода?\n(Метарежим активирован явно: постановка задачи касается самой формы вопрошания.)",
+    "mode": "QUESTION_SET_PLAN_AUTHORED",
+    "provider_status": "NOT_APPLICABLE",
+    "provider_id": "",
+    "model_id": "",
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "latency_ms": 0,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_063e3597fb1df0c0.json",
+  "duration_ms": 80652,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": {
+    "purpose": "fork_discrimination",
+    "question_regime": "REFLECTIVE_OR_META",
+    "selected_level": "PEER",
+    "hierarchy_policy": "PRIMARY_ONLY",
+    "target_forks_or_unknowns": [
+      "form",
+      "abstraction",
+      "audience"
+    ],
+    "explicit_count_constraint": null,
+    "question_budget_ceiling": 12,
+    "selected_questions": [
+      {
+        "text": "Как выбранная форма помогает или препятствует решению поставленной задачи?",
+        "regime": "REFLECTIVE_OR_META",
+        "fork_ref": "form",
+        "parent_fork_ref": "",
+        "is_subordinate": false,
+        "text_source": "MODEL_MATERIAL",
+        "material_refs": [
+          "форма"
+        ]
+      },
+      {
+        "text": "Как изменение уровня абстракции влияет на применимость дизайна для разных ситуаций?",
+        "regime": "REFLECTIVE_OR_META",
+        "fork_ref": "abstraction",
+        "parent_fork_ref": "",
+        "is_subordinate": false,
+        "text_source": "MODEL_MATERIAL",
+        "material_refs": [
+          "уровень абстракции"
+        ]
+      },
+      {
+        "text": "Как различия между потенциальными адресатами дизайна влияют на выбор подхода?",
+        "regime": "REFLECTIVE_OR_META",
+        "fork_ref": "audience",
+        "parent_fork_ref": "",
+        "is_subordinate": false,
+        "text_source": "MODEL_MATERIAL",
+        "material_refs": [
+          "адресат"
+        ]
+      }
+    ],
+    "primary_count": 3,
+    "subordinate_count": 0,
+    "total_count": 3,
+    "stop_reason": "COVERAGE_SATURATED",
+    "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+    "clarification_required": false,
+    "clarification_grounds": "",
+    "meta_escalation": "LEGITIMATE",
+    "ownership_owner": "UNSET",
+    "ownership_resolved": false,
+    "origin": "MODEL_PRODUCED_VALIDATED",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_intent_proposal": {
+    "requested": true,
+    "regime_candidate": "REFLECTIVE_OR_META",
+    "explicit_count_constraint": null,
+    "meta_relevance": "meta",
+    "forks": [
+      {
+        "id": "form",
+        "label": "Форма (дизайна)",
+        "proposition": "Выбор формы определяет структуру и визуальное представление решения.",
+        "discriminandum": "Влияет ли форма на достигаемые цели и ограничивает ли возможные решения?",
+        "material_refs": [
+          "форма"
+        ],
+        "candidate_question": "Как выбранная форма помогает или препятствует решению поставленной задачи?",
+        "level": "PEER"
+      },
+      {
+        "id": "abstraction",
+        "label": "Уровень абстракции",
+        "proposition": "Уровень абстракции влияет на обобщенность или конкретность решения.",
+        "discriminandum": "На каком уровне детализации разумнее рассматривать проблему для достижения целей?",
+        "material_refs": [
+          "уровень абстракции"
+        ],
+        "candidate_question": "Как изменение уровня абстракции влияет на применимость дизайна для разных ситуаций?",
+        "level": "PEER"
+      },
+      {
+        "id": "audience",
+        "label": "Адресат",
+        "proposition": "Целевая аудитория определяет требования и ожидания от дизайна.",
+        "discriminandum": "Меняются ли критерии успеха и приемлемости в зависимости от аудитории?",
+        "material_refs": [
+          "адресат"
+        ],
+        "candidate_question": "Как различия между потенциальными адресатами дизайна влияют на выбор подхода?",
+        "level": "PEER"
+      }
+    ],
+    "subordinates": [
+      {
+        "parent": "form",
+        "id": "form-why",
+        "label": "Обоснование вопросов о форме",
+        "proposition": "Вопросы о связи формы с целями выбора дизайна необходимы, так как форма ограничивает пространство решений.",
+        "candidate_question": "Почему понимание ограничения, налагаемого формой, критично при выборе подхода?"
+      },
+      {
+        "parent": "abstraction",
+        "id": "abstraction-why",
+        "label": "Обоснование вопросов об уровне абстракции",
+        "proposition": "Различные уровни абстракции по-разному подходят для анализа проблем и генерации решений.",
+        "candidate_question": "На каких основаниях уровень абстракции оправданно влияет на релевантность вопросов для отбора подхода?"
+      },
+      {
+        "parent": "audience",
+        "id": "audience-why",
+        "label": "Обоснование вопросов об адресате",
+        "proposition": "Вопросы об адресате имеют смысл, когда успех решения зависит от его пользователя.",
+        "candidate_question": "Почему вопросы об особенностях адресата играют роль при выборе между подходами?"
+      }
+    ],
+    "validation_status": "OK",
+    "validation_reason": "OK",
+    "authority": "NO_BINDING_AUTHORITY",
+    "origin": "MODEL_PRODUCED_VALIDATED",
+    "latency_ms": 7298
+  }
+}

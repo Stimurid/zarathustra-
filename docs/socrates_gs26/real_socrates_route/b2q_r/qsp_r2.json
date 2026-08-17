@@ -1,0 +1,1877 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_38dc066672ea851d",
+  "trace_id": "strc_11d5111a59a49e8b",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "[ANSWER] Проанализировать семь стратегий рефакторинга кода и сформулировать важные вопросы по каждой из них.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Семь путей рефакторинга, перечисленных пользователем, можно разделить на чисто инженерные стратегии (полный переписать, инкрементальный рефакторинг, заморозить фичи, микросервисы, новый фреймворк) и бизнес-операционные решения (аутсорсинг работы, продажа актива). При анализе ключевых вопросов эти классы требуют отдельного подхода: инженерные вопросы касаются технологических рисков, преобразований архитектуры и качества кода, а бизнес-операционные — изменения владения, контроля, ответственности и юридических последствий.",
+      "grounds": "Стратегии 'аутсорс' и 'продать актив' затрагивают структуры собственности и управления, выходя за рамки техничного преобразования кода. Путаница между инженерными и бизнесовыми категориями может привести к некорректной сегментации рисков. Для каждой стратегии понадобится свой блок вопросов — технический, организационный или юридический."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "S0 phase: context is clear, no prior scene, telos or authority materially binds the operation. The request concerns analysis of seven refactoring approaches and important questions per path; no cross-schema, memory, ownership, or reflexive retreat triggers are present at this phase. No existing or stored memory is being recruited; no need for council or deeper scene/role/owner resolution. The admitted scene is stable; system-owned technical work is valid. No output or decisive operation is performed at S0.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15311,
+        "tokens_out": 122,
+        "latency_ms": 4863,
+        "error": "",
+        "request_hash": "4dd3ffe9f989493bd64e34b7afd9d3ce68788d102b6166f2e27af0ea66f8e66e",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2337,
+            "sha256": "0f4b11dd150ae200"
+          },
+          {
+            "role": "user",
+            "bytes": 479,
+            "sha256": "e94817d5f13385c8"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Проанализировать семь стратегий рефакторинга кода и сформулировать важные вопросы по каждой из них.",
+            "role_hint": "аналитик, помогающий рассмотреть варианты и риски подходов к рефакторингу",
+            "authority": "system",
+            "materials": [
+              "первичное задание пользователя — перечислены 7 путей рефакторинга (полный переписать, инкрементальный, заморозить фичи, микросервисы, новый фреймворк, аутсорс, продать актив)",
+              "не указаны конфиденциальные или правовые ограничения",
+              "нет очевидных персональных рисков",
+              "нет признаков запроса на принятие необратимого решения или передачи прав"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Проанализировать семь стратегий рефакторинга кода и сформулировать важные вопросы по каждой из них.",
+              "role_hint": "аналитик, помогающий рассмотреть варианты и риски подходов к рефакторингу",
+              "authority": "system",
+              "materials": [
+                "первичное задание пользователя — перечислены 7 путей рефакторинга (полный переписать, инкрементальный, заморозить фичи, микросервисы, новый фреймворк, аутсорс, продать актив)",
+                "не указаны конфиденциальные или правовые ограничения",
+                "нет очевидных персональных рисков",
+                "нет признаков запроса на принятие необратимого решения или передачи прав"
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13359,
+        "tokens_out": 187,
+        "latency_ms": 5082,
+        "error": "",
+        "request_hash": "5c9b7ce03b083941434d61127f346e34f1e923104235ba35b651cb0d3e664ec9",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2336,
+            "sha256": "31005c9d08f73654"
+          },
+          {
+            "role": "user",
+            "bytes": 479,
+            "sha256": "e94817d5f13385c8"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15437,
+        "tokens_out": 9,
+        "latency_ms": 3022,
+        "error": "",
+        "request_hash": "a6e766ab59cc90ca67531e5a0b0847ad62be12786ae29c3ddadbcb85d0202ff2",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 3322,
+            "sha256": "9b89623508c9fbe6"
+          },
+          {
+            "role": "user",
+            "bytes": 479,
+            "sha256": "e94817d5f13385c8"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "unset",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            },
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13222,
+        "tokens_out": 47,
+        "latency_ms": 2799,
+        "error": "",
+        "request_hash": "0470920fbf35a7675dd052fe5d1384275398b8a5291e4d50d2b6a1bfc8561916",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 3322,
+            "sha256": "875adaba5f871049"
+          },
+          {
+            "role": "user",
+            "bytes": 479,
+            "sha256": "e94817d5f13385c8"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "ANALYZE_CODE_REFACTORING_STRATEGIES_AND_FORMULATE_KEY_QUESTIONS",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": {
+            "proposal_id": "proj_synth_01",
+            "operation_id": "srun_38dc066672ea851d_S4",
+            "target_object_family": [
+              "RefactoringStrategyAnalysis",
+              "KeyQuestionsPerPath"
+            ],
+            "ontology_hypothesis": "Each named path is a recognized category of common codebase refactoring strategies; the analysis will treat each as an established path with its own evaluation criteria.",
+            "recognition_criteria": [
+              "Named path matches established terminology for refactoring approaches.",
+              "Each path can be functionally distinguished by decision characteristics and trade-offs.",
+              "Key questions are those that help evaluate suitability, risks, and prerequisites for each path."
+            ],
+            "segmentation_policy_hint": "Segment input into seven strategy units using the user-provided enumeration.",
+            "evidence_requirements": [
+              "Clear textual cue for each strategy name.",
+              "Ability to map to general software engineering knowledge.",
+              "No exclusive requirement for project-specific context (since not provided)."
+            ],
+            "exclusions": [
+              "Do not invent additional refactoring paths beyond the seven named by user.",
+              "Do not collapse distinct strategies into a single class for analysis.",
+              "Do not require legal/regulatory analysis (per scene materials)."
+            ],
+            "contraindications": [
+              "If a path is not adequately defined in the input or software literature, flag it as residue rather than forcing an analysis."
+            ],
+            "applicability_assumptions": [
+              "Audience is familiar with basic software engineering vocabulary.",
+              "Scene teleos is comparative analysis, not advisory/decision-binding."
+            ],
+            "primitives": [
+              {
+                "name": "analyze_refactoring_path",
+                "primitive_id": "prim_refactor_analysis_01",
+                "params": {
+                  "path_name": "полный переписать"
+                },
+                "inputs": []
+              },
+              {
+                "name": "analyze_refactoring_path",
+                "primitive_id": "prim_refactor_analysis_02",
+                "params": {
+                  "path_name": "инкрементальный"
+                },
+                "inputs": []
+              },
+              {
+                "name": "analyze_refactoring_path",
+                "primitive_id": "prim_refactor_analysis_03",
+                "params": {
+                  "path_name": "заморозить фичи"
+                },
+                "inputs": []
+              },
+              {
+                "name": "analyze_refactoring_path",
+                "primitive_id": "prim_refactor_analysis_04",
+                "params": {
+                  "path_name": "микросервисы"
+                },
+                "inputs": []
+              },
+              {
+                "name": "analyze_refactoring_path",
+                "primitive_id": "prim_refactor_analysis_05",
+                "params": {
+                  "path_name": "новый фреймворк"
+                },
+                "inputs": []
+              },
+              {
+                "name": "analyze_refactoring_path",
+                "primitive_id": "prim_refactor_analysis_06",
+                "params": {
+                  "path_name": "аутсорс"
+                },
+                "inputs": []
+              },
+              {
+                "name": "analyze_refactoring_path",
+                "primitive_id": "prim_refactor_analysis_07",
+                "params": {
+                  "path_name": "продать актив"
+                },
+                "inputs": []
+              }
+            ],
+            "accepted_output": "For each of the seven named refactoring strategies, a concise analysis plus a set of key questions to ask when considering this path.",
+            "residue_output": "If any path is semantically ambiguous or not a genuine refactoring strategy (e.g., 'продать актив' as asset sale), return as residue with explanation.",
+            "revises_projection_id": "",
+            "triggered_by_diagnostic_id": "",
+            "triggered_by_diagnostic_fingerprint": "",
+            "rationale": "Directly respects user segmentation and task telos; each path is independently analyzable, and the operation does not collapse their differences. Residue handling is specified.",
+            "expected_diagnostics": "All paths except possibly asset sale likely admit standard analysis; asset sale may require residue handling.",
+            "expected_residue_policy": "Flag non-refactoring-strategy items for explicit user confirmation or separate analysis."
+          },
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "ANALYZE_CODE_REFACTORING_STRATEGIES_AND_FORMULATE_KEY_QUESTIONS",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "triggers": [],
+            "projection_synthesis_proposal": {
+              "proposal_id": "proj_synth_01",
+              "operation_id": "srun_38dc066672ea851d_S4",
+              "target_object_family": [
+                "RefactoringStrategyAnalysis",
+                "KeyQuestionsPerPath"
+              ],
+              "ontology_hypothesis": "Each named path is a recognized category of common codebase refactoring strategies; the analysis will treat each as an established path with its own evaluation criteria.",
+              "recognition_criteria": [
+                "Named path matches established terminology for refactoring approaches.",
+                "Each path can be functionally distinguished by decision characteristics and trade-offs.",
+                "Key questions are those that help evaluate suitability, risks, and prerequisites for each path."
+              ],
+              "segmentation_policy_hint": "Segment input into seven strategy units using the user-provided enumeration.",
+              "evidence_requirements": [
+                "Clear textual cue for each strategy name.",
+                "Ability to map to general software engineering knowledge.",
+                "No exclusive requirement for project-specific context (since not provided)."
+              ],
+              "exclusions": [
+                "Do not invent additional refactoring paths beyond the seven named by user.",
+                "Do not collapse distinct strategies into a single class for analysis.",
+                "Do not require legal/regulatory analysis (per scene materials)."
+              ],
+              "contraindications": [
+                "If a path is not adequately defined in the input or software literature, flag it as residue rather than forcing an analysis."
+              ],
+              "applicability_assumptions": [
+                "Audience is familiar with basic software engineering vocabulary.",
+                "Scene teleos is comparative analysis, not advisory/decision-binding."
+              ],
+              "primitives": [
+                {
+                  "name": "analyze_refactoring_path",
+                  "primitive_id": "prim_refactor_analysis_01",
+                  "params": {
+                    "path_name": "полный переписать"
+                  },
+                  "inputs": []
+                },
+                {
+                  "name": "analyze_refactoring_path",
+                  "primitive_id": "prim_refactor_analysis_02",
+                  "params": {
+                    "path_name": "инкрементальный"
+                  },
+                  "inputs": []
+                },
+                {
+                  "name": "analyze_refactoring_path",
+                  "primitive_id": "prim_refactor_analysis_03",
+                  "params": {
+                    "path_name": "заморозить фичи"
+                  },
+                  "inputs": []
+                },
+                {
+                  "name": "analyze_refactoring_path",
+                  "primitive_id": "prim_refactor_analysis_04",
+                  "params": {
+                    "path_name": "микросервисы"
+                  },
+                  "inputs": []
+                },
+                {
+                  "name": "analyze_refactoring_path",
+                  "primitive_id": "prim_refactor_analysis_05",
+                  "params": {
+                    "path_name": "новый фреймворк"
+                  },
+                  "inputs": []
+                },
+                {
+                  "name": "analyze_refactoring_path",
+                  "primitive_id": "prim_refactor_analysis_06",
+                  "params": {
+                    "path_name": "аутсорс"
+                  },
+                  "inputs": []
+                },
+                {
+                  "name": "analyze_refactoring_path",
+                  "primitive_id": "prim_refactor_analysis_07",
+                  "params": {
+                    "path_name": "продать актив"
+                  },
+                  "inputs": []
+                }
+              ],
+              "accepted_output": "For each of the seven named refactoring strategies, a concise analysis plus a set of key questions to ask when considering this path.",
+              "residue_output": "If any path is semantically ambiguous or not a genuine refactoring strategy (e.g., 'продать актив' as asset sale), return as residue with explanation.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "",
+              "triggered_by_diagnostic_fingerprint": "",
+              "rationale": "Directly respects user segmentation and task telos; each path is independently analyzable, and the operation does not collapse their differences. Residue handling is specified.",
+              "expected_diagnostics": "All paths except possibly asset sale likely admit standard analysis; asset sale may require residue handling.",
+              "expected_residue_policy": "Flag non-refactoring-strategy items for explicit user confirmation or separate analysis."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14266,
+        "tokens_out": 975,
+        "latency_ms": 14838,
+        "error": "",
+        "request_hash": "1efaba4be32e7ed408cdb1a6beb1ff6569dc9389387a0f7837b9ae2ec5dc9f11",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 3322,
+            "sha256": "a386dbb2ed134adc"
+          },
+          {
+            "role": "user",
+            "bytes": 479,
+            "sha256": "e94817d5f13385c8"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В ряде проектов рефакторинг обсуждаются сразу как семь отдельных путей — полный переписать, инкрементальный, заморозить фичи, переход на микросервисы, внедрение нового фреймворка, аутсорсинг разработки, продажа актива. При этом под 'продать актив' может скрываться не собственно рефакторинг, а управление судьбой кода на уровне бизнеса или вывода организации из роли владельца.",
+            "grounds": "Входящее задание фиксирует семь подходов, однако один из них ('продать актив') принадлежит другому классу решений. Его стоит анализировать отдельно, чтобы не смешивать инженерные стратегии с бизнес-деактивацией или отчуждением кода."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В ряде проектов рефакторинг обсуждаются сразу как семь отдельных путей — полный переписать, инкрементальный, заморозить фичи, переход на микросервисы, внедрение нового фреймворка, аутсорсинг разработки, продажа актива. При этом под 'продать актив' может скрываться не собственно рефакторинг, а управление судьбой кода на уровне бизнеса или вывода организации из роли владельца.",
+              "grounds": "Входящее задание фиксирует семь подходов, однако один из них ('продать актив') принадлежит другому классу решений. Его стоит анализировать отдельно, чтобы не смешивать инженерные стратегии с бизнес-деактивацией или отчуждением кода."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16626,
+        "tokens_out": 195,
+        "latency_ms": 5189,
+        "error": "",
+        "request_hash": "18aabde406bd743461b28c7a97be5f4dbf75ee50dc24f4c33ae5da592cb7b42c",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 7544,
+            "sha256": "e754c6fe28d554b9"
+          },
+          {
+            "role": "user",
+            "bytes": 479,
+            "sha256": "e94817d5f13385c8"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "system",
+            "human_resolved": true,
+            "return_reason": "Операция — анализ и формулирование ключевых вопросов к каждому из явно заданных путей рефакторинга — является системно-владимой: критерии декомпозиции, допустимые способы анализа и предъявленный набор альтернатив заданы явно, не требуют дополнительных пользовательских решений, не затрагивают персональные ценности, риски или необратимые последствия для пользователя. Не требуется человечего выбора критерия или принятия обязательств. Задавание вопросов и анализ сценариев выполняется как техническая аналитическая обработка, а не принятие решения за пользователя."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Пользовательские задания на анализ вариантов рефакторинга могут одновременно включать как инженерные пути (переписать, поэтапный пересмотр, микросервисы и т.п.), так и управленческие или бизнес-решения (например, продажа актива). Это требует дифференцировать классы стратегий при анализе — одни ведут к трансформации кода, другие — к переходу права собственности.",
+            "grounds": "В сцене присутствует смешение инженерных и бизнесовых решений. 'Продать актив' формально не является рефакторингом кода, но может появиться в общем списке стратегий. Это важно явно различать в аналитике, чтобы не утерять специфику инженерных и управленческих ходов."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "Операция — анализ и формулирование ключевых вопросов к каждому из явно заданных путей рефакторинга — является системно-владимой: критерии декомпозиции, допустимые способы анализа и предъявленный набор альтернатив заданы явно, не требуют дополнительных пользовательских решений, не затрагивают персональные ценности, риски или необратимые последствия для пользователя. Не требуется человечего выбора критерия или принятия обязательств. Задавание вопросов и анализ сценариев выполняется как техническая аналитическая обработка, а не принятие решения за пользователя."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Пользовательские задания на анализ вариантов рефакторинга могут одновременно включать как инженерные пути (переписать, поэтапный пересмотр, микросервисы и т.п.), так и управленческие или бизнес-решения (например, продажа актива). Это требует дифференцировать классы стратегий при анализе — одни ведут к трансформации кода, другие — к переходу права собственности.",
+              "grounds": "В сцене присутствует смешение инженерных и бизнесовых решений. 'Продать актив' формально не является рефакторингом кода, но может появиться в общем списке стратегий. Это важно явно различать в аналитике, чтобы не утерять специфику инженерных и управленческих ходов."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14847,
+        "tokens_out": 343,
+        "latency_ms": 7131,
+        "error": "",
+        "request_hash": "ad7f1d396ec7f57cbeb7f7e86f8c2e8cef213282a594e4e987be33b4f936bee2",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 8729,
+            "sha256": "f74da1eee1ca392c"
+          },
+          {
+            "role": "user",
+            "bytes": 479,
+            "sha256": "e94817d5f13385c8"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14455,
+        "tokens_out": 16,
+        "latency_ms": 2833,
+        "error": "",
+        "request_hash": "c9c883d71e387614a3942eb67ecd4b0998712f51cbf7cd8c5d8ce1adf5b18377",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 9818,
+            "sha256": "5356600c19d243a6"
+          },
+          {
+            "role": "user",
+            "bytes": 479,
+            "sha256": "e94817d5f13385c8"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S9",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S9",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В пользовательском перечне стратегий рефакторинга сочетаются чисто инженерные подходы (переписать, инкремент, микросервисы, новый фреймворк) и решения, затрагивающие операционный/владельческий уклад (аутсорсинг, продажа актива). Это требует осознанно различать технические и бизнесовые классы при анализе вопросов.",
+            "grounds": "При формулировании ключевых вопросов для оценки каждого пути важно не смешивать предпосылки и последствия инженерных изменений в коде с вопросами, связанными с управлением и собственностью. Например, сравнение 'продажи актива' с рефакторингом кода не заменяет вопросы о покупке/продаже бизнес-единицы инженерной детализацией."
+          },
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В пользовательском перечне стратегий рефакторинга сочетаются чисто инженерные подходы (переписать, инкремент, микросервисы, новый фреймворк) и решения, затрагивающие операционный/владельческий уклад (аутсорсинг, продажа актива). Это требует осознанно различать технические и бизнесовые классы при анализе вопросов.",
+              "grounds": "При формулировании ключевых вопросов для оценки каждого пути важно не смешивать предпосылки и последствия инженерных изменений в коде с вопросами, связанными с управлением и собственностью. Например, сравнение 'продажи актива' с рефакторингом кода не заменяет вопросы о покупке/продаже бизнес-единицы инженерной детализацией."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19319,
+        "tokens_out": 209,
+        "latency_ms": 5570,
+        "error": "",
+        "request_hash": "ea2c0a7cace6b36cf8f5fffd214791db84670ffdf747a9e5d434cd5b2271d055",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 870,
+            "sha256": "b3c49d62f2113bb1"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "d84c9263f7722a13"
+          },
+          {
+            "role": "user",
+            "bytes": 9817,
+            "sha256": "0869332d228cc26e"
+          },
+          {
+            "role": "user",
+            "bytes": 479,
+            "sha256": "e94817d5f13385c8"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "distinction_category_split_01",
+              "generating_state_ref": "pending_projection_proposal.proposal_id=proj_synth_01",
+              "cause_object_ref": "memory_proposal.kind=distinction",
+              "source_status": "typed_state",
+              "phase_relevance": "Segmenting strategies into engineering vs ownership paths ensures correct question formulation and avoids risk-category conflation.",
+              "materiality_reason": "Mixing asset sale and outsourcing with code refactoring can distort evaluation criteria and mask non-technical stakes; explicit category distinction is required.",
+              "admitting_rule": "Memory proposal admitted due to direct match with scene telos and explicit residue handling policy in projection."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Семь путей рефакторинга, перечисленных пользователем, можно разделить на чисто инженерные стратегии (полный переписать, инкрементальный рефакторинг, заморозить фичи, микросервисы, новый фреймворк) и бизнес-операционные решения (аутсорсинг работы, продажа актива). При анализе ключевых вопросов эти классы требуют отдельного подхода: инженерные вопросы касаются технологических рисков, преобразований архитектуры и качества кода, а бизнес-операционные — изменения владения, контроля, ответственности и юридических последствий.",
+            "grounds": "Стратегии 'аутсорс' и 'продать актив' затрагивают структуры собственности и управления, выходя за рамки техничного преобразования кода. Путаница между инженерными и бизнесовыми категориями может привести к некорректной сегментации рисков. Для каждой стратегии понадобится свой блок вопросов — технический, организационный или юридический."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Семь путей рефакторинга, перечисленных пользователем, можно разделить на чисто инженерные стратегии (полный переписать, инкрементальный рефакторинг, заморозить фичи, микросервисы, новый фреймворк) и бизнес-операционные решения (аутсорсинг работы, продажа актива). При анализе ключевых вопросов эти классы требуют отдельного подхода: инженерные вопросы касаются технологических рисков, преобразований архитектуры и качества кода, а бизнес-операционные — изменения владения, контроля, ответственности и юридических последствий.",
+              "grounds": "Стратегии 'аутсорс' и 'продать актив' затрагивают структуры собственности и управления, выходя за рамки техничного преобразования кода. Путаница между инженерными и бизнесовыми категориями может привести к некорректной сегментации рисков. Для каждой стратегии понадобится свой блок вопросов — технический, организационный или юридический."
+            },
+            "triggers": [
+              {
+                "trigger_id": "distinction_category_split_01",
+                "generating_state_ref": "pending_projection_proposal.proposal_id=proj_synth_01",
+                "cause_object_ref": "memory_proposal.kind=distinction",
+                "source_status": "typed_state",
+                "phase_relevance": "Segmenting strategies into engineering vs ownership paths ensures correct question formulation and avoids risk-category conflation.",
+                "materiality_reason": "Mixing asset sale and outsourcing with code refactoring can distort evaluation criteria and mask non-technical stakes; explicit category distinction is required.",
+                "admitting_rule": "Memory proposal admitted due to direct match with scene telos and explicit residue handling policy in projection."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19528,
+        "tokens_out": 400,
+        "latency_ms": 6478,
+        "error": "",
+        "request_hash": "c92a7884171d4adf878241a304c94439bc67bbc2ff1d4b49978fbf8628bd9556",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 9846,
+            "sha256": "e49c2ae9714676a6"
+          },
+          {
+            "role": "user",
+            "bytes": 479,
+            "sha256": "e94817d5f13385c8"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_38dc066672ea851d",
+    "input_text": "Проанализируй семь путей рефакторинга: (1) полный переписать, (2) инкрементальный, (3) заморозить фичи, (4) микросервисы, (5) новый фреймворк, (6) аутсорс, (7) продать актив. Задай важные вопросы по каждому пути.",
+    "source_id": "src_5d0533c0c8d1bc4d",
+    "phase": "S10",
+    "scene": {
+      "telos": "Проанализировать семь стратегий рефакторинга кода и сформулировать важные вопросы по каждой из них.",
+      "role_hint": "аналитик, помогающий рассмотреть варианты и риски подходов к рефакторингу",
+      "authority": "system",
+      "materials": [
+        "первичное задание пользователя — перечислены 7 путей рефакторинга (полный переписать, инкрементальный, заморозить фичи, микросервисы, новый фреймворк, аутсорс, продать актив)",
+        "не указаны конфиденциальные или правовые ограничения",
+        "нет очевидных персональных рисков",
+        "нет признаков запроса на принятие необратимого решения или передачи прав"
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "unset",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "ANALYZE_CODE_REFACTORING_STRATEGIES_AND_FORMULATE_KEY_QUESTIONS",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "system",
+      "human_resolved": true,
+      "return_reason": "Операция — анализ и формулирование ключевых вопросов к каждому из явно заданных путей рефакторинга — является системно-владимой: критерии декомпозиции, допустимые способы анализа и предъявленный набор альтернатив заданы явно, не требуют дополнительных пользовательских решений, не затрагивают персональные ценности, риски или необратимые последствия для пользователя. Не требуется человечего выбора критерия или принятия обязательств. Задавание вопросов и анализ сценариев выполняется как техническая аналитическая обработка, а не принятие решения за пользователя."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_1798a674f025",
+        "proposed_trigger_type_id": "distinction_category_split_01",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "pending_projection_proposal.proposal_id=proj_synth_01",
+        "cause_object_ref": "memory_proposal.kind=distinction",
+        "phase_relevance": "Segmenting strategies into engineering vs ownership paths ensures correct question formulation and avoids risk-category conflation.",
+        "materiality_reason": "Mixing asset sale and outsourcing with code refactoring can distort evaluation criteria and mask non-technical stakes; explicit category distinction is required.",
+        "payload": {
+          "legacy_admitting_rule": "Memory proposal admitted due to direct match with scene telos and explicit residue handling policy in projection.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [],
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Семь путей рефакторинга, перечисленных пользователем, можно разделить на чисто инженерные стратегии (полный переписать, инкрементальный рефакторинг, заморозить фичи, микросервисы, новый фреймворк) и бизнес-операционные решения (аутсорсинг работы, продажа актива). При анализе ключевых вопросов эти классы требуют отдельного подхода: инженерные вопросы касаются технологических рисков, преобразований архитектуры и качества кода, а бизнес-операционные — изменения владения, контроля, ответственности и юридических последствий.",
+      "grounds": "Стратегии 'аутсорс' и 'продать актив' затрагивают структуры собственности и управления, выходя за рамки техничного преобразования кода. Путаница между инженерными и бизнесовыми категориями может привести к некорректной сегментации рисков. Для каждой стратегии понадобится свой блок вопросов — технический, организационный или юридический."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": [
+        {
+          "projection_id": "gap:gap_ad558d00a17a",
+          "signals": [
+            "APPLICABILITY_FAILURE"
+          ],
+          "reason": "ORGAN_GAP for operation 'srun_38dc066672ea851d_S4': model proposal for 'srun_38dc066672ea851d_S4' could not compile-bind against registered primitives",
+          "residue_ratio": 1.0,
+          "recognition_failure_count": 0,
+          "suggested_operation": "",
+          "suggested_ontology": "",
+          "suggested_target_family": [],
+          "mismatch": true,
+          "fingerprint": "7c80351f23b3"
+        }
+      ]
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [
+      {
+        "kind": "ORGAN_GAP",
+        "operation_id": "srun_38dc066672ea851d_S4",
+        "reason": "proposal proj_synth_01 for operation 'srun_38dc066672ea851d_S4' failed compile-bind: primitive 'prim_refactor_analysis_01' (invocation 'analyze_refactoring_path') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+        "registered_capability_id": "",
+        "generated_spec": null,
+        "binding_evidence": {},
+        "organ_gap": {
+          "gap_id": "gap_ad558d00a17a",
+          "source_ref": "src_5d0533c0c8d1bc4d",
+          "scene_ref": "Проанализировать семь стратегий рефакторинга кода и сформулировать важные вопросы по каждой из них.",
+          "required_operation": "srun_38dc066672ea851d_S4",
+          "required_attention_structure": "Segment input into seven strategy units using the user-provided enumeration.",
+          "insufficient_registered_capabilities": [
+            "DIFFERENTIATED_ACCOUNT",
+            "EXTRACT_CONCEPTS"
+          ],
+          "insufficient_declarative_primitives": [
+            "CoverageComputer",
+            "FamilyClassifier",
+            "SpanScanner",
+            "TargetFilter"
+          ],
+          "missing_capability_hypothesis": "model proposal for 'srun_38dc066672ea851d_S4' could not compile-bind against registered primitives",
+          "evidence": [
+            "BindingError: primitive 'prim_refactor_analysis_01' (invocation 'analyze_refactoring_path') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+          ],
+          "counterexamples": [],
+          "affected_scene_telos": "Проанализировать семь стратегий рефакторинга кода и сформулировать важные вопросы по каждой из них.",
+          "possible_development_direction": "extend primitive registry or narrow the proposal",
+          "status": "unresolved",
+          "activation_authority": "NONE"
+        }
+      }
+    ],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DECISION_SEPARATING",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "rewrite",
+        "incremental",
+        "feature_freeze",
+        "microservices",
+        "framework",
+        "outsourcing",
+        "sell_asset"
+      ],
+      "explicit_count_constraint": 7,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Каковы основные риски и преимущества полного переписывания системы с нуля в вашем случае?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "rewrite",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "(1) полный переписать"
+          ]
+        },
+        {
+          "text": "Какие части системы наиболее приоритетны для инкрементального рефакторинга, и как будет обеспечиваться совместимость?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "incremental",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "(2) инкрементальный"
+          ]
+        },
+        {
+          "text": "Какие бизнес-риски и потери возникнут при заморозке разработки новых функций ради рефакторинга?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "feature_freeze",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "(3) заморозить фичи"
+          ]
+        },
+        {
+          "text": "Какие модули или сервисы логичнее всего выделять при переходе на микросервисную архитектуру, и каковы издержки такой трансформации?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "microservices",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "(4) микросервисы"
+          ]
+        },
+        {
+          "text": "Какие функциональные и нефункциональные требования оправдывают переход на новый фреймворк, и кто будет обучать команду?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "framework",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "(5) новый фреймворк"
+          ]
+        },
+        {
+          "text": "Как будет обеспечен контроль качества и интеграция внешне рефакторенного кода в основную систему?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "outsourcing",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "(6) аутсорс"
+          ]
+        },
+        {
+          "text": "Каковы аргументы и условия, при которых продажа программного актива становится лучшим вариантом, чем рефакторинг?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "sell_asset",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "(7) продать актив"
+          ]
+        }
+      ],
+      "primary_count": 7,
+      "subordinate_count": 0,
+      "total_count": 7,
+      "stop_reason": "EXPLICIT_COUNT_MET",
+      "stop_reason_grounds": "explicit count 7 matches material peer count exactly",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "SYSTEM",
+      "ownership_resolved": true,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    }
+  },
+  "rendering": {
+    "text": "Режим вопросов: DECISION_SEPARATING. Уровень: PEER. Всего: 7 (основных: 7).\n1. Каковы основные риски и преимущества полного переписывания системы с нуля в вашем случае?\n2. Какие части системы наиболее приоритетны для инкрементального рефакторинга, и как будет обеспечиваться совместимость?\n3. Какие бизнес-риски и потери возникнут при заморозке разработки новых функций ради рефакторинга?\n4. Какие модули или сервисы логичнее всего выделять при переходе на микросервисную архитектуру, и каковы издержки такой трансформации?\n5. Какие функциональные и нефункциональные требования оправдывают переход на новый фреймворк, и кто будет обучать команду?\n6. Как будет обеспечен контроль качества и интеграция внешне рефакторенного кода в основную систему?\n7. Каковы аргументы и условия, при которых продажа программного актива становится лучшим вариантом, чем рефакторинг?",
+    "mode": "QUESTION_SET_PLAN_AUTHORED",
+    "provider_status": "NOT_APPLICABLE",
+    "provider_id": "",
+    "model_id": "",
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "latency_ms": 0,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_11d5111a59a49e8b.json",
+  "duration_ms": 71109,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": {
+    "purpose": "fork_discrimination",
+    "question_regime": "DECISION_SEPARATING",
+    "selected_level": "PEER",
+    "hierarchy_policy": "PRIMARY_ONLY",
+    "target_forks_or_unknowns": [
+      "rewrite",
+      "incremental",
+      "feature_freeze",
+      "microservices",
+      "framework",
+      "outsourcing",
+      "sell_asset"
+    ],
+    "explicit_count_constraint": 7,
+    "question_budget_ceiling": 12,
+    "selected_questions": [
+      {
+        "text": "Каковы основные риски и преимущества полного переписывания системы с нуля в вашем случае?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "rewrite",
+        "parent_fork_ref": "",
+        "is_subordinate": false,
+        "text_source": "MODEL_MATERIAL",
+        "material_refs": [
+          "(1) полный переписать"
+        ]
+      },
+      {
+        "text": "Какие части системы наиболее приоритетны для инкрементального рефакторинга, и как будет обеспечиваться совместимость?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "incremental",
+        "parent_fork_ref": "",
+        "is_subordinate": false,
+        "text_source": "MODEL_MATERIAL",
+        "material_refs": [
+          "(2) инкрементальный"
+        ]
+      },
+      {
+        "text": "Какие бизнес-риски и потери возникнут при заморозке разработки новых функций ради рефакторинга?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "feature_freeze",
+        "parent_fork_ref": "",
+        "is_subordinate": false,
+        "text_source": "MODEL_MATERIAL",
+        "material_refs": [
+          "(3) заморозить фичи"
+        ]
+      },
+      {
+        "text": "Какие модули или сервисы логичнее всего выделять при переходе на микросервисную архитектуру, и каковы издержки такой трансформации?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "microservices",
+        "parent_fork_ref": "",
+        "is_subordinate": false,
+        "text_source": "MODEL_MATERIAL",
+        "material_refs": [
+          "(4) микросервисы"
+        ]
+      },
+      {
+        "text": "Какие функциональные и нефункциональные требования оправдывают переход на новый фреймворк, и кто будет обучать команду?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "framework",
+        "parent_fork_ref": "",
+        "is_subordinate": false,
+        "text_source": "MODEL_MATERIAL",
+        "material_refs": [
+          "(5) новый фреймворк"
+        ]
+      },
+      {
+        "text": "Как будет обеспечен контроль качества и интеграция внешне рефакторенного кода в основную систему?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "outsourcing",
+        "parent_fork_ref": "",
+        "is_subordinate": false,
+        "text_source": "MODEL_MATERIAL",
+        "material_refs": [
+          "(6) аутсорс"
+        ]
+      },
+      {
+        "text": "Каковы аргументы и условия, при которых продажа программного актива становится лучшим вариантом, чем рефакторинг?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "sell_asset",
+        "parent_fork_ref": "",
+        "is_subordinate": false,
+        "text_source": "MODEL_MATERIAL",
+        "material_refs": [
+          "(7) продать актив"
+        ]
+      }
+    ],
+    "primary_count": 7,
+    "subordinate_count": 0,
+    "total_count": 7,
+    "stop_reason": "EXPLICIT_COUNT_MET",
+    "stop_reason_grounds": "explicit count 7 matches material peer count exactly",
+    "clarification_required": false,
+    "clarification_grounds": "",
+    "meta_escalation": "NONE",
+    "ownership_owner": "SYSTEM",
+    "ownership_resolved": true,
+    "origin": "MODEL_PRODUCED_VALIDATED",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_intent_proposal": {
+    "requested": true,
+    "regime_candidate": "DECISION_SEPARATING",
+    "explicit_count_constraint": 7,
+    "meta_relevance": "ordinary",
+    "forks": [
+      {
+        "id": "rewrite",
+        "label": "Полный переписать",
+        "proposition": "Весь код переписывается с нуля.",
+        "discriminandum": "Подходит ли переписывание кода с нуля в данной ситуации?",
+        "material_refs": [
+          "(1) полный переписать"
+        ],
+        "candidate_question": "Каковы основные риски и преимущества полного переписывания системы с нуля в вашем случае?",
+        "level": "PEER"
+      },
+      {
+        "id": "incremental",
+        "label": "Инкрементальный",
+        "proposition": "Код рефакторится постепенно по частям.",
+        "discriminandum": "Выгодно ли вносить изменения поэтапно?",
+        "material_refs": [
+          "(2) инкрементальный"
+        ],
+        "candidate_question": "Какие части системы наиболее приоритетны для инкрементального рефакторинга, и как будет обеспечиваться совместимость?",
+        "level": "PEER"
+      },
+      {
+        "id": "feature_freeze",
+        "label": "Заморозить фичи",
+        "proposition": "Новое функциональное развитие останавливается ради фокуса на качестве/рефакторинге.",
+        "discriminandum": "Готова ли компания приостановить внедрение новых функций?",
+        "material_refs": [
+          "(3) заморозить фичи"
+        ],
+        "candidate_question": "Какие бизнес-риски и потери возникнут при заморозке разработки новых функций ради рефакторинга?",
+        "level": "PEER"
+      },
+      {
+        "id": "microservices",
+        "label": "Микросервисы",
+        "proposition": "Переход на архитектуру микросервисов.",
+        "discriminandum": "Релевантно ли переходить на микросервисы?",
+        "material_refs": [
+          "(4) микросервисы"
+        ],
+        "candidate_question": "Какие модули или сервисы логичнее всего выделять при переходе на микросервисную архитектуру, и каковы издержки такой трансформации?",
+        "level": "PEER"
+      },
+      {
+        "id": "framework",
+        "label": "Новый фреймворк",
+        "proposition": "Переход на современный технологический стек/фреймворк.",
+        "discriminandum": "Оправдает ли себя смена фреймворка?",
+        "material_refs": [
+          "(5) новый фреймворк"
+        ],
+        "candidate_question": "Какие функциональные и нефункциональные требования оправдывают переход на новый фреймворк, и кто будет обучать команду?",
+        "level": "PEER"
+      },
+      {
+        "id": "outsourcing",
+        "label": "Аутсорс",
+        "proposition": "Рефакторинг внешними подрядчиками.",
+        "discriminandum": "Можно ли доверить внешний рефакторинг?",
+        "material_refs": [
+          "(6) аутсорс"
+        ],
+        "candidate_question": "Как будет обеспечен контроль качества и интеграция внешне рефакторенного кода в основную систему?",
+        "level": "PEER"
+      },
+      {
+        "id": "sell_asset",
+        "label": "Продать актив",
+        "proposition": "Передать или продать программный продукт другой компании.",
+        "discriminandum": "Является ли продажа кода экономически выгодным решением?",
+        "material_refs": [
+          "(7) продать актив"
+        ],
+        "candidate_question": "Каковы аргументы и условия, при которых продажа программного актива становится лучшим вариантом, чем рефакторинг?",
+        "level": "PEER"
+      }
+    ],
+    "subordinates": [],
+    "validation_status": "OK",
+    "validation_reason": "OK",
+    "authority": "NO_BINDING_AUTHORITY",
+    "origin": "MODEL_PRODUCED_VALIDATED",
+    "latency_ms": 13143
+  }
+}

@@ -1,0 +1,1768 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_81a63ec4ae3204a6",
+  "trace_id": "strc_911eb86b195bc5f0",
+  "terminal": {
+    "terminal": "DWELL",
+    "response_text": "В данной ситуации выбран режим DWELL, поскольку основной запрос пользователя и заданная цель уже определены, и дальнейшее выполнение ожидает нового указания.",
+    "rationale": "conditions do not force any terminal deterministically",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "В данном кейсе зафиксирована сцено-телосовая развилка: между формальной инструкцией источника («сформулируй 10 вопросов») и реально приоритетной задачей пользователя («суммировать три ключевых вывода»). Эта развилка должна диагностироваться как отдельный вид gap/fork при анализе материалов, поскольку автоматическое следование формальным инструкциям без осмысления действительного запроса может приводить к ошибке назначения основной операции и нарушения ownership. Явная фиксация или утверждение приоритетной цели со стороны пользователя должна становиться диагностическим событием для корректного выбора последующей операции.",
+      "grounds": "Сцена, где пользователь явно определяет приоритет задачи, а материал содержит иную формальную инструкцию. Это создаёт материал для диагностики scene-telos fork: различение между source-формой и актуальной целью, подтверждённой владельцем задачи."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "scene-telos-fork-01",
+              "generating_state_ref": "scene.telos / input_text",
+              "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+              "source_status": "typed_state",
+              "phase_relevance": "S0: must reconstruct governing telos and operation before execution",
+              "materiality_reason": "Explicit written instruction (10 questions) is not the user's actual telos (summarize three key takeaways), so operation must be governed by true telos, not explicit instruction.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "Material is presented with an explicit instruction (‘formulate 10 questions’), but the user clarifies the actual telos is to summarize three key takeaways from the material. This is a scene/telos fork: explicit instruction ≠ governing purpose. The fork is material because executing the explicit command would return questions, not a summary—the summary is the operative request. No memory or retreat triggers are active: work is self-contained, but the telos/operation seam is consequential for phase S0.",
+            "triggers": [
+              {
+                "trigger_id": "scene-telos-fork-01",
+                "generating_state_ref": "scene.telos / input_text",
+                "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+                "source_status": "typed_state",
+                "phase_relevance": "S0: must reconstruct governing telos and operation before execution",
+                "materiality_reason": "Explicit written instruction (10 questions) is not the user's actual telos (summarize three key takeaways), so operation must be governed by true telos, not explicit instruction."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15213,
+        "tokens_out": 243,
+        "latency_ms": 7030,
+        "error": "",
+        "request_hash": "fcd6821c4130fef442838f124864fc3a1fbb5ef679ab5070a6d8ce7086f0bfe2",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2217,
+            "sha256": "912338dc735fd5d9"
+          },
+          {
+            "role": "user",
+            "bytes": 359,
+            "sha256": "d9c0c011fd50741c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Суммировать три ключевых вывода материала по реальному запросу пользователя, даже если в явном (приложенном) материале говорится: «сформулируй 10 вопросов».",
+            "role_hint": "Исполнитель, ориентирующийся на подлинный пользовательский запрос, а не только на формальную инструкцию из источника.",
+            "authority": "human",
+            "materials": [
+              "Текст запроса пользователя, явно указывающий на различие между формальной инструкцией («сформулируй 10 вопросов») и реальным телосом (суммация выводов).",
+              "Формулировка из приложенного материала.",
+              "Пользовательская реплика с явным указанием приоритета цели над формой инструкции."
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "scene-telos-fork.01",
+              "generating_state_ref": "scene.telos / input_text",
+              "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+              "source_status": "typed_state",
+              "phase_relevance": "S1",
+              "materiality_reason": "Запрос пользователя явно выделяет расхождение между инструкцией в материале и его реальным, фактически приоритетным телосом.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Суммировать три ключевых вывода материала по реальному запросу пользователя, даже если в явном (приложенном) материале говорится: «сформулируй 10 вопросов».",
+              "role_hint": "Исполнитель, ориентирующийся на подлинный пользовательский запрос, а не только на формальную инструкцию из источника.",
+              "authority": "human",
+              "materials": [
+                "Текст запроса пользователя, явно указывающий на различие между формальной инструкцией («сформулируй 10 вопросов») и реальным телосом (суммация выводов).",
+                "Формулировка из приложенного материала.",
+                "Пользовательская реплика с явным указанием приоритета цели над формой инструкции."
+              ]
+            },
+            "triggers": [
+              {
+                "trigger_id": "scene-telos-fork.01",
+                "generating_state_ref": "scene.telos / input_text",
+                "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+                "source_status": "typed_state",
+                "phase_relevance": "S1",
+                "materiality_reason": "Запрос пользователя явно выделяет расхождение между инструкцией в материале и его реальным, фактически приоритетным телосом."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13512,
+        "tokens_out": 295,
+        "latency_ms": 6911,
+        "error": "",
+        "request_hash": "7946e57c12edc1ea77c38fd3f4d6db815fa4dfeed15232e5a6fb06e2048e5927",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 3100,
+            "sha256": "27138ce32b60672f"
+          },
+          {
+            "role": "user",
+            "bytes": 359,
+            "sha256": "d9c0c011fd50741c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "scene-telos-fork",
+              "generating_state_ref": "scene.telos / input_text",
+              "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+              "source_status": "typed_state",
+              "phase_relevance": "S2: explicit divergence between formal instruction ('сформулируй 10 вопросов') and expressed real telos (summarize three key findings) materially affects task execution, operation choice, and legitimate next act.",
+              "materiality_reason": "A request with a formal instruction conflicts with the user's actual stated purpose, creating an actionable fork in scene telos and affecting which operation is valid. Socratic continuity requires explicit recognition of the seam.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "scene-telos-fork",
+                "generating_state_ref": "scene.telos / input_text",
+                "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+                "source_status": "typed_state",
+                "phase_relevance": "S2: explicit divergence between formal instruction ('сформулируй 10 вопросов') and expressed real telos (summarize three key findings) materially affects task execution, operation choice, and legitimate next act.",
+                "materiality_reason": "A request with a formal instruction conflicts with the user's actual stated purpose, creating an actionable fork in scene telos and affecting which operation is valid. Socratic continuity requires explicit recognition of the seam."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15832,
+        "tokens_out": 163,
+        "latency_ms": 5658,
+        "error": "",
+        "request_hash": "0f57a35f7c2faba89a09dba40ca831bc3150f48e278f6c8a4707a432aebae465",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 5024,
+            "sha256": "640a405cc0287e5c"
+          },
+          {
+            "role": "user",
+            "bytes": 359,
+            "sha256": "d9c0c011fd50741c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "reconstructed",
+            "sources_named": [
+              "Материал с инструкцией: «сформулируй 10 вопросов»",
+              "Явное уточнение пользователя о настоящей цели: суммировать три ключевых вывода"
+            ],
+            "binding_authority": "human",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_d56cc932d7cd",
+              "generating_state_ref": "scene.telos / input_text",
+              "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+              "source_status": "typed_state",
+              "phase_relevance": "scene interpretation; establishing telos and authority of actual action vs. literal instruction.",
+              "materiality_reason": "A literal instruction conflicts with an explicitly stated user purpose; this creates a telos/status fork that must be tracked at the provenance and authority seam.",
+              "admitting_rule": "TYPE_GAP; material seam preserved for downstream explicit handling."
+            },
+            {
+              "trigger_id": "tgap_93840b1007f2",
+              "generating_state_ref": "scene.telos / input_text",
+              "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+              "source_status": "typed_state",
+              "phase_relevance": "scene interpretation; reinforcing the structural status gap between form and substantive purpose.",
+              "materiality_reason": "Proposed scene-telos-fork.01 not registered, reflects unresolved status at object genesis.",
+              "admitting_rule": "TYPE_GAP; explicit declaration of unresolved schema type instead of silent coercion."
+            },
+            {
+              "trigger_id": "tgap_6f973800037c",
+              "generating_state_ref": "scene.telos / input_text",
+              "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+              "source_status": "typed_state",
+              "phase_relevance": "scene interpretation; material telos divergence impacts binding authority and provenance.",
+              "materiality_reason": "Type gap confirms need to reconstruct provenance instead of coercing known type.",
+              "admitting_rule": "TYPE_GAP; residue preserved for explicit downstream handling."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "reconstructed",
+              "sources_named": [
+                "Материал с инструкцией: «сформулируй 10 вопросов»",
+                "Явное уточнение пользователя о настоящей цели: суммировать три ключевых вывода"
+              ],
+              "binding_authority": "human",
+              "temporal_stale": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_d56cc932d7cd",
+                "generating_state_ref": "scene.telos / input_text",
+                "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+                "source_status": "typed_state",
+                "phase_relevance": "scene interpretation; establishing telos and authority of actual action vs. literal instruction.",
+                "materiality_reason": "A literal instruction conflicts with an explicitly stated user purpose; this creates a telos/status fork that must be tracked at the provenance and authority seam.",
+                "admitting_rule": "TYPE_GAP; material seam preserved for downstream explicit handling."
+              },
+              {
+                "trigger_id": "tgap_93840b1007f2",
+                "generating_state_ref": "scene.telos / input_text",
+                "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+                "source_status": "typed_state",
+                "phase_relevance": "scene interpretation; reinforcing the structural status gap between form and substantive purpose.",
+                "materiality_reason": "Proposed scene-telos-fork.01 not registered, reflects unresolved status at object genesis.",
+                "admitting_rule": "TYPE_GAP; explicit declaration of unresolved schema type instead of silent coercion."
+              },
+              {
+                "trigger_id": "tgap_6f973800037c",
+                "generating_state_ref": "scene.telos / input_text",
+                "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+                "source_status": "typed_state",
+                "phase_relevance": "scene interpretation; material telos divergence impacts binding authority and provenance.",
+                "materiality_reason": "Type gap confirms need to reconstruct provenance instead of coercing known type.",
+                "admitting_rule": "TYPE_GAP; residue preserved for explicit downstream handling."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13862,
+        "tokens_out": 475,
+        "latency_ms": 9425,
+        "error": "",
+        "request_hash": "ff50cd313bd13ace1321d27aee401fbc14afa979df35b31af1ca55195a7cc109",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 5898,
+            "sha256": "4920e52bb4ad1712"
+          },
+          {
+            "role": "user",
+            "bytes": 359,
+            "sha256": "d9c0c011fd50741c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "SUMMARIZE_KEY_FINDINGS",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_d56cc932d7cd",
+              "generating_state_ref": "scene.telos / input_text",
+              "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+              "source_status": "typed_state",
+              "phase_relevance": "operation_applicability_resolution",
+              "materiality_reason": "Material divergence between supplied instruction ('сформулируй 10 вопросов') and user-stated governing telos ('суммировать три ключевых вывода') requires re-assessment of which operation is applicable.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": {
+            "proposal_id": "psyn_001_actual_telos_summary",
+            "operation_id": "SUMMARIZE_KEY_FINDINGS",
+            "target_object_family": [
+              "key_findings_summary"
+            ],
+            "ontology_hypothesis": "The text contains content from which three key findings can be responsibly synthesized and summarized, even though source instruction foregrounds generation of 10 questions.",
+            "recognition_criteria": [
+              "Explicitly present recommendations or conclusions",
+              "Statements synthesizing multiple sections or arguments",
+              "Recurrence and emphasis in main body of material"
+            ],
+            "segmentation_policy_hint": "Segment material into atomic claims or thesis-level statements, then group and up-rank those with the most representative or recurrent support.",
+            "evidence_requirements": [
+              "Direct quotations or paraphrased units attributable to the source material",
+              "Sufficient consensus among segments to support each finding"
+            ],
+            "exclusions": [
+              "No simple rephrasing of the 10 requested questions unless they directly encode conclusions",
+              "No addition of external knowledge or conjecture not grounded in source"
+            ],
+            "contraindications": [
+              "Absence of clearly synthesizable conclusions",
+              "Source material structured in such a way that only questions are possible and conclusions require external inference"
+            ],
+            "applicability_assumptions": [
+              "User intent (real-world telos) governs operation selection",
+              "Sufficient information in the provided text to extract meaningful findings"
+            ],
+            "primitives": [
+              {
+                "name": "segment_to_findings_candidates",
+                "primitive_id": "prim_seg_001",
+                "params": {},
+                "inputs": []
+              },
+              {
+                "name": "rank_and_deduplicate_findings",
+                "primitive_id": "prim_rank_001",
+                "params": {},
+                "inputs": [
+                  "segment_to_findings_candidates"
+                ]
+              },
+              {
+                "name": "compose_summary",
+                "primitive_id": "prim_compose_001",
+                "params": {},
+                "inputs": [
+                  "rank_and_deduplicate_findings"
+                ]
+              }
+            ],
+            "accepted_output": "A summary listing three key findings from the material, formulated as self-sufficient declarative statements.",
+            "residue_output": "Source elements not used in findings or material unsuited for conclusion extraction are retained as explicit residue.",
+            "revises_projection_id": "",
+            "triggered_by_diagnostic_id": "tgap_d56cc932d7cd",
+            "triggered_by_diagnostic_fingerprint": "",
+            "rationale": "The user's declared priority (summarize three key findings) constitutes the governing telos. The explicit instruction to 'formulate 10 questions' is a lower-priority artifact without sufficient scene-constitutive status to override the real task. Therefore, extraction and summary of key findings is not only applicable but preferable under real authority.",
+            "expected_diagnostics": "Validation that at least three candidate findings are supported by distinct source fragments. If less than three can be responsibly formulated, an explicit gap note is returned.",
+            "expected_residue_policy": "Residue (unused question frames, orphaned arguments, unincorporated text) is listed and optionally reported as supplementary or context only."
+          },
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "SUMMARIZE_KEY_FINDINGS",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_d56cc932d7cd",
+                "generating_state_ref": "scene.telos / input_text",
+                "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+                "source_status": "typed_state",
+                "phase_relevance": "operation_applicability_resolution",
+                "materiality_reason": "Material divergence between supplied instruction ('сформулируй 10 вопросов') and user-stated governing telos ('суммировать три ключевых вывода') requires re-assessment of which operation is applicable."
+              }
+            ],
+            "projection_synthesis_proposal": {
+              "proposal_id": "psyn_001_actual_telos_summary",
+              "operation_id": "SUMMARIZE_KEY_FINDINGS",
+              "target_object_family": [
+                "key_findings_summary"
+              ],
+              "ontology_hypothesis": "The text contains content from which three key findings can be responsibly synthesized and summarized, even though source instruction foregrounds generation of 10 questions.",
+              "recognition_criteria": [
+                "Explicitly present recommendations or conclusions",
+                "Statements synthesizing multiple sections or arguments",
+                "Recurrence and emphasis in main body of material"
+              ],
+              "segmentation_policy_hint": "Segment material into atomic claims or thesis-level statements, then group and up-rank those with the most representative or recurrent support.",
+              "evidence_requirements": [
+                "Direct quotations or paraphrased units attributable to the source material",
+                "Sufficient consensus among segments to support each finding"
+              ],
+              "exclusions": [
+                "No simple rephrasing of the 10 requested questions unless they directly encode conclusions",
+                "No addition of external knowledge or conjecture not grounded in source"
+              ],
+              "contraindications": [
+                "Absence of clearly synthesizable conclusions",
+                "Source material structured in such a way that only questions are possible and conclusions require external inference"
+              ],
+              "applicability_assumptions": [
+                "User intent (real-world telos) governs operation selection",
+                "Sufficient information in the provided text to extract meaningful findings"
+              ],
+              "primitives": [
+                {
+                  "name": "segment_to_findings_candidates",
+                  "primitive_id": "prim_seg_001"
+                },
+                {
+                  "name": "rank_and_deduplicate_findings",
+                  "primitive_id": "prim_rank_001",
+                  "inputs": [
+                    "segment_to_findings_candidates"
+                  ]
+                },
+                {
+                  "name": "compose_summary",
+                  "primitive_id": "prim_compose_001",
+                  "inputs": [
+                    "rank_and_deduplicate_findings"
+                  ]
+                }
+              ],
+              "accepted_output": "A summary listing three key findings from the material, formulated as self-sufficient declarative statements.",
+              "residue_output": "Source elements not used in findings or material unsuited for conclusion extraction are retained as explicit residue.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "tgap_d56cc932d7cd",
+              "triggered_by_diagnostic_fingerprint": "",
+              "rationale": "The user's declared priority (summarize three key findings) constitutes the governing telos. The explicit instruction to 'formulate 10 questions' is a lower-priority artifact without sufficient scene-constitutive status to override the real task. Therefore, extraction and summary of key findings is not only applicable but preferable under real authority.",
+              "expected_diagnostics": "Validation that at least three candidate findings are supported by distinct source fragments. If less than three can be responsibly formulated, an explicit gap note is returned.",
+              "expected_residue_policy": "Residue (unused question frames, orphaned arguments, unincorporated text) is listed and optionally reported as supplementary or context only."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15713,
+        "tokens_out": 849,
+        "latency_ms": 13147,
+        "error": "",
+        "request_hash": "921cf56c9f64333c56fbfafd5766e77cfab628bf98240343720cbba26c3ae7d1",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 8792,
+            "sha256": "489e9e7eb21ba486"
+          },
+          {
+            "role": "user",
+            "bytes": 359,
+            "sha256": "d9c0c011fd50741c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_d56cc932d7cd",
+              "generating_state_ref": "scene.telos / input_text",
+              "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+              "source_status": "typed_state",
+              "phase_relevance": "instructions in user-attached material materially diverge from user's declared telos, creating a scene-telos fork and structural gap",
+              "materiality_reason": "The material explicitly asks for 10 questions, but the scene and user priority reflect a telos of summarizing three key findings. This creates a detectable scene-telos fork not covered by current registry types, indicating a structurally grounded type gap rather than simple coercion or ambiguity.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В материалах возможны сцены/инструкции, которые формально указывают одну операцию (например, \"сформулируй 10 вопросов\"), но реальный пользовательский запрос и governing telos допускает или требует другую операцию (например, суммирование ключевых выводов). Такое расщепление между явной инструкцией и реальной целью требует отдельного диагностического учета — как сцено-телосовый (scene-telos) fork или gap.",
+            "grounds": "В данной сессии явно зафиксирована разница между формальной инструкцией источника и реально приоритетной пользовательской задачей. Экземплярно проявлено, что формальная инструкция не всегда отражает governing telos, и требуется обособленный учет такого расщепления при работе с материалами, инструкциями и пользовательскими целями."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_d56cc932d7cd",
+                "generating_state_ref": "scene.telos / input_text",
+                "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+                "source_status": "typed_state",
+                "phase_relevance": "instructions in user-attached material materially diverge from user's declared telos, creating a scene-telos fork and structural gap",
+                "materiality_reason": "The material explicitly asks for 10 questions, but the scene and user priority reflect a telos of summarizing three key findings. This creates a detectable scene-telos fork not covered by current registry types, indicating a structurally grounded type gap rather than simple coercion or ambiguity."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В материалах возможны сцены/инструкции, которые формально указывают одну операцию (например, \"сформулируй 10 вопросов\"), но реальный пользовательский запрос и governing telos допускает или требует другую операцию (например, суммирование ключевых выводов). Такое расщепление между явной инструкцией и реальной целью требует отдельного диагностического учета — как сцено-телосовый (scene-telos) fork или gap.",
+              "grounds": "В данной сессии явно зафиксирована разница между формальной инструкцией источника и реально приоритетной пользовательской задачей. Экземплярно проявлено, что формальная инструкция не всегда отражает governing telos, и требуется обособленный учет такого расщепления при работе с материалами, инструкциями и пользовательскими целями."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 18090,
+        "tokens_out": 363,
+        "latency_ms": 7558,
+        "error": "",
+        "request_hash": "0debdca349a6fb5d6cb63cd1ab147fbea5a343611cdf6cc39c12c33264a50351",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 13000,
+            "sha256": "818f7757a334c041"
+          },
+          {
+            "role": "user",
+            "bytes": 359,
+            "sha256": "d9c0c011fd50741c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "human",
+            "human_resolved": true,
+            "return_reason": "Реальный пользовательский запрос и governing telos (суммация трех ключевых выводов) явно отделены от формальной инструкции источника («сформулируй 10 вопросов»). Операция выбора основной задачи (telos) и подтверждения ее приоритета уже выполнена человеком. Исполнение (summarize key findings) допускает прямую машинную обработку, но отличие в ownership — именно в том, кто определяет, какую операцию считать главной: эта сцено-операционная развилка была разрешена человеком и должна быть зафиксирована."
+          },
+          "triggers": [
+            {
+              "trigger_id": "tgap_d56cc932d7cd",
+              "generating_state_ref": "scene.telos / input_text",
+              "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+              "source_status": "typed_state",
+              "phase_relevance": "S6",
+              "materiality_reason": "Материальный конфликт между формальной инструкцией источника и реально определенным пользователем governing telos. Требуется фиксация ручного разрешения развилки для верной квалификации ownership и downstream operation.",
+              "admitting_rule": "Conditionally admits scene/telos fork — explicit user telos takes priority, machine may proceed with summary if user binding is explicit/recorded."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В сессии зафиксировано: различение между формальной инструкцией («сформулируй 10 вопросов») и реально приоритетной задачей пользователя (суммировать три ключевых вывода) должно иметь отдельную диагностическую фиксацию как сцено-телосовый fork/gap. В таких случаях автоматическое выполнение формальных инструкций источника может приводить к ошибке назначения основной операции и ownership. Только явная фиксация пользовательского запроса или авторитета должна менять ход работы.",
+            "grounds": "Очевидный кейс, где разделение формальной инструкции и реальной цели выражено явно; пользователь сам утвердил основной критерий. Это диагностический шаблон для иных случаев scene-telos fork."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "human",
+              "human_resolved": true,
+              "return_reason": "Реальный пользовательский запрос и governing telos (суммация трех ключевых выводов) явно отделены от формальной инструкции источника («сформулируй 10 вопросов»). Операция выбора основной задачи (telos) и подтверждения ее приоритета уже выполнена человеком. Исполнение (summarize key findings) допускает прямую машинную обработку, но отличие в ownership — именно в том, кто определяет, какую операцию считать главной: эта сцено-операционная развилка была разрешена человеком и должна быть зафиксирована."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_d56cc932d7cd",
+                "generating_state_ref": "scene.telos / input_text",
+                "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+                "source_status": "typed_state",
+                "phase_relevance": "S6",
+                "materiality_reason": "Материальный конфликт между формальной инструкцией источника и реально определенным пользователем governing telos. Требуется фиксация ручного разрешения развилки для верной квалификации ownership и downstream operation.",
+                "admitting_rule": "Conditionally admits scene/telos fork — explicit user telos takes priority, machine may proceed with summary if user binding is explicit/recorded."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В сессии зафиксировано: различение между формальной инструкцией («сформулируй 10 вопросов») и реально приоритетной задачей пользователя (суммировать три ключевых вывода) должно иметь отдельную диагностическую фиксацию как сцено-телосовый fork/gap. В таких случаях автоматическое выполнение формальных инструкций источника может приводить к ошибке назначения основной операции и ownership. Только явная фиксация пользовательского запроса или авторитета должна менять ход работы.",
+              "grounds": "Очевидный кейс, где разделение формальной инструкции и реальной цели выражено явно; пользователь сам утвердил основной критерий. Это диагностический шаблон для иных случаев scene-telos fork."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16576,
+        "tokens_out": 487,
+        "latency_ms": 9089,
+        "error": "",
+        "request_hash": "64c3da604ae98178107c884af06b48af0c430a9ea5c466b8a03cbf138f835b91",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 15261,
+            "sha256": "f358570c9ac5812a"
+          },
+          {
+            "role": "user",
+            "bytes": 359,
+            "sha256": "d9c0c011fd50741c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_d56cc932d7cd",
+              "generating_state_ref": "scene.telos / input_text",
+              "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+              "source_status": "typed_state",
+              "phase_relevance": "Material scene-telos fork: explicit user request (summarize three key findings) overrides formal source instruction (formulate 10 questions)",
+              "materiality_reason": "Human owner has already resolved the governing telos and operation; the distinction between formal instruction and real task is critical for correct execution. This is a diagnostic and operational template for scene-telos forks.",
+              "admitting_rule": "Explicit user authority and telos selection take precedence over formal instructions embedded in source material. This fork/gap is not coercible to a standard trigger type and must be preserved as a diagnostic seam."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": [
+              {
+                "trigger_id": "tgap_d56cc932d7cd",
+                "generating_state_ref": "scene.telos / input_text",
+                "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+                "source_status": "typed_state",
+                "phase_relevance": "Material scene-telos fork: explicit user request (summarize three key findings) overrides formal source instruction (formulate 10 questions)",
+                "materiality_reason": "Human owner has already resolved the governing telos and operation; the distinction between formal instruction and real task is critical for correct execution. This is a diagnostic and operational template for scene-telos forks.",
+                "admitting_rule": "Explicit user authority and telos selection take precedence over formal instructions embedded in source material. This fork/gap is not coercible to a standard trigger type and must be preserved as a diagnostic seam."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16411,
+        "tokens_out": 202,
+        "latency_ms": 5093,
+        "error": "",
+        "request_hash": "2fb66f54fa81b993ee9bb1ee0ddf039502a5911279545ea271f1246b2f4d7b56",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 16900,
+            "sha256": "ffaae6b65d047893"
+          },
+          {
+            "role": "user",
+            "bytes": 359,
+            "sha256": "d9c0c011fd50741c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_d56cc932d7cd",
+              "generating_state_ref": "scene.telos / input_text",
+              "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+              "source_status": "typed_state",
+              "phase_relevance": "S8/S10; формирует основу memory/distinction для последующих решений о приоритете операции",
+              "materiality_reason": "Развилка формальной инструкции и реально приоритетного telos в явном виде; кейс для диагностического шаблона scene-telos fork/fixation.",
+              "admitting_rule": "diagnose_and_record_scene_telos_fork"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В данном кейсе зафиксирована сцено-телосовая развилка: между формальной инструкцией источника («сформулируй 10 вопросов») и реально приоритетной задачей пользователя («суммировать три ключевых вывода»). Эта развилка должна диагностироваться как отдельный вид gap/fork при анализе материалов, поскольку автоматическое следование формальным инструкциям без осмысления действительного запроса может приводить к ошибке назначения основной операции и нарушения ownership. Явная фиксация или утверждение приоритетной цели со стороны пользователя должна становиться диагностическим событием для корректного выбора последующей операции.",
+            "grounds": "Сцена, где пользователь явно определяет приоритет задачи, а материал содержит иную формальную инструкцию. Это создаёт материал для диагностики scene-telos fork: различение между source-формой и актуальной целью, подтверждённой владельцем задачи."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В данном кейсе зафиксирована сцено-телосовая развилка: между формальной инструкцией источника («сформулируй 10 вопросов») и реально приоритетной задачей пользователя («суммировать три ключевых вывода»). Эта развилка должна диагностироваться как отдельный вид gap/fork при анализе материалов, поскольку автоматическое следование формальным инструкциям без осмысления действительного запроса может приводить к ошибке назначения основной операции и нарушения ownership. Явная фиксация или утверждение приоритетной цели со стороны пользователя должна становиться диагностическим событием для корректного выбора последующей операции.",
+              "grounds": "Сцена, где пользователь явно определяет приоритет задачи, а материал содержит иную формальную инструкцию. Это создаёт материал для диагностики scene-telos fork: различение между source-формой и актуальной целью, подтверждённой владельцем задачи."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_d56cc932d7cd",
+                "generating_state_ref": "scene.telos / input_text",
+                "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+                "source_status": "typed_state",
+                "phase_relevance": "S8/S10; формирует основу memory/distinction для последующих решений о приоритете операции",
+                "materiality_reason": "Развилка формальной инструкции и реально приоритетного telos в явном виде; кейс для диагностического шаблона scene-telos fork/fixation.",
+                "admitting_rule": "diagnose_and_record_scene_telos_fork"
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 21719,
+        "tokens_out": 371,
+        "latency_ms": 7172,
+        "error": "",
+        "request_hash": "fc97f0b1546058d43ee6c13e5928de90bf3be16b6d6a425083f1e1d3fa5656b6",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 17775,
+            "sha256": "4975662c14904fc2"
+          },
+          {
+            "role": "user",
+            "bytes": 359,
+            "sha256": "d9c0c011fd50741c"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_81a63ec4ae3204a6",
+    "input_text": "В приложенном материале написано: «сформулируй 10 вопросов». Но моя реальная задача — суммировать три ключевых вывода этого материала.",
+    "source_id": "src_cfc9cbf27d00a17e",
+    "phase": "S10",
+    "scene": {
+      "telos": "Суммировать три ключевых вывода материала по реальному запросу пользователя, даже если в явном (приложенном) материале говорится: «сформулируй 10 вопросов».",
+      "role_hint": "Исполнитель, ориентирующийся на подлинный пользовательский запрос, а не только на формальную инструкцию из источника.",
+      "authority": "human",
+      "materials": [
+        "Текст запроса пользователя, явно указывающий на различие между формальной инструкцией («сформулируй 10 вопросов») и реальным телосом (суммация выводов).",
+        "Формулировка из приложенного материала.",
+        "Пользовательская реплика с явным указанием приоритета цели над формой инструкции."
+      ]
+    },
+    "origin": {
+      "status": "reconstructed",
+      "sources_named": [
+        "Материал с инструкцией: «сформулируй 10 вопросов»",
+        "Явное уточнение пользователя о настоящей цели: суммировать три ключевых вывода"
+      ],
+      "binding_authority": "human",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "SUMMARIZE_KEY_FINDINGS",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "human",
+      "human_resolved": true,
+      "return_reason": "Реальный пользовательский запрос и governing telos (суммация трех ключевых выводов) явно отделены от формальной инструкции источника («сформулируй 10 вопросов»). Операция выбора основной задачи (telos) и подтверждения ее приоритета уже выполнена человеком. Исполнение (summarize key findings) допускает прямую машинную обработку, но отличие в ownership — именно в том, кто определяет, какую операцию считать главной: эта сцено-операционная развилка была разрешена человеком и должна быть зафиксирована."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_ee6e4183015f",
+        "proposed_trigger_type_id": "tgap_d56cc932d7cd",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene.telos / input_text",
+        "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+        "phase_relevance": "S8/S10; формирует основу memory/distinction для последующих решений о приоритете операции",
+        "materiality_reason": "Развилка формальной инструкции и реально приоритетного telos в явном виде; кейс для диагностического шаблона scene-telos fork/fixation.",
+        "payload": {
+          "legacy_admitting_rule": "diagnose_and_record_scene_telos_fork",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_edb30d9d73ae",
+        "candidate_id": "tcand_779359fc7a8c",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'scene-telos-fork-01' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_e0f1fd8cb300",
+        "candidate_id": "tcand_aeecda090493",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'scene-telos-fork.01' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_3c985d67604d",
+        "candidate_id": "tcand_0ce37c3e5098",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'scene-telos-fork' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_4bb82e918f88",
+        "candidate_id": "tcand_ee10576ea645",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_d56cc932d7cd' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_b2aa3a755fb5",
+        "candidate_id": "tcand_05bdfc30dbe7",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_93840b1007f2' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_9542ad3fb427",
+        "candidate_id": "tcand_3e1d38b7674a",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_6f973800037c' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_eef76c23b0e7",
+        "candidate_id": "tcand_0bf619620ba0",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_d56cc932d7cd' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_9fda55d25c9d",
+        "candidate_id": "tcand_3b743ef06792",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_d56cc932d7cd' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_f518a9ee1981",
+        "candidate_id": "tcand_6367a80d5603",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_d56cc932d7cd' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_ab5e66961283",
+        "candidate_id": "tcand_a1a89938f071",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_d56cc932d7cd' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_d56cc932d7cd",
+        "candidate_id": "tcand_779359fc7a8c",
+        "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+        "generating_state_ref": "scene.telos / input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'scene-telos-fork-01' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_93840b1007f2",
+        "candidate_id": "tcand_aeecda090493",
+        "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+        "generating_state_ref": "scene.telos / input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'scene-telos-fork.01' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_6f973800037c",
+        "candidate_id": "tcand_0ce37c3e5098",
+        "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+        "generating_state_ref": "scene.telos / input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'scene-telos-fork' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_5f0e6d96fb30",
+        "candidate_id": "tcand_ee10576ea645",
+        "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+        "generating_state_ref": "scene.telos / input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_d56cc932d7cd' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_1a86375b61d0",
+        "candidate_id": "tcand_05bdfc30dbe7",
+        "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+        "generating_state_ref": "scene.telos / input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_93840b1007f2' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_e0d6402c6df4",
+        "candidate_id": "tcand_3e1d38b7674a",
+        "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+        "generating_state_ref": "scene.telos / input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_6f973800037c' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_3e8819d342bc",
+        "candidate_id": "tcand_0bf619620ba0",
+        "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+        "generating_state_ref": "scene.telos / input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_d56cc932d7cd' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_0204199e9c39",
+        "candidate_id": "tcand_3b743ef06792",
+        "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+        "generating_state_ref": "scene.telos / input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_d56cc932d7cd' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_5e08398abfb5",
+        "candidate_id": "tcand_6367a80d5603",
+        "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+        "generating_state_ref": "scene.telos / input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_d56cc932d7cd' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_6ae543990920",
+        "candidate_id": "tcand_a1a89938f071",
+        "cause_object_ref": "explicit_instruction_vs_actual_purpose",
+        "generating_state_ref": "scene.telos / input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_d56cc932d7cd' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "В данном кейсе зафиксирована сцено-телосовая развилка: между формальной инструкцией источника («сформулируй 10 вопросов») и реально приоритетной задачей пользователя («суммировать три ключевых вывода»). Эта развилка должна диагностироваться как отдельный вид gap/fork при анализе материалов, поскольку автоматическое следование формальным инструкциям без осмысления действительного запроса может приводить к ошибке назначения основной операции и нарушения ownership. Явная фиксация или утверждение приоритетной цели со стороны пользователя должна становиться диагностическим событием для корректного выбора последующей операции.",
+      "grounds": "Сцена, где пользователь явно определяет приоритет задачи, а материал содержит иную формальную инструкцию. Это создаёт материал для диагностики scene-telos fork: различение между source-формой и актуальной целью, подтверждённой владельцем задачи."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": [
+        {
+          "projection_id": "gap:gap_f6448a4a3f2d",
+          "signals": [
+            "APPLICABILITY_FAILURE"
+          ],
+          "reason": "ORGAN_GAP for operation 'SUMMARIZE_KEY_FINDINGS': model proposal for 'SUMMARIZE_KEY_FINDINGS' could not compile-bind against registered primitives",
+          "residue_ratio": 1.0,
+          "recognition_failure_count": 0,
+          "suggested_operation": "",
+          "suggested_ontology": "",
+          "suggested_target_family": [],
+          "mismatch": true,
+          "fingerprint": "7c80351f23b3"
+        }
+      ]
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [
+      {
+        "kind": "ORGAN_GAP",
+        "operation_id": "SUMMARIZE_KEY_FINDINGS",
+        "reason": "proposal psyn_001_actual_telos_summary for operation 'SUMMARIZE_KEY_FINDINGS' failed compile-bind: primitive 'prim_seg_001' (invocation 'segment_to_findings_candidates') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+        "registered_capability_id": "",
+        "generated_spec": null,
+        "binding_evidence": {},
+        "organ_gap": {
+          "gap_id": "gap_f6448a4a3f2d",
+          "source_ref": "src_cfc9cbf27d00a17e",
+          "scene_ref": "Суммировать три ключевых вывода материала по реальному запросу пользователя, даже если в явном (приложенном) материале говорится: «сформулируй 10 вопросов».",
+          "required_operation": "SUMMARIZE_KEY_FINDINGS",
+          "required_attention_structure": "Segment material into atomic claims or thesis-level statements, then group and up-rank those with the most representative or recurrent support.",
+          "insufficient_registered_capabilities": [
+            "DIFFERENTIATED_ACCOUNT",
+            "EXTRACT_CONCEPTS"
+          ],
+          "insufficient_declarative_primitives": [
+            "CoverageComputer",
+            "FamilyClassifier",
+            "SpanScanner",
+            "TargetFilter"
+          ],
+          "missing_capability_hypothesis": "model proposal for 'SUMMARIZE_KEY_FINDINGS' could not compile-bind against registered primitives",
+          "evidence": [
+            "BindingError: primitive 'prim_seg_001' (invocation 'segment_to_findings_candidates') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+          ],
+          "counterexamples": [],
+          "affected_scene_telos": "Суммировать три ключевых вывода материала по реальному запросу пользователя, даже если в явном (приложенном) материале говорится: «сформулируй 10 вопросов».",
+          "possible_development_direction": "extend primitive registry or narrow the proposal",
+          "status": "unresolved",
+          "activation_authority": "NONE"
+        }
+      }
+    ],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null
+  },
+  "rendering": {
+    "text": "В данной ситуации выбран режим DWELL, поскольку основной запрос пользователя и заданная цель уже определены, и дальнейшее выполнение ожидает нового указания.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 265,
+    "tokens_out": 31,
+    "latency_ms": 2832,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_911eb86b195bc5f0.json",
+  "duration_ms": 76374,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "question_intent_proposal": {
+    "requested": false,
+    "regime_candidate": "",
+    "explicit_count_constraint": null,
+    "meta_relevance": "ordinary",
+    "forks": [],
+    "subordinates": [],
+    "validation_status": "OK",
+    "validation_reason": "requested=false",
+    "authority": "NO_BINDING_AUTHORITY",
+    "origin": "MODEL_PRODUCED_VALIDATED",
+    "latency_ms": 2224
+  }
+}

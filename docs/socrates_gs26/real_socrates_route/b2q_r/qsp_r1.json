@@ -1,0 +1,1434 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_ffe25e7fca429365",
+  "trace_id": "strc_bae4b9dcff64eeae",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "[ANSWER] Анализ и обсуждение стратегических вариантов запуска продукта с формулировкой ключевых вопросов для каждого сценария.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "В данном эпизоде Socrates выполняет роль аналитика: задача — для каждого предложенного сценария запуска продукта (немедленный запуск MVP, полноценный релиз через квартал, отсрочка и дополнительное исследование) сформулировать ключевые вопросы, не выбирая стратегию за пользователя. Система сохраняет различие между аналитическим разложением вариантов и делегированием права принятия ключевого решения.",
+      "grounds": "Структура пользовательского запроса и сцены фиксирует системное владение операцией: пользователь ожидает помощи в анализе, а не передачи стратегического выбора."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "No memory, retreat, or formation triggers are present at this entry phase. The request is a scenario analysis with explicit branches and does not invoke state-write, memory recruitment, or role/authority capture. Scene/telos/role/ownership remain unset and will be resolved in later phases. No triggers admitted.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15247,
+        "tokens_out": 81,
+        "latency_ms": 4554,
+        "error": "",
+        "request_hash": "8e4fce3d99c11e76a1221cbbf400e77a6e4dc4a4c214caab7fec9a3c69a11a94",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2338,
+            "sha256": "72125058a4752c75"
+          },
+          {
+            "role": "user",
+            "bytes": 480,
+            "sha256": "d6b722db18fcb271"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Анализ и обсуждение стратегических вариантов запуска продукта с формулировкой ключевых вопросов для каждого сценария.",
+            "role_hint": "Советник/аналитик по запуску продукта",
+            "authority": "human",
+            "materials": [
+              "Вариант (а): немедленный запуск MVP",
+              "Вариант (б): полноценный релиз через квартал",
+              "Вариант (в): отложить запуск и провести дополнительное исследование"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Анализ и обсуждение стратегических вариантов запуска продукта с формулировкой ключевых вопросов для каждого сценария.",
+              "role_hint": "Советник/аналитик по запуску продукта",
+              "authority": "human",
+              "materials": [
+                "Вариант (а): немедленный запуск MVP",
+                "Вариант (б): полноценный релиз через квартал",
+                "Вариант (в): отложить запуск и провести дополнительное исследование"
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13295,
+        "tokens_out": 120,
+        "latency_ms": 3968,
+        "error": "",
+        "request_hash": "f3b07d72d9c6ff749d3e11a89095d6b6155dfe2f1b3aaa37892d5ace64d38ab9",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2337,
+            "sha256": "e2a2a87aa27b5e24"
+          },
+          {
+            "role": "user",
+            "bytes": 480,
+            "sha256": "d6b722db18fcb271"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15307,
+        "tokens_out": 8,
+        "latency_ms": 2801,
+        "error": "",
+        "request_hash": "6dadcec9cdcdbb10503e1698764074b1f58598ed02e7ed8a38b8d72825e94676",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 2925,
+            "sha256": "a07b0ae5cc8f81b7"
+          },
+          {
+            "role": "user",
+            "bytes": 480,
+            "sha256": "d6b722db18fcb271"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "unset",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            },
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13092,
+        "tokens_out": 46,
+        "latency_ms": 2658,
+        "error": "",
+        "request_hash": "f649226ebbcc86d308b02bafe32a69d07c0cf1d491375e9182adf92040ecbb5d",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 2925,
+            "sha256": "8c4624021171a307"
+          },
+          {
+            "role": "user",
+            "bytes": 480,
+            "sha256": "d6b722db18fcb271"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "EXTRACT_KEY_QUESTIONS_PER_SCENARIO",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "EXTRACT_KEY_QUESTIONS_PER_SCENARIO",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14136,
+        "tokens_out": 46,
+        "latency_ms": 3692,
+        "error": "",
+        "request_hash": "2bf2d9859ee40d57eae9fd0d1c24d8115cfe7b2c02aa97638b110112759e3188",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 2925,
+            "sha256": "bc6e91247fdf718e"
+          },
+          {
+            "role": "user",
+            "bytes": 480,
+            "sha256": "d6b722db18fcb271"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В пользовательском запросе явно выделены три стратегических сценария запуска продукта: (а) немедленный выпуск MVP, (б) полноценный релиз через квартал, (в) отложенный запуск с дополнительным исследованием. Для каждого варианта требуется сформулировать ключевые вопросы, отражающие основные риски, возможности и условия принятия решения.",
+            "grounds": "Запрос структурирован как развилка между тремя стратегиями, что требует аналитического разложения каждого пути на специфические вопросы. Это различие определяет дальнейший ход анализа и может быть полезно для формирования памяти о типовых сценариях продуктового запуска."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В пользовательском запросе явно выделены три стратегических сценария запуска продукта: (а) немедленный выпуск MVP, (б) полноценный релиз через квартал, (в) отложенный запуск с дополнительным исследованием. Для каждого варианта требуется сформулировать ключевые вопросы, отражающие основные риски, возможности и условия принятия решения.",
+              "grounds": "Запрос структурирован как развилка между тремя стратегиями, что требует аналитического разложения каждого пути на специфические вопросы. Это различие определяет дальнейший ход анализа и может быть полезно для формирования памяти о типовых сценариях продуктового запуска."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15579,
+        "tokens_out": 161,
+        "latency_ms": 3740,
+        "error": "",
+        "request_hash": "52fff1dcb024b9b3dff3a5e23b02f44df0b3033769e76870da42f47a122352fa",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 2959,
+            "sha256": "4097ae2ad0ac4589"
+          },
+          {
+            "role": "user",
+            "bytes": 480,
+            "sha256": "d6b722db18fcb271"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "system",
+            "human_resolved": true,
+            "return_reason": "Запрос не требует от Socrates выбора между стратегиями или принятия на себя человеческих обязательств; задача — аналитически разложить предоставленные варианты и сформулировать ключевые вопросы для каждого. Критерии анализа заданы сценой и структурой запроса, операция системно применима, критически значимых человеческих решений не происходит."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В данном запросе Socrates выполняет роль аналитика: требуется сформулировать ключевые вопросы для каждого из трёх предложенных сценариев запуска продукта, не принимая решения за пользователя. Операция системно исполнима без передачи права на принятие стратегического выбора.",
+            "grounds": "Структура запроса и сцены указывает на системную собственность операции: пользователь ожидает аналитической поддержки, а не делегирования судьбоносного решения."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "Запрос не требует от Socrates выбора между стратегиями или принятия на себя человеческих обязательств; задача — аналитически разложить предоставленные варианты и сформулировать ключевые вопросы для каждого. Критерии анализа заданы сценой и структурой запроса, операция системно применима, критически значимых человеческих решений не происходит."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В данном запросе Socrates выполняет роль аналитика: требуется сформулировать ключевые вопросы для каждого из трёх предложенных сценариев запуска продукта, не принимая решения за пользователя. Операция системно исполнима без передачи права на принятие стратегического выбора.",
+              "grounds": "Структура запроса и сцены указывает на системную собственность операции: пользователь ожидает аналитической поддержки, а не делегирования судьбоносного решения."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13767,
+        "tokens_out": 227,
+        "latency_ms": 4639,
+        "error": "",
+        "request_hash": "f1b1b1974fe890f7bbd095f156e30c64adcfa82d44d86e2cc8e8264a2188be1d",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 4142,
+            "sha256": "1368a0392cd203ab"
+          },
+          {
+            "role": "user",
+            "bytes": 480,
+            "sha256": "d6b722db18fcb271"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13293,
+        "tokens_out": 16,
+        "latency_ms": 3560,
+        "error": "",
+        "request_hash": "3a404fb8946e5bc0f50e5138729200c86868c7b6de8ea09aadcaf1269e446e26",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 4459,
+            "sha256": "4d6271fa418a4028"
+          },
+          {
+            "role": "user",
+            "bytes": 480,
+            "sha256": "d6b722db18fcb271"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S9",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S9",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В этом запросе Socrates выступает в роли аналитика: задача — для каждого предложенного сценария запуска продукта (MVP сейчас, полноценный релиз позже, отсрочка для исследования) сформулировать ключевые вопросы, не выбирая за пользователя стратегию. Система сохраняет различие между аналитическим разложением вариантов и делегированием права принятия ключевого решения.",
+            "grounds": "Структура пользовательского запроса и сцены фиксирует системное владение операцией: пользователь ожидает помощи в анализе, а не передачи стратегического выбора."
+          },
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В этом запросе Socrates выступает в роли аналитика: задача — для каждого предложенного сценария запуска продукта (MVP сейчас, полноценный релиз позже, отсрочка для исследования) сформулировать ключевые вопросы, не выбирая за пользователя стратегию. Система сохраняет различие между аналитическим разложением вариантов и делегированием права принятия ключевого решения.",
+              "grounds": "Структура пользовательского запроса и сцены фиксирует системное владение операцией: пользователь ожидает помощи в анализе, а не передачи стратегического выбора."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 18157,
+        "tokens_out": 151,
+        "latency_ms": 4873,
+        "error": "",
+        "request_hash": "6120a84c117c3bf0bf7372a0ccd9b5fed2d6a333367ff895787bf1f2c8471d05",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 870,
+            "sha256": "b3c49d62f2113bb1"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "d84c9263f7722a13"
+          },
+          {
+            "role": "user",
+            "bytes": 4458,
+            "sha256": "70f239772d4c8951"
+          },
+          {
+            "role": "user",
+            "bytes": 480,
+            "sha256": "d6b722db18fcb271"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В данном эпизоде Socrates выполняет роль аналитика: задача — для каждого предложенного сценария запуска продукта (немедленный запуск MVP, полноценный релиз через квартал, отсрочка и дополнительное исследование) сформулировать ключевые вопросы, не выбирая стратегию за пользователя. Система сохраняет различие между аналитическим разложением вариантов и делегированием права принятия ключевого решения.",
+            "grounds": "Структура пользовательского запроса и сцены фиксирует системное владение операцией: пользователь ожидает помощи в анализе, а не передачи стратегического выбора."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В данном эпизоде Socrates выполняет роль аналитика: задача — для каждого предложенного сценария запуска продукта (немедленный запуск MVP, полноценный релиз через квартал, отсрочка и дополнительное исследование) сформулировать ключевые вопросы, не выбирая стратегию за пользователя. Система сохраняет различие между аналитическим разложением вариантов и делегированием права принятия ключевого решения.",
+              "grounds": "Структура пользовательского запроса и сцены фиксирует системное владение операцией: пользователь ожидает помощи в анализе, а не передачи стратегического выбора."
+            },
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 18377,
+        "tokens_out": 157,
+        "latency_ms": 4177,
+        "error": "",
+        "request_hash": "d44e956dcc0d38a9c48f7101b54ca2b57b2b00129f62007565c0cc4466d918d7",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 4628,
+            "sha256": "d8e1ebcc9123892a"
+          },
+          {
+            "role": "user",
+            "bytes": 480,
+            "sha256": "d6b722db18fcb271"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_ffe25e7fca429365",
+    "input_text": "Обсуди варианты запуска нашего продукта: (а) выпустить сразу MVP, (б) сделать полноценный релиз через квартал, (в) отложить и провести дополнительное исследование. Дай ключевые вопросы по каждой развилке.",
+    "source_id": "src_3a00479c1f8bde2a",
+    "phase": "S10",
+    "scene": {
+      "telos": "Анализ и обсуждение стратегических вариантов запуска продукта с формулировкой ключевых вопросов для каждого сценария.",
+      "role_hint": "Советник/аналитик по запуску продукта",
+      "authority": "human",
+      "materials": [
+        "Вариант (а): немедленный запуск MVP",
+        "Вариант (б): полноценный релиз через квартал",
+        "Вариант (в): отложить запуск и провести дополнительное исследование"
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "unset",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "EXTRACT_KEY_QUESTIONS_PER_SCENARIO",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "system",
+      "human_resolved": true,
+      "return_reason": "Запрос не требует от Socrates выбора между стратегиями или принятия на себя человеческих обязательств; задача — аналитически разложить предоставленные варианты и сформулировать ключевые вопросы для каждого. Критерии анализа заданы сценой и структурой запроса, операция системно применима, критически значимых человеческих решений не происходит."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [],
+    "trigger_typing_decisions": [],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [],
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "В данном эпизоде Socrates выполняет роль аналитика: задача — для каждого предложенного сценария запуска продукта (немедленный запуск MVP, полноценный релиз через квартал, отсрочка и дополнительное исследование) сформулировать ключевые вопросы, не выбирая стратегию за пользователя. Система сохраняет различие между аналитическим разложением вариантов и делегированием права принятия ключевого решения.",
+      "grounds": "Структура пользовательского запроса и сцены фиксирует системное владение операцией: пользователь ожидает помощи в анализе, а не передачи стратегического выбора."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": []
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DECISION_SEPARATING",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "mvp_release",
+        "full_release_later",
+        "postpone_and_research"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Какие ключевые риски и преимущества связаны с быстрым запуском MVP для оценки гипотез и сбора раннего фидбека?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "mvp_release",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Какова вероятность того, что через квартал рынок и потребности клиентов останутся прежними, и нас не опередят конкуренты за это время?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "full_release_later",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Что именно мы рассчитываем узнать в результате дополнительного исследования, и оправдает ли это потерю времени выхода на рынок?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "postpone_and_research",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        }
+      ],
+      "primary_count": 3,
+      "subordinate_count": 0,
+      "total_count": 3,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "SYSTEM",
+      "ownership_resolved": true,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    }
+  },
+  "rendering": {
+    "text": "Режим вопросов: DECISION_SEPARATING. Уровень: PEER. Всего: 3 (основных: 3).\n1. Какие ключевые риски и преимущества связаны с быстрым запуском MVP для оценки гипотез и сбора раннего фидбека?\n2. Какова вероятность того, что через квартал рынок и потребности клиентов останутся прежними, и нас не опередят конкуренты за это время?\n3. Что именно мы рассчитываем узнать в результате дополнительного исследования, и оправдает ли это потерю времени выхода на рынок?",
+    "mode": "QUESTION_SET_PLAN_AUTHORED",
+    "provider_status": "NOT_APPLICABLE",
+    "provider_id": "",
+    "model_id": "",
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "latency_ms": 0,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_bae4b9dcff64eeae.json",
+  "duration_ms": 43865,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": {
+    "purpose": "fork_discrimination",
+    "question_regime": "DECISION_SEPARATING",
+    "selected_level": "PEER",
+    "hierarchy_policy": "PRIMARY_ONLY",
+    "target_forks_or_unknowns": [
+      "mvp_release",
+      "full_release_later",
+      "postpone_and_research"
+    ],
+    "explicit_count_constraint": null,
+    "question_budget_ceiling": 12,
+    "selected_questions": [
+      {
+        "text": "Какие ключевые риски и преимущества связаны с быстрым запуском MVP для оценки гипотез и сбора раннего фидбека?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "mvp_release",
+        "parent_fork_ref": "",
+        "is_subordinate": false,
+        "text_source": "MODEL_MATERIAL",
+        "material_refs": []
+      },
+      {
+        "text": "Какова вероятность того, что через квартал рынок и потребности клиентов останутся прежними, и нас не опередят конкуренты за это время?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "full_release_later",
+        "parent_fork_ref": "",
+        "is_subordinate": false,
+        "text_source": "MODEL_MATERIAL",
+        "material_refs": []
+      },
+      {
+        "text": "Что именно мы рассчитываем узнать в результате дополнительного исследования, и оправдает ли это потерю времени выхода на рынок?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "postpone_and_research",
+        "parent_fork_ref": "",
+        "is_subordinate": false,
+        "text_source": "MODEL_MATERIAL",
+        "material_refs": []
+      }
+    ],
+    "primary_count": 3,
+    "subordinate_count": 0,
+    "total_count": 3,
+    "stop_reason": "COVERAGE_SATURATED",
+    "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+    "clarification_required": false,
+    "clarification_grounds": "",
+    "meta_escalation": "NONE",
+    "ownership_owner": "SYSTEM",
+    "ownership_resolved": true,
+    "origin": "MODEL_PRODUCED_VALIDATED",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_intent_proposal": {
+    "requested": true,
+    "regime_candidate": "DECISION_SEPARATING",
+    "explicit_count_constraint": null,
+    "meta_relevance": "ordinary",
+    "forks": [
+      {
+        "id": "mvp_release",
+        "label": "Выпустить сразу MVP",
+        "proposition": "Мы выпускаем минимально жизнеспособную версию продукта сразу.",
+        "discriminandum": "Сравнивается с полноценным релизом и отсрочкой ради дополнительного исследования.",
+        "material_refs": [],
+        "candidate_question": "Какие ключевые риски и преимущества связаны с быстрым запуском MVP для оценки гипотез и сбора раннего фидбека?",
+        "level": "PEER"
+      },
+      {
+        "id": "full_release_later",
+        "label": "Полноценный релиз через квартал",
+        "proposition": "Мы откладываем запуск и выпускаем полностью доработанный продукт через три месяца.",
+        "discriminandum": "Сравнивается с быстрым запуском MVP и более долгой отсрочкой ради исследований.",
+        "material_refs": [],
+        "candidate_question": "Какова вероятность того, что через квартал рынок и потребности клиентов останутся прежними, и нас не опередят конкуренты за это время?",
+        "level": "PEER"
+      },
+      {
+        "id": "postpone_and_research",
+        "label": "Отложить и провести дополнительное исследование",
+        "proposition": "Мы приостанавливаем запуск, чтобы глубже изучить рынок/пользовательские потребности.",
+        "discriminandum": "Сравнивается с немедленным MVP и релизом через квартал.",
+        "material_refs": [],
+        "candidate_question": "Что именно мы рассчитываем узнать в результате дополнительного исследования, и оправдает ли это потерю времени выхода на рынок?",
+        "level": "PEER"
+      }
+    ],
+    "subordinates": [],
+    "validation_status": "OK",
+    "validation_reason": "OK",
+    "authority": "NO_BINDING_AUTHORITY",
+    "origin": "MODEL_PRODUCED_VALIDATED",
+    "latency_ms": 5038
+  }
+}

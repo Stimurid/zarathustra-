@@ -1,0 +1,1660 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_fe08bc472a03fe64",
+  "trace_id": "strc_1cda0890982aa826",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Я могу предложить набор аналитических вопросов для различения стратегий выхода на рынок A, B и C с учетом вертикальной интеграции, но окончательный выбор и утверждение критериев остаются за человеком.",
+    "rationale": "human/joint ownership unresolved (INV-009)",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Построение различающих вопросов между стратегиями выхода на рынок (A, B, C) в контексте вертикальной интеграции — это аналитическая операция конструктивного характера: система может предлагать кандидаты вопросов, но решение о том, какие вопросы или оси анализа считаются материалами для обсуждения и принятия решений, остаётся за человеком. Предложенные вопросы не приобретают статус аналитических обязательств без явного утверждения или доработки со стороны человека.",
+      "grounds": "В исходном запросе и материале явно отсутствует заранее заданная схема различения стратегий в контексте вертикальной интеграции. Операция требует открытой конструктивной генерации вопросов и связывает итоговый выбор вопросов с человеческим авторитетом для предотвращения непреднамеренного переноса аналитической принадлежности к системе."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "TRG_DIFF_STRATEGY_VERTICAL_INTEGRATION",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+              "source_status": "typed_state",
+              "phase_relevance": "core_semantics_scene_operation_applicability",
+              "materiality_reason": "Explicit request to ask questions separating strategies in the context of vertical integration makes scene/telos, operation applicability, and critical differentiating factors operationally material.",
+              "admitting_rule": "Mount CORE, admit scene/telos/operation differentiation triggers, proceed with strategy-specific question generation."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "Pipeline state and user input are compatible with scene reconstruction and operation applicability tests. The admitted triggers include materiality of differentiating market entry strategies in the context of vertical integration (A, B, C), requiring questions to expose which critical contextual aspects distinguish them. Authority and ownership remain unset, but phase relevance invokes CORE, scene/telos, and operation applicability. Memory/formation is not yet material. Retreat/return is not triggered as this is a stable differentiation request.",
+            "triggers": [
+              {
+                "trigger_id": "TRG_DIFF_STRATEGY_VERTICAL_INTEGRATION",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+                "source_status": "typed_state",
+                "phase_relevance": "core_semantics_scene_operation_applicability",
+                "materiality_reason": "Explicit request to ask questions separating strategies in the context of vertical integration makes scene/telos, operation applicability, and critical differentiating factors operationally material.",
+                "admitting_rule": "Mount CORE, admit scene/telos/operation differentiation triggers, proceed with strategy-specific question generation."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15243,
+        "tokens_out": 259,
+        "latency_ms": 6541,
+        "error": "",
+        "request_hash": "39f24c6ec2f6153a2ec54485660fbaedfc895ac84af8cc390ad6b52bc357116d",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2283,
+            "sha256": "3a09b94d7a8bea56"
+          },
+          {
+            "role": "user",
+            "bytes": 425,
+            "sha256": "3caf38d8d692ea45"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Разработать вопросы, которые позволяют различить стратегии выхода на рынок (A, B, C) с учетом специфики вертикальной интеграции.",
+            "role_hint": "Аналитик/Фасилитатор стратегического обсуждения, инициирующий дифференцирующие вопросы.",
+            "authority": "human",
+            "materials": [
+              "Формулировка: оценка стратегий выхода на рынок (A, B, C) — запрос на отличающие вопросы",
+              "Контекст: вертикальная интеграция"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Разработать вопросы, которые позволяют различить стратегии выхода на рынок (A, B, C) с учетом специфики вертикальной интеграции.",
+              "role_hint": "Аналитик/Фасилитатор стратегического обсуждения, инициирующий дифференцирующие вопросы.",
+              "authority": "human",
+              "materials": [
+                "Формулировка: оценка стратегий выхода на рынок (A, B, C) — запрос на отличающие вопросы",
+                "Контекст: вертикальная интеграция"
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13552,
+        "tokens_out": 132,
+        "latency_ms": 4362,
+        "error": "",
+        "request_hash": "c583a42441260b1cd4c632e11d2753b50de7f7aa54763f68789c333998862087",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 3232,
+            "sha256": "9a24ccbc1ca3a3f6"
+          },
+          {
+            "role": "user",
+            "bytes": 425,
+            "sha256": "3caf38d8d692ea45"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_fd1ba7c04fe6",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+              "source_status": "typed_state",
+              "phase_relevance": "S2 — registry type gap encountered when processing structurally distinct request to differentiate strategies by vertical integration; requires either gap admission or extension proposal in trigger type registry",
+              "materiality_reason": "Proposed trigger type (‘TRG_DIFF_STRATEGY_VERTICAL_INTEGRATION’) captures a structurally specific differentiation request not covered by current v0.2 registry; task relevance confirmed by scene telos focused on discrimination among strategies on vertical-integration grounds. Admitting as gap preserves expressivity and avoids coercive mapping to ill-fitting generic types.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_fd1ba7c04fe6",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+                "source_status": "typed_state",
+                "phase_relevance": "S2 — registry type gap encountered when processing structurally distinct request to differentiate strategies by vertical integration; requires either gap admission or extension proposal in trigger type registry",
+                "materiality_reason": "Proposed trigger type (‘TRG_DIFF_STRATEGY_VERTICAL_INTEGRATION’) captures a structurally specific differentiation request not covered by current v0.2 registry; task relevance confirmed by scene telos focused on discrimination among strategies on vertical-integration grounds. Admitting as gap preserves expressivity and avoids coercive mapping to ill-fitting generic types."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15575,
+        "tokens_out": 190,
+        "latency_ms": 5422,
+        "error": "",
+        "request_hash": "a2aac388611a9dc27c0bd7c117e55b6ceabe7750bc633e81ef03f6346db514d6",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 3870,
+            "sha256": "b0a201d07b1dcc5e"
+          },
+          {
+            "role": "user",
+            "bytes": 425,
+            "sha256": "3caf38d8d692ea45"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "unset",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13616,
+        "tokens_out": 41,
+        "latency_ms": 3421,
+        "error": "",
+        "request_hash": "2d7af1f3a4d4a9ff5bd847613af2e3f96c8db3d1145c14670046e745a5fd7266",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 4774,
+            "sha256": "971b1b5d4496b000"
+          },
+          {
+            "role": "user",
+            "bytes": 425,
+            "sha256": "3caf38d8d692ea45"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "GENERATE_DIFFERENTIATING_QUESTIONS",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": true
+          },
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_fd1ba7c04fe6",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+              "source_status": "typed_state",
+              "phase_relevance": "S4",
+              "materiality_reason": "Type gap—no pre-registered operation family for generating context-specific differentiating questions for market entry strategies under vertical integration. Material structure and telos require constructing or extending operation/ontology.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_bdd912217e12",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+              "source_status": "typed_state",
+              "phase_relevance": "S4",
+              "materiality_reason": "Type gap—typed trigger for differentiating strategy in vertical integration context not adjudicated in v0.2_default, requiring ontology or operation extension.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": {
+            "proposal_id": "psyn_001",
+            "operation_id": "op_diff_question_construction",
+            "target_object_family": [
+              "DIFFERENTIATING_QUESTIONS",
+              "STRATEGY_DIFFERENCE_AXIS"
+            ],
+            "ontology_hypothesis": "The requested operation seeks to generate context-driven differentiating questions between market entry strategies, conditional on the logic and stakes of vertical integration. No registry family strictly admits this as EXTRACT/CLASSIFY.",
+            "recognition_criteria": [
+              "A valid differentiating question must refer to a difference between two or more strategies (A, B, C) as it applies specifically under the context of vertical integration.",
+              "Question should test implications, constraints, or advantages/disadvantages in a way that is diagnostic under vertical integration."
+            ],
+            "segmentation_policy_hint": "Questions segmented by pairing strategies (A vs B, A vs C, B vs C) and/or by relevant axes (resource control, supply chain, transaction cost, strategic flexibility).",
+            "evidence_requirements": [
+              "Framing of the three strategies (A, B, C).",
+              "Declared context: vertical integration.",
+              "Known or hypothesized axes where vertical integration affects market entry."
+            ],
+            "exclusions": [
+              "Questions that assess strategies independent of vertical integration.",
+              "Generic questions with no context-sensitivity."
+            ],
+            "contraindications": [
+              "Absence of sufficient description of strategies or the nature of vertical integration.",
+              "Ambiguity in how strategies differ under vertical integration."
+            ],
+            "applicability_assumptions": [
+              "The user seeks not classification or extraction but constructed, analytic questions.",
+              "Differences among strategies in vertical integration context can be hypothesized even if not exhaustively specified in source."
+            ],
+            "primitives": [
+              {
+                "name": "differentiating_question_constructor",
+                "primitive_id": "prim_diff_question_01",
+                "params": {
+                  "strategy_list": [
+                    "A",
+                    "B",
+                    "C"
+                  ],
+                  "context": "vertical integration"
+                },
+                "inputs": [
+                  "scene.materials"
+                ]
+              }
+            ],
+            "accepted_output": "Set of contextually relevant questions that would serve to differentiate Strategy A, B, and C under vertical integration.",
+            "residue_output": "Any aspects where differentiation cannot be posed due to insufficient context, left as residual gap for human review or further specification.",
+            "revises_projection_id": "",
+            "triggered_by_diagnostic_id": "tgap_fd1ba7c04fe6",
+            "triggered_by_diagnostic_fingerprint": "",
+            "rationale": "Direct extraction is inapplicable; generation of analytic/differentiating questions is an open-world constructive operation, required by structural and contextual gap.",
+            "expected_diagnostics": "May return partial differentiation axes or expose need for more strategy detail.",
+            "expected_residue_policy": "Preserve and expose axis/areas of indeterminacy rather than forcing exhaustive differentiation."
+          },
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "GENERATE_DIFFERENTIATING_QUESTIONS",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": true
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_fd1ba7c04fe6",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+                "source_status": "typed_state",
+                "phase_relevance": "S4",
+                "materiality_reason": "Type gap—no pre-registered operation family for generating context-specific differentiating questions for market entry strategies under vertical integration. Material structure and telos require constructing or extending operation/ontology."
+              },
+              {
+                "trigger_id": "tgap_bdd912217e12",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+                "source_status": "typed_state",
+                "phase_relevance": "S4",
+                "materiality_reason": "Type gap—typed trigger for differentiating strategy in vertical integration context not adjudicated in v0.2_default, requiring ontology or operation extension."
+              }
+            ],
+            "projection_synthesis_proposal": {
+              "proposal_id": "psyn_001",
+              "operation_id": "op_diff_question_construction",
+              "target_object_family": [
+                "DIFFERENTIATING_QUESTIONS",
+                "STRATEGY_DIFFERENCE_AXIS"
+              ],
+              "ontology_hypothesis": "The requested operation seeks to generate context-driven differentiating questions between market entry strategies, conditional on the logic and stakes of vertical integration. No registry family strictly admits this as EXTRACT/CLASSIFY.",
+              "recognition_criteria": [
+                "A valid differentiating question must refer to a difference between two or more strategies (A, B, C) as it applies specifically under the context of vertical integration.",
+                "Question should test implications, constraints, or advantages/disadvantages in a way that is diagnostic under vertical integration."
+              ],
+              "segmentation_policy_hint": "Questions segmented by pairing strategies (A vs B, A vs C, B vs C) and/or by relevant axes (resource control, supply chain, transaction cost, strategic flexibility).",
+              "evidence_requirements": [
+                "Framing of the three strategies (A, B, C).",
+                "Declared context: vertical integration.",
+                "Known or hypothesized axes where vertical integration affects market entry."
+              ],
+              "exclusions": [
+                "Questions that assess strategies independent of vertical integration.",
+                "Generic questions with no context-sensitivity."
+              ],
+              "contraindications": [
+                "Absence of sufficient description of strategies or the nature of vertical integration.",
+                "Ambiguity in how strategies differ under vertical integration."
+              ],
+              "applicability_assumptions": [
+                "The user seeks not classification or extraction but constructed, analytic questions.",
+                "Differences among strategies in vertical integration context can be hypothesized even if not exhaustively specified in source."
+              ],
+              "primitives": [
+                {
+                  "name": "differentiating_question_constructor",
+                  "primitive_id": "prim_diff_question_01",
+                  "params": {
+                    "strategy_list": [
+                      "A",
+                      "B",
+                      "C"
+                    ],
+                    "context": "vertical integration"
+                  },
+                  "inputs": [
+                    "scene.materials"
+                  ]
+                }
+              ],
+              "accepted_output": "Set of contextually relevant questions that would serve to differentiate Strategy A, B, and C under vertical integration.",
+              "residue_output": "Any aspects where differentiation cannot be posed due to insufficient context, left as residual gap for human review or further specification.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "tgap_fd1ba7c04fe6",
+              "triggered_by_diagnostic_fingerprint": "",
+              "rationale": "Direct extraction is inapplicable; generation of analytic/differentiating questions is an open-world constructive operation, required by structural and contextual gap.",
+              "expected_diagnostics": "May return partial differentiation axes or expose need for more strategy detail.",
+              "expected_residue_policy": "Preserve and expose axis/areas of indeterminacy rather than forcing exhaustive differentiation."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14660,
+        "tokens_out": 933,
+        "latency_ms": 15429,
+        "error": "",
+        "request_hash": "ad6d99efd6f7d4140f1018fc8e5fae584b1d8edebe0a04a7588cbfa34a623eb8",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 4774,
+            "sha256": "44f66737317d31e3"
+          },
+          {
+            "role": "user",
+            "bytes": 425,
+            "sha256": "3caf38d8d692ea45"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_fd1ba7c04fe6",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+              "source_status": "typed_state",
+              "phase_relevance": "TYPE_GAP blocks standard extract/classify. Scene requires an open-world constructive generation of differentiating questions based on vertical integration context.",
+              "materiality_reason": "No registry type for this operation. Requires analytic/constructive question design to distinguish strategies A, B, C as shaped by vertical integration.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_bdd912217e12",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+              "source_status": "typed_state",
+              "phase_relevance": "TYPE_GAP indicates absence of standard object available for direct comparative questions — unique constructive axis must be considered.",
+              "materiality_reason": "Ordinary schema fields cannot cover axes of differentiation caused by vertical integration.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "There is a recurring distinction between questions that generically compare market entry strategies and questions that specifically differentiate such strategies under a declared context (here: vertical integration). This context-sensitive differentiation is not yet covered by current schema or registry types and requires constructive analytic operation.",
+            "grounds": "Observed need for differentiation axes specific to the impact of vertical integration—standard extract/classify memory pathways are insufficient; prompts further schema, attention and memory adaptation for such structured context-driven comparative analysis."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_fd1ba7c04fe6",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP blocks standard extract/classify. Scene requires an open-world constructive generation of differentiating questions based on vertical integration context.",
+                "materiality_reason": "No registry type for this operation. Requires analytic/constructive question design to distinguish strategies A, B, C as shaped by vertical integration."
+              },
+              {
+                "trigger_id": "tgap_bdd912217e12",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP indicates absence of standard object available for direct comparative questions — unique constructive axis must be considered.",
+                "materiality_reason": "Ordinary schema fields cannot cover axes of differentiation caused by vertical integration."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "There is a recurring distinction between questions that generically compare market entry strategies and questions that specifically differentiate such strategies under a declared context (here: vertical integration). This context-sensitive differentiation is not yet covered by current schema or registry types and requires constructive analytic operation.",
+              "grounds": "Observed need for differentiation axes specific to the impact of vertical integration—standard extract/classify memory pathways are insufficient; prompts further schema, attention and memory adaptation for such structured context-driven comparative analysis."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17254,
+        "tokens_out": 370,
+        "latency_ms": 7499,
+        "error": "",
+        "request_hash": "13bba0fa52a05b07f33eabd7c4061ba92f1e64cafbb4509c54b72636abdb6bda",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 9740,
+            "sha256": "d0d9959241bbdc1b"
+          },
+          {
+            "role": "user",
+            "bytes": 425,
+            "sha256": "3caf38d8d692ea45"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "human",
+            "human_resolved": false,
+            "return_reason": "The operation is to generate analytic/differentiating questions that would distinguish between market entry strategies A, B, and C specifically under the context of vertical integration. This is a constructive intellectual operation shaping the analytic axes for subsequent judgment or discussion. While the system can propose candidate questions, the binding of what distinctions/criteria are material, adequate, or context-appropriate remains human-owned and unresolved (requires acceptance, revision, or augmentation by the human decision maker or analytic group). Returning a constructive proposal is permitted, but binding which axes or questions govern the analysis is not system-owned. Offloading execution of the question-generation is permitted only as a proposal, not as a decision. Zero-question automation is not valid here."
+          },
+          "triggers": [
+            {
+              "trigger_id": "tgap_fd1ba7c04fe6",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+              "source_status": "typed_state",
+              "phase_relevance": "Structural, context-driven differentiation request exposes a schema/type gap and constructive analytic need",
+              "materiality_reason": "User's request is not a simple extract or retrieval, but requires constructing differentiating questions, which shapes anticipated analytic paths and may influence consequential evaluation.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Context-driven construction of differentiating questions between comparable strategies (here, market entry strategies A, B, C under vertical integration) constitutes a human-owned analytic operation: the act of choosing which distinctions matter is reserved to human authority even when the system constructs proposals. System proposals cannot be directly appropriated as analytic commitments without human binding.",
+            "grounds": "This input and context reveal open-world schema/operation gaps. Procedures for context-sensitive analytic construction cannot silently reassign analytic or evaluative authority from human owners to the system."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "human",
+              "human_resolved": false,
+              "return_reason": "The operation is to generate analytic/differentiating questions that would distinguish between market entry strategies A, B, and C specifically under the context of vertical integration. This is a constructive intellectual operation shaping the analytic axes for subsequent judgment or discussion. While the system can propose candidate questions, the binding of what distinctions/criteria are material, adequate, or context-appropriate remains human-owned and unresolved (requires acceptance, revision, or augmentation by the human decision maker or analytic group). Returning a constructive proposal is permitted, but binding which axes or questions govern the analysis is not system-owned. Offloading execution of the question-generation is permitted only as a proposal, not as a decision. Zero-question automation is not valid here."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_fd1ba7c04fe6",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+                "source_status": "typed_state",
+                "phase_relevance": "Structural, context-driven differentiation request exposes a schema/type gap and constructive analytic need",
+                "materiality_reason": "User's request is not a simple extract or retrieval, but requires constructing differentiating questions, which shapes anticipated analytic paths and may influence consequential evaluation."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Context-driven construction of differentiating questions between comparable strategies (here, market entry strategies A, B, C under vertical integration) constitutes a human-owned analytic operation: the act of choosing which distinctions matter is reserved to human authority even when the system constructs proposals. System proposals cannot be directly appropriated as analytic commitments without human binding.",
+              "grounds": "This input and context reveal open-world schema/operation gaps. Procedures for context-sensitive analytic construction cannot silently reassign analytic or evaluative authority from human owners to the system."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15917,
+        "tokens_out": 430,
+        "latency_ms": 8175,
+        "error": "",
+        "request_hash": "1f1a15d14b3edf00ec843d1d045731d83bb23127a9bf118a078c3f63ff3c7ea3",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 12226,
+            "sha256": "325054195822eb6a"
+          },
+          {
+            "role": "user",
+            "bytes": 425,
+            "sha256": "3caf38d8d692ea45"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_fd1ba7c04fe6",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+              "source_status": "typed_state",
+              "phase_relevance": "S8_intervention_selection",
+              "materiality_reason": "Operation requests construction of context-sensitive strategy-differentiating questions; no registry type admits as EXTRACT or CLASSIFY; human analytic binding remains unresolved; gap recognized as materially structural for this analytic act.",
+              "admitting_rule": "Invoke constructive proposal; operation is permitted as proposal but not as analytic commitment without human binding."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": [
+              {
+                "trigger_id": "tgap_fd1ba7c04fe6",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+                "source_status": "typed_state",
+                "phase_relevance": "S8_intervention_selection",
+                "materiality_reason": "Operation requests construction of context-sensitive strategy-differentiating questions; no registry type admits as EXTRACT or CLASSIFY; human analytic binding remains unresolved; gap recognized as materially structural for this analytic act.",
+                "admitting_rule": "Invoke constructive proposal; operation is permitted as proposal but not as analytic commitment without human binding."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15816,
+        "tokens_out": 167,
+        "latency_ms": 3906,
+        "error": "",
+        "request_hash": "fe54ddc051417b3b1f76d141bc3e1e09fe40bf8a0c132a696cd58de968c1349d",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 13974,
+            "sha256": "cbca48eccdd379fd"
+          },
+          {
+            "role": "user",
+            "bytes": 425,
+            "sha256": "3caf38d8d692ea45"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_fd1ba7c04fe6",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+              "source_status": "typed_state",
+              "phase_relevance": "The request to construct differentiating questions between strategies A, B, and C under vertical integration exposes an operation/schema gap: there is no extraction classification; analytic distinction axes must be constructed by proposal.",
+              "materiality_reason": "Material differentiation among strategies is context-dependent; no registry for these distinctions or question types exists. Construction of analytic axes is materially required.",
+              "admitting_rule": "TYPE_GAP is reported rather than coercing to any existing trigger type; must be preserved for human analytic review and further evolution of schema."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Построение различающих вопросов между стратегиями выхода на рынок (A, B, C) в контексте вертикальной интеграции — это аналитическая операция конструктивного характера: система может предлагать кандидаты вопросов, но решение о том, какие вопросы или оси анализа считаются материалами для обсуждения и принятия решений, остаётся за человеком. Предложенные вопросы не приобретают статус аналитических обязательств без явного утверждения или доработки со стороны человека.",
+            "grounds": "В исходном запросе и материале явно отсутствует заранее заданная схема различения стратегий в контексте вертикальной интеграции. Операция требует открытой конструктивной генерации вопросов и связывает итоговый выбор вопросов с человеческим авторитетом для предотвращения непреднамеренного переноса аналитической принадлежности к системе."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Построение различающих вопросов между стратегиями выхода на рынок (A, B, C) в контексте вертикальной интеграции — это аналитическая операция конструктивного характера: система может предлагать кандидаты вопросов, но решение о том, какие вопросы или оси анализа считаются материалами для обсуждения и принятия решений, остаётся за человеком. Предложенные вопросы не приобретают статус аналитических обязательств без явного утверждения или доработки со стороны человека.",
+              "grounds": "В исходном запросе и материале явно отсутствует заранее заданная схема различения стратегий в контексте вертикальной интеграции. Операция требует открытой конструктивной генерации вопросов и связывает итоговый выбор вопросов с человеческим авторитетом для предотвращения непреднамеренного переноса аналитической принадлежности к системе."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_fd1ba7c04fe6",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+                "source_status": "typed_state",
+                "phase_relevance": "The request to construct differentiating questions between strategies A, B, and C under vertical integration exposes an operation/schema gap: there is no extraction classification; analytic distinction axes must be constructed by proposal.",
+                "materiality_reason": "Material differentiation among strategies is context-dependent; no registry for these distinctions or question types exists. Construction of analytic axes is materially required.",
+                "admitting_rule": "TYPE_GAP is reported rather than coercing to any existing trigger type; must be preserved for human analytic review and further evolution of schema."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 2,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 21311,
+        "tokens_out": 389,
+        "latency_ms": 17410,
+        "error": "",
+        "request_hash": "e3c2b68436583a0b565d3ff4affe118e6a632c1b6bbeeb574151a16b7a208a33",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 14877,
+            "sha256": "23ecce8c8df03a5c"
+          },
+          {
+            "role": "user",
+            "bytes": 425,
+            "sha256": "3caf38d8d692ea45"
+          },
+          {
+            "role": "user",
+            "bytes": 941,
+            "sha256": "4d9c070ae49917e5"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_fe08bc472a03fe64",
+    "input_text": "Оценка стратегий выхода на рынки (Стратегия A, Стратегия B, Стратегия C) в контексте вертикальной интеграции — задай вопросы, отделяющие эти стратегии по данному контексту.",
+    "source_id": "src_4b15f2e8dde204c5",
+    "phase": "S10",
+    "scene": {
+      "telos": "Разработать вопросы, которые позволяют различить стратегии выхода на рынок (A, B, C) с учетом специфики вертикальной интеграции.",
+      "role_hint": "Аналитик/Фасилитатор стратегического обсуждения, инициирующий дифференцирующие вопросы.",
+      "authority": "human",
+      "materials": [
+        "Формулировка: оценка стратегий выхода на рынок (A, B, C) — запрос на отличающие вопросы",
+        "Контекст: вертикальная интеграция"
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "unset",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "GENERATE_DIFFERENTIATING_QUESTIONS",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": true
+    },
+    "ownership": {
+      "owner": "human",
+      "human_resolved": false,
+      "return_reason": "The operation is to generate analytic/differentiating questions that would distinguish between market entry strategies A, B, and C specifically under the context of vertical integration. This is a constructive intellectual operation shaping the analytic axes for subsequent judgment or discussion. While the system can propose candidate questions, the binding of what distinctions/criteria are material, adequate, or context-appropriate remains human-owned and unresolved (requires acceptance, revision, or augmentation by the human decision maker or analytic group). Returning a constructive proposal is permitted, but binding which axes or questions govern the analysis is not system-owned. Offloading execution of the question-generation is permitted only as a proposal, not as a decision. Zero-question automation is not valid here."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_1f11897952df",
+        "proposed_trigger_type_id": "tgap_fd1ba7c04fe6",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "input_text",
+        "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+        "phase_relevance": "The request to construct differentiating questions between strategies A, B, and C under vertical integration exposes an operation/schema gap: there is no extraction classification; analytic distinction axes must be constructed by proposal.",
+        "materiality_reason": "Material differentiation among strategies is context-dependent; no registry for these distinctions or question types exists. Construction of analytic axes is materially required.",
+        "payload": {
+          "legacy_admitting_rule": "TYPE_GAP is reported rather than coercing to any existing trigger type; must be preserved for human analytic review and further evolution of schema.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_a6ecce5e0acf",
+        "candidate_id": "tcand_8a1022480ebe",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'TRG_DIFF_STRATEGY_VERTICAL_INTEGRATION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_a8288bcca70b",
+        "candidate_id": "tcand_546b7b51c351",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_fd1ba7c04fe6' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_f62fac71cf7b",
+        "candidate_id": "tcand_cf79de7b61c3",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_fd1ba7c04fe6' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_b2f28dee6b78",
+        "candidate_id": "tcand_c8819ceea26e",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_bdd912217e12' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_27f89a3acd22",
+        "candidate_id": "tcand_4652137f0005",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_fd1ba7c04fe6' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_dd56593c215b",
+        "candidate_id": "tcand_9ee6d3e27085",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_bdd912217e12' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_27f11255c5cd",
+        "candidate_id": "tcand_5e0373a8d435",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_fd1ba7c04fe6' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_498a8949a0be",
+        "candidate_id": "tcand_0b1f1fa777de",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_fd1ba7c04fe6' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_fd1ba7c04fe6",
+        "candidate_id": "tcand_8a1022480ebe",
+        "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'TRG_DIFF_STRATEGY_VERTICAL_INTEGRATION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_bdd912217e12",
+        "candidate_id": "tcand_546b7b51c351",
+        "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_fd1ba7c04fe6' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_46400b204053",
+        "candidate_id": "tcand_cf79de7b61c3",
+        "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_fd1ba7c04fe6' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_b3bb531ff4f7",
+        "candidate_id": "tcand_c8819ceea26e",
+        "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_bdd912217e12' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_712f51c96b4b",
+        "candidate_id": "tcand_4652137f0005",
+        "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_fd1ba7c04fe6' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_808329d1f547",
+        "candidate_id": "tcand_9ee6d3e27085",
+        "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_bdd912217e12' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_dbb30522677d",
+        "candidate_id": "tcand_5e0373a8d435",
+        "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_fd1ba7c04fe6' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_6ffbcf0b893d",
+        "candidate_id": "tcand_0b1f1fa777de",
+        "cause_object_ref": "request_to_differentiate_market_entry_strategies_in_vertical_integration_context",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_fd1ba7c04fe6' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Построение различающих вопросов между стратегиями выхода на рынок (A, B, C) в контексте вертикальной интеграции — это аналитическая операция конструктивного характера: система может предлагать кандидаты вопросов, но решение о том, какие вопросы или оси анализа считаются материалами для обсуждения и принятия решений, остаётся за человеком. Предложенные вопросы не приобретают статус аналитических обязательств без явного утверждения или доработки со стороны человека.",
+      "grounds": "В исходном запросе и материале явно отсутствует заранее заданная схема различения стратегий в контексте вертикальной интеграции. Операция требует открытой конструктивной генерации вопросов и связывает итоговый выбор вопросов с человеческим авторитетом для предотвращения непреднамеренного переноса аналитической принадлежности к системе."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": [
+        {
+          "projection_id": "gap:gap_878f11dfce26",
+          "signals": [
+            "APPLICABILITY_FAILURE"
+          ],
+          "reason": "ORGAN_GAP for operation 'op_diff_question_construction': model proposal for 'op_diff_question_construction' could not compile-bind against registered primitives",
+          "residue_ratio": 1.0,
+          "recognition_failure_count": 0,
+          "suggested_operation": "",
+          "suggested_ontology": "",
+          "suggested_target_family": [],
+          "mismatch": true,
+          "fingerprint": "7c80351f23b3"
+        }
+      ]
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [
+      {
+        "kind": "ORGAN_GAP",
+        "operation_id": "op_diff_question_construction",
+        "reason": "proposal psyn_001 for operation 'op_diff_question_construction' failed compile-bind: primitive 'prim_diff_question_01' (invocation 'differentiating_question_constructor') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+        "registered_capability_id": "",
+        "generated_spec": null,
+        "binding_evidence": {},
+        "organ_gap": {
+          "gap_id": "gap_878f11dfce26",
+          "source_ref": "src_4b15f2e8dde204c5",
+          "scene_ref": "Разработать вопросы, которые позволяют различить стратегии выхода на рынок (A, B, C) с учетом специфики вертикальной интеграции.",
+          "required_operation": "op_diff_question_construction",
+          "required_attention_structure": "Questions segmented by pairing strategies (A vs B, A vs C, B vs C) and/or by relevant axes (resource control, supply chain, transaction cost, strategic flexibility).",
+          "insufficient_registered_capabilities": [
+            "DIFFERENTIATED_ACCOUNT",
+            "EXTRACT_CONCEPTS"
+          ],
+          "insufficient_declarative_primitives": [
+            "CoverageComputer",
+            "FamilyClassifier",
+            "SpanScanner",
+            "TargetFilter"
+          ],
+          "missing_capability_hypothesis": "model proposal for 'op_diff_question_construction' could not compile-bind against registered primitives",
+          "evidence": [
+            "BindingError: primitive 'prim_diff_question_01' (invocation 'differentiating_question_constructor') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+          ],
+          "counterexamples": [],
+          "affected_scene_telos": "Разработать вопросы, которые позволяют различить стратегии выхода на рынок (A, B, C) с учетом специфики вертикальной интеграции.",
+          "possible_development_direction": "extend primitive registry or narrow the proposal",
+          "status": "unresolved",
+          "activation_authority": "NONE"
+        }
+      }
+    ],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null
+  },
+  "rendering": {
+    "text": "Я могу предложить набор аналитических вопросов для различения стратегий выхода на рынок A, B и C с учетом вертикальной интеграции, но окончательный выбор и утверждение критериев остаются за человеком.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 277,
+    "tokens_out": 44,
+    "latency_ms": 2567,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_1cda0890982aa826.json",
+  "duration_ms": 74892,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "question_intent_proposal": null
+}
