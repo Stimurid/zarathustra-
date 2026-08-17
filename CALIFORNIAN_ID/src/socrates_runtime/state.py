@@ -349,6 +349,15 @@ class PipelineState:
     #: changes the terminal; never mints new claims; describes what
     #: the plan asked the renderer to distinguish.
     liberatory_pass_result: Any = None
+    # ---------------------------------------------------- B2Q question set
+    #: The typed :class:`QuestionSetPlan` derived post-terminal when
+    #: the caller opted in via ``question_set_request`` control field.
+    #: Non-None means the returned response text was authored from
+    #: this plan (not the stochastic renderer). Public evidence: a
+    #: reader can prove that the returned count and hierarchy match
+    #: the material topology + explicit-count rules, not a habitual
+    #: default. Carries ``authority="NO_TRUTH_STATUS_AUTHORITY"``.
+    question_set_plan: Any = None
 
     @property
     def source_id(self) -> str:
@@ -418,4 +427,7 @@ class PipelineState:
             "liberatory_pass_result": (
                 self.liberatory_pass_result.to_public()
                 if self.liberatory_pass_result is not None else None),
+            "question_set_plan": (self.question_set_plan.to_public()
+                                    if self.question_set_plan is not None
+                                    else None),
         }

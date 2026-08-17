@@ -2515,11 +2515,24 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                         or data.get("intervention") or "normal")
         profile_name = str(raw_profile).strip().lower()
 
+        # B2Q: typed control field. Only this JSON object can
+        # activate the QuestionSetPlan; lexical mention of
+        # "questions" in text CANNOT.
+        raw_qsr = data.get("question_set_request")
+        question_set_request: dict[str, Any] | None = None
+        if raw_qsr is not None:
+            if not isinstance(raw_qsr, dict):
+                self._send_json(
+                    {"error": "question_set_request must be an object"},
+                    status=HTTPStatus.BAD_REQUEST); return
+            question_set_request = raw_qsr
+
         from . import socrates_bridge
         try:
             payload = socrates_bridge.dispatch_socrates_run(
                 text=text, execution_mode=mode,
                 intervention_profile_name=profile_name,
+                question_set_request=question_set_request,
                 runs_dir=os.environ.get("CALIFORNIAN_ID_RUNS_DIR"))
         except ValueError as exc:
             self._send_json({"error": str(exc)},

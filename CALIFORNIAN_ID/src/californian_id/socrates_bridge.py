@@ -50,6 +50,7 @@ def resolve_intervention_profile(profile_name: str):
 
 def dispatch_socrates_run(*, text: str, execution_mode: str,
                           intervention_profile_name: str = "normal",
+                          question_set_request: dict[str, Any] | None = None,
                           runs_dir: str | None = None,
                           ) -> dict[str, Any]:
     """Construct :class:`SocratesRuntime`, invoke `.run`, return the
@@ -80,10 +81,16 @@ def dispatch_socrates_run(*, text: str, execution_mode: str,
             else ExecutionMode.DETERMINISTIC)
     try:
         result = runtime.run(text, mode=mode,
-                              intervention_profile=intervention)
+                              intervention_profile=intervention,
+                              question_set_request=question_set_request)
     except TypeError:
-        # Backcompat: SocratesRuntime.run without B2 intervention arg.
-        result = runtime.run(text, mode=mode)
+        # Backcompat: SocratesRuntime.run without B2 intervention or
+        # B2Q question-set kwarg.
+        try:
+            result = runtime.run(text, mode=mode,
+                                  intervention_profile=intervention)
+        except TypeError:
+            result = runtime.run(text, mode=mode)
 
     public = result.to_public()
     return {
@@ -105,4 +112,9 @@ def dispatch_socrates_run(*, text: str, execution_mode: str,
         # pre-render pressure without walking `state`.
         "intervention_plan": public.get("intervention_plan"),
         "liberatory_pass_result": public.get("liberatory_pass_result"),
+        # B2Q: expose the QuestionSetPlan when derived. Non-None
+        # means the returned rendering text was authored from this
+        # plan, not from the stochastic renderer — the count and
+        # hierarchy are causally governed by the material topology.
+        "question_set_plan": public.get("question_set_plan"),
     }

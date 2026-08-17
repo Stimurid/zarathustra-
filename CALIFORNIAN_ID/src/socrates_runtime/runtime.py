@@ -40,6 +40,11 @@ from .intervention_plan import (
     apply_liberatory, derive_plan,
 )
 from .mount import MountedContext, SemanticMountPolicy
+from .question_set_plan import (
+    QuestionSetPlan,
+    derive_question_set_plan,
+    render_plan_as_text as _render_qsp_as_text,
+)
 from .phase_executor import (
     DeterministicPhaseExecutor,
     ExecutionMode,
@@ -78,6 +83,7 @@ class SocratesRunResult:
     rendering: RenderingResult | None = None
     intervention_plan: InterventionPlan | None = None
     liberatory_pass_result: LiberatoryPassResult | None = None
+    question_set_plan: QuestionSetPlan | None = None
 
     def to_public(self) -> dict[str, Any]:
         return {
@@ -99,6 +105,9 @@ class SocratesRunResult:
             "liberatory_pass_result": (
                 self.liberatory_pass_result.to_public()
                 if self.liberatory_pass_result is not None else None),
+            "question_set_plan": (self.question_set_plan.to_public()
+                                    if self.question_set_plan is not None
+                                    else None),
         }
 
 
@@ -159,6 +168,7 @@ class SocratesRuntime:
             phase_executor: PhaseExecutor | None = None,
             rendering_client: Any = None,
             intervention_profile: Any = None,
+            question_set_request: dict[str, Any] | None = None,
             ) -> SocratesRunResult:
         """One end-to-end Socrates run.
 
@@ -233,11 +243,43 @@ class SocratesRuntime:
         state.liberatory_pass_result = liberatory
         trace.record("liberatory_pass", **liberatory.to_public())
 
+        # B2Q: derive the QuestionSetPlan post-terminal when the
+        # caller opted in via question_set_request. The plan is
+        # deterministic, honours the caller-supplied topology hint,
+        # applies explicit-count-vs-peers rules, records ownership
+        # state, and — when a topology is present — REPLACES the
+        # stochastic renderer for this run so the returned question
+        # count is causally governed by the plan, not by the LLM's
+        # habitual round number.
+        qsp = derive_question_set_plan(
+            scene=getattr(state, "scene", None),
+            operation=getattr(state, "operation", None),
+            ownership=getattr(state, "ownership", None),
+            request=question_set_request)
+        state.question_set_plan = qsp
+        if qsp is not None:
+            trace.record("question_set_plan", **qsp.to_public())
+
         # Final rendering — bounded by the terminal.
         rendering = None
-        if outcome.terminal not in {Terminal.FAILED_EXPLICIT,
-                                     Terminal.SEMANTIC_MOUNT_MISSING,
-                                     Terminal.SEMANTIC_CONTEXT_BUDGET_EXCEEDED}:
+        # B2Q override: when a QuestionSetPlan is present, the plan
+        # authors the response text deterministically. This is the
+        # causal proof that the plan (not the LLM's format habits)
+        # governs the returned question count/shape.
+        if (qsp is not None
+                and outcome.terminal not in {
+                    Terminal.FAILED_EXPLICIT,
+                    Terminal.SEMANTIC_MOUNT_MISSING,
+                    Terminal.SEMANTIC_CONTEXT_BUDGET_EXCEEDED}):
+            plan_text = _render_qsp_as_text(qsp)
+            from .renderer import RenderingResult
+            rendering = RenderingResult(
+                text=plan_text,
+                mode="QUESTION_SET_PLAN_AUTHORED")
+            trace.record("rendering", **rendering.to_public())
+        elif outcome.terminal not in {Terminal.FAILED_EXPLICIT,
+                                       Terminal.SEMANTIC_MOUNT_MISSING,
+                                       Terminal.SEMANTIC_CONTEXT_BUDGET_EXCEEDED}:
             # B2: pass the intervention profile through to the
             # renderer so BALD_APE / SHIVA register/epistemic
             # pressure overlays reach the LIVE model call.
@@ -277,6 +319,7 @@ class SocratesRuntime:
             rendering=rendering,
             intervention_plan=plan,
             liberatory_pass_result=liberatory,
+            question_set_plan=qsp,
         )
 
     # ------------------------------------------------------------------
