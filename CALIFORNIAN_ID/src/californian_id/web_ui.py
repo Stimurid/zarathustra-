@@ -2039,6 +2039,9 @@ class _WebUIHandler(BaseHTTPRequestHandler):
         if self.path in {"/api/run/async", "/run/async"}:
             self._handle_run_async()
             return
+        if self.path in {"/api/socrates/run"}:
+            self._handle_socrates_run()
+            return
         # B-5.5 Веха 1 — intervention endpoint (pause/resume/cancel + Веха 2 kinds)
         if self.path.startswith("/api/run/") and self.path.endswith("/intervention"):
             run_id = self.path[len("/api/run/"):-len("/intervention")]
@@ -2427,6 +2430,68 @@ class _WebUIHandler(BaseHTTPRequestHandler):
         finally:
             # give worker a moment to exit if still alive
             t.join(timeout=0.5)
+
+    # ---------- D-S26-LIVE-API-001 real Socrates endpoint ----------
+    def _handle_socrates_run(self) -> None:
+        """POST /api/socrates/run — real runtime via bridge module.
+
+        The runtime dispatch itself lives in
+        :mod:`californian_id.socrates_bridge` (the ONE allowlisted
+        file that may cross into the runtime package); this
+        handler only owns HTTP concerns (auth via Caddy, body
+        parsing, status codes). Response always carries
+        ``runtime_layer`` set to the runtime tag string.
+
+        Intervention profile (B2): the request may carry
+        ``intervention_profile`` naming a preset. Unknown preset
+        yields HTTP 400. Explicit activation only — a lexical
+        mention of the preset name inside ``text`` does NOT
+        activate; only the typed control field does.
+        """
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            raw = self.rfile.read(length) if length else b"{}"
+            data = json.loads(raw.decode("utf-8")) if raw else {}
+        except Exception as exc:
+            self._send_json({"error": f"bad request: {exc}"},
+                            status=HTTPStatus.BAD_REQUEST); return
+
+        text = (data.get("text") or data.get("input") or "").strip()
+        if not text:
+            self._send_json({"error": "text is required"},
+                            status=HTTPStatus.BAD_REQUEST); return
+
+        mode = (data.get("execution_mode") or "LIVE").upper()
+        if mode not in ("LIVE", "DETERMINISTIC"):
+            self._send_json({"error": f"execution_mode must be LIVE "
+                                       f"or DETERMINISTIC, got {mode!r}"},
+                            status=HTTPStatus.BAD_REQUEST); return
+
+        raw_profile = (data.get("intervention_profile")
+                        or data.get("intervention") or "normal")
+        profile_name = str(raw_profile).strip().lower()
+
+        from . import socrates_bridge
+        try:
+            payload = socrates_bridge.dispatch_socrates_run(
+                text=text, execution_mode=mode,
+                intervention_profile_name=profile_name,
+                runs_dir=os.environ.get("CALIFORNIAN_ID_RUNS_DIR"))
+        except ValueError as exc:
+            self._send_json({"error": str(exc)},
+                            status=HTTPStatus.BAD_REQUEST); return
+        except Exception as exc:
+            # The bridge below sets runtime_layer on success; on
+            # exception we set the same tag string from the bridge's
+            # public constant so the caller can distinguish this
+            # error from a persona_layer failure.
+            from . import socrates_bridge as _bridge
+            self._send_json(
+                {"error": f"socrates run failed: {type(exc).__name__}: {exc}",
+                 "runtime_layer": _bridge.RUNTIME_LAYER_TAG},
+                status=HTTPStatus.INTERNAL_SERVER_ERROR); return
+
+        self._send_json(payload)
 
     def _send_json(self, payload: dict[str, Any], status: HTTPStatus = HTTPStatus.OK) -> None:
         body = json.dumps(payload, ensure_ascii=False, indent=2).encode("utf-8")

@@ -497,10 +497,24 @@ def test_socrates_runtime_does_not_import_workbench():
 
 
 def test_no_reverse_import_from_california_into_socrates():
+    """The socrates_runtime package must remain independently loadable —
+    californian_id may compose OVER it, but socrates_runtime may not
+    circularly depend on californian_id.
+
+    D-S26-LIVE-API-001 boundary bridge: exactly ONE file in
+    californian_id is allowed to import socrates_runtime — the
+    application/runtime dispatch bridge at
+    ``californian_id/socrates_bridge.py``. Every other file in the
+    application remains socrates_runtime-free.
+    """
+    allowed = {"socrates_bridge.py"}
     for path in (SRC / "californian_id").rglob("*.py"):
+        if path.name in allowed:
+            continue
         text = path.read_text(encoding="utf-8", errors="ignore")
-        assert "socrates_runtime" not in text, \
-            f"{path} imports socrates_runtime — forbidden"
+        assert "socrates_runtime" not in text, (
+            f"{path} imports socrates_runtime — forbidden. Only "
+            f"{sorted(allowed)!r} may cross this boundary.")
 
 
 def test_socrates_uses_native_organs_not_reimplementations():
