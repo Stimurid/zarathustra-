@@ -84,6 +84,10 @@ class SocratesRunResult:
     intervention_plan: InterventionPlan | None = None
     liberatory_pass_result: LiberatoryPassResult | None = None
     question_set_plan: QuestionSetPlan | None = None
+    #: B2Q-R natural-path evidence — the unprivileged model-produced
+    #: proposal (validated) that fed the plan, or None when the plan
+    #: came from CONTROL_OVERRIDE / no plan derived.
+    question_intent_proposal: Any | None = None
 
     def to_public(self) -> dict[str, Any]:
         return {
@@ -108,6 +112,9 @@ class SocratesRunResult:
             "question_set_plan": (self.question_set_plan.to_public()
                                     if self.question_set_plan is not None
                                     else None),
+            "question_intent_proposal": (
+                self.question_intent_proposal.to_public()
+                if self.question_intent_proposal is not None else None),
         }
 
 
@@ -243,19 +250,65 @@ class SocratesRuntime:
         state.liberatory_pass_result = liberatory
         trace.record("liberatory_pass", **liberatory.to_public())
 
-        # B2Q: derive the QuestionSetPlan post-terminal when the
-        # caller opted in via question_set_request. The plan is
-        # deterministic, honours the caller-supplied topology hint,
-        # applies explicit-count-vs-peers rules, records ownership
-        # state, and — when a topology is present — REPLACES the
-        # stochastic renderer for this run so the returned question
-        # count is causally governed by the plan, not by the LLM's
-        # habitual round number.
-        qsp = derive_question_set_plan(
-            scene=getattr(state, "scene", None),
-            operation=getattr(state, "operation", None),
-            ownership=getattr(state, "ownership", None),
-            request=question_set_request)
+        # B2Q + B2Q-R: derive the QuestionSetPlan post-terminal.
+        #
+        # Two activation paths, in strict priority order:
+        #
+        # 1. CONTROL_OVERRIDE — caller supplied a typed
+        #    question_set_request (tests / admin / explicit control).
+        #    Deterministic, no LIVE inference call. `plan.origin =
+        #    "CONTROL_OVERRIDE"`.
+        #
+        # 2. MODEL_PRODUCED_VALIDATED (B2Q-R) — no explicit request,
+        #    LIVE mode, terminal is one that a QUESTION layer may
+        #    overlay (ANSWER / CHALLENGE / DWELL). We run ONE bounded
+        #    inference call to the LIVE client asking the model to
+        #    (a) decide whether the user is actually requesting a
+        #    question set (lexical bait / source instructions must
+        #    NOT count) and (b) produce a typed topology with
+        #    material-specific `candidate_question` per fork. The
+        #    JSON is validated against a narrow schema. If validation
+        #    fails or `requested=false`, no plan is derived and the
+        #    normal render path runs. `plan.origin =
+        #    "MODEL_PRODUCED_VALIDATED"`.
+        #
+        # QUESTION never overrides FAILED_EXPLICIT / RETURN_OPERATION /
+        # PRESERVE_APORIA / SEMANTIC_MOUNT_MISSING /
+        # SEMANTIC_CONTEXT_BUDGET_EXCEEDED — terminal sovereignty is
+        # unconditional.
+        _q_overlayable = {
+            Terminal.ANSWER, Terminal.CHALLENGE, Terminal.DWELL}
+        question_intent_proposal = None
+        qsp = None
+        if question_set_request is not None:
+            qsp = derive_question_set_plan(
+                scene=getattr(state, "scene", None),
+                operation=getattr(state, "operation", None),
+                ownership=getattr(state, "ownership", None),
+                request=question_set_request,
+                origin="CONTROL_OVERRIDE")
+        elif (mode == ExecutionMode.LIVE
+                and outcome.terminal in _q_overlayable):
+            from .question_intent_inference import infer_question_intent
+            infer_client = self._build_live_client(trace)
+            if infer_client is not None:
+                question_intent_proposal = infer_question_intent(
+                    input_text=input_text,
+                    scene=getattr(state, "scene", None),
+                    operation=getattr(state, "operation", None),
+                    ownership=getattr(state, "ownership", None),
+                    client=infer_client)
+                if question_intent_proposal is not None:
+                    trace.record("question_intent_proposal",
+                                 **question_intent_proposal.to_public())
+                    if (question_intent_proposal.requested
+                            and question_intent_proposal.validation_status == "OK"):
+                        qsp = derive_question_set_plan(
+                            scene=getattr(state, "scene", None),
+                            operation=getattr(state, "operation", None),
+                            ownership=getattr(state, "ownership", None),
+                            request=question_intent_proposal.to_request_dict(),
+                            origin="MODEL_PRODUCED_VALIDATED")
         state.question_set_plan = qsp
         if qsp is not None:
             trace.record("question_set_plan", **qsp.to_public())
@@ -320,6 +373,7 @@ class SocratesRuntime:
             intervention_plan=plan,
             liberatory_pass_result=liberatory,
             question_set_plan=qsp,
+            question_intent_proposal=question_intent_proposal,
         )
 
     # ------------------------------------------------------------------

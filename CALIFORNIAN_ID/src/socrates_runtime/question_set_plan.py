@@ -90,6 +90,13 @@ class QuestionCandidate:
     fork_ref: str = ""
     parent_fork_ref: str = ""
     is_subordinate: bool = False
+    #: "MODEL_MATERIAL" — text came from the model's candidate_question
+    #: for a validated proposal (B2Q-R). "TEMPLATE_FALLBACK" — the
+    #: deterministic template phrasing was used because no material
+    #: was available. Public so a trace reader can verify closure of
+    #: D-S26-QSEL-002 case-by-case.
+    text_source: str = "TEMPLATE_FALLBACK"
+    material_refs: tuple[str, ...] = ()
 
     def to_public(self) -> dict[str, Any]:
         return {
@@ -97,6 +104,8 @@ class QuestionCandidate:
             "fork_ref": self.fork_ref,
             "parent_fork_ref": self.parent_fork_ref,
             "is_subordinate": self.is_subordinate,
+            "text_source": self.text_source,
+            "material_refs": list(self.material_refs),
         }
 
 
@@ -123,6 +132,11 @@ class QuestionSetPlan:
     meta_escalation: str
     ownership_owner: str
     ownership_resolved: bool
+    #: B2Q-R plan origin — either the deterministic caller override
+    #: path or the LIVE-inferred natural-language path. Public so a
+    #: trace reader can distinguish CONTROL_OVERRIDE (test/admin) from
+    #: MODEL_PRODUCED_VALIDATED (product path).
+    origin: str = "CONTROL_OVERRIDE"
     authority: str = AUTHORITY
 
     def to_public(self) -> dict[str, Any]:
@@ -146,6 +160,7 @@ class QuestionSetPlan:
             "meta_escalation": self.meta_escalation,
             "ownership_owner": self.ownership_owner,
             "ownership_resolved": self.ownership_resolved,
+            "origin": self.origin,
             "authority": self.authority,
         }
 
@@ -208,6 +223,7 @@ def _select_regime(operation: Any, scene: Any,
 def derive_question_set_plan(
         *, scene: Any, operation: Any, ownership: Any,
         request: dict[str, Any] | None,
+        origin: str = "CONTROL_OVERRIDE",
         ) -> QuestionSetPlan | None:
     """Materialise a plan from state + the typed `question_set_request`.
 
@@ -295,7 +311,8 @@ def derive_question_set_plan(
             clarification_grounds=clarification_grounds,
             meta_escalation=meta,
             ownership_owner=owner_str,
-            ownership_resolved=human_resolved)
+            ownership_resolved=human_resolved,
+            origin=origin)
 
     if not forks:
         return QuestionSetPlan(
@@ -316,7 +333,8 @@ def derive_question_set_plan(
             clarification_grounds="",
             meta_escalation=meta,
             ownership_owner=owner_str,
-            ownership_resolved=human_resolved)
+            ownership_resolved=human_resolved,
+            origin=origin)
 
     primary_peers_deduped = _dedupe_forks_by_label(forks)
     primary_target = len(primary_peers_deduped)
@@ -391,6 +409,7 @@ def derive_question_set_plan(
         meta_escalation=meta,
         ownership_owner=owner_str,
         ownership_resolved=human_resolved,
+        origin=origin,
     )
 
 
@@ -425,22 +444,42 @@ def _dedupe_by_text(cands: tuple[QuestionCandidate, ...]
 
 
 def _peer_question(fork: dict[str, Any], regime: str) -> QuestionCandidate:
+    """Build a peer question. When the model surfaced a
+    material-specific `candidate_question` (B2Q-R), use it verbatim
+    and mark ``text_source="MODEL_MATERIAL"``; otherwise fall back
+    to the deterministic template phrasing (D-S26-QSEL-002 fallback).
+    """
     label = str(fork.get("label") or fork.get("id"))
     fid = str(fork.get("id"))
+    candidate = str(fork.get("candidate_question") or "").strip()
+    material_refs = tuple(str(m) for m in (fork.get("material_refs") or ()))
+    if candidate:
+        return QuestionCandidate(
+            text=candidate, regime=regime, fork_ref=fid,
+            parent_fork_ref="", is_subordinate=False,
+            text_source="MODEL_MATERIAL", material_refs=material_refs)
     return QuestionCandidate(
         text=_phrase(label, regime),
         regime=regime, fork_ref=fid,
-        parent_fork_ref="", is_subordinate=False)
+        parent_fork_ref="", is_subordinate=False,
+        text_source="TEMPLATE_FALLBACK", material_refs=material_refs)
 
 
 def _sub_question(sub: dict[str, Any], regime: str) -> QuestionCandidate:
     label = str(sub.get("label") or sub.get("id"))
     parent = str(sub.get("parent") or "")
     sid = str(sub.get("id"))
+    candidate = str(sub.get("candidate_question") or "").strip()
+    if candidate:
+        return QuestionCandidate(
+            text=candidate, regime=regime, fork_ref=sid,
+            parent_fork_ref=parent, is_subordinate=True,
+            text_source="MODEL_MATERIAL")
     return QuestionCandidate(
         text=_phrase(label, regime, subordinate=True),
         regime=regime, fork_ref=sid,
-        parent_fork_ref=parent, is_subordinate=True)
+        parent_fork_ref=parent, is_subordinate=True,
+        text_source="TEMPLATE_FALLBACK")
 
 
 def _phrase(label: str, regime: str, *, subordinate: bool = False) -> str:

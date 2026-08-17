@@ -117,4 +117,7 @@ def dispatch_socrates_run(*, text: str, execution_mode: str,
         # plan, not from the stochastic renderer — the count and
         # hierarchy are causally governed by the material topology.
         "question_set_plan": public.get("question_set_plan"),
+        # B2Q-R: unprivileged validated proposal that fed the plan
+        # when the natural-language path activated it.
+        "question_intent_proposal": public.get("question_intent_proposal"),
     }
