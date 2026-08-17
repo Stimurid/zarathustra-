@@ -1,0 +1,1688 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_9ff3318bde413643",
+  "trace_id": "strc_6e6ecc0d37d2604e",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "[ANSWER] Выделение концептов из предоставленного текста для последующей аналитической работы.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Извлечены только единицы, помеченные '[concept]': 'Онтология изучает бытие.' и 'Эпистемология — знание.'. Все остальные отмеченные единицы ('[report]', '[gesture]', '[absence]', '[future_work]') сохранены как остаток для отдельного анализа. Принцип разделения объекта и остатка соблюдён: критерий технический, полностью определён сценой и явно заданным маркером.",
+      "grounds": "Операция является технической, критерий извлечения концептов полностью задан сценой и явными маркерами; другие типы маркеров ('[report]', '[gesture]', '[absence]', '[future_work]') не считаются концептами на этом этапе."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "concept_unit_extraction",
+              "generating_state_ref": "operation.applicable=true",
+              "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+              "source_status": "typed_state",
+              "phase_relevance": "direct extraction; phase S0",
+              "materiality_reason": "Explicit concept-tagged units are present; extraction requires only ordinary operation.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "Context is structurally valid for S0. The input exemplifies mixed tagged units, including explicit concepts ([concept]), report ([report]), gesture ([gesture]), absence ([absence]), and future work ([future_work]). Two explicit concepts are present. No memory triggers or deep reflective triggers are indicated; the task is an ordinary unit extraction with explicit tagging, and there are no material ownership or authority conflicts, scene shifts, or role capture signals. Memory ecology relevance is limited to governing eligibility, not retrieval or persistence. Retreat signals are absent; no multi-layer mismatch or operational failure is present.",
+            "triggers": [
+              {
+                "trigger_id": "concept_unit_extraction",
+                "generating_state_ref": "operation.applicable=true",
+                "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+                "source_status": "typed_state",
+                "phase_relevance": "direct extraction; phase S0",
+                "materiality_reason": "Explicit concept-tagged units are present; extraction requires only ordinary operation."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15147,
+        "tokens_out": 239,
+        "latency_ms": 4403,
+        "error": "",
+        "request_hash": "944ac4f16f095d00bd690a2629b5b1b7bf50de1be000617ca0463ba01f054edb",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 1841,
+            "sha256": "874e82f6b0644953"
+          },
+          {
+            "role": "user",
+            "bytes": 403,
+            "sha256": "5dfc2e0bf38774f5"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Выделение концептов из предоставленного текста для последующей аналитической работы.",
+            "role_hint": "Технический ассистент (extractor): выделяет концепты по явным разметкам.",
+            "authority": "system",
+            "materials": [
+              "[concept] Онтология изучает бытие.",
+              "[concept] Эпистемология — знание.",
+              "[report] Встретились в четверг.",
+              "[gesture] Кивнул.",
+              "[absence] Данных нет.",
+              "[future_work] План на квартал."
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Выделение концептов из предоставленного текста для последующей аналитической работы.",
+              "role_hint": "Технический ассистент (extractor): выделяет концепты по явным разметкам.",
+              "authority": "system",
+              "materials": [
+                "[concept] Онтология изучает бытие.",
+                "[concept] Эпистемология — знание.",
+                "[report] Встретились в четверг.",
+                "[gesture] Кивнул.",
+                "[absence] Данных нет.",
+                "[future_work] План на квартал."
+              ]
+            },
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13448,
+        "tokens_out": 141,
+        "latency_ms": 3315,
+        "error": "",
+        "request_hash": "5407fcd38aaa94fe323ab915ee48172b84a529349902921503ade6c864666a53",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2806,
+            "sha256": "f3f0e26acfa2df32"
+          },
+          {
+            "role": "user",
+            "bytes": 403,
+            "sha256": "5dfc2e0bf38774f5"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_e63ac13d8472",
+              "generating_state_ref": "operation.applicable=true",
+              "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+              "source_status": "typed_state",
+              "phase_relevance": "S2 — transition to extraction and trigger admission; materially grounded type gap blocks coercion.",
+              "materiality_reason": "Requested operation is concept extraction. Proposed operation type 'concept_unit_extraction' not in registry 'v0.2_default'; this is a structurally significant gap, not a soft mismatch. Materiality: only 'concept' marked segments are eligible; other categories are excluded by operation and telos. The gap blocks automatic execution and forces explicit admission or resolution.",
+              "admitting_rule": "A type gap must be exposed for council or adjudication; cannot be silently coerced or forced into existing types."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_e63ac13d8472",
+                "generating_state_ref": "operation.applicable=true",
+                "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+                "source_status": "typed_state",
+                "phase_relevance": "S2 — transition to extraction and trigger admission; materially grounded type gap blocks coercion.",
+                "materiality_reason": "Requested operation is concept extraction. Proposed operation type 'concept_unit_extraction' not in registry 'v0.2_default'; this is a structurally significant gap, not a soft mismatch. Materiality: only 'concept' marked segments are eligible; other categories are excluded by operation and telos. The gap blocks automatic execution and forces explicit admission or resolution.",
+                "admitting_rule": "A type gap must be exposed for council or adjudication; cannot be silently coerced or forced into existing types."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15474,
+        "tokens_out": 215,
+        "latency_ms": 3792,
+        "error": "",
+        "request_hash": "f18cf3b17fcff372ce1b44f4188628512498b4f3f458803a0768b29bba294b5e",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 3409,
+            "sha256": "5d4e8cbac545b7dd"
+          },
+          {
+            "role": "user",
+            "bytes": 403,
+            "sha256": "5dfc2e0bf38774f5"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "reconstructed",
+            "sources_named": [],
+            "binding_authority": "system",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_e63ac13d8472",
+              "generating_state_ref": "operation.applicable=true",
+              "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+              "source_status": "typed_state",
+              "phase_relevance": "concept extraction faces an explicit type gap; operation is system-triggered and applicable under technical extraction role",
+              "materiality_reason": "no registered type for 'concept_unit_extraction'; concept extraction is structurally grounded as a system-owned technical act; status must be 'reconstructed' not 'source-exact'",
+              "admitting_rule": "do not coerce or force nearest type; preserve gap and render system reconstruction provenance"
+            },
+            {
+              "trigger_id": "tgap_13282f865eeb",
+              "generating_state_ref": "operation.applicable=true",
+              "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+              "source_status": "typed_state",
+              "phase_relevance": "multiple concept extraction units share similar type gap; extraction remains system-bounded; provenance and authority do not transfer to user or source",
+              "materiality_reason": "reiterated gap in type registry; structural cause is system operation, not content",
+              "admitting_rule": "only admit system-bound reconstructed extraction; do not rewrite authority or origin"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "reconstructed",
+              "sources_named": [],
+              "binding_authority": "system",
+              "temporal_stale": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_e63ac13d8472",
+                "generating_state_ref": "operation.applicable=true",
+                "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+                "source_status": "typed_state",
+                "phase_relevance": "concept extraction faces an explicit type gap; operation is system-triggered and applicable under technical extraction role",
+                "materiality_reason": "no registered type for 'concept_unit_extraction'; concept extraction is structurally grounded as a system-owned technical act; status must be 'reconstructed' not 'source-exact'",
+                "admitting_rule": "do not coerce or force nearest type; preserve gap and render system reconstruction provenance"
+              },
+              {
+                "trigger_id": "tgap_13282f865eeb",
+                "generating_state_ref": "operation.applicable=true",
+                "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+                "source_status": "typed_state",
+                "phase_relevance": "multiple concept extraction units share similar type gap; extraction remains system-bounded; provenance and authority do not transfer to user or source",
+                "materiality_reason": "reiterated gap in type registry; structural cause is system operation, not content",
+                "admitting_rule": "only admit system-bound reconstructed extraction; do not rewrite authority or origin"
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13521,
+        "tokens_out": 362,
+        "latency_ms": 4711,
+        "error": "",
+        "request_hash": "0a6ee5c00eaa5ca395a6c693b83ab1c789b6da8ac863f8d3bcfc1bb7b89a68f7",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 4359,
+            "sha256": "27e0e33d354737bf"
+          },
+          {
+            "role": "user",
+            "bytes": 403,
+            "sha256": "5dfc2e0bf38774f5"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "EXTRACT_CONCEPT_UNITS_BY_EXPLICIT_MARKERS",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": {
+            "proposal_id": "psynth_cu_explicit_001",
+            "operation_id": "op_extract_concept_explicit_marker_001",
+            "target_object_family": [
+              "concept_unit"
+            ],
+            "ontology_hypothesis": "Explicitly marked '[concept]' text units are intended as source concepts under scene telos.",
+            "recognition_criteria": [
+              "Presence of '[concept]' marker",
+              "Grammatical/syntactic completeness of unit",
+              "Semantic plausibility as a concept based on local ontology"
+            ],
+            "segmentation_policy_hint": "Segment only units marked as '[concept]', ignore other labels.",
+            "evidence_requirements": [
+              "Explicit textual '[concept]' marker",
+              "Intact text following marker"
+            ],
+            "exclusions": [
+              "Units marked with '[report]', '[gesture]', '[absence]', '[future_work]'"
+            ],
+            "contraindications": [
+              "Concept marker without substantive content",
+              "Marker mislabeling (e.g. '[concept]' applied to non-conceptual material)"
+            ],
+            "applicability_assumptions": [
+              "Markers reflect author intent",
+              "Scene telos matches analytic extraction purpose"
+            ],
+            "primitives": [
+              {
+                "name": "unit_segmenter",
+                "primitive_id": "prim_seg_explicit_marker_001",
+                "params": {
+                  "marker": "[concept]"
+                },
+                "inputs": [
+                  "input_text"
+                ]
+              },
+              {
+                "name": "concept_verifier",
+                "primitive_id": "prim_verify_concept_001",
+                "params": {},
+                "inputs": [
+                  "segmented_units"
+                ]
+              }
+            ],
+            "accepted_output": "Only '[concept]' marked units extracted as concepts: 'Онтология изучает бытие.', 'Эпистемология — знание.'",
+            "residue_output": "Other units ('[report]', '[gesture]', '[absence]', '[future_work]') are not extracted as concepts; residue preserved for alternate operations.",
+            "revises_projection_id": "",
+            "triggered_by_diagnostic_id": "",
+            "triggered_by_diagnostic_fingerprint": "",
+            "rationale": "Scene specifies analytic extraction for explicitly marked concepts. Only '[concept]' units qualify; completeness claim is bounded to marker use.",
+            "expected_diagnostics": "No ontology gap for concept unit extraction; gap would arise if marker use conflicted with scene telos or if unmarked but relevant concepts were discovered.",
+            "expected_residue_policy": "Residue remains available for separate reporting, gesture analysis, absence tracking, or future work projection."
+          },
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "EXTRACT_CONCEPT_UNITS_BY_EXPLICIT_MARKERS",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "triggers": [],
+            "projection_synthesis_proposal": {
+              "proposal_id": "psynth_cu_explicit_001",
+              "operation_id": "op_extract_concept_explicit_marker_001",
+              "target_object_family": [
+                "concept_unit"
+              ],
+              "ontology_hypothesis": "Explicitly marked '[concept]' text units are intended as source concepts under scene telos.",
+              "recognition_criteria": [
+                "Presence of '[concept]' marker",
+                "Grammatical/syntactic completeness of unit",
+                "Semantic plausibility as a concept based on local ontology"
+              ],
+              "segmentation_policy_hint": "Segment only units marked as '[concept]', ignore other labels.",
+              "evidence_requirements": [
+                "Explicit textual '[concept]' marker",
+                "Intact text following marker"
+              ],
+              "exclusions": [
+                "Units marked with '[report]', '[gesture]', '[absence]', '[future_work]'"
+              ],
+              "contraindications": [
+                "Concept marker without substantive content",
+                "Marker mislabeling (e.g. '[concept]' applied to non-conceptual material)"
+              ],
+              "applicability_assumptions": [
+                "Markers reflect author intent",
+                "Scene telos matches analytic extraction purpose"
+              ],
+              "primitives": [
+                {
+                  "name": "unit_segmenter",
+                  "primitive_id": "prim_seg_explicit_marker_001",
+                  "params": {
+                    "marker": "[concept]"
+                  },
+                  "inputs": [
+                    "input_text"
+                  ]
+                },
+                {
+                  "name": "concept_verifier",
+                  "primitive_id": "prim_verify_concept_001",
+                  "params": {},
+                  "inputs": [
+                    "segmented_units"
+                  ]
+                }
+              ],
+              "accepted_output": "Only '[concept]' marked units extracted as concepts: 'Онтология изучает бытие.', 'Эпистемология — знание.'",
+              "residue_output": "Other units ('[report]', '[gesture]', '[absence]', '[future_work]') are not extracted as concepts; residue preserved for alternate operations.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "",
+              "triggered_by_diagnostic_fingerprint": "",
+              "rationale": "Scene specifies analytic extraction for explicitly marked concepts. Only '[concept]' units qualify; completeness claim is bounded to marker use.",
+              "expected_diagnostics": "No ontology gap for concept unit extraction; gap would arise if marker use conflicted with scene telos or if unmarked but relevant concepts were discovered.",
+              "expected_residue_policy": "Residue remains available for separate reporting, gesture analysis, absence tracking, or future work projection."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15095,
+        "tokens_out": 621,
+        "latency_ms": 6710,
+        "error": "",
+        "request_hash": "b927e761c21238e4f8fefdb8c3b3cc5d6fac02064619be2b0d5ef7ed7c7e208f",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 6266,
+            "sha256": "c8fd7402059050dc"
+          },
+          {
+            "role": "user",
+            "bytes": 403,
+            "sha256": "5dfc2e0bf38774f5"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_e63ac13d8472",
+              "generating_state_ref": "operation.applicable=true",
+              "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+              "source_status": "typed_state",
+              "phase_relevance": "S5_attention_memory_router: explicit concept extraction type gap prevents direct contract binding; materially grounded extraction remains but registry lacks required type",
+              "materiality_reason": "Scene, operation and explicit markers support concept extraction, but registry omission produces a type gap for 'concept_unit_extraction'; gap is diagnostic not coercive",
+              "admitting_rule": "GAP_ADMISSION_ON_MARKER_MATCH_AND_SCENE_TELOS"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В выделенном материале концепты извлекаются только по явным маркерам '[concept]'; другие размеченные единицы ('[report]', '[gesture]', '[absence]', '[future_work]') не считаются концептами, а являются остатком для отдельной аналитики.",
+            "grounds": "Сцена и цель операции требуют выделения концептов исключительно по явной разметке; сохранение остатка предотвращает потерю несогласованных единиц и позволяет дальнейший анализ."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_e63ac13d8472",
+                "generating_state_ref": "operation.applicable=true",
+                "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+                "source_status": "typed_state",
+                "phase_relevance": "S5_attention_memory_router: explicit concept extraction type gap prevents direct contract binding; materially grounded extraction remains but registry lacks required type",
+                "materiality_reason": "Scene, operation and explicit markers support concept extraction, but registry omission produces a type gap for 'concept_unit_extraction'; gap is diagnostic not coercive",
+                "admitting_rule": "GAP_ADMISSION_ON_MARKER_MATCH_AND_SCENE_TELOS"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В выделенном материале концепты извлекаются только по явным маркерам '[concept]'; другие размеченные единицы ('[report]', '[gesture]', '[absence]', '[future_work]') не считаются концептами, а являются остатком для отдельной аналитики.",
+              "grounds": "Сцена и цель операции требуют выделения концептов исключительно по явной разметке; сохранение остатка предотвращает потерю несогласованных единиц и позволяет дальнейший анализ."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17096,
+        "tokens_out": 297,
+        "latency_ms": 4468,
+        "error": "",
+        "request_hash": "ab3de8da4dca8908424bf476dd3d7816e08fd664959e39713931d3d7dc743f6f",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 8813,
+            "sha256": "a4ad8346732fc9df"
+          },
+          {
+            "role": "user",
+            "bytes": 403,
+            "sha256": "5dfc2e0bf38774f5"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "system",
+            "human_resolved": true,
+            "return_reason": "Извлечение концептов по явным маркерам '[concept]' является технической операцией с явно заданным критерием; критерий полностью определён сценой и запросом, не требует человеческого принятия решения или совмещённого анализа, а исполнение целиком SYSTEM-owned."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В этом материале концепты извлекаются только по разметке '[concept]'; остальные отмеченные единицы ('[report]', '[gesture]', '[absence]', '[future_work]') не считаются концептами и сохраняются как остаток для дальнейшего анализа.",
+            "grounds": "Сцена и запрос формируют явный критерий для извлечения концептов; техническое исполнение не меняет человеческое владение операцией."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "Извлечение концептов по явным маркерам '[concept]' является технической операцией с явно заданным критерием; критерий полностью определён сценой и запросом, не требует человеческого принятия решения или совмещённого анализа, а исполнение целиком SYSTEM-owned."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В этом материале концепты извлекаются только по разметке '[concept]'; остальные отмеченные единицы ('[report]', '[gesture]', '[absence]', '[future_work]') не считаются концептами и сохраняются как остаток для дальнейшего анализа.",
+              "grounds": "Сцена и запрос формируют явный критерий для извлечения концептов; техническое исполнение не меняет человеческое владение операцией."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15517,
+        "tokens_out": 212,
+        "latency_ms": 3521,
+        "error": "",
+        "request_hash": "54f85a0887a782eef7588dd190a9a98fd959e27f7d29d83450c4a964b6925865",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 10532,
+            "sha256": "6d67e7a3dee377d5"
+          },
+          {
+            "role": "user",
+            "bytes": 403,
+            "sha256": "5dfc2e0bf38774f5"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_e63ac13d8472",
+              "generating_state_ref": "operation.applicable=true",
+              "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+              "source_status": "typed_state",
+              "phase_relevance": "S8_intervention_selection",
+              "materiality_reason": "Explicit concept extraction operation encountered type gap in registry ('concept_unit_extraction' missing); grounded technical extraction of '[concept]' units is valid and fully SYSTEM-owned under scene and operation, but gap must be preserved as a trigger for run trace and residue management.",
+              "admitting_rule": "Do not coerce missing type; preserve gap as legitimate trace and execute extraction with bounded completeness claim."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": [
+              {
+                "trigger_id": "tgap_e63ac13d8472",
+                "generating_state_ref": "operation.applicable=true",
+                "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+                "source_status": "typed_state",
+                "phase_relevance": "S8_intervention_selection",
+                "materiality_reason": "Explicit concept extraction operation encountered type gap in registry ('concept_unit_extraction' missing); grounded technical extraction of '[concept]' units is valid and fully SYSTEM-owned under scene and operation, but gap must be preserved as a trigger for run trace and residue management.",
+                "admitting_rule": "Do not coerce missing type; preserve gap as legitimate trace and execute extraction with bounded completeness claim."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15056,
+        "tokens_out": 186,
+        "latency_ms": 3685,
+        "error": "",
+        "request_hash": "e476f59f9928453aa613d68e756f0be62387935c52a4cbbdf1727de91d7fa182",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 10899,
+            "sha256": "fdeb1f62e72cb9b1"
+          },
+          {
+            "role": "user",
+            "bytes": 403,
+            "sha256": "5dfc2e0bf38774f5"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S9",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S9",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Извлечены только единицы, помеченные '[concept]': 'Онтология изучает бытие.' и 'Эпистемология — знание.'. Остальные отмеченные единицы ('[report]', '[gesture]', '[absence]', '[future_work]') сохранены как остаток для отдельного анализа.",
+            "grounds": "Операция техническая, критерий извлечения концептов полностью определён явными маркерами и сценой; другие типы маркеров не считаются концептами на этом этапе, соблюдён принцип разделения объекта и остатка."
+          },
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Извлечены только единицы, помеченные '[concept]': 'Онтология изучает бытие.' и 'Эпистемология — знание.'. Остальные отмеченные единицы ('[report]', '[gesture]', '[absence]', '[future_work]') сохранены как остаток для отдельного анализа.",
+              "grounds": "Операция техническая, критерий извлечения концептов полностью определён явными маркерами и сценой; другие типы маркеров не считаются концептами на этом этапе, соблюдён принцип разделения объекта и остатка."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20181,
+        "tokens_out": 154,
+        "latency_ms": 3556,
+        "error": "",
+        "request_hash": "c3c5e3a04900260771509db2becbbc10b93a0904e33f5f0beaf64b85e5493598",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 870,
+            "sha256": "b3c49d62f2113bb1"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "d84c9263f7722a13"
+          },
+          {
+            "role": "user",
+            "bytes": 11848,
+            "sha256": "fb771785ca779ff0"
+          },
+          {
+            "role": "user",
+            "bytes": 403,
+            "sha256": "5dfc2e0bf38774f5"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_e63ac13d8472",
+              "generating_state_ref": "operation.applicable=true",
+              "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+              "source_status": "typed_state",
+              "phase_relevance": "TYPE_GAP for concept_unit_extraction; registry lacks explicit type, recognized structural cause.",
+              "materiality_reason": "Явная маркировка концептов требует типового сопоставления: gap идентифицирован, но coerced extraction запрещён.",
+              "admitting_rule": "Explicit marker present; gap admitted for tracking and further registry update."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Извлечены только единицы, помеченные '[concept]': 'Онтология изучает бытие.' и 'Эпистемология — знание.'. Все остальные отмеченные единицы ('[report]', '[gesture]', '[absence]', '[future_work]') сохранены как остаток для отдельного анализа. Принцип разделения объекта и остатка соблюдён: критерий технический, полностью определён сценой и явно заданным маркером.",
+            "grounds": "Операция является технической, критерий извлечения концептов полностью задан сценой и явными маркерами; другие типы маркеров ('[report]', '[gesture]', '[absence]', '[future_work]') не считаются концептами на этом этапе."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Извлечены только единицы, помеченные '[concept]': 'Онтология изучает бытие.' и 'Эпистемология — знание.'. Все остальные отмеченные единицы ('[report]', '[gesture]', '[absence]', '[future_work]') сохранены как остаток для отдельного анализа. Принцип разделения объекта и остатка соблюдён: критерий технический, полностью определён сценой и явно заданным маркером.",
+              "grounds": "Операция является технической, критерий извлечения концептов полностью задан сценой и явными маркерами; другие типы маркеров ('[report]', '[gesture]', '[absence]', '[future_work]') не считаются концептами на этом этапе."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_e63ac13d8472",
+                "generating_state_ref": "operation.applicable=true",
+                "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP for concept_unit_extraction; registry lacks explicit type, recognized structural cause.",
+                "materiality_reason": "Явная маркировка концептов требует типового сопоставления: gap идентифицирован, но coerced extraction запрещён.",
+                "admitting_rule": "Explicit marker present; gap admitted for tracking and further registry update."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20409,
+        "tokens_out": 339,
+        "latency_ms": 4937,
+        "error": "",
+        "request_hash": "3a870506489139621cd7a1baab21ded03402c49de7272dbf7bfc30fae6e37730",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 11992,
+            "sha256": "5fac614598b6e471"
+          },
+          {
+            "role": "user",
+            "bytes": 403,
+            "sha256": "5dfc2e0bf38774f5"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_9ff3318bde413643",
+    "input_text": "Выдели концепты: [concept] Онтология изучает бытие. [report] Встретились в четверг. [gesture] Кивнул. [absence] Данных нет. [future_work] План на квартал. [concept] Эпистемология — знание.",
+    "source_id": "src_af473044cbf8c58e",
+    "phase": "S10",
+    "scene": {
+      "telos": "Выделение концептов из предоставленного текста для последующей аналитической работы.",
+      "role_hint": "Технический ассистент (extractor): выделяет концепты по явным разметкам.",
+      "authority": "system",
+      "materials": [
+        "[concept] Онтология изучает бытие.",
+        "[concept] Эпистемология — знание.",
+        "[report] Встретились в четверг.",
+        "[gesture] Кивнул.",
+        "[absence] Данных нет.",
+        "[future_work] План на квартал."
+      ]
+    },
+    "origin": {
+      "status": "reconstructed",
+      "sources_named": [],
+      "binding_authority": "system",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "EXTRACT_CONCEPT_UNITS_BY_EXPLICIT_MARKERS",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "system",
+      "human_resolved": true,
+      "return_reason": "Извлечение концептов по явным маркерам '[concept]' является технической операцией с явно заданным критерием; критерий полностью определён сценой и запросом, не требует человеческого принятия решения или совмещённого анализа, а исполнение целиком SYSTEM-owned."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_56323490f93d",
+        "proposed_trigger_type_id": "tgap_e63ac13d8472",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "operation.applicable=true",
+        "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+        "phase_relevance": "TYPE_GAP for concept_unit_extraction; registry lacks explicit type, recognized structural cause.",
+        "materiality_reason": "Явная маркировка концептов требует типового сопоставления: gap идентифицирован, но coerced extraction запрещён.",
+        "payload": {
+          "legacy_admitting_rule": "Explicit marker present; gap admitted for tracking and further registry update.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_b831d7eb8e96",
+        "candidate_id": "tcand_d2320e659310",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'concept_unit_extraction' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_bedb0211212d",
+        "candidate_id": "tcand_fa102ead4b0d",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_e63ac13d8472' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_0d0cc296b484",
+        "candidate_id": "tcand_5a6e5e317813",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_e63ac13d8472' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_a9d79480acc7",
+        "candidate_id": "tcand_81e260adad7e",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_13282f865eeb' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_6ba52050cc2d",
+        "candidate_id": "tcand_ad6df57a9638",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_e63ac13d8472' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_6ad332d62323",
+        "candidate_id": "tcand_189e68980ec5",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_e63ac13d8472' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_e63ac13d8472",
+        "candidate_id": "tcand_d2320e659310",
+        "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+        "generating_state_ref": "operation.applicable=true",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'concept_unit_extraction' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_13282f865eeb",
+        "candidate_id": "tcand_fa102ead4b0d",
+        "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+        "generating_state_ref": "operation.applicable=true",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_e63ac13d8472' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_d6674a808b84",
+        "candidate_id": "tcand_5a6e5e317813",
+        "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+        "generating_state_ref": "operation.applicable=true",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_e63ac13d8472' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_74728a7a4f29",
+        "candidate_id": "tcand_81e260adad7e",
+        "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+        "generating_state_ref": "operation.applicable=true",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_13282f865eeb' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_b996f9dfd3fb",
+        "candidate_id": "tcand_ad6df57a9638",
+        "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+        "generating_state_ref": "operation.applicable=true",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_e63ac13d8472' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_1b9a638497fe",
+        "candidate_id": "tcand_189e68980ec5",
+        "cause_object_ref": "[concept] Онтология изучает бытие.; [concept] Эпистемология — знание.",
+        "generating_state_ref": "operation.applicable=true",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_e63ac13d8472' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Извлечены только единицы, помеченные '[concept]': 'Онтология изучает бытие.' и 'Эпистемология — знание.'. Все остальные отмеченные единицы ('[report]', '[gesture]', '[absence]', '[future_work]') сохранены как остаток для отдельного анализа. Принцип разделения объекта и остатка соблюдён: критерий технический, полностью определён сценой и явно заданным маркером.",
+      "grounds": "Операция является технической, критерий извлечения концептов полностью задан сценой и явными маркерами; другие типы маркеров ('[report]', '[gesture]', '[absence]', '[future_work]') не считаются концептами на этом этапе."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": [
+        {
+          "projection_id": "gap:gap_d010f0b84128",
+          "signals": [
+            "APPLICABILITY_FAILURE"
+          ],
+          "reason": "ORGAN_GAP for operation 'op_extract_concept_explicit_marker_001': model proposal for 'op_extract_concept_explicit_marker_001' could not compile-bind against registered primitives",
+          "residue_ratio": 1.0,
+          "recognition_failure_count": 0,
+          "suggested_operation": "",
+          "suggested_ontology": "",
+          "suggested_target_family": [],
+          "mismatch": true,
+          "fingerprint": "7c80351f23b3"
+        }
+      ]
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [
+      {
+        "kind": "ORGAN_GAP",
+        "operation_id": "op_extract_concept_explicit_marker_001",
+        "reason": "proposal psynth_cu_explicit_001 for operation 'op_extract_concept_explicit_marker_001' failed compile-bind: primitive 'prim_seg_explicit_marker_001' (invocation 'unit_segmenter') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+        "registered_capability_id": "",
+        "generated_spec": null,
+        "binding_evidence": {},
+        "organ_gap": {
+          "gap_id": "gap_d010f0b84128",
+          "source_ref": "src_af473044cbf8c58e",
+          "scene_ref": "Выделение концептов из предоставленного текста для последующей аналитической работы.",
+          "required_operation": "op_extract_concept_explicit_marker_001",
+          "required_attention_structure": "Segment only units marked as '[concept]', ignore other labels.",
+          "insufficient_registered_capabilities": [
+            "DIFFERENTIATED_ACCOUNT",
+            "EXTRACT_CONCEPTS"
+          ],
+          "insufficient_declarative_primitives": [
+            "CoverageComputer",
+            "FamilyClassifier",
+            "SpanScanner",
+            "TargetFilter"
+          ],
+          "missing_capability_hypothesis": "model proposal for 'op_extract_concept_explicit_marker_001' could not compile-bind against registered primitives",
+          "evidence": [
+            "BindingError: primitive 'prim_seg_explicit_marker_001' (invocation 'unit_segmenter') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+          ],
+          "counterexamples": [],
+          "affected_scene_telos": "Выделение концептов из предоставленного текста для последующей аналитической работы.",
+          "possible_development_direction": "extend primitive registry or narrow the proposal",
+          "status": "unresolved",
+          "activation_authority": "NONE"
+        }
+      }
+    ],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": []
+  },
+  "rendering": {
+    "text": "[ANSWER] Выделение концептов из предоставленного текста для последующей аналитической работы.",
+    "mode": "DETERMINISTIC_DIAGNOSTIC",
+    "provider_status": "NOT_APPLICABLE",
+    "provider_id": "",
+    "model_id": "",
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "latency_ms": 0,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_6e6ecc0d37d2604e.json",
+  "duration_ms": 43193,
+  "intervention_profile": "normal"
+}

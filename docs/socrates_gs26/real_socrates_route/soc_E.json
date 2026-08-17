@@ -1,0 +1,1626 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_a43e16fbf1219718",
+  "trace_id": "strc_b3cbdef0790e6059",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "[ANSWER] Извлечь задачи, отмеченные приоритетом, из предоставленных строк.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Задачи с приоритетами в текущих строках определяются наличием явного маркера '#priority-high' или '#priority-low'. Только такие строки извлекаются как задачи с приоритетом—например, '#priority-high: пофикси логин' и '#priority-low: переименовать кнопку'. Строки без этих маркеров (например, '#status-open: подготовить демо') исключаются из итогового списка задач и сохраняются как остаток. Эта сегментация обусловлена локально применимыми критериями и защищает принцип резидуального сохранения: только объекты, соответствующие признанным маркерам приоритета, выделяются в отдельные задачи.",
+      "grounds": "Применена явная локальная сегментация по признаку маркера приоритета: извлечение возможно без обращения к внешнему типу в реестре, а метод и границы операции задокументированы. Признан типовой разрыв ('type gap')—отсутствие зарегистрированного типа не мешает применимости, так как основание метода формально указано, и дополнительная человеческая привязка не требуется."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "Context is limited to extraction of tasks marked with priority. No prior memory, formation or reflective retreat is implicated. The operation is stable and does not require scene/telos/role reconstruction.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15134,
+        "tokens_out": 58,
+        "latency_ms": 3191,
+        "error": "",
+        "request_hash": "a87dcaa8e51e2f2372d9ad111e8bf8c124db834284d878d05fd85cc541997655",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 1884,
+            "sha256": "2e560b10f5d33362"
+          },
+          {
+            "role": "user",
+            "bytes": 446,
+            "sha256": "3ac4776af3606595"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Извлечь задачи, отмеченные приоритетом, из предоставленных строк.",
+            "role_hint": "Компетентный помощник по структурированию задач; не экзаменатор и не менеджер.",
+            "authority": "system",
+            "materials": [
+              "#priority-high: пофикси логин.",
+              "#priority-low: переименовать кнопку.",
+              "#priority-high: закрыть проблему безопасности."
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Извлечь задачи, отмеченные приоритетом, из предоставленных строк.",
+              "role_hint": "Компетентный помощник по структурированию задач; не экзаменатор и не менеджер.",
+              "authority": "system",
+              "materials": [
+                "#priority-high: пофикси логин.",
+                "#priority-low: переименовать кнопку.",
+                "#priority-high: закрыть проблему безопасности."
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13182,
+        "tokens_out": 105,
+        "latency_ms": 4010,
+        "error": "",
+        "request_hash": "269ac477df2ac0003270a0aaa42b47e5d702540b6a6309471ca633b7c17436b4",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 1883,
+            "sha256": "85991b584153e7a6"
+          },
+          {
+            "role": "user",
+            "bytes": 446,
+            "sha256": "3ac4776af3606595"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "B03_EXTRACT_PRIORITY_TASKS",
+              "generating_state_ref": "scene.materials",
+              "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+              "source_status": "typed_state",
+              "phase_relevance": "Operation requires extracting tasks marked by priority from supplied lines.",
+              "materiality_reason": "User request and scene telos require a method that identifies, extracts and structures tasks based on explicit priority markers. No implicit ontology, retrieval, memory or authority complication is present. Extraction is a system-owned, structurally valid operation.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "B03_EXTRACT_PRIORITY_TASKS",
+                "generating_state_ref": "scene.materials",
+                "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+                "source_status": "typed_state",
+                "phase_relevance": "Operation requires extracting tasks marked by priority from supplied lines.",
+                "materiality_reason": "User request and scene telos require a method that identifies, extracts and structures tasks based on explicit priority markers. No implicit ontology, retrieval, memory or authority complication is present. Extraction is a system-owned, structurally valid operation."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15178,
+        "tokens_out": 139,
+        "latency_ms": 3103,
+        "error": "",
+        "request_hash": "b20b0537841dbb7a1eea40b68c4057c58a26b927fd970aa46af367539d948b77",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 2354,
+            "sha256": "56b810cafa717ef4"
+          },
+          {
+            "role": "user",
+            "bytes": 446,
+            "sha256": "3ac4776af3606595"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "reconstructed",
+            "sources_named": [],
+            "binding_authority": "system",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_9880f6581579",
+              "generating_state_ref": "scene.materials",
+              "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+              "source_status": "typed_state",
+              "phase_relevance": "Proposed operation requires extraction-type applicability evaluation; materially encountering pattern requires gap acknowledgement",
+              "materiality_reason": "Scene materials contain structurally explicit priority-marked tasks, but extraction operation type 'B03_EXTRACT_PRIORITY_TASKS' not in registry, enforcing gap diagnosis before continued extraction",
+              "admitting_rule": "do not force nearest extraction; leave unresolved gap for typed review"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "reconstructed",
+              "sources_named": [],
+              "binding_authority": "system",
+              "temporal_stale": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_9880f6581579",
+                "generating_state_ref": "scene.materials",
+                "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+                "source_status": "typed_state",
+                "phase_relevance": "Proposed operation requires extraction-type applicability evaluation; materially encountering pattern requires gap acknowledgement",
+                "materiality_reason": "Scene materials contain structurally explicit priority-marked tasks, but extraction operation type 'B03_EXTRACT_PRIORITY_TASKS' not in registry, enforcing gap diagnosis before continued extraction",
+                "admitting_rule": "do not force nearest extraction; leave unresolved gap for typed review"
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13212,
+        "tokens_out": 194,
+        "latency_ms": 4150,
+        "error": "",
+        "request_hash": "25733b9fcb0ca32b23d495425285a57a8a158fdbb7a42b6192d7312fa2dc6a1a",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 3251,
+            "sha256": "2f0c7f0aa63d28cc"
+          },
+          {
+            "role": "user",
+            "bytes": 446,
+            "sha256": "3ac4776af3606595"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "EXTRACT_PRIORITY_TASKS",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_9880f6581579",
+              "generating_state_ref": "scene.materials",
+              "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+              "source_status": "typed_state",
+              "phase_relevance": "operation_type_gaps indicate a potential open-world or registry gap in operation type for extraction",
+              "materiality_reason": "The source strings contain priority-marked tasks, but the type 'EXTRACT_PRIORITY_TASKS' is not in the registry; this is material since it affects correct operation and output typing",
+              "admitting_rule": "Permit extraction with explicit annotation of local gap; preserve provenance and validity of extraction even when registry lacks a formal operation type"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": {
+            "proposal_id": "prop_extr_priority_tasks_001",
+            "operation_id": "EXTRACT_PRIORITY_TASKS",
+            "target_object_family": [
+              "task_with_priority"
+            ],
+            "ontology_hypothesis": "Priority markers (e.g., '#priority-high', '#priority-low') identify task units for extraction; local ontology recognizes 'task_with_priority' as a valid object.",
+            "recognition_criteria": [
+              "String starts with or contains '#priority-high:' or '#priority-low:'",
+              "Followed by a task description"
+            ],
+            "segmentation_policy_hint": "Segment strings at priority-marker boundaries",
+            "evidence_requirements": [
+              "Presence of a priority marker",
+              "Description following marker"
+            ],
+            "exclusions": [
+              "Strings with only #status-open or without priority marker"
+            ],
+            "contraindications": [
+              "Empty description following priority marker",
+              "Malformed priority marker"
+            ],
+            "applicability_assumptions": [
+              "Registry gap does not preclude valid extraction when recognition criteria are met"
+            ],
+            "primitives": [
+              {
+                "name": "extract_priority_task",
+                "primitive_id": "prim_extr_priority_task_001",
+                "params": {
+                  "priority_markers": [
+                    "#priority-high",
+                    "#priority-low"
+                  ]
+                },
+                "inputs": [
+                  "scene.materials"
+                ]
+              }
+            ],
+            "accepted_output": "List of extracted tasks with explicit priority annotation",
+            "residue_output": "Strings not containing a priority marker are excluded from extracted tasks and retained as residue",
+            "revises_projection_id": "",
+            "triggered_by_diagnostic_id": "tgap_9880f6581579",
+            "triggered_by_diagnostic_fingerprint": "TYPE_GAP:EXTRACT_PRIORITY_TASKS",
+            "rationale": "Requested operation is locally applicable based on explicit markers, even when registry type is missing; gap annotation and preservation of method/criteria ensure principled extraction.",
+            "expected_diagnostics": "Diagnostic trace should record registry gap, recognition criteria, and local applicability",
+            "expected_residue_policy": "Residue is preserved; only priority-marked tasks are extracted"
+          },
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "EXTRACT_PRIORITY_TASKS",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_9880f6581579",
+                "generating_state_ref": "scene.materials",
+                "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+                "source_status": "typed_state",
+                "phase_relevance": "operation_type_gaps indicate a potential open-world or registry gap in operation type for extraction",
+                "materiality_reason": "The source strings contain priority-marked tasks, but the type 'EXTRACT_PRIORITY_TASKS' is not in the registry; this is material since it affects correct operation and output typing",
+                "admitting_rule": "Permit extraction with explicit annotation of local gap; preserve provenance and validity of extraction even when registry lacks a formal operation type"
+              }
+            ],
+            "projection_synthesis_proposal": {
+              "proposal_id": "prop_extr_priority_tasks_001",
+              "operation_id": "EXTRACT_PRIORITY_TASKS",
+              "target_object_family": [
+                "task_with_priority"
+              ],
+              "ontology_hypothesis": "Priority markers (e.g., '#priority-high', '#priority-low') identify task units for extraction; local ontology recognizes 'task_with_priority' as a valid object.",
+              "recognition_criteria": [
+                "String starts with or contains '#priority-high:' or '#priority-low:'",
+                "Followed by a task description"
+              ],
+              "segmentation_policy_hint": "Segment strings at priority-marker boundaries",
+              "evidence_requirements": [
+                "Presence of a priority marker",
+                "Description following marker"
+              ],
+              "exclusions": [
+                "Strings with only #status-open or without priority marker"
+              ],
+              "contraindications": [
+                "Empty description following priority marker",
+                "Malformed priority marker"
+              ],
+              "applicability_assumptions": [
+                "Registry gap does not preclude valid extraction when recognition criteria are met"
+              ],
+              "primitives": [
+                {
+                  "name": "extract_priority_task",
+                  "primitive_id": "prim_extr_priority_task_001",
+                  "params": {
+                    "priority_markers": [
+                      "#priority-high",
+                      "#priority-low"
+                    ]
+                  },
+                  "inputs": [
+                    "scene.materials"
+                  ]
+                }
+              ],
+              "accepted_output": "List of extracted tasks with explicit priority annotation",
+              "residue_output": "Strings not containing a priority marker are excluded from extracted tasks and retained as residue",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "tgap_9880f6581579",
+              "triggered_by_diagnostic_fingerprint": "TYPE_GAP:EXTRACT_PRIORITY_TASKS",
+              "rationale": "Requested operation is locally applicable based on explicit markers, even when registry type is missing; gap annotation and preservation of method/criteria ensure principled extraction.",
+              "expected_diagnostics": "Diagnostic trace should record registry gap, recognition criteria, and local applicability",
+              "expected_residue_policy": "Residue is preserved; only priority-marked tasks are extracted"
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14511,
+        "tokens_out": 689,
+        "latency_ms": 6568,
+        "error": "",
+        "request_hash": "d9fb4ee3daa52c09f8496afaf9c9776ce2202baa24888249410153a31a0d7034",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 4133,
+            "sha256": "269db19476ec63a1"
+          },
+          {
+            "role": "user",
+            "bytes": 446,
+            "sha256": "3ac4776af3606595"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_9880f6581579",
+              "generating_state_ref": "scene.materials",
+              "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+              "source_status": "typed_state",
+              "phase_relevance": "Type gap prevents registry-conforming extraction; explicit local criteria support extraction with annotated gap.",
+              "materiality_reason": "Requested extraction is directly governed by visible priority markers; registry absence is compensated by local ontology and explicit criteria.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Priority markers such as '#priority-high' and '#priority-low' define extractable task units; residue is defined as tasks with other markers (e.g., #status-open).",
+            "grounds": "Operation proposal and recognition criteria in pending_projection_proposal; structural cause and explicit exclusions upheld in extraction."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_9880f6581579",
+                "generating_state_ref": "scene.materials",
+                "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+                "source_status": "typed_state",
+                "phase_relevance": "Type gap prevents registry-conforming extraction; explicit local criteria support extraction with annotated gap.",
+                "materiality_reason": "Requested extraction is directly governed by visible priority markers; registry absence is compensated by local ontology and explicit criteria."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Priority markers such as '#priority-high' and '#priority-low' define extractable task units; residue is defined as tasks with other markers (e.g., #status-open).",
+              "grounds": "Operation proposal and recognition criteria in pending_projection_proposal; structural cause and explicit exclusions upheld in extraction."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16675,
+        "tokens_out": 205,
+        "latency_ms": 5172,
+        "error": "",
+        "request_hash": "5277cd393ccb12646e875f28fa37f2b3eca0dcdcc19cafb5aa4042ae1309366d",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 7206,
+            "sha256": "f735a63089691fd7"
+          },
+          {
+            "role": "user",
+            "bytes": 446,
+            "sha256": "3ac4776af3606595"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "system",
+            "human_resolved": true,
+            "return_reason": "Priority extraction operation is SYSTEM-owned: criteria are explicit, transformation is mechanical, operation does not bind human commitment, judgment, or consequential value."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Priority markers such as '#priority-high' and '#priority-low' define extractable task units; residue is defined as tasks with other markers (e.g., #status-open).",
+            "grounds": "Operative extraction criteria and recognition boundaries explicitly segment the objects according to marker presence. No material human-owned binding is required."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "Priority extraction operation is SYSTEM-owned: criteria are explicit, transformation is mechanical, operation does not bind human commitment, judgment, or consequential value."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Priority markers such as '#priority-high' and '#priority-low' define extractable task units; residue is defined as tasks with other markers (e.g., #status-open).",
+              "grounds": "Operative extraction criteria and recognition boundaries explicitly segment the objects according to marker presence. No material human-owned binding is required."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15044,
+        "tokens_out": 152,
+        "latency_ms": 3323,
+        "error": "",
+        "request_hash": "6700663ee9f6e73712048b67068e190794991710a0515eb13246a2d283ea663a",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 8442,
+            "sha256": "5a804f1deab23513"
+          },
+          {
+            "role": "user",
+            "bytes": 446,
+            "sha256": "3ac4776af3606595"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_9880f6581579",
+              "generating_state_ref": "scene.materials",
+              "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+              "source_status": "typed_state",
+              "phase_relevance": "Registry type gap was detected during type inference for EXTRACT_PRIORITY_TASKS; materially grounded operational criteria allow direct extraction despite registry gap.",
+              "materiality_reason": "Extraction operation is SYSTEM-owned, criteria are explicit and mechanical, type gap is not a blocker for execution; registry gap is recorded as a diagnostic/residue but does not preclude extraction.",
+              "admitting_rule": "CORE/B10 permit direct answer and execution when criteria are explicit, operation is applicable, ownership is system, and no consequential human binding or arbitration conflict exists."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": [
+              {
+                "trigger_id": "tgap_9880f6581579",
+                "generating_state_ref": "scene.materials",
+                "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+                "source_status": "typed_state",
+                "phase_relevance": "Registry type gap was detected during type inference for EXTRACT_PRIORITY_TASKS; materially grounded operational criteria allow direct extraction despite registry gap.",
+                "materiality_reason": "Extraction operation is SYSTEM-owned, criteria are explicit and mechanical, type gap is not a blocker for execution; registry gap is recorded as a diagnostic/residue but does not preclude extraction.",
+                "admitting_rule": "CORE/B10 permit direct answer and execution when criteria are explicit, operation is applicable, ownership is system, and no consequential human binding or arbitration conflict exists."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14564,
+        "tokens_out": 192,
+        "latency_ms": 3844,
+        "error": "",
+        "request_hash": "c9a3f691d4263952edb52e1e63560d4241e328daafe83023fe82caaed252c37e",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 8641,
+            "sha256": "830ad070416e15e2"
+          },
+          {
+            "role": "user",
+            "bytes": 446,
+            "sha256": "3ac4776af3606595"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S9",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S9",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В текущих строках задачи с приоритетами определяются наличием маркеров '#priority-high' или '#priority-low'. Только такие задачи извлекаются как отдельные объекты, а строки без подобных маркеров (например, '#status-open') выводятся в остаток. Эта сегментация соответствует локально применимым критериям и принципу резидуального сохранения.",
+            "grounds": "Явные правила выделения (наличие маркера приоритета) позволяют однозначно сегментировать объекты для извлечения; регистрационный типовой разрыв не мешает применению, метод и границы операции задокументированы, человеческая привязка не требуется."
+          },
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В текущих строках задачи с приоритетами определяются наличием маркеров '#priority-high' или '#priority-low'. Только такие задачи извлекаются как отдельные объекты, а строки без подобных маркеров (например, '#status-open') выводятся в остаток. Эта сегментация соответствует локально применимым критериям и принципу резидуального сохранения.",
+              "grounds": "Явные правила выделения (наличие маркера приоритета) позволяют однозначно сегментировать объекты для извлечения; регистрационный типовой разрыв не мешает применению, метод и границы операции задокументированы, человеческая привязка не требуется."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19682,
+        "tokens_out": 178,
+        "latency_ms": 4510,
+        "error": "",
+        "request_hash": "77eb9dd3ed9bbda0fbe2e2fc1b8b1625d2f64f0608ffaa4ca4f93ec9fcdaa57a",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 870,
+            "sha256": "b3c49d62f2113bb1"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "d84c9263f7722a13"
+          },
+          {
+            "role": "user",
+            "bytes": 9515,
+            "sha256": "b335d7ea967bf7e0"
+          },
+          {
+            "role": "user",
+            "bytes": 446,
+            "sha256": "3ac4776af3606595"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_9880f6581579",
+              "generating_state_ref": "scene.materials",
+              "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+              "source_status": "typed_state",
+              "phase_relevance": "S9—готовность к выделению tasks_with_priority несмотря на type gap",
+              "materiality_reason": "Обнаружен структурный типовой разрыв: в реестре не представлен тип 'EXTRACT_PRIORITY_TASKS', но извлечение объектов с явным маркером приоритета возможно и обосновано локально.",
+              "admitting_rule": "Registry gap ('type gap') не блокирует выполнение; локальная операция извлечения валидируется сегментацией по явному маркеру."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Задачи с приоритетами в текущих строках определяются наличием явного маркера '#priority-high' или '#priority-low'. Только такие строки извлекаются как задачи с приоритетом—например, '#priority-high: пофикси логин' и '#priority-low: переименовать кнопку'. Строки без этих маркеров (например, '#status-open: подготовить демо') исключаются из итогового списка задач и сохраняются как остаток. Эта сегментация обусловлена локально применимыми критериями и защищает принцип резидуального сохранения: только объекты, соответствующие признанным маркерам приоритета, выделяются в отдельные задачи.",
+            "grounds": "Применена явная локальная сегментация по признаку маркера приоритета: извлечение возможно без обращения к внешнему типу в реестре, а метод и границы операции задокументированы. Признан типовой разрыв ('type gap')—отсутствие зарегистрированного типа не мешает применимости, так как основание метода формально указано, и дополнительная человеческая привязка не требуется."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Задачи с приоритетами в текущих строках определяются наличием явного маркера '#priority-high' или '#priority-low'. Только такие строки извлекаются как задачи с приоритетом—например, '#priority-high: пофикси логин' и '#priority-low: переименовать кнопку'. Строки без этих маркеров (например, '#status-open: подготовить демо') исключаются из итогового списка задач и сохраняются как остаток. Эта сегментация обусловлена локально применимыми критериями и защищает принцип резидуального сохранения: только объекты, соответствующие признанным маркерам приоритета, выделяются в отдельные задачи.",
+              "grounds": "Применена явная локальная сегментация по признаку маркера приоритета: извлечение возможно без обращения к внешнему типу в реестре, а метод и границы операции задокументированы. Признан типовой разрыв ('type gap')—отсутствие зарегистрированного типа не мешает применимости, так как основание метода формально указано, и дополнительная человеческая привязка не требуется."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_9880f6581579",
+                "generating_state_ref": "scene.materials",
+                "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+                "source_status": "typed_state",
+                "phase_relevance": "S9—готовность к выделению tasks_with_priority несмотря на type gap",
+                "materiality_reason": "Обнаружен структурный типовой разрыв: в реестре не представлен тип 'EXTRACT_PRIORITY_TASKS', но извлечение объектов с явным маркером приоритета возможно и обосновано локально.",
+                "admitting_rule": "Registry gap ('type gap') не блокирует выполнение; локальная операция извлечения валидируется сегментацией по явному маркеру."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19961,
+        "tokens_out": 449,
+        "latency_ms": 5687,
+        "error": "",
+        "request_hash": "86c5ed8eaf05351a3f49d7b913597a8d2a7eef33dfd3038593015c9c9a6b505a",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 10238,
+            "sha256": "349f038d877c6602"
+          },
+          {
+            "role": "user",
+            "bytes": 446,
+            "sha256": "3ac4776af3606595"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_a43e16fbf1219718",
+    "input_text": "Извлеки задачи с приоритетами из строк вида #priority-high: описание. #priority-high: пофикси логин. #priority-low: переименовать кнопку. #status-open: подготовить демо. #priority-high: закрыть проблему безопасности.",
+    "source_id": "src_e0c0c36097d34558",
+    "phase": "S10",
+    "scene": {
+      "telos": "Извлечь задачи, отмеченные приоритетом, из предоставленных строк.",
+      "role_hint": "Компетентный помощник по структурированию задач; не экзаменатор и не менеджер.",
+      "authority": "system",
+      "materials": [
+        "#priority-high: пофикси логин.",
+        "#priority-low: переименовать кнопку.",
+        "#priority-high: закрыть проблему безопасности."
+      ]
+    },
+    "origin": {
+      "status": "reconstructed",
+      "sources_named": [],
+      "binding_authority": "system",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "EXTRACT_PRIORITY_TASKS",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "system",
+      "human_resolved": true,
+      "return_reason": "Priority extraction operation is SYSTEM-owned: criteria are explicit, transformation is mechanical, operation does not bind human commitment, judgment, or consequential value."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_46f6e569537e",
+        "proposed_trigger_type_id": "tgap_9880f6581579",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene.materials",
+        "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+        "phase_relevance": "S9—готовность к выделению tasks_with_priority несмотря на type gap",
+        "materiality_reason": "Обнаружен структурный типовой разрыв: в реестре не представлен тип 'EXTRACT_PRIORITY_TASKS', но извлечение объектов с явным маркером приоритета возможно и обосновано локально.",
+        "payload": {
+          "legacy_admitting_rule": "Registry gap ('type gap') не блокирует выполнение; локальная операция извлечения валидируется сегментацией по явному маркеру.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_61781f297b84",
+        "candidate_id": "tcand_953a924ca84a",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'B03_EXTRACT_PRIORITY_TASKS' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_d74aa35d57b8",
+        "candidate_id": "tcand_9d7898507c4d",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_9880f6581579' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_fff7dc1a2043",
+        "candidate_id": "tcand_2d80806e32c0",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_9880f6581579' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_db2f165fdcd0",
+        "candidate_id": "tcand_87c3590bf15b",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_9880f6581579' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_107ca79e6a06",
+        "candidate_id": "tcand_7b31543a11bf",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_9880f6581579' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_9880f6581579",
+        "candidate_id": "tcand_953a924ca84a",
+        "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+        "generating_state_ref": "scene.materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'B03_EXTRACT_PRIORITY_TASKS' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_4cb144feefd1",
+        "candidate_id": "tcand_9d7898507c4d",
+        "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+        "generating_state_ref": "scene.materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_9880f6581579' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_55525d19a7a1",
+        "candidate_id": "tcand_2d80806e32c0",
+        "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+        "generating_state_ref": "scene.materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_9880f6581579' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_893e43f27037",
+        "candidate_id": "tcand_87c3590bf15b",
+        "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+        "generating_state_ref": "scene.materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_9880f6581579' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_04c0bc0f8376",
+        "candidate_id": "tcand_7b31543a11bf",
+        "cause_object_ref": "scene.materials.#priority-high / #priority-low",
+        "generating_state_ref": "scene.materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_9880f6581579' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Задачи с приоритетами в текущих строках определяются наличием явного маркера '#priority-high' или '#priority-low'. Только такие строки извлекаются как задачи с приоритетом—например, '#priority-high: пофикси логин' и '#priority-low: переименовать кнопку'. Строки без этих маркеров (например, '#status-open: подготовить демо') исключаются из итогового списка задач и сохраняются как остаток. Эта сегментация обусловлена локально применимыми критериями и защищает принцип резидуального сохранения: только объекты, соответствующие признанным маркерам приоритета, выделяются в отдельные задачи.",
+      "grounds": "Применена явная локальная сегментация по признаку маркера приоритета: извлечение возможно без обращения к внешнему типу в реестре, а метод и границы операции задокументированы. Признан типовой разрыв ('type gap')—отсутствие зарегистрированного типа не мешает применимости, так как основание метода формально указано, и дополнительная человеческая привязка не требуется."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": [
+        {
+          "projection_id": "gap:gap_74cd5ac1289c",
+          "signals": [
+            "APPLICABILITY_FAILURE"
+          ],
+          "reason": "ORGAN_GAP for operation 'EXTRACT_PRIORITY_TASKS': model proposal for 'EXTRACT_PRIORITY_TASKS' could not compile-bind against registered primitives",
+          "residue_ratio": 1.0,
+          "recognition_failure_count": 0,
+          "suggested_operation": "",
+          "suggested_ontology": "",
+          "suggested_target_family": [],
+          "mismatch": true,
+          "fingerprint": "7c80351f23b3"
+        }
+      ]
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [
+      {
+        "kind": "ORGAN_GAP",
+        "operation_id": "EXTRACT_PRIORITY_TASKS",
+        "reason": "proposal prop_extr_priority_tasks_001 for operation 'EXTRACT_PRIORITY_TASKS' failed compile-bind: primitive 'prim_extr_priority_task_001' (invocation 'extract_priority_task') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+        "registered_capability_id": "",
+        "generated_spec": null,
+        "binding_evidence": {},
+        "organ_gap": {
+          "gap_id": "gap_74cd5ac1289c",
+          "source_ref": "src_e0c0c36097d34558",
+          "scene_ref": "Извлечь задачи, отмеченные приоритетом, из предоставленных строк.",
+          "required_operation": "EXTRACT_PRIORITY_TASKS",
+          "required_attention_structure": "Segment strings at priority-marker boundaries",
+          "insufficient_registered_capabilities": [
+            "DIFFERENTIATED_ACCOUNT",
+            "EXTRACT_CONCEPTS"
+          ],
+          "insufficient_declarative_primitives": [
+            "CoverageComputer",
+            "FamilyClassifier",
+            "SpanScanner",
+            "TargetFilter"
+          ],
+          "missing_capability_hypothesis": "model proposal for 'EXTRACT_PRIORITY_TASKS' could not compile-bind against registered primitives",
+          "evidence": [
+            "BindingError: primitive 'prim_extr_priority_task_001' (invocation 'extract_priority_task') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+          ],
+          "counterexamples": [],
+          "affected_scene_telos": "Извлечь задачи, отмеченные приоритетом, из предоставленных строк.",
+          "possible_development_direction": "extend primitive registry or narrow the proposal",
+          "status": "unresolved",
+          "activation_authority": "NONE"
+        }
+      }
+    ],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": []
+  },
+  "rendering": {
+    "text": "[ANSWER] Извлечь задачи, отмеченные приоритетом, из предоставленных строк.",
+    "mode": "DETERMINISTIC_DIAGNOSTIC",
+    "provider_status": "NOT_APPLICABLE",
+    "provider_id": "",
+    "model_id": "",
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "latency_ms": 0,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_b3cbdef0790e6059.json",
+  "duration_ms": 43650,
+  "intervention_profile": "normal"
+}

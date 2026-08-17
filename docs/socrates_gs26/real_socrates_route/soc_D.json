@@ -1,0 +1,1385 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_303740af620b11bf",
+  "trace_id": "strc_ceb55b9cb4dfa62f",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "[RETURN_OPERATION] Operation ownership is SYSTEM: Prosodic and tonal analysis is explicitly requested over a supplied transcript. However, the pipeline exposes a substantive causal schema gap: transcript text lacks audio/tonal evidence required for millisecond tonal curve extraction. Execution and criterion remain SYSTEM-owned, but binding is inapplicable under current object generators.",
+    "rationale": "operation inapplicable: The operation requests millisecond-resolution tonal curves (prosodic analysis) for Brodsky's poem based only on a transcript ('Не выходи из комнаты'). There is a causal gap: transcript text alone lacks sufficient audio/tonal evidence to produce prosody data or tonal curves. Tool, schema and operation mismatch: prosody extraction conventionally requires audio input, not text. An open-world gap is present (applicable analytic pathway missing for transcript-only tonal curve generation under current object generators).",
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "Запрошенный анализ просодии с миллисекундными тональными кривыми невозможен: стенограмма \"Не выходи из комнаты\" не содержит аудио-данных или тональной информации, необходимой для проведения такого анализа. Налицо структурный разрыв между требованиями операции и доступными материалами.",
+      "grounds": "Просодийный анализ в требуемой форме (миллисекундные тональные кривые) требует наличия аудиозаписи, поскольку текстовая стенограмма не содержит информации о тоне, темпе или интонации. Существующая операция неприменима к данному входу по причине отсутствия необходимых данных."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "The input text requests a prosody analysis of Brodsky's poem from the transcript, specifically asking for millisecond tonal curves. There are no memory or retreat triggers, no prior state, and no council invocation. The request is technically specific, operates at scene and operation level, and does not carry live memory formation or reflective retreat/return triggers in S0. Context is sufficient for phase start. No deep role/telos/ownership fork present.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15093,
+        "tokens_out": 111,
+        "latency_ms": 3656,
+        "error": "",
+        "request_hash": "978f515ed400bc1a0d628a5e2d9bf18e5af087e3a6a6a423d7b3485b6f9a0ac8",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 1758,
+            "sha256": "c0bf67e3911ba209"
+          },
+          {
+            "role": "user",
+            "bytes": 320,
+            "sha256": "2beaeee2151cc123"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Проанализировать просодию стихотворения Бродского по предоставленной стенограмме и выдать миллисекундные тональные кривые.",
+            "role_hint": "технический аналитик/асистент по обработке аудио",
+            "authority": "system",
+            "materials": [
+              "стенограмма: Не выходи из комнаты",
+              "требование: анализ просодии",
+              "требование: предоставить тональные кривые с миллисекундным разрешением"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Проанализировать просодию стихотворения Бродского по предоставленной стенограмме и выдать миллисекундные тональные кривые.",
+              "role_hint": "технический аналитик/асистент по обработке аудио",
+              "authority": "system",
+              "materials": [
+                "стенограмма: Не выходи из комнаты",
+                "требование: анализ просодии",
+                "требование: предоставить тональные кривые с миллисекундным разрешением"
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13141,
+        "tokens_out": 126,
+        "latency_ms": 2827,
+        "error": "",
+        "request_hash": "6691aba83ce9af8937a2068135b6321256095e5489ffcea846fa59fe23be8788",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 1757,
+            "sha256": "ef13fb814f979772"
+          },
+          {
+            "role": "user",
+            "bytes": 320,
+            "sha256": "2beaeee2151cc123"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "trigger_transcript_prosody_analysis",
+              "generating_state_ref": "scene.materials",
+              "cause_object_ref": "стенограмма: Не выходи из комнаты",
+              "source_status": "typed_state",
+              "phase_relevance": "scene and operation phase; requires audio/prosody analysis",
+              "materiality_reason": "The request specifies a technical analysis of prosody for a Brodsky poem transcript, requiring system-level technical execution with an explicit demand for millisecond-resolution tonal curves. The trigger is generated by scene materiality and operation applicability, not by memory/retreat, and requires no role or ownership fork.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "trigger_transcript_prosody_analysis",
+                "generating_state_ref": "scene.materials",
+                "cause_object_ref": "стенограмма: Не выходи из комнаты",
+                "source_status": "typed_state",
+                "phase_relevance": "scene and operation phase; requires audio/prosody analysis",
+                "materiality_reason": "The request specifies a technical analysis of prosody for a Brodsky poem transcript, requiring system-level technical execution with an explicit demand for millisecond-resolution tonal curves. The trigger is generated by scene materiality and operation applicability, not by memory/retreat, and requires no role or ownership fork."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15158,
+        "tokens_out": 153,
+        "latency_ms": 3519,
+        "error": "",
+        "request_hash": "78852296d353eedd22e57e35dec97bd9d2deddfb6f6f918e9243fc54d3c79c4e",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 2360,
+            "sha256": "6d4a2d1b2ec02ff7"
+          },
+          {
+            "role": "user",
+            "bytes": 320,
+            "sha256": "2beaeee2151cc123"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "unset",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_82236af5c4e7",
+              "generating_state_ref": "scene.materials",
+              "cause_object_ref": "стенограмма: Не выходи из комнаты",
+              "source_status": "typed_state",
+              "phase_relevance": "prosody analysis request with transcript as material",
+              "materiality_reason": "task is based on transcript input for technical analysis of Brodsky's prosody; no explicit traceable audio source, only text transcription present; trigger type gap blocks direct operation",
+              "admitting_rule": "type gap detection prevents coercion; gap logged for future resolution"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_82236af5c4e7",
+                "generating_state_ref": "scene.materials",
+                "cause_object_ref": "стенограмма: Не выходи из комнаты",
+                "source_status": "typed_state",
+                "phase_relevance": "prosody analysis request with transcript as material",
+                "materiality_reason": "task is based on transcript input for technical analysis of Brodsky's prosody; no explicit traceable audio source, only text transcription present; trigger type gap blocks direct operation",
+                "admitting_rule": "type gap detection prevents coercion; gap logged for future resolution"
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13192,
+        "tokens_out": 188,
+        "latency_ms": 3706,
+        "error": "",
+        "request_hash": "df735ce12f50b3dd98e3aceec06184b9af394edc9b755cdf6065520a9d27af74",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 3290,
+            "sha256": "ecaa593b9ba0ca63"
+          },
+          {
+            "role": "user",
+            "bytes": 320,
+            "sha256": "2beaeee2151cc123"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "ANALYZE_PROSODY_TRANSCRIPT_MS_TONAL_CURVES",
+            "applicable": false,
+            "why_not": "The operation requests millisecond-resolution tonal curves (prosodic analysis) for Brodsky's poem based only on a transcript ('Не выходи из комнаты'). There is a causal gap: transcript text alone lacks sufficient audio/tonal evidence to produce prosody data or tonal curves. Tool, schema and operation mismatch: prosody extraction conventionally requires audio input, not text. An open-world gap is present (applicable analytic pathway missing for transcript-only tonal curve generation under current object generators).",
+            "open_world_gap": true
+          },
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_82236af5c4e7",
+              "generating_state_ref": "scene.materials",
+              "cause_object_ref": "стенограмма: Не выходи из комнаты",
+              "source_status": "typed_state",
+              "phase_relevance": "operation applicability assessment",
+              "materiality_reason": "The task fundamentally requires material (audio signal) absent from the transcript text; critical because prosody/tonal curves are an audio-derived object and cannot be generated faithfully from text alone.",
+              "admitting_rule": "B03 — operation mismatch and open-world gap explicit cause ladder: TOOL_FAILURE / OPERATION_MISMATCH (text-only input) → OBJECT_GENERATOR_LIMIT (cannot construct requested curves from transcript alone); gap diagnosis precedes escalation to B08 field/object genesis."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "ANALYZE_PROSODY_TRANSCRIPT_MS_TONAL_CURVES",
+              "applicable": false,
+              "why_not": "The operation requests millisecond-resolution tonal curves (prosodic analysis) for Brodsky's poem based only on a transcript ('Не выходи из комнаты'). There is a causal gap: transcript text alone lacks sufficient audio/tonal evidence to produce prosody data or tonal curves. Tool, schema and operation mismatch: prosody extraction conventionally requires audio input, not text. An open-world gap is present (applicable analytic pathway missing for transcript-only tonal curve generation under current object generators).",
+              "open_world_gap": true
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_82236af5c4e7",
+                "generating_state_ref": "scene.materials",
+                "cause_object_ref": "стенограмма: Не выходи из комнаты",
+                "source_status": "typed_state",
+                "phase_relevance": "operation applicability assessment",
+                "materiality_reason": "The task fundamentally requires material (audio signal) absent from the transcript text; critical because prosody/tonal curves are an audio-derived object and cannot be generated faithfully from text alone.",
+                "admitting_rule": "B03 — operation mismatch and open-world gap explicit cause ladder: TOOL_FAILURE / OPERATION_MISMATCH (text-only input) → OBJECT_GENERATOR_LIMIT (cannot construct requested curves from transcript alone); gap diagnosis precedes escalation to B08 field/object genesis."
+              }
+            ],
+            "projection_synthesis_proposal": null
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14491,
+        "tokens_out": 344,
+        "latency_ms": 5702,
+        "error": "",
+        "request_hash": "ba3418225cbeb4da0f52982fb30fa97b56bba366105bf3ac91ab5504b8352174",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 4180,
+            "sha256": "237dd9d048141ed7"
+          },
+          {
+            "role": "user",
+            "bytes": 320,
+            "sha256": "2beaeee2151cc123"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_82236af5c4e7",
+              "generating_state_ref": "scene.materials",
+              "cause_object_ref": "стенограмма: Не выходи из комнаты",
+              "source_status": "typed_state",
+              "phase_relevance": "open_world_gap: transcript-only input cannot yield ms tonal curves without audio; operation/method mismatch is material for prosody analysis",
+              "materiality_reason": "Structural causal gap: transcript text lacks tonal/audio evidence; tool/schema/operation mismatch prevents legitimate extraction of ms tonal curves; needed object generator is absent.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "Просодийный анализ с миллисекундным разрешением требует аудио-данных; стенограмма \"Не выходи из комнаты\" не содержит тональной информации. Операция невозможна по текущей схеме.",
+            "grounds": "Критерий анализа просодии (тональные кривые) невозможно применить к стенограмме: отсутствует необходимая аудио-основа для детализированного просодийного извлечения."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_82236af5c4e7",
+                "generating_state_ref": "scene.materials",
+                "cause_object_ref": "стенограмма: Не выходи из комнаты",
+                "source_status": "typed_state",
+                "phase_relevance": "open_world_gap: transcript-only input cannot yield ms tonal curves without audio; operation/method mismatch is material for prosody analysis",
+                "materiality_reason": "Structural causal gap: transcript text lacks tonal/audio evidence; tool/schema/operation mismatch prevents legitimate extraction of ms tonal curves; needed object generator is absent."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Просодийный анализ с миллисекундным разрешением требует аудио-данных; стенограмма \"Не выходи из комнаты\" не содержит тональной информации. Операция невозможна по текущей схеме.",
+              "grounds": "Критерий анализа просодии (тональные кривые) невозможно применить к стенограмме: отсутствует необходимая аудио-основа для детализированного просодийного извлечения."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16290,
+        "tokens_out": 259,
+        "latency_ms": 4811,
+        "error": "",
+        "request_hash": "d6f83d8d66aa86626a4079dc68410ea80e4a2af339c792eecdefd6c969a2d978",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 5649,
+            "sha256": "90ab9cbba093b928"
+          },
+          {
+            "role": "user",
+            "bytes": 320,
+            "sha256": "2beaeee2151cc123"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "system",
+            "human_resolved": true,
+            "return_reason": "Operation ownership is SYSTEM: Prosodic and tonal analysis is explicitly requested over a supplied transcript. However, the pipeline exposes a substantive causal schema gap: transcript text lacks audio/tonal evidence required for millisecond tonal curve extraction. Execution and criterion remain SYSTEM-owned, but binding is inapplicable under current object generators."
+          },
+          "triggers": [
+            {
+              "trigger_id": "tgap_82236af5c4e7",
+              "generating_state_ref": "scene.materials",
+              "cause_object_ref": "стенограмма: Не выходи из комнаты",
+              "source_status": "typed_state",
+              "phase_relevance": "open_world_gap, operation_inapplicability",
+              "materiality_reason": "Requested prosodic/tonal analytic operation cannot be executed: transcript lacks required audio evidence, schema and tools for prosody extraction. Gap is structural, not an ownership or authority issue.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "Просодийный анализ с миллисекундным разрешением требует аудио-данных; стенограмма \"Не выходи из комнаты\" не содержит тональной информации. Операция невозможна по текущей схеме.",
+            "grounds": "Критерий анализа просодии (тональные кривые) невозможно применить к стенограмме: отсутствует необходимая аудио-основа для детализированного просодийного извлечения."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "Operation ownership is SYSTEM: Prosodic and tonal analysis is explicitly requested over a supplied transcript. However, the pipeline exposes a substantive causal schema gap: transcript text lacks audio/tonal evidence required for millisecond tonal curve extraction. Execution and criterion remain SYSTEM-owned, but binding is inapplicable under current object generators."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_82236af5c4e7",
+                "generating_state_ref": "scene.materials",
+                "cause_object_ref": "стенограмма: Не выходи из комнаты",
+                "source_status": "typed_state",
+                "phase_relevance": "open_world_gap, operation_inapplicability",
+                "materiality_reason": "Requested prosodic/tonal analytic operation cannot be executed: transcript lacks required audio evidence, schema and tools for prosody extraction. Gap is structural, not an ownership or authority issue."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Просодийный анализ с миллисекундным разрешением требует аудио-данных; стенограмма \"Не выходи из комнаты\" не содержит тональной информации. Операция невозможна по текущей схеме.",
+              "grounds": "Критерий анализа просодии (тональные кривые) невозможно применить к стенограмме: отсутствует необходимая аудио-основа для детализированного просодийного извлечения."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14703,
+        "tokens_out": 343,
+        "latency_ms": 4667,
+        "error": "",
+        "request_hash": "300aac1ea94b7b6b8d616a629c4937f6b8e53e7b9732ca2a35664fe951ae3af7",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 7239,
+            "sha256": "4294dad2680be985"
+          },
+          {
+            "role": "user",
+            "bytes": 320,
+            "sha256": "2beaeee2151cc123"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_82236af5c4e7",
+              "generating_state_ref": "scene.materials",
+              "cause_object_ref": "стенограмма: Не выходи из комнаты",
+              "source_status": "typed_state",
+              "phase_relevance": "open-world schema gap blocks execution: transcript cannot yield prosody curves at millisecond resolution",
+              "materiality_reason": "Requested prosody analysis requires tonal information (audio data), which is not present in supplied transcript; operation is materially inapplicable under current object generators.",
+              "admitting_rule": "admit as operation/material gap trigger; do not coerce transcript into prosody analysis without audio evidence"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": false,
+            "triggers": [
+              {
+                "trigger_id": "tgap_82236af5c4e7",
+                "generating_state_ref": "scene.materials",
+                "cause_object_ref": "стенограмма: Не выходи из комнаты",
+                "source_status": "typed_state",
+                "phase_relevance": "open-world schema gap blocks execution: transcript cannot yield prosody curves at millisecond resolution",
+                "materiality_reason": "Requested prosody analysis requires tonal information (audio data), which is not present in supplied transcript; operation is materially inapplicable under current object generators.",
+                "admitting_rule": "admit as operation/material gap trigger; do not coerce transcript into prosody analysis without audio evidence"
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14507,
+        "tokens_out": 168,
+        "latency_ms": 3747,
+        "error": "",
+        "request_hash": "47c212798e3d60bc3e6f282ad9cad2200ed9102a172dd42963d39bc2a39be6fd",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 8500,
+            "sha256": "bd5ff3fac8ebad2d"
+          },
+          {
+            "role": "user",
+            "bytes": 320,
+            "sha256": "2beaeee2151cc123"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_82236af5c4e7",
+              "generating_state_ref": "scene.materials",
+              "cause_object_ref": "стенограмма: Не выходи из комнаты",
+              "source_status": "typed_state",
+              "phase_relevance": "open_world_gap: Operation analytic pathway is missing for transcript-only tonal curve generation.",
+              "materiality_reason": "Millisecond-resolution tonal curve extraction conventionally requires audio input; transcript only lacks the causal basis for prosodic analysis.",
+              "admitting_rule": "Trigger type gap admitted as structural schema/operation mismatch; not resolved by coercion or unrelated tool."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "Запрошенный анализ просодии с миллисекундными тональными кривыми невозможен: стенограмма \"Не выходи из комнаты\" не содержит аудио-данных или тональной информации, необходимой для проведения такого анализа. Налицо структурный разрыв между требованиями операции и доступными материалами.",
+            "grounds": "Просодийный анализ в требуемой форме (миллисекундные тональные кривые) требует наличия аудиозаписи, поскольку текстовая стенограмма не содержит информации о тоне, темпе или интонации. Существующая операция неприменима к данному входу по причине отсутствия необходимых данных."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Запрошенный анализ просодии с миллисекундными тональными кривыми невозможен: стенограмма \"Не выходи из комнаты\" не содержит аудио-данных или тональной информации, необходимой для проведения такого анализа. Налицо структурный разрыв между требованиями операции и доступными материалами.",
+              "grounds": "Просодийный анализ в требуемой форме (миллисекундные тональные кривые) требует наличия аудиозаписи, поскольку текстовая стенограмма не содержит информации о тоне, темпе или интонации. Существующая операция неприменима к данному входу по причине отсутствия необходимых данных."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_82236af5c4e7",
+                "generating_state_ref": "scene.materials",
+                "cause_object_ref": "стенограмма: Не выходи из комнаты",
+                "source_status": "typed_state",
+                "phase_relevance": "open_world_gap: Operation analytic pathway is missing for transcript-only tonal curve generation.",
+                "materiality_reason": "Millisecond-resolution tonal curve extraction conventionally requires audio input; transcript only lacks the causal basis for prosodic analysis.",
+                "admitting_rule": "Trigger type gap admitted as structural schema/operation mismatch; not resolved by coercion or unrelated tool."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19825,
+        "tokens_out": 314,
+        "latency_ms": 4968,
+        "error": "",
+        "request_hash": "d45ee1246ab7cfe24c18a1326c8f0a11b835372de7a07dc7ffe74106e94ee373",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 9390,
+            "sha256": "f62dbc885620794a"
+          },
+          {
+            "role": "user",
+            "bytes": 320,
+            "sha256": "2beaeee2151cc123"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_303740af620b11bf",
+    "input_text": "Проанализируй просодию Бродского по этой стенограмме: Не выходи из комнаты. Дай миллисекундные тональные кривые.",
+    "source_id": "src_e0a3448f7164f207",
+    "phase": "S10",
+    "scene": {
+      "telos": "Проанализировать просодию стихотворения Бродского по предоставленной стенограмме и выдать миллисекундные тональные кривые.",
+      "role_hint": "технический аналитик/асистент по обработке аудио",
+      "authority": "system",
+      "materials": [
+        "стенограмма: Не выходи из комнаты",
+        "требование: анализ просодии",
+        "требование: предоставить тональные кривые с миллисекундным разрешением"
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "unset",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "ANALYZE_PROSODY_TRANSCRIPT_MS_TONAL_CURVES",
+      "applicable": false,
+      "why_not": "The operation requests millisecond-resolution tonal curves (prosodic analysis) for Brodsky's poem based only on a transcript ('Не выходи из комнаты'). There is a causal gap: transcript text alone lacks sufficient audio/tonal evidence to produce prosody data or tonal curves. Tool, schema and operation mismatch: prosody extraction conventionally requires audio input, not text. An open-world gap is present (applicable analytic pathway missing for transcript-only tonal curve generation under current object generators).",
+      "open_world_gap": true
+    },
+    "ownership": {
+      "owner": "system",
+      "human_resolved": true,
+      "return_reason": "Operation ownership is SYSTEM: Prosodic and tonal analysis is explicitly requested over a supplied transcript. However, the pipeline exposes a substantive causal schema gap: transcript text lacks audio/tonal evidence required for millisecond tonal curve extraction. Execution and criterion remain SYSTEM-owned, but binding is inapplicable under current object generators."
+    },
+    "council_invoked": false,
+    "execution_invoked": false,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_11d72eefbbe1",
+        "proposed_trigger_type_id": "tgap_82236af5c4e7",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene.materials",
+        "cause_object_ref": "стенограмма: Не выходи из комнаты",
+        "phase_relevance": "open_world_gap: Operation analytic pathway is missing for transcript-only tonal curve generation.",
+        "materiality_reason": "Millisecond-resolution tonal curve extraction conventionally requires audio input; transcript only lacks the causal basis for prosodic analysis.",
+        "payload": {
+          "legacy_admitting_rule": "Trigger type gap admitted as structural schema/operation mismatch; not resolved by coercion or unrelated tool.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_36123111c894",
+        "candidate_id": "tcand_a57154a3259e",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'trigger_transcript_prosody_analysis' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_14a4a34c4993",
+        "candidate_id": "tcand_47cd90786cf3",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_82236af5c4e7' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_8bf9e878fd81",
+        "candidate_id": "tcand_dcb3ec234eff",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_82236af5c4e7' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_4c195eef62fb",
+        "candidate_id": "tcand_22fca54e0c7b",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_82236af5c4e7' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_d979fc08a072",
+        "candidate_id": "tcand_537bac1eab86",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_82236af5c4e7' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_f25fe40551bb",
+        "candidate_id": "tcand_0be52e9e310d",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_82236af5c4e7' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_82236af5c4e7",
+        "candidate_id": "tcand_a57154a3259e",
+        "cause_object_ref": "стенограмма: Не выходи из комнаты",
+        "generating_state_ref": "scene.materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'trigger_transcript_prosody_analysis' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_0aecb8ca1739",
+        "candidate_id": "tcand_47cd90786cf3",
+        "cause_object_ref": "стенограмма: Не выходи из комнаты",
+        "generating_state_ref": "scene.materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_82236af5c4e7' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_82ed78bed5fd",
+        "candidate_id": "tcand_dcb3ec234eff",
+        "cause_object_ref": "стенограмма: Не выходи из комнаты",
+        "generating_state_ref": "scene.materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_82236af5c4e7' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_d9d2b9ca0189",
+        "candidate_id": "tcand_22fca54e0c7b",
+        "cause_object_ref": "стенограмма: Не выходи из комнаты",
+        "generating_state_ref": "scene.materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_82236af5c4e7' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_2972de0cda22",
+        "candidate_id": "tcand_537bac1eab86",
+        "cause_object_ref": "стенограмма: Не выходи из комнаты",
+        "generating_state_ref": "scene.materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_82236af5c4e7' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_0353b1e40404",
+        "candidate_id": "tcand_0be52e9e310d",
+        "cause_object_ref": "стенограмма: Не выходи из комнаты",
+        "generating_state_ref": "scene.materials",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_82236af5c4e7' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "Запрошенный анализ просодии с миллисекундными тональными кривыми невозможен: стенограмма \"Не выходи из комнаты\" не содержит аудио-данных или тональной информации, необходимой для проведения такого анализа. Налицо структурный разрыв между требованиями операции и доступными материалами.",
+      "grounds": "Просодийный анализ в требуемой форме (миллисекундные тональные кривые) требует наличия аудиозаписи, поскольку текстовая стенограмма не содержит информации о тоне, темпе или интонации. Существующая операция неприменима к данному входу по причине отсутствия необходимых данных."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": []
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": []
+  },
+  "rendering": {
+    "text": "[RETURN_OPERATION] Operation ownership is SYSTEM: Prosodic and tonal analysis is explicitly requested over a supplied transcript. However, the pipeline exposes a substantive causal schema gap: transcript text lacks audio/tonal evidence required for millisecond tonal curve extraction. Execution and criterion remain SYSTEM-owned, but binding is inapplicable under current object generators.",
+    "mode": "DETERMINISTIC_DIAGNOSTIC",
+    "provider_status": "NOT_APPLICABLE",
+    "provider_id": "",
+    "model_id": "",
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "latency_ms": 0,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_ceb55b9cb4dfa62f.json",
+  "duration_ms": 37694,
+  "intervention_profile": "normal"
+}
