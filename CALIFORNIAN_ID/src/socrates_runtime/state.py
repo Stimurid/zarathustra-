@@ -336,6 +336,19 @@ class PipelineState:
     #: :class:`EpistemicPassport` records rendered at S10 / B10. Read
     #: model — never used to upgrade state.
     passports: list[Any] = field(default_factory=list)
+    # ---------------------------------------------------- B2R intervention
+    #: The typed :class:`InterventionPlan` derived from the caller's
+    #: intervention profile at the START of this run. Public evidence
+    #: field — a reader can prove pre-render pressure differed for
+    #: BALD_APE vs NORMAL on the same input. Never carries truth
+    #: authority (`plan.authority == "NO_TRUTH_STATUS_AUTHORITY"`).
+    intervention_plan: Any = None
+    #: The deterministic :class:`LiberatoryPassResult` produced AFTER
+    #: the pipeline terminates and BEFORE the renderer runs. Non-None
+    #: iff the plan required a reconstruction/release step. Never
+    #: changes the terminal; never mints new claims; describes what
+    #: the plan asked the renderer to distinguish.
+    liberatory_pass_result: Any = None
 
     @property
     def source_id(self) -> str:
@@ -399,4 +412,10 @@ class PipelineState:
                                        for t in self.context_transductions],
             "conflict_registry": self.conflict_registry.to_public(),
             "passports": [p.to_public() for p in self.passports],
+            "intervention_plan": (self.intervention_plan.to_public()
+                                   if self.intervention_plan is not None
+                                   else None),
+            "liberatory_pass_result": (
+                self.liberatory_pass_result.to_public()
+                if self.liberatory_pass_result is not None else None),
         }

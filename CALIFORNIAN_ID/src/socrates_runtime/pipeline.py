@@ -176,6 +176,7 @@ class PipelineExecutor:
             hints: dict[str, PhaseHint] | None = None,
             trace=None,
             skip_phases: frozenset[str] = frozenset(),
+            intervention_plan: Any = None,
             ) -> tuple[PipelineState, TerminalOutcome, list[PhaseResult]]:
         """Execute S0..S10 with the projection control loop wrapped around.
 
@@ -188,9 +189,21 @@ class PipelineExecutor:
         state = PipelineState(
             run_id=f"srun_{secrets.token_hex(8)}",
             input_text=input_text)
+        # B2R: attach the derived intervention plan so downstream
+        # readers (renderer, tests, trace) can prove the pre-render
+        # difference on the same input.
+        if intervention_plan is not None:
+            state.intervention_plan = intervention_plan
+        effective_max_iter = (
+            int(intervention_plan.max_projection_iterations)
+            if intervention_plan is not None
+            else MAX_PROJECTION_ITERATIONS)
+        if trace is not None and intervention_plan is not None:
+            trace.record("intervention_plan_active",
+                         **intervention_plan.to_public())
         results: list[PhaseResult] = []
 
-        for pass_number in range(1, MAX_PROJECTION_ITERATIONS + 1):
+        for pass_number in range(1, effective_max_iter + 1):
             start_from = state.reentry_from or "S0"
             state.reentry_from = ""
             if trace is not None and pass_number > 1:
@@ -211,7 +224,7 @@ class PipelineExecutor:
             # if so it set ``reentry_from`` and revised state; skip the
             # projection step and go straight to the next pass.
             if state.reentry_from:
-                if pass_number >= MAX_PROJECTION_ITERATIONS:
+                if pass_number >= effective_max_iter:
                     self._on_loop_bound_reached(state, trace, None)
                     state.reentry_from = ""
                     break

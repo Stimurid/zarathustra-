@@ -100,4 +100,9 @@ def dispatch_socrates_run(*, text: str, execution_mode: str,
         "trace_path": public.get("trace_path"),
         "duration_ms": public.get("duration_ms"),
         "intervention_profile": intervention_profile_name,
+        # B2R: expose the derived plan + the post-terminal liberatory
+        # step at the top level of the response so a caller can prove
+        # pre-render pressure without walking `state`.
+        "intervention_plan": public.get("intervention_plan"),
+        "liberatory_pass_result": public.get("liberatory_pass_result"),
     }

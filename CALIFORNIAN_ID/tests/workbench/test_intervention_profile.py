@@ -132,9 +132,12 @@ class TestRenderOverlay:
     def test_shiva_cold_overlay_omits_profane_directive(self):
         p = resolve_intervention_profile("shiva_cold")
         overlay = p.render_overlay()
-        assert "PERMITTED" not in overlay.upper().split("HIGH")[0] or True
-        # Register is CLINICAL, not profane
-        assert "clinical" in overlay.lower() or "surgical" in overlay.lower()
+        overlay_l = overlay.lower()
+        # Register is CLINICAL / SURGICAL, not profane
+        assert "clinical" in overlay_l or "surgical" in overlay_l
+        # No profane / taunting directive present in shiva_cold overlay
+        assert "profane" not in overlay_l
+        assert "taunt" not in overlay_l
 
     def test_bald_ape_and_normal_produce_different_overlays(self):
         n = resolve_intervention_profile("normal").render_overlay()
@@ -261,34 +264,54 @@ class TestPromptSection310Structural:
             p = resolve_intervention_profile(name)
             assert p.authority == "NO_TRUTH_STATUS_AUTHORITY"
 
-    def test_item_1_same_input_normal_vs_bald_ape_differs_only_in_overlay(self):
-        """§3.10-1: same input, normal vs SHIVA, same evidence/status
-        facts, only intervention/rendering differs. Structural proof:
-        the intervention profile touches ONLY the render overlay,
-        never the state / terminal / operation.
+    def test_item_1_same_input_normal_vs_bald_ape_causes_pre_render_plan_diff(self):
+        """§3.10-1 (B2R): same input, normal vs SHIVA — same evidence /
+        status / provenance / authority, but the derived InterventionPlan
+        differs pre-render. Structural proof of the causal wiring:
+        `intervention_profile` reaches exactly two seams in
+        `SocratesRuntime.run` — `derive_plan(...)` and the
+        `render_terminal(...)` call. It NEVER touches state / terminal /
+        operation decision code directly.
         """
         import inspect
         from socrates_runtime import runtime as m
         src = inspect.getsource(m.SocratesRuntime.run)
-        # The intervention_profile kwarg touches ONLY the renderer
-        # (not the operation, ownership, projection etc.)
-        assert "intervention_profile" in src
-        # Verify by counting: intervention_profile mentioned in
-        # exactly one location (the render_terminal call).
-        occurrences = src.count("intervention_profile")
-        assert occurrences <= 3     # kwarg + 1 pass-through + optional doc
+        # Must be threaded through both known consumers.
+        assert "derive_plan(intervention_profile)" in src, (
+            "intervention_profile must be materialised to a plan via "
+            "derive_plan before the pipeline runs")
+        assert "intervention_profile=intervention_profile" in src, (
+            "intervention_profile must reach render_terminal for the "
+            "rhetorical overlay")
+        # The plan (not the raw profile) is what the pipeline consumes.
+        assert "intervention_plan=plan" in src, (
+            "the pipeline must receive the derived plan, not the raw "
+            "profile — this is the pre-render causal path")
+        # No direct mutation of terminal / operation from the profile.
+        # (These would be the illegitimate paths.)
+        for illegal in ("outcome.terminal =",
+                         "state.operation =",
+                         "state.ownership ="):
+            assert illegal not in src, (
+                f"intervention profile must not mutate {illegal!r}")
 
 
-def test_generation_b2_marker():
-    """B2 acceptance envelope:
+def test_generation_b2_envelope_no_tautologies():
+    """B2 acceptance envelope — this test is a REAL check, not a
+    placeholder.
 
-    * three axes distinct (TestPresetsRegistered)
-    * BALD_APE preset MAX across axes
-    * shiva_cold exists (silent Shiva possible)
-    * explicit activation only: unknown → raise; lexical → no-op
-    * authority constant NO_TRUTH_STATUS_AUTHORITY on every preset
-    * overlay separates delivery norms from truth/authority
-    * runtime + bridge + renderer wired
-    * no mode leak between runs
+    Verifies the touched module surface still exports its expected
+    names so a downstream import (bridge / renderer / runtime) will
+    not silently break if a symbol is renamed.
     """
-    assert True
+    from socrates_runtime import intervention_profile as m
+    required = {
+        "AUTHORITY", "EpistemicPressure", "LiberatoryPressure",
+        "RhetoricalHarshness", "SocratesInterventionProfile",
+        "known_preset_names", "resolve_intervention_profile",
+    }
+    exported = set(getattr(m, "__all__", ()))
+    missing = required - exported
+    assert not missing, f"intervention_profile.__all__ missing: {missing}"
+    # AUTHORITY value invariance — public constant contract.
+    assert m.AUTHORITY == "NO_TRUTH_STATUS_AUTHORITY"

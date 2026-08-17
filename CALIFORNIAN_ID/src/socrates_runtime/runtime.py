@@ -35,6 +35,10 @@ from .projection_primitives import (
     build_default_primitive_registry,
 )
 from .identity import SocratesIdentity, SocratesRunConfiguration
+from .intervention_plan import (
+    InterventionPlan, LiberatoryPassResult,
+    apply_liberatory, derive_plan,
+)
 from .mount import MountedContext, SemanticMountPolicy
 from .phase_executor import (
     DeterministicPhaseExecutor,
@@ -72,6 +76,8 @@ class SocratesRunResult:
     provider_id: str = ""
     model_id: str = ""
     rendering: RenderingResult | None = None
+    intervention_plan: InterventionPlan | None = None
+    liberatory_pass_result: LiberatoryPassResult | None = None
 
     def to_public(self) -> dict[str, Any]:
         return {
@@ -87,6 +93,12 @@ class SocratesRunResult:
             "provider_id": self.provider_id,
             "model_id": self.model_id,
             "rendering": self.rendering.to_public() if self.rendering else None,
+            "intervention_plan": (self.intervention_plan.to_public()
+                                   if self.intervention_plan is not None
+                                   else None),
+            "liberatory_pass_result": (
+                self.liberatory_pass_result.to_public()
+                if self.liberatory_pass_result is not None else None),
         }
 
 
@@ -168,6 +180,18 @@ class SocratesRuntime:
         trace = SocratesRunTrace.start(self.identity, config)
         trace.record("execution_mode_requested", mode=mode)
 
+        # B2R: derive the typed InterventionPlan BEFORE anything else so
+        # even a pre-run failure carries plan evidence. Two consumers,
+        # both PRE-RENDER:
+        #   * PipelineExecutor.run honours plan.max_projection_iterations
+        #     for THIS run only (higher EpistemicPressure → more
+        #     permitted reflective retreats).
+        #   * apply_liberatory (below) runs deterministically after the
+        #     pipeline terminates and populates state.liberatory_pass_result
+        #     when LiberatoryPressure is HIGH or MAX.
+        plan = derive_plan(intervention_profile)
+        trace.record("intervention_plan", **plan.to_public())
+
         try:
             phase_exec = self._resolve_phase_executor(
                 mode, hints=hints, phase_executor=phase_executor, trace=trace)
@@ -178,23 +202,36 @@ class SocratesRuntime:
             trace.record_failure("phase_executor_unavailable", str(exc))
             trace.complete(outcome)
             path = trace.write_to(self.trace_dir)
+            pre_state = PipelineState(run_id="pre_run", input_text=input_text)
+            pre_state.intervention_plan = plan
             return SocratesRunResult(
                 run_id="pre_run", trace_id=trace.trace_id, terminal=outcome,
-                state=PipelineState(run_id="pre_run", input_text=input_text),
+                state=pre_state,
                 trace_path=str(path), duration_ms=trace.duration_ms,
-                execution_mode=mode)
+                execution_mode=mode, intervention_plan=plan)
 
         try:
             state, outcome, phases = self.executor.run(
                 input_text, phase_exec, config,
-                hints=hints or {}, trace=trace)
+                hints=hints or {}, trace=trace,
+                intervention_plan=plan)
         except SocratesRuntimeError as exc:
             trace.record_failure(type(exc).__name__, str(exc))
             outcome = TerminalOutcome(
                 terminal=Terminal.FAILED_EXPLICIT,
                 response_text="", rationale=str(exc))
             state = PipelineState(run_id="pre_run", input_text=input_text)
+            state.intervention_plan = plan
             phases = []
+
+        # B2R: deterministic post-terminal reconstruction/release step.
+        # Runs BEFORE the renderer. Its output on state.liberatory_pass_result
+        # is publicly visible in the trace so a reader can prove
+        # LiberatoryPressure caused a real pre-render pass, not just
+        # a rhetorical overlay.
+        liberatory = apply_liberatory(state, plan, outcome)
+        state.liberatory_pass_result = liberatory
+        trace.record("liberatory_pass", **liberatory.to_public())
 
         # Final rendering — bounded by the terminal.
         rendering = None
@@ -238,6 +275,8 @@ class SocratesRuntime:
             provider_id=getattr(phase_exec, "provider_id", ""),
             model_id=getattr(phase_exec, "model_id", ""),
             rendering=rendering,
+            intervention_plan=plan,
+            liberatory_pass_result=liberatory,
         )
 
     # ------------------------------------------------------------------
