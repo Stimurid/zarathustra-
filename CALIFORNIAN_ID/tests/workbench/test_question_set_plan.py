@@ -263,6 +263,23 @@ class TestQ15_HighStakesHumanOwned:
                      owner="HUMAN", human_resolved=True)
         assert "human-owned" not in p.stop_reason_grounds
 
+    def test_authority_enum_owner_is_unwrapped(self):
+        """LIVE ownership carries the Authority enum; the plan must
+        extract `.value` so the string comparison in the ownership
+        gate matches (not `"Authority.HUMAN"`)."""
+        from socrates_runtime.state import Authority, Ownership
+        ownership = Ownership(owner=Authority.HUMAN, human_resolved=False)
+        p = derive_question_set_plan(
+            scene=_scene(), operation=_op(),
+            ownership=ownership,
+            request={"count": 3, "topology": _topology(3)})
+        assert p.ownership_owner == "HUMAN"                     # not Authority.HUMAN
+        assert p.ownership_resolved is False
+        assert "human-owned" in p.stop_reason_grounds
+        # Ownership note appears in rendered text too
+        text = render_plan_as_text(p)
+        assert "принадлежит человеку" in text
+
 
 class TestQ16_FormatPressureDecoy:
     def test_only_typed_count_activates_N(self):

@@ -259,10 +259,17 @@ def derive_question_set_plan(
     forks = list(topology.get("forks") or [])
     subordinates = list(topology.get("subordinates") or [])
 
-    owner = str(getattr(ownership, "owner", "") or "UNSET")
-    if hasattr(owner, "value"):                          # enum-like
-        owner = owner.value                              # type: ignore[attr-defined]
-    owner_str = str(owner)
+    owner_raw = getattr(ownership, "owner", None)
+    if hasattr(owner_raw, "value"):                      # enum-like (Authority)
+        owner_str = str(owner_raw.value)
+    elif owner_raw is None:
+        owner_str = "UNSET"
+    else:
+        owner_str = str(owner_raw)
+    # Authority enum values are lowercase ("human"); tests may pass
+    # uppercase strings ("HUMAN"). Normalise to upper for comparison
+    # and public projection.
+    owner_str = owner_str.upper()
     human_resolved = bool(getattr(ownership, "human_resolved", False))
 
     ownership_note = ""
