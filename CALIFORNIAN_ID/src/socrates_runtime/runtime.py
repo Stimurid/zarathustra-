@@ -146,6 +146,7 @@ class SocratesRuntime:
             hints: dict[str, PhaseHint] | None = None,
             phase_executor: PhaseExecutor | None = None,
             rendering_client: Any = None,
+            intervention_profile: Any = None,
             ) -> SocratesRunResult:
         """One end-to-end Socrates run.
 
@@ -200,8 +201,15 @@ class SocratesRuntime:
         if outcome.terminal not in {Terminal.FAILED_EXPLICIT,
                                      Terminal.SEMANTIC_MOUNT_MISSING,
                                      Terminal.SEMANTIC_CONTEXT_BUDGET_EXCEEDED}:
+            # B2: pass the intervention profile through to the
+            # renderer so BALD_APE / SHIVA register/epistemic
+            # pressure overlays reach the LIVE model call.
+            _render_client = rendering_client
+            if _render_client is None and mode == ExecutionMode.LIVE:
+                _render_client = self._build_live_client(trace)
             rendering = render_terminal(state, outcome,
-                                         client=rendering_client)
+                                         client=_render_client,
+                                         intervention_profile=intervention_profile)
             if rendering.text:
                 # Replace ONLY the response text; the terminal object stays.
                 outcome = TerminalOutcome(

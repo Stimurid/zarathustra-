@@ -55,12 +55,18 @@ class RenderingResult:
 
 def render_terminal(state, outcome: TerminalOutcome,
                     *, client: Any = None,
-                    provider_id: str = "", model_id: str = "") -> RenderingResult:
+                    provider_id: str = "", model_id: str = "",
+                    intervention_profile: Any = None) -> RenderingResult:
     """Render a human response for ``outcome`` without changing it.
 
     If ``client`` is None, return the deterministic diagnostic text
     already prepared by the pipeline. If a client is supplied, ask it for
     a short sentence and verify the terminal survives.
+
+    B2 intervention profile: if non-None and non-normal, an overlay
+    naming register + epistemic + liberatory pressure is PREPENDED to
+    the system prompt. The overlay CANNOT change terminal / status /
+    provenance / authority — those checks below still fire.
     """
     if client is None:
         return RenderingResult(
@@ -68,14 +74,25 @@ def render_terminal(state, outcome: TerminalOutcome,
             mode="DETERMINISTIC_DIAGNOSTIC")
 
     started = time.time()
+    # B2 SHIVA/BALD_APE overlay — prepended structurally, never from
+    # user text. Empty for the normal profile.
+    overlay = ""
+    if intervention_profile is not None:
+        try:
+            overlay = intervention_profile.render_overlay()
+        except AttributeError:
+            overlay = ""
+    system_content = (
+        "You are the final rendering step of Socrates. A previous "
+        "governor step has ALREADY selected the terminal for this "
+        "run. Your job: produce one short human sentence in Russian "
+        "that phrases the decision honestly. You MUST NOT change the "
+        "terminal, propose a different one, add analysis, or make a "
+        "different claim. Do not use markdown or tags.")
+    if overlay:
+        system_content = overlay + "\n---\n" + system_content
     messages = [
-        Message(role="system", content=(
-            "You are the final rendering step of Socrates. A previous "
-            "governor step has ALREADY selected the terminal for this "
-            "run. Your job: produce one short human sentence in Russian "
-            "that phrases the decision honestly. You MUST NOT change the "
-            "terminal, propose a different one, add analysis, or make a "
-            "different claim. Do not use markdown or tags.")),
+        Message(role="system", content=system_content),
         Message(role="user", content=(
             f"terminal: {outcome.terminal.value}\n"
             f"rationale: {outcome.rationale}\n"
