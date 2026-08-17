@@ -177,6 +177,7 @@ class PipelineExecutor:
             trace=None,
             skip_phases: frozenset[str] = frozenset(),
             intervention_plan: Any = None,
+            prior_context: Any = None,
             ) -> tuple[PipelineState, TerminalOutcome, list[PhaseResult]]:
         """Execute S0..S10 with the projection control loop wrapped around.
 
@@ -189,6 +190,9 @@ class PipelineExecutor:
         state = PipelineState(
             run_id=f"srun_{secrets.token_hex(8)}",
             input_text=input_text)
+        if prior_context is not None:
+            from .context_continuity import hydrate_state_from_context
+            hydrate_state_from_context(state, prior_context)
         # B2R: attach the derived intervention plan so downstream
         # readers (renderer, tests, trace) can prove the pre-render
         # difference on the same input.

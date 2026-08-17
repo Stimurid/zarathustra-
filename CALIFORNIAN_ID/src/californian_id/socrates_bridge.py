@@ -51,6 +51,8 @@ def resolve_intervention_profile(profile_name: str):
 def dispatch_socrates_run(*, text: str, execution_mode: str,
                           intervention_profile_name: str = "normal",
                           question_set_request: dict[str, Any] | None = None,
+                          context_id: str | None = None,
+                          context_action: dict[str, Any] | None = None,
                           runs_dir: str | None = None,
                           ) -> dict[str, Any]:
     """Construct :class:`SocratesRuntime`, invoke `.run`, return the
@@ -70,27 +72,38 @@ def dispatch_socrates_run(*, text: str, execution_mode: str,
     """
     from socrates_runtime import SocratesRuntime
     from socrates_runtime.phase_executor import ExecutionMode
+    from californian_id.socrates_context_store import default_context_store
 
     intervention = resolve_intervention_profile(intervention_profile_name)
 
     trace_dir = (Path(runs_dir) / "socrates_api"
                  if runs_dir else None)
     runtime = SocratesRuntime(trace_dir=trace_dir)
+    store = default_context_store()
 
     mode = (ExecutionMode.LIVE if execution_mode == "LIVE"
             else ExecutionMode.DETERMINISTIC)
     try:
-        result = runtime.run(text, mode=mode,
-                              intervention_profile=intervention,
-                              question_set_request=question_set_request)
+        result = runtime.run(
+            text, mode=mode,
+            intervention_profile=intervention,
+            question_set_request=question_set_request,
+            context_id=context_id,
+            context_store=store,
+            context_action=context_action,
+        )
     except TypeError:
-        # Backcompat: SocratesRuntime.run without B2 intervention or
-        # B2Q question-set kwarg.
+        # Backcompat: SocratesRuntime.run without newer kwargs.
         try:
             result = runtime.run(text, mode=mode,
-                                  intervention_profile=intervention)
+                                  intervention_profile=intervention,
+                                  question_set_request=question_set_request)
         except TypeError:
-            result = runtime.run(text, mode=mode)
+            try:
+                result = runtime.run(text, mode=mode,
+                                      intervention_profile=intervention)
+            except TypeError:
+                result = runtime.run(text, mode=mode)
 
     public = result.to_public()
     return {
@@ -120,4 +133,7 @@ def dispatch_socrates_run(*, text: str, execution_mode: str,
         # B2Q-R: unprivileged validated proposal that fed the plan
         # when the natural-language path activated it.
         "question_intent_proposal": public.get("question_intent_proposal"),
+        # 3A+: cross-turn context continuity
+        "context_id": public.get("context_id"),
+        "context_continuity": public.get("context_continuity"),
     }

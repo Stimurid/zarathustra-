@@ -507,7 +507,7 @@ def test_no_reverse_import_from_california_into_socrates():
     ``californian_id/socrates_bridge.py``. Every other file in the
     application remains socrates_runtime-free.
     """
-    allowed = {"socrates_bridge.py"}
+    allowed = {"socrates_bridge.py", "socrates_context_store.py"}
     for path in (SRC / "californian_id").rglob("*.py"):
         if path.name in allowed:
             continue

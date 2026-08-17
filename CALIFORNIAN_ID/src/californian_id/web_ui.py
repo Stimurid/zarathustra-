@@ -2527,12 +2527,26 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                     status=HTTPStatus.BAD_REQUEST); return
             question_set_request = raw_qsr
 
+        context_id = data.get("context_id")
+        if context_id is not None:
+            context_id = str(context_id).strip() or None
+        raw_action = data.get("context_action")
+        context_action: dict[str, Any] | None = None
+        if raw_action is not None:
+            if not isinstance(raw_action, dict):
+                self._send_json(
+                    {"error": "context_action must be an object"},
+                    status=HTTPStatus.BAD_REQUEST); return
+            context_action = raw_action
+
         from . import socrates_bridge
         try:
             payload = socrates_bridge.dispatch_socrates_run(
                 text=text, execution_mode=mode,
                 intervention_profile_name=profile_name,
                 question_set_request=question_set_request,
+                context_id=context_id,
+                context_action=context_action,
                 runs_dir=os.environ.get("CALIFORNIAN_ID_RUNS_DIR"))
         except ValueError as exc:
             self._send_json({"error": str(exc)},

@@ -88,6 +88,9 @@ class SocratesRunResult:
     #: proposal (validated) that fed the plan, or None when the plan
     #: came from CONTROL_OVERRIDE / no plan derived.
     question_intent_proposal: Any | None = None
+    #: 3A+ cross-turn continuity evidence
+    context_id: str = ""
+    context_continuity: dict[str, Any] | None = None
 
     def to_public(self) -> dict[str, Any]:
         return {
@@ -115,6 +118,8 @@ class SocratesRunResult:
             "question_intent_proposal": (
                 self.question_intent_proposal.to_public()
                 if self.question_intent_proposal is not None else None),
+            "context_id": self.context_id,
+            "context_continuity": self.context_continuity,
         }
 
 
@@ -176,6 +181,10 @@ class SocratesRuntime:
             rendering_client: Any = None,
             intervention_profile: Any = None,
             question_set_request: dict[str, Any] | None = None,
+            context_id: str | None = None,
+            context_store: Any = None,
+            context_action: dict[str, Any] | None = None,
+            injected_pressures: tuple[Any, ...] = (),
             ) -> SocratesRunResult:
         """One end-to-end Socrates run.
 
@@ -209,6 +218,34 @@ class SocratesRuntime:
         plan = derive_plan(intervention_profile)
         trace.record("intervention_plan", **plan.to_public())
 
+        # 3A+: resolve prior context for cross-turn hydration
+        from .context_continuity import resolve_context
+        prior_ctx = None
+        resolved_cid = context_id
+        ctx_created = False
+        if context_store is not None or context_id is not None:
+            try:
+                prior_ctx, resolved_cid, ctx_created = resolve_context(
+                    context_store, context_id, create_if_missing=False)
+                trace.record("context_resolved",
+                             context_id=resolved_cid,
+                             context_created=ctx_created)
+            except ValueError as exc:
+                outcome = TerminalOutcome(
+                    terminal=Terminal.FAILED_EXPLICIT, response_text="",
+                    rationale=str(exc))
+                trace.record_failure("context_resolve_failed", str(exc))
+                trace.complete(outcome)
+                path = trace.write_to(self.trace_dir)
+                pre_state = PipelineState(run_id="pre_run", input_text=input_text)
+                pre_state.intervention_plan = plan
+                return SocratesRunResult(
+                    run_id="pre_run", trace_id=trace.trace_id, terminal=outcome,
+                    state=pre_state,
+                    trace_path=str(path), duration_ms=trace.duration_ms,
+                    execution_mode=mode, intervention_plan=plan,
+                    context_id=context_id or "")
+
         try:
             phase_exec = self._resolve_phase_executor(
                 mode, hints=hints, phase_executor=phase_executor, trace=trace)
@@ -231,7 +268,8 @@ class SocratesRuntime:
             state, outcome, phases = self.executor.run(
                 input_text, phase_exec, config,
                 hints=hints or {}, trace=trace,
-                intervention_plan=plan)
+                intervention_plan=plan,
+                prior_context=prior_ctx if not ctx_created else None)
         except SocratesRuntimeError as exc:
             trace.record_failure(type(exc).__name__, str(exc))
             outcome = TerminalOutcome(
@@ -353,6 +391,32 @@ class SocratesRuntime:
 
         native = self._call_native_organs(config, state, trace)
         memory = self._commit_memory_if_any(config, state, trace)
+
+        # 3A+: recognition pass + persist context snapshot
+        context_continuity_meta = None
+        final_context_id = resolved_cid or ""
+        if context_store is not None or context_id is not None or prior_ctx is not None:
+            from .context_continuity import (
+                process_context_continuity,
+                space_memory_provenance,
+            )
+            _, final_context_id, _contract, _rp, context_continuity_meta = (
+                process_context_continuity(
+                    store=context_store,
+                    context_id=resolved_cid,
+                    state=state,
+                    context_action=context_action,
+                    injected_pressures=injected_pressures,
+                ))
+            context_continuity_meta["space_memory_provenance"] = (
+                space_memory_provenance(state))
+            trace.record("context_continuity", **{
+                k: v for k, v in context_continuity_meta.items()
+                if k != "recognition_pass"})
+            if memory is not None:
+                memory["space_memory_provenance"] = (
+                    context_continuity_meta["space_memory_provenance"])
+
         trace.complete(outcome)
         trace_path = trace.write_to(self.trace_dir)
 
@@ -374,6 +438,8 @@ class SocratesRuntime:
             liberatory_pass_result=liberatory,
             question_set_plan=qsp,
             question_intent_proposal=question_intent_proposal,
+            context_id=final_context_id,
+            context_continuity=context_continuity_meta,
         )
 
     # ------------------------------------------------------------------
