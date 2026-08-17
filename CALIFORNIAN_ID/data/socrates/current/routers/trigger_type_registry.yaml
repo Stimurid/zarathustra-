@@ -1,0 +1,115 @@
+# TriggerTypeRegistry — v0.2_default
+# D-S26-TRIG-001 authoritative registered types + owning bodies.
+#
+# The Python source of truth is
+# CALIFORNIAN_ID/src/socrates_runtime/trigger_lifecycle.py::build_default_registry
+# — this YAML mirrors it for documentation + Workbench inspection.
+# The runtime does NOT consume this file (registration is code-only
+# so a model / retrieval / donor / persona / candidate-manifest source
+# cannot mint a type via YAML).
+#
+# Open-world extensible: a grounded structural cause without a
+# registered type produces TRIGGER_TYPE_GAP; a TriggerTypeCandidate
+# may be emitted as UNPRIVILEGED DATA proposing a new registered type
+# for HUMAN review.
+
+version: v0.2_default
+generation: D-S26-TRIG-001
+
+registered_types:
+
+  # ---- B07 owning family: reflective retreat / capture
+
+  REFLECTIVE_EXIT_REQUIRED:
+    owning_body: B07
+    additional_mount_targets: []
+    authorised_phase_relevance: [S7, P06]
+    grounding_sources:
+      - PROJECTION_DIAGNOSTIC
+      - AUTHORIZED_TRANSITION
+      - TYPED_PIPELINE_STATE
+    causal_predicates:
+      - "state.pending_diagnostic is not None AND state.pending_diagnostic.mismatch"
+      - "OR authorized transition to reflective epilogue"
+    positive_example: "S9 executed a projection that left material residue; ProjectionDiagnostics flagged OPERATION_MISMATCH"
+    negative_example: "user text contains the word 'reflection' but no typed mismatch state exists"
+
+  ROLE_CAPTURE:
+    owning_body: B07
+    authorised_phase_relevance: [S7, P06]
+    grounding_sources:
+      - AUTHORITY_STATE
+      - SCENE_STATE
+      - TYPED_PIPELINE_STATE
+    causal_predicates:
+      - "state.scene.authority not in {SYSTEM, HUMAN} AND scene evidence indicates capture"
+      - "OR typed authority state records a capture"
+    positive_example: "role/authority state has drifted into a captured position (e.g. persona shift under adversarial pressure) — typed"
+    negative_example: "user says 'my exam' and asks to review notes — no typed capture"
+    state_contradiction:
+      - "if ownership.owner == SYSTEM AND ownership.human_resolved AND scene.authority in {SYSTEM, unset} → REJECT / REGISTERED_TYPE_MISMATCH"
+
+  FRAME_GENERATED_FAILURE:
+    owning_body: B07
+    authorised_phase_relevance: [S7, P06]
+    grounding_sources:
+      - PROJECTION_DIAGNOSTIC
+      - SCENE_STATE
+      - TYPED_PIPELINE_STATE
+    causal_predicates:
+      - "typed scene or projection state records a self-produced frame the runtime cannot recover from"
+    negative_example: "novel material without a system-produced frame"
+
+  SELF_REVIEW_RECURSION:
+    owning_body: B07
+    authorised_phase_relevance: [S7, P06]
+    grounding_sources:
+      - INTERVENTION_STATE
+      - TYPED_PIPELINE_STATE
+    causal_predicates:
+      - "typed intervention state records recursive self-review above threshold"
+
+  # ---- B09 owning family: council / arbitration
+
+  COUNCIL_REQUIRED:
+    owning_body: B09
+    authorised_phase_relevance: [S7, P06]
+    grounding_sources:
+      - COUNCIL_STATE
+      - TYPED_PIPELINE_STATE
+    causal_predicates:
+      - "typed council state records a materially unresolved dissent"
+
+  TYPED_VETO:
+    owning_body: B09
+    authorised_phase_relevance: [S7, P06]
+    grounding_sources:
+      - COUNCIL_STATE
+      - AUTHORITY_STATE
+    causal_predicates:
+      - "typed authority state records a veto with reason and party"
+
+  MINORITY_MATERIAL:
+    owning_body: B09
+    authorised_phase_relevance: [S7, P06]
+    grounding_sources:
+      - COUNCIL_STATE
+    causal_predicates:
+      - "typed council state records a minority position with material evidence weight"
+
+  # ---- B02 owning family: origin / status dispute
+
+  STATUS_DISPUTE:
+    owning_body: B02
+    authorised_phase_relevance: [S3, P02]
+    grounding_sources:
+      - TYPED_PIPELINE_STATE
+    causal_predicates:
+      - "typed origin state records disputed provenance"
+
+open_world:
+  policy: TRIGGER_TYPE_GAP
+  never_coerce_to_nearest: true
+  proposals_via: TriggerTypeCandidate
+  proposals_authority: PROPOSED_NOT_AUTHORIZED
+  registration_authority: HUMAN_ONLY_OUT_OF_BAND

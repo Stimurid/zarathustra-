@@ -37,6 +37,23 @@ from .errors import (
 from .governor import GovernorDecision, InterventionGovernor, apply_decision
 from .mount import MountedContext, SemanticMountPolicy, TriggerAdmission
 from .phase_contracts import jurisdiction_for
+from .trigger_lifecycle import (
+    AdmissionOutcome,
+    AdmittedTriggerEvent,
+    CausalTyper,
+    RejectionReason,
+    SourceKind,
+    TriggerAdmissionDecision,
+    TriggerAdmitter,
+    TriggerCandidate,
+    TriggerTypeGap,
+    TypingOutcome,
+    build_default_admitter,
+    build_default_registry,
+    build_default_typer,
+    new_candidate_id,
+    new_gap_id,
+)
 from .phase_executor import (
     DeltaOrigin,
     DeterministicPhaseExecutor,
@@ -130,10 +147,17 @@ class PipelineExecutor:
     def __init__(self, mount_policy: SemanticMountPolicy,
                  router_registry: RouterRegistry,
                  governor: InterventionGovernor | None = None,
-                 projection_step: Any = None) -> None:
+                 projection_step: Any = None,
+                 typer: CausalTyper | None = None,
+                 admitter: TriggerAdmitter | None = None) -> None:
         self.mount_policy = mount_policy
         self.routers = router_registry
         self.governor = governor or InterventionGovernor()
+        # D-S26-TRIG-001: default registry ships v0.2 B07/B09/B02
+        # types verbatim (see trigger_lifecycle.build_default_registry).
+        # Model output cannot register new types at runtime.
+        self.typer = typer or build_default_typer()
+        self.admitter = admitter or build_default_admitter()
         #: Optional callable ``(state) -> None`` that runs after the
         #: linear S0..S10 pass. It is where the CutterRegistry actually
         #: executes a projection against ``state.input_text`` (ORIGINAL
@@ -283,6 +307,18 @@ class PipelineExecutor:
         for phase in PHASE_ORDER[start_idx:]:
             if phase in skip_phases:
                 continue
+
+            # D-S26-TRIG-001: drain pending candidates BEFORE the phase
+            # gating decisions read state — otherwise a candidate
+            # emitted by phase N-1 that would have admitted
+            # COUNCIL_REQUIRED / STATUS_DISPUTE / etc. would still be
+            # pending when the S7 / S9 gate looks at state. Seeding
+            # (deterministic REFLECTIVE_EXIT_REQUIRED from typed
+            # pending_diagnostic) also happens here so P06's mount
+            # sees it before the mount decision.
+            self._seed_reflective_candidate_if_needed(state, phase)
+            self._drain_pending_triggers(state, phase, trace)
+
             if phase == "S7" and not self._council_needed(state):
                 continue
             if phase == "S9" and not self._execution_authorized(state):
@@ -290,8 +326,21 @@ class PipelineExecutor:
 
             router = self.routers.router_for_phase(phase)
             state_before = self._clone(state)
+
+            # Feed only ADMITTED events to the mount policy so its
+            # conditional-body selection is authority-grounded. Stamp
+            # the resolved router_id onto the legacy TriggerAdmission
+            # shape so the CTA gate's phase_relevance == router_id
+            # check aligns.
+            admitted_for_phase = tuple(
+                _admitted_to_trigger_admission(e,
+                                                router_id=router.module_id)
+                for e in state.admitted_trigger_events
+                if not e.phase_relevance or e.phase_relevance == phase)
             try:
-                mount = self.mount_policy.mount(router.module_id, phase)
+                mount = self.mount_policy.mount(
+                    router.module_id, phase,
+                    proposed_triggers=list(admitted_for_phase))
             except (SemanticMountMissing, SemanticContextBudgetExceeded) as exc:
                 early_terminal = (Terminal.SEMANTIC_MOUNT_MISSING
                                   if "not present" in str(exc)
@@ -498,8 +547,162 @@ class PipelineExecutor:
 
     @staticmethod
     def _council_needed(state: PipelineState) -> bool:
-        council_causes = {"COUNCIL_REQUIRED", "TYPED_VETO", "MINORITY_MATERIAL"}
-        return bool(set(state.admitted_trigger_causes) & council_causes)
+        """Post D-S26-TRIG-001: reads from the compat projection field,
+        which is now recomputed from ``state.admitted_trigger_events``
+        by :meth:`_drain_pending_triggers`. A model that names a
+        council cause in a phase delta will NOT flip this without
+        passing typing + admission first.
+
+        S7 is conditional on EITHER council causes (B09 family) OR
+        governed reflective causes (B07 family). Widening the check
+        preserves the v0.2 semantic that S7 runs the reflective
+        epilogue when the typed reflective state warrants it, in
+        addition to the classical council trigger.
+        """
+        s7_causes = {"COUNCIL_REQUIRED", "TYPED_VETO",
+                     "MINORITY_MATERIAL",
+                     "REFLECTIVE_EXIT_REQUIRED", "ROLE_CAPTURE",
+                     "FRAME_GENERATED_FAILURE", "SELF_REVIEW_RECURSION"}
+        if state.admitted_trigger_events:
+            active_types = {e.trigger_type_id
+                            for e in state.admitted_trigger_events}
+            return bool(active_types & s7_causes)
+        return bool(set(state.admitted_trigger_causes) & s7_causes)
+
+    # ------------------------------------------------------------------
+    # D-S26-TRIG-001 lifecycle drivers
+    # ------------------------------------------------------------------
+
+    def _drain_pending_triggers(self, state: PipelineState,
+                                phase: str, trace) -> None:
+        """Type + admit every pending :class:`TriggerCandidate`.
+
+        Candidates come from phase deltas (parsed model output),
+        deterministic reflective seeders, or explicit test injection.
+        The drain step decides typing + admission through the
+        governed lifecycle and never lets a candidate become an
+        admitted event by naming.
+
+        Post-drain, ``state.admitted_trigger_causes`` is recomputed
+        from ``state.admitted_trigger_events`` so the existing
+        governor + `_council_needed` readers see a coherent
+        projection.
+        """
+        if not state.pending_trigger_candidates:
+            self._recompute_admitted_causes_projection(state)
+            return
+        pending = list(state.pending_trigger_candidates)
+        state.pending_trigger_candidates.clear()
+        state_snapshot = state.to_public()
+        sequence_next = len(state.admitted_trigger_events)
+        for candidate in pending:
+            typing = self.typer.type_candidate(candidate, state_snapshot)
+            state.trigger_typing_decisions.append(typing)
+
+            if typing.outcome == TypingOutcome.REJECT:
+                state.rejected_trigger_candidates.append(candidate)
+                if trace is not None:
+                    trace.record("trigger_typing_rejected",
+                                 candidate=candidate.to_public(),
+                                 decision=typing.to_public())
+                continue
+
+            if typing.outcome == TypingOutcome.TYPE_GAP:
+                gap = TriggerTypeGap(
+                    gap_id=new_gap_id(),
+                    candidate_id=candidate.candidate_id,
+                    cause_object_ref=candidate.cause_object_ref,
+                    generating_state_ref=candidate.generating_state_ref,
+                    registry_version=typing.registry_version,
+                    reason=typing.reason)
+                state.trigger_type_gaps.append(gap)
+                if trace is not None:
+                    trace.record("trigger_type_gap",
+                                 candidate=candidate.to_public(),
+                                 gap=gap.to_public())
+                continue
+
+            # REGISTERED_TYPE — proceed to admission.
+            existing = tuple(state.admitted_trigger_events)
+            admission, event = self.admitter.admit(
+                candidate, typing, phase=phase,
+                existing_events=existing,
+                sequence_next=sequence_next)
+            state.trigger_admission_decisions.append(admission)
+
+            if admission.outcome == AdmissionOutcome.ADMIT and event:
+                state.admitted_trigger_events.append(event)
+                sequence_next += 1
+                if trace is not None:
+                    trace.record("trigger_admitted",
+                                 event=event.to_public(),
+                                 admission=admission.to_public())
+            elif admission.outcome == AdmissionOutcome.COALESCE and event:
+                # Replace the existing event with the augmented copy.
+                for i, e in enumerate(state.admitted_trigger_events):
+                    if e.event_id == event.event_id:
+                        state.admitted_trigger_events[i] = event
+                        break
+                if trace is not None:
+                    trace.record("trigger_coalesced",
+                                 event=event.to_public(),
+                                 admission=admission.to_public())
+            else:
+                # REJECT at admission — keep the typing decision, log.
+                state.rejected_trigger_candidates.append(candidate)
+                if trace is not None:
+                    trace.record("trigger_admission_rejected",
+                                 candidate=candidate.to_public(),
+                                 admission=admission.to_public())
+
+        self._recompute_admitted_causes_projection(state)
+
+    @staticmethod
+    def _recompute_admitted_causes_projection(state: PipelineState) -> None:
+        """Recompute the compat projection from authoritative events."""
+        state.admitted_trigger_causes = tuple(dict.fromkeys(
+            [e.trigger_type_id for e in state.admitted_trigger_events]))
+
+    @staticmethod
+    def _seed_reflective_candidate_if_needed(state: PipelineState,
+                                             phase: str) -> None:
+        """Before S7 / P06, if the typed reflective state indicates a
+        material mismatch, seed a REFLECTIVE_EXIT_REQUIRED candidate
+        from the authorised PROJECTION_DIAGNOSTIC source. This is
+        the deterministic route by which the pipeline itself (not the
+        model) proposes a candidate. Typing + admission still gate.
+        """
+        if phase != "S7":
+            return
+        if state.pending_diagnostic is None:
+            return
+        if not getattr(state.pending_diagnostic, "mismatch", False):
+            return
+        # Only seed once per pending diagnostic.
+        diag_id = getattr(state.pending_diagnostic, "projection_id", "")
+        already = any(
+            c.cause_object_ref == diag_id
+            and c.proposed_trigger_type_id == "REFLECTIVE_EXIT_REQUIRED"
+            for c in state.pending_trigger_candidates)
+        if already:
+            return
+        cand = TriggerCandidate(
+            candidate_id=new_candidate_id(),
+            proposed_trigger_type_id="REFLECTIVE_EXIT_REQUIRED",
+            source_kind=SourceKind.PROJECTION_DIAGNOSTIC,
+            source_ref=f"pending_diagnostic:{diag_id}",
+            generating_state_ref="state.pending_diagnostic",
+            cause_object_ref=diag_id,
+            phase_relevance="S7",
+            materiality_reason=(
+                f"projection {diag_id} produced a typed mismatch "
+                f"that requires reflective retreat before P06 "
+                f"mounts B07"),
+            payload={"diagnostic_fingerprint":
+                     getattr(state.pending_diagnostic,
+                             "fingerprint", lambda: "")()},
+        )
+        state.pending_trigger_candidates.append(cand)
 
     @staticmethod
     def _execution_authorized(state: PipelineState) -> bool:
@@ -524,10 +727,20 @@ class PipelineExecutor:
             state.operation = delta.operation
         if delta.ownership is not None and "ownership" in juris:
             state.ownership = delta.ownership
+        # D-S26-TRIG-001 repair: model / phase output no longer writes
+        # ``state.admitted_trigger_causes`` directly. Delta triggers
+        # are treated as UNPRIVILEGED TriggerCandidates — parsed from
+        # the phase's ``triggers`` payload and queued for the
+        # lifecycle. Admission happens in _drain_pending_triggers
+        # AFTER this delta application. The compat field
+        # ``admitted_trigger_causes`` is recomputed there from the
+        # authoritative ``admitted_trigger_events`` list.
         if delta.triggers and "triggers" in juris:
-            state.admitted_trigger_causes = tuple(
-                dict.fromkeys(list(state.admitted_trigger_causes)
-                              + [t.trigger_id for t in delta.triggers]))
+            for t in delta.triggers:
+                cand = _trigger_admission_to_candidate(
+                    t, phase, source_kind=SourceKind.MODEL_PROPOSAL,
+                    source_ref=f"phase_delta:{phase}")
+                state.pending_trigger_candidates.append(cand)
         if delta.memory_proposal is not None and "memory_proposal" in juris:
             state.memory_proposal = delta.memory_proposal
         if delta.invoke_council and "invoke_council" in juris:
@@ -599,3 +812,71 @@ def _diff_public(before: dict[str, Any], after: dict[str, Any]) -> dict[str, Any
         if b != a:
             out[key] = {"before": b, "after": a}
     return out
+
+
+# ---------------------------------------------------------- lifecycle adapters
+
+
+def _trigger_admission_to_candidate(t: TriggerAdmission, phase: str, *,
+                                    source_kind: SourceKind,
+                                    source_ref: str) -> TriggerCandidate:
+    """Reinterpret a legacy :class:`TriggerAdmission` as a
+    :class:`TriggerCandidate`.
+
+    Legacy CTA source-status honouring: the phase-output parser and
+    fixture PhaseHints declare a ``source_status`` string
+    ("typed_state" / "authorized_transition") on the legacy record.
+    Per CTA-006 these strings ARE the authorised sources. We map
+    them to their :class:`SourceKind` enum equivalents so the
+    lifecycle honours the same authority contract. Anything else
+    (including bare model output that doesn't declare a status)
+    remains :data:`SourceKind.MODEL_PROPOSAL` — no authority.
+
+    This is NOT a leak: the source_status field is already governed
+    by the phase_output parser's contract (any model that lies about
+    typed_state also fails the typing/state-contradiction check
+    downstream via ``_state_contradicts_type``).
+    """
+    resolved_source = source_kind
+    if t.source_status == "typed_state":
+        resolved_source = SourceKind.TYPED_PIPELINE_STATE
+    elif t.source_status == "authorized_transition":
+        resolved_source = SourceKind.AUTHORIZED_TRANSITION
+    return TriggerCandidate(
+        candidate_id=new_candidate_id(),
+        proposed_trigger_type_id=t.trigger_id,
+        source_kind=resolved_source,
+        source_ref=source_ref,
+        generating_state_ref=t.generating_state_ref,
+        cause_object_ref=t.cause_object_ref,
+        phase_relevance=t.phase_relevance or phase,
+        materiality_reason=t.materiality_reason,
+        payload={"legacy_admitting_rule": t.admitting_rule,
+                 "legacy_source_status": t.source_status})
+
+
+def _admitted_to_trigger_admission(e: AdmittedTriggerEvent, *,
+                                    router_id: str = "",
+                                    ) -> TriggerAdmission:
+    """Adapt an authoritative :class:`AdmittedTriggerEvent` to the
+    legacy :class:`TriggerAdmission` shape the existing
+    :meth:`SemanticMountPolicy.mount` API expects. This is the ONE
+    place where an event flows into the mount policy — it goes
+    through the existing CTA gate as well, so we have belt-AND-
+    braces admission enforcement.
+
+    ``router_id`` overrides ``e.phase_relevance`` when supplied. The
+    legacy CTA gate compares ``phase_relevance`` against the router
+    id (e.g. ``"P06"``), while the lifecycle stamps events with the
+    S-phase id (e.g. ``"S7"``). The pipeline resolves phase → router
+    via :class:`RouterRegistry`; this adapter stamps the resolved
+    router_id so both admission gates align.
+    """
+    return TriggerAdmission(
+        trigger_id=e.trigger_type_id,
+        generating_state_ref=e.generating_state_ref,
+        cause_object_ref=e.cause_object_ref,
+        source_status="typed_state",           # by definition of admission
+        phase_relevance=router_id or e.phase_relevance,
+        materiality_reason=e.materiality_reason,
+        admitting_rule=e.admitting_rule)

@@ -228,9 +228,42 @@ class PipelineState:
     council_invoked: bool = False
     #: S9 was actually invoked (Tinkuy execution). CONDITIONAL on authority.
     execution_invoked: bool = False
-    #: Typed trigger causes admitted during mount. Names are trigger_ids
-    #: from the trigger admission policy, not raw cues.
+    #: Typed trigger causes admitted during mount. **Compat-projection
+    #: field** — post D-S26-TRIG-001 repair, this is a DERIVED VIEW
+    #: over ``admitted_trigger_events`` (see below). Direct writes
+    #: from phase deltas are forbidden; the pipeline routes
+    #: ``delta.triggers`` into ``pending_trigger_candidates`` and the
+    #: lifecycle drains them through
+    #: typing → admission → :class:`AdmittedTriggerEvent`. Anything
+    #: reading this field today (`governor._council_needed`,
+    #: `pipeline._council_needed`) continues to work because the
+    #: pipeline recomputes this tuple whenever admitted events
+    #: change.
     admitted_trigger_causes: tuple[str, ...] = ()
+    # ------------------------------------------------- D-S26-TRIG-001 lifecycle
+    #: Model / retrieval / donor / persona / model-prior candidates
+    #: awaiting causal typing + admission. NO_MOUNT_AUTHORITY. Drained
+    #: by :meth:`PipelineExecutor._drain_pending_triggers` after each
+    #: phase delta application.
+    pending_trigger_candidates: list[Any] = field(default_factory=list)
+    #: Typed decisions produced by :class:`CausalTyper` — one per
+    #: candidate. Outcomes REGISTERED_TYPE / TYPE_GAP / REJECT.
+    trigger_typing_decisions: list[Any] = field(default_factory=list)
+    #: Typed decisions produced by :class:`TriggerAdmitter` — one per
+    #: REGISTERED_TYPE candidate. Outcomes ADMIT / COALESCE / REJECT.
+    trigger_admission_decisions: list[Any] = field(default_factory=list)
+    #: The ONLY records with SEMANTIC_CONDITIONAL_MOUNT authority.
+    #: Consumed by :meth:`SemanticMountPolicy.mount` (via the new
+    #: ``admitted_events`` parameter) — never populated from raw
+    #: model output directly.
+    admitted_trigger_events: list[Any] = field(default_factory=list)
+    #: Candidates rejected at either typing or admission — kept for
+    #: trace/replay so a reader can see WHY (observable rejection
+    #: reason, no hidden CoT).
+    rejected_trigger_candidates: list[Any] = field(default_factory=list)
+    #: Grounded structural causes with no registered type. Zero mount
+    #: authority; routes back to open-world S4 / B03 work.
+    trigger_type_gaps: list[Any] = field(default_factory=list)
     #: Memory write proposal produced during the run, if any.
     memory_proposal: MemoryProposal | None = None
     #: Committed write's note_id, if the WM gate authorised the proposal.
@@ -328,6 +361,17 @@ class PipelineState:
             "council_invoked": self.council_invoked,
             "execution_invoked": self.execution_invoked,
             "admitted_trigger_causes": list(self.admitted_trigger_causes),
+            "pending_trigger_candidates": [c.to_public()
+                                            for c in self.pending_trigger_candidates],
+            "trigger_typing_decisions": [d.to_public()
+                                          for d in self.trigger_typing_decisions],
+            "trigger_admission_decisions": [d.to_public()
+                                             for d in self.trigger_admission_decisions],
+            "admitted_trigger_events": [e.to_public()
+                                         for e in self.admitted_trigger_events],
+            "rejected_trigger_candidates": [c.to_public()
+                                             for c in self.rejected_trigger_candidates],
+            "trigger_type_gaps": [g.to_public() for g in self.trigger_type_gaps],
             "memory_proposal": (self.memory_proposal.to_public()
                                 if self.memory_proposal else None),
             "committed_memory_note_id": self.committed_memory_note_id,
