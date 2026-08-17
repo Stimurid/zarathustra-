@@ -1,104 +1,80 @@
-# Durable status for SOCRATES-GS26X-BACH-DIDENKO-20260817-001.
-# Updated by every generation checkpoint. Owner-verified single source
-# of truth for resume state. Do NOT depend on chat memory.
-
-task_id: SOCRATES-GS26X-BACH-DIDENKO-20260817-001
+task_id: SOCRATES-GS26-RUNTIME-SHIVA-20260817-001
 status: IN_PROGRESS
 authority_date: '2026-08-17'
 repository: 'C:/projects/zarathustra-push'
 remote: 'https://github.com/Stimurid/zarathustra-.git'
-branch: socrates/gs26-bach-didenko-integration
-start_head: 2ecc070000da153e4d6379df491ecca8de5330ed
-current_head: SET_AT_COMMIT   # updated per commit; see git log for exact SHA
-status: FROZEN
-active_generation: G-BD.12
-completed_generations: [G-BD.0, G-BD.1, G-BD.2, G-BD.3, G-BD.4, G-BD.5, G-BD.6, G-BD.7, G-BD.8, G-BD.9, G-BD.10, G-BD.11, G-BD.12]
-next_generation: (none — task closed pending owner decision on LIVE re-run)
-blockers: []
+
+start_branch: socrates/gs26-trigger-causal-admission
+start_head: 94944834a69af2d95e5dd6e8a461a34668b65959
+production_at_start: c9f1ad1e992eb68c896679f06955f675cf88715b
+
+work_branch: socrates/gs26-real-socrates-and-shiva
+current_head: SET_AT_COMMIT
+
+package_order:
+  - B0_DURABLE_CHECKPOINT
+  - B1_REAL_SOCRATES_ENDPOINT_AND_LIVE_DEPLOY
+  - B2_SHIVA_BALD_APE_AND_LIVE_DEPLOY
+  - B3_WIRE_3A_3B_3C_3E_3F
+  - B4_OPTIONAL_V03_BRIDGE
+
+current_package: B0_DURABLE_CHECKPOINT
+completed_packages: []
+next_package: B1_REAL_SOCRATES_ENDPOINT_AND_LIVE_DEPLOY
+
 open_defects:
-  - id: D-S26-GEN-002
-    summary: 'GeneratedCutterSpec.fingerprint() omits primitive params + inputs; collision risk.'
-    status: RESOLVED
-    resolved_in_generation: G-BD.1
-    evidence: 'src/socrates_runtime/capability_resolution.py:GeneratedCutterSpec.fingerprint (canonical JSON serialization of every executable-meaning field, including primitive invocation ORDER + params + inputs). Tests: tests/workbench/test_capability_resolution_hardening.py::TestFingerprintCanonicalisation (5 tests).'
-  - id: D-S26-PROV-003
-    summary: 'Synthesised P1→P2 lineage relies on list position; no explicit typed relations.'
-    status: RESOLVED
-    resolved_in_generation: G-BD.1
-    evidence: 'src/socrates_runtime/projection.py:ProjectionResult (added parent_projection_id, revises_projection_id, triggered_by_diagnostic_id/fingerprint, reflective_return_id, spec_id, capability_resolution_id). Backfilled by _execute_registered / _execute_synthesised / _apply_reflective_lineage in projection_step.py. Tests: tests/workbench/test_capability_resolution_hardening.py::TestExplicitLineage.'
-  - id: D-S26-PROV-004
-    summary: 'ProjectedObject/Residue lack direct refs to projection/spec/operation/ontology.'
-    status: RESOLVED
-    resolved_in_generation: G-BD.1
-    evidence: 'src/socrates_runtime/projection.py:ProjectedObject + Residue (added projection_id, spec_fingerprint, operation_id, ontology_id, space_id, scene_id, branch_id); ProjectionResult.stamp_object_provenance() idempotent backfill. Called from _execute_registered + _execute_synthesised. Tests: tests/workbench/test_capability_resolution_hardening.py::TestObjectProvenance (3 tests).'
-  - id: D-S26-GEN-003
-    summary: 'S4 output contract does not admit model-produced ProjectionSynthesisProposal.'
-    status: RESOLVED
-    resolved_in_generation: G-BD.1
-    evidence: |
-      Full path implemented:
-        * ProjectionSynthesisProposal typed dataclass in capability_resolution.py (unprivileged data; no execute/install/authorize/mint/deploy methods; verified by test)
-        * data/socrates/current/contracts/projection_synthesis_proposal.schema.json (public JSON Schema)
-        * phase_contracts.py: S4 output contract admits projection_synthesis_proposal; JURISDICTION[S4] extended
-        * phase_output.py: _build_projection_synthesis_proposal
-        * phase_executor.py: PhaseDelta.projection_synthesis_proposal (Any type to avoid cycle)
-        * pipeline.py: _apply_delta pushes proposal to state.pending_projection_proposal
-        * state.py: pending_projection_proposal field, public in to_public
-        * capability_resolution.py: CapabilityResolver.resolve_from_proposal (compile-bind or ORGAN_GAP)
-        * projection_step.py: _execute_proposal branch, preferred when state.pending_projection_proposal is set
-      Tests: tests/workbench/test_capability_resolution_hardening.py::TestProposalPath (4 tests) + TestS4ContractAcceptsProposal (2 tests including S4 round-trip through parse_and_validate_output).
-touched_files:
-  - CALIFORNIAN_ID/src/socrates_runtime/capability_resolution.py
-  - CALIFORNIAN_ID/src/socrates_runtime/projection.py
-  - CALIFORNIAN_ID/src/socrates_runtime/phase_contracts.py
-  - CALIFORNIAN_ID/src/socrates_runtime/phase_executor.py
-  - CALIFORNIAN_ID/src/socrates_runtime/phase_output.py
-  - CALIFORNIAN_ID/src/socrates_runtime/pipeline.py
-  - CALIFORNIAN_ID/src/socrates_runtime/projection_step.py
-  - CALIFORNIAN_ID/src/socrates_runtime/state.py
-  - CALIFORNIAN_ID/data/socrates/current/contracts/projection_synthesis_proposal.schema.json
-  - CALIFORNIAN_ID/tests/workbench/test_capability_resolution_hardening.py
-  - docs/socrates_gs26/current_task/CURRENT_TASK_STATUS.yaml
-  - docs/socrates_gs26/current_task/CURRENT_TASK_CHECKLIST.md
-test_state:
-  full_backend:
-    tests_passed: 897
-    tests_skipped: 4
-    delta_vs_start: '+16 hardening + 28 epistemic model + 33 BACH operators + 7 v0.3 + 11 mount v0.3 + 25 epistemic ops + 31 T-DID/T-BACH = +151 tests since 746 baseline'
-  ui: NOT_RERUN_UNCHANGED_SURFACE
-  ui_justification: 'All G-BD generations only touch socrates_runtime + contracts + candidate_v0_3 + backend tests + docs; no UI surface changed.'
-live_evidence_state:
-  overall: LIVE_BLOCKED_BY_ENVIRONMENT
-  reason: 'Local execution context lacks provider credentials (/etc/tinkuy/tinkuy.env absent; API_302AI_KEY not set). Per handoff §19 last paragraph the pass is forbidden from fabricating live evidence when no live run occurred. Runtime substrate is deterministically ready — see LIVE_ACCEPTANCE_REPORT.md.'
-  L1: NOT_RUN
-  L2: NOT_RUN
-  L3: NOT_RUN
-  L4: NOT_RUN
-  L5: NOT_RUN
-  L6: NOT_RUN
-  L7: NOT_RUN
-  L8: NOT_RUN
-nonclaims:
-  - 'See NONCLAIMS_AND_OPEN_GAPS.md for the full authoritative list (17 nonclaims + open gaps by category).'
-  - 'Headline nonclaims: LIVE evidence blocked (env credentials absent); R8 not rerun; BASIC primitive substrate only (four generic primitives); donor-local doctrine stays donor-local; P001_UNBLOCKED = NO.'
-p001_unblocked:
-  status: NO
-  reason: 'Per handoff §20 join gate: hardening PASS + BACH/Didenko v0.3 technical+semantic PASS + conflict audit PASS + Didenko coverage FULL/PARTIAL + cross-layer traceability PASS + deterministic tests PASS + full backend regression PASS. But targeted live campaign L1–L8 NOT PASS (LIVE_BLOCKED_BY_ENVIRONMENT). Any single missing condition is NO per §20.'
+  - id: D-S26-LIVE-API-001
+    summary: 'Previous /api/run smokes went through persona_layer, not SocratesRuntime. They are not live evidence for SocratesRuntime / ADR-S26-022 / ADR-S26-023 / D-S26-TRIG-001 / 3A-F.'
+    status: OPEN
+    target_package: B1
+  - id: D-S26-WIRE-001
+    summary: 'Phase 3A/B/C/E/F modules added tests but did not modify running SocratesRuntime / PipelineExecutor / API composition.'
+    status: OPEN
+    target_package: B3
+
 resume_from:
-  generation: (none)
+  package: B1_REAL_SOCRATES_ENDPOINT_AND_LIVE_DEPLOY
   what_to_do_next: |
-    Task is FROZEN at final SHA on branch socrates/gs26-bach-didenko-integration.
-    All G-BD.0..G-BD.12 generations closed as documented in
-    CURRENT_TASK_CHECKLIST.md. On any future pass:
-      1. Read ACCEPTANCE_REPORT.md and LIVE_ACCEPTANCE_REPORT.md
-         to see exactly what was proved vs deferred.
-      2. Read NONCLAIMS_AND_OPEN_GAPS.md for the durable open-gap
-         list — every follow-up target is enumerated there.
-      3. If the owner authorises a LIVE re-run on an environment
-         that carries production credentials, exercise L1–L8 per
-         handoff §19 and update LIVE_ACCEPTANCE_REPORT.md +
-         CURRENT_TASK_STATUS.yaml live_evidence_state in place.
-      4. P001_UNBLOCKED can only flip to YES after L1–L8 PASS
-         plus L5 model-produced-proposal PASS plus L8 Peskov
-         PASS. Do not flip prematurely.
-last_updated: '2026-08-17T00:00:00Z'
+    Implement POST /api/socrates/run route in web_ui.py (or the smallest
+    adjacent authenticated handler). Route must:
+      * require existing Caddy basic auth (bypassing it is out of scope);
+      * accept { text, execution_mode="LIVE", ... };
+      * construct SocratesRuntime with existing default registries
+        + provider factory;
+      * call SocratesRuntime.run(...) and return a response with
+        runtime_layer="socrates_runtime" + run_id + trace_id +
+        terminal + mounted_phases + provider_id + model_id + rendering
+        (never hidden CoT);
+      * NOT reuse the persona_layer /api/run pipeline.
+    Add unit tests: handler dispatches to SocratesRuntime, response
+    fields present, invalid control fields do not mint authority.
+    Then deploy exact green descendant + run 5 smokes A/B/C/D/E via
+    the new route. Prove runtime_layer=socrates_runtime in each
+    saved response.
+
+live_evidence:
+  socrates_route: NOT_YET_CREATED
+  smoke_A_direct_via_socrates: NOT_RUN
+  smoke_B_reflective_via_socrates: NOT_RUN
+  smoke_C_context_pressure_via_socrates: NOT_RUN
+  smoke_D_organ_gap_via_socrates: NOT_RUN
+  smoke_E_model_proposal_via_socrates: NOT_RUN
+  shiva_normal_vs_bald_ape: NOT_RUN
+  shiva_strong_position_survives: NOT_RUN
+  shiva_fabrication_negative: NOT_RUN
+
+regression:
+  full_backend_floor: 1039
+  full_backend_current: SET_AFTER_TESTS
+
+nonclaims:
+  - 'Owner decision agenda remains unresolved (dyad / co-individuation / development / reflexive depth / truth-mode).'
+  - 'P-HYBRID-1/2/3 (Phase 3D) remain UNADOPTED.'
+  - 'CONTINUOUS_DEVELOPMENT (Phase 3E) remains PRODUCTION-INACTIVE.'
+  - 'D-S26-ATTR-001 remains FUTURE.'
+  - 'D-S26-DLG-001 remains FUTURE.'
+  - 'R9 / P001 / Kvaqin / G-S27 / G-S28 NOT RUN.'
+  - 'Aiye / Sayena / Academy NOT MUTATED.'
+  - 'Broad user Workspace / Hypergit / Sensecape / activation-probes / Flow research NOT STARTED.'
+  - 'candidate_v0_3 semantic bodies remain NON_RUNTIME_CANDIDATE (until B4 optional).'
+last_updated: '2026-08-17'
