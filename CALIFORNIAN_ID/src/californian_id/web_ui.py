@@ -2119,6 +2119,28 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                 raw = self.rfile.read(length)
                 data = json.loads(raw.decode("utf-8"))
                 payload = _run_compat_chat_completion(data)
+                try:
+                    from . import dialogue_log
+                    _msgs = data.get("messages") or []
+                    _last_user = ""
+                    for m in reversed(_msgs):
+                        if isinstance(m, dict) and m.get("role") == "user":
+                            _last_user = m.get("content") or ""
+                            break
+                    _choices = payload.get("choices") or []
+                    _reply = ""
+                    if _choices and isinstance(_choices[0], dict):
+                        _msg = _choices[0].get("message") or {}
+                        _reply = _msg.get("content") or ""
+                    dialogue_log.log_dialogue(
+                        source="v1_chat", input_text=str(_last_user),
+                        response={
+                            "run_id": payload.get("id"),
+                            "model_id": payload.get("model"),
+                            "provider_id": "openai_compat",
+                            "rendering": {"text": _reply}})
+                except Exception:
+                    pass
                 self._send_json(payload)
             except Exception as exc:
                 self._send_json({"error": {"message": str(exc), "type": "invalid_request_error"}}, status=HTTPStatus.BAD_REQUEST)
@@ -2158,8 +2180,22 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                 closing_genre=data.get("closing_genre") or None,
                 dialogue_protocol=data.get("dialogue_protocol") or None,
             )
+            try:
+                from . import dialogue_log
+                dialogue_log.log_dialogue(
+                    source="run", input_text=text, response=payload,
+                    extra={"workspace_id": data.get("workspace_id")})
+            except Exception:
+                pass
             self._send_json(payload)
         except Exception as exc:  # pragma: no cover
+            try:
+                from . import dialogue_log
+                dialogue_log.log_dialogue(
+                    source="run", input_text=text if 'text' in locals() else "",
+                    error=f"{type(exc).__name__}: {exc}")
+            except Exception:
+                pass
             self._send_json({"error": str(exc)}, status=HTTPStatus.INTERNAL_SERVER_ERROR)
 
     # ---------- B-5.5 Веха 4 — Svelte live UI static serve ----------
@@ -2310,7 +2346,7 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                             status=HTTPStatus.TOO_MANY_REQUESTS); return
 
         def _job() -> dict[str, Any]:
-            return run_web_request(
+            payload = run_web_request(
                 text,
                 runtime_layer=data.get("runtime_layer") or LAYER_CALIFORNIAN_ID,
                 input_mode=data.get("input_mode") or "raw",
@@ -2328,6 +2364,14 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                 dialogue_protocol=data.get("dialogue_protocol") or None,
                 run_id=run_id,
             )
+            try:
+                from . import dialogue_log
+                dialogue_log.log_dialogue(
+                    source="run_async", input_text=text, response=payload,
+                    extra={"workspace_id": ws, "run_id": run_id})
+            except Exception:
+                pass
+            return payload
         submit(ws, run_id, _job,
                input_summary=text, input_mode=data.get("input_mode") or "raw",
                mode=data.get("mode") or "fast")
@@ -2491,6 +2535,12 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                  "runtime_layer": _bridge.RUNTIME_LAYER_TAG},
                 status=HTTPStatus.INTERNAL_SERVER_ERROR); return
 
+        try:
+            from . import dialogue_log
+            dialogue_log.log_dialogue(
+                source="socrates", input_text=text, response=payload)
+        except Exception:
+            pass
         self._send_json(payload)
 
     def _send_json(self, payload: dict[str, Any], status: HTTPStatus = HTTPStatus.OK) -> None:
