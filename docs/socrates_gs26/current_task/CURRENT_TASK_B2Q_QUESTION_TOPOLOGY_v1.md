@@ -60,14 +60,27 @@ B3 / 3A-B-C-E-F; 3D DyadState; broad UI; candidate_v0_3 activation; R9; P001; Kv
 | Step | Status |
 |---|---|
 | §0.1 Entry verify | DONE — HEAD == f94960d == upstream tip; prod == dc1d1bf via VM hash |
-| §0.3 Durable checkpoint + verbatim handoff commit + push | IN_PROGRESS |
-| §2 Audit G-S20 / G-S23 / runtime question authority | pending |
-| §2 Architecture decision REUSE / EXTEND / NEW_NARROW_OBJECT | pending |
-| §3 Implementation | pending |
-| §5 Q1..Q18 deterministic tests | pending |
-| §6 Output-level acceptance | pending |
-| §9 Full backend ≥ 1101 | pending |
-| §8 Deploy exact green SHA | pending |
-| §7 LIVE-Q1..Q5 smokes | pending |
-| §11 Evidence + checkpoint | pending |
-| §12 B2Q PASS gate review | pending |
+| §0.3 Durable checkpoint + verbatim handoff commit + push | DONE — 99150d6 |
+| §2 Audit G-S20 / G-S23 / runtime question authority | DONE — see `B2Q_AUDIT_AND_ARCHITECTURE.md`; finding: no typed governor exists |
+| §2 Architecture decision REUSE / EXTEND / NEW_NARROW_OBJECT | **NEW_NARROW_OBJECT** |
+| §3 Implementation | DONE — new `socrates_runtime/question_set_plan.py` mirrors B2R pattern |
+| §5 Q1..Q18 deterministic tests | DONE — 46 new tests, all green |
+| §6 Output-level acceptance | DONE — 5 tests validating fork_ref mapping / hierarchy public projection |
+| §9 Full backend ≥ 1101 | DONE — 1147 passed / 4 skipped / 0 failed (+46) |
+| §8 Deploy exact green SHA | DONE — deployed 60678ad after in-live ownership-enum fix |
+| §7 LIVE-Q1..Q5 smokes | DONE — 6 smokes (Q1/Q2/Q3/Q4/Q5A/Q5B); all PASS with render.mode=QUESTION_SET_PLAN_AUTHORED |
+| §11 Evidence + checkpoint | DONE — `CHECKPOINT_B2Q_QUESTION_TOPOLOGY_LIVE.md` + `b2q/qsp_*.json` |
+| §12 B2Q PASS gate review | **PASS** — all 18 criteria met with typed public evidence |
+
+## B2Q closure ledger
+
+Pushed SHA: `60678ad` — 1147 passed / 4 skipped / 0 failed
+Deployed SHA: `60678ad` at 2026-08-17 21:07:22 MSK
+Rollback (fresh): `/opt/tinkuy/rollback_snapshot_pre_60678ad.tar.gz`
+Rollback (B2Q first deploy): `/opt/tinkuy/rollback_snapshot_pre_4ffbaf8.tar.gz`
+Rollback (B2R baseline): `/opt/tinkuy/rollback_snapshot_pre_dc1d1bf.tar.gz`
+Evidence: `docs/socrates_gs26/real_socrates_route/b2q/qsp_*.json` (6 files)
+Audit doc: `docs/socrates_gs26/real_socrates_route/B2Q_AUDIT_AND_ARCHITECTURE.md`
+Checkpoint doc: `docs/socrates_gs26/real_socrates_route/CHECKPOINT_B2Q_QUESTION_TOPOLOGY_LIVE.md`
+Dialogue log preserved: 11 → 33 records at `/srv/tinkuy/dialogue_log/dialogues.jsonl`
+Next frontier: **B3 D-S26-WIRE-001** bounded runtime wiring starting with 3A context-transition sovereignty — NOT started per §14 stop rule.

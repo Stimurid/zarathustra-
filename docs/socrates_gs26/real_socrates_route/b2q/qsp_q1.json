@@ -1,0 +1,1948 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_2f13b5ed8b856bd7",
+  "trace_id": "strc_cb3f56de574a9fac",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "[RETURN_OPERATION] Запрос и сцена указывают на совместное обсуждение и генерацию вариантов для запуска продукта, без передачи права на принятие решения или авторитарного выбора системе. Ожидается открытый совместный анализ, а не автоматическое вынесение решения или экспертный диктат. Поэтому операция классифицируется как совместная (joint), и возврат минимального неразрешенного человеческого вклада — обсуждение и выбор между вариантами — остается за участниками.",
+    "rationale": "human/joint ownership unresolved (INV-009)",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "В этой задаче требуется совместное, неавторитарное обсуждение развилок и вариантов для запуска продукта, без принуждения к единственному решению или экспертному диктату.",
+      "grounds": "Запрос пользователя и сцена указывают на совместное размышление, а не на совет/решение сверху. Важно сохранить открытость вариантов и роль соавтора."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "Входящий запрос содержит просьбу помочь обдумать \"развилки\" (выборы, неопределённости, критические моменты) при запуске продукта. Явных триггеров на глубокую память, рефлексивный уход с текущей сцены или работу с формированием/перезаписью идентичности нет. Запрос находится в операционной фазе сбора материала для сцен/развилочных гипотез, без сразу материализованной истории или высокого давления на статус или роль. Контекст пригоден для работы.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15168,
+        "tokens_out": 140,
+        "latency_ms": 4819,
+        "error": "",
+        "request_hash": "7af38820100fbccb093b5f0483f2049eb866b4a4d49d0a993b5708b19e38ba1e",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2067,
+            "sha256": "05a0eeca8c4b20d3"
+          },
+          {
+            "role": "user",
+            "bytes": 209,
+            "sha256": "2bab212e416fa135"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Совместный анализ и обсуждение возможных вариантов, рисков и решений для запуска продукта.",
+            "role_hint": "соавтор, помощник, аналитик — не главный решающий, а вместе думающий",
+            "authority": "joint",
+            "materials": [
+              "Запрашивается помощь в размышлении — не однотипный совет или прямое решение.",
+              "В изначальном запросе нет указания на обязательную роль эксперта или автоматического выбора.",
+              "Речь о запуске продукта — контекст бизнес/стартап/проект.",
+              "В явной формулировке нет институционального требования (например, юридического, корпоративного решения)."
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "TEL_01_JOINT_ANALYSIS",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "scene.telos",
+              "source_status": "typed_state",
+              "phase_relevance": "scene reconstruction — операциональная совместность",
+              "materiality_reason": "Запрос сформулирован как совместное обсуждение, а не отдача решения; материален для определения метода и допустимого советования.",
+              "admitting_rule": "Достаточно для выбора совместно-анализирующей роли и совместного обсуждения вариантов."
+            },
+            {
+              "trigger_id": "ROLE_01_HELP_REQUEST",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "scene.role_hint",
+              "source_status": "typed_state",
+              "phase_relevance": "scene reconstruction — роли.",
+              "materiality_reason": "Роль помощника/совместного аналитика противопоставляется роли авторитетного решающего; материален для границы между советом и решением.",
+              "admitting_rule": "Достаточно для маркировки роли как совместной, не единоличной."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Совместный анализ и обсуждение возможных вариантов, рисков и решений для запуска продукта.",
+              "role_hint": "соавтор, помощник, аналитик — не главный решающий, а вместе думающий",
+              "authority": "joint",
+              "materials": [
+                "Запрашивается помощь в размышлении — не однотипный совет или прямое решение.",
+                "В изначальном запросе нет указания на обязательную роль эксперта или автоматического выбора.",
+                "Речь о запуске продукта — контекст бизнес/стартап/проект.",
+                "В явной формулировке нет институционального требования (например, юридического, корпоративного решения)."
+              ]
+            },
+            "triggers": [
+              {
+                "trigger_id": "TEL_01_JOINT_ANALYSIS",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "scene.telos",
+                "source_status": "typed_state",
+                "phase_relevance": "scene reconstruction — операциональная совместность",
+                "materiality_reason": "Запрос сформулирован как совместное обсуждение, а не отдача решения; материален для определения метода и допустимого советования.",
+                "admitting_rule": "Достаточно для выбора совместно-анализирующей роли и совместного обсуждения вариантов."
+              },
+              {
+                "trigger_id": "ROLE_01_HELP_REQUEST",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "scene.role_hint",
+                "source_status": "typed_state",
+                "phase_relevance": "scene reconstruction — роли.",
+                "materiality_reason": "Роль помощника/совместного аналитика противопоставляется роли авторитетного решающего; материален для границы между советом и решением.",
+                "admitting_rule": "Достаточно для маркировки роли как совместной, не единоличной."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13216,
+        "tokens_out": 420,
+        "latency_ms": 5489,
+        "error": "",
+        "request_hash": "6d301c6eb5d727fd242983ff8f3234c13d728eeca5a712b2230b23744eec31d8",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2066,
+            "sha256": "abea3f40ed835c2f"
+          },
+          {
+            "role": "user",
+            "bytes": 209,
+            "sha256": "2bab212e416fa135"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_70d832e760b9",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "scene.telos",
+              "source_status": "typed_state",
+              "phase_relevance": "S2 — scene/telos/type gap is material for joint analysis framing and operation applicability",
+              "materiality_reason": "Explicit telos for joint analysis is not registry-bound or coercible; material structural cause is a type gap. Analysis framing, risk, and decision operation must be governed by scene semantics, not forced mapping.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_524e21959b9b",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "scene.role_hint",
+              "source_status": "typed_state",
+              "phase_relevance": "S2 — role/type gap is material for operation framing and authority/ownership allocation",
+              "materiality_reason": "Role hint (help request, joint thinking, not solo decision) is not registry-bound; joint operation and ownership framing requires explicit scene/role capture, not forced type coercion.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_70d832e760b9",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "scene.telos",
+                "source_status": "typed_state",
+                "phase_relevance": "S2 — scene/telos/type gap is material for joint analysis framing and operation applicability",
+                "materiality_reason": "Explicit telos for joint analysis is not registry-bound or coercible; material structural cause is a type gap. Analysis framing, risk, and decision operation must be governed by scene semantics, not forced mapping."
+              },
+              {
+                "trigger_id": "tgap_524e21959b9b",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "scene.role_hint",
+                "source_status": "typed_state",
+                "phase_relevance": "S2 — role/type gap is material for operation framing and authority/ownership allocation",
+                "materiality_reason": "Role hint (help request, joint thinking, not solo decision) is not registry-bound; joint operation and ownership framing requires explicit scene/role capture, not forced type coercion."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15752,
+        "tokens_out": 255,
+        "latency_ms": 5989,
+        "error": "",
+        "request_hash": "704b9dee540e9792c11e0c936c8f58f3c1b7ef0a31a7df0791340de72211737e",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 4708,
+            "sha256": "2969f315b0b82f58"
+          },
+          {
+            "role": "user",
+            "bytes": 209,
+            "sha256": "2bab212e416fa135"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "joint",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_70d832e760b9",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "scene.telos",
+              "source_status": "typed_state",
+              "phase_relevance": "S3",
+              "materiality_reason": "The telos of joint analysis and thinking for product launch is not present in the default registry; this signals a materially grounded gap, meaning the exact requested mode is not pre-typed.",
+              "admitting_rule": "gap admitted due to material cause, not coercion"
+            },
+            {
+              "trigger_id": "tgap_524e21959b9b",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "scene.role_hint",
+              "source_status": "typed_state",
+              "phase_relevance": "S3",
+              "materiality_reason": "Role hint indicates a co-author/helper/analyst function, not a pure advisor or automated selector; registry lacks this role type, leaving a material gap.",
+              "admitting_rule": "gap admitted due to material cause, not coercion"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "joint",
+              "temporal_stale": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_70d832e760b9",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "scene.telos",
+                "source_status": "typed_state",
+                "phase_relevance": "S3",
+                "materiality_reason": "The telos of joint analysis and thinking for product launch is not present in the default registry; this signals a materially grounded gap, meaning the exact requested mode is not pre-typed.",
+                "admitting_rule": "gap admitted due to material cause, not coercion"
+              },
+              {
+                "trigger_id": "tgap_524e21959b9b",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "scene.role_hint",
+                "source_status": "typed_state",
+                "phase_relevance": "S3",
+                "materiality_reason": "Role hint indicates a co-author/helper/analyst function, not a pure advisor or automated selector; registry lacks this role type, leaving a material gap.",
+                "admitting_rule": "gap admitted due to material cause, not coercion"
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14030,
+        "tokens_out": 291,
+        "latency_ms": 4962,
+        "error": "",
+        "request_hash": "0f36ec20c503402c3ab8c4893cc82863224dbe62176c9c577233bbd68e70fc1f",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 6382,
+            "sha256": "f00c9f75636d2654"
+          },
+          {
+            "role": "user",
+            "bytes": 209,
+            "sha256": "2bab212e416fa135"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "JOINT_VARIANT_DISCUSSION",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": true
+          },
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_70d832e760b9",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "scene.telos",
+              "source_status": "typed_state",
+              "phase_relevance": "joint scenario construction and consideration of alternatives",
+              "materiality_reason": "Request is for collaborative exploration of product launch pathways; no registry type matches the joint analytic telos.",
+              "admitting_rule": "Explicitly diagnosed type gap under 'TEL_01_JOINT_ANALYSIS', registry 'v0.2_default'"
+            },
+            {
+              "trigger_id": "tgap_524e21959b9b",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "scene.role_hint",
+              "source_status": "typed_state",
+              "phase_relevance": "collaborative/assistant role without forced authority",
+              "materiality_reason": "Material joint/assistant reasoning requested; no registry type matches help-request or soft analytic role.",
+              "admitting_rule": "Explicitly diagnosed type gap under 'ROLE_01_HELP_REQUEST', registry 'v0.2_default'"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": {
+            "proposal_id": "psyn_001_joint_variants",
+            "operation_id": "op_001_discuss_variants",
+            "target_object_family": [
+              "joint_variant",
+              "decision_pathway",
+              "risk_branch"
+            ],
+            "ontology_hypothesis": "Collaborative scenario mapping of alternatives, tradeoffs, and decision factors",
+            "recognition_criteria": [
+              "Explicitly named variant or pathway for product launch",
+              "Reasoned alternative or branch",
+              "Stated uncertainty, risk or key factor"
+            ],
+            "segmentation_policy_hint": "Do not force fixed category. Permit joint reasoning and partial variant emergence.",
+            "evidence_requirements": [
+              "Material project context",
+              "Known risks or decision constraints",
+              "Explicit alternative proposals"
+            ],
+            "exclusions": [
+              "Automatic final decision without discussion",
+              "Expert-only unilateral analysis",
+              "Institutional binding"
+            ],
+            "contraindications": [
+              "Request for binary forced choice",
+              "Request for definitive recommendation rather than consideration"
+            ],
+            "applicability_assumptions": [
+              "Collaborative reasoning authority jointly owned",
+              "Variants permitted to be under-specified"
+            ],
+            "primitives": [
+              {
+                "name": "variant_generation",
+                "primitive_id": "prim_001_variant_gen",
+                "params": {},
+                "inputs": [
+                  "input_text"
+                ]
+              },
+              {
+                "name": "decision_pathway_mapping",
+                "primitive_id": "prim_002_decision_path_map",
+                "params": {},
+                "inputs": [
+                  "input_text"
+                ]
+              }
+            ],
+            "accepted_output": "Set of plausible product launch branches or variants with factors and risks",
+            "residue_output": "Non-classified ideas, uncertainties, gaps or context points",
+            "revises_projection_id": "",
+            "triggered_by_diagnostic_id": "diag_joint_type_gap",
+            "triggered_by_diagnostic_fingerprint": "fprint_001_joint_variants",
+            "rationale": "Open-world joint variant consideration proposes non-categorical, non-authoritarian pathway mapping; allows partial, under-specified outcomes and preserves materiality.",
+            "expected_diagnostics": "Multiple decision factors and risks, no forced binary or unilateral categorization.",
+            "expected_residue_policy": "Preserve uncertainties or context material not fitting a variant, keeping gaps explicit."
+          },
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "JOINT_VARIANT_DISCUSSION",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": true
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_70d832e760b9",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "scene.telos",
+                "source_status": "typed_state",
+                "phase_relevance": "joint scenario construction and consideration of alternatives",
+                "materiality_reason": "Request is for collaborative exploration of product launch pathways; no registry type matches the joint analytic telos.",
+                "admitting_rule": "Explicitly diagnosed type gap under 'TEL_01_JOINT_ANALYSIS', registry 'v0.2_default'"
+              },
+              {
+                "trigger_id": "tgap_524e21959b9b",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "scene.role_hint",
+                "source_status": "typed_state",
+                "phase_relevance": "collaborative/assistant role without forced authority",
+                "materiality_reason": "Material joint/assistant reasoning requested; no registry type matches help-request or soft analytic role.",
+                "admitting_rule": "Explicitly diagnosed type gap under 'ROLE_01_HELP_REQUEST', registry 'v0.2_default'"
+              }
+            ],
+            "projection_synthesis_proposal": {
+              "proposal_id": "psyn_001_joint_variants",
+              "operation_id": "op_001_discuss_variants",
+              "target_object_family": [
+                "joint_variant",
+                "decision_pathway",
+                "risk_branch"
+              ],
+              "ontology_hypothesis": "Collaborative scenario mapping of alternatives, tradeoffs, and decision factors",
+              "recognition_criteria": [
+                "Explicitly named variant or pathway for product launch",
+                "Reasoned alternative or branch",
+                "Stated uncertainty, risk or key factor"
+              ],
+              "segmentation_policy_hint": "Do not force fixed category. Permit joint reasoning and partial variant emergence.",
+              "evidence_requirements": [
+                "Material project context",
+                "Known risks or decision constraints",
+                "Explicit alternative proposals"
+              ],
+              "exclusions": [
+                "Automatic final decision without discussion",
+                "Expert-only unilateral analysis",
+                "Institutional binding"
+              ],
+              "contraindications": [
+                "Request for binary forced choice",
+                "Request for definitive recommendation rather than consideration"
+              ],
+              "applicability_assumptions": [
+                "Collaborative reasoning authority jointly owned",
+                "Variants permitted to be under-specified"
+              ],
+              "primitives": [
+                {
+                  "name": "variant_generation",
+                  "primitive_id": "prim_001_variant_gen",
+                  "params": {},
+                  "inputs": [
+                    "input_text"
+                  ]
+                },
+                {
+                  "name": "decision_pathway_mapping",
+                  "primitive_id": "prim_002_decision_path_map",
+                  "params": {},
+                  "inputs": [
+                    "input_text"
+                  ]
+                }
+              ],
+              "accepted_output": "Set of plausible product launch branches or variants with factors and risks",
+              "residue_output": "Non-classified ideas, uncertainties, gaps or context points",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "diag_joint_type_gap",
+              "triggered_by_diagnostic_fingerprint": "fprint_001_joint_variants",
+              "rationale": "Open-world joint variant consideration proposes non-categorical, non-authoritarian pathway mapping; allows partial, under-specified outcomes and preserves materiality.",
+              "expected_diagnostics": "Multiple decision factors and risks, no forced binary or unilateral categorization.",
+              "expected_residue_policy": "Preserve uncertainties or context material not fitting a variant, keeping gaps explicit."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 2,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15768,
+        "tokens_out": 817,
+        "latency_ms": 22296,
+        "error": "",
+        "request_hash": "1e32bab541262f37b564969dc5a0fb5539965950d5d180da008ff8dcd2af3b14",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 8056,
+            "sha256": "a52d3155ba0b91c4"
+          },
+          {
+            "role": "user",
+            "bytes": 209,
+            "sha256": "2bab212e416fa135"
+          },
+          {
+            "role": "user",
+            "bytes": 917,
+            "sha256": "95f38c69a129d051"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_70d832e760b9",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "scene.telos",
+              "source_status": "typed_state",
+              "phase_relevance": "Material type gap in telos: joint analysis/collaborative reasoning for product launch not present in registry; open-world, non-binary, non-authoritarian pathway mapping required.",
+              "materiality_reason": "Joint, open-ended reasoning is required by the user's request and scene; forced expert/decider roles or binary choice would misrepresent the authority and purpose.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_524e21959b9b",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "scene.role_hint",
+              "source_status": "typed_state",
+              "phase_relevance": "Material type gap in role: helper/co-author/analyst — not main decider, but joint thinker; not in registry.",
+              "materiality_reason": "Scene and request both require non-authoritarian, co-creative role; expert or institutional roles would distort the operation.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В этой задаче требуется совместное, неавторитарное обсуждение развилок и вариантов для запуска продукта, без принуждения к единственному решению или экспертному диктату.",
+            "grounds": "Запрос пользователя и сцена указывают на совместное размышление, а не на совет/решение сверху. Важно сохранить открытость вариантов и роль соавтора."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_70d832e760b9",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "scene.telos",
+                "source_status": "typed_state",
+                "phase_relevance": "Material type gap in telos: joint analysis/collaborative reasoning for product launch not present in registry; open-world, non-binary, non-authoritarian pathway mapping required.",
+                "materiality_reason": "Joint, open-ended reasoning is required by the user's request and scene; forced expert/decider roles or binary choice would misrepresent the authority and purpose."
+              },
+              {
+                "trigger_id": "tgap_524e21959b9b",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "scene.role_hint",
+                "source_status": "typed_state",
+                "phase_relevance": "Material type gap in role: helper/co-author/analyst — not main decider, but joint thinker; not in registry.",
+                "materiality_reason": "Scene and request both require non-authoritarian, co-creative role; expert or institutional roles would distort the operation."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В этой задаче требуется совместное, неавторитарное обсуждение развилок и вариантов для запуска продукта, без принуждения к единственному решению или экспертному диктату.",
+              "grounds": "Запрос пользователя и сцена указывают на совместное размышление, а не на совет/решение сверху. Важно сохранить открытость вариантов и роль соавтора."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 18001,
+        "tokens_out": 364,
+        "latency_ms": 6636,
+        "error": "",
+        "request_hash": "0a767ca6c992055628f285972d677be6c473dff03911b205693f6ee1c6829c46",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 12140,
+            "sha256": "27df75928ff68445"
+          },
+          {
+            "role": "user",
+            "bytes": 209,
+            "sha256": "2bab212e416fa135"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "joint",
+            "human_resolved": false,
+            "return_reason": "Запрос и сцена указывают на совместное обсуждение и генерацию вариантов для запуска продукта, без передачи права на принятие решения или авторитарного выбора системе. Ожидается открытый совместный анализ, а не автоматическое вынесение решения или экспертный диктат. Поэтому операция классифицируется как совместная (joint), и возврат минимального неразрешенного человеческого вклада — обсуждение и выбор между вариантами — остается за участниками."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В этой задаче требуется совместное, неавторитарное обсуждение развилок и вариантов для запуска продукта, без принуждения к единственному решению или экспертному диктату.",
+            "grounds": "Запрос пользователя и сцена указывают на совместное размышление, а не на совет/решение сверху. Важно сохранить открытость вариантов и роль соавтора."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "joint",
+              "human_resolved": false,
+              "return_reason": "Запрос и сцена указывают на совместное обсуждение и генерацию вариантов для запуска продукта, без передачи права на принятие решения или авторитарного выбора системе. Ожидается открытый совместный анализ, а не автоматическое вынесение решения или экспертный диктат. Поэтому операция классифицируется как совместная (joint), и возврат минимального неразрешенного человеческого вклада — обсуждение и выбор между вариантами — остается за участниками."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В этой задаче требуется совместное, неавторитарное обсуждение развилок и вариантов для запуска продукта, без принуждения к единственному решению или экспертному диктату.",
+              "grounds": "Запрос пользователя и сцена указывают на совместное размышление, а не на совет/решение сверху. Важно сохранить открытость вариантов и роль соавтора."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16633,
+        "tokens_out": 239,
+        "latency_ms": 4467,
+        "error": "",
+        "request_hash": "1e0d48269bf64a0a6338ae3ebc9937290170f428fc77842620680adf2e5282ec",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 14464,
+            "sha256": "8bfeaff0c163288e"
+          },
+          {
+            "role": "user",
+            "bytes": 209,
+            "sha256": "2bab212e416fa135"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_70d832e760b9",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "scene.telos",
+              "source_status": "typed_state",
+              "phase_relevance": "The telos of the scene is joint analysis and discussion, but the type registry lacks a formal type for this collaborative telos; this creates a material type gap relevant to intervention selection.",
+              "materiality_reason": "The absence of a registry type for 'joint analysis' means the system cannot force a unilateral answer or expert decision, and must preserve the open, collaborative variant-mapping requested by the user.",
+              "admitting_rule": "Preserve joint, open-ended reasoning; do not coerce into a forced decision or expert-only advice."
+            },
+            {
+              "trigger_id": "tgap_524e21959b9b",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "scene.role_hint",
+              "source_status": "typed_state",
+              "phase_relevance": "The role hint is for a co-author/assistant/analyst, not a decider or expert, but no registry type covers this; this gap is relevant to how interventions are selected and rendered.",
+              "materiality_reason": "Without a registry type for the 'help request' role, the system must not capture the decision or act as sole authority, and must keep the output open to joint reasoning.",
+              "admitting_rule": "Honor the non-authoritarian, co-creative role; do not override with expert or institutional decision authority."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": [
+              {
+                "trigger_id": "tgap_70d832e760b9",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "scene.telos",
+                "source_status": "typed_state",
+                "phase_relevance": "The telos of the scene is joint analysis and discussion, but the type registry lacks a formal type for this collaborative telos; this creates a material type gap relevant to intervention selection.",
+                "materiality_reason": "The absence of a registry type for 'joint analysis' means the system cannot force a unilateral answer or expert decision, and must preserve the open, collaborative variant-mapping requested by the user.",
+                "admitting_rule": "Preserve joint, open-ended reasoning; do not coerce into a forced decision or expert-only advice."
+              },
+              {
+                "trigger_id": "tgap_524e21959b9b",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "scene.role_hint",
+                "source_status": "typed_state",
+                "phase_relevance": "The role hint is for a co-author/assistant/analyst, not a decider or expert, but no registry type covers this; this gap is relevant to how interventions are selected and rendered.",
+                "materiality_reason": "Without a registry type for the 'help request' role, the system must not capture the decision or act as sole authority, and must keep the output open to joint reasoning.",
+                "admitting_rule": "Honor the non-authoritarian, co-creative role; do not override with expert or institutional decision authority."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16218,
+        "tokens_out": 355,
+        "latency_ms": 6732,
+        "error": "",
+        "request_hash": "5193ecc05b0af7101231c386461d635bf9b3cf3ee06ade3bd6f18131f0ba8e0f",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 15291,
+            "sha256": "d7ee51aa16a24bca"
+          },
+          {
+            "role": "user",
+            "bytes": 209,
+            "sha256": "2bab212e416fa135"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_70d832e760b9",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "scene.telos",
+              "source_status": "typed_state",
+              "phase_relevance": "Тип сценического целеполагания ('joint analysis') не зарегистрирован в текущей версии схемы и требует явной фиксации как операционного отличия.",
+              "materiality_reason": "Запрос фокусируется на совместном анализе, а не советах/решениях сверху; отсутствие категории совместного обсуждения и генерации вариантов в реестре требует выдерживания отдельного внимания — это не типовой экспертный совет.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_524e21959b9b",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "scene.role_hint",
+              "source_status": "typed_state",
+              "phase_relevance": "Указана роль 'соавтор, помощник, аналитик', а не эксперт или главный решающий. Сценическая роль такой конструкции не регистрируется как стандартная.",
+              "materiality_reason": "Содержательная материализация неэкспертной, неавторитарной роли в рассуждении — отсутствие предопределенного доминирования или готовой схемы сценариев делает эту роль отличной от типовой экспертной позиции.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В этой задаче требуется совместное, неавторитарное обсуждение развилок и вариантов для запуска продукта, без принуждения к единственному решению или экспертному диктату.",
+            "grounds": "Запрос пользователя и сцена указывают на совместное размышление, а не на совет/решение сверху. Важно сохранить открытость вариантов и роль соавтора."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В этой задаче требуется совместное, неавторитарное обсуждение развилок и вариантов для запуска продукта, без принуждения к единственному решению или экспертному диктату.",
+              "grounds": "Запрос пользователя и сцена указывают на совместное размышление, а не на совет/решение сверху. Важно сохранить открытость вариантов и роль соавтора."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_70d832e760b9",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "scene.telos",
+                "source_status": "typed_state",
+                "phase_relevance": "Тип сценического целеполагания ('joint analysis') не зарегистрирован в текущей версии схемы и требует явной фиксации как операционного отличия.",
+                "materiality_reason": "Запрос фокусируется на совместном анализе, а не советах/решениях сверху; отсутствие категории совместного обсуждения и генерации вариантов в реестре требует выдерживания отдельного внимания — это не типовой экспертный совет."
+              },
+              {
+                "trigger_id": "tgap_524e21959b9b",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "scene.role_hint",
+                "source_status": "typed_state",
+                "phase_relevance": "Указана роль 'соавтор, помощник, аналитик', а не эксперт или главный решающий. Сценическая роль такой конструкции не регистрируется как стандартная.",
+                "materiality_reason": "Содержательная материализация неэкспертной, неавторитарной роли в рассуждении — отсутствие предопределенного доминирования или готовой схемы сценариев делает эту роль отличной от типовой экспертной позиции."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 21769,
+        "tokens_out": 417,
+        "latency_ms": 8465,
+        "error": "",
+        "request_hash": "a1c4c840490cbd8b84fb76ef6b2bb2642d0d69f25aac1b751850e62fef603727",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 16964,
+            "sha256": "24e3bd05d2cddad4"
+          },
+          {
+            "role": "user",
+            "bytes": 209,
+            "sha256": "2bab212e416fa135"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_2f13b5ed8b856bd7",
+    "input_text": "Помоги подумать над развилками для запуска продукта.",
+    "source_id": "src_90e7499dd1e57d98",
+    "phase": "S10",
+    "scene": {
+      "telos": "Совместный анализ и обсуждение возможных вариантов, рисков и решений для запуска продукта.",
+      "role_hint": "соавтор, помощник, аналитик — не главный решающий, а вместе думающий",
+      "authority": "joint",
+      "materials": [
+        "Запрашивается помощь в размышлении — не однотипный совет или прямое решение.",
+        "В изначальном запросе нет указания на обязательную роль эксперта или автоматического выбора.",
+        "Речь о запуске продукта — контекст бизнес/стартап/проект.",
+        "В явной формулировке нет институционального требования (например, юридического, корпоративного решения)."
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "joint",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "JOINT_VARIANT_DISCUSSION",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": true
+    },
+    "ownership": {
+      "owner": "joint",
+      "human_resolved": false,
+      "return_reason": "Запрос и сцена указывают на совместное обсуждение и генерацию вариантов для запуска продукта, без передачи права на принятие решения или авторитарного выбора системе. Ожидается открытый совместный анализ, а не автоматическое вынесение решения или экспертный диктат. Поэтому операция классифицируется как совместная (joint), и возврат минимального неразрешенного человеческого вклада — обсуждение и выбор между вариантами — остается за участниками."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_36ded3873f92",
+        "proposed_trigger_type_id": "tgap_70d832e760b9",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "input_text",
+        "cause_object_ref": "scene.telos",
+        "phase_relevance": "Тип сценического целеполагания ('joint analysis') не зарегистрирован в текущей версии схемы и требует явной фиксации как операционного отличия.",
+        "materiality_reason": "Запрос фокусируется на совместном анализе, а не советах/решениях сверху; отсутствие категории совместного обсуждения и генерации вариантов в реестре требует выдерживания отдельного внимания — это не типовой экспертный совет.",
+        "payload": {
+          "legacy_admitting_rule": "CTA-002",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      },
+      {
+        "candidate_id": "tcand_f1e5758c06bb",
+        "proposed_trigger_type_id": "tgap_524e21959b9b",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "input_text",
+        "cause_object_ref": "scene.role_hint",
+        "phase_relevance": "Указана роль 'соавтор, помощник, аналитик', а не эксперт или главный решающий. Сценическая роль такой конструкции не регистрируется как стандартная.",
+        "materiality_reason": "Содержательная материализация неэкспертной, неавторитарной роли в рассуждении — отсутствие предопределенного доминирования или готовой схемы сценариев делает эту роль отличной от типовой экспертной позиции.",
+        "payload": {
+          "legacy_admitting_rule": "CTA-002",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_1c787b6512e3",
+        "candidate_id": "tcand_b9515a67de4a",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'TEL_01_JOINT_ANALYSIS' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_5b64ef2eae8f",
+        "candidate_id": "tcand_f27369467f24",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'ROLE_01_HELP_REQUEST' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_f68991600086",
+        "candidate_id": "tcand_02ae45cb8ef0",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_70d832e760b9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_2ed1d72dbe13",
+        "candidate_id": "tcand_de50d1afce99",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_524e21959b9b' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_da70bf675599",
+        "candidate_id": "tcand_dc2c99f60acc",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_70d832e760b9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_66b9aebdbce6",
+        "candidate_id": "tcand_426d4cf289a1",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_524e21959b9b' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_610760538d1b",
+        "candidate_id": "tcand_9c32263f1a51",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_70d832e760b9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_fc0da59bafe5",
+        "candidate_id": "tcand_add89510f437",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_524e21959b9b' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_2248cbadab2e",
+        "candidate_id": "tcand_4f987cb19bc3",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_70d832e760b9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_64f843a3032e",
+        "candidate_id": "tcand_b4b61a4fab46",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_524e21959b9b' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_bfc718b53b10",
+        "candidate_id": "tcand_517d639382a1",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_70d832e760b9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_1bbc0705061f",
+        "candidate_id": "tcand_31f599e09b81",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_524e21959b9b' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_70d832e760b9",
+        "candidate_id": "tcand_b9515a67de4a",
+        "cause_object_ref": "scene.telos",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'TEL_01_JOINT_ANALYSIS' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_524e21959b9b",
+        "candidate_id": "tcand_f27369467f24",
+        "cause_object_ref": "scene.role_hint",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'ROLE_01_HELP_REQUEST' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_e3b142f795e4",
+        "candidate_id": "tcand_02ae45cb8ef0",
+        "cause_object_ref": "scene.telos",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_70d832e760b9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_9c0a81c3cb6a",
+        "candidate_id": "tcand_de50d1afce99",
+        "cause_object_ref": "scene.role_hint",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_524e21959b9b' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_4d694bc2814d",
+        "candidate_id": "tcand_dc2c99f60acc",
+        "cause_object_ref": "scene.telos",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_70d832e760b9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_46f2906209e0",
+        "candidate_id": "tcand_426d4cf289a1",
+        "cause_object_ref": "scene.role_hint",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_524e21959b9b' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_46f2856257c1",
+        "candidate_id": "tcand_9c32263f1a51",
+        "cause_object_ref": "scene.telos",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_70d832e760b9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_c47b3ddc9fd6",
+        "candidate_id": "tcand_add89510f437",
+        "cause_object_ref": "scene.role_hint",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_524e21959b9b' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_76946da9573f",
+        "candidate_id": "tcand_4f987cb19bc3",
+        "cause_object_ref": "scene.telos",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_70d832e760b9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_38402196282c",
+        "candidate_id": "tcand_b4b61a4fab46",
+        "cause_object_ref": "scene.role_hint",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_524e21959b9b' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_262152fc8d82",
+        "candidate_id": "tcand_517d639382a1",
+        "cause_object_ref": "scene.telos",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_70d832e760b9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_4d8d52995601",
+        "candidate_id": "tcand_31f599e09b81",
+        "cause_object_ref": "scene.role_hint",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_524e21959b9b' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "В этой задаче требуется совместное, неавторитарное обсуждение развилок и вариантов для запуска продукта, без принуждения к единственному решению или экспертному диктату.",
+      "grounds": "Запрос пользователя и сцена указывают на совместное размышление, а не на совет/решение сверху. Важно сохранить открытость вариантов и роль соавтора."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": [
+        {
+          "projection_id": "gap:gap_6771006c400b",
+          "signals": [
+            "APPLICABILITY_FAILURE"
+          ],
+          "reason": "ORGAN_GAP for operation 'op_001_discuss_variants': model proposal for 'op_001_discuss_variants' could not compile-bind against registered primitives",
+          "residue_ratio": 1.0,
+          "recognition_failure_count": 0,
+          "suggested_operation": "",
+          "suggested_ontology": "",
+          "suggested_target_family": [],
+          "mismatch": true,
+          "fingerprint": "7c80351f23b3"
+        }
+      ]
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [
+      {
+        "kind": "ORGAN_GAP",
+        "operation_id": "op_001_discuss_variants",
+        "reason": "proposal psyn_001_joint_variants for operation 'op_001_discuss_variants' failed compile-bind: primitive 'prim_001_variant_gen' (invocation 'variant_generation') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+        "registered_capability_id": "",
+        "generated_spec": null,
+        "binding_evidence": {},
+        "organ_gap": {
+          "gap_id": "gap_6771006c400b",
+          "source_ref": "src_90e7499dd1e57d98",
+          "scene_ref": "Совместный анализ и обсуждение возможных вариантов, рисков и решений для запуска продукта.",
+          "required_operation": "op_001_discuss_variants",
+          "required_attention_structure": "Do not force fixed category. Permit joint reasoning and partial variant emergence.",
+          "insufficient_registered_capabilities": [
+            "DIFFERENTIATED_ACCOUNT",
+            "EXTRACT_CONCEPTS"
+          ],
+          "insufficient_declarative_primitives": [
+            "CoverageComputer",
+            "FamilyClassifier",
+            "SpanScanner",
+            "TargetFilter"
+          ],
+          "missing_capability_hypothesis": "model proposal for 'op_001_discuss_variants' could not compile-bind against registered primitives",
+          "evidence": [
+            "BindingError: primitive 'prim_001_variant_gen' (invocation 'variant_generation') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+          ],
+          "counterexamples": [],
+          "affected_scene_telos": "Совместный анализ и обсуждение возможных вариантов, рисков и решений для запуска продукта.",
+          "possible_development_direction": "extend primitive registry or narrow the proposal",
+          "status": "unresolved",
+          "activation_authority": "NONE"
+        }
+      }
+    ],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DECISION_SEPARATING",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Что различает «MVP-первый» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "F1",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Полноценный релиз» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "F2",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Отложить и провести исследование» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "F3",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        }
+      ],
+      "primary_count": 3,
+      "subordinate_count": 0,
+      "total_count": 3,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level | human-owned operation; questions may clarify but cannot bind the decision",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "JOINT",
+      "ownership_resolved": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    }
+  },
+  "rendering": {
+    "text": "Режим вопросов: DECISION_SEPARATING. Уровень: PEER. Всего: 3 (основных: 3).\n1. Что различает «MVP-первый» от смежных вариантов?\n2. Что различает «Полноценный релиз» от смежных вариантов?\n3. Что различает «Отложить и провести исследование» от смежных вариантов?\n(Замечание: операция принадлежит человеку и не разрешена; вопросы выше уточняют развилки, но не связывают решение.)",
+    "mode": "QUESTION_SET_PLAN_AUTHORED",
+    "provider_status": "NOT_APPLICABLE",
+    "provider_id": "",
+    "model_id": "",
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "latency_ms": 0,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_cb3f56de574a9fac.json",
+  "duration_ms": 70780,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": {
+    "purpose": "fork_discrimination",
+    "question_regime": "DECISION_SEPARATING",
+    "selected_level": "PEER",
+    "hierarchy_policy": "PRIMARY_ONLY",
+    "target_forks_or_unknowns": [
+      "F1",
+      "F2",
+      "F3"
+    ],
+    "explicit_count_constraint": null,
+    "question_budget_ceiling": 12,
+    "selected_questions": [
+      {
+        "text": "Что различает «MVP-первый» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "F1",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Полноценный релиз» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "F2",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Отложить и провести исследование» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "F3",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      }
+    ],
+    "primary_count": 3,
+    "subordinate_count": 0,
+    "total_count": 3,
+    "stop_reason": "COVERAGE_SATURATED",
+    "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level | human-owned operation; questions may clarify but cannot bind the decision",
+    "clarification_required": false,
+    "clarification_grounds": "",
+    "meta_escalation": "NONE",
+    "ownership_owner": "JOINT",
+    "ownership_resolved": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  }
+}

@@ -1,0 +1,1657 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_629a272cd9cb1d34",
+  "trace_id": "strc_0907ff09a006ab2d",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "[RETURN_OPERATION] Cannot execute: human owner has not yet provided the six thematic directions required for question generation. Ownership of the decisive thematic unit remains unresolved and is returned for user binding.",
+    "rationale": "operation inapplicable: Applicability is blocked because the six thematic directions are not specified in the supplied material. The operation requires the existence of explicit themes or directions to distribute 10 questions across; without these, execution would force unsupported object generation or nearest-class coercion, violating open-world and operation applicability protocols.",
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "Запрошенная генерация 10 вопросов по шести направлениям не может быть выполнена, так как сами направления не указаны — это вызывает противоречие между намерением пользователя и действующей операционной применимостью: система не может распределять вопросы по несуществующим или не определённым тематическим областям.",
+      "grounds": "В предоставленной сцене и материалах отсутствуют конкретные шесть направления, требуемые для выполнения операции; протокол применимости операций и открытый мир запрещают генерацию вопросов без явных тематических объектов."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "No immediate triggers for semantic retreat or memory formation; user request is direct and not ambiguous. Scene telos and ownership are unset, but all relevant mandatory bodies are mounted and context fits; no contract, invariants, or authority errors detected.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15165,
+        "tokens_out": 69,
+        "latency_ms": 4903,
+        "error": "",
+        "request_hash": "e80c858245bafe66fae48ad6d200de5daeb648c02c4f13beba6b4ccb0ebfbc65",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2047,
+            "sha256": "8f96053811826602"
+          },
+          {
+            "role": "user",
+            "bytes": 189,
+            "sha256": "5b6b5154b90962bd"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Generate 10 questions, distributed across six provided thematic directions.",
+            "role_hint": "question generator",
+            "authority": "system",
+            "materials": [
+              "user instruction: generate questions",
+              "quantity: 10",
+              "scope: six directions (not specified in current input)",
+              "language: Russian"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Generate 10 questions, distributed across six provided thematic directions.",
+              "role_hint": "question generator",
+              "authority": "system",
+              "materials": [
+                "user instruction: generate questions",
+                "quantity: 10",
+                "scope: six directions (not specified in current input)",
+                "language: Russian"
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13213,
+        "tokens_out": 78,
+        "latency_ms": 2697,
+        "error": "",
+        "request_hash": "d8889dbe40e3ed4c09c1b09c848dc0edf02bbc29942428b8b6193ffe9e12d172",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2046,
+            "sha256": "999e182b2e3d2493"
+          },
+          {
+            "role": "user",
+            "bytes": 189,
+            "sha256": "5b6b5154b90962bd"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "TR_S2_SCENE_MATERIAL_SEAM_001",
+              "generating_state_ref": "scene.materials.scope",
+              "cause_object_ref": "pending thematic directions (six)",
+              "source_status": "typed_state",
+              "phase_relevance": "The request refers to six directions, but none are specified in input or scene. This creates an explicit material gap.",
+              "materiality_reason": "Cannot generate meaningful or distributable questions across specified directions — the missing thematic directions block execution of the user's telos.",
+              "admitting_rule": "Material gap in input; S2 must trigger retrieval, clarification, or reflective retreat to repair before any question generation operation is permitted."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "TR_S2_SCENE_MATERIAL_SEAM_001",
+                "generating_state_ref": "scene.materials.scope",
+                "cause_object_ref": "pending thematic directions (six)",
+                "source_status": "typed_state",
+                "phase_relevance": "The request refers to six directions, but none are specified in input or scene. This creates an explicit material gap.",
+                "materiality_reason": "Cannot generate meaningful or distributable questions across specified directions — the missing thematic directions block execution of the user's telos.",
+                "admitting_rule": "Material gap in input; S2 must trigger retrieval, clarification, or reflective retreat to repair before any question generation operation is permitted."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15189,
+        "tokens_out": 161,
+        "latency_ms": 3430,
+        "error": "",
+        "request_hash": "e3fc376577d1feffb2c55ffb5e925993663cdb584df7fd3c318c3f16f54b0163",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 2303,
+            "sha256": "77f771b506e3efd4"
+          },
+          {
+            "role": "user",
+            "bytes": 189,
+            "sha256": "5b6b5154b90962bd"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "unset",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13235,
+        "tokens_out": 41,
+        "latency_ms": 2791,
+        "error": "",
+        "request_hash": "bf2cb99d0615ace09c88a3e719a1ee1d981e71ed9cd355cbe57692040e5687f9",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 3199,
+            "sha256": "c99b1190e326f5d5"
+          },
+          {
+            "role": "user",
+            "bytes": 189,
+            "sha256": "5b6b5154b90962bd"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "GENERATE_QUESTIONS_ACROSS_THEMATIC_DIRECTIONS",
+            "applicable": false,
+            "why_not": "Applicability is blocked because the six thematic directions are not specified in the supplied material. The operation requires the existence of explicit themes or directions to distribute 10 questions across; without these, execution would force unsupported object generation or nearest-class coercion, violating open-world and operation applicability protocols.",
+            "open_world_gap": true
+          },
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_c7043b2b8bef",
+              "generating_state_ref": "scene.materials.scope",
+              "cause_object_ref": "pending thematic directions (six)",
+              "source_status": "typed_state",
+              "phase_relevance": "S4_operation_applicability_test",
+              "materiality_reason": "Operation requires supplied thematic directions to execute correctly; they are missing, producing a material applicability gap.",
+              "admitting_rule": "cause-domain ladder diagnosis per B03: OPERATION_MISMATCH (missing target units, not schema or ontology gap yet)"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "GENERATE_QUESTIONS_ACROSS_THEMATIC_DIRECTIONS",
+              "applicable": false,
+              "why_not": "Applicability is blocked because the six thematic directions are not specified in the supplied material. The operation requires the existence of explicit themes or directions to distribute 10 questions across; without these, execution would force unsupported object generation or nearest-class coercion, violating open-world and operation applicability protocols.",
+              "open_world_gap": true
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_c7043b2b8bef",
+                "generating_state_ref": "scene.materials.scope",
+                "cause_object_ref": "pending thematic directions (six)",
+                "source_status": "typed_state",
+                "phase_relevance": "S4_operation_applicability_test",
+                "materiality_reason": "Operation requires supplied thematic directions to execute correctly; they are missing, producing a material applicability gap.",
+                "admitting_rule": "cause-domain ladder diagnosis per B03: OPERATION_MISMATCH (missing target units, not schema or ontology gap yet)"
+              }
+            ],
+            "projection_synthesis_proposal": null
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14279,
+        "tokens_out": 254,
+        "latency_ms": 4404,
+        "error": "",
+        "request_hash": "53a2bde6b6e37819606444fd9b8b5b5c30a8c8f80bce38c8d43669d14a74ce02",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 3199,
+            "sha256": "5f43e88de4538fd9"
+          },
+          {
+            "role": "user",
+            "bytes": 189,
+            "sha256": "5b6b5154b90962bd"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_c7043b2b8bef",
+              "generating_state_ref": "scene.materials.scope",
+              "cause_object_ref": "pending thematic directions (six)",
+              "source_status": "typed_state",
+              "phase_relevance": "S5 — operation applicability, attention and memory recruit fail due to missing explicit thematic directions",
+              "materiality_reason": "Material thematic directions are required to validly distribute generated questions; absence causes operation applicability gap and blocks legitimate attention/memory recruitment",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_bec5098461f6",
+              "generating_state_ref": "scene.materials.scope",
+              "cause_object_ref": "pending thematic directions (six)",
+              "source_status": "typed_state",
+              "phase_relevance": "S5 — operation, attention and memory recruitment blocked: object generation not allowed, nearest-class coercion prevented",
+              "materiality_reason": "Operation cannot proceed without the six thematic directions; attempting to generate questions would force unsupported object synthesis violating open-world and operation applicability protocols",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "Blocked operation: Generating 10 questions across six unprovided thematic directions failed due to missing explicit directions, causing an operation applicability gap and open-world object-generation block.",
+            "grounds": "Current scene and materials lack the required thematic directions; operation-applicability protocol and open-world rules prevent generating questions without explicit targets."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_c7043b2b8bef",
+                "generating_state_ref": "scene.materials.scope",
+                "cause_object_ref": "pending thematic directions (six)",
+                "source_status": "typed_state",
+                "phase_relevance": "S5 — operation applicability, attention and memory recruit fail due to missing explicit thematic directions",
+                "materiality_reason": "Material thematic directions are required to validly distribute generated questions; absence causes operation applicability gap and blocks legitimate attention/memory recruitment"
+              },
+              {
+                "trigger_id": "tgap_bec5098461f6",
+                "generating_state_ref": "scene.materials.scope",
+                "cause_object_ref": "pending thematic directions (six)",
+                "source_status": "typed_state",
+                "phase_relevance": "S5 — operation, attention and memory recruitment blocked: object generation not allowed, nearest-class coercion prevented",
+                "materiality_reason": "Operation cannot proceed without the six thematic directions; attempting to generate questions would force unsupported object synthesis violating open-world and operation applicability protocols"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Blocked operation: Generating 10 questions across six unprovided thematic directions failed due to missing explicit directions, causing an operation applicability gap and open-world object-generation block.",
+              "grounds": "Current scene and materials lack the required thematic directions; operation-applicability protocol and open-world rules prevent generating questions without explicit targets."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16034,
+        "tokens_out": 328,
+        "latency_ms": 12689,
+        "error": "",
+        "request_hash": "adfac3ce44f27f48d9f9c48465b67147f8073a0cc8b633824206e2a9ec702e99",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 4475,
+            "sha256": "057fcdcbc1b57545"
+          },
+          {
+            "role": "user",
+            "bytes": 189,
+            "sha256": "5b6b5154b90962bd"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "unset",
+            "human_resolved": false,
+            "return_reason": "Cannot execute: human owner has not yet provided the six thematic directions required for question generation. Ownership of the decisive thematic unit remains unresolved and is returned for user binding."
+          },
+          "triggers": [
+            {
+              "trigger_id": "tgap_c7043b2b8bef",
+              "generating_state_ref": "scene.materials.scope",
+              "cause_object_ref": "pending thematic directions (six)",
+              "source_status": "typed_state",
+              "phase_relevance": "operation applicability and binding",
+              "materiality_reason": "Break in applicability: explicit thematic directions are necessary for the requested intellectual operation (generating targeted questions), and cannot be force-produced or filled by SYSTEM. Human must bind the themes before the operation can proceed.",
+              "admitting_rule": "open-world object generation barred without decisive thematic binding"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "Blocked operation: Generating 10 questions across six unprovided thematic directions failed due to missing explicit directions, causing an operation applicability gap and open-world object-generation block.",
+            "grounds": "Current scene and materials lack the required thematic directions; operation-applicability protocol and open-world rules prevent generating questions without explicit targets."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "unset",
+              "human_resolved": false,
+              "return_reason": "Cannot execute: human owner has not yet provided the six thematic directions required for question generation. Ownership of the decisive thematic unit remains unresolved and is returned for user binding."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_c7043b2b8bef",
+                "generating_state_ref": "scene.materials.scope",
+                "cause_object_ref": "pending thematic directions (six)",
+                "source_status": "typed_state",
+                "phase_relevance": "operation applicability and binding",
+                "materiality_reason": "Break in applicability: explicit thematic directions are necessary for the requested intellectual operation (generating targeted questions), and cannot be force-produced or filled by SYSTEM. Human must bind the themes before the operation can proceed.",
+                "admitting_rule": "open-world object generation barred without decisive thematic binding"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Blocked operation: Generating 10 questions across six unprovided thematic directions failed due to missing explicit directions, causing an operation applicability gap and open-world object-generation block.",
+              "grounds": "Current scene and materials lack the required thematic directions; operation-applicability protocol and open-world rules prevent generating questions without explicit targets."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14651,
+        "tokens_out": 292,
+        "latency_ms": 6178,
+        "error": "",
+        "request_hash": "29b7c0547484e04b842d9d1030badd67d4f7ea5702914bbf516db83c249a96fd",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 6656,
+            "sha256": "1e2673e1bba1c449"
+          },
+          {
+            "role": "user",
+            "bytes": 189,
+            "sha256": "5b6b5154b90962bd"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "TRIG_HUMAN_BINDING_REQUIRED_THEMATIC_DIRECTIONS",
+              "generating_state_ref": "scene.materials.scope",
+              "cause_object_ref": "pending thematic directions (six)",
+              "source_status": "typed_state",
+              "phase_relevance": "S8_intervention_selection",
+              "materiality_reason": "Operation GENERATE_QUESTIONS_ACROSS_THEMATIC_DIRECTIONS is inapplicable and open-world gap exists: six thematic directions required for question distribution are missing from the user's materials.",
+              "admitting_rule": "B10 intervention grammar and CORE applicability require return of human-owned binding when operation applicability is blocked by missing decisive unit."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": false,
+            "triggers": [
+              {
+                "trigger_id": "TRIG_HUMAN_BINDING_REQUIRED_THEMATIC_DIRECTIONS",
+                "generating_state_ref": "scene.materials.scope",
+                "cause_object_ref": "pending thematic directions (six)",
+                "source_status": "typed_state",
+                "phase_relevance": "S8_intervention_selection",
+                "materiality_reason": "Operation GENERATE_QUESTIONS_ACROSS_THEMATIC_DIRECTIONS is inapplicable and open-world gap exists: six thematic directions required for question distribution are missing from the user's materials.",
+                "admitting_rule": "B10 intervention grammar and CORE applicability require return of human-owned binding when operation applicability is blocked by missing decisive unit."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14417,
+        "tokens_out": 166,
+        "latency_ms": 3813,
+        "error": "",
+        "request_hash": "625528c253b79af4b81e5c7c231a1231af9192c2834190015fde938ef72a9e4d",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 7727,
+            "sha256": "d5530c90e4439843"
+          },
+          {
+            "role": "user",
+            "bytes": 189,
+            "sha256": "5b6b5154b90962bd"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_c7043b2b8bef",
+              "generating_state_ref": "scene.materials.scope",
+              "cause_object_ref": "pending thematic directions (six)",
+              "source_status": "typed_state",
+              "phase_relevance": "operation_applicability_blocked",
+              "materiality_reason": "Материальная причина: отсутствует необходимый объект (шесть направления) для применимости генерации вопросов; дальнейший шаг требует явного указания тематики.",
+              "admitting_rule": "Type gap admitted: structural applicability block; no coercion or improvisation allowed."
+            },
+            {
+              "trigger_id": "tgap_37009c5db4c0",
+              "generating_state_ref": "scene.materials.scope",
+              "cause_object_ref": "pending thematic directions (six)",
+              "source_status": "typed_state",
+              "phase_relevance": "ownership_return_required",
+              "materiality_reason": "Ownership of the thematic unit (directions) remains unresolved and must be bound by the human owner.",
+              "admitting_rule": "Human binding required before operation can execute; trigger admitted as decisive block."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "Запрошенная генерация 10 вопросов по шести направлениям не может быть выполнена, так как сами направления не указаны — это вызывает противоречие между намерением пользователя и действующей операционной применимостью: система не может распределять вопросы по несуществующим или не определённым тематическим областям.",
+            "grounds": "В предоставленной сцене и материалах отсутствуют конкретные шесть направления, требуемые для выполнения операции; протокол применимости операций и открытый мир запрещают генерацию вопросов без явных тематических объектов."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Запрошенная генерация 10 вопросов по шести направлениям не может быть выполнена, так как сами направления не указаны — это вызывает противоречие между намерением пользователя и действующей операционной применимостью: система не может распределять вопросы по несуществующим или не определённым тематическим областям.",
+              "grounds": "В предоставленной сцене и материалах отсутствуют конкретные шесть направления, требуемые для выполнения операции; протокол применимости операций и открытый мир запрещают генерацию вопросов без явных тематических объектов."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_c7043b2b8bef",
+                "generating_state_ref": "scene.materials.scope",
+                "cause_object_ref": "pending thematic directions (six)",
+                "source_status": "typed_state",
+                "phase_relevance": "operation_applicability_blocked",
+                "materiality_reason": "Материальная причина: отсутствует необходимый объект (шесть направления) для применимости генерации вопросов; дальнейший шаг требует явного указания тематики.",
+                "admitting_rule": "Type gap admitted: structural applicability block; no coercion or improvisation allowed."
+              },
+              {
+                "trigger_id": "tgap_37009c5db4c0",
+                "generating_state_ref": "scene.materials.scope",
+                "cause_object_ref": "pending thematic directions (six)",
+                "source_status": "typed_state",
+                "phase_relevance": "ownership_return_required",
+                "materiality_reason": "Ownership of the thematic unit (directions) remains unresolved and must be bound by the human owner.",
+                "admitting_rule": "Human binding required before operation can execute; trigger admitted as decisive block."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19737,
+        "tokens_out": 399,
+        "latency_ms": 5400,
+        "error": "",
+        "request_hash": "402966450183e5509a7ec0c4ffc32756fef21fd5c475a44ba5618bd61101ebeb",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 8655,
+            "sha256": "610bc509b69c0ab6"
+          },
+          {
+            "role": "user",
+            "bytes": 189,
+            "sha256": "5b6b5154b90962bd"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_629a272cd9cb1d34",
+    "input_text": "Дай 10 вопросов по этим шести направлениям.",
+    "source_id": "src_eec2c3af747cdec2",
+    "phase": "S10",
+    "scene": {
+      "telos": "Generate 10 questions, distributed across six provided thematic directions.",
+      "role_hint": "question generator",
+      "authority": "system",
+      "materials": [
+        "user instruction: generate questions",
+        "quantity: 10",
+        "scope: six directions (not specified in current input)",
+        "language: Russian"
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "unset",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "GENERATE_QUESTIONS_ACROSS_THEMATIC_DIRECTIONS",
+      "applicable": false,
+      "why_not": "Applicability is blocked because the six thematic directions are not specified in the supplied material. The operation requires the existence of explicit themes or directions to distribute 10 questions across; without these, execution would force unsupported object generation or nearest-class coercion, violating open-world and operation applicability protocols.",
+      "open_world_gap": true
+    },
+    "ownership": {
+      "owner": "unset",
+      "human_resolved": false,
+      "return_reason": "Cannot execute: human owner has not yet provided the six thematic directions required for question generation. Ownership of the decisive thematic unit remains unresolved and is returned for user binding."
+    },
+    "council_invoked": false,
+    "execution_invoked": false,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_b6c875e584f5",
+        "proposed_trigger_type_id": "tgap_c7043b2b8bef",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene.materials.scope",
+        "cause_object_ref": "pending thematic directions (six)",
+        "phase_relevance": "operation_applicability_blocked",
+        "materiality_reason": "Материальная причина: отсутствует необходимый объект (шесть направления) для применимости генерации вопросов; дальнейший шаг требует явного указания тематики.",
+        "payload": {
+          "legacy_admitting_rule": "Type gap admitted: structural applicability block; no coercion or improvisation allowed.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      },
+      {
+        "candidate_id": "tcand_085bd1b0e840",
+        "proposed_trigger_type_id": "tgap_37009c5db4c0",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene.materials.scope",
+        "cause_object_ref": "pending thematic directions (six)",
+        "phase_relevance": "ownership_return_required",
+        "materiality_reason": "Ownership of the thematic unit (directions) remains unresolved and must be bound by the human owner.",
+        "payload": {
+          "legacy_admitting_rule": "Human binding required before operation can execute; trigger admitted as decisive block.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_a4f010d4fe10",
+        "candidate_id": "tcand_8e4ed198a7b3",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'TR_S2_SCENE_MATERIAL_SEAM_001' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_c7d782b6e6a2",
+        "candidate_id": "tcand_40a571d6e475",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_c7043b2b8bef' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_cb23ce777f7d",
+        "candidate_id": "tcand_c84d3e9bf938",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_c7043b2b8bef' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_034d91e7616c",
+        "candidate_id": "tcand_fd74ab6ee130",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_bec5098461f6' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_11bb7881633e",
+        "candidate_id": "tcand_00454cea50eb",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_c7043b2b8bef' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_f4367b2353d3",
+        "candidate_id": "tcand_bb31b27663d2",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'TRIG_HUMAN_BINDING_REQUIRED_THEMATIC_DIRECTIONS' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_c7043b2b8bef",
+        "candidate_id": "tcand_8e4ed198a7b3",
+        "cause_object_ref": "pending thematic directions (six)",
+        "generating_state_ref": "scene.materials.scope",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'TR_S2_SCENE_MATERIAL_SEAM_001' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_bec5098461f6",
+        "candidate_id": "tcand_40a571d6e475",
+        "cause_object_ref": "pending thematic directions (six)",
+        "generating_state_ref": "scene.materials.scope",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_c7043b2b8bef' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_915a9165f0f9",
+        "candidate_id": "tcand_c84d3e9bf938",
+        "cause_object_ref": "pending thematic directions (six)",
+        "generating_state_ref": "scene.materials.scope",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_c7043b2b8bef' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_d79047c2f887",
+        "candidate_id": "tcand_fd74ab6ee130",
+        "cause_object_ref": "pending thematic directions (six)",
+        "generating_state_ref": "scene.materials.scope",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_bec5098461f6' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_08b957b26afa",
+        "candidate_id": "tcand_00454cea50eb",
+        "cause_object_ref": "pending thematic directions (six)",
+        "generating_state_ref": "scene.materials.scope",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_c7043b2b8bef' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_37009c5db4c0",
+        "candidate_id": "tcand_bb31b27663d2",
+        "cause_object_ref": "pending thematic directions (six)",
+        "generating_state_ref": "scene.materials.scope",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'TRIG_HUMAN_BINDING_REQUIRED_THEMATIC_DIRECTIONS' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "Запрошенная генерация 10 вопросов по шести направлениям не может быть выполнена, так как сами направления не указаны — это вызывает противоречие между намерением пользователя и действующей операционной применимостью: система не может распределять вопросы по несуществующим или не определённым тематическим областям.",
+      "grounds": "В предоставленной сцене и материалах отсутствуют конкретные шесть направления, требуемые для выполнения операции; протокол применимости операций и открытый мир запрещают генерацию вопросов без явных тематических объектов."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": []
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DECISION_SEPARATING",
+      "selected_level": "PEER_PLUS_SUBORDINATE",
+      "hierarchy_policy": "PRIMARY_PLUS_TYPED_SUBORDINATE",
+      "target_forks_or_unknowns": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6"
+      ],
+      "explicit_count_constraint": 10,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Что различает «Направление 1» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "D1",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Направление 2» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "D2",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Направление 3» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "D3",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Направление 4» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "D4",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Направление 5» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "D5",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Направление 6» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "D6",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Подвопрос: Что различает «Подсценарий 1а» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "D1.a",
+          "parent_fork_ref": "D1",
+          "is_subordinate": true
+        },
+        {
+          "text": "Подвопрос: Что различает «Подсценарий 2а» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "D2.a",
+          "parent_fork_ref": "D2",
+          "is_subordinate": true
+        },
+        {
+          "text": "Подвопрос: Что различает «Подсценарий 3а» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "D3.a",
+          "parent_fork_ref": "D3",
+          "is_subordinate": true
+        },
+        {
+          "text": "Подвопрос: Что различает «Подсценарий 4а» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "D4.a",
+          "parent_fork_ref": "D4",
+          "is_subordinate": true
+        }
+      ],
+      "primary_count": 6,
+      "subordinate_count": 4,
+      "total_count": 10,
+      "stop_reason": "EXPLICIT_COUNT_EXCEEDS_PEERS",
+      "stop_reason_grounds": "explicit count 10 > material peer count 6; returning 6 peers plus 4 explicitly typed subordinate items (fake peer forks NOT fabricated to reach N)",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "UNSET",
+      "ownership_resolved": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    }
+  },
+  "rendering": {
+    "text": "Режим вопросов: DECISION_SEPARATING. Уровень: PEER_PLUS_SUBORDINATE. Всего: 10 (основных: 6, подчинённых: 4).\n1. Что различает «Направление 1» от смежных вариантов?\n2. Что различает «Направление 2» от смежных вариантов?\n3. Что различает «Направление 3» от смежных вариантов?\n4. Что различает «Направление 4» от смежных вариантов?\n5. Что различает «Направление 5» от смежных вариантов?\n6. Что различает «Направление 6» от смежных вариантов?\nПодвопросы:\n  6.1 Подвопрос: Что различает «Подсценарий 1а» от смежных вариантов? [родитель: D1]\n  6.2 Подвопрос: Что различает «Подсценарий 2а» от смежных вариантов? [родитель: D2]\n  6.3 Подвопрос: Что различает «Подсценарий 3а» от смежных вариантов? [родитель: D3]\n  6.4 Подвопрос: Что различает «Подсценарий 4а» от смежных вариантов? [родитель: D4]",
+    "mode": "QUESTION_SET_PLAN_AUTHORED",
+    "provider_status": "NOT_APPLICABLE",
+    "provider_id": "",
+    "model_id": "",
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "latency_ms": 0,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_0907ff09a006ab2d.json",
+  "duration_ms": 46393,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": {
+    "purpose": "fork_discrimination",
+    "question_regime": "DECISION_SEPARATING",
+    "selected_level": "PEER_PLUS_SUBORDINATE",
+    "hierarchy_policy": "PRIMARY_PLUS_TYPED_SUBORDINATE",
+    "target_forks_or_unknowns": [
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6"
+    ],
+    "explicit_count_constraint": 10,
+    "question_budget_ceiling": 12,
+    "selected_questions": [
+      {
+        "text": "Что различает «Направление 1» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "D1",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Направление 2» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "D2",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Направление 3» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "D3",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Направление 4» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "D4",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Направление 5» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "D5",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Направление 6» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "D6",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Подвопрос: Что различает «Подсценарий 1а» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "D1.a",
+        "parent_fork_ref": "D1",
+        "is_subordinate": true
+      },
+      {
+        "text": "Подвопрос: Что различает «Подсценарий 2а» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "D2.a",
+        "parent_fork_ref": "D2",
+        "is_subordinate": true
+      },
+      {
+        "text": "Подвопрос: Что различает «Подсценарий 3а» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "D3.a",
+        "parent_fork_ref": "D3",
+        "is_subordinate": true
+      },
+      {
+        "text": "Подвопрос: Что различает «Подсценарий 4а» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "D4.a",
+        "parent_fork_ref": "D4",
+        "is_subordinate": true
+      }
+    ],
+    "primary_count": 6,
+    "subordinate_count": 4,
+    "total_count": 10,
+    "stop_reason": "EXPLICIT_COUNT_EXCEEDS_PEERS",
+    "stop_reason_grounds": "explicit count 10 > material peer count 6; returning 6 peers plus 4 explicitly typed subordinate items (fake peer forks NOT fabricated to reach N)",
+    "clarification_required": false,
+    "clarification_grounds": "",
+    "meta_escalation": "NONE",
+    "ownership_owner": "UNSET",
+    "ownership_resolved": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  }
+}

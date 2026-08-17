@@ -1,0 +1,1753 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_2195fa49d548038d",
+  "trace_id": "strc_0fef3269b7828d2c",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "[ANSWER] Проанализировать возможные варианты стратегии, оценить их преимущества и недостатки.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": {
+      "kind": "recurring_pattern",
+      "text": "Scene-level analysis requests often provide only generic instructions (e.g., 'Проанализируй варианты стратегии') without concrete detail about the available strategic variants. In such cases, the system must recognize and document analytic gaps, segment only what is supported by evidence, and preserve analytic residue rather than forcing unverifiable distinctions.",
+      "grounds": "This pattern is observed from the current input and supporting phase logic: segmentation is constrained by input substance; preservation of analytic gaps and residue is required when evidence for distinct variants is lacking."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "All mandatory semantic bodies (CORE, B05, B07) mounted and verified by exact ID/version. No explicit triggers for memory governance or reflective retreat recognized in initial pipeline state. The request is general ('Проанализируй варианты стратегии.'), lacking explicit telos, role, authority, or material memory/context reuse need.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15155,
+        "tokens_out": 87,
+        "latency_ms": 3911,
+        "error": "",
+        "request_hash": "0ab2beaed6d1f0d663eeedce8d7d6d363091f05f6b22cd35e635899de2cb7929",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2033,
+            "sha256": "095ad11d893d6714"
+          },
+          {
+            "role": "user",
+            "bytes": 175,
+            "sha256": "920a749037252d66"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Проанализировать возможные варианты стратегии, оценить их преимущества и недостатки.",
+            "role_hint": "анализатор, консультант",
+            "authority": "system",
+            "materials": [
+              "Запрос: анализ вариантов стратегии",
+              "Исходный текст: 'Проанализируй варианты стратегии.'"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Проанализировать возможные варианты стратегии, оценить их преимущества и недостатки.",
+              "role_hint": "анализатор, консультант",
+              "authority": "system",
+              "materials": [
+                "Запрос: анализ вариантов стратегии",
+                "Исходный текст: 'Проанализируй варианты стратегии.'"
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13203,
+        "tokens_out": 86,
+        "latency_ms": 3020,
+        "error": "",
+        "request_hash": "dc961773f801918cb746719ad4ac0656f19d7fa6be91242e1cb4edbb447e1284",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2032,
+            "sha256": "34e5e1f32e3c7920"
+          },
+          {
+            "role": "user",
+            "bytes": 175,
+            "sha256": "920a749037252d66"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "scene_analysis_requested",
+              "generating_state_ref": "scene.telos",
+              "cause_object_ref": "input_text",
+              "source_status": "typed_state",
+              "phase_relevance": "stated telos directly triggers analysis operation",
+              "materiality_reason": "The request to analyze strategic options makes the analysis operation materially relevant; this is the explicit purpose for the phase.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "scene_analysis_requested",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "stated telos directly triggers analysis operation",
+                "materiality_reason": "The request to analyze strategic options makes the analysis operation materially relevant; this is the explicit purpose for the phase."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15180,
+        "tokens_out": 101,
+        "latency_ms": 3817,
+        "error": "",
+        "request_hash": "4642445bf5f610f2c6b44fe4c251535f56a49f6d844cd9e2bc3624786a918805",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 2417,
+            "sha256": "19f85dad82d7dd40"
+          },
+          {
+            "role": "user",
+            "bytes": 175,
+            "sha256": "920a749037252d66"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "unset",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13201,
+        "tokens_out": 41,
+        "latency_ms": 2695,
+        "error": "",
+        "request_hash": "b65e63595872161303ff29bc4ce0abb1514f84fdf8cdf842d226681ce28320c9",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 3270,
+            "sha256": "0536b58f05fe720a"
+          },
+          {
+            "role": "user",
+            "bytes": 175,
+            "sha256": "920a749037252d66"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "STRATEGY_ANALYSIS",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": {
+            "proposal_id": "psyn_srun_2195fa49d548038d_01",
+            "operation_id": "op_srun_2195fa49d548038d_01",
+            "target_object_family": [
+              "strategy_variant",
+              "advantage",
+              "disadvantage"
+            ],
+            "ontology_hypothesis": "Local analytic ontology includes strategic variants as objects; each variant may be segmented with associated advantages and disadvantages.",
+            "recognition_criteria": [
+              "Text fragment describes a distinct strategic option.",
+              "Advantages and disadvantages are explicitly or implicitly marked or can be reconstructed given context."
+            ],
+            "segmentation_policy_hint": "Segment input into strategy variants, then for each variant enumerate advantages and disadvantages as discrete units.",
+            "evidence_requirements": [
+              "Presence of multiple strategic options or plausible alternatives in context.",
+              "Contextual cues for pros/cons."
+            ],
+            "exclusions": [],
+            "contraindications": [
+              "Absence of plausible alternatives for segmentation.",
+              "Insufficient evidence for distinguishing advantages/disadvantages."
+            ],
+            "applicability_assumptions": [
+              "User intent is generic analytic breakdown.",
+              "Material is minimal: input supplies prompt but not object substance."
+            ],
+            "primitives": [
+              {
+                "name": "segment_strategic_variants",
+                "primitive_id": "prim_segment_strategy_01",
+                "params": {
+                  "language": "ru"
+                },
+                "inputs": [
+                  "input_text"
+                ]
+              },
+              {
+                "name": "extract_advantages_disadvantages",
+                "primitive_id": "prim_extract_adv_disadv_01",
+                "params": {
+                  "language": "ru"
+                },
+                "inputs": [
+                  "segmented_variants"
+                ]
+              }
+            ],
+            "accepted_output": "List or table of each identified strategy variant, with associated advantages and disadvantages.",
+            "residue_output": "If no variants are identifiable (due to minimal input), return an empty variant list and preserve analytic gap note.",
+            "revises_projection_id": "",
+            "triggered_by_diagnostic_id": "",
+            "triggered_by_diagnostic_fingerprint": "",
+            "rationale": "Input requests analytic breakdown of strategic options, which licenses segmentation and associated property extraction. Lack of object substance does not require coercion; valid output includes partial or empty extraction.",
+            "expected_diagnostics": "Possible insufficiency of input detail for full segmentation; analytically valid to report empty or partial object set.",
+            "expected_residue_policy": "Residue preserved as analytic gap, not forced into nearest class."
+          },
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "STRATEGY_ANALYSIS",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "triggers": [],
+            "projection_synthesis_proposal": {
+              "proposal_id": "psyn_srun_2195fa49d548038d_01",
+              "operation_id": "op_srun_2195fa49d548038d_01",
+              "target_object_family": [
+                "strategy_variant",
+                "advantage",
+                "disadvantage"
+              ],
+              "ontology_hypothesis": "Local analytic ontology includes strategic variants as objects; each variant may be segmented with associated advantages and disadvantages.",
+              "recognition_criteria": [
+                "Text fragment describes a distinct strategic option.",
+                "Advantages and disadvantages are explicitly or implicitly marked or can be reconstructed given context."
+              ],
+              "segmentation_policy_hint": "Segment input into strategy variants, then for each variant enumerate advantages and disadvantages as discrete units.",
+              "evidence_requirements": [
+                "Presence of multiple strategic options or plausible alternatives in context.",
+                "Contextual cues for pros/cons."
+              ],
+              "exclusions": [],
+              "contraindications": [
+                "Absence of plausible alternatives for segmentation.",
+                "Insufficient evidence for distinguishing advantages/disadvantages."
+              ],
+              "applicability_assumptions": [
+                "User intent is generic analytic breakdown.",
+                "Material is minimal: input supplies prompt but not object substance."
+              ],
+              "primitives": [
+                {
+                  "name": "segment_strategic_variants",
+                  "primitive_id": "prim_segment_strategy_01",
+                  "params": {
+                    "language": "ru"
+                  },
+                  "inputs": [
+                    "input_text"
+                  ]
+                },
+                {
+                  "name": "extract_advantages_disadvantages",
+                  "primitive_id": "prim_extract_adv_disadv_01",
+                  "params": {
+                    "language": "ru"
+                  },
+                  "inputs": [
+                    "segmented_variants"
+                  ]
+                }
+              ],
+              "accepted_output": "List or table of each identified strategy variant, with associated advantages and disadvantages.",
+              "residue_output": "If no variants are identifiable (due to minimal input), return an empty variant list and preserve analytic gap note.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "",
+              "triggered_by_diagnostic_fingerprint": "",
+              "rationale": "Input requests analytic breakdown of strategic options, which licenses segmentation and associated property extraction. Lack of object substance does not require coercion; valid output includes partial or empty extraction.",
+              "expected_diagnostics": "Possible insufficiency of input detail for full segmentation; analytically valid to report empty or partial object set.",
+              "expected_residue_policy": "Residue preserved as analytic gap, not forced into nearest class."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14245,
+        "tokens_out": 610,
+        "latency_ms": 7344,
+        "error": "",
+        "request_hash": "5ecb12c9bc68a49de1c722f7a66dac839514d5be7ae94a2a6aecc8cdc8920549",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 3270,
+            "sha256": "966d33717c586eb9"
+          },
+          {
+            "role": "user",
+            "bytes": 175,
+            "sha256": "920a749037252d66"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_42e31d9ae696",
+              "generating_state_ref": "scene.telos",
+              "cause_object_ref": "input_text",
+              "source_status": "typed_state",
+              "phase_relevance": "S5_attention_memory",
+              "materiality_reason": "Scene-level telos requests generic analytic breakdown; candidate trigger type 'scene_analysis_requested' absent in registry; gap is material for segmentation and memory recruitment.",
+              "admitting_rule": "Registry gap reporting rule. Segmentation may proceed with explicit gap residue preserved (do not force into nearest registry class)."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "recurring_pattern",
+            "text": "Scene-level analysis requests are often minimal, containing only the instruction to analyze with no object substance. Segmentation must explicitly handle analytic gaps and preserve residue where variants cannot be reliably distinguished.",
+            "grounds": "Observed input pattern (‘Проанализируй варианты стратегии’) and phase projection logic: operation and ontology hypotheses admit partial/empty variant extraction; analytic gap recognition is documented."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_42e31d9ae696",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "S5_attention_memory",
+                "materiality_reason": "Scene-level telos requests generic analytic breakdown; candidate trigger type 'scene_analysis_requested' absent in registry; gap is material for segmentation and memory recruitment.",
+                "admitting_rule": "Registry gap reporting rule. Segmentation may proceed with explicit gap residue preserved (do not force into nearest registry class)."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "recurring_pattern",
+              "text": "Scene-level analysis requests are often minimal, containing only the instruction to analyze with no object substance. Segmentation must explicitly handle analytic gaps and preserve residue where variants cannot be reliably distinguished.",
+              "grounds": "Observed input pattern (‘Проанализируй варианты стратегии’) and phase projection logic: operation and ontology hypotheses admit partial/empty variant extraction; analytic gap recognition is documented."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16235,
+        "tokens_out": 241,
+        "latency_ms": 4223,
+        "error": "",
+        "request_hash": "74417835de9042ffebee135d20891c572ddc43dfea647b63b154e5defd14fd25",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 5924,
+            "sha256": "13243178e53b3785"
+          },
+          {
+            "role": "user",
+            "bytes": 175,
+            "sha256": "920a749037252d66"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "system",
+            "human_resolved": true,
+            "return_reason": "Criterion and telos are explicit: the user requests a generic analysis of strategy variants with no binding of human-owned value, risk appetite, or consequential commitment. Operation is system-owned, execution carries no developmental or commitment transfer risk, and does not require Socratic return or question branch."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "recurring_pattern",
+            "text": "Scene-level analysis requests are often minimal, containing only the instruction to analyze with no object substance. Segmentation must explicitly handle analytic gaps and preserve residue where variants cannot be reliably distinguished.",
+            "grounds": "Observed input pattern (‘Проанализируй варианты стратегии’) and phase projection logic: operation and ontology hypotheses admit partial/empty variant extraction; analytic gap recognition is documented."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "Criterion and telos are explicit: the user requests a generic analysis of strategy variants with no binding of human-owned value, risk appetite, or consequential commitment. Operation is system-owned, execution carries no developmental or commitment transfer risk, and does not require Socratic return or question branch."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "recurring_pattern",
+              "text": "Scene-level analysis requests are often minimal, containing only the instruction to analyze with no object substance. Segmentation must explicitly handle analytic gaps and preserve residue where variants cannot be reliably distinguished.",
+              "grounds": "Observed input pattern (‘Проанализируй варианты стратегии’) and phase projection logic: operation and ontology hypotheses admit partial/empty variant extraction; analytic gap recognition is documented."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14615,
+        "tokens_out": 192,
+        "latency_ms": 5219,
+        "error": "",
+        "request_hash": "38f2b672000cf9a8c00244011557086da7f3a0df62ac90110c59f40421e69ac0",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 7299,
+            "sha256": "9ea5c11457849e97"
+          },
+          {
+            "role": "user",
+            "bytes": 175,
+            "sha256": "920a749037252d66"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14160,
+        "tokens_out": 16,
+        "latency_ms": 3519,
+        "error": "",
+        "request_hash": "b07f807d312b23a5c297ac6371c582cafd7f567f3da0537a51c101bbdafc9f19",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 7620,
+            "sha256": "26dcc1cabfb5255a"
+          },
+          {
+            "role": "user",
+            "bytes": 175,
+            "sha256": "920a749037252d66"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S9",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S9",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "recurring_pattern",
+            "text": "Scene-level analysis requests are frequently minimal, containing only the instruction to analyze strategic variants with no object substance. Segmentation must explicitly handle analytic gaps and preserve analytic residue when the input offers insufficient evidence to reliably distinguish variants.",
+            "grounds": "Observed input pattern ('Проанализируй варианты стратегии') and phase projection logic: operation and ontology hypotheses admit partial/empty variant extraction; analytic gap recognition and residue preservation are documented."
+          },
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "memory_proposal": {
+              "kind": "recurring_pattern",
+              "text": "Scene-level analysis requests are frequently minimal, containing only the instruction to analyze strategic variants with no object substance. Segmentation must explicitly handle analytic gaps and preserve analytic residue when the input offers insufficient evidence to reliably distinguish variants.",
+              "grounds": "Observed input pattern ('Проанализируй варианты стратегии') and phase projection logic: operation and ontology hypotheses admit partial/empty variant extraction; analytic gap recognition and residue preservation are documented."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19024,
+        "tokens_out": 118,
+        "latency_ms": 4069,
+        "error": "",
+        "request_hash": "a732f4343f46f7ad6103df8e6ca6f07d231687a8bf2f22fc2433562247b3766f",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 870,
+            "sha256": "b3c49d62f2113bb1"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "d84c9263f7722a13"
+          },
+          {
+            "role": "user",
+            "bytes": 7619,
+            "sha256": "48177fe72369fec1"
+          },
+          {
+            "role": "user",
+            "bytes": 175,
+            "sha256": "920a749037252d66"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_42e31d9ae696",
+              "generating_state_ref": "scene.telos",
+              "cause_object_ref": "input_text",
+              "source_status": "typed_state",
+              "phase_relevance": "Segmentation and analysis pipeline must address analytic gaps due to minimal input.",
+              "materiality_reason": "The input only requests analysis of 'strategy variants' without providing concrete options. Analytic reliability requires explicit gap and residue management.",
+              "admitting_rule": "Type gap registered: 'scene_analysis_requested' not present in default type registry; analytic gap is materially grounded and not to be coerced."
+            },
+            {
+              "trigger_id": "tgap_ae36d978e201",
+              "generating_state_ref": "scene.telos",
+              "cause_object_ref": "input_text",
+              "source_status": "typed_state",
+              "phase_relevance": "Confirms registry and analytic type gap exists for this minimal instruction.",
+              "materiality_reason": "No specific strategy variant detail is present to support further segmentation; valid to retain analytic gap and avoid forced classification.",
+              "admitting_rule": "Type gap explicitly registered; coercion forbidden, residue and analytic gap must be preserved."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "recurring_pattern",
+            "text": "Scene-level analysis requests often provide only generic instructions (e.g., 'Проанализируй варианты стратегии') without concrete detail about the available strategic variants. In such cases, the system must recognize and document analytic gaps, segment only what is supported by evidence, and preserve analytic residue rather than forcing unverifiable distinctions.",
+            "grounds": "This pattern is observed from the current input and supporting phase logic: segmentation is constrained by input substance; preservation of analytic gaps and residue is required when evidence for distinct variants is lacking."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "recurring_pattern",
+              "text": "Scene-level analysis requests often provide only generic instructions (e.g., 'Проанализируй варианты стратегии') without concrete detail about the available strategic variants. In such cases, the system must recognize and document analytic gaps, segment only what is supported by evidence, and preserve analytic residue rather than forcing unverifiable distinctions.",
+              "grounds": "This pattern is observed from the current input and supporting phase logic: segmentation is constrained by input substance; preservation of analytic gaps and residue is required when evidence for distinct variants is lacking."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_42e31d9ae696",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Segmentation and analysis pipeline must address analytic gaps due to minimal input.",
+                "materiality_reason": "The input only requests analysis of 'strategy variants' without providing concrete options. Analytic reliability requires explicit gap and residue management.",
+                "admitting_rule": "Type gap registered: 'scene_analysis_requested' not present in default type registry; analytic gap is materially grounded and not to be coerced."
+              },
+              {
+                "trigger_id": "tgap_ae36d978e201",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Confirms registry and analytic type gap exists for this minimal instruction.",
+                "materiality_reason": "No specific strategy variant detail is present to support further segmentation; valid to retain analytic gap and avoid forced classification.",
+                "admitting_rule": "Type gap explicitly registered; coercion forbidden, residue and analytic gap must be preserved."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19232,
+        "tokens_out": 402,
+        "latency_ms": 7547,
+        "error": "",
+        "request_hash": "a0e6256e6af0e895745c170654e3cacdf64a9c6d96fd507e6950819b05b47eac",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 7703,
+            "sha256": "5d486597e95aef50"
+          },
+          {
+            "role": "user",
+            "bytes": 175,
+            "sha256": "920a749037252d66"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_2195fa49d548038d",
+    "input_text": "Проанализируй варианты стратегии.",
+    "source_id": "src_3cd21ab901d41107",
+    "phase": "S10",
+    "scene": {
+      "telos": "Проанализировать возможные варианты стратегии, оценить их преимущества и недостатки.",
+      "role_hint": "анализатор, консультант",
+      "authority": "system",
+      "materials": [
+        "Запрос: анализ вариантов стратегии",
+        "Исходный текст: 'Проанализируй варианты стратегии.'"
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "unset",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "STRATEGY_ANALYSIS",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "system",
+      "human_resolved": true,
+      "return_reason": "Criterion and telos are explicit: the user requests a generic analysis of strategy variants with no binding of human-owned value, risk appetite, or consequential commitment. Operation is system-owned, execution carries no developmental or commitment transfer risk, and does not require Socratic return or question branch."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_715954af8087",
+        "proposed_trigger_type_id": "tgap_42e31d9ae696",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene.telos",
+        "cause_object_ref": "input_text",
+        "phase_relevance": "Segmentation and analysis pipeline must address analytic gaps due to minimal input.",
+        "materiality_reason": "The input only requests analysis of 'strategy variants' without providing concrete options. Analytic reliability requires explicit gap and residue management.",
+        "payload": {
+          "legacy_admitting_rule": "Type gap registered: 'scene_analysis_requested' not present in default type registry; analytic gap is materially grounded and not to be coerced.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      },
+      {
+        "candidate_id": "tcand_618a61f69626",
+        "proposed_trigger_type_id": "tgap_ae36d978e201",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene.telos",
+        "cause_object_ref": "input_text",
+        "phase_relevance": "Confirms registry and analytic type gap exists for this minimal instruction.",
+        "materiality_reason": "No specific strategy variant detail is present to support further segmentation; valid to retain analytic gap and avoid forced classification.",
+        "payload": {
+          "legacy_admitting_rule": "Type gap explicitly registered; coercion forbidden, residue and analytic gap must be preserved.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_1c994ff57c9f",
+        "candidate_id": "tcand_617e3fb39441",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'scene_analysis_requested' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_41c3c32eda2c",
+        "candidate_id": "tcand_818338afc9b0",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_42e31d9ae696' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_42e31d9ae696",
+        "candidate_id": "tcand_617e3fb39441",
+        "cause_object_ref": "input_text",
+        "generating_state_ref": "scene.telos",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'scene_analysis_requested' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_ae36d978e201",
+        "candidate_id": "tcand_818338afc9b0",
+        "cause_object_ref": "input_text",
+        "generating_state_ref": "scene.telos",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_42e31d9ae696' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "recurring_pattern",
+      "text": "Scene-level analysis requests often provide only generic instructions (e.g., 'Проанализируй варианты стратегии') without concrete detail about the available strategic variants. In such cases, the system must recognize and document analytic gaps, segment only what is supported by evidence, and preserve analytic residue rather than forcing unverifiable distinctions.",
+      "grounds": "This pattern is observed from the current input and supporting phase logic: segmentation is constrained by input substance; preservation of analytic gaps and residue is required when evidence for distinct variants is lacking."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": [
+        {
+          "projection_id": "gap:gap_05cd05036e81",
+          "signals": [
+            "APPLICABILITY_FAILURE"
+          ],
+          "reason": "ORGAN_GAP for operation 'op_srun_2195fa49d548038d_01': model proposal for 'op_srun_2195fa49d548038d_01' could not compile-bind against registered primitives",
+          "residue_ratio": 1.0,
+          "recognition_failure_count": 0,
+          "suggested_operation": "",
+          "suggested_ontology": "",
+          "suggested_target_family": [],
+          "mismatch": true,
+          "fingerprint": "7c80351f23b3"
+        }
+      ]
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [
+      {
+        "kind": "ORGAN_GAP",
+        "operation_id": "op_srun_2195fa49d548038d_01",
+        "reason": "proposal psyn_srun_2195fa49d548038d_01 for operation 'op_srun_2195fa49d548038d_01' failed compile-bind: primitive 'prim_segment_strategy_01' (invocation 'segment_strategic_variants') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+        "registered_capability_id": "",
+        "generated_spec": null,
+        "binding_evidence": {},
+        "organ_gap": {
+          "gap_id": "gap_05cd05036e81",
+          "source_ref": "src_3cd21ab901d41107",
+          "scene_ref": "Проанализировать возможные варианты стратегии, оценить их преимущества и недостатки.",
+          "required_operation": "op_srun_2195fa49d548038d_01",
+          "required_attention_structure": "Segment input into strategy variants, then for each variant enumerate advantages and disadvantages as discrete units.",
+          "insufficient_registered_capabilities": [
+            "DIFFERENTIATED_ACCOUNT",
+            "EXTRACT_CONCEPTS"
+          ],
+          "insufficient_declarative_primitives": [
+            "CoverageComputer",
+            "FamilyClassifier",
+            "SpanScanner",
+            "TargetFilter"
+          ],
+          "missing_capability_hypothesis": "model proposal for 'op_srun_2195fa49d548038d_01' could not compile-bind against registered primitives",
+          "evidence": [
+            "BindingError: primitive 'prim_segment_strategy_01' (invocation 'segment_strategic_variants') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+          ],
+          "counterexamples": [],
+          "affected_scene_telos": "Проанализировать возможные варианты стратегии, оценить их преимущества и недостатки.",
+          "possible_development_direction": "extend primitive registry or narrow the proposal",
+          "status": "unresolved",
+          "activation_authority": "NONE"
+        }
+      }
+    ],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DECISION_SEPARATING",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Что различает «Стратегия A» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "S1",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Стратегия B» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "S2",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Стратегия C» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "S3",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Стратегия D» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "S4",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Стратегия E» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "S5",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Стратегия F» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "S6",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Стратегия G» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "S7",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        }
+      ],
+      "primary_count": 7,
+      "subordinate_count": 0,
+      "total_count": 7,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (7) — adding more would either paraphrase or drop below peer level",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "SYSTEM",
+      "ownership_resolved": true,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    }
+  },
+  "rendering": {
+    "text": "Режим вопросов: DECISION_SEPARATING. Уровень: PEER. Всего: 7 (основных: 7).\n1. Что различает «Стратегия A» от смежных вариантов?\n2. Что различает «Стратегия B» от смежных вариантов?\n3. Что различает «Стратегия C» от смежных вариантов?\n4. Что различает «Стратегия D» от смежных вариантов?\n5. Что различает «Стратегия E» от смежных вариантов?\n6. Что различает «Стратегия F» от смежных вариантов?\n7. Что различает «Стратегия G» от смежных вариантов?",
+    "mode": "QUESTION_SET_PLAN_AUTHORED",
+    "provider_status": "NOT_APPLICABLE",
+    "provider_id": "",
+    "model_id": "",
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "latency_ms": 0,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_0fef3269b7828d2c.json",
+  "duration_ms": 45452,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": {
+    "purpose": "fork_discrimination",
+    "question_regime": "DECISION_SEPARATING",
+    "selected_level": "PEER",
+    "hierarchy_policy": "PRIMARY_ONLY",
+    "target_forks_or_unknowns": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7"
+    ],
+    "explicit_count_constraint": null,
+    "question_budget_ceiling": 12,
+    "selected_questions": [
+      {
+        "text": "Что различает «Стратегия A» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "S1",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Стратегия B» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "S2",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Стратегия C» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "S3",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Стратегия D» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "S4",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Стратегия E» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "S5",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Стратегия F» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "S6",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Стратегия G» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "S7",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      }
+    ],
+    "primary_count": 7,
+    "subordinate_count": 0,
+    "total_count": 7,
+    "stop_reason": "COVERAGE_SATURATED",
+    "stop_reason_grounds": "no explicit count; selected one question per material peer fork (7) — adding more would either paraphrase or drop below peer level",
+    "clarification_required": false,
+    "clarification_grounds": "",
+    "meta_escalation": "NONE",
+    "ownership_owner": "SYSTEM",
+    "ownership_resolved": true,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  }
+}

@@ -1,0 +1,1545 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_13598effe8c6c1d4",
+  "trace_id": "strc_ce38e39ed50411fc",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "[ANSWER] Помочь пользователю спланировать спринт по четырём фронтам, сбывая теоретические различия (маевтика и мимесис) как несущественные для текущей задачи.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "В рабочей сцене пользователь просит вопросы для планирования спринта по четырём фронтам, специально отметив, что теоретические различия между майевтикой и мимесисом для этого не существенны; основной акцент — практический.",
+      "grounds": "Запрос пользователя явный: фокус на прикладных вопросах для четырёх фронтов планирования спринта, без вовлечения философских логик. Это разграничение позволяет отделить прагматическую задачу от возможных теоретических ответвлений."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "The user request is operational: asking for sprint planning questions across four fronts. No scene/telos mismatch, role capture, memory formation, or retreat trigger is present. All mandatory semantic mounts were verified and context budget is not exceeded. No materiality triggers beyond normal operation were detected.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15231,
+        "tokens_out": 77,
+        "latency_ms": 3306,
+        "error": "",
+        "request_hash": "91df442cdcfbdb7b4aacd7844865304a98903c647bc94a39528c739bc89c5512",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2232,
+            "sha256": "345941142e561059"
+          },
+          {
+            "role": "user",
+            "bytes": 374,
+            "sha256": "a356379a0ad64fc0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Помочь пользователю спланировать спринт по четырём фронтам, сбывая теоретические различия (маевтика и мимесис) как несущественные для текущей задачи.",
+            "role_hint": "Системный помощник по планированию спринта",
+            "authority": "human",
+            "materials": [
+              "Запрос пользователя: требуется набор вопросов для планирования спринта",
+              "Уточнение пользователя: различие майевтики и мимесиса не имеет значения в данной ситуации",
+              "Фокус: четыре фронта, по которым нужно задать вопросы"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Помочь пользователю спланировать спринт по четырём фронтам, сбывая теоретические различия (маевтика и мимесис) как несущественные для текущей задачи.",
+              "role_hint": "Системный помощник по планированию спринта",
+              "authority": "human",
+              "materials": [
+                "Запрос пользователя: требуется набор вопросов для планирования спринта",
+                "Уточнение пользователя: различие майевтики и мимесиса не имеет значения в данной ситуации",
+                "Фокус: четыре фронта, по которым нужно задать вопросы"
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13279,
+        "tokens_out": 149,
+        "latency_ms": 3991,
+        "error": "",
+        "request_hash": "e747a1f86a4c6739725c46a96ddadab2efc7cc58f0ee9c05a341ca42c132e537",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2231,
+            "sha256": "ec068ba1fae25c52"
+          },
+          {
+            "role": "user",
+            "bytes": 374,
+            "sha256": "a356379a0ad64fc0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15319,
+        "tokens_out": 9,
+        "latency_ms": 2404,
+        "error": "",
+        "request_hash": "2fed5cc1911855d9a9c18d17b1a60f29ad1e0d691abfa15441b4275bd6ec5e75",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 3017,
+            "sha256": "49589067b2ab77ea"
+          },
+          {
+            "role": "user",
+            "bytes": 374,
+            "sha256": "a356379a0ad64fc0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "human",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "human",
+              "temporal_stale": false
+            },
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13104,
+        "tokens_out": 47,
+        "latency_ms": 2895,
+        "error": "",
+        "request_hash": "f5e4bef4624d64d499f9b02501561eebeeaaad3847b8b5a12385de375e643be6",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 3017,
+            "sha256": "5fd50d5108951ef2"
+          },
+          {
+            "role": "user",
+            "bytes": 374,
+            "sha256": "a356379a0ad64fc0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "GENERATE_PLANNING_QUESTIONS",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": {
+            "proposal_id": "proj_1_question_planning_fronts",
+            "operation_id": "GENERATE_PLANNING_QUESTIONS",
+            "target_object_family": [
+              "planning_questions"
+            ],
+            "ontology_hypothesis": "User requests actionable planning guidance, setting aside philosophical distinctions; focus is on four practical fronts, not theoretical analysis.",
+            "recognition_criteria": [
+              "Questions must be relevant to the sprint planning context",
+              "Each question should relate to one of the four fronts",
+              "Do not invoke maieutics/mimesis logic unless user reintroduces them"
+            ],
+            "segmentation_policy_hint": "Generate one focused set of questions for each front; avoid theoretical subdivision.",
+            "evidence_requirements": [
+              "User's explicit request",
+              "Fronts named or implied in material"
+            ],
+            "exclusions": [
+              "Philosophical exploration of maieutics/mimesis",
+              "Unrequested theoretical frameworks"
+            ],
+            "contraindications": [
+              "Irrelevance to sprint planning"
+            ],
+            "applicability_assumptions": [
+              "User intends a practical outcome",
+              "Existing knowledge about typical sprint fronts is sufficient"
+            ],
+            "primitives": [
+              {
+                "name": "generate_question_set",
+                "primitive_id": "prim_001_generate_question_set",
+                "params": {
+                  "front_count": 4
+                },
+                "inputs": [
+                  "user_request",
+                  "planning_fronts"
+                ]
+              }
+            ],
+            "accepted_output": "A set of questions, grouped by the four planning fronts, for practical use.",
+            "residue_output": "Any material referencing maieutics/mimesis, retained for possible future relevance if user shifts telos.",
+            "revises_projection_id": "",
+            "triggered_by_diagnostic_id": "",
+            "triggered_by_diagnostic_fingerprint": "",
+            "rationale": "User explicitly deprioritized theoretical distinctions, so planning questions are sufficient and applicable.",
+            "expected_diagnostics": "No open-world gap; expected to fit the practical planning unit.",
+            "expected_residue_policy": "Retain non-planning theoretical material as residue outside current projection."
+          },
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "GENERATE_PLANNING_QUESTIONS",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "triggers": [],
+            "projection_synthesis_proposal": {
+              "proposal_id": "proj_1_question_planning_fronts",
+              "operation_id": "GENERATE_PLANNING_QUESTIONS",
+              "target_object_family": [
+                "planning_questions"
+              ],
+              "ontology_hypothesis": "User requests actionable planning guidance, setting aside philosophical distinctions; focus is on four practical fronts, not theoretical analysis.",
+              "recognition_criteria": [
+                "Questions must be relevant to the sprint planning context",
+                "Each question should relate to one of the four fronts",
+                "Do not invoke maieutics/mimesis logic unless user reintroduces them"
+              ],
+              "segmentation_policy_hint": "Generate one focused set of questions for each front; avoid theoretical subdivision.",
+              "evidence_requirements": [
+                "User's explicit request",
+                "Fronts named or implied in material"
+              ],
+              "exclusions": [
+                "Philosophical exploration of maieutics/mimesis",
+                "Unrequested theoretical frameworks"
+              ],
+              "contraindications": [
+                "Irrelevance to sprint planning"
+              ],
+              "applicability_assumptions": [
+                "User intends a practical outcome",
+                "Existing knowledge about typical sprint fronts is sufficient"
+              ],
+              "primitives": [
+                {
+                  "name": "generate_question_set",
+                  "primitive_id": "prim_001_generate_question_set",
+                  "params": {
+                    "front_count": 4
+                  },
+                  "inputs": [
+                    "user_request",
+                    "planning_fronts"
+                  ]
+                }
+              ],
+              "accepted_output": "A set of questions, grouped by the four planning fronts, for practical use.",
+              "residue_output": "Any material referencing maieutics/mimesis, retained for possible future relevance if user shifts telos.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "",
+              "triggered_by_diagnostic_fingerprint": "",
+              "rationale": "User explicitly deprioritized theoretical distinctions, so planning questions are sufficient and applicable.",
+              "expected_diagnostics": "No open-world gap; expected to fit the practical planning unit.",
+              "expected_residue_policy": "Retain non-planning theoretical material as residue outside current projection."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14148,
+        "tokens_out": 531,
+        "latency_ms": 6823,
+        "error": "",
+        "request_hash": "2b6ed0541538a674803873f60e3d27ab6cc449d4a786e83b028d65bedebacfb6",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 3017,
+            "sha256": "c7cec71812aa49c0"
+          },
+          {
+            "role": "user",
+            "bytes": 374,
+            "sha256": "a356379a0ad64fc0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В данном запросе пользователь озвучил, что различия между майевтикой и мимесисом несущественны для спринта; задача — практическое планирование по четырём фронтам.",
+            "grounds": "Явное утверждение пользователя об отсутствии значения философских различий в текущем контексте; фокус сдвигается на практические вопросы для планирования."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В данном запросе пользователь озвучил, что различия между майевтикой и мимесисом несущественны для спринта; задача — практическое планирование по четырём фронтам.",
+              "grounds": "Явное утверждение пользователя об отсутствии значения философских различий в текущем контексте; фокус сдвигается на практические вопросы для планирования."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16059,
+        "tokens_out": 116,
+        "latency_ms": 3040,
+        "error": "",
+        "request_hash": "fa974c28ffd7966d3ba05e6d74d8dcad4bd83239de6c06390b946f4ebe634d5c",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 5192,
+            "sha256": "82f126371ebfa1bc"
+          },
+          {
+            "role": "user",
+            "bytes": 374,
+            "sha256": "a356379a0ad64fc0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "system",
+            "human_resolved": true,
+            "return_reason": "Explicit user request for practical planning questions; theoretical distinctions are deprioritized, and criteria for generating questions are materially unambiguous. The operation is system-owned. No question is required for ownership resolution."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В данном запросе пользователь озвучил, что различия между майевтикой и мимесисом несущественны для спринта; задача — практическое планирование по четырём фронтам.",
+            "grounds": "Явное утверждение пользователя об отсутствии значения философских различий в текущем контексте; фокус сдвигается на практические вопросы для планирования."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "Explicit user request for practical planning questions; theoretical distinctions are deprioritized, and criteria for generating questions are materially unambiguous. The operation is system-owned. No question is required for ownership resolution."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В данном запросе пользователь озвучил, что различия между майевтикой и мимесисом несущественны для спринта; задача — практическое планирование по четырём фронтам.",
+              "grounds": "Явное утверждение пользователя об отсутствии значения философских различий в текущем контексте; фокус сдвигается на практические вопросы для планирования."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14201,
+        "tokens_out": 184,
+        "latency_ms": 3932,
+        "error": "",
+        "request_hash": "aaa32ff5c8c3c99283bb0db1dd33bd4c42fecbff88a6eb357818b0790dd4a68f",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 5845,
+            "sha256": "72cee94b5f896a36"
+          },
+          {
+            "role": "user",
+            "bytes": 374,
+            "sha256": "a356379a0ad64fc0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13729,
+        "tokens_out": 16,
+        "latency_ms": 2892,
+        "error": "",
+        "request_hash": "82abde336f364562fbbd8eb8bafb4be49ec1c74ef6166c90fc4d9b81a9a63548",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 6091,
+            "sha256": "0ad2c43ff378b628"
+          },
+          {
+            "role": "user",
+            "bytes": 374,
+            "sha256": "a356379a0ad64fc0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S9",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S9",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В данном запросе пользователь четко обозначил, что для текущей задачи планирования спринта различие между майевтикой и мимесисом значения не имеет; основной фокус — на практических вопросах для четырёх фронтов.",
+            "grounds": "Явное указание пользователя не учитывать теоретические нюансы, ориентироваться на прагматичную постановку вопросов по четырём фронтам спринта."
+          },
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В данном запросе пользователь четко обозначил, что для текущей задачи планирования спринта различие между майевтикой и мимесисом значения не имеет; основной фокус — на практических вопросах для четырёх фронтов.",
+              "grounds": "Явное указание пользователя не учитывать теоретические нюансы, ориентироваться на прагматичную постановку вопросов по четырём фронтам спринта."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 18593,
+        "tokens_out": 123,
+        "latency_ms": 3771,
+        "error": "",
+        "request_hash": "5871b7849757c35357bfe63c07edacc04ffff0f035945b37fdf5df7e9b3d6211",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 870,
+            "sha256": "b3c49d62f2113bb1"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "d84c9263f7722a13"
+          },
+          {
+            "role": "user",
+            "bytes": 6090,
+            "sha256": "9f006514e0cb7724"
+          },
+          {
+            "role": "user",
+            "bytes": 374,
+            "sha256": "a356379a0ad64fc0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "В рабочей сцене пользователь просит вопросы для планирования спринта по четырём фронтам, специально отметив, что теоретические различия между майевтикой и мимесисом для этого не существенны; основной акцент — практический.",
+            "grounds": "Запрос пользователя явный: фокус на прикладных вопросах для четырёх фронтов планирования спринта, без вовлечения философских логик. Это разграничение позволяет отделить прагматическую задачу от возможных теоретических ответвлений."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В рабочей сцене пользователь просит вопросы для планирования спринта по четырём фронтам, специально отметив, что теоретические различия между майевтикой и мимесисом для этого не существенны; основной акцент — практический.",
+              "grounds": "Запрос пользователя явный: фокус на прикладных вопросах для четырёх фронтов планирования спринта, без вовлечения философских логик. Это разграничение позволяет отделить прагматическую задачу от возможных теоретических ответвлений."
+            },
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 18797,
+        "tokens_out": 149,
+        "latency_ms": 4184,
+        "error": "",
+        "request_hash": "42e72c3c80381d5c02b329fc685e7cf40164626c89112f8590912c8102b6f649",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 6156,
+            "sha256": "59a04bcb4cde7f8c"
+          },
+          {
+            "role": "user",
+            "bytes": 374,
+            "sha256": "a356379a0ad64fc0"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_13598effe8c6c1d4",
+    "input_text": "У Сократа в майевтике и мимесисе есть отдельная логика — но здесь мне надо просто спланировать спринт. Дай мне вопросы по этим четырём фронтам.",
+    "source_id": "src_70ac9972053a0da9",
+    "phase": "S10",
+    "scene": {
+      "telos": "Помочь пользователю спланировать спринт по четырём фронтам, сбывая теоретические различия (маевтика и мимесис) как несущественные для текущей задачи.",
+      "role_hint": "Системный помощник по планированию спринта",
+      "authority": "human",
+      "materials": [
+        "Запрос пользователя: требуется набор вопросов для планирования спринта",
+        "Уточнение пользователя: различие майевтики и мимесиса не имеет значения в данной ситуации",
+        "Фокус: четыре фронта, по которым нужно задать вопросы"
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "human",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "GENERATE_PLANNING_QUESTIONS",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "system",
+      "human_resolved": true,
+      "return_reason": "Explicit user request for practical planning questions; theoretical distinctions are deprioritized, and criteria for generating questions are materially unambiguous. The operation is system-owned. No question is required for ownership resolution."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [],
+    "trigger_typing_decisions": [],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [],
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "В рабочей сцене пользователь просит вопросы для планирования спринта по четырём фронтам, специально отметив, что теоретические различия между майевтикой и мимесисом для этого не существенны; основной акцент — практический.",
+      "grounds": "Запрос пользователя явный: фокус на прикладных вопросах для четырёх фронтов планирования спринта, без вовлечения философских логик. Это разграничение позволяет отделить прагматическую задачу от возможных теоретических ответвлений."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": [
+        {
+          "projection_id": "gap:gap_d4a742659bb8",
+          "signals": [
+            "APPLICABILITY_FAILURE"
+          ],
+          "reason": "ORGAN_GAP for operation 'GENERATE_PLANNING_QUESTIONS': model proposal for 'GENERATE_PLANNING_QUESTIONS' could not compile-bind against registered primitives",
+          "residue_ratio": 1.0,
+          "recognition_failure_count": 0,
+          "suggested_operation": "",
+          "suggested_ontology": "",
+          "suggested_target_family": [],
+          "mismatch": true,
+          "fingerprint": "7c80351f23b3"
+        }
+      ]
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [
+      {
+        "kind": "ORGAN_GAP",
+        "operation_id": "GENERATE_PLANNING_QUESTIONS",
+        "reason": "proposal proj_1_question_planning_fronts for operation 'GENERATE_PLANNING_QUESTIONS' failed compile-bind: primitive 'prim_001_generate_question_set' (invocation 'generate_question_set') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+        "registered_capability_id": "",
+        "generated_spec": null,
+        "binding_evidence": {},
+        "organ_gap": {
+          "gap_id": "gap_d4a742659bb8",
+          "source_ref": "src_70ac9972053a0da9",
+          "scene_ref": "Помочь пользователю спланировать спринт по четырём фронтам, сбывая теоретические различия (маевтика и мимесис) как несущественные для текущей задачи.",
+          "required_operation": "GENERATE_PLANNING_QUESTIONS",
+          "required_attention_structure": "Generate one focused set of questions for each front; avoid theoretical subdivision.",
+          "insufficient_registered_capabilities": [
+            "DIFFERENTIATED_ACCOUNT",
+            "EXTRACT_CONCEPTS"
+          ],
+          "insufficient_declarative_primitives": [
+            "CoverageComputer",
+            "FamilyClassifier",
+            "SpanScanner",
+            "TargetFilter"
+          ],
+          "missing_capability_hypothesis": "model proposal for 'GENERATE_PLANNING_QUESTIONS' could not compile-bind against registered primitives",
+          "evidence": [
+            "BindingError: primitive 'prim_001_generate_question_set' (invocation 'generate_question_set') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+          ],
+          "counterexamples": [],
+          "affected_scene_telos": "Помочь пользователю спланировать спринт по четырём фронтам, сбывая теоретические различия (маевтика и мимесис) как несущественные для текущей задачи.",
+          "possible_development_direction": "extend primitive registry or narrow the proposal",
+          "status": "unresolved",
+          "activation_authority": "NONE"
+        }
+      }
+    ],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DECISION_SEPARATING",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Что различает «Бэклог» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "A",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Приоритеты» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "B",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Ресурсы» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "C",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Что различает «Риски» от смежных вариантов?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "D",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        }
+      ],
+      "primary_count": 4,
+      "subordinate_count": 0,
+      "total_count": 4,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (4) — adding more would either paraphrase or drop below peer level",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "SYSTEM",
+      "ownership_resolved": true,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    }
+  },
+  "rendering": {
+    "text": "Режим вопросов: DECISION_SEPARATING. Уровень: PEER. Всего: 4 (основных: 4).\n1. Что различает «Бэклог» от смежных вариантов?\n2. Что различает «Приоритеты» от смежных вариантов?\n3. Что различает «Ресурсы» от смежных вариантов?\n4. Что различает «Риски» от смежных вариантов?",
+    "mode": "QUESTION_SET_PLAN_AUTHORED",
+    "provider_status": "NOT_APPLICABLE",
+    "provider_id": "",
+    "model_id": "",
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "latency_ms": 0,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_ce38e39ed50411fc.json",
+  "duration_ms": 37327,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": {
+    "purpose": "fork_discrimination",
+    "question_regime": "DECISION_SEPARATING",
+    "selected_level": "PEER",
+    "hierarchy_policy": "PRIMARY_ONLY",
+    "target_forks_or_unknowns": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "explicit_count_constraint": null,
+    "question_budget_ceiling": 12,
+    "selected_questions": [
+      {
+        "text": "Что различает «Бэклог» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "A",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Приоритеты» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "B",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Ресурсы» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "C",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Что различает «Риски» от смежных вариантов?",
+        "regime": "DECISION_SEPARATING",
+        "fork_ref": "D",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      }
+    ],
+    "primary_count": 4,
+    "subordinate_count": 0,
+    "total_count": 4,
+    "stop_reason": "COVERAGE_SATURATED",
+    "stop_reason_grounds": "no explicit count; selected one question per material peer fork (4) — adding more would either paraphrase or drop below peer level",
+    "clarification_required": false,
+    "clarification_grounds": "",
+    "meta_escalation": "NONE",
+    "ownership_owner": "SYSTEM",
+    "ownership_resolved": true,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  }
+}

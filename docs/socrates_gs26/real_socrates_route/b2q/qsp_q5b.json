@@ -1,0 +1,2305 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_efeca41728d4b158",
+  "trace_id": "strc_6a09a7b7ee5de355",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "[RETURN_OPERATION] Операция по выделению и обоснованию ключевых вопросов для решения находится в совместной (JOINT) аналитической зоне: модель может предложить сегментированные вопросы и предоставить обоснования, но окончательный выбор, сегментация, приоритет и принятие этих вопросов (особенно при частых мета- и контекстуальных вопросах) требуют разрешения со стороны пользователя или совместного обсуждения, чтобы избежать автоматического перевода машинного предложения в окончательное решение. Существующий запрос формулирует именно задачу анализа и основания выбора, а не делегирует всю операцию модели. Часть вопросов требует экспертной, жизненной, контекстной и личной оценки, которые изначально не разрешены машиной. Возврат минимальной unresolved части (чисто машинное решение исключено) — чтобы сохранять разделение между предложением и окончательной фиксацией.",
+    "rationale": "human/joint ownership unresolved (INV-009)",
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "В ходе анализа запроса выявлен набор типовых gap-триггеров: попытки типизации рефлексивных/мета-вопросов, а также реконструкции сцены/роли/тела, не были формально приняты триггер-типом в текущем реестре v0.2_default. Это не ошибка, а отражение основания: аналитически допустимая операция по выделению и обоснованию ключевых вопросов для принятия решения выполнима и лицензирована; попытка расширить область анализа на рефлексивно-мета-вопросы или на реконструкцию сцены/тела требует отдельной типизации, которая в текущей версии не предусмотрена.",
+      "grounds": "В scene и operation state возникли многократные типовые gap-триггеры — не отсутствие формальных типов в реестре, а аналитически обоснованная невозможность их материалации на текущем уровне. Для данного решения применима операция по выделению и обоснованию вопросов, но стратегия их мета-рефлексивного анализа или реконструкции роли/тела требует отдельного ревизионного (audit) и типового расширения."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "TRIG_B07_REFLEXIVE_META_Q_SELECTION",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "operation_hypotheses:{}",
+              "source_status": "typed_state",
+              "phase_relevance": "PRE→S0 (sets up meta-reflection before operational execution)",
+              "materiality_reason": "The user is not merely requesting an answer but asking which questions are appropriate and why; explicit meta-level reasoning and possible retreat to operation/scene/role/telos review is material, requiring B07. Admitting rule: recognize 'meta-question' and 'why' in request as reflective triggers.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "The entry context is stable and minimal (PRE phase, no material scene/telos/role/authority set yet, neutral operation). No semantic mount truncation risk. However, the user request is open-ended and explicitly asks for meta-analysis about question selection and its rationale, triggering explicit B07 (reflective retreat/return) since the request is for reasoning about what questions are legitimate within the scene and operation. The query is not explicitly about memory or formation, and does not trigger state-write (B05) directly, but B07 is active for meta/critical question selection.",
+            "triggers": [
+              {
+                "trigger_id": "TRIG_B07_REFLEXIVE_META_Q_SELECTION",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "operation_hypotheses:{}",
+                "source_status": "typed_state",
+                "phase_relevance": "PRE→S0 (sets up meta-reflection before operational execution)",
+                "materiality_reason": "The user is not merely requesting an answer but asking which questions are appropriate and why; explicit meta-level reasoning and possible retreat to operation/scene/role/telos review is material, requiring B07. Admitting rule: recognize 'meta-question' and 'why' in request as reflective triggers."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15179,
+        "tokens_out": 301,
+        "latency_ms": 5333,
+        "error": "",
+        "request_hash": "ef293a5e14dc6133b01ebd8f566ccdda8d36c415b4c0bc1ba8e2856cc34d2d0b",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2115,
+            "sha256": "043d937b8ac78fab"
+          },
+          {
+            "role": "user",
+            "bytes": 257,
+            "sha256": "5439ebb5b8dcd0e0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Определить, какие вопросы необходимо задать при принятии данного решения и обосновать их выбор.",
+            "role_hint": "аналитик-консультант",
+            "authority": "joint",
+            "materials": [
+              "Исходный запрос: проанализировать спектр необходимых вопросов при решении",
+              "Требование обоснования: объяснить причинность и значимость выбранных вопросов",
+              "Контекст решения: возможные риски, варианты, критерии, заинтересованные стороны"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "TRIG_SCENE_ROLE_TEL_RECON",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "scene_state:telos,role_hint,authority",
+              "source_status": "typed_state",
+              "phase_relevance": "scene/telos/role reconstruction",
+              "materiality_reason": "Запрос требует определения направляющих вопросов и объяснения их значимости; материален для выбора метода и распределения операционной ответственности.",
+              "admitting_rule": "scene recon materiality gate (B01, CORE)"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Определить, какие вопросы необходимо задать при принятии данного решения и обосновать их выбор.",
+              "role_hint": "аналитик-консультант",
+              "authority": "joint",
+              "materials": [
+                "Исходный запрос: проанализировать спектр необходимых вопросов при решении",
+                "Требование обоснования: объяснить причинность и значимость выбранных вопросов",
+                "Контекст решения: возможные риски, варианты, критерии, заинтересованные стороны"
+              ]
+            },
+            "triggers": [
+              {
+                "trigger_id": "TRIG_SCENE_ROLE_TEL_RECON",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "scene_state:telos,role_hint,authority",
+                "source_status": "typed_state",
+                "phase_relevance": "scene/telos/role reconstruction",
+                "materiality_reason": "Запрос требует определения направляющих вопросов и объяснения их значимости; материален для выбора метода и распределения операционной ответственности.",
+                "admitting_rule": "scene recon materiality gate (B01, CORE)"
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13501,
+        "tokens_out": 277,
+        "latency_ms": 3899,
+        "error": "",
+        "request_hash": "4aa82a1899725789879a9d7443949a789c880e9c2f89c2f58a18ceed89d52fb0",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 3147,
+            "sha256": "bcae29c5ce559ff5"
+          },
+          {
+            "role": "user",
+            "bytes": 257,
+            "sha256": "5439ebb5b8dcd0e0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "TRIG_B07_SCENE_TELIC_META_ANALYSIS",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "scene_state:telos,role_hint,authority",
+              "source_status": "typed_state",
+              "phase_relevance": "The user request proposes meta-level analysis of what constitutes a 'necessary question' for a decision—signaling that the valid scope and criteria of questioning are not locally bound, but require scene/telos/role reconstruction and justification.",
+              "materiality_reason": "This is not a simple question list request. The user asks which questions 'should' be posed (scene/role/telos adequacy) and why (meta-justification), requiring reflective reconstruction or operating assumption about who decides what questioning is material and for what telos.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "TRIG_TYPE_GAP_B07_META_Q_SELECTION",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "operation_hypotheses:{}",
+              "source_status": "typed_state",
+              "phase_relevance": "The operation typology does not yet register a 'reflective meta-question selection' or parallel diagnostic operator; this reveals a type gap requiring extension of the trigger/event registry to capture analysis of meta-question selection.",
+              "materiality_reason": "An ordinary extraction or advisory operation would not force runtime reflection on why particular questions are material to this decision process. The gap justifies reflection on proper meta-criteria and justifying scene/telos/authority.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "TRIG_B07_SCENE_TELIC_META_ANALYSIS",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "scene_state:telos,role_hint,authority",
+                "source_status": "typed_state",
+                "phase_relevance": "The user request proposes meta-level analysis of what constitutes a 'necessary question' for a decision—signaling that the valid scope and criteria of questioning are not locally bound, but require scene/telos/role reconstruction and justification.",
+                "materiality_reason": "This is not a simple question list request. The user asks which questions 'should' be posed (scene/role/telos adequacy) and why (meta-justification), requiring reflective reconstruction or operating assumption about who decides what questioning is material and for what telos."
+              },
+              {
+                "trigger_id": "TRIG_TYPE_GAP_B07_META_Q_SELECTION",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "operation_hypotheses:{}",
+                "source_status": "typed_state",
+                "phase_relevance": "The operation typology does not yet register a 'reflective meta-question selection' or parallel diagnostic operator; this reveals a type gap requiring extension of the trigger/event registry to capture analysis of meta-question selection.",
+                "materiality_reason": "An ordinary extraction or advisory operation would not force runtime reflection on why particular questions are material to this decision process. The gap justifies reflection on proper meta-criteria and justifying scene/telos/authority."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15791,
+        "tokens_out": 377,
+        "latency_ms": 7694,
+        "error": "",
+        "request_hash": "4dda9931c5ab5ddbbb5292f43deaf8646c9fc14e82e47ef02a9d3b2aee22cbc4",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 4850,
+            "sha256": "6259aeeecfa01db4"
+          },
+          {
+            "role": "user",
+            "bytes": 257,
+            "sha256": "5439ebb5b8dcd0e0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "unset",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_d4c1d8e3bc88",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "operation_hypotheses:{}",
+              "source_status": "typed_state",
+              "phase_relevance": "Operation hypothesis for question selection lacks admissible trigger type; exposes meta-selection type gap.",
+              "materiality_reason": "The request is for meta-level question selection, not direct execution; trigger type for reflective meta-analysis missing.",
+              "admitting_rule": "Type gap arises from ineligible registry entry; do not force into nearest type, preserve material gap until registry expands."
+            },
+            {
+              "trigger_id": "tgap_7d46f8477a95",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "scene_state:telos,role_hint,authority",
+              "source_status": "typed_state",
+              "phase_relevance": "Scene reconstruction for telos/role/authority triggers type gap; exposes need for scene-level meta-analysis.",
+              "materiality_reason": "Request requires deeper reconstruction of scene/role/telos before valid question selection; current registry does not admit this.",
+              "admitting_rule": "Type gap not coercible; registry update required for admissible operation."
+            },
+            {
+              "trigger_id": "tgap_86459badd939",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "scene_state:telos,role_hint,authority",
+              "source_status": "typed_state",
+              "phase_relevance": "Scene-level telic meta-analysis required; exposes absence of operation type for telos reconstruction.",
+              "materiality_reason": "Selection and justification of questions depends on reconstructed telos, which is outside current operation types.",
+              "admitting_rule": "Type gap acknowledged, materiality preserved; maintain operation ineligible until registry expansion."
+            },
+            {
+              "trigger_id": "tgap_b03261fb4657",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "operation_hypotheses:{}",
+              "source_status": "typed_state",
+              "phase_relevance": "Meta-question selection exposes explicit type gap in operation hypothesis registry.",
+              "materiality_reason": "Request is for higher-order selection not covered by current admissible types; gap must remain visible.",
+              "admitting_rule": "Type gap not forcibly resolved; recognized as valid and material until registry update."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_d4c1d8e3bc88",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "operation_hypotheses:{}",
+                "source_status": "typed_state",
+                "phase_relevance": "Operation hypothesis for question selection lacks admissible trigger type; exposes meta-selection type gap.",
+                "materiality_reason": "The request is for meta-level question selection, not direct execution; trigger type for reflective meta-analysis missing.",
+                "admitting_rule": "Type gap arises from ineligible registry entry; do not force into nearest type, preserve material gap until registry expands."
+              },
+              {
+                "trigger_id": "tgap_7d46f8477a95",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "scene_state:telos,role_hint,authority",
+                "source_status": "typed_state",
+                "phase_relevance": "Scene reconstruction for telos/role/authority triggers type gap; exposes need for scene-level meta-analysis.",
+                "materiality_reason": "Request requires deeper reconstruction of scene/role/telos before valid question selection; current registry does not admit this.",
+                "admitting_rule": "Type gap not coercible; registry update required for admissible operation."
+              },
+              {
+                "trigger_id": "tgap_86459badd939",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "scene_state:telos,role_hint,authority",
+                "source_status": "typed_state",
+                "phase_relevance": "Scene-level telic meta-analysis required; exposes absence of operation type for telos reconstruction.",
+                "materiality_reason": "Selection and justification of questions depends on reconstructed telos, which is outside current operation types.",
+                "admitting_rule": "Type gap acknowledged, materiality preserved; maintain operation ineligible until registry expansion."
+              },
+              {
+                "trigger_id": "tgap_b03261fb4657",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "operation_hypotheses:{}",
+                "source_status": "typed_state",
+                "phase_relevance": "Meta-question selection exposes explicit type gap in operation hypothesis registry.",
+                "materiality_reason": "Request is for higher-order selection not covered by current admissible types; gap must remain visible.",
+                "admitting_rule": "Type gap not forcibly resolved; recognized as valid and material until registry update."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14116,
+        "tokens_out": 656,
+        "latency_ms": 5352,
+        "error": "",
+        "request_hash": "7073f4ef01e747197c9afb56eab1545251e0c08c69a66543f278018fc98aa6e9",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 6918,
+            "sha256": "1b23c5a453bb7c4d"
+          },
+          {
+            "role": "user",
+            "bytes": 257,
+            "sha256": "5439ebb5b8dcd0e0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "QUESTION_SELECTION_AND_JUSTIFICATION",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": {
+            "proposal_id": "psyn_S4_meta_question_set_001",
+            "operation_id": "QUESTION_SELECTION_AND_JUSTIFICATION",
+            "target_object_family": [
+              "question_set",
+              "question_justification"
+            ],
+            "ontology_hypothesis": "Questions relevant for decision-making are determined by the context, risks, alternatives, and criteria for this specific scene. There is no universal exhaustive list; the set is constructed and justified in joint analytic mode.",
+            "recognition_criteria": [
+              "Question targets a consequential aspect of the decision",
+              "Question addresses material input, risk, stakeholder or choice",
+              "Question is actionable within the current decision process"
+            ],
+            "segmentation_policy_hint": "Segment by decision phase, stakeholder domain, and risk/criterion relevance",
+            "evidence_requirements": [
+              "Scene context (decision goals, risks, variants, criteria)",
+              "Background material (prior decisions, lessons learned)",
+              "Stakeholder input"
+            ],
+            "exclusions": [
+              "Irrelevant curiosity",
+              "Questions disconnected from the decision's practical impact",
+              "Questions without capacity to inform choice or mitigation"
+            ],
+            "contraindications": [
+              "Overloading with rhetorical or diversionary questions",
+              "Duplicating prior addressed questions"
+            ],
+            "applicability_assumptions": [
+              "Scene telos and authority are sufficiently reconstructed",
+              "Analytic-consultant role is legitimate",
+              "Material provided is adequate for question extraction and justification"
+            ],
+            "primitives": [
+              {
+                "name": "extract_question_candidates",
+                "primitive_id": "prim_extract_qc_S4_v0.2",
+                "params": {
+                  "source_text": "Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                  "context_material": [
+                    "Исходный запрос: проанализировать спектр необходимых вопросов при решении",
+                    "Требование обоснования: объяснить причинность и значимость выбранных вопросов",
+                    "Контекст решения: возможные риски, варианты, критерии, заинтересованные стороны"
+                  ]
+                },
+                "inputs": []
+              },
+              {
+                "name": "justify_question_inclusion",
+                "primitive_id": "prim_justify_q_S4_v0.2",
+                "params": {},
+                "inputs": [
+                  "prim_extract_qc_S4_v0.2"
+                ]
+              }
+            ],
+            "accepted_output": "Segmented set of materially relevant questions, each justified by decision-context reasoning",
+            "residue_output": "Residual material flagged for further review as potential scene or context gaps",
+            "revises_projection_id": "",
+            "triggered_by_diagnostic_id": "",
+            "triggered_by_diagnostic_fingerprint": "",
+            "rationale": "Direct question selection and justification is applicable for this scene. Meta-question reflexive triggers failed type registry (see type_gaps), but main analytic operation is licensed and actionable.",
+            "expected_diagnostics": "Check for missing analytic domains or unresolved question residue",
+            "expected_residue_policy": "Retain material residue for audit or escalation if new decision domains emerge"
+          },
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "QUESTION_SELECTION_AND_JUSTIFICATION",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "triggers": [],
+            "projection_synthesis_proposal": {
+              "proposal_id": "psyn_S4_meta_question_set_001",
+              "operation_id": "QUESTION_SELECTION_AND_JUSTIFICATION",
+              "target_object_family": [
+                "question_set",
+                "question_justification"
+              ],
+              "ontology_hypothesis": "Questions relevant for decision-making are determined by the context, risks, alternatives, and criteria for this specific scene. There is no universal exhaustive list; the set is constructed and justified in joint analytic mode.",
+              "recognition_criteria": [
+                "Question targets a consequential aspect of the decision",
+                "Question addresses material input, risk, stakeholder or choice",
+                "Question is actionable within the current decision process"
+              ],
+              "segmentation_policy_hint": "Segment by decision phase, stakeholder domain, and risk/criterion relevance",
+              "evidence_requirements": [
+                "Scene context (decision goals, risks, variants, criteria)",
+                "Background material (prior decisions, lessons learned)",
+                "Stakeholder input"
+              ],
+              "exclusions": [
+                "Irrelevant curiosity",
+                "Questions disconnected from the decision's practical impact",
+                "Questions without capacity to inform choice or mitigation"
+              ],
+              "contraindications": [
+                "Overloading with rhetorical or diversionary questions",
+                "Duplicating prior addressed questions"
+              ],
+              "applicability_assumptions": [
+                "Scene telos and authority are sufficiently reconstructed",
+                "Analytic-consultant role is legitimate",
+                "Material provided is adequate for question extraction and justification"
+              ],
+              "primitives": [
+                {
+                  "name": "extract_question_candidates",
+                  "primitive_id": "prim_extract_qc_S4_v0.2",
+                  "params": {
+                    "source_text": "Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                    "context_material": [
+                      "Исходный запрос: проанализировать спектр необходимых вопросов при решении",
+                      "Требование обоснования: объяснить причинность и значимость выбранных вопросов",
+                      "Контекст решения: возможные риски, варианты, критерии, заинтересованные стороны"
+                    ]
+                  },
+                  "inputs": []
+                },
+                {
+                  "name": "justify_question_inclusion",
+                  "primitive_id": "prim_justify_q_S4_v0.2",
+                  "params": {},
+                  "inputs": [
+                    "prim_extract_qc_S4_v0.2"
+                  ]
+                }
+              ],
+              "accepted_output": "Segmented set of materially relevant questions, each justified by decision-context reasoning",
+              "residue_output": "Residual material flagged for further review as potential scene or context gaps",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "",
+              "triggered_by_diagnostic_fingerprint": "",
+              "rationale": "Direct question selection and justification is applicable for this scene. Meta-question reflexive triggers failed type registry (see type_gaps), but main analytic operation is licensed and actionable.",
+              "expected_diagnostics": "Check for missing analytic domains or unresolved question residue",
+              "expected_residue_policy": "Retain material residue for audit or escalation if new decision domains emerge"
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16241,
+        "tokens_out": 726,
+        "latency_ms": 7819,
+        "error": "",
+        "request_hash": "a38572d7901eee5b2d98262ad26b1aaf9b3536d26f9ea5a11237b70addaae335",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 10918,
+            "sha256": "3dd0ad0f9b917b6c"
+          },
+          {
+            "role": "user",
+            "bytes": 257,
+            "sha256": "5439ebb5b8dcd0e0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_d4c1d8e3bc88",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "operation_hypotheses:{}",
+              "source_status": "typed_state",
+              "phase_relevance": "meta-question selection, reflexive structural analysis",
+              "materiality_reason": "A type gap was diagnosed when trying to admit a trigger for reflexive or meta-level question selection: scene requires not only direct question extraction and justification, but recognition of structural causes affecting which questions are eligible—this exposes a material boundary in analytic authority and question ontology.",
+              "admitting_rule": "Not admitted as explicit operation trigger due to registry gap; recorded as structural cause for audit and potential schema/ontology revision."
+            },
+            {
+              "trigger_id": "tgap_7d46f8477a95",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "scene_state:telos,role_hint,authority",
+              "source_status": "typed_state",
+              "phase_relevance": "scene reconstruction and role/authority framing",
+              "materiality_reason": "A type gap was diagnosed when admitting a trigger for scene/role/telos reconstruction: selection of questions materially depends on how decision telos, analytic-consultant role, and authority are reconstructed—this exposes a schema/ontology gap in representing question admissibility as a scene-bound operation.",
+              "admitting_rule": "Not admitted as explicit operation trigger due to registry gap; recorded as structural cause for audit and potential schema/ontology revision."
+            },
+            {
+              "trigger_id": "tgap_86459badd939",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "scene_state:telos,role_hint,authority",
+              "source_status": "typed_state",
+              "phase_relevance": "meta-analytic scene/telos framing",
+              "materiality_reason": "A type gap was diagnosed for meta-analytic triggers governing scene, telos and the identity of materially valid questions—this exposes a material structural cause for question selection beyond direct extraction and justification, requiring reflective or meta-level reasoning.",
+              "admitting_rule": "Not admitted as explicit operation trigger due to registry gap; recorded as structural cause for audit and potential schema/ontology revision."
+            },
+            {
+              "trigger_id": "tgap_b03261fb4657",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "operation_hypotheses:{}",
+              "source_status": "typed_state",
+              "phase_relevance": "meta-question selection (type gap repeated)",
+              "materiality_reason": "A repeated type gap was found for meta-question selection: the operation structure suggests a boundary requiring meta-analytic reflection for which no registry match exists.",
+              "admitting_rule": "Not admitted as explicit operation trigger; recorded as repeated structural cause for audit."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "Type gaps for reflexive/meta-level question selection and scene/role/telos reconstruction appeared; direct question extraction and justification are actionable, but analytic-schema boundaries materially affect which questions can be selected and justified for this decision.",
+            "grounds": "Scene and operation state triggered multiple gaps (not registry errors, but analytically grounded boundaries); audit and potential schema revision are needed to record why certain higher-order question selection/justification triggers were not formally admitted."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_d4c1d8e3bc88",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "operation_hypotheses:{}",
+                "source_status": "typed_state",
+                "phase_relevance": "meta-question selection, reflexive structural analysis",
+                "materiality_reason": "A type gap was diagnosed when trying to admit a trigger for reflexive or meta-level question selection: scene requires not only direct question extraction and justification, but recognition of structural causes affecting which questions are eligible—this exposes a material boundary in analytic authority and question ontology.",
+                "admitting_rule": "Not admitted as explicit operation trigger due to registry gap; recorded as structural cause for audit and potential schema/ontology revision."
+              },
+              {
+                "trigger_id": "tgap_7d46f8477a95",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "scene_state:telos,role_hint,authority",
+                "source_status": "typed_state",
+                "phase_relevance": "scene reconstruction and role/authority framing",
+                "materiality_reason": "A type gap was diagnosed when admitting a trigger for scene/role/telos reconstruction: selection of questions materially depends on how decision telos, analytic-consultant role, and authority are reconstructed—this exposes a schema/ontology gap in representing question admissibility as a scene-bound operation.",
+                "admitting_rule": "Not admitted as explicit operation trigger due to registry gap; recorded as structural cause for audit and potential schema/ontology revision."
+              },
+              {
+                "trigger_id": "tgap_86459badd939",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "scene_state:telos,role_hint,authority",
+                "source_status": "typed_state",
+                "phase_relevance": "meta-analytic scene/telos framing",
+                "materiality_reason": "A type gap was diagnosed for meta-analytic triggers governing scene, telos and the identity of materially valid questions—this exposes a material structural cause for question selection beyond direct extraction and justification, requiring reflective or meta-level reasoning.",
+                "admitting_rule": "Not admitted as explicit operation trigger due to registry gap; recorded as structural cause for audit and potential schema/ontology revision."
+              },
+              {
+                "trigger_id": "tgap_b03261fb4657",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "operation_hypotheses:{}",
+                "source_status": "typed_state",
+                "phase_relevance": "meta-question selection (type gap repeated)",
+                "materiality_reason": "A repeated type gap was found for meta-question selection: the operation structure suggests a boundary requiring meta-analytic reflection for which no registry match exists.",
+                "admitting_rule": "Not admitted as explicit operation trigger; recorded as repeated structural cause for audit."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Type gaps for reflexive/meta-level question selection and scene/role/telos reconstruction appeared; direct question extraction and justification are actionable, but analytic-schema boundaries materially affect which questions can be selected and justified for this decision.",
+              "grounds": "Scene and operation state triggered multiple gaps (not registry errors, but analytically grounded boundaries); audit and potential schema revision are needed to record why certain higher-order question selection/justification triggers were not formally admitted."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 18347,
+        "tokens_out": 819,
+        "latency_ms": 6977,
+        "error": "",
+        "request_hash": "faa7bad39d431807790268e5480ea2636af9f5a2d076b4f20773a62eea1ec1a5",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 14396,
+            "sha256": "90210ccaa4cbc7a3"
+          },
+          {
+            "role": "user",
+            "bytes": 257,
+            "sha256": "5439ebb5b8dcd0e0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "joint",
+            "human_resolved": false,
+            "return_reason": "Операция по выделению и обоснованию ключевых вопросов для решения находится в совместной (JOINT) аналитической зоне: модель может предложить сегментированные вопросы и предоставить обоснования, но окончательный выбор, сегментация, приоритет и принятие этих вопросов (особенно при частых мета- и контекстуальных вопросах) требуют разрешения со стороны пользователя или совместного обсуждения, чтобы избежать автоматического перевода машинного предложения в окончательное решение. Существующий запрос формулирует именно задачу анализа и основания выбора, а не делегирует всю операцию модели. Часть вопросов требует экспертной, жизненной, контекстной и личной оценки, которые изначально не разрешены машиной. Возврат минимальной unresolved части (чисто машинное решение исключено) — чтобы сохранять разделение между предложением и окончательной фиксацией."
+          },
+          "triggers": [
+            {
+              "trigger_id": "tgap_d4c1d8e3bc88",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "operation_hypotheses:{}",
+              "source_status": "typed_state",
+              "phase_relevance": "TYPE_GAP prevents purely reflexive/meta question selection binding; analytic operation remains actionable, but ownership boundary is triggered",
+              "materiality_reason": "Type gap in reflexive/meta-level question selection signals an analytic-schema boundary, restricting machine's authority to fully bind all question selection and justification operations",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_7d46f8477a95",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "scene_state:telos,role_hint,authority",
+              "source_status": "typed_state",
+              "phase_relevance": "SCENE/ROLE/TELOS reconstruction gap restricts full SYSTEM binding for question justification",
+              "materiality_reason": "Analytic consultant role and joint authority create a boundary; scene is not fully reconstructed and SYSTEM-alone justification is not licensed",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_86459badd939",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "scene_state:telos,role_hint,authority",
+              "source_status": "typed_state",
+              "phase_relevance": "SCENE/TELIC META ANALYSIS gap flags material ownership limit",
+              "materiality_reason": "Questions targeting consequential decision aspects require joint analytic and scene-relevant validation; not fully resolvable by the machine",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_b03261fb4657",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "operation_hypotheses:{}",
+              "source_status": "typed_state",
+              "phase_relevance": "TYPE_GAP in meta-question selection blocks full SYSTEM-owned operation",
+              "materiality_reason": "Machine cannot alone bind meta-level question selection or schema justification without joint/scene-authority validation",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "Type gaps for reflexive/meta-level question selection and scene/role/telos reconstruction appeared; direct question extraction and justification are actionable, but analytic-schema boundaries materially affect which questions can be selected and justified for this decision.",
+            "grounds": "Scene and operation state triggered multiple gaps (not registry errors, but analytically grounded boundaries); audit and potential schema revision are needed to record why certain higher-order question selection/justification triggers were not formally admitted."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "joint",
+              "human_resolved": false,
+              "return_reason": "Операция по выделению и обоснованию ключевых вопросов для решения находится в совместной (JOINT) аналитической зоне: модель может предложить сегментированные вопросы и предоставить обоснования, но окончательный выбор, сегментация, приоритет и принятие этих вопросов (особенно при частых мета- и контекстуальных вопросах) требуют разрешения со стороны пользователя или совместного обсуждения, чтобы избежать автоматического перевода машинного предложения в окончательное решение. Существующий запрос формулирует именно задачу анализа и основания выбора, а не делегирует всю операцию модели. Часть вопросов требует экспертной, жизненной, контекстной и личной оценки, которые изначально не разрешены машиной. Возврат минимальной unresolved части (чисто машинное решение исключено) — чтобы сохранять разделение между предложением и окончательной фиксацией."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_d4c1d8e3bc88",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "operation_hypotheses:{}",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP prevents purely reflexive/meta question selection binding; analytic operation remains actionable, but ownership boundary is triggered",
+                "materiality_reason": "Type gap in reflexive/meta-level question selection signals an analytic-schema boundary, restricting machine's authority to fully bind all question selection and justification operations"
+              },
+              {
+                "trigger_id": "tgap_7d46f8477a95",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "scene_state:telos,role_hint,authority",
+                "source_status": "typed_state",
+                "phase_relevance": "SCENE/ROLE/TELOS reconstruction gap restricts full SYSTEM binding for question justification",
+                "materiality_reason": "Analytic consultant role and joint authority create a boundary; scene is not fully reconstructed and SYSTEM-alone justification is not licensed"
+              },
+              {
+                "trigger_id": "tgap_86459badd939",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "scene_state:telos,role_hint,authority",
+                "source_status": "typed_state",
+                "phase_relevance": "SCENE/TELIC META ANALYSIS gap flags material ownership limit",
+                "materiality_reason": "Questions targeting consequential decision aspects require joint analytic and scene-relevant validation; not fully resolvable by the machine"
+              },
+              {
+                "trigger_id": "tgap_b03261fb4657",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "operation_hypotheses:{}",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP in meta-question selection blocks full SYSTEM-owned operation",
+                "materiality_reason": "Machine cannot alone bind meta-level question selection or schema justification without joint/scene-authority validation"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Type gaps for reflexive/meta-level question selection and scene/role/telos reconstruction appeared; direct question extraction and justification are actionable, but analytic-schema boundaries materially affect which questions can be selected and justified for this decision.",
+              "grounds": "Scene and operation state triggered multiple gaps (not registry errors, but analytically grounded boundaries); audit and potential schema revision are needed to record why certain higher-order question selection/justification triggers were not formally admitted."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17588,
+        "tokens_out": 865,
+        "latency_ms": 10162,
+        "error": "",
+        "request_hash": "f0db9007f97d9b8c1aa07ff084320b2e311342ca14fc3834332e8a0e7d9d9b08",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 18996,
+            "sha256": "cc9dec93a1b42e47"
+          },
+          {
+            "role": "user",
+            "bytes": 257,
+            "sha256": "5439ebb5b8dcd0e0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_d4c1d8e3bc88",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "operation_hypotheses:{}",
+              "source_status": "typed_state",
+              "phase_relevance": "Direct analytic question extraction and justification are actionable, but reflexive/meta-level question selection triggers are material type gaps.",
+              "materiality_reason": "Registry lacks types for reflexive/meta-question selection; gap is structurally relevant due to scene/role/telos ambiguity and analytic boundary.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_7d46f8477a95",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "scene_state:telos,role_hint,authority",
+              "source_status": "typed_state",
+              "phase_relevance": "Scene/role/telos reconstruction triggers analytic boundary gaps; registry lacks type for higher-order reconstruction.",
+              "materiality_reason": "Analytic question selection depends on scene/role/telos but type registry does not license direct meta-scene/role/telos triggers.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_86459badd939",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "scene_state:telos,role_hint,authority",
+              "source_status": "typed_state",
+              "phase_relevance": "Meta-analytic triggers for scene/telos not admitted; material gap recognized.",
+              "materiality_reason": "Registry lacks meta-analysis question selection types; material analytic boundary shown by scene/operation context.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_b03261fb4657",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "operation_hypotheses:{}",
+              "source_status": "typed_state",
+              "phase_relevance": "Type gap for meta-level question selection recognized in operation and analytic domain.",
+              "materiality_reason": "Operation context identifies structural analytic gap affecting which questions can be justified/extracted; not a registry error but analytic-schema boundary.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": [
+              {
+                "trigger_id": "tgap_d4c1d8e3bc88",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "operation_hypotheses:{}",
+                "source_status": "typed_state",
+                "phase_relevance": "Direct analytic question extraction and justification are actionable, but reflexive/meta-level question selection triggers are material type gaps.",
+                "materiality_reason": "Registry lacks types for reflexive/meta-question selection; gap is structurally relevant due to scene/role/telos ambiguity and analytic boundary."
+              },
+              {
+                "trigger_id": "tgap_7d46f8477a95",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "scene_state:telos,role_hint,authority",
+                "source_status": "typed_state",
+                "phase_relevance": "Scene/role/telos reconstruction triggers analytic boundary gaps; registry lacks type for higher-order reconstruction.",
+                "materiality_reason": "Analytic question selection depends on scene/role/telos but type registry does not license direct meta-scene/role/telos triggers."
+              },
+              {
+                "trigger_id": "tgap_86459badd939",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "scene_state:telos,role_hint,authority",
+                "source_status": "typed_state",
+                "phase_relevance": "Meta-analytic triggers for scene/telos not admitted; material gap recognized.",
+                "materiality_reason": "Registry lacks meta-analysis question selection types; material analytic boundary shown by scene/operation context."
+              },
+              {
+                "trigger_id": "tgap_b03261fb4657",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "operation_hypotheses:{}",
+                "source_status": "typed_state",
+                "phase_relevance": "Type gap for meta-level question selection recognized in operation and analytic domain.",
+                "materiality_reason": "Operation context identifies structural analytic gap affecting which questions can be justified/extracted; not a registry error but analytic-schema boundary."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 18334,
+        "tokens_out": 547,
+        "latency_ms": 6212,
+        "error": "",
+        "request_hash": "8139f95e78475ee6e8d9447e6973c00d6d71227a6bccf8805328763cca8133fa",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 24565,
+            "sha256": "53c9c5eb896f9c17"
+          },
+          {
+            "role": "user",
+            "bytes": 257,
+            "sha256": "5439ebb5b8dcd0e0"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_d4c1d8e3bc88",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "operation_hypotheses:{}",
+              "source_status": "typed_state",
+              "phase_relevance": "S8/S9/S10",
+              "materiality_reason": "Попытка типизации рефлексивного мета-выделения вопросов не поддержана текущим реестром типов; аналитически обоснованный gap.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_7d46f8477a95",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "scene_state:telos,role_hint,authority",
+              "source_status": "typed_state",
+              "phase_relevance": "S8/S9/S10",
+              "materiality_reason": "Попытка типизации реконструкции сцены/роли/тела не поддержана реестром типов; аналитически допустим только основной сегментированный вопрос-выделение.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_86459badd939",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "scene_state:telos,role_hint,authority",
+              "source_status": "typed_state",
+              "phase_relevance": "S8/S9/S10",
+              "materiality_reason": "Попытка мета-анализа сцены решения материализована как gap; основной аналитический уровень — выделение и обоснование вопросов.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_b03261fb4657",
+              "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+              "cause_object_ref": "operation_hypotheses:{}",
+              "source_status": "typed_state",
+              "phase_relevance": "S8/S9/S10",
+              "materiality_reason": "Вопросная типизация для мета-аналитического выбора вопросов не формализована; применяется только основной analytic-question extraction.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "В ходе анализа запроса выявлен набор типовых gap-триггеров: попытки типизации рефлексивных/мета-вопросов, а также реконструкции сцены/роли/тела, не были формально приняты триггер-типом в текущем реестре v0.2_default. Это не ошибка, а отражение основания: аналитически допустимая операция по выделению и обоснованию ключевых вопросов для принятия решения выполнима и лицензирована; попытка расширить область анализа на рефлексивно-мета-вопросы или на реконструкцию сцены/тела требует отдельной типизации, которая в текущей версии не предусмотрена.",
+            "grounds": "В scene и operation state возникли многократные типовые gap-триггеры — не отсутствие формальных типов в реестре, а аналитически обоснованная невозможность их материалации на текущем уровне. Для данного решения применима операция по выделению и обоснованию вопросов, но стратегия их мета-рефлексивного анализа или реконструкции роли/тела требует отдельного ревизионного (audit) и типового расширения."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "В ходе анализа запроса выявлен набор типовых gap-триггеров: попытки типизации рефлексивных/мета-вопросов, а также реконструкции сцены/роли/тела, не были формально приняты триггер-типом в текущем реестре v0.2_default. Это не ошибка, а отражение основания: аналитически допустимая операция по выделению и обоснованию ключевых вопросов для принятия решения выполнима и лицензирована; попытка расширить область анализа на рефлексивно-мета-вопросы или на реконструкцию сцены/тела требует отдельной типизации, которая в текущей версии не предусмотрена.",
+              "grounds": "В scene и operation state возникли многократные типовые gap-триггеры — не отсутствие формальных типов в реестре, а аналитически обоснованная невозможность их материалации на текущем уровне. Для данного решения применима операция по выделению и обоснованию вопросов, но стратегия их мета-рефлексивного анализа или реконструкции роли/тела требует отдельного ревизионного (audit) и типового расширения."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_d4c1d8e3bc88",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "operation_hypotheses:{}",
+                "source_status": "typed_state",
+                "phase_relevance": "S8/S9/S10",
+                "materiality_reason": "Попытка типизации рефлексивного мета-выделения вопросов не поддержана текущим реестром типов; аналитически обоснованный gap."
+              },
+              {
+                "trigger_id": "tgap_7d46f8477a95",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "scene_state:telos,role_hint,authority",
+                "source_status": "typed_state",
+                "phase_relevance": "S8/S9/S10",
+                "materiality_reason": "Попытка типизации реконструкции сцены/роли/тела не поддержана реестром типов; аналитически допустим только основной сегментированный вопрос-выделение."
+              },
+              {
+                "trigger_id": "tgap_86459badd939",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "scene_state:telos,role_hint,authority",
+                "source_status": "typed_state",
+                "phase_relevance": "S8/S9/S10",
+                "materiality_reason": "Попытка мета-анализа сцены решения материализована как gap; основной аналитический уровень — выделение и обоснование вопросов."
+              },
+              {
+                "trigger_id": "tgap_b03261fb4657",
+                "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+                "cause_object_ref": "operation_hypotheses:{}",
+                "source_status": "typed_state",
+                "phase_relevance": "S8/S9/S10",
+                "materiality_reason": "Вопросная типизация для мета-аналитического выбора вопросов не формализована; применяется только основной analytic-question extraction."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 24481,
+        "tokens_out": 805,
+        "latency_ms": 8117,
+        "error": "",
+        "request_hash": "05321ba44790f5d3967e766a20ca41c882f400880fe40c544afba983f68e888f",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 28564,
+            "sha256": "15f28e0d913feaa2"
+          },
+          {
+            "role": "user",
+            "bytes": 257,
+            "sha256": "5439ebb5b8dcd0e0"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_efeca41728d4b158",
+    "input_text": "Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+    "source_id": "src_53e311727e489f97",
+    "phase": "S10",
+    "scene": {
+      "telos": "Определить, какие вопросы необходимо задать при принятии данного решения и обосновать их выбор.",
+      "role_hint": "аналитик-консультант",
+      "authority": "joint",
+      "materials": [
+        "Исходный запрос: проанализировать спектр необходимых вопросов при решении",
+        "Требование обоснования: объяснить причинность и значимость выбранных вопросов",
+        "Контекст решения: возможные риски, варианты, критерии, заинтересованные стороны"
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "unset",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "QUESTION_SELECTION_AND_JUSTIFICATION",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "joint",
+      "human_resolved": false,
+      "return_reason": "Операция по выделению и обоснованию ключевых вопросов для решения находится в совместной (JOINT) аналитической зоне: модель может предложить сегментированные вопросы и предоставить обоснования, но окончательный выбор, сегментация, приоритет и принятие этих вопросов (особенно при частых мета- и контекстуальных вопросах) требуют разрешения со стороны пользователя или совместного обсуждения, чтобы избежать автоматического перевода машинного предложения в окончательное решение. Существующий запрос формулирует именно задачу анализа и основания выбора, а не делегирует всю операцию модели. Часть вопросов требует экспертной, жизненной, контекстной и личной оценки, которые изначально не разрешены машиной. Возврат минимальной unresolved части (чисто машинное решение исключено) — чтобы сохранять разделение между предложением и окончательной фиксацией."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_666b41d65fa4",
+        "proposed_trigger_type_id": "tgap_d4c1d8e3bc88",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "cause_object_ref": "operation_hypotheses:{}",
+        "phase_relevance": "S8/S9/S10",
+        "materiality_reason": "Попытка типизации рефлексивного мета-выделения вопросов не поддержана текущим реестром типов; аналитически обоснованный gap.",
+        "payload": {
+          "legacy_admitting_rule": "CTA-002",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      },
+      {
+        "candidate_id": "tcand_b1e7eed75e45",
+        "proposed_trigger_type_id": "tgap_7d46f8477a95",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "cause_object_ref": "scene_state:telos,role_hint,authority",
+        "phase_relevance": "S8/S9/S10",
+        "materiality_reason": "Попытка типизации реконструкции сцены/роли/тела не поддержана реестром типов; аналитически допустим только основной сегментированный вопрос-выделение.",
+        "payload": {
+          "legacy_admitting_rule": "CTA-002",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      },
+      {
+        "candidate_id": "tcand_29ab5b9d92ef",
+        "proposed_trigger_type_id": "tgap_86459badd939",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "cause_object_ref": "scene_state:telos,role_hint,authority",
+        "phase_relevance": "S8/S9/S10",
+        "materiality_reason": "Попытка мета-анализа сцены решения материализована как gap; основной аналитический уровень — выделение и обоснование вопросов.",
+        "payload": {
+          "legacy_admitting_rule": "CTA-002",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      },
+      {
+        "candidate_id": "tcand_e176433cb051",
+        "proposed_trigger_type_id": "tgap_b03261fb4657",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "cause_object_ref": "operation_hypotheses:{}",
+        "phase_relevance": "S8/S9/S10",
+        "materiality_reason": "Вопросная типизация для мета-аналитического выбора вопросов не формализована; применяется только основной analytic-question extraction.",
+        "payload": {
+          "legacy_admitting_rule": "CTA-002",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_612e39f3ea68",
+        "candidate_id": "tcand_c869ae8664f7",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'TRIG_B07_REFLEXIVE_META_Q_SELECTION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_581146541021",
+        "candidate_id": "tcand_28457a9c1c2c",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'TRIG_SCENE_ROLE_TEL_RECON' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_87305e322032",
+        "candidate_id": "tcand_dbb162f91981",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'TRIG_B07_SCENE_TELIC_META_ANALYSIS' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_39ef2238fbf7",
+        "candidate_id": "tcand_544d5e1d6896",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'TRIG_TYPE_GAP_B07_META_Q_SELECTION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_44ff071d9acd",
+        "candidate_id": "tcand_374363ce36eb",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_d4c1d8e3bc88' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_03a34b893314",
+        "candidate_id": "tcand_50c9437da7c0",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_7d46f8477a95' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_9c44b41d9947",
+        "candidate_id": "tcand_e36733280f21",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_86459badd939' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_65a6ea537a69",
+        "candidate_id": "tcand_668c2590a8b7",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_b03261fb4657' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_39900230cc64",
+        "candidate_id": "tcand_2e4dff01093c",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_d4c1d8e3bc88' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_095d5117591a",
+        "candidate_id": "tcand_39f9eaa2c68d",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_7d46f8477a95' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_04bfba4a258e",
+        "candidate_id": "tcand_c22d0699f1ef",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_86459badd939' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_f84f2b85adb3",
+        "candidate_id": "tcand_316415cb2d8d",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_b03261fb4657' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_f6365d513e05",
+        "candidate_id": "tcand_8074afa7674b",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_d4c1d8e3bc88' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_d000580a3334",
+        "candidate_id": "tcand_9fed25c243dd",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_7d46f8477a95' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_f22b27d09680",
+        "candidate_id": "tcand_1bb27bcbb45c",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_86459badd939' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_34fccb1a0760",
+        "candidate_id": "tcand_c113cff08a33",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_b03261fb4657' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_b62e51fa2f0f",
+        "candidate_id": "tcand_1e87c5224ff9",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_d4c1d8e3bc88' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_98748a091604",
+        "candidate_id": "tcand_75f5515a8c95",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_7d46f8477a95' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_dd3734df20e7",
+        "candidate_id": "tcand_25fe23a9bd67",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_86459badd939' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_439b1023b755",
+        "candidate_id": "tcand_05c43deed64d",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_b03261fb4657' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_d4c1d8e3bc88",
+        "candidate_id": "tcand_c869ae8664f7",
+        "cause_object_ref": "operation_hypotheses:{}",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'TRIG_B07_REFLEXIVE_META_Q_SELECTION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_7d46f8477a95",
+        "candidate_id": "tcand_28457a9c1c2c",
+        "cause_object_ref": "scene_state:telos,role_hint,authority",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'TRIG_SCENE_ROLE_TEL_RECON' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_86459badd939",
+        "candidate_id": "tcand_dbb162f91981",
+        "cause_object_ref": "scene_state:telos,role_hint,authority",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'TRIG_B07_SCENE_TELIC_META_ANALYSIS' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_b03261fb4657",
+        "candidate_id": "tcand_544d5e1d6896",
+        "cause_object_ref": "operation_hypotheses:{}",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'TRIG_TYPE_GAP_B07_META_Q_SELECTION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_c1d92a44d297",
+        "candidate_id": "tcand_374363ce36eb",
+        "cause_object_ref": "operation_hypotheses:{}",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_d4c1d8e3bc88' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_408cf1cb56a6",
+        "candidate_id": "tcand_50c9437da7c0",
+        "cause_object_ref": "scene_state:telos,role_hint,authority",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_7d46f8477a95' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_764d3848353b",
+        "candidate_id": "tcand_e36733280f21",
+        "cause_object_ref": "scene_state:telos,role_hint,authority",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_86459badd939' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_4e8c1d128178",
+        "candidate_id": "tcand_668c2590a8b7",
+        "cause_object_ref": "operation_hypotheses:{}",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_b03261fb4657' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_b94ebc8e78c4",
+        "candidate_id": "tcand_2e4dff01093c",
+        "cause_object_ref": "operation_hypotheses:{}",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_d4c1d8e3bc88' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_b7d2b6073b5a",
+        "candidate_id": "tcand_39f9eaa2c68d",
+        "cause_object_ref": "scene_state:telos,role_hint,authority",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_7d46f8477a95' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_ef1f1aed3fdb",
+        "candidate_id": "tcand_c22d0699f1ef",
+        "cause_object_ref": "scene_state:telos,role_hint,authority",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_86459badd939' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_ffcf1d0a10ad",
+        "candidate_id": "tcand_316415cb2d8d",
+        "cause_object_ref": "operation_hypotheses:{}",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_b03261fb4657' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_87ae8e450158",
+        "candidate_id": "tcand_8074afa7674b",
+        "cause_object_ref": "operation_hypotheses:{}",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_d4c1d8e3bc88' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_ada5da8015d6",
+        "candidate_id": "tcand_9fed25c243dd",
+        "cause_object_ref": "scene_state:telos,role_hint,authority",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_7d46f8477a95' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_0cb162092f57",
+        "candidate_id": "tcand_1bb27bcbb45c",
+        "cause_object_ref": "scene_state:telos,role_hint,authority",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_86459badd939' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_187d238fbd47",
+        "candidate_id": "tcand_c113cff08a33",
+        "cause_object_ref": "operation_hypotheses:{}",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_b03261fb4657' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_c78bb81b412b",
+        "candidate_id": "tcand_1e87c5224ff9",
+        "cause_object_ref": "operation_hypotheses:{}",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_d4c1d8e3bc88' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_871a53f49871",
+        "candidate_id": "tcand_75f5515a8c95",
+        "cause_object_ref": "scene_state:telos,role_hint,authority",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_7d46f8477a95' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_47fd1a961b1e",
+        "candidate_id": "tcand_25fe23a9bd67",
+        "cause_object_ref": "scene_state:telos,role_hint,authority",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_86459badd939' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_c2964dc4fe45",
+        "candidate_id": "tcand_05c43deed64d",
+        "cause_object_ref": "operation_hypotheses:{}",
+        "generating_state_ref": "input_text:Проанализируй: какие именно вопросы нам стоит задавать в этом решении и почему?",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_b03261fb4657' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "В ходе анализа запроса выявлен набор типовых gap-триггеров: попытки типизации рефлексивных/мета-вопросов, а также реконструкции сцены/роли/тела, не были формально приняты триггер-типом в текущем реестре v0.2_default. Это не ошибка, а отражение основания: аналитически допустимая операция по выделению и обоснованию ключевых вопросов для принятия решения выполнима и лицензирована; попытка расширить область анализа на рефлексивно-мета-вопросы или на реконструкцию сцены/тела требует отдельной типизации, которая в текущей версии не предусмотрена.",
+      "grounds": "В scene и operation state возникли многократные типовые gap-триггеры — не отсутствие формальных типов в реестре, а аналитически обоснованная невозможность их материалации на текущем уровне. Для данного решения применима операция по выделению и обоснованию вопросов, но стратегия их мета-рефлексивного анализа или реконструкции роли/тела требует отдельного ревизионного (audit) и типового расширения."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": [
+        {
+          "projection_id": "gap:gap_d94ccababc75",
+          "signals": [
+            "APPLICABILITY_FAILURE"
+          ],
+          "reason": "ORGAN_GAP for operation 'QUESTION_SELECTION_AND_JUSTIFICATION': model proposal for 'QUESTION_SELECTION_AND_JUSTIFICATION' could not compile-bind against registered primitives",
+          "residue_ratio": 1.0,
+          "recognition_failure_count": 0,
+          "suggested_operation": "",
+          "suggested_ontology": "",
+          "suggested_target_family": [],
+          "mismatch": true,
+          "fingerprint": "7c80351f23b3"
+        }
+      ]
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [
+      {
+        "kind": "ORGAN_GAP",
+        "operation_id": "QUESTION_SELECTION_AND_JUSTIFICATION",
+        "reason": "proposal psyn_S4_meta_question_set_001 for operation 'QUESTION_SELECTION_AND_JUSTIFICATION' failed compile-bind: primitive 'prim_extract_qc_S4_v0.2' (invocation 'extract_question_candidates') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+        "registered_capability_id": "",
+        "generated_spec": null,
+        "binding_evidence": {},
+        "organ_gap": {
+          "gap_id": "gap_d94ccababc75",
+          "source_ref": "src_53e311727e489f97",
+          "scene_ref": "Определить, какие вопросы необходимо задать при принятии данного решения и обосновать их выбор.",
+          "required_operation": "QUESTION_SELECTION_AND_JUSTIFICATION",
+          "required_attention_structure": "Segment by decision phase, stakeholder domain, and risk/criterion relevance",
+          "insufficient_registered_capabilities": [
+            "DIFFERENTIATED_ACCOUNT",
+            "EXTRACT_CONCEPTS"
+          ],
+          "insufficient_declarative_primitives": [
+            "CoverageComputer",
+            "FamilyClassifier",
+            "SpanScanner",
+            "TargetFilter"
+          ],
+          "missing_capability_hypothesis": "model proposal for 'QUESTION_SELECTION_AND_JUSTIFICATION' could not compile-bind against registered primitives",
+          "evidence": [
+            "BindingError: primitive 'prim_extract_qc_S4_v0.2' (invocation 'extract_question_candidates') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+          ],
+          "counterexamples": [],
+          "affected_scene_telos": "Определить, какие вопросы необходимо задать при принятии данного решения и обосновать их выбор.",
+          "possible_development_direction": "extend primitive registry or narrow the proposal",
+          "status": "unresolved",
+          "activation_authority": "NONE"
+        }
+      }
+    ],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "",
+    "branch_id": "",
+    "space_registry": {},
+    "scene_registry": {
+      "scenes": {},
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "REFLECTIVE_OR_META",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Какой вопрос стоит задать относительно «Форма вопросов»?",
+          "regime": "REFLECTIVE_OR_META",
+          "fork_ref": "M1",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Какой вопрос стоит задать относительно «Уровень абстракции»?",
+          "regime": "REFLECTIVE_OR_META",
+          "fork_ref": "M2",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        },
+        {
+          "text": "Какой вопрос стоит задать относительно «Кому вопросы адресованы»?",
+          "regime": "REFLECTIVE_OR_META",
+          "fork_ref": "M3",
+          "parent_fork_ref": "",
+          "is_subordinate": false
+        }
+      ],
+      "primary_count": 3,
+      "subordinate_count": 0,
+      "total_count": 3,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level | human-owned operation; questions may clarify but cannot bind the decision",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "LEGITIMATE",
+      "ownership_owner": "JOINT",
+      "ownership_resolved": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    }
+  },
+  "rendering": {
+    "text": "Режим вопросов: REFLECTIVE_OR_META. Уровень: PEER. Всего: 3 (основных: 3).\n1. Какой вопрос стоит задать относительно «Форма вопросов»?\n2. Какой вопрос стоит задать относительно «Уровень абстракции»?\n3. Какой вопрос стоит задать относительно «Кому вопросы адресованы»?\n(Метарежим активирован явно: постановка задачи касается самой формы вопрошания.)\n(Замечание: операция принадлежит человеку и не разрешена; вопросы выше уточняют развилки, но не связывают решение.)",
+    "mode": "QUESTION_SET_PLAN_AUTHORED",
+    "provider_status": "NOT_APPLICABLE",
+    "provider_id": "",
+    "model_id": "",
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "latency_ms": 0,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_6a09a7b7ee5de355.json",
+  "duration_ms": 61658,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": {
+    "purpose": "fork_discrimination",
+    "question_regime": "REFLECTIVE_OR_META",
+    "selected_level": "PEER",
+    "hierarchy_policy": "PRIMARY_ONLY",
+    "target_forks_or_unknowns": [
+      "M1",
+      "M2",
+      "M3"
+    ],
+    "explicit_count_constraint": null,
+    "question_budget_ceiling": 12,
+    "selected_questions": [
+      {
+        "text": "Какой вопрос стоит задать относительно «Форма вопросов»?",
+        "regime": "REFLECTIVE_OR_META",
+        "fork_ref": "M1",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Какой вопрос стоит задать относительно «Уровень абстракции»?",
+        "regime": "REFLECTIVE_OR_META",
+        "fork_ref": "M2",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      },
+      {
+        "text": "Какой вопрос стоит задать относительно «Кому вопросы адресованы»?",
+        "regime": "REFLECTIVE_OR_META",
+        "fork_ref": "M3",
+        "parent_fork_ref": "",
+        "is_subordinate": false
+      }
+    ],
+    "primary_count": 3,
+    "subordinate_count": 0,
+    "total_count": 3,
+    "stop_reason": "COVERAGE_SATURATED",
+    "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level | human-owned operation; questions may clarify but cannot bind the decision",
+    "clarification_required": false,
+    "clarification_grounds": "",
+    "meta_escalation": "LEGITIMATE",
+    "ownership_owner": "JOINT",
+    "ownership_resolved": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  }
+}
