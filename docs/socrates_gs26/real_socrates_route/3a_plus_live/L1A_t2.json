@@ -1,0 +1,1928 @@
+{
+  "case_id": "L1A_t2",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:09:59Z",
+  "request": {
+    "text": "Продолжим ту же работу: какие данные нам ещё не хватает, чтобы отличить «рано» от «уже пора»?",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal",
+    "context_id": "ctx_79908c2f4770a2e8b109348e307f443e"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 60359,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 142804,
+    "tokens_out_sum": 2669,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15451,
+        "tokens_out": 258,
+        "attempts": 1,
+        "latency_ms": 6426,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13747,
+        "tokens_out": 213,
+        "attempts": 1,
+        "latency_ms": 5232,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15851,
+        "tokens_out": 271,
+        "attempts": 1,
+        "latency_ms": 6337,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13881,
+        "tokens_out": 47,
+        "attempts": 1,
+        "latency_ms": 4432,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14925,
+        "tokens_out": 796,
+        "attempts": 1,
+        "latency_ms": 12552,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17233,
+        "tokens_out": 261,
+        "attempts": 1,
+        "latency_ms": 4720,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15619,
+        "tokens_out": 299,
+        "attempts": 1,
+        "latency_ms": 5771,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15395,
+        "tokens_out": 178,
+        "attempts": 1,
+        "latency_ms": 4930,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20702,
+        "tokens_out": 346,
+        "attempts": 1,
+        "latency_ms": 7498,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_79908c2f4770a2e8b109348e307f443e",
+    "scene_id": "scene_bb9bf21f4523",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+    "operation_kind": "DATA_GAP_IDENTIFICATION",
+    "operation_applicable": true,
+    "open_world_gap": true,
+    "contract_id": "sc_2d7d5c9e1354",
+    "contract_status": "REVISION_PROPOSED",
+    "contract_version": 2,
+    "contract_intent": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+    "mutations_applied": [
+      "contract_revision_proposed:crc_1227c924332c"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [
+      {
+        "candidate_id": "crc_1227c924332c",
+        "prior_contract_id": "sc_aaa32505ab98",
+        "proposed_contract": {
+          "contract_id": "sc_2d7d5c9e1354",
+          "version": 2,
+          "scene_id": "scene_bb9bf21f4523",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+          "telos": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+          "object_scope": "User input: Продолжим ту же работу: какие данные нам ещё не хватает, чтобы отличить «рано» от «уже пора»?, Prior context: подразумевается совместный анализ (детализация и различение времени/порогов для принятия решения), Неявная предпосылка: задача не связана с единоличной системой или пользователем, а с совместным развёртыванием и уточнением критериев",
+          "operation_kind": "DATA_GAP_IDENTIFICATION",
+          "expected_intervention": "DATA_GAP_IDENTIFICATION",
+          "human_owned_decisions": [
+            "The analytic operation of enumerating missing criteria/data for the 'too early'/'now is the time' distinction is a joint action. Both participants are invited to contribute hypothesis, interpretation, and selection. No sole human binding has occurred; the criterion remains unresolved until further joint clarification."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_aaa32505ab98"
+        },
+        "reason": "telos drift: 'Построить карту возможных путей и факторов для решения, выходить ли команде на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.' -> \"Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.\"; operation drift: 'DECISION_MAP_CONSTRUCTION' -> 'DATA_GAP_IDENTIFICATION'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      }
+    ],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {},
+    "spaces": [],
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Ответ на данном этапе не может быть предоставлен, поскольку вопрос о совместной ответственности и критериях еще не решен.",
+    "intervention_profile": "normal",
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "rendering_mode": "LIVE",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_f6e457aa842ee8bd",
+    "trace_id": "strc_bdfdd2ee66002ef6",
+    "terminal": {
+      "terminal": "RETURN_OPERATION",
+      "response_text": "Ответ на данном этапе не может быть предоставлен, поскольку вопрос о совместной ответственности и критериях еще не решен.",
+      "rationale": "human/joint ownership unresolved (INV-009)",
+      "memory_proposal": {
+        "kind": "recurring_pattern",
+        "text": "In joint analytic threshold-timing tasks, there is a recurring pattern where participants explicitly enumerate missing data or decision criteria needed to resolve the distinction between 'too early' ('рано') and 'now is the time' ('уже пора'). This step addresses the open-world gap: not all relevant criteria are always present or pre-defined, and analytic progress often requires surfacing which factors are absent or uncertain.",
+        "grounds": "This pattern is evidenced by the user request for enumeration of missing data, the analytic/joint scene framing, the open-world flag in operation, and the recurring rejection of artificially forcing closure when relevant criteria are not fully specified. It is recognized that articulating missing factors is a functional analytic move, not a failure to decide."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "trigger_decision_materiality_data_gap",
+                "generating_state_ref": "operation.applicable",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "question focuses on missing data for a judgment transition; relevant for later memory recruitment, attention, or reflective exit if decision authority or data sufficiency cannot be met.",
+                "materiality_reason": "User asks what additional data is needed to distinguish timing categories; not an automatic operation, has potential for memory retrieval (B05), operation review, and reflective retreat (B07) if the request exposes a practical or epistemic gap.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "Phase S0. Scene, origin, operation, ownership states are mostly unset and non-binding; no authority, telos, or owner is resolved. Input is a continued analytical question, seeking additional data to distinguish 'too early' from 'already time' (рано vs уже пора). No explicit triggers from memory/retrieval or reflective retreat, but question materiality addresses decision/judgment criteria and may call for memory recruitment or output review in later phases.",
+              "triggers": [
+                {
+                  "trigger_id": "trigger_decision_materiality_data_gap",
+                  "generating_state_ref": "operation.applicable",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "question focuses on missing data for a judgment transition; relevant for later memory recruitment, attention, or reflective exit if decision authority or data sufficiency cannot be met.",
+                  "materiality_reason": "User asks what additional data is needed to distinguish timing categories; not an automatic operation, has potential for memory retrieval (B05), operation review, and reflective retreat (B07) if the request exposes a practical or epistemic gap."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15451,
+          "tokens_out": 258,
+          "latency_ms": 6426,
+          "error": "",
+          "request_hash": "bb2c2d28a58be44722048da7f1b0e2d43e8d53be6761ed5cb16a73902d18b91f",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 3137,
+              "sha256": "b3dbe4ba2631088b"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "78e9ae6afe603c52"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+              "role_hint": "совместное аналитическое обсуждение, уточнение условий, предпосылок и методологии",
+              "authority": "joint",
+              "materials": [
+                "User input: Продолжим ту же работу: какие данные нам ещё не хватает, чтобы отличить «рано» от «уже пора»?",
+                "Prior context: подразумевается совместный анализ (детализация и различение времени/порогов для принятия решения)",
+                "Неявная предпосылка: задача не связана с единоличной системой или пользователем, а с совместным развёртыванием и уточнением критериев",
+                "Начальный набор данных недостаточен — требуется выявление/означение недостающих факторов"
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+                "role_hint": "совместное аналитическое обсуждение, уточнение условий, предпосылок и методологии",
+                "authority": "joint",
+                "materials": [
+                  "User input: Продолжим ту же работу: какие данные нам ещё не хватает, чтобы отличить «рано» от «уже пора»?",
+                  "Prior context: подразумевается совместный анализ (детализация и различение времени/порогов для принятия решения)",
+                  "Неявная предпосылка: задача не связана с единоличной системой или пользователем, а с совместным развёртыванием и уточнением критериев",
+                  "Начальный набор данных недостаточен — требуется выявление/означение недостающих факторов"
+                ]
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13747,
+          "tokens_out": 213,
+          "latency_ms": 5232,
+          "error": "",
+          "request_hash": "0b32348eb68d5bc92cdb9a8c20a6a641c9728b1890d73ef627d0281e917e5c36",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 4024,
+              "sha256": "fe9df7a1932d288a"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "78e9ae6afe603c52"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_d69c5d0ac247",
+                "generating_state_ref": "operation.applicable",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Data gap recognition — insufficient explicit data to distinguish 'рано' from 'уже пора' given scene telos of refining criteria for joint decision readiness.",
+                "materiality_reason": "The user explicitly requests identification of missing data/factors necessary for distinguishing two critical temporal thresholds ('too early' vs 'already time'). This signals that current eligible context/materials do not contain all required distinguishing data. Therefore, the inability to determine the dividing line is structurally grounded—a legitimate and material gap in actionable information, not mere operator error or lack of effort. The issue is at the level of what data/factors are available and needed for justified transition between states.",
+                "admitting_rule": "Trigger is admitted as a structural/material data gap under candidate rule: when the user (or scene) explicitly requests identification or supplementation of missing sources, criteria, or data required for a critical distinction, and available materials are acknowledged as insufficient, generate a typed DATA_GAP trigger and mark for S2 phase intervention."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_d69c5d0ac247",
+                  "generating_state_ref": "operation.applicable",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Data gap recognition — insufficient explicit data to distinguish 'рано' from 'уже пора' given scene telos of refining criteria for joint decision readiness.",
+                  "materiality_reason": "The user explicitly requests identification of missing data/factors necessary for distinguishing two critical temporal thresholds ('too early' vs 'already time'). This signals that current eligible context/materials do not contain all required distinguishing data. Therefore, the inability to determine the dividing line is structurally grounded—a legitimate and material gap in actionable information, not mere operator error or lack of effort. The issue is at the level of what data/factors are available and needed for justified transition between states.",
+                  "admitting_rule": "Trigger is admitted as a structural/material data gap under candidate rule: when the user (or scene) explicitly requests identification or supplementation of missing sources, criteria, or data required for a critical distinction, and available materials are acknowledged as insufficient, generate a typed DATA_GAP trigger and mark for S2 phase intervention."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15851,
+          "tokens_out": 271,
+          "latency_ms": 6337,
+          "error": "",
+          "request_hash": "6716d9880f0cb6f2ca70f0077f4ac02e29aa0a31121039c042ed5be05d3d164e",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 5259,
+              "sha256": "305451afcf0af073"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "78e9ae6afe603c52"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "joint",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "unknown",
+                "sources_named": [],
+                "binding_authority": "joint",
+                "temporal_stale": false
+              },
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13881,
+          "tokens_out": 47,
+          "latency_ms": 4432,
+          "error": "",
+          "request_hash": "cdd38a97df1f096e8a7005183c5b148f4cff2e5895dcedd110a3ce82d16c8529",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 6103,
+              "sha256": "9073b6f215876f10"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "78e9ae6afe603c52"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "DATA_GAP_IDENTIFICATION",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": true
+            },
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_d69c5d0ac247",
+                "generating_state_ref": "operation.applicable",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Operation applicability and data sufficiency; user calls attention to insufficiency of data to distinguish target states.",
+                "materiality_reason": "Materially grounded data gap is central to operation: task is to surface which data are lacking for the required analytic distinction ('рано' vs 'уже пора').",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": {
+              "proposal_id": "datagap_proj_01",
+              "operation_id": "op_data_gap_01",
+              "target_object_family": [
+                "decision_criteria",
+                "threshold_data",
+                "missing_factors_enumeration"
+              ],
+              "ontology_hypothesis": "The domain is process/decision threshold analysis. The relevant objects are the explicit and implicit factors or data points required to distinguish between 'too early' and 'now is the time'.",
+              "recognition_criteria": [
+                "Is the factor named as necessary for distinguishing the two target states ('рано', 'уже пора')?",
+                "Does the absence of this factor prevent correct timing assessment?",
+                "Is there evidence in source/context for the requirement or lack of this data?"
+              ],
+              "segmentation_policy_hint": "Enumerate as discrete missing criteria or data requirements; avoid forced mapping to binary present/absent.",
+              "evidence_requirements": [
+                "Explicit reference to indeterminate criteria or missing measurements.",
+                "Local context indicating inability to decide between states due to insufficient data."
+              ],
+              "exclusions": [
+                "Known data/factors already present or considered sufficient.",
+                "General remarks on uncertainty not tied to data criteria."
+              ],
+              "contraindications": [
+                "Apparent sufficiency of information for the target distinction.",
+                "Task is not about threshold/data sufficiency but about a different analytic action."
+              ],
+              "applicability_assumptions": [
+                "Scene remains analytic and joint; user is seeking explicit clarification.",
+                "No single-unit extraction is forced; enumeration allowed.",
+                "The implicit context is a process or threshold distinction, not e.g. emotional readiness."
+              ],
+              "primitives": [
+                {
+                  "name": "EnumerateMissingCriteria",
+                  "primitive_id": "primitive_enum_missing_criteria",
+                  "params": {},
+                  "inputs": [
+                    "input_text"
+                  ]
+                }
+              ],
+              "accepted_output": "A joint-analytic list of data or decision criteria still missing for a robust distinction.",
+              "residue_output": "Open factors not classifiable, or uncertainty that cannot be resolved given scene data; preserve as residue for further inquiry.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "tgap_d69c5d0ac247",
+              "triggered_by_diagnostic_fingerprint": "",
+              "rationale": "User is asking what data or criteria are missing to differentiate 'рано' from 'уже пора'. The operation is not standard extraction or classification but diagnosis of insufficiency/data-gap. Open-world stance is preserved because not all possible relevant data are known or present.",
+              "expected_diagnostics": "Likely diagnosis: DATA_GAP; if present criteria are sufficient, return 'none' with justification.",
+              "expected_residue_policy": "Any criteria or factors not presently classifiable due to present ambiguity are preserved as explicit residue."
+            },
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "DATA_GAP_IDENTIFICATION",
+                "applicable": true,
+                "why_not": "",
+                "open_world_gap": true
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_d69c5d0ac247",
+                  "generating_state_ref": "operation.applicable",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Operation applicability and data sufficiency; user calls attention to insufficiency of data to distinguish target states.",
+                  "materiality_reason": "Materially grounded data gap is central to operation: task is to surface which data are lacking for the required analytic distinction ('рано' vs 'уже пора')."
+                }
+              ],
+              "projection_synthesis_proposal": {
+                "proposal_id": "datagap_proj_01",
+                "operation_id": "op_data_gap_01",
+                "target_object_family": [
+                  "decision_criteria",
+                  "threshold_data",
+                  "missing_factors_enumeration"
+                ],
+                "ontology_hypothesis": "The domain is process/decision threshold analysis. The relevant objects are the explicit and implicit factors or data points required to distinguish between 'too early' and 'now is the time'.",
+                "recognition_criteria": [
+                  "Is the factor named as necessary for distinguishing the two target states ('рано', 'уже пора')?",
+                  "Does the absence of this factor prevent correct timing assessment?",
+                  "Is there evidence in source/context for the requirement or lack of this data?"
+                ],
+                "segmentation_policy_hint": "Enumerate as discrete missing criteria or data requirements; avoid forced mapping to binary present/absent.",
+                "evidence_requirements": [
+                  "Explicit reference to indeterminate criteria or missing measurements.",
+                  "Local context indicating inability to decide between states due to insufficient data."
+                ],
+                "exclusions": [
+                  "Known data/factors already present or considered sufficient.",
+                  "General remarks on uncertainty not tied to data criteria."
+                ],
+                "contraindications": [
+                  "Apparent sufficiency of information for the target distinction.",
+                  "Task is not about threshold/data sufficiency but about a different analytic action."
+                ],
+                "applicability_assumptions": [
+                  "Scene remains analytic and joint; user is seeking explicit clarification.",
+                  "No single-unit extraction is forced; enumeration allowed.",
+                  "The implicit context is a process or threshold distinction, not e.g. emotional readiness."
+                ],
+                "primitives": [
+                  {
+                    "name": "EnumerateMissingCriteria",
+                    "primitive_id": "primitive_enum_missing_criteria",
+                    "params": {},
+                    "inputs": [
+                      "input_text"
+                    ]
+                  }
+                ],
+                "accepted_output": "A joint-analytic list of data or decision criteria still missing for a robust distinction.",
+                "residue_output": "Open factors not classifiable, or uncertainty that cannot be resolved given scene data; preserve as residue for further inquiry.",
+                "revises_projection_id": "",
+                "triggered_by_diagnostic_id": "tgap_d69c5d0ac247",
+                "triggered_by_diagnostic_fingerprint": "",
+                "rationale": "User is asking what data or criteria are missing to differentiate 'рано' from 'уже пора'. The operation is not standard extraction or classification but diagnosis of insufficiency/data-gap. Open-world stance is preserved because not all possible relevant data are known or present.",
+                "expected_diagnostics": "Likely diagnosis: DATA_GAP; if present criteria are sufficient, return 'none' with justification.",
+                "expected_residue_policy": "Any criteria or factors not presently classifiable due to present ambiguity are preserved as explicit residue."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14925,
+          "tokens_out": 796,
+          "latency_ms": 12552,
+          "error": "",
+          "request_hash": "377ff02e828897e796acdd04c50b3e272e7a100b0ec09ebf24c6db19f147fc43",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 6103,
+              "sha256": "265123a51f6b9b5f"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "78e9ae6afe603c52"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_d69c5d0ac247",
+                "generating_state_ref": "operation.applicable",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Identified as material gap for joint analysis of decision/threshold criteria: user asks for missing data/factors required to distinguish 'рано' (too early) vs. 'уже пора' (now is the time).",
+                "materiality_reason": "The operation flagged a data/criteria gap; request is not simply extractive—user demands diagnosis of what factors prevent robust differentiation between states. Trigger is grounded in analytic insufficiency.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "recurring_pattern",
+              "text": "In collaborative analytic tasks where threshold distinctions ('too early'/'now is the time') are unclear, explicit enumeration of missing decision criteria and relevant data becomes a recurring pattern for resolving uncertainty.",
+              "grounds": "Current user request directly asks what additional data or criteria are still required; the scene, telos and operation confirm the recurring need for explicit gap identification in processes involving threshold/time decision analysis."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_d69c5d0ac247",
+                  "generating_state_ref": "operation.applicable",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Identified as material gap for joint analysis of decision/threshold criteria: user asks for missing data/factors required to distinguish 'рано' (too early) vs. 'уже пора' (now is the time).",
+                  "materiality_reason": "The operation flagged a data/criteria gap; request is not simply extractive—user demands diagnosis of what factors prevent robust differentiation between states. Trigger is grounded in analytic insufficiency."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "recurring_pattern",
+                "text": "In collaborative analytic tasks where threshold distinctions ('too early'/'now is the time') are unclear, explicit enumeration of missing decision criteria and relevant data becomes a recurring pattern for resolving uncertainty.",
+                "grounds": "Current user request directly asks what additional data or criteria are still required; the scene, telos and operation confirm the recurring need for explicit gap identification in processes involving threshold/time decision analysis."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 17233,
+          "tokens_out": 261,
+          "latency_ms": 4720,
+          "error": "",
+          "request_hash": "c8e1aae229261b6333b8646bb04ae1e8ab347ccffc8d904b7db147632f980d01",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 9926,
+              "sha256": "ceec7ee4419a3c8f"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "78e9ae6afe603c52"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "joint",
+              "human_resolved": false,
+              "return_reason": "The analytic operation of enumerating missing criteria/data for the 'too early'/'now is the time' distinction is a joint action. Both participants are invited to contribute hypothesis, interpretation, and selection. No sole human binding has occurred; the criterion remains unresolved until further joint clarification."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_d69c5d0ac247",
+                "generating_state_ref": "operation.applicable",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "DATA_GAP_IDENTIFICATION requires explicit joint return of unresolved/missing criteria; trigger is grounded in the user request and operation kind.",
+                "materiality_reason": "The operation is not direct extraction or classification; it is open-world gap listing. Ownership is joint by scene and telos.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "recurring_pattern",
+              "text": "In joint analytic threshold-timing problems, explicit enumeration of missing data or criteria is a recurring intervention for resolving uncertainty between 'too early' and 'now is the time'.",
+              "grounds": "See user input, operation, and scene framing; this proposal documents the recurring pattern of gap identification as an analytic step."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "joint",
+                "human_resolved": false,
+                "return_reason": "The analytic operation of enumerating missing criteria/data for the 'too early'/'now is the time' distinction is a joint action. Both participants are invited to contribute hypothesis, interpretation, and selection. No sole human binding has occurred; the criterion remains unresolved until further joint clarification."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_d69c5d0ac247",
+                  "generating_state_ref": "operation.applicable",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "DATA_GAP_IDENTIFICATION requires explicit joint return of unresolved/missing criteria; trigger is grounded in the user request and operation kind.",
+                  "materiality_reason": "The operation is not direct extraction or classification; it is open-world gap listing. Ownership is joint by scene and telos."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "recurring_pattern",
+                "text": "In joint analytic threshold-timing problems, explicit enumeration of missing data or criteria is a recurring intervention for resolving uncertainty between 'too early' and 'now is the time'.",
+                "grounds": "See user input, operation, and scene framing; this proposal documents the recurring pattern of gap identification as an analytic step."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15619,
+          "tokens_out": 299,
+          "latency_ms": 5771,
+          "error": "",
+          "request_hash": "79ce1335bef2cb4cff323ef02410c5f3192405f869b2eb29df7d515adaf8282f",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 11300,
+              "sha256": "a5d147bda1112de9"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "78e9ae6afe603c52"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_d69c5d0ac247",
+                "generating_state_ref": "operation.applicable",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Operation requires explicit enumeration of missing data or criteria for analytic threshold distinction; relevant for intervention selection.",
+                "materiality_reason": "Scene involves joint analytic clarification: the distinction between 'too early' and 'now is the time' remains unresolved specifically due to insufficient or missing data/factors; operation is DATA_GAP_IDENTIFICATION; trigger materiality is explicit.",
+                "admitting_rule": "Trigger admitted due to open-world analytic gap, not schema coercion; contract allows for explicit gap enumeration intervention."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "triggers": [
+                {
+                  "trigger_id": "tgap_d69c5d0ac247",
+                  "generating_state_ref": "operation.applicable",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Operation requires explicit enumeration of missing data or criteria for analytic threshold distinction; relevant for intervention selection.",
+                  "materiality_reason": "Scene involves joint analytic clarification: the distinction between 'too early' and 'now is the time' remains unresolved specifically due to insufficient or missing data/factors; operation is DATA_GAP_IDENTIFICATION; trigger materiality is explicit.",
+                  "admitting_rule": "Trigger admitted due to open-world analytic gap, not schema coercion; contract allows for explicit gap enumeration intervention."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15395,
+          "tokens_out": 178,
+          "latency_ms": 4930,
+          "error": "",
+          "request_hash": "e9e5518567a5330cd90f8a3a7a43de5944a762b665ed177c7d3b7742f4187ec1",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 12325,
+              "sha256": "578ca712998f0512"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "78e9ae6afe603c52"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_d69c5d0ac247",
+                "generating_state_ref": "operation.applicable",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "S8–S10: Detects the analytic need to enumerate gaps/criteria prior to resolution in threshold distinction problems.",
+                "materiality_reason": "Without explicit enumeration of missing data or criteria, attempts to distinguish 'too early' from 'now is the time' may be arbitrary; surfacing the gap enables valid joint analytic progress.",
+                "admitting_rule": "Structural cause—an actual data or criteria gap, not coercion—justifies opening a distinct knowledge gap intervention and a corresponding memory trace."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "recurring_pattern",
+              "text": "In joint analytic threshold-timing tasks, there is a recurring pattern where participants explicitly enumerate missing data or decision criteria needed to resolve the distinction between 'too early' ('рано') and 'now is the time' ('уже пора'). This step addresses the open-world gap: not all relevant criteria are always present or pre-defined, and analytic progress often requires surfacing which factors are absent or uncertain.",
+              "grounds": "This pattern is evidenced by the user request for enumeration of missing data, the analytic/joint scene framing, the open-world flag in operation, and the recurring rejection of artificially forcing closure when relevant criteria are not fully specified. It is recognized that articulating missing factors is a functional analytic move, not a failure to decide."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "recurring_pattern",
+                "text": "In joint analytic threshold-timing tasks, there is a recurring pattern where participants explicitly enumerate missing data or decision criteria needed to resolve the distinction between 'too early' ('рано') and 'now is the time' ('уже пора'). This step addresses the open-world gap: not all relevant criteria are always present or pre-defined, and analytic progress often requires surfacing which factors are absent or uncertain.",
+                "grounds": "This pattern is evidenced by the user request for enumeration of missing data, the analytic/joint scene framing, the open-world flag in operation, and the recurring rejection of artificially forcing closure when relevant criteria are not fully specified. It is recognized that articulating missing factors is a functional analytic move, not a failure to decide."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_d69c5d0ac247",
+                  "generating_state_ref": "operation.applicable",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S8–S10: Detects the analytic need to enumerate gaps/criteria prior to resolution in threshold distinction problems.",
+                  "materiality_reason": "Without explicit enumeration of missing data or criteria, attempts to distinguish 'too early' from 'now is the time' may be arbitrary; surfacing the gap enables valid joint analytic progress.",
+                  "admitting_rule": "Structural cause—an actual data or criteria gap, not coercion—justifies opening a distinct knowledge gap intervention and a corresponding memory trace."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 20702,
+          "tokens_out": 346,
+          "latency_ms": 7498,
+          "error": "",
+          "request_hash": "493eb720c537b91b2bed658b9a349cf5084473b82d72f613e2a001861712babe",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 13168,
+              "sha256": "1171d1daa590339b"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "78e9ae6afe603c52"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_f6e457aa842ee8bd",
+      "input_text": "Продолжим ту же работу: какие данные нам ещё не хватает, чтобы отличить «рано» от «уже пора»?",
+      "source_id": "src_e01ff82c0d381cc8",
+      "phase": "S10",
+      "scene": {
+        "telos": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+        "role_hint": "совместное аналитическое обсуждение, уточнение условий, предпосылок и методологии",
+        "authority": "joint",
+        "materials": [
+          "User input: Продолжим ту же работу: какие данные нам ещё не хватает, чтобы отличить «рано» от «уже пора»?",
+          "Prior context: подразумевается совместный анализ (детализация и различение времени/порогов для принятия решения)",
+          "Неявная предпосылка: задача не связана с единоличной системой или пользователем, а с совместным развёртыванием и уточнением критериев",
+          "Начальный набор данных недостаточен — требуется выявление/означение недостающих факторов"
+        ]
+      },
+      "origin": {
+        "status": "unknown",
+        "sources_named": [],
+        "binding_authority": "joint",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "DATA_GAP_IDENTIFICATION",
+        "applicable": true,
+        "why_not": "",
+        "open_world_gap": true
+      },
+      "ownership": {
+        "owner": "joint",
+        "human_resolved": false,
+        "return_reason": "The analytic operation of enumerating missing criteria/data for the 'too early'/'now is the time' distinction is a joint action. Both participants are invited to contribute hypothesis, interpretation, and selection. No sole human binding has occurred; the criterion remains unresolved until further joint clarification."
+      },
+      "council_invoked": false,
+      "execution_invoked": true,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_2f2538e7beb7",
+          "proposed_trigger_type_id": "tgap_d69c5d0ac247",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "operation.applicable",
+          "cause_object_ref": "input_text",
+          "phase_relevance": "S8–S10: Detects the analytic need to enumerate gaps/criteria prior to resolution in threshold distinction problems.",
+          "materiality_reason": "Without explicit enumeration of missing data or criteria, attempts to distinguish 'too early' from 'now is the time' may be arbitrary; surfacing the gap enables valid joint analytic progress.",
+          "payload": {
+            "legacy_admitting_rule": "Structural cause—an actual data or criteria gap, not coercion—justifies opening a distinct knowledge gap intervention and a corresponding memory trace.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_4e37c3a73008",
+          "candidate_id": "tcand_be5e1b0f8588",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'trigger_decision_materiality_data_gap' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_ebbff3e695dd",
+          "candidate_id": "tcand_5a52b5609698",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_d69c5d0ac247' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_1442f7f3c3f5",
+          "candidate_id": "tcand_7f6b3c123c50",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_d69c5d0ac247' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_6d2adb1ec4b6",
+          "candidate_id": "tcand_f3313e1dcba0",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_d69c5d0ac247' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_f53eb350946e",
+          "candidate_id": "tcand_37b4fd19084d",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_d69c5d0ac247' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_f028e1bac36f",
+          "candidate_id": "tcand_dd7aa2c153f2",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_d69c5d0ac247' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_d69c5d0ac247",
+          "candidate_id": "tcand_be5e1b0f8588",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "operation.applicable",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'trigger_decision_materiality_data_gap' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_c38333e6fd67",
+          "candidate_id": "tcand_5a52b5609698",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "operation.applicable",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_d69c5d0ac247' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_48841b77b37c",
+          "candidate_id": "tcand_7f6b3c123c50",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "operation.applicable",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_d69c5d0ac247' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_f0812b056e1b",
+          "candidate_id": "tcand_f3313e1dcba0",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "operation.applicable",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_d69c5d0ac247' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_20f30b6b0ae0",
+          "candidate_id": "tcand_37b4fd19084d",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "operation.applicable",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_d69c5d0ac247' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_cf7c3490294a",
+          "candidate_id": "tcand_dd7aa2c153f2",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "operation.applicable",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_d69c5d0ac247' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "recurring_pattern",
+        "text": "In joint analytic threshold-timing tasks, there is a recurring pattern where participants explicitly enumerate missing data or decision criteria needed to resolve the distinction between 'too early' ('рано') and 'now is the time' ('уже пора'). This step addresses the open-world gap: not all relevant criteria are always present or pre-defined, and analytic progress often requires surfacing which factors are absent or uncertain.",
+        "grounds": "This pattern is evidenced by the user request for enumeration of missing data, the analytic/joint scene framing, the open-world flag in operation, and the recurring rejection of artificially forcing closure when relevant criteria are not fully specified. It is recognized that articulating missing factors is a functional analytic move, not a failure to decide."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": [
+          {
+            "projection_id": "gap:gap_c6d2f4b1bd59",
+            "signals": [
+              "APPLICABILITY_FAILURE"
+            ],
+            "reason": "ORGAN_GAP for operation 'op_data_gap_01': model proposal for 'op_data_gap_01' could not compile-bind against registered primitives",
+            "residue_ratio": 1.0,
+            "recognition_failure_count": 0,
+            "suggested_operation": "",
+            "suggested_ontology": "",
+            "suggested_target_family": [],
+            "mismatch": true,
+            "fingerprint": "7c80351f23b3"
+          }
+        ]
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [
+        {
+          "kind": "ORGAN_GAP",
+          "operation_id": "op_data_gap_01",
+          "reason": "proposal datagap_proj_01 for operation 'op_data_gap_01' failed compile-bind: primitive 'primitive_enum_missing_criteria' (invocation 'EnumerateMissingCriteria') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+          "registered_capability_id": "",
+          "generated_spec": null,
+          "binding_evidence": {},
+          "organ_gap": {
+            "gap_id": "gap_c6d2f4b1bd59",
+            "source_ref": "src_e01ff82c0d381cc8",
+            "scene_ref": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+            "required_operation": "op_data_gap_01",
+            "required_attention_structure": "Enumerate as discrete missing criteria or data requirements; avoid forced mapping to binary present/absent.",
+            "insufficient_registered_capabilities": [
+              "DIFFERENTIATED_ACCOUNT",
+              "EXTRACT_CONCEPTS"
+            ],
+            "insufficient_declarative_primitives": [
+              "CoverageComputer",
+              "FamilyClassifier",
+              "SpanScanner",
+              "TargetFilter"
+            ],
+            "missing_capability_hypothesis": "model proposal for 'op_data_gap_01' could not compile-bind against registered primitives",
+            "evidence": [
+              "BindingError: primitive 'primitive_enum_missing_criteria' (invocation 'EnumerateMissingCriteria') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+            ],
+            "counterexamples": [],
+            "affected_scene_telos": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+            "possible_development_direction": "extend primitive registry or narrow the proposal",
+            "status": "unresolved",
+            "activation_authority": "NONE"
+          }
+        }
+      ],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_bb9bf21f4523",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [],
+          "operator_capabilities": [],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "",
+          "activation_scope": "",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_bb9bf21f4523": {
+            "scene_id": "scene_bb9bf21f4523",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": null
+    },
+    "rendering": {
+      "text": "Ответ на данном этапе не может быть предоставлен, поскольку вопрос о совместной ответственности и критериях еще не решен.",
+      "mode": "LIVE",
+      "provider_status": "OK",
+      "provider_id": "fallback",
+      "model_id": "chain",
+      "tokens_in": 196,
+      "tokens_out": 25,
+      "latency_ms": 2289,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_bdfdd2ee66002ef6.json",
+    "duration_ms": 60359,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "context_id": "ctx_79908c2f4770a2e8b109348e307f443e",
+    "context_continuity": {
+      "context_id": "ctx_79908c2f4770a2e8b109348e307f443e",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_2d7d5c9e1354",
+        "version": 2,
+        "scene_id": "scene_bb9bf21f4523",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+        "telos": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+        "object_scope": "User input: Продолжим ту же работу: какие данные нам ещё не хватает, чтобы отличить «рано» от «уже пора»?, Prior context: подразумевается совместный анализ (детализация и различение времени/порогов для принятия решения), Неявная предпосылка: задача не связана с единоличной системой или пользователем, а с совместным развёртыванием и уточнением критериев",
+        "operation_kind": "DATA_GAP_IDENTIFICATION",
+        "expected_intervention": "DATA_GAP_IDENTIFICATION",
+        "human_owned_decisions": [
+          "The analytic operation of enumerating missing criteria/data for the 'too early'/'now is the time' distinction is a joint action. Both participants are invited to contribute hypothesis, interpretation, and selection. No sole human binding has occurred; the criterion remains unresolved until further joint clarification."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_aaa32505ab98"
+      },
+      "contract_revision": {
+        "candidate_id": "crc_1227c924332c",
+        "prior_contract_id": "sc_aaa32505ab98",
+        "proposed_contract": {
+          "contract_id": "sc_2d7d5c9e1354",
+          "version": 2,
+          "scene_id": "scene_bb9bf21f4523",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+          "telos": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+          "object_scope": "User input: Продолжим ту же работу: какие данные нам ещё не хватает, чтобы отличить «рано» от «уже пора»?, Prior context: подразумевается совместный анализ (детализация и различение времени/порогов для принятия решения), Неявная предпосылка: задача не связана с единоличной системой или пользователем, а с совместным развёртыванием и уточнением критериев",
+          "operation_kind": "DATA_GAP_IDENTIFICATION",
+          "expected_intervention": "DATA_GAP_IDENTIFICATION",
+          "human_owned_decisions": [
+            "The analytic operation of enumerating missing criteria/data for the 'too early'/'now is the time' distinction is a joint action. Both participants are invited to contribute hypothesis, interpretation, and selection. No sole human binding has occurred; the criterion remains unresolved until further joint clarification."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_aaa32505ab98"
+        },
+        "reason": "telos drift: 'Построить карту возможных путей и факторов для решения, выходить ли команде на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.' -> \"Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.\"; operation drift: 'DECISION_MAP_CONSTRUCTION' -> 'DATA_GAP_IDENTIFICATION'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "recognition_pass": {
+        "pass_id": "rp_047be21ea73a",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [
+          {
+            "candidate_id": "crc_1227c924332c",
+            "prior_contract_id": "sc_aaa32505ab98",
+            "proposed_contract": {
+              "contract_id": "sc_2d7d5c9e1354",
+              "version": 2,
+              "scene_id": "scene_bb9bf21f4523",
+              "space_id": "space_default_workspace",
+              "branch_id": "",
+              "intent": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+              "telos": "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.",
+              "object_scope": "User input: Продолжим ту же работу: какие данные нам ещё не хватает, чтобы отличить «рано» от «уже пора»?, Prior context: подразумевается совместный анализ (детализация и различение времени/порогов для принятия решения), Неявная предпосылка: задача не связана с единоличной системой или пользователем, а с совместным развёртыванием и уточнением критериев",
+              "operation_kind": "DATA_GAP_IDENTIFICATION",
+              "expected_intervention": "DATA_GAP_IDENTIFICATION",
+              "human_owned_decisions": [
+                "The analytic operation of enumerating missing criteria/data for the 'too early'/'now is the time' distinction is a joint action. Both participants are invited to contribute hypothesis, interpretation, and selection. No sole human binding has occurred; the criterion remains unresolved until further joint clarification."
+              ],
+              "constraints": [],
+              "uncertainty": 0.1,
+              "provenance": "SYSTEM_DERIVED",
+              "status": "REVISION_PROPOSED",
+              "supersedes": "sc_aaa32505ab98"
+            },
+            "reason": "telos drift: 'Построить карту возможных путей и факторов для решения, выходить ли команде на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.' -> \"Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче.\"; operation drift: 'DECISION_MAP_CONSTRUCTION' -> 'DATA_GAP_IDENTIFICATION'",
+            "source": "SYSTEM_DERIVED",
+            "authority": "NO_TRANSITION_AUTHORITY"
+          }
+        ],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_revision_proposed:crc_1227c924332c"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 60499
+  }
+}

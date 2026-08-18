@@ -1,0 +1,157 @@
+{
+  "deployed_sha_claimed": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "hostname": "moderbober-prod-01",
+  "tinkuy_web": "active",
+  "module_md5": {
+    "context_store.py": "cec751341c5e962da712029ba1f88cbd",
+    "context_continuity.py": "e84e011a4cda203d0c1e1dcf70740b59",
+    "socrates_context_store.py": "5dfb321306776ba78ff9c19cc05adc8b",
+    "socrates_bridge.py": "52b10b6a92ba03678525a00700daf91c"
+  },
+  "expected_context_store_md5": "cec751341c5e962da712029ba1f88cbd",
+  "context_store_md5_match": true,
+  "rollback_snapshot_exists": true,
+  "env_safe": {
+    "env_file_exists": true,
+    "API_302AI_KEY_PRESENT": true,
+    "API_302AI_KEY_LEN": 51,
+    "TINKUY_COMPAT_API_KEY_PRESENT": true,
+    "TINKUY_COMPAT_API_KEY_LEN": 46,
+    "secret_keys_present": [
+      "API_302AI_KEY",
+      "TINKUY_COMPAT_API_KEY"
+    ],
+    "mock_active": false
+  },
+  "request": {
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal",
+    "text_len": 149
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "top_provider_id": "fallback",
+    "top_model_id": "chain",
+    "duration_ms": 60667,
+    "run_id": "srun_593881172238dc45",
+    "trace_id": "strc_215720a90f7c4ffa",
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15213,
+        "tokens_out": 94,
+        "attempts": 1,
+        "latency_ms": 5346,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13261,
+        "tokens_out": 130,
+        "attempts": 1,
+        "latency_ms": 3766,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15282,
+        "tokens_out": 376,
+        "attempts": 1,
+        "latency_ms": 7202,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13588,
+        "tokens_out": 41,
+        "attempts": 1,
+        "latency_ms": 4596,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14632,
+        "tokens_out": 580,
+        "attempts": 1,
+        "latency_ms": 9893,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16602,
+        "tokens_out": 275,
+        "attempts": 1,
+        "latency_ms": 6862,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15008,
+        "tokens_out": 225,
+        "attempts": 1,
+        "latency_ms": 6096,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14573,
+        "tokens_out": 169,
+        "attempts": 1,
+        "latency_ms": 5459,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19894,
+        "tokens_out": 338,
+        "attempts": 1,
+        "latency_ms": 7277,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 138053,
+    "tokens_out_sum": 2228,
+    "terminal": "RETURN_OPERATION",
+    "context_id": "ctx_464acacfe84164dc1a75dc718b5c0b92"
+  },
+  "real_provider_invoked": true
+}

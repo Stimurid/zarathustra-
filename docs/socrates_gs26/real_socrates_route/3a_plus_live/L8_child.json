@@ -1,0 +1,2274 @@
+{
+  "case_id": "L8_child",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:28:00Z",
+  "request": {
+    "text": "Продолжим гипотезу про новых клиентов: какие два риска там самые дорогие, если старый биллинг остаётся жить рядом?",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal",
+    "context_id": "ctx_33c684daad48346997d3c9988b2a3e93"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 72914,
+    "live_ok_phases": 10,
+    "mockish_phases": 0,
+    "tokens_in_sum": 166418,
+    "tokens_out_sum": 3050,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15614,
+        "tokens_out": 214,
+        "attempts": 1,
+        "latency_ms": 5320,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13936,
+        "tokens_out": 124,
+        "attempts": 1,
+        "latency_ms": 4506,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15951,
+        "tokens_out": 208,
+        "attempts": 1,
+        "latency_ms": 5882,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14011,
+        "tokens_out": 407,
+        "attempts": 1,
+        "latency_ms": 7074,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15602,
+        "tokens_out": 768,
+        "attempts": 1,
+        "latency_ms": 13573,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17750,
+        "tokens_out": 430,
+        "attempts": 1,
+        "latency_ms": 8574,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16279,
+        "tokens_out": 264,
+        "attempts": 1,
+        "latency_ms": 4494,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15774,
+        "tokens_out": 16,
+        "attempts": 1,
+        "latency_ms": 2952,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S9",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20638,
+        "tokens_out": 174,
+        "attempts": 1,
+        "latency_ms": 5869,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20863,
+        "tokens_out": 445,
+        "attempts": 1,
+        "latency_ms": 10066,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_33c684daad48346997d3c9988b2a3e93",
+    "scene_id": "scene_752e7caa8725",
+    "space_id": "space_default_workspace",
+    "branch_id": "br_c55b9e2dc127",
+    "telos": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+    "operation_kind": "ANALYZE_PRIORITIZED_RISK",
+    "operation_applicable": true,
+    "open_world_gap": false,
+    "contract_id": "sc_d612e6d63499",
+    "contract_status": "REVISION_PROPOSED",
+    "contract_version": 3,
+    "contract_intent": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+    "mutations_applied": [
+      "contract_revision_proposed:crc_9ed9b770c1d5"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [
+      {
+        "candidate_id": "crc_9ed9b770c1d5",
+        "prior_contract_id": "sc_58e124589c4f",
+        "proposed_contract": {
+          "contract_id": "sc_d612e6d63499",
+          "version": 3,
+          "scene_id": "scene_752e7caa8725",
+          "space_id": "space_default_workspace",
+          "branch_id": "br_c55b9e2dc127",
+          "intent": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+          "telos": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+          "object_scope": "гипотеза: переход новых клиентов на новую схему биллинга, условие: старая биллинговая система продолжает работать для других клиентов/рядом",
+          "operation_kind": "ANALYZE_PRIORITIZED_RISK",
+          "expected_intervention": "ANALYZE_PRIORITIZED_RISK",
+          "human_owned_decisions": [
+            "The requested analytic operation—prioritizing top 2 cost-driving risks specific to the coexistence of old and new billing systems for new clients—is SYSTEM-owned. The criterion is explicit: risks must directly arise from parallel functioning, cost prioritization is clear, and no unresolved human-only judgment, identity, value, commitment, or consequence is being silently bound. Execution follows with direct assistance and zero question friction. No material developmental risk or return loop applies."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_58e124589c4f"
+        },
+        "reason": "telos drift: 'Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.' -> 'Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.'; operation drift: 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' -> 'ANALYZE_PRIORITIZED_RISK'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      }
+    ],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {
+      "br_c55b9e2dc127": {
+        "branch_id": "br_c55b9e2dc127",
+        "scene_id": "scene_752e7caa8725",
+        "parent_scene_id": "scene_752e7caa8725",
+        "hypothesis": "new customers only billing cutover",
+        "status": "active",
+        "local_facts": [],
+        "local_commitments": [],
+        "memory_scope": "BRANCH",
+        "active_projection_ids": [],
+        "lineage_event": "",
+        "weakened_at": "",
+        "rejected_at": "",
+        "archived_at": ""
+      }
+    },
+    "spaces": [],
+    "terminal": "ANSWER",
+    "response_text": "[ANSWER] Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+    "intervention_profile": "normal",
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DECISION_SEPARATING",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "integration_issues",
+        "data_consistency"
+      ],
+      "explicit_count_constraint": 2,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Каковы могут быть самые значительные технические или организационные трудности интеграции между старой и новой биллинговыми системами, если обе продолжают работать параллельно?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "integration_issues",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Как велика вероятность возникновения нестыковок в данных между двумя биллинговыми системами и каковы будут последствия для обслуживания клиентов и финансов компании?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "data_consistency",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        }
+      ],
+      "primary_count": 2,
+      "subordinate_count": 0,
+      "total_count": 2,
+      "stop_reason": "EXPLICIT_COUNT_MET",
+      "stop_reason_grounds": "explicit count 2 matches material peer count exactly",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "SYSTEM",
+      "ownership_resolved": true,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_intent_proposal": {
+      "requested": true,
+      "regime_candidate": "DECISION_SEPARATING",
+      "explicit_count_constraint": 2,
+      "meta_relevance": "ordinary",
+      "forks": [
+        {
+          "id": "integration_issues",
+          "label": "Интеграционные проблемы между старым биллингом и новой системой",
+          "proposition": "Одним из самых дорогих рисков будет сложность интеграции между двумя системами биллинга.",
+          "discriminandum": "Если интеграция сложна, это приведёт к высоким затратам и рискам сбоев.",
+          "material_refs": [],
+          "candidate_question": "Каковы могут быть самые значительные технические или организационные трудности интеграции между старой и новой биллинговыми системами, если обе продолжают работать параллельно?",
+          "level": "PEER"
+        },
+        {
+          "id": "data_consistency",
+          "label": "Проблемы согласованности данных и двойного учёта",
+          "proposition": "Вторым дорогим риском будет рассогласование данных и возможные ошибки в учёте платежей.",
+          "discriminandum": "Если возникают несостыковки в данных, это чревато двойным начислением или потерей платежей.",
+          "material_refs": [],
+          "candidate_question": "Как велика вероятность возникновения нестыковок в данных между двумя биллинговыми системами и каковы будут последствия для обслуживания клиентов и финансов компании?",
+          "level": "PEER"
+        }
+      ],
+      "subordinates": [],
+      "validation_status": "OK",
+      "validation_reason": "OK",
+      "authority": "NO_BINDING_AUTHORITY",
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "latency_ms": 4411
+    },
+    "rendering_mode": "QUESTION_SET_PLAN_AUTHORED",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_a5e6555844a6a552",
+    "trace_id": "strc_8d8326c206fc813a",
+    "terminal": {
+      "terminal": "ANSWER",
+      "response_text": "[ANSWER] Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+      "rationale": "system-owned, applicable, no open-world gap",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "В данном сценарии выделяется принципиальная разница между обычными переходными/миграционными рисками и специфическими, дорогостоящими рисками, возникающими именно из-за параллельной работы новой и старой биллинговых систем для новых клиентов. Топ-2 риска должны отражать именно издержки, связанные с конфликтом, дублированием, нестыковками или избыточными операциями между двумя системами, а не те, что могли бы возникнуть при полном отключении старого биллинга.",
+        "grounds": "Критерий задачи требует не просто назвать любые затраты, а фокусироваться на уникальных рисках коэкзистенции для новых клиентов. Это помогает повторно избежать подмены приоритетов на обобщённые проблемы миграции или настройки и хранит явную сцену для оценки специфических пересечений и дополнительных расходов."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "scene_branch_hypothesis_context",
+                "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+                "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+                "source_status": "typed_state",
+                "phase_relevance": "Context enters as scenario constraint for risk analysis",
+                "materiality_reason": "Branch-memory context constrains which risks are eligible for identification and cost analysis",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "Scene is stable: user requests analysis about the two most expensive risks when old billing persists alongside new-customer cutover. No explicit telos, role, or authority, but operation is applicable and the memory ecology (branch hypothesis, prior scene) is clean. No reflective retreat trigger or memory formation/state-write gate needed yet; memory context (branch hypothesis) is surfaced. No additional triggers required beyond branch context.",
+              "triggers": [
+                {
+                  "trigger_id": "scene_branch_hypothesis_context",
+                  "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+                  "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Context enters as scenario constraint for risk analysis",
+                  "materiality_reason": "Branch-memory context constrains which risks are eligible for identification and cost analysis"
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15614,
+          "tokens_out": 214,
+          "latency_ms": 5320,
+          "error": "",
+          "request_hash": "6e08b4b0fef8bd5d98387e086f954979685ce6e0d29fc1dd48b09925b7323e28",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 3692,
+              "sha256": "dcb2d2b4c44fdb4c"
+            },
+            {
+              "role": "user",
+              "bytes": 321,
+              "sha256": "b0056f84d3155379"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+              "role_hint": "аналитик рисков для проектного решения",
+              "authority": "unset",
+              "materials": [
+                "гипотеза: переход новых клиентов на новую схему биллинга",
+                "условие: старая биллинговая система продолжает работать для других клиентов/рядом"
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+                "role_hint": "аналитик рисков для проектного решения",
+                "authority": "unset",
+                "materials": [
+                  "гипотеза: переход новых клиентов на новую схему биллинга",
+                  "условие: старая биллинговая система продолжает работать для других клиентов/рядом"
+                ]
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13936,
+          "tokens_out": 124,
+          "latency_ms": 4506,
+          "error": "",
+          "request_hash": "cd666dabb105e63fb9def4256de50b15ec3f67f02c85ab6949300bc6848862aa",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 4657,
+              "sha256": "a49f54007328a8f4"
+            },
+            {
+              "role": "user",
+              "bytes": 321,
+              "sha256": "b0056f84d3155379"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_781f5b06c9d9",
+                "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+                "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+                "source_status": "typed_state",
+                "phase_relevance": "core scene/branch structural object has no registered type; this is a materially grounded (not invented) structural/semantic gap for further phase logic",
+                "materiality_reason": "Identified an unregistered, grounded type gap ('scene_branch_hypothesis_context') for scene/branch context, which blocks normal semantic contract progression; continuation cannot coerce this object to any available type.",
+                "admitting_rule": "Material grounded type gap (not coercible to existing registry types); must be admitted for gap handling, blocking further contract execution until gap is addressed."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_781f5b06c9d9",
+                  "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+                  "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+                  "source_status": "typed_state",
+                  "phase_relevance": "core scene/branch structural object has no registered type; this is a materially grounded (not invented) structural/semantic gap for further phase logic",
+                  "materiality_reason": "Identified an unregistered, grounded type gap ('scene_branch_hypothesis_context') for scene/branch context, which blocks normal semantic contract progression; continuation cannot coerce this object to any available type.",
+                  "admitting_rule": "Material grounded type gap (not coercible to existing registry types); must be admitted for gap handling, blocking further contract execution until gap is addressed."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15951,
+          "tokens_out": 208,
+          "latency_ms": 5882,
+          "error": "",
+          "request_hash": "cf051a8de74c43c56349a8d6c4d3c5231425f090221bcd8856a8bac07221b580",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 5279,
+              "sha256": "73f9ce323b577e29"
+            },
+            {
+              "role": "user",
+              "bytes": 321,
+              "sha256": "b0056f84d3155379"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "reconstructed",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_781f5b06c9d9",
+                "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+                "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+                "source_status": "typed_state",
+                "phase_relevance": "Type gap for scene branch hypothesis context: no registered type for this configuration, materiality is recognized as it structurally grounds the current reasoning context.",
+                "materiality_reason": "This type gap means that the specific origin, fact, or risk claims generated in this branch must be flagged as reconstructed (not strictly sourced/attributed), as the system cannot resolve it to an existing epistemic type.",
+                "admitting_rule": "Type gap is preserved and not coerced; reasoning proceeds with 'reconstructed' status and no specific source naming or binding authority."
+              },
+              {
+                "trigger_id": "tgap_0120be7a9f17",
+                "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+                "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+                "source_status": "typed_state",
+                "phase_relevance": "A second type gap triggers from the same hypothesis context for unresolved structured material with no applicable type.",
+                "materiality_reason": "The absence of a registered epistemic type for this context requires preserving reconstructed status and explicitly not attributing or upgrading claim status.",
+                "admitting_rule": "Preserve reconstructed and unset binding; do not substitute source or conflate with an original fact."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "reconstructed",
+                "sources_named": [],
+                "binding_authority": "unset",
+                "temporal_stale": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_781f5b06c9d9",
+                  "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+                  "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Type gap for scene branch hypothesis context: no registered type for this configuration, materiality is recognized as it structurally grounds the current reasoning context.",
+                  "materiality_reason": "This type gap means that the specific origin, fact, or risk claims generated in this branch must be flagged as reconstructed (not strictly sourced/attributed), as the system cannot resolve it to an existing epistemic type.",
+                  "admitting_rule": "Type gap is preserved and not coerced; reasoning proceeds with 'reconstructed' status and no specific source naming or binding authority."
+                },
+                {
+                  "trigger_id": "tgap_0120be7a9f17",
+                  "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+                  "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+                  "source_status": "typed_state",
+                  "phase_relevance": "A second type gap triggers from the same hypothesis context for unresolved structured material with no applicable type.",
+                  "materiality_reason": "The absence of a registered epistemic type for this context requires preserving reconstructed status and explicitly not attributing or upgrading claim status.",
+                  "admitting_rule": "Preserve reconstructed and unset binding; do not substitute source or conflate with an original fact."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14011,
+          "tokens_out": 407,
+          "latency_ms": 7074,
+          "error": "",
+          "request_hash": "4313022a8d2b74123d5caf1c39df4ae63f2625ae42c33b088c5797370c85870b",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 6213,
+              "sha256": "331918f339d978d8"
+            },
+            {
+              "role": "user",
+              "bytes": 321,
+              "sha256": "b0056f84d3155379"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "ANALYZE_PRIORITIZED_RISK",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": {
+              "proposal_id": "proposal_prisk_001",
+              "operation_id": "ANALYZE_PRIORITIZED_RISK",
+              "target_object_family": [
+                "risk",
+                "cost_risk"
+              ],
+              "ontology_hypothesis": "A risk analysis projection focusing on costly risks in a technical transition context where new clients migrate to a new billing scheme while the old system remains.",
+              "recognition_criteria": [
+                "Explicit risks that are consequences of parallel operation of old and new billing systems for new clients",
+                "Risk must be attributable to the coexistence state, not just the generic migration",
+                "Risk must entail quantifiable or strategically major cost impact"
+              ],
+              "segmentation_policy_hint": "Prioritize direct, scenario-specific risks—exclude generic migration uncertainties not aggravated by coexistence.",
+              "evidence_requirements": [
+                "Description or implications of technical, organizational, or process conflicts between systems",
+                "Known historical cost drivers or analogues for similar transitions",
+                "Domain evidence or expert input on failure/interference mechanisms"
+              ],
+              "exclusions": [
+                "Risks affecting only legacy clients with no impact on the transition scenario",
+                "Uncosted minor process risks without systemic effect"
+              ],
+              "contraindications": [
+                "Claims that only one system or cohort is affected",
+                "Absence of interaction between systems in scenario hypotheses"
+              ],
+              "applicability_assumptions": [
+                "Scenario is concretely about new clients using the new system with the old system remaining active for others",
+                "At least provisional risk identification is possible with domain analytic methods"
+              ],
+              "primitives": [
+                {
+                  "name": "extract_scene_specific_risks",
+                  "primitive_id": "prim_extract_risk",
+                  "params": {
+                    "context": "new clients migration with coexisting old billing"
+                  },
+                  "inputs": [
+                    "scene.telos",
+                    "scene.materials"
+                  ]
+                },
+                {
+                  "name": "prioritize_by_cost_impact",
+                  "primitive_id": "prim_prioritize_cost",
+                  "params": {
+                    "top_n": 2
+                  },
+                  "inputs": [
+                    "output_of_prim_extract_risk"
+                  ]
+                }
+              ],
+              "accepted_output": "Top 2 most costly risks specifically due to parallel functioning of new and old billing systems in 'new clients migrate' scenario, with justifications.",
+              "residue_output": "Risks or scenario artifacts that do not fit the cost/parallelism focus and are retained for later review.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "",
+              "triggered_by_diagnostic_fingerprint": "",
+              "rationale": "The requested analytic projection is directly licensed: user requests cost-prioritized risk analysis for a branch where old and new systems operate side by side in a 'new clients cutover' scenario. No ontology gap is present because risk and cost align with a standard local analytic ontology.",
+              "expected_diagnostics": "If analytic output yields more than two relevant risks, those not returned in top-2 are residue. If insufficient evidence for concrete cost prioritization, method returns explicit evidence-weakness, not forced ranking.",
+              "expected_residue_policy": "Residue is preserved as lower-priority or ambiguous risk candidates, not forced into cost ranking."
+            },
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "ANALYZE_PRIORITIZED_RISK",
+                "applicable": true,
+                "why_not": "",
+                "open_world_gap": false
+              },
+              "triggers": [],
+              "projection_synthesis_proposal": {
+                "proposal_id": "proposal_prisk_001",
+                "operation_id": "ANALYZE_PRIORITIZED_RISK",
+                "target_object_family": [
+                  "risk",
+                  "cost_risk"
+                ],
+                "ontology_hypothesis": "A risk analysis projection focusing on costly risks in a technical transition context where new clients migrate to a new billing scheme while the old system remains.",
+                "recognition_criteria": [
+                  "Explicit risks that are consequences of parallel operation of old and new billing systems for new clients",
+                  "Risk must be attributable to the coexistence state, not just the generic migration",
+                  "Risk must entail quantifiable or strategically major cost impact"
+                ],
+                "segmentation_policy_hint": "Prioritize direct, scenario-specific risks—exclude generic migration uncertainties not aggravated by coexistence.",
+                "evidence_requirements": [
+                  "Description or implications of technical, organizational, or process conflicts between systems",
+                  "Known historical cost drivers or analogues for similar transitions",
+                  "Domain evidence or expert input on failure/interference mechanisms"
+                ],
+                "exclusions": [
+                  "Risks affecting only legacy clients with no impact on the transition scenario",
+                  "Uncosted minor process risks without systemic effect"
+                ],
+                "contraindications": [
+                  "Claims that only one system or cohort is affected",
+                  "Absence of interaction between systems in scenario hypotheses"
+                ],
+                "applicability_assumptions": [
+                  "Scenario is concretely about new clients using the new system with the old system remaining active for others",
+                  "At least provisional risk identification is possible with domain analytic methods"
+                ],
+                "primitives": [
+                  {
+                    "name": "extract_scene_specific_risks",
+                    "primitive_id": "prim_extract_risk",
+                    "params": {
+                      "context": "new clients migration with coexisting old billing"
+                    },
+                    "inputs": [
+                      "scene.telos",
+                      "scene.materials"
+                    ]
+                  },
+                  {
+                    "name": "prioritize_by_cost_impact",
+                    "primitive_id": "prim_prioritize_cost",
+                    "params": {
+                      "top_n": 2
+                    },
+                    "inputs": [
+                      "output_of_prim_extract_risk"
+                    ]
+                  }
+                ],
+                "accepted_output": "Top 2 most costly risks specifically due to parallel functioning of new and old billing systems in 'new clients migrate' scenario, with justifications.",
+                "residue_output": "Risks or scenario artifacts that do not fit the cost/parallelism focus and are retained for later review.",
+                "revises_projection_id": "",
+                "triggered_by_diagnostic_id": "",
+                "triggered_by_diagnostic_fingerprint": "",
+                "rationale": "The requested analytic projection is directly licensed: user requests cost-prioritized risk analysis for a branch where old and new systems operate side by side in a 'new clients cutover' scenario. No ontology gap is present because risk and cost align with a standard local analytic ontology.",
+                "expected_diagnostics": "If analytic output yields more than two relevant risks, those not returned in top-2 are residue. If insufficient evidence for concrete cost prioritization, method returns explicit evidence-weakness, not forced ranking.",
+                "expected_residue_policy": "Residue is preserved as lower-priority or ambiguous risk candidates, not forced into cost ranking."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15602,
+          "tokens_out": 768,
+          "latency_ms": 13573,
+          "error": "",
+          "request_hash": "ea4f97bb71dad52936545352dd7effee1d4e5f0d7c9bb6fbcf0c5aea3ff0ec85",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 8087,
+              "sha256": "e1e15df128ccec25"
+            },
+            {
+              "role": "user",
+              "bytes": 321,
+              "sha256": "b0056f84d3155379"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_781f5b06c9d9",
+                "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+                "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+                "source_status": "typed_state",
+                "phase_relevance": "A materially grounded structural cause for a scene branch hypothesis is present, but the type 'scene_branch_hypothesis_context' is missing in the registry. This can affect scene memory, context recruitment, and projection eligibility for risk distinction.",
+                "materiality_reason": "The analytic focus (identifying top 2 costly risks for new clients under the coexisting billing scenario) depends on an intelligible and re-entrant description of the branch context. The gap in scene branch hypothesis typing could lead to loss or misprioritization of memory or projection residue related to this scenario.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В контексте перехода только новых клиентов на новую схему биллинга при сохранении работы старой системы параллельно, топ-2 риска по стоимости должны конкретно вытекать из взаимодействия/сосуществования этих двух систем; не учитывать только стандартные миграционные риски.",
+              "grounds": "Запрос пользователя и выделенные критерии аналитической проекции указывают, что наиболее материальны именно те риски, в которых сосуществование старого и нового биллинга для новых клиентов создаёт прямой или опосредованный значимый финансовый издержке-рисковый эффект. В традиционной аналитике подобные риски (например, дублирование операций, потеря контроля, транзакционные несостыковки, рассинхронизация клиентских данных) отличаются от универсальных миграционных осложнений тем, что их вероятность и потенциальный ущерб возрастают из-за параллельной работы двух систем."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_781f5b06c9d9",
+                  "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+                  "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+                  "source_status": "typed_state",
+                  "phase_relevance": "A materially grounded structural cause for a scene branch hypothesis is present, but the type 'scene_branch_hypothesis_context' is missing in the registry. This can affect scene memory, context recruitment, and projection eligibility for risk distinction.",
+                  "materiality_reason": "The analytic focus (identifying top 2 costly risks for new clients under the coexisting billing scenario) depends on an intelligible and re-entrant description of the branch context. The gap in scene branch hypothesis typing could lead to loss or misprioritization of memory or projection residue related to this scenario."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "В контексте перехода только новых клиентов на новую схему биллинга при сохранении работы старой системы параллельно, топ-2 риска по стоимости должны конкретно вытекать из взаимодействия/сосуществования этих двух систем; не учитывать только стандартные миграционные риски.",
+                "grounds": "Запрос пользователя и выделенные критерии аналитической проекции указывают, что наиболее материальны именно те риски, в которых сосуществование старого и нового биллинга для новых клиентов создаёт прямой или опосредованный значимый финансовый издержке-рисковый эффект. В традиционной аналитике подобные риски (например, дублирование операций, потеря контроля, транзакционные несостыковки, рассинхронизация клиентских данных) отличаются от универсальных миграционных осложнений тем, что их вероятность и потенциальный ущерб возрастают из-за параллельной работы двух систем."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 17750,
+          "tokens_out": 430,
+          "latency_ms": 8574,
+          "error": "",
+          "request_hash": "ff4e7b60f94fd7f32558221caee67df4f160f395f6c62dcf21419fb4d2fec599",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 11494,
+              "sha256": "eaa234e1199c620e"
+            },
+            {
+              "role": "user",
+              "bytes": 321,
+              "sha256": "b0056f84d3155379"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "The requested analytic operation—prioritizing top 2 cost-driving risks specific to the coexistence of old and new billing systems for new clients—is SYSTEM-owned. The criterion is explicit: risks must directly arise from parallel functioning, cost prioritization is clear, and no unresolved human-only judgment, identity, value, commitment, or consequence is being silently bound. Execution follows with direct assistance and zero question friction. No material developmental risk or return loop applies."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В контексте перехода только новых клиентов на новую схему биллинга при сохранении работы старой системы параллельно, топ-2 риска по стоимости должны конкретно вытекать из взаимодействия/сосуществования этих двух систем; не учитывать только стандартные миграционные риски.",
+              "grounds": "Запрос, критерии и материальная сцена указывают, что важно выделять именно риски из-за параллельной работы двух биллинговых систем в контексте новых клиентов. Системное выполнение допустимо."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "system",
+                "human_resolved": true,
+                "return_reason": "The requested analytic operation—prioritizing top 2 cost-driving risks specific to the coexistence of old and new billing systems for new clients—is SYSTEM-owned. The criterion is explicit: risks must directly arise from parallel functioning, cost prioritization is clear, and no unresolved human-only judgment, identity, value, commitment, or consequence is being silently bound. Execution follows with direct assistance and zero question friction. No material developmental risk or return loop applies."
+              },
+              "triggers": [],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "В контексте перехода только новых клиентов на новую схему биллинга при сохранении работы старой системы параллельно, топ-2 риска по стоимости должны конкретно вытекать из взаимодействия/сосуществования этих двух систем; не учитывать только стандартные миграционные риски.",
+                "grounds": "Запрос, критерии и материальная сцена указывают, что важно выделять именно риски из-за параллельной работы двух биллинговых систем в контексте новых клиентов. Системное выполнение допустимо."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 16279,
+          "tokens_out": 264,
+          "latency_ms": 4494,
+          "error": "",
+          "request_hash": "3dde28162e263017dd78b5dc54d319996b1b18dff12cd40eb577549960096a01",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 14060,
+              "sha256": "4ac8516972d7e00b"
+            },
+            {
+              "role": "user",
+              "bytes": 321,
+              "sha256": "b0056f84d3155379"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15774,
+          "tokens_out": 16,
+          "latency_ms": 2952,
+          "error": "",
+          "request_hash": "2be2d515fbf4717aee3c72166f03f42e5318fedb2ae06fff1486f3eebe5bd54d",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 13853,
+              "sha256": "895227c3ec0cbdea"
+            },
+            {
+              "role": "user",
+              "bytes": 321,
+              "sha256": "b0056f84d3155379"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S9",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S9",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В ситуации, когда новые клиенты переходят на новую схему биллинга при сохранении работы старой системы, топ-2 риска по затратам должны вытекать именно из специфического взаимодействия и параллельного функционирования обеих систем, а не из общих миграционных или одиночных процессных рисков.",
+              "grounds": "Запрос и критерии уточняют: требуется фокус на рисках, дорогостоящих именно из-за одновременной работы старой и новой системы для новых клиентов. Это важная сцена для различения между стандартными переходными сложностями и уникальными затратными угрозами, связанными с параллелизмом."
+            },
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "В ситуации, когда новые клиенты переходят на новую схему биллинга при сохранении работы старой системы, топ-2 риска по затратам должны вытекать именно из специфического взаимодействия и параллельного функционирования обеих систем, а не из общих миграционных или одиночных процессных рисков.",
+                "grounds": "Запрос и критерии уточняют: требуется фокус на рисках, дорогостоящих именно из-за одновременной работы старой и новой системы для новых клиентов. Это важная сцена для различения между стандартными переходными сложностями и уникальными затратными угрозами, связанными с параллелизмом."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 20638,
+          "tokens_out": 174,
+          "latency_ms": 5869,
+          "error": "",
+          "request_hash": "0f520d1bd1d0187570dfffa28c40259610d673bca4c409054577de9aeade3eac",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 870,
+              "sha256": "b3c49d62f2113bb1"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "d84c9263f7722a13"
+            },
+            {
+              "role": "user",
+              "bytes": 13852,
+              "sha256": "e4fbaea16c03d8ef"
+            },
+            {
+              "role": "user",
+              "bytes": 321,
+              "sha256": "b0056f84d3155379"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_781f5b06c9d9",
+                "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+                "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+                "source_status": "typed_state",
+                "phase_relevance": "A type gap was detected in the branch context: existing registry does not identify an explicit type for a 'scene_branch_hypothesis_context', indicating a structural gap in recognizing or operating on scene-specific distinctions.",
+                "materiality_reason": "The distinction between parallel-system risks and migration-generic risks is central to the analytic operation and must be preserved in the memory and method. Failure to represent this distinction risks forced classification or distortion of analytic focus; this is a materially grounded gap, not a mere schema omission.",
+                "admitting_rule": "Do not coerce into nearest available type; revisit projection and method when this distinction becomes operationally relevant. Flagged for review in analytic ontology."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В данном сценарии выделяется принципиальная разница между обычными переходными/миграционными рисками и специфическими, дорогостоящими рисками, возникающими именно из-за параллельной работы новой и старой биллинговых систем для новых клиентов. Топ-2 риска должны отражать именно издержки, связанные с конфликтом, дублированием, нестыковками или избыточными операциями между двумя системами, а не те, что могли бы возникнуть при полном отключении старого биллинга.",
+              "grounds": "Критерий задачи требует не просто назвать любые затраты, а фокусироваться на уникальных рисках коэкзистенции для новых клиентов. Это помогает повторно избежать подмены приоритетов на обобщённые проблемы миграции или настройки и хранит явную сцену для оценки специфических пересечений и дополнительных расходов."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "В данном сценарии выделяется принципиальная разница между обычными переходными/миграционными рисками и специфическими, дорогостоящими рисками, возникающими именно из-за параллельной работы новой и старой биллинговых систем для новых клиентов. Топ-2 риска должны отражать именно издержки, связанные с конфликтом, дублированием, нестыковками или избыточными операциями между двумя системами, а не те, что могли бы возникнуть при полном отключении старого биллинга.",
+                "grounds": "Критерий задачи требует не просто назвать любые затраты, а фокусироваться на уникальных рисках коэкзистенции для новых клиентов. Это помогает повторно избежать подмены приоритетов на обобщённые проблемы миграции или настройки и хранит явную сцену для оценки специфических пересечений и дополнительных расходов."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_781f5b06c9d9",
+                  "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+                  "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+                  "source_status": "typed_state",
+                  "phase_relevance": "A type gap was detected in the branch context: existing registry does not identify an explicit type for a 'scene_branch_hypothesis_context', indicating a structural gap in recognizing or operating on scene-specific distinctions.",
+                  "materiality_reason": "The distinction between parallel-system risks and migration-generic risks is central to the analytic operation and must be preserved in the memory and method. Failure to represent this distinction risks forced classification or distortion of analytic focus; this is a materially grounded gap, not a mere schema omission.",
+                  "admitting_rule": "Do not coerce into nearest available type; revisit projection and method when this distinction becomes operationally relevant. Flagged for review in analytic ontology."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 20863,
+          "tokens_out": 445,
+          "latency_ms": 10066,
+          "error": "",
+          "request_hash": "80e135fb171917381648244ffc6747a831a496b22cb56299ea92021a076bfed2",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 14058,
+              "sha256": "1baa270595912dd5"
+            },
+            {
+              "role": "user",
+              "bytes": 321,
+              "sha256": "b0056f84d3155379"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_a5e6555844a6a552",
+      "input_text": "Продолжим гипотезу про новых клиентов: какие два риска там самые дорогие, если старый биллинг остаётся жить рядом?",
+      "source_id": "src_38e08d5ad9249712",
+      "phase": "S10",
+      "scene": {
+        "telos": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+        "role_hint": "аналитик рисков для проектного решения",
+        "authority": "unset",
+        "materials": [
+          "гипотеза: переход новых клиентов на новую схему биллинга",
+          "условие: старая биллинговая система продолжает работать для других клиентов/рядом"
+        ]
+      },
+      "origin": {
+        "status": "reconstructed",
+        "sources_named": [],
+        "binding_authority": "unset",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "ANALYZE_PRIORITIZED_RISK",
+        "applicable": true,
+        "why_not": "",
+        "open_world_gap": false
+      },
+      "ownership": {
+        "owner": "system",
+        "human_resolved": true,
+        "return_reason": "The requested analytic operation—prioritizing top 2 cost-driving risks specific to the coexistence of old and new billing systems for new clients—is SYSTEM-owned. The criterion is explicit: risks must directly arise from parallel functioning, cost prioritization is clear, and no unresolved human-only judgment, identity, value, commitment, or consequence is being silently bound. Execution follows with direct assistance and zero question friction. No material developmental risk or return loop applies."
+      },
+      "council_invoked": false,
+      "execution_invoked": true,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_363990adf068",
+          "proposed_trigger_type_id": "tgap_781f5b06c9d9",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+          "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+          "phase_relevance": "A type gap was detected in the branch context: existing registry does not identify an explicit type for a 'scene_branch_hypothesis_context', indicating a structural gap in recognizing or operating on scene-specific distinctions.",
+          "materiality_reason": "The distinction between parallel-system risks and migration-generic risks is central to the analytic operation and must be preserved in the memory and method. Failure to represent this distinction risks forced classification or distortion of analytic focus; this is a materially grounded gap, not a mere schema omission.",
+          "payload": {
+            "legacy_admitting_rule": "Do not coerce into nearest available type; revisit projection and method when this distinction becomes operationally relevant. Flagged for review in analytic ontology.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_c163d5b7e908",
+          "candidate_id": "tcand_2c4771e2b5d7",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'scene_branch_hypothesis_context' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_d60799aabf8b",
+          "candidate_id": "tcand_a836d35cbbf7",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_781f5b06c9d9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_93e4af0a4ff1",
+          "candidate_id": "tcand_58040e07b294",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_781f5b06c9d9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_45d8aca0abaa",
+          "candidate_id": "tcand_9ee6ab1aa97e",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_0120be7a9f17' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_700473be535e",
+          "candidate_id": "tcand_5bad4ff3df0e",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_781f5b06c9d9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_781f5b06c9d9",
+          "candidate_id": "tcand_2c4771e2b5d7",
+          "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+          "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'scene_branch_hypothesis_context' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_0120be7a9f17",
+          "candidate_id": "tcand_a836d35cbbf7",
+          "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+          "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_781f5b06c9d9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_7cae649d9eb3",
+          "candidate_id": "tcand_58040e07b294",
+          "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+          "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_781f5b06c9d9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_b965aa7115cb",
+          "candidate_id": "tcand_9ee6ab1aa97e",
+          "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+          "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_0120be7a9f17' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_9f6910af8426",
+          "candidate_id": "tcand_5bad4ff3df0e",
+          "cause_object_ref": "branch hypothesis: 'new customers only billing cutover' with old billing adjacent",
+          "generating_state_ref": "scene_registry.branches.br_c55b9e2dc127",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_781f5b06c9d9' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "В данном сценарии выделяется принципиальная разница между обычными переходными/миграционными рисками и специфическими, дорогостоящими рисками, возникающими именно из-за параллельной работы новой и старой биллинговых систем для новых клиентов. Топ-2 риска должны отражать именно издержки, связанные с конфликтом, дублированием, нестыковками или избыточными операциями между двумя системами, а не те, что могли бы возникнуть при полном отключении старого биллинга.",
+        "grounds": "Критерий задачи требует не просто назвать любые затраты, а фокусироваться на уникальных рисках коэкзистенции для новых клиентов. Это помогает повторно избежать подмены приоритетов на обобщённые проблемы миграции или настройки и хранит явную сцену для оценки специфических пересечений и дополнительных расходов."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": [
+          {
+            "projection_id": "gap:gap_b58e56938c7e",
+            "signals": [
+              "APPLICABILITY_FAILURE"
+            ],
+            "reason": "ORGAN_GAP for operation 'ANALYZE_PRIORITIZED_RISK': model proposal for 'ANALYZE_PRIORITIZED_RISK' could not compile-bind against registered primitives",
+            "residue_ratio": 1.0,
+            "recognition_failure_count": 0,
+            "suggested_operation": "",
+            "suggested_ontology": "",
+            "suggested_target_family": [],
+            "mismatch": true,
+            "fingerprint": "7c80351f23b3"
+          }
+        ]
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [
+        {
+          "kind": "ORGAN_GAP",
+          "operation_id": "ANALYZE_PRIORITIZED_RISK",
+          "reason": "proposal proposal_prisk_001 for operation 'ANALYZE_PRIORITIZED_RISK' failed compile-bind: primitive 'prim_extract_risk' (invocation 'extract_scene_specific_risks') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+          "registered_capability_id": "",
+          "generated_spec": null,
+          "binding_evidence": {},
+          "organ_gap": {
+            "gap_id": "gap_b58e56938c7e",
+            "source_ref": "src_38e08d5ad9249712",
+            "scene_ref": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+            "required_operation": "ANALYZE_PRIORITIZED_RISK",
+            "required_attention_structure": "Prioritize direct, scenario-specific risks—exclude generic migration uncertainties not aggravated by coexistence.",
+            "insufficient_registered_capabilities": [
+              "DIFFERENTIATED_ACCOUNT",
+              "EXTRACT_CONCEPTS"
+            ],
+            "insufficient_declarative_primitives": [
+              "CoverageComputer",
+              "FamilyClassifier",
+              "SpanScanner",
+              "TargetFilter"
+            ],
+            "missing_capability_hypothesis": "model proposal for 'ANALYZE_PRIORITIZED_RISK' could not compile-bind against registered primitives",
+            "evidence": [
+              "BindingError: primitive 'prim_extract_risk' (invocation 'extract_scene_specific_risks') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+            ],
+            "counterexamples": [],
+            "affected_scene_telos": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+            "possible_development_direction": "extend primitive registry or narrow the proposal",
+            "status": "unresolved",
+            "activation_authority": "NONE"
+          }
+        }
+      ],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_752e7caa8725",
+      "branch_id": "br_c55b9e2dc127",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [],
+          "operator_capabilities": [],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "",
+          "activation_scope": "",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_752e7caa8725": {
+            "scene_id": "scene_752e7caa8725",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {
+          "br_c55b9e2dc127": {
+            "branch_id": "br_c55b9e2dc127",
+            "scene_id": "scene_752e7caa8725",
+            "parent_scene_id": "scene_752e7caa8725",
+            "hypothesis": "new customers only billing cutover",
+            "status": "active",
+            "local_facts": [],
+            "local_commitments": [],
+            "memory_scope": "BRANCH",
+            "active_projection_ids": [],
+            "lineage_event": "",
+            "weakened_at": "",
+            "rejected_at": "",
+            "archived_at": ""
+          }
+        }
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": {
+        "purpose": "fork_discrimination",
+        "question_regime": "DECISION_SEPARATING",
+        "selected_level": "PEER",
+        "hierarchy_policy": "PRIMARY_ONLY",
+        "target_forks_or_unknowns": [
+          "integration_issues",
+          "data_consistency"
+        ],
+        "explicit_count_constraint": 2,
+        "question_budget_ceiling": 12,
+        "selected_questions": [
+          {
+            "text": "Каковы могут быть самые значительные технические или организационные трудности интеграции между старой и новой биллинговыми системами, если обе продолжают работать параллельно?",
+            "regime": "DECISION_SEPARATING",
+            "fork_ref": "integration_issues",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": []
+          },
+          {
+            "text": "Как велика вероятность возникновения нестыковок в данных между двумя биллинговыми системами и каковы будут последствия для обслуживания клиентов и финансов компании?",
+            "regime": "DECISION_SEPARATING",
+            "fork_ref": "data_consistency",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": []
+          }
+        ],
+        "primary_count": 2,
+        "subordinate_count": 0,
+        "total_count": 2,
+        "stop_reason": "EXPLICIT_COUNT_MET",
+        "stop_reason_grounds": "explicit count 2 matches material peer count exactly",
+        "clarification_required": false,
+        "clarification_grounds": "",
+        "meta_escalation": "NONE",
+        "ownership_owner": "SYSTEM",
+        "ownership_resolved": true,
+        "origin": "MODEL_PRODUCED_VALIDATED",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      }
+    },
+    "rendering": {
+      "text": "Режим вопросов: DECISION_SEPARATING. Уровень: PEER. Всего: 2 (основных: 2).\n1. Каковы могут быть самые значительные технические или организационные трудности интеграции между старой и новой биллинговыми системами, если обе продолжают работать параллельно?\n2. Как велика вероятность возникновения нестыковок в данных между двумя биллинговыми системами и каковы будут последствия для обслуживания клиентов и финансов компании?",
+      "mode": "QUESTION_SET_PLAN_AUTHORED",
+      "provider_status": "NOT_APPLICABLE",
+      "provider_id": "",
+      "model_id": "",
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "latency_ms": 0,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_8d8326c206fc813a.json",
+    "duration_ms": 72914,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DECISION_SEPARATING",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "integration_issues",
+        "data_consistency"
+      ],
+      "explicit_count_constraint": 2,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Каковы могут быть самые значительные технические или организационные трудности интеграции между старой и новой биллинговыми системами, если обе продолжают работать параллельно?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "integration_issues",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Как велика вероятность возникновения нестыковок в данных между двумя биллинговыми системами и каковы будут последствия для обслуживания клиентов и финансов компании?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "data_consistency",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        }
+      ],
+      "primary_count": 2,
+      "subordinate_count": 0,
+      "total_count": 2,
+      "stop_reason": "EXPLICIT_COUNT_MET",
+      "stop_reason_grounds": "explicit count 2 matches material peer count exactly",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "SYSTEM",
+      "ownership_resolved": true,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_intent_proposal": {
+      "requested": true,
+      "regime_candidate": "DECISION_SEPARATING",
+      "explicit_count_constraint": 2,
+      "meta_relevance": "ordinary",
+      "forks": [
+        {
+          "id": "integration_issues",
+          "label": "Интеграционные проблемы между старым биллингом и новой системой",
+          "proposition": "Одним из самых дорогих рисков будет сложность интеграции между двумя системами биллинга.",
+          "discriminandum": "Если интеграция сложна, это приведёт к высоким затратам и рискам сбоев.",
+          "material_refs": [],
+          "candidate_question": "Каковы могут быть самые значительные технические или организационные трудности интеграции между старой и новой биллинговыми системами, если обе продолжают работать параллельно?",
+          "level": "PEER"
+        },
+        {
+          "id": "data_consistency",
+          "label": "Проблемы согласованности данных и двойного учёта",
+          "proposition": "Вторым дорогим риском будет рассогласование данных и возможные ошибки в учёте платежей.",
+          "discriminandum": "Если возникают несостыковки в данных, это чревато двойным начислением или потерей платежей.",
+          "material_refs": [],
+          "candidate_question": "Как велика вероятность возникновения нестыковок в данных между двумя биллинговыми системами и каковы будут последствия для обслуживания клиентов и финансов компании?",
+          "level": "PEER"
+        }
+      ],
+      "subordinates": [],
+      "validation_status": "OK",
+      "validation_reason": "OK",
+      "authority": "NO_BINDING_AUTHORITY",
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "latency_ms": 4411
+    },
+    "context_id": "ctx_33c684daad48346997d3c9988b2a3e93",
+    "context_continuity": {
+      "context_id": "ctx_33c684daad48346997d3c9988b2a3e93",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_d612e6d63499",
+        "version": 3,
+        "scene_id": "scene_752e7caa8725",
+        "space_id": "space_default_workspace",
+        "branch_id": "br_c55b9e2dc127",
+        "intent": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+        "telos": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+        "object_scope": "гипотеза: переход новых клиентов на новую схему биллинга, условие: старая биллинговая система продолжает работать для других клиентов/рядом",
+        "operation_kind": "ANALYZE_PRIORITIZED_RISK",
+        "expected_intervention": "ANALYZE_PRIORITIZED_RISK",
+        "human_owned_decisions": [
+          "The requested analytic operation—prioritizing top 2 cost-driving risks specific to the coexistence of old and new billing systems for new clients—is SYSTEM-owned. The criterion is explicit: risks must directly arise from parallel functioning, cost prioritization is clear, and no unresolved human-only judgment, identity, value, commitment, or consequence is being silently bound. Execution follows with direct assistance and zero question friction. No material developmental risk or return loop applies."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_58e124589c4f"
+      },
+      "contract_revision": {
+        "candidate_id": "crc_9ed9b770c1d5",
+        "prior_contract_id": "sc_58e124589c4f",
+        "proposed_contract": {
+          "contract_id": "sc_d612e6d63499",
+          "version": 3,
+          "scene_id": "scene_752e7caa8725",
+          "space_id": "space_default_workspace",
+          "branch_id": "br_c55b9e2dc127",
+          "intent": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+          "telos": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+          "object_scope": "гипотеза: переход новых клиентов на новую схему биллинга, условие: старая биллинговая система продолжает работать для других клиентов/рядом",
+          "operation_kind": "ANALYZE_PRIORITIZED_RISK",
+          "expected_intervention": "ANALYZE_PRIORITIZED_RISK",
+          "human_owned_decisions": [
+            "The requested analytic operation—prioritizing top 2 cost-driving risks specific to the coexistence of old and new billing systems for new clients—is SYSTEM-owned. The criterion is explicit: risks must directly arise from parallel functioning, cost prioritization is clear, and no unresolved human-only judgment, identity, value, commitment, or consequence is being silently bound. Execution follows with direct assistance and zero question friction. No material developmental risk or return loop applies."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_58e124589c4f"
+        },
+        "reason": "telos drift: 'Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.' -> 'Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.'; operation drift: 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' -> 'ANALYZE_PRIORITIZED_RISK'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "recognition_pass": {
+        "pass_id": "rp_05c3c84b106c",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [
+          {
+            "candidate_id": "crc_9ed9b770c1d5",
+            "prior_contract_id": "sc_58e124589c4f",
+            "proposed_contract": {
+              "contract_id": "sc_d612e6d63499",
+              "version": 3,
+              "scene_id": "scene_752e7caa8725",
+              "space_id": "space_default_workspace",
+              "branch_id": "br_c55b9e2dc127",
+              "intent": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+              "telos": "Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.",
+              "object_scope": "гипотеза: переход новых клиентов на новую схему биллинга, условие: старая биллинговая система продолжает работать для других клиентов/рядом",
+              "operation_kind": "ANALYZE_PRIORITIZED_RISK",
+              "expected_intervention": "ANALYZE_PRIORITIZED_RISK",
+              "human_owned_decisions": [
+                "The requested analytic operation—prioritizing top 2 cost-driving risks specific to the coexistence of old and new billing systems for new clients—is SYSTEM-owned. The criterion is explicit: risks must directly arise from parallel functioning, cost prioritization is clear, and no unresolved human-only judgment, identity, value, commitment, or consequence is being silently bound. Execution follows with direct assistance and zero question friction. No material developmental risk or return loop applies."
+              ],
+              "constraints": [],
+              "uncertainty": 0.1,
+              "provenance": "SYSTEM_DERIVED",
+              "status": "REVISION_PROPOSED",
+              "supersedes": "sc_58e124589c4f"
+            },
+            "reason": "telos drift: 'Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.' -> 'Уточнить и приоритизировать главные риски для новой схемы для новых клиентов при условии, что старая биллинговая система сохраняется параллельно.'; operation drift: 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' -> 'ANALYZE_PRIORITIZED_RISK'",
+            "source": "SYSTEM_DERIVED",
+            "authority": "NO_TRANSITION_AUTHORITY"
+          }
+        ],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_revision_proposed:crc_9ed9b770c1d5"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 73002
+  }
+}

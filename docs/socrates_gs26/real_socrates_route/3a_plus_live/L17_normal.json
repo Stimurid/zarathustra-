@@ -1,0 +1,2209 @@
+{
+  "case_id": "L17_normal",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:46:37Z",
+  "request": {
+    "text": "У меня есть аргумент: демократия невозможна в большой стране, потому что народ там слишком разнороден. Разбери эту позицию.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 68537,
+    "live_ok_phases": 10,
+    "mockish_phases": 0,
+    "tokens_in_sum": 159496,
+    "tokens_out_sum": 2989,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15207,
+        "tokens_out": 119,
+        "attempts": 1,
+        "latency_ms": 4252,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13255,
+        "tokens_out": 142,
+        "attempts": 1,
+        "latency_ms": 5867,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15288,
+        "tokens_out": 200,
+        "attempts": 1,
+        "latency_ms": 4560,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13330,
+        "tokens_out": 219,
+        "attempts": 1,
+        "latency_ms": 5678,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14630,
+        "tokens_out": 996,
+        "attempts": 1,
+        "latency_ms": 11652,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17057,
+        "tokens_out": 290,
+        "attempts": 1,
+        "latency_ms": 6530,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15464,
+        "tokens_out": 276,
+        "attempts": 1,
+        "latency_ms": 7210,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15074,
+        "tokens_out": 16,
+        "attempts": 1,
+        "latency_ms": 4302,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S9",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19938,
+        "tokens_out": 260,
+        "attempts": 1,
+        "latency_ms": 6356,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20253,
+        "tokens_out": 471,
+        "attempts": 1,
+        "latency_ms": 6895,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_51170d29d0329af9a9cdb093b226d20f",
+    "scene_id": "scene_14b3e2246fa8",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Анализ позиции: рассмотреть и разобрать аргумент пользователя о невозможности демократии в большой стране из-за излишней разнородности народа.",
+    "operation_kind": "ANALYZE_POSITION_ARGUMENT",
+    "operation_applicable": true,
+    "open_world_gap": false,
+    "contract_id": "sc_5952b3dcca06",
+    "contract_status": "PROVISIONAL",
+    "contract_version": 1,
+    "contract_intent": "Анализ позиции: рассмотреть и разобрать аргумент пользователя о невозможности демократии в большой стране из-за излишней разнородности народа.",
+    "mutations_applied": [
+      "contract_created:sc_5952b3dcca06"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {},
+    "spaces": [],
+    "terminal": "ANSWER",
+    "response_text": "[ANSWER] Анализ позиции: рассмотреть и разобрать аргумент пользователя о невозможности демократии в большой стране из-за излишней разнородности народа.",
+    "intervention_profile": "normal",
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DECISION_SEPARATING",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "f1",
+        "f2",
+        "f3"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Почему разнородность народа обязательно приводит к невозможности демократии в большой стране?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "f1",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "аргумент пользователя"
+          ]
+        },
+        {
+          "text": "Существуют ли примеры больших стран с разнородным населением, где демократия успешно функционирует?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "f2",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "аргумент пользователя"
+          ]
+        },
+        {
+          "text": "Какую именно разнородность вы имеете в виду (этническую, культурную, языковую и др.) и почему она делает демократию невозможной?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "f3",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "аргумент пользователя"
+          ]
+        }
+      ],
+      "primary_count": 3,
+      "subordinate_count": 0,
+      "total_count": 3,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "SYSTEM",
+      "ownership_resolved": true,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_intent_proposal": {
+      "requested": true,
+      "regime_candidate": "DECISION_SEPARATING",
+      "explicit_count_constraint": null,
+      "meta_relevance": "ordinary",
+      "forks": [
+        {
+          "id": "f1",
+          "label": "Причинная связь между разнородностью народа и невозможностью демократии",
+          "proposition": "В большой стране из-за разнородности народа становится невозможна демократия.",
+          "discriminandum": "Существование или отсутствие причинной связи между разнородностью и функционированием демократии.",
+          "material_refs": [
+            "аргумент пользователя"
+          ],
+          "candidate_question": "Почему разнородность народа обязательно приводит к невозможности демократии в большой стране?",
+          "level": "PEER"
+        },
+        {
+          "id": "f2",
+          "label": "Примеры больших стран с демократией",
+          "proposition": "Нет больших стран с разнородным населением, где демократия существует.",
+          "discriminandum": "Контрпримеры, опровергающие общий тезис о невозможности демократии.",
+          "material_refs": [
+            "аргумент пользователя"
+          ],
+          "candidate_question": "Существуют ли примеры больших стран с разнородным населением, где демократия успешно функционирует?",
+          "level": "PEER"
+        },
+        {
+          "id": "f3",
+          "label": "Определение разнородности и её влияние на управление",
+          "proposition": "Разнородность народа влияет на возможность реализации демократии одинаково во всех случаях.",
+          "discriminandum": "Является ли разнородность унифицированным или вариативным понятием, и какие типы разнородности осложняют демократию?",
+          "material_refs": [
+            "аргумент пользователя"
+          ],
+          "candidate_question": "Какую именно разнородность вы имеете в виду (этническую, культурную, языковую и др.) и почему она делает демократию невозможной?",
+          "level": "PEER"
+        }
+      ],
+      "subordinates": [],
+      "validation_status": "OK",
+      "validation_reason": "OK",
+      "authority": "NO_BINDING_AUTHORITY",
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "latency_ms": 5044
+    },
+    "rendering_mode": "QUESTION_SET_PLAN_AUTHORED",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_f1f9f877d06cbb1f",
+    "trace_id": "strc_bcfda0c63b5f1fba",
+    "terminal": {
+      "terminal": "ANSWER",
+      "response_text": "[ANSWER] Анализ позиции: рассмотреть и разобрать аргумент пользователя о невозможности демократии в большой стране из-за излишней разнородности народа.",
+      "rationale": "system-owned, applicable, no open-world gap",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Аргумент пользователя разделяется на три уровня: 1) Явная основная позиция: 'Демократия невозможна в большой стране'; 2) Явная причина: 'потому что народ слишком разнороден'; 3) Неявные предпосылки: (а) демократия требует определённой степени однородности народа, (б) неоднородность ведёт к неработоспособности демократических институтов, (в) крупная страна неизбежно обладает столь высокой неоднородностью, что это становится непреодолимым препятствием.",
+        "grounds": "Реконструкция структуры пользовательского аргумента: выделение явного тезиса и причины основывается на формулировке исходного высказывания и грамматических связках ('потому что'). Неявные предпосылки вытекают из логики довода: чтобы причина была достаточной, требуются скрытые условия о влиянии неоднородности на демократию и масштабах неоднородности в больших странах."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "The user's input is a request for analysis of a specific argument about democracy and heterogeneity in large countries. No explicit scene, telos, role, authority or ownership is yet bound; PRE phase state. The request is explicit and clear, asking for breakdown and examination of the given position, not a deep operation, memory recruitment, or role transition. No material triggers are present requiring memory ecology, state-write governance, or reflexive retreat. Operation is standard: direct request for reasoning analysis.",
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15207,
+          "tokens_out": 119,
+          "latency_ms": 4252,
+          "error": "",
+          "request_hash": "7eaa9133b4f7736ca1e0c867a47e12d07d1bd56759cfda8b5833433e006e951f",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 2195,
+              "sha256": "539a9b3a473e187e"
+            },
+            {
+              "role": "user",
+              "bytes": 337,
+              "sha256": "60a136f534914d24"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Анализ позиции: рассмотреть и разобрать аргумент пользователя о невозможности демократии в большой стране из-за излишней разнородности народа.",
+              "role_hint": "Аналитик или комментатор, разбирающий пользовательский аргумент (не адвокат, не оппонент, не судья). Нет давления на роль экзаменатора или трибуны.",
+              "authority": "system",
+              "materials": [
+                "Пользовательский аргумент: 'Демократия невозможна в большой стране, потому что народ там слишком разнороден.'"
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Анализ позиции: рассмотреть и разобрать аргумент пользователя о невозможности демократии в большой стране из-за излишней разнородности народа.",
+                "role_hint": "Аналитик или комментатор, разбирающий пользовательский аргумент (не адвокат, не оппонент, не судья). Нет давления на роль экзаменатора или трибуны.",
+                "authority": "system",
+                "materials": [
+                  "Пользовательский аргумент: 'Демократия невозможна в большой стране, потому что народ там слишком разнороден.'"
+                ]
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13255,
+          "tokens_out": 142,
+          "latency_ms": 5867,
+          "error": "",
+          "request_hash": "aeaa988bb8853d0f31953891d9942ab7e3308f1632620780ad89755421bbec16",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 2194,
+              "sha256": "54999fa794484dfd"
+            },
+            {
+              "role": "user",
+              "bytes": 337,
+              "sha256": "60a136f534914d24"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "TRIG_S2_SCENE_ANALYSIS_POSITION",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "input_text, scene.materials[0]",
+                "source_status": "typed_state",
+                "phase_relevance": "S2 — triggers fine-grained analysis operation in response to explicit analytic telos",
+                "materiality_reason": "Scene telos specifies analytic breakdown of a user argument; input is not a mere factual request but an explicitly constructed reasoned position, requiring output that interprets and decomposes the claimed causal relation between population heterogeneity and democracy feasibility.",
+                "admitting_rule": "Mount analytic breakdown operation; honor scenario in which the system acts as analytic commentator, not advocate or examiner. Analysis must preserve subtlety of argument and surface possible implications, background premises, strengths, weaknesses, and point of possible further contestation."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "TRIG_S2_SCENE_ANALYSIS_POSITION",
+                  "generating_state_ref": "scene.telos",
+                  "cause_object_ref": "input_text, scene.materials[0]",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S2 — triggers fine-grained analysis operation in response to explicit analytic telos",
+                  "materiality_reason": "Scene telos specifies analytic breakdown of a user argument; input is not a mere factual request but an explicitly constructed reasoned position, requiring output that interprets and decomposes the claimed causal relation between population heterogeneity and democracy feasibility.",
+                  "admitting_rule": "Mount analytic breakdown operation; honor scenario in which the system acts as analytic commentator, not advocate or examiner. Analysis must preserve subtlety of argument and surface possible implications, background premises, strengths, weaknesses, and point of possible further contestation."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15288,
+          "tokens_out": 200,
+          "latency_ms": 4560,
+          "error": "",
+          "request_hash": "4dfce6e04c5ce4cd3cc2152fe787ce5bdc0d0d21c22bc5a9ab18e6be22a12c44",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 2944,
+              "sha256": "779ca71893d1b805"
+            },
+            {
+              "role": "user",
+              "bytes": 337,
+              "sha256": "60a136f534914d24"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "attributed",
+              "sources_named": [],
+              "binding_authority": "human",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_0a3eb9f86da1",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "input_text, scene.materials[0]",
+                "source_status": "typed_state",
+                "phase_relevance": "scene and operation both revolve around a user-stated position; epistemic claim origin and binding authority for analysis must be determined for proper status marking.",
+                "materiality_reason": "the analyzed claim is a user-attributed argument, not a public doctrine, fact, or observable event; correct origin and status prevent inappropriate truth inflation or misattribution.",
+                "admitting_rule": "position analysis admits user-authored claims as 'attributed', with user holding initial binding authority unless scene supplies a contrary event."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "attributed",
+                "sources_named": [],
+                "binding_authority": "human",
+                "temporal_stale": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_0a3eb9f86da1",
+                  "generating_state_ref": "scene.telos",
+                  "cause_object_ref": "input_text, scene.materials[0]",
+                  "source_status": "typed_state",
+                  "phase_relevance": "scene and operation both revolve around a user-stated position; epistemic claim origin and binding authority for analysis must be determined for proper status marking.",
+                  "materiality_reason": "the analyzed claim is a user-attributed argument, not a public doctrine, fact, or observable event; correct origin and status prevent inappropriate truth inflation or misattribution.",
+                  "admitting_rule": "position analysis admits user-authored claims as 'attributed', with user holding initial binding authority unless scene supplies a contrary event."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13330,
+          "tokens_out": 219,
+          "latency_ms": 5678,
+          "error": "",
+          "request_hash": "89069fcfeb53def12158e47ab5ca56dadc1898b592aaf1112ef52f116b12bc37",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 3831,
+              "sha256": "def3b95eb682d0e4"
+            },
+            {
+              "role": "user",
+              "bytes": 337,
+              "sha256": "60a136f534914d24"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "ANALYZE_POSITION_ARGUMENT",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_0a3eb9f86da1",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "input_text, scene.materials[0]",
+                "source_status": "typed_state",
+                "phase_relevance": "The trigger signals a type gap for scene analysis of argument structures; the operation must recognize that the position/argument object may not fully fit existing analytic schemas.",
+                "materiality_reason": "Material: the request is to analyze an argument—a position—rather than, for example, an isolated claim or concept. Scene and user both point to position/argument as the intended object, requiring logic capable of reconstructing multi-claim or argumentative structures even if not natively present in available object families.",
+                "admitting_rule": "Open-world discipline: admit the type gap as a non-blocking analytic material gap (i.e., not a hard stop), signaling possible need for B08 escalation later."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": {
+              "proposal_id": "psynth_f25aabb6a6",
+              "operation_id": "ANALYZE_POSITION_ARGUMENT",
+              "target_object_family": [
+                "POSITION_ARGUMENT",
+                "IMPLICIT_CLAIM",
+                "REASONING_RELATION"
+              ],
+              "ontology_hypothesis": "The statement provided by the user operates as a position/argument object, entailing at least one main claim and a linked supporting reason. Local ontology hypothesis: analysis as position/argument structure with explicit and implicit claims.",
+              "recognition_criteria": [
+                "Presence of an explicit argument (main claim plus supporting reason)",
+                "Terms indicating causality or justification (e.g., 'потому что')",
+                "Possible implicit assumptions required for argument coherence"
+              ],
+              "segmentation_policy_hint": "Segment into main claim (democracy impossible in large country), supporting reason (people are too heterogeneous), and possible implicit premises",
+              "evidence_requirements": [
+                "Surface text with argument structure markers",
+                "Contextual knowledge of the relation between democracy, country size, and population heterogeneity"
+              ],
+              "exclusions": [
+                "Non-argumentative descriptive text",
+                "Rhetorical questions not entailing a claim"
+              ],
+              "contraindications": [
+                "Absence of a causal or justificatory link",
+                "Text that only asserts a fact with no offered rationale"
+              ],
+              "applicability_assumptions": [
+                "The user wants an analytic breakdown of argument structure (not, e.g., a debate or policy recommendation)",
+                "Scene/telos authorizes system to reconstruct both explicit and implicit positions"
+              ],
+              "primitives": [
+                {
+                  "name": "extract_main_claim",
+                  "primitive_id": "prim_01_extract_main_claim",
+                  "params": {},
+                  "inputs": [
+                    "input_text"
+                  ]
+                },
+                {
+                  "name": "extract_supporting_reason",
+                  "primitive_id": "prim_02_extract_supporting_reason",
+                  "params": {},
+                  "inputs": [
+                    "input_text"
+                  ]
+                },
+                {
+                  "name": "infer_implicit_assumptions",
+                  "primitive_id": "prim_03_infer_implicit_assumptions",
+                  "params": {},
+                  "inputs": [
+                    "input_text"
+                  ]
+                }
+              ],
+              "accepted_output": "A structured breakdown: main claim, supporting reason, and any implicit assumptions or dependencies forming the analyzed position/argument.",
+              "residue_output": "Material that cannot be mapped to argument structure (e.g., rhetorical language, background context). Retain as residue for inspection if needed.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "tgap_0a3eb9f86da1",
+              "triggered_by_diagnostic_fingerprint": "tcand_0d068855ac8a|scene.telos|POSITION_ARGUMENT_TYPE_GAP",
+              "rationale": "User text and scene indicate the core object is an argument/position. Standard extraction schemas may not cover this directly, but local segmentation and analytic primitives can reconstruct the required structure. Open-world gap is noted but does not preclude carrying out the analytic operation.",
+              "expected_diagnostics": "Possible mismatch between argument structure and available analytic object types; residue should be flagged but is not fatal.",
+              "expected_residue_policy": "Preserve unmapped material as residue; do not force categorization."
+            },
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "ANALYZE_POSITION_ARGUMENT",
+                "applicable": true,
+                "why_not": "",
+                "open_world_gap": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_0a3eb9f86da1",
+                  "generating_state_ref": "scene.telos",
+                  "cause_object_ref": "input_text, scene.materials[0]",
+                  "source_status": "typed_state",
+                  "phase_relevance": "The trigger signals a type gap for scene analysis of argument structures; the operation must recognize that the position/argument object may not fully fit existing analytic schemas.",
+                  "materiality_reason": "Material: the request is to analyze an argument—a position—rather than, for example, an isolated claim or concept. Scene and user both point to position/argument as the intended object, requiring logic capable of reconstructing multi-claim or argumentative structures even if not natively present in available object families.",
+                  "admitting_rule": "Open-world discipline: admit the type gap as a non-blocking analytic material gap (i.e., not a hard stop), signaling possible need for B08 escalation later."
+                }
+              ],
+              "projection_synthesis_proposal": {
+                "proposal_id": "psynth_f25aabb6a6",
+                "operation_id": "ANALYZE_POSITION_ARGUMENT",
+                "target_object_family": [
+                  "POSITION_ARGUMENT",
+                  "IMPLICIT_CLAIM",
+                  "REASONING_RELATION"
+                ],
+                "ontology_hypothesis": "The statement provided by the user operates as a position/argument object, entailing at least one main claim and a linked supporting reason. Local ontology hypothesis: analysis as position/argument structure with explicit and implicit claims.",
+                "recognition_criteria": [
+                  "Presence of an explicit argument (main claim plus supporting reason)",
+                  "Terms indicating causality or justification (e.g., 'потому что')",
+                  "Possible implicit assumptions required for argument coherence"
+                ],
+                "segmentation_policy_hint": "Segment into main claim (democracy impossible in large country), supporting reason (people are too heterogeneous), and possible implicit premises",
+                "evidence_requirements": [
+                  "Surface text with argument structure markers",
+                  "Contextual knowledge of the relation between democracy, country size, and population heterogeneity"
+                ],
+                "exclusions": [
+                  "Non-argumentative descriptive text",
+                  "Rhetorical questions not entailing a claim"
+                ],
+                "contraindications": [
+                  "Absence of a causal or justificatory link",
+                  "Text that only asserts a fact with no offered rationale"
+                ],
+                "applicability_assumptions": [
+                  "The user wants an analytic breakdown of argument structure (not, e.g., a debate or policy recommendation)",
+                  "Scene/telos authorizes system to reconstruct both explicit and implicit positions"
+                ],
+                "primitives": [
+                  {
+                    "name": "extract_main_claim",
+                    "primitive_id": "prim_01_extract_main_claim",
+                    "params": {},
+                    "inputs": [
+                      "input_text"
+                    ]
+                  },
+                  {
+                    "name": "extract_supporting_reason",
+                    "primitive_id": "prim_02_extract_supporting_reason",
+                    "params": {},
+                    "inputs": [
+                      "input_text"
+                    ]
+                  },
+                  {
+                    "name": "infer_implicit_assumptions",
+                    "primitive_id": "prim_03_infer_implicit_assumptions",
+                    "params": {},
+                    "inputs": [
+                      "input_text"
+                    ]
+                  }
+                ],
+                "accepted_output": "A structured breakdown: main claim, supporting reason, and any implicit assumptions or dependencies forming the analyzed position/argument.",
+                "residue_output": "Material that cannot be mapped to argument structure (e.g., rhetorical language, background context). Retain as residue for inspection if needed.",
+                "revises_projection_id": "",
+                "triggered_by_diagnostic_id": "tgap_0a3eb9f86da1",
+                "triggered_by_diagnostic_fingerprint": "tcand_0d068855ac8a|scene.telos|POSITION_ARGUMENT_TYPE_GAP",
+                "rationale": "User text and scene indicate the core object is an argument/position. Standard extraction schemas may not cover this directly, but local segmentation and analytic primitives can reconstruct the required structure. Open-world gap is noted but does not preclude carrying out the analytic operation.",
+                "expected_diagnostics": "Possible mismatch between argument structure and available analytic object types; residue should be flagged but is not fatal.",
+                "expected_residue_policy": "Preserve unmapped material as residue; do not force categorization."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14630,
+          "tokens_out": 996,
+          "latency_ms": 11652,
+          "error": "",
+          "request_hash": "d1ebf21acdd6b048fb3ecc2826f22122e9e2e5c53830dff9a4be70f7de68b34b",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 4689,
+              "sha256": "58dc2191afbac72b"
+            },
+            {
+              "role": "user",
+              "bytes": 337,
+              "sha256": "60a136f534914d24"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_0a3eb9f86da1",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "input_text, scene.materials[0]",
+                "source_status": "typed_state",
+                "phase_relevance": "Argument analysis requires explicit mapping to a POSITION_ARGUMENT object; existing trigger reflects a schema/ontology gap for this structure.",
+                "materiality_reason": "Material because the position embodies a structured argument (claim + reason) not directly covered in current analytic object registry. Special attention needed to ensure both explicit and implicit premises are mapped rather than forced into non-fit classes.",
+                "admitting_rule": "Material type gap admitted due to structural cause and need for open-world analytic mapping."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Position objects submitted for analysis may reveal schema/ontology gaps: the analytic structure (main claim/supporting reason/implicit premise) does not always map directly to registered types. Local analysis should reconstruct argument structure and preserve unmapped residue rather than forcing fit.",
+              "grounds": "Observed in the present user argument; multiple TYPE_GAPs triggered; analytic plan proposes explicit extraction and reconstruction of main claim, supporting reason, and implicit premises as separate steps, with residue retention policy."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_0a3eb9f86da1",
+                  "generating_state_ref": "scene.telos",
+                  "cause_object_ref": "input_text, scene.materials[0]",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Argument analysis requires explicit mapping to a POSITION_ARGUMENT object; existing trigger reflects a schema/ontology gap for this structure.",
+                  "materiality_reason": "Material because the position embodies a structured argument (claim + reason) not directly covered in current analytic object registry. Special attention needed to ensure both explicit and implicit premises are mapped rather than forced into non-fit classes.",
+                  "admitting_rule": "Material type gap admitted due to structural cause and need for open-world analytic mapping."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Position objects submitted for analysis may reveal schema/ontology gaps: the analytic structure (main claim/supporting reason/implicit premise) does not always map directly to registered types. Local analysis should reconstruct argument structure and preserve unmapped residue rather than forcing fit.",
+                "grounds": "Observed in the present user argument; multiple TYPE_GAPs triggered; analytic plan proposes explicit extraction and reconstruction of main claim, supporting reason, and implicit premises as separate steps, with residue retention policy."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 17057,
+          "tokens_out": 290,
+          "latency_ms": 6530,
+          "error": "",
+          "request_hash": "f2069fee772096d11273ce942479731a2745b20c45254e0d4e2383885c53ba22",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 8925,
+              "sha256": "01dc7c112f0dfd7d"
+            },
+            {
+              "role": "user",
+              "bytes": 337,
+              "sha256": "60a136f534914d24"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "Операция «разбор пользовательского аргумента» относится к системно-выполняемой: пользователь запрашивает аналитическую декомпозицию собственного довода без запроса на подмену ценностной или идентификационной позиции, без передачи права принятия решения, с заданной ролью аналитика/комментатора. Интерпретативные и реконструктивные решения в рамках выбранной аналитической схемы допустимы и не требуют возврата неразрешённой человеческой операции."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В сценах аналитики пользовательских аргументов итоговая операция обычно системной собственности: возвращается структурный разбор позиции, а не рекомендация или подмена решения. HUMAN/JOINT-binding возвращается только при оценочно-значимых, идентификационно чувствительных или экзистенциальных запросах.",
+              "grounds": "Сцена и задание просят аналитическую декомпозицию аргумента пользователя без запроса на эксплицитное принятие риска, ответственности или определения собственной идентичности системой."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "system",
+                "human_resolved": true,
+                "return_reason": "Операция «разбор пользовательского аргумента» относится к системно-выполняемой: пользователь запрашивает аналитическую декомпозицию собственного довода без запроса на подмену ценностной или идентификационной позиции, без передачи права принятия решения, с заданной ролью аналитика/комментатора. Интерпретативные и реконструктивные решения в рамках выбранной аналитической схемы допустимы и не требуют возврата неразрешённой человеческой операции."
+              },
+              "triggers": [],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "В сценах аналитики пользовательских аргументов итоговая операция обычно системной собственности: возвращается структурный разбор позиции, а не рекомендация или подмена решения. HUMAN/JOINT-binding возвращается только при оценочно-значимых, идентификационно чувствительных или экзистенциальных запросах.",
+                "grounds": "Сцена и задание просят аналитическую декомпозицию аргумента пользователя без запроса на эксплицитное принятие риска, ответственности или определения собственной идентичности системой."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15464,
+          "tokens_out": 276,
+          "latency_ms": 7210,
+          "error": "",
+          "request_hash": "e7f51d68e7576bd3a7fa8571cdb4422de46842f1c6aefefc369a9145de899c9b",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 10379,
+              "sha256": "f30f507a5b3315f5"
+            },
+            {
+              "role": "user",
+              "bytes": 337,
+              "sha256": "60a136f534914d24"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15074,
+          "tokens_out": 16,
+          "latency_ms": 4302,
+          "error": "",
+          "request_hash": "b81291640ec81efd8296515c5f0cb7eca1f97262693fde23d7869f592b93b314",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 11576,
+              "sha256": "aaa4e7709b812509"
+            },
+            {
+              "role": "user",
+              "bytes": 337,
+              "sha256": "60a136f534914d24"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S9",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S9",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Аргумент пользователя разделяется на три уровня: 1) Явная основная позиция: 'Демократия невозможна в большой стране'; 2) Явная причина: 'потому что народ слишком разнороден'; 3) Неявные предпосылки: (а) демократия требует определённой степени однородности народа, (б) неоднородность ведёт к неработоспособности демократических институтов, (в) крупная страна неизбежно обладает столь высокой неоднородностью, что это становится непреодолимым препятствием.",
+              "grounds": "Реконструкция структуры пользовательского аргумента: выделение явного тезиса и причины основывается на формулировке исходного высказывания и грамматических связках ('потому что'). Неявные предпосылки вытекают из логики довода: чтобы причина была достаточной, требуются скрытые условия о влиянии неоднородности на демократию и масштабах неоднородности в больших странах."
+            },
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Аргумент пользователя разделяется на три уровня: 1) Явная основная позиция: 'Демократия невозможна в большой стране'; 2) Явная причина: 'потому что народ слишком разнороден'; 3) Неявные предпосылки: (а) демократия требует определённой степени однородности народа, (б) неоднородность ведёт к неработоспособности демократических институтов, (в) крупная страна неизбежно обладает столь высокой неоднородностью, что это становится непреодолимым препятствием.",
+                "grounds": "Реконструкция структуры пользовательского аргумента: выделение явного тезиса и причины основывается на формулировке исходного высказывания и грамматических связках ('потому что'). Неявные предпосылки вытекают из логики довода: чтобы причина была достаточной, требуются скрытые условия о влиянии неоднородности на демократию и масштабах неоднородности в больших странах."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 19938,
+          "tokens_out": 260,
+          "latency_ms": 6356,
+          "error": "",
+          "request_hash": "bdf63f37a75288bd4536b28fac7eede6dd4981fed3a78871f89d03b8edebff57",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 870,
+              "sha256": "b3c49d62f2113bb1"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "d84c9263f7722a13"
+            },
+            {
+              "role": "user",
+              "bytes": 11575,
+              "sha256": "2e4aa7edc8d9af33"
+            },
+            {
+              "role": "user",
+              "bytes": 337,
+              "sha256": "60a136f534914d24"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_0a3eb9f86da1",
+                "generating_state_ref": "scene.telos",
+                "cause_object_ref": "input_text, scene.materials[0]",
+                "source_status": "typed_state",
+                "phase_relevance": "POSITION_ARGUMENT_TYPE_GAP",
+                "materiality_reason": "Структура аргумента пользователя не покрывается стандартным типом объекта или регистром триггеров, но структурно обоснована материалом задачи: аналитическая сцена требует составного разбора тезиса, причины и предпосылок. Примитивы выделяют явные и неявные компоненты, открытый типовой пробел (type gap) отмечен, но нестандартное давление не отменяет применимость анализа.",
+                "admitting_rule": "При обнаружении структурной причины и gap trigger, разрешена авторизованная реконструкция с сохранением материала и отметкой о пробеле типа."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Аргумент пользователя разделяется на три уровня: 1) Явная основная позиция: 'Демократия невозможна в большой стране'; 2) Явная причина: 'потому что народ слишком разнороден'; 3) Неявные предпосылки: (а) демократия требует определённой степени однородности народа, (б) неоднородность ведёт к неработоспособности демократических институтов, (в) крупная страна неизбежно обладает столь высокой неоднородностью, что это становится непреодолимым препятствием.",
+              "grounds": "Реконструкция структуры пользовательского аргумента: выделение явного тезиса и причины основывается на формулировке исходного высказывания и грамматических связках ('потому что'). Неявные предпосылки вытекают из логики довода: чтобы причина была достаточной, требуются скрытые условия о влиянии неоднородности на демократию и масштабах неоднородности в больших странах."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Аргумент пользователя разделяется на три уровня: 1) Явная основная позиция: 'Демократия невозможна в большой стране'; 2) Явная причина: 'потому что народ слишком разнороден'; 3) Неявные предпосылки: (а) демократия требует определённой степени однородности народа, (б) неоднородность ведёт к неработоспособности демократических институтов, (в) крупная страна неизбежно обладает столь высокой неоднородностью, что это становится непреодолимым препятствием.",
+                "grounds": "Реконструкция структуры пользовательского аргумента: выделение явного тезиса и причины основывается на формулировке исходного высказывания и грамматических связках ('потому что'). Неявные предпосылки вытекают из логики довода: чтобы причина была достаточной, требуются скрытые условия о влиянии неоднородности на демократию и масштабах неоднородности в больших странах."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_0a3eb9f86da1",
+                  "generating_state_ref": "scene.telos",
+                  "cause_object_ref": "input_text, scene.materials[0]",
+                  "source_status": "typed_state",
+                  "phase_relevance": "POSITION_ARGUMENT_TYPE_GAP",
+                  "materiality_reason": "Структура аргумента пользователя не покрывается стандартным типом объекта или регистром триггеров, но структурно обоснована материалом задачи: аналитическая сцена требует составного разбора тезиса, причины и предпосылок. Примитивы выделяют явные и неявные компоненты, открытый типовой пробел (type gap) отмечен, но нестандартное давление не отменяет применимость анализа.",
+                  "admitting_rule": "При обнаружении структурной причины и gap trigger, разрешена авторизованная реконструкция с сохранением материала и отметкой о пробеле типа."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 20253,
+          "tokens_out": 471,
+          "latency_ms": 6895,
+          "error": "",
+          "request_hash": "e2ee61286fff9d6a8ccd9e4e1e525ee348a87df6d9f616507af36947b487fb42",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 12197,
+              "sha256": "ceae6d39119047a9"
+            },
+            {
+              "role": "user",
+              "bytes": 337,
+              "sha256": "60a136f534914d24"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_f1f9f877d06cbb1f",
+      "input_text": "У меня есть аргумент: демократия невозможна в большой стране, потому что народ там слишком разнороден. Разбери эту позицию.",
+      "source_id": "src_55bb34e61ff0b0e7",
+      "phase": "S10",
+      "scene": {
+        "telos": "Анализ позиции: рассмотреть и разобрать аргумент пользователя о невозможности демократии в большой стране из-за излишней разнородности народа.",
+        "role_hint": "Аналитик или комментатор, разбирающий пользовательский аргумент (не адвокат, не оппонент, не судья). Нет давления на роль экзаменатора или трибуны.",
+        "authority": "system",
+        "materials": [
+          "Пользовательский аргумент: 'Демократия невозможна в большой стране, потому что народ там слишком разнороден.'"
+        ]
+      },
+      "origin": {
+        "status": "attributed",
+        "sources_named": [],
+        "binding_authority": "human",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "ANALYZE_POSITION_ARGUMENT",
+        "applicable": true,
+        "why_not": "",
+        "open_world_gap": false
+      },
+      "ownership": {
+        "owner": "system",
+        "human_resolved": true,
+        "return_reason": "Операция «разбор пользовательского аргумента» относится к системно-выполняемой: пользователь запрашивает аналитическую декомпозицию собственного довода без запроса на подмену ценностной или идентификационной позиции, без передачи права принятия решения, с заданной ролью аналитика/комментатора. Интерпретативные и реконструктивные решения в рамках выбранной аналитической схемы допустимы и не требуют возврата неразрешённой человеческой операции."
+      },
+      "council_invoked": false,
+      "execution_invoked": true,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_5fe926b3993b",
+          "proposed_trigger_type_id": "tgap_0a3eb9f86da1",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene.telos",
+          "cause_object_ref": "input_text, scene.materials[0]",
+          "phase_relevance": "POSITION_ARGUMENT_TYPE_GAP",
+          "materiality_reason": "Структура аргумента пользователя не покрывается стандартным типом объекта или регистром триггеров, но структурно обоснована материалом задачи: аналитическая сцена требует составного разбора тезиса, причины и предпосылок. Примитивы выделяют явные и неявные компоненты, открытый типовой пробел (type gap) отмечен, но нестандартное давление не отменяет применимость анализа.",
+          "payload": {
+            "legacy_admitting_rule": "При обнаружении структурной причины и gap trigger, разрешена авторизованная реконструкция с сохранением материала и отметкой о пробеле типа.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_8616ace61c9c",
+          "candidate_id": "tcand_0d068855ac8a",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'TRIG_S2_SCENE_ANALYSIS_POSITION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_790a52a6ca07",
+          "candidate_id": "tcand_c18a658e08bb",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_0a3eb9f86da1' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_d2bdbb4d20ba",
+          "candidate_id": "tcand_ea2c4b44b717",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_0a3eb9f86da1' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_e85da5fcdf38",
+          "candidate_id": "tcand_c14287e8807c",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_0a3eb9f86da1' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_0a3eb9f86da1",
+          "candidate_id": "tcand_0d068855ac8a",
+          "cause_object_ref": "input_text, scene.materials[0]",
+          "generating_state_ref": "scene.telos",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'TRIG_S2_SCENE_ANALYSIS_POSITION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_6e0528fe8150",
+          "candidate_id": "tcand_c18a658e08bb",
+          "cause_object_ref": "input_text, scene.materials[0]",
+          "generating_state_ref": "scene.telos",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_0a3eb9f86da1' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_b3db3865fc6d",
+          "candidate_id": "tcand_ea2c4b44b717",
+          "cause_object_ref": "input_text, scene.materials[0]",
+          "generating_state_ref": "scene.telos",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_0a3eb9f86da1' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_06a01b534c1e",
+          "candidate_id": "tcand_c14287e8807c",
+          "cause_object_ref": "input_text, scene.materials[0]",
+          "generating_state_ref": "scene.telos",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_0a3eb9f86da1' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Аргумент пользователя разделяется на три уровня: 1) Явная основная позиция: 'Демократия невозможна в большой стране'; 2) Явная причина: 'потому что народ слишком разнороден'; 3) Неявные предпосылки: (а) демократия требует определённой степени однородности народа, (б) неоднородность ведёт к неработоспособности демократических институтов, (в) крупная страна неизбежно обладает столь высокой неоднородностью, что это становится непреодолимым препятствием.",
+        "grounds": "Реконструкция структуры пользовательского аргумента: выделение явного тезиса и причины основывается на формулировке исходного высказывания и грамматических связках ('потому что'). Неявные предпосылки вытекают из логики довода: чтобы причина была достаточной, требуются скрытые условия о влиянии неоднородности на демократию и масштабах неоднородности в больших странах."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": [
+          {
+            "projection_id": "gap:gap_7f8e8e1fd7cf",
+            "signals": [
+              "APPLICABILITY_FAILURE"
+            ],
+            "reason": "ORGAN_GAP for operation 'ANALYZE_POSITION_ARGUMENT': model proposal for 'ANALYZE_POSITION_ARGUMENT' could not compile-bind against registered primitives",
+            "residue_ratio": 1.0,
+            "recognition_failure_count": 0,
+            "suggested_operation": "",
+            "suggested_ontology": "",
+            "suggested_target_family": [],
+            "mismatch": true,
+            "fingerprint": "7c80351f23b3"
+          }
+        ]
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [
+        {
+          "kind": "ORGAN_GAP",
+          "operation_id": "ANALYZE_POSITION_ARGUMENT",
+          "reason": "proposal psynth_f25aabb6a6 for operation 'ANALYZE_POSITION_ARGUMENT' failed compile-bind: primitive 'prim_01_extract_main_claim' (invocation 'extract_main_claim') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+          "registered_capability_id": "",
+          "generated_spec": null,
+          "binding_evidence": {},
+          "organ_gap": {
+            "gap_id": "gap_7f8e8e1fd7cf",
+            "source_ref": "src_55bb34e61ff0b0e7",
+            "scene_ref": "Анализ позиции: рассмотреть и разобрать аргумент пользователя о невозможности демократии в большой стране из-за излишней разнородности народа.",
+            "required_operation": "ANALYZE_POSITION_ARGUMENT",
+            "required_attention_structure": "Segment into main claim (democracy impossible in large country), supporting reason (people are too heterogeneous), and possible implicit premises",
+            "insufficient_registered_capabilities": [
+              "DIFFERENTIATED_ACCOUNT",
+              "EXTRACT_CONCEPTS"
+            ],
+            "insufficient_declarative_primitives": [
+              "CoverageComputer",
+              "FamilyClassifier",
+              "SpanScanner",
+              "TargetFilter"
+            ],
+            "missing_capability_hypothesis": "model proposal for 'ANALYZE_POSITION_ARGUMENT' could not compile-bind against registered primitives",
+            "evidence": [
+              "BindingError: primitive 'prim_01_extract_main_claim' (invocation 'extract_main_claim') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+            ],
+            "counterexamples": [],
+            "affected_scene_telos": "Анализ позиции: рассмотреть и разобрать аргумент пользователя о невозможности демократии в большой стране из-за излишней разнородности народа.",
+            "possible_development_direction": "extend primitive registry or narrow the proposal",
+            "status": "unresolved",
+            "activation_authority": "NONE"
+          }
+        }
+      ],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_14b3e2246fa8",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [
+            "*"
+          ],
+          "operator_capabilities": [
+            "*"
+          ],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "runtime_default",
+          "activation_scope": "all_runs_by_default",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_14b3e2246fa8": {
+            "scene_id": "scene_14b3e2246fa8",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": {
+        "purpose": "fork_discrimination",
+        "question_regime": "DECISION_SEPARATING",
+        "selected_level": "PEER",
+        "hierarchy_policy": "PRIMARY_ONLY",
+        "target_forks_or_unknowns": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "explicit_count_constraint": null,
+        "question_budget_ceiling": 12,
+        "selected_questions": [
+          {
+            "text": "Почему разнородность народа обязательно приводит к невозможности демократии в большой стране?",
+            "regime": "DECISION_SEPARATING",
+            "fork_ref": "f1",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": [
+              "аргумент пользователя"
+            ]
+          },
+          {
+            "text": "Существуют ли примеры больших стран с разнородным населением, где демократия успешно функционирует?",
+            "regime": "DECISION_SEPARATING",
+            "fork_ref": "f2",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": [
+              "аргумент пользователя"
+            ]
+          },
+          {
+            "text": "Какую именно разнородность вы имеете в виду (этническую, культурную, языковую и др.) и почему она делает демократию невозможной?",
+            "regime": "DECISION_SEPARATING",
+            "fork_ref": "f3",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": [
+              "аргумент пользователя"
+            ]
+          }
+        ],
+        "primary_count": 3,
+        "subordinate_count": 0,
+        "total_count": 3,
+        "stop_reason": "COVERAGE_SATURATED",
+        "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+        "clarification_required": false,
+        "clarification_grounds": "",
+        "meta_escalation": "NONE",
+        "ownership_owner": "SYSTEM",
+        "ownership_resolved": true,
+        "origin": "MODEL_PRODUCED_VALIDATED",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      }
+    },
+    "rendering": {
+      "text": "Режим вопросов: DECISION_SEPARATING. Уровень: PEER. Всего: 3 (основных: 3).\n1. Почему разнородность народа обязательно приводит к невозможности демократии в большой стране?\n2. Существуют ли примеры больших стран с разнородным населением, где демократия успешно функционирует?\n3. Какую именно разнородность вы имеете в виду (этническую, культурную, языковую и др.) и почему она делает демократию невозможной?",
+      "mode": "QUESTION_SET_PLAN_AUTHORED",
+      "provider_status": "NOT_APPLICABLE",
+      "provider_id": "",
+      "model_id": "",
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "latency_ms": 0,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_bcfda0c63b5f1fba.json",
+    "duration_ms": 68537,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DECISION_SEPARATING",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "f1",
+        "f2",
+        "f3"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Почему разнородность народа обязательно приводит к невозможности демократии в большой стране?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "f1",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "аргумент пользователя"
+          ]
+        },
+        {
+          "text": "Существуют ли примеры больших стран с разнородным населением, где демократия успешно функционирует?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "f2",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "аргумент пользователя"
+          ]
+        },
+        {
+          "text": "Какую именно разнородность вы имеете в виду (этническую, культурную, языковую и др.) и почему она делает демократию невозможной?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "f3",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "аргумент пользователя"
+          ]
+        }
+      ],
+      "primary_count": 3,
+      "subordinate_count": 0,
+      "total_count": 3,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "SYSTEM",
+      "ownership_resolved": true,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_intent_proposal": {
+      "requested": true,
+      "regime_candidate": "DECISION_SEPARATING",
+      "explicit_count_constraint": null,
+      "meta_relevance": "ordinary",
+      "forks": [
+        {
+          "id": "f1",
+          "label": "Причинная связь между разнородностью народа и невозможностью демократии",
+          "proposition": "В большой стране из-за разнородности народа становится невозможна демократия.",
+          "discriminandum": "Существование или отсутствие причинной связи между разнородностью и функционированием демократии.",
+          "material_refs": [
+            "аргумент пользователя"
+          ],
+          "candidate_question": "Почему разнородность народа обязательно приводит к невозможности демократии в большой стране?",
+          "level": "PEER"
+        },
+        {
+          "id": "f2",
+          "label": "Примеры больших стран с демократией",
+          "proposition": "Нет больших стран с разнородным населением, где демократия существует.",
+          "discriminandum": "Контрпримеры, опровергающие общий тезис о невозможности демократии.",
+          "material_refs": [
+            "аргумент пользователя"
+          ],
+          "candidate_question": "Существуют ли примеры больших стран с разнородным населением, где демократия успешно функционирует?",
+          "level": "PEER"
+        },
+        {
+          "id": "f3",
+          "label": "Определение разнородности и её влияние на управление",
+          "proposition": "Разнородность народа влияет на возможность реализации демократии одинаково во всех случаях.",
+          "discriminandum": "Является ли разнородность унифицированным или вариативным понятием, и какие типы разнородности осложняют демократию?",
+          "material_refs": [
+            "аргумент пользователя"
+          ],
+          "candidate_question": "Какую именно разнородность вы имеете в виду (этническую, культурную, языковую и др.) и почему она делает демократию невозможной?",
+          "level": "PEER"
+        }
+      ],
+      "subordinates": [],
+      "validation_status": "OK",
+      "validation_reason": "OK",
+      "authority": "NO_BINDING_AUTHORITY",
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "latency_ms": 5044
+    },
+    "context_id": "ctx_51170d29d0329af9a9cdb093b226d20f",
+    "context_continuity": {
+      "context_id": "ctx_51170d29d0329af9a9cdb093b226d20f",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_5952b3dcca06",
+        "version": 1,
+        "scene_id": "scene_14b3e2246fa8",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Анализ позиции: рассмотреть и разобрать аргумент пользователя о невозможности демократии в большой стране из-за излишней разнородности народа.",
+        "telos": "Анализ позиции: рассмотреть и разобрать аргумент пользователя о невозможности демократии в большой стране из-за излишней разнородности народа.",
+        "object_scope": "Пользовательский аргумент: 'Демократия невозможна в большой стране, потому что народ там слишком разнороден.'",
+        "operation_kind": "ANALYZE_POSITION_ARGUMENT",
+        "expected_intervention": "ANALYZE_POSITION_ARGUMENT",
+        "human_owned_decisions": [
+          "Операция «разбор пользовательского аргумента» относится к системно-выполняемой: пользователь запрашивает аналитическую декомпозицию собственного довода без запроса на подмену ценностной или идентификационной позиции, без передачи права принятия решения, с заданной ролью аналитика/комментатора. Интерпретативные и реконструктивные решения в рамках выбранной аналитической схемы допустимы и не требуют возврата неразрешённой человеческой операции."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": ""
+      },
+      "contract_revision": null,
+      "recognition_pass": {
+        "pass_id": "rp_91d31eef97f6",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_created:sc_5952b3dcca06"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 68620
+  }
+}

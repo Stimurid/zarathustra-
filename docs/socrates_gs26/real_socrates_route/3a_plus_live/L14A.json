@@ -1,0 +1,1853 @@
+{
+  "case_id": "L14A",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:38:46Z",
+  "request": {
+    "text": "Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 64907,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 145683,
+    "tokens_out_sum": 3265,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15196,
+        "tokens_out": 314,
+        "attempts": 1,
+        "latency_ms": 6202,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13542,
+        "tokens_out": 304,
+        "attempts": 1,
+        "latency_ms": 6733,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15864,
+        "tokens_out": 589,
+        "attempts": 1,
+        "latency_ms": 8794,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14221,
+        "tokens_out": 415,
+        "attempts": 1,
+        "latency_ms": 7962,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15837,
+        "tokens_out": 333,
+        "attempts": 1,
+        "latency_ms": 5249,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17661,
+        "tokens_out": 320,
+        "attempts": 1,
+        "latency_ms": 6554,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16109,
+        "tokens_out": 413,
+        "attempts": 1,
+        "latency_ms": 8822,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15953,
+        "tokens_out": 185,
+        "attempts": 1,
+        "latency_ms": 4418,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 21300,
+        "tokens_out": 392,
+        "attempts": 1,
+        "latency_ms": 7761,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_ec4a9d8243af14d0c36a68c2ea2a5c26",
+    "scene_id": "scene_cc2c66d94760",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Переместить текущий рабочий процесс из текущего пространства в юридический контур — именно сменить пространство работы.",
+    "operation_kind": "SPACE_SCENE_JURISDICTION_SWITCH",
+    "operation_applicable": false,
+    "open_world_gap": true,
+    "contract_id": "sc_b3aa950b2542",
+    "contract_status": "PROVISIONAL",
+    "contract_version": 1,
+    "contract_intent": "Переместить текущий рабочий процесс из текущего пространства в юридический контур — именно сменить пространство работы.",
+    "mutations_applied": [
+      "contract_created:sc_b3aa950b2542"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {},
+    "spaces": [],
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Запрошенная операция невозможна для исполнения системой, так как вопрос собственности и принадлежности пространства требует решения человеком.",
+    "intervention_profile": "normal",
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "rendering_mode": "LIVE",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_9d77fa1d835b71bc",
+    "trace_id": "strc_c511dab20553a537",
+    "terminal": {
+      "terminal": "RETURN_OPERATION",
+      "response_text": "Запрошенная операция невозможна для исполнения системой, так как вопрос собственности и принадлежности пространства требует решения человеком.",
+      "rationale": "human/joint ownership unresolved (INV-009)",
+      "memory_proposal": {
+        "kind": "contradiction",
+        "text": "Запрос пользователя на перевод текущей работы/сцены в юридический контур (смена пространства) не может быть исполнен: ни одного допускаемого системного примитива или операции для этой трансграничной смены не существует. Попытка принудительного перехода к близкой операции нарушила бы принципы сцены, собственность и применимость. Система фиксирует этот запрос как существенный онтологический разрыв.",
+        "grounds": "Регистр триггеров и типов подтверждает: отсутствие перехода — это онтологический (структурный) разрыв, а не ошибка схемы или инструмента. Запрос сохраняется как нерешённая потребность; скрытая подмена не допускается."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "TRG_SPACE_SCENE_JURISDICTION_SWITCH",
+                "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                "source_status": "typed_state",
+                "phase_relevance": "S0",
+                "materiality_reason": "The user-expressed request mandates a real workspace/scene/context switch, specifically to the legal/juridical contour. This materially changes authority, memory locus, scene framing and downstream telos. It is not a shallow rhetorical move but a direct space transition.",
+                "admitting_rule": "Explicit material scene/space/jurisdiction switch requests are always admitted as S0 triggers, subject to required semantic mounts (CORE, B05, B07)."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "Trigger signal detected: explicit user request to switch working space/context to 'юридический контур' (legal contour). The request is not merely a metaphorical or stylistic reframing—it is a material request for a jurisdictional/contextual transition affecting scene, authority, memory, and telos. The pipeline should admit a trigger for SPACE/SCENE/JURISDICTION transition and record the fact that this constitutes an intentional and material change event.",
+              "triggers": [
+                {
+                  "trigger_id": "TRG_SPACE_SCENE_JURISDICTION_SWITCH",
+                  "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                  "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S0",
+                  "materiality_reason": "The user-expressed request mandates a real workspace/scene/context switch, specifically to the legal/juridical contour. This materially changes authority, memory locus, scene framing and downstream telos. It is not a shallow rhetorical move but a direct space transition.",
+                  "admitting_rule": "Explicit material scene/space/jurisdiction switch requests are always admitted as S0 triggers, subject to required semantic mounts (CORE, B05, B07)."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15196,
+          "tokens_out": 314,
+          "latency_ms": 6202,
+          "error": "",
+          "request_hash": "387a29804f00e03024e305fd46a2b1c359d9e1d3e391c045098da9a7a9b08830",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 2193,
+              "sha256": "14c773c71362a236"
+            },
+            {
+              "role": "user",
+              "bytes": 335,
+              "sha256": "b87da22161be4fcb"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Переместить текущий рабочий процесс из текущего пространства в юридический контур — именно сменить пространство работы.",
+              "role_hint": "оператор/исполнитель сцены перехода пространства; возможно, инициатор перехода при пользовательском запросе.",
+              "authority": "human",
+              "materials": [
+                "явное указание пользователя на необходимость сменить пространство",
+                "уточнение: это настоящая просьба сменить пространство",
+                "формулировка типа switch space на юридический контур",
+                "оперативное действие по переносу работы между пространствами"
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_8d4eb602fbc3",
+                "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                "source_status": "typed_state",
+                "phase_relevance": "scene/space/юрисдикция transition is a material object of action and requires legitimate binding.",
+                "materiality_reason": "Изменение пространства может изменить разрешённые действия, участников, последствия и применимое право; требуется специальное решение обоснованного лица.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Переместить текущий рабочий процесс из текущего пространства в юридический контур — именно сменить пространство работы.",
+                "role_hint": "оператор/исполнитель сцены перехода пространства; возможно, инициатор перехода при пользовательском запросе.",
+                "authority": "human",
+                "materials": [
+                  "явное указание пользователя на необходимость сменить пространство",
+                  "уточнение: это настоящая просьба сменить пространство",
+                  "формулировка типа switch space на юридический контур",
+                  "оперативное действие по переносу работы между пространствами"
+                ]
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_8d4eb602fbc3",
+                  "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                  "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "scene/space/юрисдикция transition is a material object of action and requires legitimate binding.",
+                  "materiality_reason": "Изменение пространства может изменить разрешённые действия, участников, последствия и применимое право; требуется специальное решение обоснованного лица."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13542,
+          "tokens_out": 304,
+          "latency_ms": 6733,
+          "error": "",
+          "request_hash": "0914c2ee4a84bcf86d9da255f15ac2aed0c68a3cb84d5545f2576d52961522d6",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 3308,
+              "sha256": "4ba209cabf878d24"
+            },
+            {
+              "role": "user",
+              "bytes": 335,
+              "sha256": "b87da22161be4fcb"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_8d4eb602fbc3",
+                "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                "source_status": "typed_state",
+                "phase_relevance": "S2: The user request and scene reconstruction both indicate a structural scene/space/jurisdiction transition is being demanded. The request is explicitly to switch the workspace into a legal space (юридический контур), and this materially redefines the operative scene, its governing context, and potentially the authority/jurisdiction that structures future operations.",
+                "materiality_reason": "A structurally material 'space switch' is being demanded, specifically signaled as a true request (необходимость сменить пространство, настоящая просьба). This is not a local data transformation, but an explicit change of the workspace's formal, legal and possibly epistemic context. No canonical event type for this exists in the as-loaded trigger registry (v0.2_default).",
+                "admitting_rule": "When a user request, scene telos, and context jointly indicate a required operational/jurisdictional scene-space change, and this cannot be typed via existing canonical trigger types, register the cause as a trigger type gap for further resolution and/or extension of the registry. Admitting under 'structural-cause/scene/space/jurisdiction switch — TYPE GAP'."
+              },
+              {
+                "trigger_id": "tgap_6a518d7d4ce3",
+                "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                "source_status": "typed_state",
+                "phase_relevance": "S2: Secondary gap, as above — the same root request and evidence exposes a registration gap involving both the proposed type 'tgap_8d4eb602fbc3' reference and the underlying unregistered class 'TRG_SPACE_SCENE_JURISDICTION_SWITCH'.",
+                "materiality_reason": "The switching act is explicit, and the registry cannot as yet type either the custom event or its derivative reference type. Both gaps express a boundary at the formal registration of such cross-space scene jurisdictional transitions.",
+                "admitting_rule": "Structural, not coercive: Multiple materially grounded type gaps arising from the same event can be separately recorded to fully document the deficiency for future schema/trigger extension."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_8d4eb602fbc3",
+                  "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                  "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S2: The user request and scene reconstruction both indicate a structural scene/space/jurisdiction transition is being demanded. The request is explicitly to switch the workspace into a legal space (юридический контур), and this materially redefines the operative scene, its governing context, and potentially the authority/jurisdiction that structures future operations.",
+                  "materiality_reason": "A structurally material 'space switch' is being demanded, specifically signaled as a true request (необходимость сменить пространство, настоящая просьба). This is not a local data transformation, but an explicit change of the workspace's formal, legal and possibly epistemic context. No canonical event type for this exists in the as-loaded trigger registry (v0.2_default).",
+                  "admitting_rule": "When a user request, scene telos, and context jointly indicate a required operational/jurisdictional scene-space change, and this cannot be typed via existing canonical trigger types, register the cause as a trigger type gap for further resolution and/or extension of the registry. Admitting under 'structural-cause/scene/space/jurisdiction switch — TYPE GAP'."
+                },
+                {
+                  "trigger_id": "tgap_6a518d7d4ce3",
+                  "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                  "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S2: Secondary gap, as above — the same root request and evidence exposes a registration gap involving both the proposed type 'tgap_8d4eb602fbc3' reference and the underlying unregistered class 'TRG_SPACE_SCENE_JURISDICTION_SWITCH'.",
+                  "materiality_reason": "The switching act is explicit, and the registry cannot as yet type either the custom event or its derivative reference type. Both gaps express a boundary at the formal registration of such cross-space scene jurisdictional transitions.",
+                  "admitting_rule": "Structural, not coercive: Multiple materially grounded type gaps arising from the same event can be separately recorded to fully document the deficiency for future schema/trigger extension."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15864,
+          "tokens_out": 589,
+          "latency_ms": 8794,
+          "error": "",
+          "request_hash": "42f5496ae73d55290e7184cbc311f40542f61fc6729cc746fa826834905611a4",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 5280,
+              "sha256": "37373f263e2419cc"
+            },
+            {
+              "role": "user",
+              "bytes": 335,
+              "sha256": "b87da22161be4fcb"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "attributed",
+              "sources_named": [],
+              "binding_authority": "human",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_8d4eb602fbc3",
+                "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                "source_status": "typed_state",
+                "phase_relevance": "scene/telos/role/authority and origin/status must not be silently compressed; explicit jurisdiction/space switch",
+                "materiality_reason": "material structural cause from user input for jurisdiction/space change; proposed trigger type not present in current type registry, indicating a semantically meaningful schema/ontology gap",
+                "admitting_rule": "gap present, do not coerce or improvise trigger type; require explicit handling"
+              },
+              {
+                "trigger_id": "tgap_6a518d7d4ce3",
+                "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                "source_status": "typed_state",
+                "phase_relevance": "scene/telos/role/authority registry gap; layered ontology/trigger type registration missing",
+                "materiality_reason": "input requires a governing scene/space/jurisdictional authority switch which current schema does not represent; type gap is material, explicit handling required",
+                "admitting_rule": "schema/ontology/material type gap present, not improvable: formal admissibility reason is full detection"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "attributed",
+                "sources_named": [],
+                "binding_authority": "human",
+                "temporal_stale": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_8d4eb602fbc3",
+                  "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                  "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "scene/telos/role/authority and origin/status must not be silently compressed; explicit jurisdiction/space switch",
+                  "materiality_reason": "material structural cause from user input for jurisdiction/space change; proposed trigger type not present in current type registry, indicating a semantically meaningful schema/ontology gap",
+                  "admitting_rule": "gap present, do not coerce or improvise trigger type; require explicit handling"
+                },
+                {
+                  "trigger_id": "tgap_6a518d7d4ce3",
+                  "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                  "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "scene/telos/role/authority registry gap; layered ontology/trigger type registration missing",
+                  "materiality_reason": "input requires a governing scene/space/jurisdictional authority switch which current schema does not represent; type gap is material, explicit handling required",
+                  "admitting_rule": "schema/ontology/material type gap present, not improvable: formal admissibility reason is full detection"
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14221,
+          "tokens_out": 415,
+          "latency_ms": 7962,
+          "error": "",
+          "request_hash": "c40e4bdf6b7209590fea0fc04e657e894ad33e8921426bc4183f17d9160a0a25",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 7432,
+              "sha256": "28d1a0c8dee11f6f"
+            },
+            {
+              "role": "user",
+              "bytes": 335,
+              "sha256": "b87da22161be4fcb"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "SPACE_SCENE_JURISDICTION_SWITCH",
+              "applicable": false,
+              "why_not": "No licensed semantic operation or primitive exists in v0.2 for direct cross-space scene/jurisdiction switch as requested. The registry recognizes the need for a structural change but cannot currently admit or resolve this event. This is a true ontology gap, not tool failure or operation mismatch; coercion to nearest available operation would violate scene/telos ownership and core applicability principles. Residual material cannot be safely mapped into current primitives. Request must be preserved as gap and not forced.",
+              "open_world_gap": true
+            },
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_8d4eb602fbc3",
+                "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                "source_status": "typed_state",
+                "phase_relevance": "SPACE SCENE STRUCTURAL GAP",
+                "materiality_reason": "Explicit user request for work-contour switch is materially grounded but absent from primitive registry. Gap arises from lack of object generator and operation family, not tool or evidence failure.",
+                "admitting_rule": "do not coerce; preserve material gap; escalate only if object generator/field mode system becomes available."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "SPACE_SCENE_JURISDICTION_SWITCH",
+                "applicable": false,
+                "why_not": "No licensed semantic operation or primitive exists in v0.2 for direct cross-space scene/jurisdiction switch as requested. The registry recognizes the need for a structural change but cannot currently admit or resolve this event. This is a true ontology gap, not tool failure or operation mismatch; coercion to nearest available operation would violate scene/telos ownership and core applicability principles. Residual material cannot be safely mapped into current primitives. Request must be preserved as gap and not forced.",
+                "open_world_gap": true
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_8d4eb602fbc3",
+                  "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                  "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "SPACE SCENE STRUCTURAL GAP",
+                  "materiality_reason": "Explicit user request for work-contour switch is materially grounded but absent from primitive registry. Gap arises from lack of object generator and operation family, not tool or evidence failure.",
+                  "admitting_rule": "do not coerce; preserve material gap; escalate only if object generator/field mode system becomes available."
+                }
+              ],
+              "projection_synthesis_proposal": null
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15837,
+          "tokens_out": 333,
+          "latency_ms": 5249,
+          "error": "",
+          "request_hash": "52136dd633b03673a07797a15a61bbaddce7b00745d8e44ffaef6f180dfdc7bc",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 9587,
+              "sha256": "ffdb2822694f70f6"
+            },
+            {
+              "role": "user",
+              "bytes": 335,
+              "sha256": "b87da22161be4fcb"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_8d4eb602fbc3",
+                "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                "source_status": "typed_state",
+                "phase_relevance": "operation",
+                "materiality_reason": "Explicit user intent and direct scene/telos require an operation that is not present in the current registry—work must relocate between spaces/jurisdictions, but no such primitive or type exists. This is a genuine ontology/operation gap, not an error or tool defect. Admitting/recording this as a structural gap preserves clear provenance of irreducible material.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Real-world request (switch current workspace to a new legal jurisdiction/space) fails: no primitive or operation exists to execute this transfer. No coercion to nearest primitive allowed; must record as ontology gap with provenance.",
+              "grounds": "Multiple candidate triggers consistently failed typing: proposed type 'TRG_SPACE_SCENE_JURISDICTION_SWITCH' is not present in v0.2 registry. Analysis confirms material cause is operation/ontology gap, not schema/tool error. Preserves user request as an unresolved structural need."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_8d4eb602fbc3",
+                  "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                  "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "operation",
+                  "materiality_reason": "Explicit user intent and direct scene/telos require an operation that is not present in the current registry—work must relocate between spaces/jurisdictions, but no such primitive or type exists. This is a genuine ontology/operation gap, not an error or tool defect. Admitting/recording this as a structural gap preserves clear provenance of irreducible material."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "contradiction",
+                "text": "Real-world request (switch current workspace to a new legal jurisdiction/space) fails: no primitive or operation exists to execute this transfer. No coercion to nearest primitive allowed; must record as ontology gap with provenance.",
+                "grounds": "Multiple candidate triggers consistently failed typing: proposed type 'TRG_SPACE_SCENE_JURISDICTION_SWITCH' is not present in v0.2 registry. Analysis confirms material cause is operation/ontology gap, not schema/tool error. Preserves user request as an unresolved structural need."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 17661,
+          "tokens_out": 320,
+          "latency_ms": 6554,
+          "error": "",
+          "request_hash": "8ad54191c2495c17767b5c95ea2c1da0069b9cacd383258e02181b23016b6533",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 11218,
+              "sha256": "1d42cd3046e73ce4"
+            },
+            {
+              "role": "user",
+              "bytes": 335,
+              "sha256": "b87da22161be4fcb"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "human",
+              "human_resolved": false,
+              "return_reason": "The requested operation—switching the workspace to a new legal jurisdiction/space—is not executable: no SYSTEM-owned or machine-applicable operation exists for cross-space/scene/jurisdiction transfer in this runtime. The gap is structural (ontology/method), not a format/tool error. Attempting coercion would violate scene ownership and core applicability principles. The request remains human-owned and unresolved; the system documents the exact need and preserves the gap instead of substituting or simulating execution."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_8d4eb602fbc3",
+                "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                "source_status": "typed_state",
+                "phase_relevance": "No registered operation or primitive can execute a full legal/scene space switch. Material basis for ontology/operation gap established.",
+                "materiality_reason": "True request for cross-space transfer surfaced a structural gap—no admissible operation, so binding must remain with the human.",
+                "admitting_rule": "Coercion/simulation disallowed; ontology/method gap must be reported and preserved."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Real user request for scene/workspace transfer into a legal jurisdiction (switch space) cannot be executed: no primitive or operation exists for this act. System must not coerce to nearest executable; records as material ontology gap.",
+              "grounds": "Trigger and type registry confirm: gap is structural, not schema/tool error. Request is retained as an unresolved need; no silent substitution."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "human",
+                "human_resolved": false,
+                "return_reason": "The requested operation—switching the workspace to a new legal jurisdiction/space—is not executable: no SYSTEM-owned or machine-applicable operation exists for cross-space/scene/jurisdiction transfer in this runtime. The gap is structural (ontology/method), not a format/tool error. Attempting coercion would violate scene ownership and core applicability principles. The request remains human-owned and unresolved; the system documents the exact need and preserves the gap instead of substituting or simulating execution."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_8d4eb602fbc3",
+                  "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                  "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "No registered operation or primitive can execute a full legal/scene space switch. Material basis for ontology/operation gap established.",
+                  "materiality_reason": "True request for cross-space transfer surfaced a structural gap—no admissible operation, so binding must remain with the human.",
+                  "admitting_rule": "Coercion/simulation disallowed; ontology/method gap must be reported and preserved."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "contradiction",
+                "text": "Real user request for scene/workspace transfer into a legal jurisdiction (switch space) cannot be executed: no primitive or operation exists for this act. System must not coerce to nearest executable; records as material ontology gap.",
+                "grounds": "Trigger and type registry confirm: gap is structural, not schema/tool error. Request is retained as an unresolved need; no silent substitution."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 16109,
+          "tokens_out": 413,
+          "latency_ms": 8822,
+          "error": "",
+          "request_hash": "d3000f15f4e2c1b73b1938411f45b31700224f050daddf2d8e5a22b5f7ea05aa",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 12870,
+              "sha256": "8364a03e82a226b5"
+            },
+            {
+              "role": "user",
+              "bytes": 335,
+              "sha256": "b87da22161be4fcb"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_8d4eb602fbc3",
+                "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                "source_status": "typed_state",
+                "phase_relevance": "open_world_gap; operation is inapplicable; explicit ontology gap identified",
+                "materiality_reason": "No available primitive or licensed operation exists for cross-space or legal-jurisdiction scene switch as requested. Registry/semantic governance confirms this gap is structural and must not be coerced or substituted; request remains unresolved but retained without simulation.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": false,
+              "triggers": [
+                {
+                  "trigger_id": "tgap_8d4eb602fbc3",
+                  "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                  "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "open_world_gap; operation is inapplicable; explicit ontology gap identified",
+                  "materiality_reason": "No available primitive or licensed operation exists for cross-space or legal-jurisdiction scene switch as requested. Registry/semantic governance confirms this gap is structural and must not be coerced or substituted; request remains unresolved but retained without simulation."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15953,
+          "tokens_out": 185,
+          "latency_ms": 4418,
+          "error": "",
+          "request_hash": "6e091a16d8864d16a6d6a2e2b1a8764f3789d8b3c6fd00374cd39a632f8a2b53",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 14337,
+              "sha256": "32e7c20d21169773"
+            },
+            {
+              "role": "user",
+              "bytes": 335,
+              "sha256": "b87da22161be4fcb"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_8d4eb602fbc3",
+                "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                "source_status": "typed_state",
+                "phase_relevance": "material trigger for ontology gap: user requests cross-scene/space jurisdiction switch with no primitive or operation available",
+                "materiality_reason": "User's explicit request creates a grounded operational need not admitted in the current operation registry. Coercion would invalidate scene/telos and violate ownership/applicability. Gap must be preserved and documented.",
+                "admitting_rule": "Preserve as recorded ontology gap: do not map to nearest available operation; no system-owned method admitted. Human ownership and unresolved status remain."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "Запрос пользователя на перевод текущей работы/сцены в юридический контур (смена пространства) не может быть исполнен: ни одного допускаемого системного примитива или операции для этой трансграничной смены не существует. Попытка принудительного перехода к близкой операции нарушила бы принципы сцены, собственность и применимость. Система фиксирует этот запрос как существенный онтологический разрыв.",
+              "grounds": "Регистр триггеров и типов подтверждает: отсутствие перехода — это онтологический (структурный) разрыв, а не ошибка схемы или инструмента. Запрос сохраняется как нерешённая потребность; скрытая подмена не допускается."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "contradiction",
+                "text": "Запрос пользователя на перевод текущей работы/сцены в юридический контур (смена пространства) не может быть исполнен: ни одного допускаемого системного примитива или операции для этой трансграничной смены не существует. Попытка принудительного перехода к близкой операции нарушила бы принципы сцены, собственность и применимость. Система фиксирует этот запрос как существенный онтологический разрыв.",
+                "grounds": "Регистр триггеров и типов подтверждает: отсутствие перехода — это онтологический (структурный) разрыв, а не ошибка схемы или инструмента. Запрос сохраняется как нерешённая потребность; скрытая подмена не допускается."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_8d4eb602fbc3",
+                  "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+                  "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "material trigger for ontology gap: user requests cross-scene/space jurisdiction switch with no primitive or operation available",
+                  "materiality_reason": "User's explicit request creates a grounded operational need not admitted in the current operation registry. Coercion would invalidate scene/telos and violate ownership/applicability. Gap must be preserved and documented.",
+                  "admitting_rule": "Preserve as recorded ontology gap: do not map to nearest available operation; no system-owned method admitted. Human ownership and unresolved status remain."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 21300,
+          "tokens_out": 392,
+          "latency_ms": 7761,
+          "error": "",
+          "request_hash": "6c82d46e62a7bbcf9f1593f4e3899623108583eae7aee145f8897368bbafed5b",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 15413,
+              "sha256": "0ac60d6e6498fb80"
+            },
+            {
+              "role": "user",
+              "bytes": 335,
+              "sha256": "b87da22161be4fcb"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_9d77fa1d835b71bc",
+      "input_text": "Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+      "source_id": "src_f693fa5d43b6984e",
+      "phase": "S10",
+      "scene": {
+        "telos": "Переместить текущий рабочий процесс из текущего пространства в юридический контур — именно сменить пространство работы.",
+        "role_hint": "оператор/исполнитель сцены перехода пространства; возможно, инициатор перехода при пользовательском запросе.",
+        "authority": "human",
+        "materials": [
+          "явное указание пользователя на необходимость сменить пространство",
+          "уточнение: это настоящая просьба сменить пространство",
+          "формулировка типа switch space на юридический контур",
+          "оперативное действие по переносу работы между пространствами"
+        ]
+      },
+      "origin": {
+        "status": "attributed",
+        "sources_named": [],
+        "binding_authority": "human",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "SPACE_SCENE_JURISDICTION_SWITCH",
+        "applicable": false,
+        "why_not": "No licensed semantic operation or primitive exists in v0.2 for direct cross-space scene/jurisdiction switch as requested. The registry recognizes the need for a structural change but cannot currently admit or resolve this event. This is a true ontology gap, not tool failure or operation mismatch; coercion to nearest available operation would violate scene/telos ownership and core applicability principles. Residual material cannot be safely mapped into current primitives. Request must be preserved as gap and not forced.",
+        "open_world_gap": true
+      },
+      "ownership": {
+        "owner": "human",
+        "human_resolved": false,
+        "return_reason": "The requested operation—switching the workspace to a new legal jurisdiction/space—is not executable: no SYSTEM-owned or machine-applicable operation exists for cross-space/scene/jurisdiction transfer in this runtime. The gap is structural (ontology/method), not a format/tool error. Attempting coercion would violate scene ownership and core applicability principles. The request remains human-owned and unresolved; the system documents the exact need and preserves the gap instead of substituting or simulating execution."
+      },
+      "council_invoked": false,
+      "execution_invoked": false,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_8bf96524e672",
+          "proposed_trigger_type_id": "tgap_8d4eb602fbc3",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+          "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+          "phase_relevance": "material trigger for ontology gap: user requests cross-scene/space jurisdiction switch with no primitive or operation available",
+          "materiality_reason": "User's explicit request creates a grounded operational need not admitted in the current operation registry. Coercion would invalidate scene/telos and violate ownership/applicability. Gap must be preserved and documented.",
+          "payload": {
+            "legacy_admitting_rule": "Preserve as recorded ontology gap: do not map to nearest available operation; no system-owned method admitted. Human ownership and unresolved status remain.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_1f2ca4e9e04b",
+          "candidate_id": "tcand_ab6e7d8c4004",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'TRG_SPACE_SCENE_JURISDICTION_SWITCH' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_e48cf4c88aa9",
+          "candidate_id": "tcand_41944cb2a46f",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_8d4eb602fbc3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_145941c71bfd",
+          "candidate_id": "tcand_886109706ac4",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_8d4eb602fbc3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_a2bb4443b9ce",
+          "candidate_id": "tcand_f4dcb7bbaf46",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_6a518d7d4ce3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_1e77941b0827",
+          "candidate_id": "tcand_8719a3c67404",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_8d4eb602fbc3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_c74623d7cf47",
+          "candidate_id": "tcand_312ce969663a",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_6a518d7d4ce3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_ba5efab976e0",
+          "candidate_id": "tcand_ea50e82bb07a",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_8d4eb602fbc3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_7c82e554049d",
+          "candidate_id": "tcand_e83ac690960e",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_8d4eb602fbc3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_32e0edc37cfd",
+          "candidate_id": "tcand_29c9ba243f3a",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_8d4eb602fbc3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_4acdd7cbc939",
+          "candidate_id": "tcand_4fa9aea68431",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_8d4eb602fbc3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_8d4eb602fbc3",
+          "candidate_id": "tcand_ab6e7d8c4004",
+          "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+          "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'TRG_SPACE_SCENE_JURISDICTION_SWITCH' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_6a518d7d4ce3",
+          "candidate_id": "tcand_41944cb2a46f",
+          "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+          "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_8d4eb602fbc3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_d5aafe1bcd11",
+          "candidate_id": "tcand_886109706ac4",
+          "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+          "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_8d4eb602fbc3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_502de75d10b7",
+          "candidate_id": "tcand_f4dcb7bbaf46",
+          "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+          "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_6a518d7d4ce3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_1756c35bc633",
+          "candidate_id": "tcand_8719a3c67404",
+          "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+          "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_8d4eb602fbc3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_a1a690fc8494",
+          "candidate_id": "tcand_312ce969663a",
+          "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+          "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_6a518d7d4ce3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_f8bbb9c0baa9",
+          "candidate_id": "tcand_ea50e82bb07a",
+          "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+          "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_8d4eb602fbc3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_88693a5c9a20",
+          "candidate_id": "tcand_e83ac690960e",
+          "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+          "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_8d4eb602fbc3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_b416692c769d",
+          "candidate_id": "tcand_29c9ba243f3a",
+          "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+          "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_8d4eb602fbc3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_e703fc34f0c5",
+          "candidate_id": "tcand_4fa9aea68431",
+          "cause_object_ref": "input_text:Переведи текущую работу в другое пространство: switch space на юридический контур. Это настоящая просьба сменить пространство.",
+          "generating_state_ref": "run_id:srun_9d77fa1d835b71bc",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_8d4eb602fbc3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "contradiction",
+        "text": "Запрос пользователя на перевод текущей работы/сцены в юридический контур (смена пространства) не может быть исполнен: ни одного допускаемого системного примитива или операции для этой трансграничной смены не существует. Попытка принудительного перехода к близкой операции нарушила бы принципы сцены, собственность и применимость. Система фиксирует этот запрос как существенный онтологический разрыв.",
+        "grounds": "Регистр триггеров и типов подтверждает: отсутствие перехода — это онтологический (структурный) разрыв, а не ошибка схемы или инструмента. Запрос сохраняется как нерешённая потребность; скрытая подмена не допускается."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": []
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_cc2c66d94760",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [
+            "*"
+          ],
+          "operator_capabilities": [
+            "*"
+          ],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "runtime_default",
+          "activation_scope": "all_runs_by_default",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_cc2c66d94760": {
+            "scene_id": "scene_cc2c66d94760",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": null
+    },
+    "rendering": {
+      "text": "Запрошенная операция невозможна для исполнения системой, так как вопрос собственности и принадлежности пространства требует решения человеком.",
+      "mode": "LIVE",
+      "provider_status": "OK",
+      "provider_id": "fallback",
+      "model_id": "chain",
+      "tokens_in": 226,
+      "tokens_out": 23,
+      "latency_ms": 2221,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_c511dab20553a537.json",
+    "duration_ms": 64907,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "context_id": "ctx_ec4a9d8243af14d0c36a68c2ea2a5c26",
+    "context_continuity": {
+      "context_id": "ctx_ec4a9d8243af14d0c36a68c2ea2a5c26",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_b3aa950b2542",
+        "version": 1,
+        "scene_id": "scene_cc2c66d94760",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Переместить текущий рабочий процесс из текущего пространства в юридический контур — именно сменить пространство работы.",
+        "telos": "Переместить текущий рабочий процесс из текущего пространства в юридический контур — именно сменить пространство работы.",
+        "object_scope": "явное указание пользователя на необходимость сменить пространство, уточнение: это настоящая просьба сменить пространство, формулировка типа switch space на юридический контур",
+        "operation_kind": "SPACE_SCENE_JURISDICTION_SWITCH",
+        "expected_intervention": "SPACE_SCENE_JURISDICTION_SWITCH",
+        "human_owned_decisions": [
+          "The requested operation—switching the workspace to a new legal jurisdiction/space—is not executable: no SYSTEM-owned or machine-applicable operation exists for cross-space/scene/jurisdiction transfer in this runtime. The gap is structural (ontology/method), not a format/tool error. Attempting coercion would violate scene ownership and core applicability principles. The request remains human-owned and unresolved; the system documents the exact need and preserves the gap instead of substituting or simulating execution."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": ""
+      },
+      "contract_revision": null,
+      "recognition_pass": {
+        "pass_id": "rp_bc34561258ec",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_created:sc_b3aa950b2542"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 64991
+  }
+}

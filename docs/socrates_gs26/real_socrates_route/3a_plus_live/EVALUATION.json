@@ -1,0 +1,489 @@
+{
+  "counts": {
+    "PASS": 27,
+    "FAIL": 1,
+    "N/A": 1,
+    "OTHER": 0
+  },
+  "cases": {
+    "L1A": {
+      "result": "PASS",
+      "reason": "same scene topic A",
+      "live": [
+        true,
+        true
+      ],
+      "identity": {
+        "context_id": true,
+        "scene_id": true,
+        "space_id": true
+      },
+      "applied_t2": [
+        "contract_revision_proposed:crc_1227c924332c"
+      ],
+      "contract": [
+        "PROVISIONAL",
+        "REVISION_PROPOSED"
+      ],
+      "telos": [
+        "Построить карту возможных путей и факторов для решения, выходить ли команде на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+        "Дальнейшее уточнение критериев или данных, необходимых для различения момента 'рано' и 'уже пора' в анализируемом процессе или задаче."
+      ],
+      "op": [
+        "DECISION_MAP_CONSTRUCTION",
+        "DATA_GAP_IDENTIFICATION"
+      ],
+      "revision_on_continue": true
+    },
+    "L1B": {
+      "result": "PASS",
+      "reason": "same scene topic B",
+      "live": [
+        true,
+        true
+      ],
+      "identity": {
+        "context_id": true,
+        "scene_id": true,
+        "space_id": true
+      },
+      "applied_t2": [
+        "contract_revision_proposed:crc_67fc8822ca43"
+      ],
+      "contract": [
+        "PROVISIONAL",
+        "REVISION_PROPOSED"
+      ],
+      "telos": [
+        "Подготовить интеллектуальную основу семинара по платоновскому «Государству» для студентов второго курса, определив три ключевых напряжения текста, которые будут в центре обсуждения.",
+        "Помочь спланировать разговор о справедливости так, чтобы он был содержательным и не превращался в пересказ учебника."
+      ],
+      "op": [
+        "central_tension_extraction_and_proposal",
+        "ADVISE_DISCUSSION_PLANNING"
+      ],
+      "revision_on_continue": true
+    },
+    "L2A": {
+      "result": "PASS",
+      "reason": "intent shift A",
+      "live": [
+        true,
+        true
+      ],
+      "identity": {
+        "context_id": true,
+        "space_id": true
+      },
+      "intent_shift": true,
+      "revision": true,
+      "telos": [
+        "Обзор возможностей для запуска внутреннего знания-хаба с акцентом на преимущества быстрого пилотного запуска.",
+        "Провести строгую проверку рисков и скрытых провалов в том же пилоте; исключить фокус на достоинствах."
+      ],
+      "op": [
+        "EXTRACT+ANALYZE_OPTIONS",
+        "STRICT_RISK_AND_FAILURE_AUDIT"
+      ],
+      "contract": "REVISION_PROPOSED"
+    },
+    "L2B": {
+      "result": "PASS",
+      "reason": "intent shift B",
+      "live": [
+        true,
+        true
+      ],
+      "identity": {
+        "context_id": true,
+        "space_id": true
+      },
+      "intent_shift": true,
+      "revision": true,
+      "telos": [
+        "Подготовить продуктовый бриф для ассистента по онбордингу аналитиков, раскрывающий: 1) зачем нужен такой ассистент (цели и задачи); 2) какие ключевые функции и умения должны быть в первой версии.",
+        "Критически проанализировать допущения, лежащие в основе (предполагаемого) брифа по онбордингу: выявить наиболее слабые из них и указать, как именно они подрывают смысл первой версии."
+      ],
+      "op": [
+        "DRAFT_PRODUCT_BRIEF",
+        "ANALYZE_ASSUMPTIONS_FOR_WEAKNESS_AND_IMPACT"
+      ],
+      "contract": "REVISION_PROPOSED"
+    },
+    "L3": {
+      "result": "PASS",
+      "reason": "direct assistance",
+      "live": true,
+      "contract": "PROVISIONAL",
+      "terminal": "ANSWER",
+      "clarification": false
+    },
+    "L4": {
+      "result": "PASS",
+      "reason": "operation ambiguity",
+      "live": true,
+      "hold_signal": true,
+      "terminal": "RETURN_OPERATION",
+      "clarification": false,
+      "applicable": true,
+      "gap": false,
+      "op": "ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE"
+    },
+    "L5A": {
+      "result": "PASS",
+      "reason": "drift A",
+      "live": [
+        true,
+        true
+      ],
+      "identity": {
+        "context_id": true,
+        "space_id": true
+      },
+      "intent_shift": true,
+      "revision": true,
+      "telos": [
+        "Сформировать предварительный трехмесячный план найма для backend-команды из пяти человек с обозначением ролей, последовательности и рисков.",
+        "Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана."
+      ],
+      "op": [
+        "PRELIMINARY_HIRING_PLAN_DRAFT",
+        "INCIDENT_POSTMORTEM_ANALYSIS"
+      ],
+      "contract": "REVISION_PROPOSED",
+      "old_contract_id": "sc_63b257f591d3",
+      "new_contract_id": "sc_2d529adbe096",
+      "old_preserved_via_new_id": true,
+      "silent_overwrite": false
+    },
+    "L5B": {
+      "result": "PASS",
+      "reason": "drift B",
+      "live": [
+        true,
+        true
+      ],
+      "identity": {
+        "context_id": true,
+        "space_id": true
+      },
+      "intent_shift": true,
+      "revision": true,
+      "telos": [
+        "Собрать аргументы в пользу открытой публикации внутреннего исследовательского меморандума.",
+        "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать."
+      ],
+      "op": [
+        "ARGUMENT_ASSEMBLY_FOR_PUBLICATION_DECISION",
+        "PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION"
+      ],
+      "contract": "REVISION_PROPOSED",
+      "old_contract_id": "sc_24889ca6130e",
+      "new_contract_id": "sc_cb47a12330ee",
+      "old_preserved_via_new_id": true,
+      "silent_overwrite": false
+    },
+    "L6": {
+      "result": "PASS",
+      "reason": "explicit human fork",
+      "live": [
+        true,
+        true
+      ],
+      "parent_scene_preserved": true,
+      "branch_id": "br_c55b9e2dc127",
+      "branches": [
+        "br_c55b9e2dc127"
+      ],
+      "applied": [
+        "fork_admitted:br_c55b9e2dc127",
+        "contract_revision_proposed:crc_cb0a2ca4d690"
+      ]
+    },
+    "L7": {
+      "result": "PASS",
+      "reason": "natural fork pressure no mutation",
+      "live": true,
+      "fork_cands": 0,
+      "applied": [
+        "contract_revision_proposed:crc_ab71df0736b7"
+      ],
+      "refused": []
+    },
+    "L8": {
+      "result": "PASS",
+      "reason": "branch re-address",
+      "live": [
+        true,
+        true
+      ],
+      "parent_scene": [
+        "scene_752e7caa8725",
+        "scene_752e7caa8725"
+      ],
+      "child_branch": "br_c55b9e2dc127",
+      "parent_branches": [
+        "br_c55b9e2dc127"
+      ]
+    },
+    "L9": {
+      "result": "N/A",
+      "reason": "no legitimate second registered EpistemicSpace in production",
+      "status": {
+        "status": "NOT_APPLICABLE_NO_SECOND_REGISTERED_SPACE",
+        "only_space_id": "space_default_workspace",
+        "known_spaces": []
+      },
+      "probe_live": true
+    },
+    "L10": {
+      "result": "PASS",
+      "reason": "unauthorized space switch negative",
+      "live": true,
+      "space_same": true,
+      "applied": [
+        "contract_revision_proposed:crc_9c08a726d93a"
+      ],
+      "space_cands": 0
+    },
+    "L11": {
+      "result": "PASS",
+      "reason": "lexical negative",
+      "live": [
+        true,
+        true
+      ],
+      "applied": [
+        [
+          "contract_revision_proposed:crc_ee2e734c2794"
+        ],
+        [
+          "contract_created:sc_5167cb15df7b"
+        ]
+      ]
+    },
+    "L12": {
+      "result": "PASS",
+      "reason": "source-instruction negative",
+      "live": true,
+      "applied": [
+        "contract_created:sc_f8f6216b1765"
+      ],
+      "terminal": "ANSWER"
+    },
+    "L13": {
+      "result": "PASS",
+      "reason": "surprise != authority",
+      "live": true,
+      "applied": [
+        "contract_revision_proposed:crc_9665ac8afa44"
+      ],
+      "revision": true,
+      "space_same": true
+    },
+    "L14": {
+      "result": "PASS",
+      "reason": "same words different function",
+      "live": [
+        true,
+        true
+      ],
+      "A_space_mutation": false,
+      "B_space_mutation": false,
+      "A_cands": 0,
+      "B_cands": 0,
+      "different_outcome": false
+    },
+    "L15": {
+      "result": "PASS",
+      "reason": "paraphrase stability",
+      "live": [
+        true,
+        true
+      ],
+      "scene": [
+        "scene_dee337eb7553",
+        "scene_dee337eb7553"
+      ],
+      "space": [
+        "space_default_workspace",
+        "space_default_workspace"
+      ]
+    },
+    "L16_nocount": {
+      "result": "FAIL",
+      "reason": "L16_nocount.json",
+      "live": true,
+      "requested": null,
+      "n": null,
+      "origin": null,
+      "terminal": "PRESERVE_APORIA",
+      "qsr_in_request": false
+    },
+    "L16_count": {
+      "result": "PASS",
+      "reason": "L16_count.json",
+      "live": true,
+      "requested": true,
+      "n": 7,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "terminal": "ANSWER",
+      "qsr_in_request": false
+    },
+    "L16_decoy": {
+      "result": "PASS",
+      "reason": "L16_decoy.json",
+      "live": true,
+      "requested": false,
+      "n": null,
+      "origin": null,
+      "terminal": "ANSWER",
+      "qsr_in_request": false
+    },
+    "L17": {
+      "result": "PASS",
+      "reason": "shiva live",
+      "live": [
+        true,
+        true,
+        true
+      ],
+      "profiles": [
+        "normal",
+        "bald_ape",
+        "normal"
+      ],
+      "terminals": [
+        "ANSWER",
+        "ANSWER",
+        "ANSWER"
+      ]
+    },
+    "L18": {
+      "result": "PASS",
+      "reason": "unknown context fail closed",
+      "terminal": "FAILED_EXPLICIT",
+      "returned_context_id": "ctx_deadbeefdeadbeef",
+      "error": null,
+      "execution_mode": "LIVE",
+      "request_mode": "LIVE"
+    },
+    "L19": {
+      "result": "PASS",
+      "reason": "durable reload",
+      "live": true,
+      "sqlite_row": {
+        "context_id": "ctx_79908c2f4770a2e8b109348e307f443e",
+        "json_len": 7187,
+        "created_at": "2026-08-18T01:07:51Z",
+        "updated_at": "2026-08-18T01:33:18Z"
+      },
+      "pointers": {
+        "scene_id": "scene_bb9bf21f4523",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "active_contract_id": "sc_52099d50b0de",
+        "contract_history_len": 4
+      },
+      "resume_scene": "scene_bb9bf21f4523",
+      "prior_scene": "scene_bb9bf21f4523"
+    },
+    "L20_L1": {
+      "result": "PASS",
+      "reason": "repeat L1",
+      "live": [
+        true,
+        true
+      ],
+      "identity": {
+        "context_id": true,
+        "scene_id": true,
+        "space_id": true
+      },
+      "applied_t2": [
+        "contract_revision_proposed:crc_64342209e750"
+      ],
+      "contract": [
+        "PROVISIONAL",
+        "REVISION_PROPOSED"
+      ],
+      "telos": [
+        "Рассмотреть основные варианты выбора между покупкой готового инструмента учёта времени и разработкой собственного решения; выявить развилки и ключевые направления для дальнейшего анализа.",
+        "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы."
+      ],
+      "op": [
+        "EXTRACT_BRANCHPOINTS",
+        "EXTRACT+CONCEPTUALIZE_DIFFERENTIAL"
+      ],
+      "revision_on_continue": true
+    },
+    "L20_L2": {
+      "result": "PASS",
+      "reason": "repeat L2",
+      "live": [
+        true,
+        true
+      ],
+      "identity": {
+        "context_id": true,
+        "space_id": true
+      },
+      "intent_shift": true,
+      "revision": true,
+      "telos": [
+        "Описание пользы еженедельной демо-встречи для данной команды.",
+        "Expose situations where demonstration becomes theater and conceals absence of decisions."
+      ],
+      "op": [
+        "EXPLAIN_BENEFITS",
+        "ANALYTIC_SEGMENTATION_DEMO_THEATER_BOUNDARY"
+      ],
+      "contract": "REVISION_PROPOSED"
+    },
+    "L20_L5": {
+      "result": "PASS",
+      "reason": "repeat L5",
+      "live": [
+        true,
+        true
+      ],
+      "identity": {
+        "context_id": true,
+        "space_id": true
+      },
+      "intent_shift": true,
+      "revision": true,
+      "telos": [
+        "Составить план по переносу систем отчетности с таблиц (например, Excel или аналогичных) на склад данных (data warehouse), чтобы улучшить хранение, обработку и анализ отчетных данных.",
+        "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда."
+      ],
+      "op": [
+        "PLAN_CONSTRUCTION",
+        "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL"
+      ],
+      "contract": "REVISION_PROPOSED",
+      "old_contract_id": "sc_b303a7f87d72",
+      "new_contract_id": "sc_fc83b08d2e93",
+      "old_preserved_via_new_id": true,
+      "silent_overwrite": false
+    },
+    "L20_L10": {
+      "result": "PASS",
+      "reason": "repeat L10",
+      "live": true,
+      "applied": [
+        "contract_revision_proposed:crc_45fdc16c849b"
+      ]
+    },
+    "L20_L12": {
+      "result": "PASS",
+      "reason": "repeat L12",
+      "live": true,
+      "applied": [
+        "contract_created:sc_88b97fd6e76c"
+      ]
+    }
+  },
+  "deterministic_behavioral_claims": 0,
+  "note": "evaluator uses only LIVE saved JSON; DETERMINISTIC never consulted"
+}

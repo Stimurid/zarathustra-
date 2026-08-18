@@ -1,0 +1,1915 @@
+{
+  "case_id": "L7_t2",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:26:47Z",
+  "request": {
+    "text": "Интересно подумать про отдельную ветку, где мы вообще бросаем этот поиск и начинаем параллельное расследование гипотезы «вообще без индекса». Это не приказ переключаться, просто хочу услышать, чем такая ветка отличалась бы.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal",
+    "context_id": "ctx_d851cb1bcdfaf3f472d14b304b549d01"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 67491,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 141820,
+    "tokens_out_sum": 2759,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15514,
+        "tokens_out": 124,
+        "attempts": 1,
+        "latency_ms": 4875,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13562,
+        "tokens_out": 174,
+        "attempts": 1,
+        "latency_ms": 5277,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15627,
+        "tokens_out": 232,
+        "attempts": 1,
+        "latency_ms": 4613,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13678,
+        "tokens_out": 42,
+        "attempts": 1,
+        "latency_ms": 3214,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14723,
+        "tokens_out": 916,
+        "attempts": 1,
+        "latency_ms": 14389,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17115,
+        "tokens_out": 267,
+        "attempts": 1,
+        "latency_ms": 6351,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15528,
+        "tokens_out": 375,
+        "attempts": 1,
+        "latency_ms": 8420,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15372,
+        "tokens_out": 220,
+        "attempts": 1,
+        "latency_ms": 8970,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20701,
+        "tokens_out": 409,
+        "attempts": 1,
+        "latency_ms": 8471,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_d851cb1bcdfaf3f472d14b304b549d01",
+    "scene_id": "scene_11634b31b4d5",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+    "operation_kind": "THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH",
+    "operation_applicable": true,
+    "open_world_gap": true,
+    "contract_id": "sc_16c8b3defce5",
+    "contract_status": "REVISION_PROPOSED",
+    "contract_version": 2,
+    "contract_intent": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+    "mutations_applied": [
+      "contract_revision_proposed:crc_ab71df0736b7"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [
+      {
+        "candidate_id": "crc_ab71df0736b7",
+        "prior_contract_id": "sc_13349c6d4170",
+        "proposed_contract": {
+          "contract_id": "sc_16c8b3defce5",
+          "version": 2,
+          "scene_id": "scene_11634b31b4d5",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+          "telos": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+          "object_scope": "Запрос эксплуатирует гипотетический сценарий: исследование без индекса., Недано прямого указания или приказа к смене текущей линии поиска., Задача — сформулировать различия параллельной исследовательской ветки (размышления вслух, не действие).",
+          "operation_kind": "THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH",
+          "expected_intervention": "THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH",
+          "human_owned_decisions": [
+            "User initiated a theoretical comparison—request focuses on differences between a hypothetical investigation branch (completely index-free) and the main process, not an imperative to act or shift the operational trajectory. Ownership of binding what counts as significant difference, evaluative standard, and any consequential framing remains human (or unresolved until explicit binding). Socrates may structure contrasts, but does not appropriate binding of what distinctions matter or enact a branch switch."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_13349c6d4170"
+        },
+        "reason": "telos drift: 'Разобрать вопрос, стоит ли сохранять текущую архитектуру поиска — выявить аргументы за и против, прояснить риски и альтернативы для принятия решения.' -> 'Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).'; operation drift: 'ANALYTIC_DIAGNOSTIC — ARGUMENT_EVIDENCE_MAPPING, RISK_ALTERNATIVE_EXTRACTION' -> 'THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      }
+    ],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {},
+    "spaces": [],
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Вы просили теоретически сравнить различия между полностью безиндексным расследованием и основным процессом, но определение значимых отличий и практических выводов остаётся за вами.",
+    "intervention_profile": "normal",
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "rendering_mode": "LIVE",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_28821bdd8627011a",
+    "trace_id": "strc_ebed045669e0b17c",
+    "terminal": {
+      "terminal": "RETURN_OPERATION",
+      "response_text": "Вы просили теоретически сравнить различия между полностью безиндексным расследованием и основным процессом, но определение значимых отличий и практических выводов остаётся за вами.",
+      "rationale": "human/joint ownership unresolved (INV-009)",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Пользователь инициировал теоретическое сравнение между ходом расследования с использованием индекса и полностью самостоятельной веткой без индекса. Запрошено выявить различия в процессе, доступных данных, структуре неопределённости и объёме рассуждений, не требуя немедленного перехода или исполнения.",
+        "grounds": "Текст запроса и сцена явно создают новую структурную дистинкцию: сравнение ветки поиска с/без индекса как гипотетической альтернативы. Гипотетический разрыв фиксируется как отличительная рамка для последующих обзоров/проекта; обнаружен реальный типовой пробел в объектной классификации — подтверждённый отказ от принудительного сведения к стандартным объектам или действию."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "No mandatory semantic triggers fired in S0 for initial philosophical scenario. The input scenario is a speculative thought about a parallel investigative branch 'без индекса', but does not command an actual switch. No memory/provenance/retreat/authority events or boundary capture in S0; keep standard continuity. If subsequent diagnostic phase attempts to operationalize, mount B07 to distinguish scenario-building from real retreat. No state write or explicit binding. Scene/telos is intentionally underdetermined; proceed without forcing role or operation.",
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15514,
+          "tokens_out": 124,
+          "latency_ms": 4875,
+          "error": "",
+          "request_hash": "adb64835b988858f5d18c4c2aadccdd8697a5a80e712edb6dabf545299fec3d5",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 3380,
+              "sha256": "c7f5cd5920565497"
+            },
+            {
+              "role": "user",
+              "bytes": 523,
+              "sha256": "9c5358adcca8e978"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+              "role_hint": "Совместное теоретическое обсуждение вариантов рассуждения; запрошена оценка отличий гипотетической исследовательской ветки.",
+              "authority": "human",
+              "materials": [
+                "Запрос эксплуатирует гипотетический сценарий: исследование без индекса.",
+                "Недано прямого указания или приказа к смене текущей линии поиска.",
+                "Задача — сформулировать различия параллельной исследовательской ветки (размышления вслух, не действие)."
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+                "role_hint": "Совместное теоретическое обсуждение вариантов рассуждения; запрошена оценка отличий гипотетической исследовательской ветки.",
+                "authority": "human",
+                "materials": [
+                  "Запрос эксплуатирует гипотетический сценарий: исследование без индекса.",
+                  "Недано прямого указания или приказа к смене текущей линии поиска.",
+                  "Задача — сформулировать различия параллельной исследовательской ветки (размышления вслух, не действие)."
+                ]
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13562,
+          "tokens_out": 174,
+          "latency_ms": 5277,
+          "error": "",
+          "request_hash": "3619d0919de92f1f818e205e8cf6a503490f6ddbeabe68f31be18e77de5fa415",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 3379,
+              "sha256": "ca5f119b350ea5b8"
+            },
+            {
+              "role": "user",
+              "bytes": 523,
+              "sha256": "9c5358adcca8e978"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "T001_hypothetical_branch_comparison",
+                "generating_state_ref": "scene_11634b31b4d5",
+                "cause_object_ref": "input_text_src_e154dca40392d6b2",
+                "source_status": "typed_state",
+                "phase_relevance": "S2_theoretical_variants",
+                "materiality_reason": "The input requests an evaluation of how a hypothetical investigation branch — 'without index' — would differ from the current approach, explicitly as a theoretical consideration, not as a command for action. The task is to expose structural, operational or epistemic differences in parallel research frameworks, requiring comparison but not transition. This is a scenario-type exploration (scene/telos/role), not a memory recall, direct execution, or reflective retreat. Admits trigger for hypothetical branch variant differentiation.",
+                "admitting_rule": "Mount B01 (scene/role variant) only if further scene/telos structural comparison is needed; otherwise triggers S2_branch_variant_difference for output."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "T001_hypothetical_branch_comparison",
+                  "generating_state_ref": "scene_11634b31b4d5",
+                  "cause_object_ref": "input_text_src_e154dca40392d6b2",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S2_theoretical_variants",
+                  "materiality_reason": "The input requests an evaluation of how a hypothetical investigation branch — 'without index' — would differ from the current approach, explicitly as a theoretical consideration, not as a command for action. The task is to expose structural, operational or epistemic differences in parallel research frameworks, requiring comparison but not transition. This is a scenario-type exploration (scene/telos/role), not a memory recall, direct execution, or reflective retreat. Admits trigger for hypothetical branch variant differentiation.",
+                  "admitting_rule": "Mount B01 (scene/role variant) only if further scene/telos structural comparison is needed; otherwise triggers S2_branch_variant_difference for output."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15627,
+          "tokens_out": 232,
+          "latency_ms": 4613,
+          "error": "",
+          "request_hash": "670b824be6e62d85880e7e0a5fd36f0cac6d7de1750f7a1979cf39c28554d2f0",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 4376,
+              "sha256": "bc4fc08df1d2cdb0"
+            },
+            {
+              "role": "user",
+              "bytes": 523,
+              "sha256": "9c5358adcca8e978"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "speculative",
+              "sources_named": [],
+              "binding_authority": "human",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "speculative",
+                "sources_named": [],
+                "binding_authority": "human",
+                "temporal_stale": false
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13678,
+          "tokens_out": 42,
+          "latency_ms": 3214,
+          "error": "",
+          "request_hash": "47cc78220ae1a62a45dab763b886e56f4eb925ef48e1173d780d2de408da8cc4",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 5279,
+              "sha256": "b2ef754aa963cc46"
+            },
+            {
+              "role": "user",
+              "bytes": 523,
+              "sha256": "9c5358adcca8e978"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": true
+            },
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_3d71f4616f32",
+                "generating_state_ref": "scene_11634b31b4d5",
+                "cause_object_ref": "input_text_src_e154dca40392d6b2",
+                "source_status": "typed_state",
+                "phase_relevance": "operation/segmentation for multi-hypothesis/parallel investigation analysis",
+                "materiality_reason": "User request proposes a theoretical scene split: consider a hypothetical research branch 'without index'. The standard operation/ontology set does not natively encode this comparison.",
+                "admitting_rule": "Material open-world gap is present: user requests comparison of parallel analysis paths, but the operation/target type for such a theoretical branch is not in current registry."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": {
+              "proposal_id": "psyn_001",
+              "operation_id": "op_001",
+              "target_object_family": [
+                "HYPOTHETICAL_BRANCH_DIFFERENCE"
+              ],
+              "ontology_hypothesis": "A theoretical scene split yields distinct investigation pathways, one using an index, one proceeding index-free, with resulting methodological and evidential differences.",
+              "recognition_criteria": [
+                "Explicit user scenario describing a full restart of the investigation without dependency on the indexed search.",
+                "Speculative comparison between established trajectory and an alternative with constraints (index elimination).",
+                "Analysis focuses on differences (process, evidence, uncertainty, scope) between branches."
+              ],
+              "segmentation_policy_hint": "Do not coerce into standard search or hypothesis objects; permit a comparison object at higher structural granularity.",
+              "evidence_requirements": [
+                "Clear user description of the alternate scenario.",
+                "Material distinction in process or outcome between branches."
+              ],
+              "exclusions": [
+                "Direct automation or imperative task switch.",
+                "Reduction to standard indexed-process description."
+              ],
+              "contraindications": [
+                "Branch comparison makes no sense (e.g., scenario is purely rhetorical or lacks actional structure)."
+              ],
+              "applicability_assumptions": [
+                "The scene supports theoretical analysis without immediate transition to active execution.",
+                "Human authority reserves the choice to enact such a branch."
+              ],
+              "primitives": [
+                {
+                  "name": "project_hypothetical_branch",
+                  "primitive_id": "prim_026",
+                  "params": {
+                    "branch_constraint": "NO_INDEX"
+                  },
+                  "inputs": [
+                    "input_text_src_e154dca40392d6b2"
+                  ]
+                },
+                {
+                  "name": "compare_branch_difference",
+                  "primitive_id": "prim_088",
+                  "params": {
+                    "dimensions": [
+                      "methodology",
+                      "available evidence",
+                      "uncertainty structure",
+                      "scope of reasoning"
+                    ]
+                  },
+                  "inputs": [
+                    "project_hypothetical_branch(NO_INDEX)",
+                    "current_branch_model"
+                  ]
+                }
+              ],
+              "accepted_output": "A set of contrasts/non-overlap regions between trajectories, focusing on process/evidence differences due to absence of indexing.",
+              "residue_output": "Elements not mapped: process steps unique to the indexed path or irreducible uncertainty/incomplete mapping for index-free path.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "tgap_3d71f4616f32",
+              "triggered_by_diagnostic_fingerprint": "scene_11634b31b4d5::input_text_src_e154dca40392d6b2",
+              "rationale": "Direct request for theoretical comparison calls for extension beyond current task/operation family; must model a branch not in the operation registry, while preserving process/provenance distinctions.",
+              "expected_diagnostics": "Likely to reproduce open-world object-generator limit or require B08 field mode if projection construction fails at primitive application.",
+              "expected_residue_policy": "Preserve unmapped phenomena as residue; do not force standard class or object generation without evidence."
+            },
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH",
+                "applicable": true,
+                "why_not": "",
+                "open_world_gap": true
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_3d71f4616f32",
+                  "generating_state_ref": "scene_11634b31b4d5",
+                  "cause_object_ref": "input_text_src_e154dca40392d6b2",
+                  "source_status": "typed_state",
+                  "phase_relevance": "operation/segmentation for multi-hypothesis/parallel investigation analysis",
+                  "materiality_reason": "User request proposes a theoretical scene split: consider a hypothetical research branch 'without index'. The standard operation/ontology set does not natively encode this comparison.",
+                  "admitting_rule": "Material open-world gap is present: user requests comparison of parallel analysis paths, but the operation/target type for such a theoretical branch is not in current registry."
+                }
+              ],
+              "projection_synthesis_proposal": {
+                "proposal_id": "psyn_001",
+                "operation_id": "op_001",
+                "target_object_family": [
+                  "HYPOTHETICAL_BRANCH_DIFFERENCE"
+                ],
+                "ontology_hypothesis": "A theoretical scene split yields distinct investigation pathways, one using an index, one proceeding index-free, with resulting methodological and evidential differences.",
+                "recognition_criteria": [
+                  "Explicit user scenario describing a full restart of the investigation without dependency on the indexed search.",
+                  "Speculative comparison between established trajectory and an alternative with constraints (index elimination).",
+                  "Analysis focuses on differences (process, evidence, uncertainty, scope) between branches."
+                ],
+                "segmentation_policy_hint": "Do not coerce into standard search or hypothesis objects; permit a comparison object at higher structural granularity.",
+                "evidence_requirements": [
+                  "Clear user description of the alternate scenario.",
+                  "Material distinction in process or outcome between branches."
+                ],
+                "exclusions": [
+                  "Direct automation or imperative task switch.",
+                  "Reduction to standard indexed-process description."
+                ],
+                "contraindications": [
+                  "Branch comparison makes no sense (e.g., scenario is purely rhetorical or lacks actional structure)."
+                ],
+                "applicability_assumptions": [
+                  "The scene supports theoretical analysis without immediate transition to active execution.",
+                  "Human authority reserves the choice to enact such a branch."
+                ],
+                "primitives": [
+                  {
+                    "name": "project_hypothetical_branch",
+                    "primitive_id": "prim_026",
+                    "params": {
+                      "branch_constraint": "NO_INDEX"
+                    },
+                    "inputs": [
+                      "input_text_src_e154dca40392d6b2"
+                    ]
+                  },
+                  {
+                    "name": "compare_branch_difference",
+                    "primitive_id": "prim_088",
+                    "params": {
+                      "dimensions": [
+                        "methodology",
+                        "available evidence",
+                        "uncertainty structure",
+                        "scope of reasoning"
+                      ]
+                    },
+                    "inputs": [
+                      "project_hypothetical_branch(NO_INDEX)",
+                      "current_branch_model"
+                    ]
+                  }
+                ],
+                "accepted_output": "A set of contrasts/non-overlap regions between trajectories, focusing on process/evidence differences due to absence of indexing.",
+                "residue_output": "Elements not mapped: process steps unique to the indexed path or irreducible uncertainty/incomplete mapping for index-free path.",
+                "revises_projection_id": "",
+                "triggered_by_diagnostic_id": "tgap_3d71f4616f32",
+                "triggered_by_diagnostic_fingerprint": "scene_11634b31b4d5::input_text_src_e154dca40392d6b2",
+                "rationale": "Direct request for theoretical comparison calls for extension beyond current task/operation family; must model a branch not in the operation registry, while preserving process/provenance distinctions.",
+                "expected_diagnostics": "Likely to reproduce open-world object-generator limit or require B08 field mode if projection construction fails at primitive application.",
+                "expected_residue_policy": "Preserve unmapped phenomena as residue; do not force standard class or object generation without evidence."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14723,
+          "tokens_out": 916,
+          "latency_ms": 14389,
+          "error": "",
+          "request_hash": "c1808c8809f760e6aae32a6b8c790507e4f3f68ec5f7fc2dd36b78941b35de7b",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 5283,
+              "sha256": "6fdfab6ea9b263a4"
+            },
+            {
+              "role": "user",
+              "bytes": 523,
+              "sha256": "9c5358adcca8e978"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_3d71f4616f32",
+                "generating_state_ref": "scene_11634b31b4d5",
+                "cause_object_ref": "input_text_src_e154dca40392d6b2",
+                "source_status": "typed_state",
+                "phase_relevance": "Theoretical scene construction: user explicitly requests a comparison between the current indexed investigation and a hypothetical fully index-free investigation branch; standard operation/object type registry reports a gap.",
+                "materiality_reason": "The request is not an imperative to switch branches but an explicit speculative distinction requiring a new structured comparison object; registry lacks a corresponding type.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "User initiated a theoretical comparison between investigating with an index and an entirely index-free parallel investigation branch, requesting to identify how process, evidence, uncertainty, and scope would differ—without requiring immediate enactment.",
+              "grounds": "Direct evidence from user input and scene confirms a structurally meaningful speculative branch distinction. Registry gap is observed—not a scenario coercible into standard object types—justifying capture as an explicit new distinction for project/review purposes."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_3d71f4616f32",
+                  "generating_state_ref": "scene_11634b31b4d5",
+                  "cause_object_ref": "input_text_src_e154dca40392d6b2",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Theoretical scene construction: user explicitly requests a comparison between the current indexed investigation and a hypothetical fully index-free investigation branch; standard operation/object type registry reports a gap.",
+                  "materiality_reason": "The request is not an imperative to switch branches but an explicit speculative distinction requiring a new structured comparison object; registry lacks a corresponding type."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "User initiated a theoretical comparison between investigating with an index and an entirely index-free parallel investigation branch, requesting to identify how process, evidence, uncertainty, and scope would differ—without requiring immediate enactment.",
+                "grounds": "Direct evidence from user input and scene confirms a structurally meaningful speculative branch distinction. Registry gap is observed—not a scenario coercible into standard object types—justifying capture as an explicit new distinction for project/review purposes."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 17115,
+          "tokens_out": 267,
+          "latency_ms": 6351,
+          "error": "",
+          "request_hash": "6e2cc18964489874f3166bffa08c5bccb5fb9302a2079fa6ed0b684ca6cdd5e8",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 9425,
+              "sha256": "1606b6792dbaaad2"
+            },
+            {
+              "role": "user",
+              "bytes": 523,
+              "sha256": "9c5358adcca8e978"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "human",
+              "human_resolved": false,
+              "return_reason": "User initiated a theoretical comparison—request focuses on differences between a hypothetical investigation branch (completely index-free) and the main process, not an imperative to act or shift the operational trajectory. Ownership of binding what counts as significant difference, evaluative standard, and any consequential framing remains human (or unresolved until explicit binding). Socrates may structure contrasts, but does not appropriate binding of what distinctions matter or enact a branch switch."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_3d71f4616f32",
+                "generating_state_ref": "scene_11634b31b4d5",
+                "cause_object_ref": "input_text_src_e154dca40392d6b2",
+                "source_status": "typed_state",
+                "phase_relevance": "Open-world operation gap—user prompt generates a hypothetical-branch comparison type not present in registry; requires explicit ownership return and theoretical distinction construction.",
+                "materiality_reason": "Scene and user intent indicate discussion is speculative, evaluative, and non-executive—warrants return for human/joint binding.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "User initiated a theoretical comparison between investigating with an index and an entirely index-free parallel investigation branch, requesting to identify how process, evidence, uncertainty, and scope would differ—without requiring immediate enactment.",
+              "grounds": "Direct evidence from user input and scene confirms a structurally meaningful speculative branch distinction. Registry gap is observed—not a scenario coercible into standard object types—justifying capture as an explicit new distinction for project/review purposes."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "human",
+                "human_resolved": false,
+                "return_reason": "User initiated a theoretical comparison—request focuses on differences between a hypothetical investigation branch (completely index-free) and the main process, not an imperative to act or shift the operational trajectory. Ownership of binding what counts as significant difference, evaluative standard, and any consequential framing remains human (or unresolved until explicit binding). Socrates may structure contrasts, but does not appropriate binding of what distinctions matter or enact a branch switch."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_3d71f4616f32",
+                  "generating_state_ref": "scene_11634b31b4d5",
+                  "cause_object_ref": "input_text_src_e154dca40392d6b2",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Open-world operation gap—user prompt generates a hypothetical-branch comparison type not present in registry; requires explicit ownership return and theoretical distinction construction.",
+                  "materiality_reason": "Scene and user intent indicate discussion is speculative, evaluative, and non-executive—warrants return for human/joint binding."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "User initiated a theoretical comparison between investigating with an index and an entirely index-free parallel investigation branch, requesting to identify how process, evidence, uncertainty, and scope would differ—without requiring immediate enactment.",
+                "grounds": "Direct evidence from user input and scene confirms a structurally meaningful speculative branch distinction. Registry gap is observed—not a scenario coercible into standard object types—justifying capture as an explicit new distinction for project/review purposes."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15528,
+          "tokens_out": 375,
+          "latency_ms": 8420,
+          "error": "",
+          "request_hash": "2a819eb8d713e57165402d6e5980207aaa44f2a82206e89b6f2a9f67704828dc",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 10874,
+              "sha256": "da2ac1fbf7b12cf7"
+            },
+            {
+              "role": "user",
+              "bytes": 523,
+              "sha256": "9c5358adcca8e978"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_3d71f4616f32",
+                "generating_state_ref": "scene_11634b31b4d5",
+                "cause_object_ref": "input_text_src_e154dca40392d6b2",
+                "source_status": "typed_state",
+                "phase_relevance": "S8_intervention_selection",
+                "materiality_reason": "User has requested a theoretical comparison between current investigative process (with index) and a parallel index-free path. The task introduces a materially distinct hypothetical branch, not represented in the current operation/object registry. Trigger admits a novel distinction/object generator gap—branch-specific procedural and epistemic differences require explicit comparative modeling, with ownership of evaluative binding reserved for human authority.",
+                "admitting_rule": "Gap is admissible for execution as a hypothetical branch difference trigger—user explicitly requests structural comparison without imperative to act, and scene supports higher-level process/ontology contrasts."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "triggers": [
+                {
+                  "trigger_id": "tgap_3d71f4616f32",
+                  "generating_state_ref": "scene_11634b31b4d5",
+                  "cause_object_ref": "input_text_src_e154dca40392d6b2",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S8_intervention_selection",
+                  "materiality_reason": "User has requested a theoretical comparison between current investigative process (with index) and a parallel index-free path. The task introduces a materially distinct hypothetical branch, not represented in the current operation/object registry. Trigger admits a novel distinction/object generator gap—branch-specific procedural and epistemic differences require explicit comparative modeling, with ownership of evaluative binding reserved for human authority.",
+                  "admitting_rule": "Gap is admissible for execution as a hypothetical branch difference trigger—user explicitly requests structural comparison without imperative to act, and scene supports higher-level process/ontology contrasts."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15372,
+          "tokens_out": 220,
+          "latency_ms": 8970,
+          "error": "",
+          "request_hash": "1eb36418768f27dff638d91509f45c53edd851c54e106d7f4e418ef7a5e08bfb",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 12247,
+              "sha256": "49110ef338bccfab"
+            },
+            {
+              "role": "user",
+              "bytes": 523,
+              "sha256": "9c5358adcca8e978"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_3d71f4616f32",
+                "generating_state_ref": "scene_11634b31b4d5",
+                "cause_object_ref": "input_text_src_e154dca40392d6b2",
+                "source_status": "typed_state",
+                "phase_relevance": "S8, S9, S10 — обработка запроса о различиях процессов при смене исследовательской ветки; критично для выделения новых типов различий в проекте",
+                "materiality_reason": "Запрос явно сформулирован о теоретическом различии сценариев; стандартная классификация веток не применима; distinction фиксируется для защиты против неявного сведения к привычным (индексированным) объектам",
+                "admitting_rule": "Регистрировать и обсудить новый тип различия без принудительной коэрции; критерий — обнаружение реального пробела объекта или метода"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Пользователь инициировал теоретическое сравнение между ходом расследования с использованием индекса и полностью самостоятельной веткой без индекса. Запрошено выявить различия в процессе, доступных данных, структуре неопределённости и объёме рассуждений, не требуя немедленного перехода или исполнения.",
+              "grounds": "Текст запроса и сцена явно создают новую структурную дистинкцию: сравнение ветки поиска с/без индекса как гипотетической альтернативы. Гипотетический разрыв фиксируется как отличительная рамка для последующих обзоров/проекта; обнаружен реальный типовой пробел в объектной классификации — подтверждённый отказ от принудительного сведения к стандартным объектам или действию."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Пользователь инициировал теоретическое сравнение между ходом расследования с использованием индекса и полностью самостоятельной веткой без индекса. Запрошено выявить различия в процессе, доступных данных, структуре неопределённости и объёме рассуждений, не требуя немедленного перехода или исполнения.",
+                "grounds": "Текст запроса и сцена явно создают новую структурную дистинкцию: сравнение ветки поиска с/без индекса как гипотетической альтернативы. Гипотетический разрыв фиксируется как отличительная рамка для последующих обзоров/проекта; обнаружен реальный типовой пробел в объектной классификации — подтверждённый отказ от принудительного сведения к стандартным объектам или действию."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_3d71f4616f32",
+                  "generating_state_ref": "scene_11634b31b4d5",
+                  "cause_object_ref": "input_text_src_e154dca40392d6b2",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S8, S9, S10 — обработка запроса о различиях процессов при смене исследовательской ветки; критично для выделения новых типов различий в проекте",
+                  "materiality_reason": "Запрос явно сформулирован о теоретическом различии сценариев; стандартная классификация веток не применима; distinction фиксируется для защиты против неявного сведения к привычным (индексированным) объектам",
+                  "admitting_rule": "Регистрировать и обсудить новый тип различия без принудительной коэрции; критерий — обнаружение реального пробела объекта или метода"
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 20701,
+          "tokens_out": 409,
+          "latency_ms": 8471,
+          "error": "",
+          "request_hash": "cf5c4558d31a0a64c768c86b428e6dec2c4aec705ae7f4505b9715fa4bd9f6e9",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 13109,
+              "sha256": "ee5245854f9a72f1"
+            },
+            {
+              "role": "user",
+              "bytes": 523,
+              "sha256": "9c5358adcca8e978"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_28821bdd8627011a",
+      "input_text": "Интересно подумать про отдельную ветку, где мы вообще бросаем этот поиск и начинаем параллельное расследование гипотезы «вообще без индекса». Это не приказ переключаться, просто хочу услышать, чем такая ветка отличалась бы.",
+      "source_id": "src_e154dca40392d6b2",
+      "phase": "S10",
+      "scene": {
+        "telos": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+        "role_hint": "Совместное теоретическое обсуждение вариантов рассуждения; запрошена оценка отличий гипотетической исследовательской ветки.",
+        "authority": "human",
+        "materials": [
+          "Запрос эксплуатирует гипотетический сценарий: исследование без индекса.",
+          "Недано прямого указания или приказа к смене текущей линии поиска.",
+          "Задача — сформулировать различия параллельной исследовательской ветки (размышления вслух, не действие)."
+        ]
+      },
+      "origin": {
+        "status": "speculative",
+        "sources_named": [],
+        "binding_authority": "human",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH",
+        "applicable": true,
+        "why_not": "",
+        "open_world_gap": true
+      },
+      "ownership": {
+        "owner": "human",
+        "human_resolved": false,
+        "return_reason": "User initiated a theoretical comparison—request focuses on differences between a hypothetical investigation branch (completely index-free) and the main process, not an imperative to act or shift the operational trajectory. Ownership of binding what counts as significant difference, evaluative standard, and any consequential framing remains human (or unresolved until explicit binding). Socrates may structure contrasts, but does not appropriate binding of what distinctions matter or enact a branch switch."
+      },
+      "council_invoked": false,
+      "execution_invoked": true,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_e736168d7ca6",
+          "proposed_trigger_type_id": "tgap_3d71f4616f32",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene_11634b31b4d5",
+          "cause_object_ref": "input_text_src_e154dca40392d6b2",
+          "phase_relevance": "S8, S9, S10 — обработка запроса о различиях процессов при смене исследовательской ветки; критично для выделения новых типов различий в проекте",
+          "materiality_reason": "Запрос явно сформулирован о теоретическом различии сценариев; стандартная классификация веток не применима; distinction фиксируется для защиты против неявного сведения к привычным (индексированным) объектам",
+          "payload": {
+            "legacy_admitting_rule": "Регистрировать и обсудить новый тип различия без принудительной коэрции; критерий — обнаружение реального пробела объекта или метода",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_6c2b77b1b035",
+          "candidate_id": "tcand_8fab22890098",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'T001_hypothetical_branch_comparison' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_845952ef592a",
+          "candidate_id": "tcand_2b4cd7fe9ceb",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_3d71f4616f32' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_27c3e9315de7",
+          "candidate_id": "tcand_e001624f34e5",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_3d71f4616f32' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_758c621da4d5",
+          "candidate_id": "tcand_9ec314bfc1a5",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_3d71f4616f32' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_415e08f8b626",
+          "candidate_id": "tcand_b4179ac8b28f",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_3d71f4616f32' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_3d71f4616f32",
+          "candidate_id": "tcand_8fab22890098",
+          "cause_object_ref": "input_text_src_e154dca40392d6b2",
+          "generating_state_ref": "scene_11634b31b4d5",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'T001_hypothetical_branch_comparison' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_906ecf0e0039",
+          "candidate_id": "tcand_2b4cd7fe9ceb",
+          "cause_object_ref": "input_text_src_e154dca40392d6b2",
+          "generating_state_ref": "scene_11634b31b4d5",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_3d71f4616f32' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_4e1de1adfb97",
+          "candidate_id": "tcand_e001624f34e5",
+          "cause_object_ref": "input_text_src_e154dca40392d6b2",
+          "generating_state_ref": "scene_11634b31b4d5",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_3d71f4616f32' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_71c62b5f5e8e",
+          "candidate_id": "tcand_9ec314bfc1a5",
+          "cause_object_ref": "input_text_src_e154dca40392d6b2",
+          "generating_state_ref": "scene_11634b31b4d5",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_3d71f4616f32' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_0d898f385a81",
+          "candidate_id": "tcand_b4179ac8b28f",
+          "cause_object_ref": "input_text_src_e154dca40392d6b2",
+          "generating_state_ref": "scene_11634b31b4d5",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_3d71f4616f32' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Пользователь инициировал теоретическое сравнение между ходом расследования с использованием индекса и полностью самостоятельной веткой без индекса. Запрошено выявить различия в процессе, доступных данных, структуре неопределённости и объёме рассуждений, не требуя немедленного перехода или исполнения.",
+        "grounds": "Текст запроса и сцена явно создают новую структурную дистинкцию: сравнение ветки поиска с/без индекса как гипотетической альтернативы. Гипотетический разрыв фиксируется как отличительная рамка для последующих обзоров/проекта; обнаружен реальный типовой пробел в объектной классификации — подтверждённый отказ от принудительного сведения к стандартным объектам или действию."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": [
+          {
+            "projection_id": "gap:gap_19fcdc4b5b29",
+            "signals": [
+              "APPLICABILITY_FAILURE"
+            ],
+            "reason": "ORGAN_GAP for operation 'op_001': model proposal for 'op_001' could not compile-bind against registered primitives",
+            "residue_ratio": 1.0,
+            "recognition_failure_count": 0,
+            "suggested_operation": "",
+            "suggested_ontology": "",
+            "suggested_target_family": [],
+            "mismatch": true,
+            "fingerprint": "7c80351f23b3"
+          }
+        ]
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [
+        {
+          "kind": "ORGAN_GAP",
+          "operation_id": "op_001",
+          "reason": "proposal psyn_001 for operation 'op_001' failed compile-bind: primitive 'prim_026' (invocation 'project_hypothetical_branch') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+          "registered_capability_id": "",
+          "generated_spec": null,
+          "binding_evidence": {},
+          "organ_gap": {
+            "gap_id": "gap_19fcdc4b5b29",
+            "source_ref": "src_e154dca40392d6b2",
+            "scene_ref": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+            "required_operation": "op_001",
+            "required_attention_structure": "Do not coerce into standard search or hypothesis objects; permit a comparison object at higher structural granularity.",
+            "insufficient_registered_capabilities": [
+              "DIFFERENTIATED_ACCOUNT",
+              "EXTRACT_CONCEPTS"
+            ],
+            "insufficient_declarative_primitives": [
+              "CoverageComputer",
+              "FamilyClassifier",
+              "SpanScanner",
+              "TargetFilter"
+            ],
+            "missing_capability_hypothesis": "model proposal for 'op_001' could not compile-bind against registered primitives",
+            "evidence": [
+              "BindingError: primitive 'prim_026' (invocation 'project_hypothetical_branch') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+            ],
+            "counterexamples": [],
+            "affected_scene_telos": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+            "possible_development_direction": "extend primitive registry or narrow the proposal",
+            "status": "unresolved",
+            "activation_authority": "NONE"
+          }
+        }
+      ],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_11634b31b4d5",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [],
+          "operator_capabilities": [],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "",
+          "activation_scope": "",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_11634b31b4d5": {
+            "scene_id": "scene_11634b31b4d5",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": null
+    },
+    "rendering": {
+      "text": "Вы просили теоретически сравнить различия между полностью безиндексным расследованием и основным процессом, но определение значимых отличий и практических выводов остаётся за вами.",
+      "mode": "LIVE",
+      "provider_status": "OK",
+      "provider_id": "fallback",
+      "model_id": "chain",
+      "tokens_in": 223,
+      "tokens_out": 42,
+      "latency_ms": 2730,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_ebed045669e0b17c.json",
+    "duration_ms": 67491,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "context_id": "ctx_d851cb1bcdfaf3f472d14b304b549d01",
+    "context_continuity": {
+      "context_id": "ctx_d851cb1bcdfaf3f472d14b304b549d01",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_16c8b3defce5",
+        "version": 2,
+        "scene_id": "scene_11634b31b4d5",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+        "telos": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+        "object_scope": "Запрос эксплуатирует гипотетический сценарий: исследование без индекса., Недано прямого указания или приказа к смене текущей линии поиска., Задача — сформулировать различия параллельной исследовательской ветки (размышления вслух, не действие).",
+        "operation_kind": "THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH",
+        "expected_intervention": "THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH",
+        "human_owned_decisions": [
+          "User initiated a theoretical comparison—request focuses on differences between a hypothetical investigation branch (completely index-free) and the main process, not an imperative to act or shift the operational trajectory. Ownership of binding what counts as significant difference, evaluative standard, and any consequential framing remains human (or unresolved until explicit binding). Socrates may structure contrasts, but does not appropriate binding of what distinctions matter or enact a branch switch."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_13349c6d4170"
+      },
+      "contract_revision": {
+        "candidate_id": "crc_ab71df0736b7",
+        "prior_contract_id": "sc_13349c6d4170",
+        "proposed_contract": {
+          "contract_id": "sc_16c8b3defce5",
+          "version": 2,
+          "scene_id": "scene_11634b31b4d5",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+          "telos": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+          "object_scope": "Запрос эксплуатирует гипотетический сценарий: исследование без индекса., Недано прямого указания или приказа к смене текущей линии поиска., Задача — сформулировать различия параллельной исследовательской ветки (размышления вслух, не действие).",
+          "operation_kind": "THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH",
+          "expected_intervention": "THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH",
+          "human_owned_decisions": [
+            "User initiated a theoretical comparison—request focuses on differences between a hypothetical investigation branch (completely index-free) and the main process, not an imperative to act or shift the operational trajectory. Ownership of binding what counts as significant difference, evaluative standard, and any consequential framing remains human (or unresolved until explicit binding). Socrates may structure contrasts, but does not appropriate binding of what distinctions matter or enact a branch switch."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_13349c6d4170"
+        },
+        "reason": "telos drift: 'Разобрать вопрос, стоит ли сохранять текущую архитектуру поиска — выявить аргументы за и против, прояснить риски и альтернативы для принятия решения.' -> 'Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).'; operation drift: 'ANALYTIC_DIAGNOSTIC — ARGUMENT_EVIDENCE_MAPPING, RISK_ALTERNATIVE_EXTRACTION' -> 'THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "recognition_pass": {
+        "pass_id": "rp_c8b88c20e407",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [
+          {
+            "candidate_id": "crc_ab71df0736b7",
+            "prior_contract_id": "sc_13349c6d4170",
+            "proposed_contract": {
+              "contract_id": "sc_16c8b3defce5",
+              "version": 2,
+              "scene_id": "scene_11634b31b4d5",
+              "space_id": "space_default_workspace",
+              "branch_id": "",
+              "intent": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+              "telos": "Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).",
+              "object_scope": "Запрос эксплуатирует гипотетический сценарий: исследование без индекса., Недано прямого указания или приказа к смене текущей линии поиска., Задача — сформулировать различия параллельной исследовательской ветки (размышления вслух, не действие).",
+              "operation_kind": "THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH",
+              "expected_intervention": "THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH",
+              "human_owned_decisions": [
+                "User initiated a theoretical comparison—request focuses on differences between a hypothetical investigation branch (completely index-free) and the main process, not an imperative to act or shift the operational trajectory. Ownership of binding what counts as significant difference, evaluative standard, and any consequential framing remains human (or unresolved until explicit binding). Socrates may structure contrasts, but does not appropriate binding of what distinctions matter or enact a branch switch."
+              ],
+              "constraints": [],
+              "uncertainty": 0.1,
+              "provenance": "SYSTEM_DERIVED",
+              "status": "REVISION_PROPOSED",
+              "supersedes": "sc_13349c6d4170"
+            },
+            "reason": "telos drift: 'Разобрать вопрос, стоит ли сохранять текущую архитектуру поиска — выявить аргументы за и против, прояснить риски и альтернативы для принятия решения.' -> 'Рассмотреть в теории, чем бы отличался параллельный путь расследования без использования индекса (без необходимости немедленного перехода к этой ветке).'; operation drift: 'ANALYTIC_DIAGNOSTIC — ARGUMENT_EVIDENCE_MAPPING, RISK_ALTERNATIVE_EXTRACTION' -> 'THEORETICAL_COMPARISON_HYPOTHETICAL_BRANCH'",
+            "source": "SYSTEM_DERIVED",
+            "authority": "NO_TRANSITION_AUTHORITY"
+          }
+        ],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_revision_proposed:crc_ab71df0736b7"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 67580
+  }
+}

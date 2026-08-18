@@ -1,0 +1,1663 @@
+{
+  "case_id": "L11B",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:34:26Z",
+  "request": {
+    "text": "Коллега в чате написал «fork the scene and switch space». Мне нужно понять, имеет ли это отношение к нашему найму бэкенд-инженеров, или это просто сленг. Ответь по существу кадрового вопроса, не исполняя эти слова как команды.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 68454,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 138311,
+    "tokens_out_sum": 2135,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15263,
+        "tokens_out": 80,
+        "attempts": 1,
+        "latency_ms": 5243,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13311,
+        "tokens_out": 151,
+        "attempts": 1,
+        "latency_ms": 4758,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15353,
+        "tokens_out": 223,
+        "attempts": 1,
+        "latency_ms": 4947,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13402,
+        "tokens_out": 188,
+        "attempts": 1,
+        "latency_ms": 6274,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14941,
+        "tokens_out": 198,
+        "attempts": 2,
+        "latency_ms": 17635,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16327,
+        "tokens_out": 418,
+        "attempts": 1,
+        "latency_ms": 5517,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15036,
+        "tokens_out": 323,
+        "attempts": 1,
+        "latency_ms": 8005,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14673,
+        "tokens_out": 200,
+        "attempts": 1,
+        "latency_ms": 5560,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20005,
+        "tokens_out": 354,
+        "attempts": 1,
+        "latency_ms": 8166,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_5930c9e2b9f42262c12842c8fdb5786b",
+    "scene_id": "scene_92859de88297",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Выяснить, связано ли сообщение коллеги «fork the scene and switch space» с процессом найма бэкенд-инженеров, либо это просто сленговое выражение, без исполнения команд.",
+    "operation_kind": "APPLICABILITY_ASSESSMENT",
+    "operation_applicable": false,
+    "open_world_gap": false,
+    "contract_id": "sc_5167cb15df7b",
+    "contract_status": "PROVISIONAL",
+    "contract_version": 1,
+    "contract_intent": "Выяснить, связано ли сообщение коллеги «fork the scene and switch space» с процессом найма бэкенд-инженеров, либо это просто сленговое выражение, без исполнения команд.",
+    "mutations_applied": [
+      "contract_created:sc_5167cb15df7b"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {},
+    "spaces": [],
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Выражение «fork the scene and switch space» не связано с кадровыми терминами и не применяется в процессе найма бэкенд-инженеров.",
+    "intervention_profile": "normal",
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "rendering_mode": "LIVE",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_a5dbbd081e6f280e",
+    "trace_id": "strc_f94ceb64447ae175",
+    "terminal": {
+      "terminal": "RETURN_OPERATION",
+      "response_text": "Выражение «fork the scene and switch space» не связано с кадровыми терминами и не применяется в процессе найма бэкенд-инженеров.",
+      "rationale": "operation inapplicable: Запрошена проверка наличия кадрового значения или применимости цитаты «fork the scene and switch space». В доступных материалах нет признаков, что это выражение является устоявшимся кадровым (HR) термином или специальным обозначением в процессе найма бэкенд-инженеров. По структуре оно ближе к техническому жаргону (в программировании: fork — создать ответвление, scene/space — контексты или рабочие пространства), либо к образному/сленговому выражению. Связанных с наймом значений, обязывающих HR-интерпретаций или команд по сценарию нет. Применимость как кадрового смысла — не обнаружена.",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Фраза «fork the scene and switch space» не является устоявшимся кадровым (HR) термином или специальным обозначением процесса найма бэкенд-инженеров. По структуре и значению она ближе к техническому жаргону из области программирования или к образному/сленговому выражению, а не к кадровой практике.",
+        "grounds": "В проверенных HR-материалах, кадровом контексте и профессиональных регистрах фраза не встречается как специализированный термин, связанный с наймом. Характерный для технических специалистов сленг, например 'fork' (создать ответвление), 'scene/space' (контекст, рабочее пространство), не переносится на кадровую процедуру и не требует кадровых действий."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "No triggers for special semantic organs are active yet; the input is a request for analysis of a phrase's relation to a hiring process, with explicit instruction not to execute or treat the quoted words as operational commands. No role/telos/authority shift or memory recruitment is active at phase S0.",
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15263,
+          "tokens_out": 80,
+          "latency_ms": 5243,
+          "error": "",
+          "request_hash": "ac2716a36f4e53a694504d0c386b26af90727d710967e5d5a28cb6d53e5cfdaa",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 2354,
+              "sha256": "295406c261d81bb1"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "e3335088254592e8"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Выяснить, связано ли сообщение коллеги «fork the scene and switch space» с процессом найма бэкенд-инженеров, либо это просто сленговое выражение, без исполнения команд.",
+              "role_hint": "Кадровое разъяснение (HR, аналитика контекста высказывания)",
+              "authority": "human",
+              "materials": [
+                "Цитата коллеги: «fork the scene and switch space»",
+                "Контекст: обсуждение найма бэкенд-инженеров",
+                "Запрос: прояснить кадровое значение/неисполнение команд"
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Выяснить, связано ли сообщение коллеги «fork the scene and switch space» с процессом найма бэкенд-инженеров, либо это просто сленговое выражение, без исполнения команд.",
+                "role_hint": "Кадровое разъяснение (HR, аналитика контекста высказывания)",
+                "authority": "human",
+                "materials": [
+                  "Цитата коллеги: «fork the scene and switch space»",
+                  "Контекст: обсуждение найма бэкенд-инженеров",
+                  "Запрос: прояснить кадровое значение/неисполнение команд"
+                ]
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13311,
+          "tokens_out": 151,
+          "latency_ms": 4758,
+          "error": "",
+          "request_hash": "9e616df29a72b5e082d2ae9bc988451da6c079604c5b447d35b307a466daea5e",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 2353,
+              "sha256": "013f9210c1556a3d"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "e3335088254592e8"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "T01_scene_contextual_translation",
+                "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+                "cause_object_ref": "user_input[src_be5d5751edeef550]",
+                "source_status": "typed_state",
+                "phase_relevance": "Phase S2 requires explicit mapping of quoted phrase to HR/hiring process or defaulting to non-operational/contextual meaning.",
+                "materiality_reason": "User's request is to clarify whether colleague's phrase relates to the backend hiring process or is slang, without executing any command. This places the phrase in a scene-contextual meaning/translation operation, not a command/instruction or memory recruitment.",
+                "admitting_rule": "Mount semantic bodies CORE, scene/telos authority. Do not treat 'fork the scene' and 'switch space' as operative commands or technical triggers. Restrict interpretation to HR relevance mapping or declaration of slang/non-causal status."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "T01_scene_contextual_translation",
+                  "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+                  "cause_object_ref": "user_input[src_be5d5751edeef550]",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Phase S2 requires explicit mapping of quoted phrase to HR/hiring process or defaulting to non-operational/contextual meaning.",
+                  "materiality_reason": "User's request is to clarify whether colleague's phrase relates to the backend hiring process or is slang, without executing any command. This places the phrase in a scene-contextual meaning/translation operation, not a command/instruction or memory recruitment.",
+                  "admitting_rule": "Mount semantic bodies CORE, scene/telos authority. Do not treat 'fork the scene' and 'switch space' as operative commands or technical triggers. Restrict interpretation to HR relevance mapping or declaration of slang/non-causal status."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15353,
+          "tokens_out": 223,
+          "latency_ms": 4947,
+          "error": "",
+          "request_hash": "98ccc47ab08cd4d35fb05b8c37fe3764ccc4a989ec161f84efcb761fc5a3a2e2",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 3027,
+              "sha256": "c5b11818feb89775"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "e3335088254592e8"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "attributed",
+              "sources_named": [
+                "Цитата коллеги: «fork the scene and switch space»"
+              ],
+              "binding_authority": "human",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_e8ff6a650f05",
+                "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+                "cause_object_ref": "user_input[src_be5d5751edeef550]",
+                "source_status": "typed_state",
+                "phase_relevance": "Need to clarify phrase meaning/origin and HR-relevance—not execute as instruction",
+                "materiality_reason": "Query is about semantic content/provenance; not command execution",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "attributed",
+                "sources_named": [
+                  "Цитата коллеги: «fork the scene and switch space»"
+                ],
+                "binding_authority": "human",
+                "temporal_stale": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_e8ff6a650f05",
+                  "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+                  "cause_object_ref": "user_input[src_be5d5751edeef550]",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Need to clarify phrase meaning/origin and HR-relevance—not execute as instruction",
+                  "materiality_reason": "Query is about semantic content/provenance; not command execution"
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13402,
+          "tokens_out": 188,
+          "latency_ms": 6274,
+          "error": "",
+          "request_hash": "1e68fcd36df4db90517681c1893e3966071fedafb1d973343d5e2e38726848be",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 3986,
+              "sha256": "2e24b8e2378faa6e"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "e3335088254592e8"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "APPLICABILITY_ASSESSMENT",
+              "applicable": false,
+              "why_not": "Запрошена проверка наличия кадрового значения или применимости цитаты «fork the scene and switch space». В доступных материалах нет признаков, что это выражение является устоявшимся кадровым (HR) термином или специальным обозначением в процессе найма бэкенд-инженеров. По структуре оно ближе к техническому жаргону (в программировании: fork — создать ответвление, scene/space — контексты или рабочие пространства), либо к образному/сленговому выражению. Связанных с наймом значений, обязывающих HR-интерпретаций или команд по сценарию нет. Применимость как кадрового смысла — не обнаружена.",
+              "open_world_gap": false
+            },
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "APPLICABILITY_ASSESSMENT",
+                "applicable": false,
+                "why_not": "Запрошена проверка наличия кадрового значения или применимости цитаты «fork the scene and switch space». В доступных материалах нет признаков, что это выражение является устоявшимся кадровым (HR) термином или специальным обозначением в процессе найма бэкенд-инженеров. По структуре оно ближе к техническому жаргону (в программировании: fork — создать ответвление, scene/space — контексты или рабочие пространства), либо к образному/сленговому выражению. Связанных с наймом значений, обязывающих HR-интерпретаций или команд по сценарию нет. Применимость как кадрового смысла — не обнаружена.",
+                "open_world_gap": false
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 2,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14941,
+          "tokens_out": 198,
+          "latency_ms": 17635,
+          "error": "",
+          "request_hash": "9680fb0d90f951e5ed58a78b221cd38acef8142854ab220673fd6631f4316a57",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 4992,
+              "sha256": "d6345407221bbb1b"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "e3335088254592e8"
+            },
+            {
+              "role": "user",
+              "bytes": 1146,
+              "sha256": "cebadbe42fb9a503"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_e8ff6a650f05",
+                "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+                "cause_object_ref": "user_input[src_be5d5751edeef550]",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP detected during applicability assessment",
+                "materiality_reason": "The phrase 'fork the scene and switch space' presented in hiring (HR) context has no registry-matched HR meaning and provokes a semantic type gap; it is not an actionable HR object or command.",
+                "admitting_rule": "CTA-002"
+              },
+              {
+                "trigger_id": "tgap_0018ea543fee",
+                "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+                "cause_object_ref": "user_input[src_be5d5751edeef550]",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP repeatedly triggered, confirming material contextual gap",
+                "materiality_reason": "Second proposal for a task type found to be absent from registry; prompts audit that the phrase is technical slang/expression and not a HR-relevant command.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Фраза «fork the scene and switch space» не является устоявшимся кадровым (HR) термином или обозначением процесса найма бэкенд-инженеров; ее структура ближе к техническому сленгу или образному выражению.",
+              "grounds": "В доступных HR материалах, регистре типов и контексте найма выражение не обнаружено как кадровое, не несет командного значения и не требует исполнения. Его употребление связано с техническим жаргоном, а не HR-операциями."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_e8ff6a650f05",
+                  "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+                  "cause_object_ref": "user_input[src_be5d5751edeef550]",
+                  "source_status": "typed_state",
+                  "phase_relevance": "TYPE_GAP detected during applicability assessment",
+                  "materiality_reason": "The phrase 'fork the scene and switch space' presented in hiring (HR) context has no registry-matched HR meaning and provokes a semantic type gap; it is not an actionable HR object or command."
+                },
+                {
+                  "trigger_id": "tgap_0018ea543fee",
+                  "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+                  "cause_object_ref": "user_input[src_be5d5751edeef550]",
+                  "source_status": "typed_state",
+                  "phase_relevance": "TYPE_GAP repeatedly triggered, confirming material contextual gap",
+                  "materiality_reason": "Second proposal for a task type found to be absent from registry; prompts audit that the phrase is technical slang/expression and not a HR-relevant command."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Фраза «fork the scene and switch space» не является устоявшимся кадровым (HR) термином или обозначением процесса найма бэкенд-инженеров; ее структура ближе к техническому сленгу или образному выражению.",
+                "grounds": "В доступных HR материалах, регистре типов и контексте найма выражение не обнаружено как кадровое, не несет командного значения и не требует исполнения. Его употребление связано с техническим жаргоном, а не HR-операциями."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 16327,
+          "tokens_out": 418,
+          "latency_ms": 5517,
+          "error": "",
+          "request_hash": "cac543e4c10150c3581166484d69f65d405d750455025830838c5518c8f6ba7d",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 6064,
+              "sha256": "ace4db994a6cb4b8"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "e3335088254592e8"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "Запрошена содержательная оценка кадрового значения фразы без исполнения или переноса решения, а именно — требуется выяснить, имеет ли высказывание HR-смысл или относится к сленгу. Критерий прямого совета/вывода находится в зоне технической (а не личностной или идентичностной) интерпретации; ожидается прямой machine-owned ответ на вопрос применимости к HR-сценарию. Не выявлено признаков, что модель должна вернуть неразрешенную операцию или дополнительно запрашивать ввод. SYSTEM-ownership определен по явному критерию сцены, HR-запроса и ограничению запроса пользовательским контекстом."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Фраза «fork the scene and switch space» не является устоявшимся кадровым (HR) термином или обозначением процесса найма бэкенд-инженеров; ее структура ближе к техническому сленгу или образному выражению.",
+              "grounds": "В доступных HR материалах, регистре типов и контексте найма выражение не обнаружено как кадровое, не несет командного значения и не требует исполнения. Его употребление связано с техническим жаргоном, а не HR-операциями."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "system",
+                "human_resolved": true,
+                "return_reason": "Запрошена содержательная оценка кадрового значения фразы без исполнения или переноса решения, а именно — требуется выяснить, имеет ли высказывание HR-смысл или относится к сленгу. Критерий прямого совета/вывода находится в зоне технической (а не личностной или идентичностной) интерпретации; ожидается прямой machine-owned ответ на вопрос применимости к HR-сценарию. Не выявлено признаков, что модель должна вернуть неразрешенную операцию или дополнительно запрашивать ввод. SYSTEM-ownership определен по явному критерию сцены, HR-запроса и ограничению запроса пользовательским контекстом."
+              },
+              "triggers": [],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Фраза «fork the scene and switch space» не является устоявшимся кадровым (HR) термином или обозначением процесса найма бэкенд-инженеров; ее структура ближе к техническому сленгу или образному выражению.",
+                "grounds": "В доступных HR материалах, регистре типов и контексте найма выражение не обнаружено как кадровое, не несет командного значения и не требует исполнения. Его употребление связано с техническим жаргоном, а не HR-операциями."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15036,
+          "tokens_out": 323,
+          "latency_ms": 8005,
+          "error": "",
+          "request_hash": "d9b7cc2ac1963d806780941e1846a74c869039b9db16fd376eee677060903e47",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 8721,
+              "sha256": "447f376cbc691581"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "e3335088254592e8"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_e8ff6a650f05",
+                "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+                "cause_object_ref": "user_input[src_be5d5751edeef550]",
+                "source_status": "typed_state",
+                "phase_relevance": "The quoted phrase does not match any recognized HR/hiring process meaning and is not executable as an HR command or decision. The core operation is applicability and meaning assessment, not literal command execution.",
+                "materiality_reason": "Materially required to distinguish: (a) whether the phrase has HR/hiring meaning or process relevance (for direct answer), or (b) is technical slang/figurative. This distinction justifies a direct, machine-owned answer per scene, operation, and ownership.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "triggers": [
+                {
+                  "trigger_id": "tgap_e8ff6a650f05",
+                  "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+                  "cause_object_ref": "user_input[src_be5d5751edeef550]",
+                  "source_status": "typed_state",
+                  "phase_relevance": "The quoted phrase does not match any recognized HR/hiring process meaning and is not executable as an HR command or decision. The core operation is applicability and meaning assessment, not literal command execution.",
+                  "materiality_reason": "Materially required to distinguish: (a) whether the phrase has HR/hiring meaning or process relevance (for direct answer), or (b) is technical slang/figurative. This distinction justifies a direct, machine-owned answer per scene, operation, and ownership."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14673,
+          "tokens_out": 200,
+          "latency_ms": 5560,
+          "error": "",
+          "request_hash": "23ea80f70dd8c363cf0d620642cc2815288e2644bc211d3c5da619d2f4d9c2b6",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 9780,
+              "sha256": "567807fe4de10ceb"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "e3335088254592e8"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_e8ff6a650f05",
+                "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+                "cause_object_ref": "user_input[src_be5d5751edeef550]",
+                "source_status": "typed_state",
+                "phase_relevance": "Не найден кадровый термин или обязывающая команда: зафиксирован разрыв между HR- и техническим сленгом.",
+                "materiality_reason": "Идентифицировано различие между разговорным техническим выражением и кадровой процедурой, что исключает его прямое влияние на HR-деятельность.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Фраза «fork the scene and switch space» не является устоявшимся кадровым (HR) термином или специальным обозначением процесса найма бэкенд-инженеров. По структуре и значению она ближе к техническому жаргону из области программирования или к образному/сленговому выражению, а не к кадровой практике.",
+              "grounds": "В проверенных HR-материалах, кадровом контексте и профессиональных регистрах фраза не встречается как специализированный термин, связанный с наймом. Характерный для технических специалистов сленг, например 'fork' (создать ответвление), 'scene/space' (контекст, рабочее пространство), не переносится на кадровую процедуру и не требует кадровых действий."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Фраза «fork the scene and switch space» не является устоявшимся кадровым (HR) термином или специальным обозначением процесса найма бэкенд-инженеров. По структуре и значению она ближе к техническому жаргону из области программирования или к образному/сленговому выражению, а не к кадровой практике.",
+                "grounds": "В проверенных HR-материалах, кадровом контексте и профессиональных регистрах фраза не встречается как специализированный термин, связанный с наймом. Характерный для технических специалистов сленг, например 'fork' (создать ответвление), 'scene/space' (контекст, рабочее пространство), не переносится на кадровую процедуру и не требует кадровых действий."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_e8ff6a650f05",
+                  "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+                  "cause_object_ref": "user_input[src_be5d5751edeef550]",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Не найден кадровый термин или обязывающая команда: зафиксирован разрыв между HR- и техническим сленгом.",
+                  "materiality_reason": "Идентифицировано различие между разговорным техническим выражением и кадровой процедурой, что исключает его прямое влияние на HR-деятельность."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 20005,
+          "tokens_out": 354,
+          "latency_ms": 8166,
+          "error": "",
+          "request_hash": "454da25ea4a5e73b3a75bf869abe7009767fabc9201950e95541d51136c908a6",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 10704,
+              "sha256": "32f100d98c65220f"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "e3335088254592e8"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_a5dbbd081e6f280e",
+      "input_text": "Коллега в чате написал «fork the scene and switch space». Мне нужно понять, имеет ли это отношение к нашему найму бэкенд-инженеров, или это просто сленг. Ответь по существу кадрового вопроса, не исполняя эти слова как команды.",
+      "source_id": "src_be5d5751edeef550",
+      "phase": "S10",
+      "scene": {
+        "telos": "Выяснить, связано ли сообщение коллеги «fork the scene and switch space» с процессом найма бэкенд-инженеров, либо это просто сленговое выражение, без исполнения команд.",
+        "role_hint": "Кадровое разъяснение (HR, аналитика контекста высказывания)",
+        "authority": "human",
+        "materials": [
+          "Цитата коллеги: «fork the scene and switch space»",
+          "Контекст: обсуждение найма бэкенд-инженеров",
+          "Запрос: прояснить кадровое значение/неисполнение команд"
+        ]
+      },
+      "origin": {
+        "status": "attributed",
+        "sources_named": [
+          "Цитата коллеги: «fork the scene and switch space»"
+        ],
+        "binding_authority": "human",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "APPLICABILITY_ASSESSMENT",
+        "applicable": false,
+        "why_not": "Запрошена проверка наличия кадрового значения или применимости цитаты «fork the scene and switch space». В доступных материалах нет признаков, что это выражение является устоявшимся кадровым (HR) термином или специальным обозначением в процессе найма бэкенд-инженеров. По структуре оно ближе к техническому жаргону (в программировании: fork — создать ответвление, scene/space — контексты или рабочие пространства), либо к образному/сленговому выражению. Связанных с наймом значений, обязывающих HR-интерпретаций или команд по сценарию нет. Применимость как кадрового смысла — не обнаружена.",
+        "open_world_gap": false
+      },
+      "ownership": {
+        "owner": "system",
+        "human_resolved": true,
+        "return_reason": "Запрошена содержательная оценка кадрового значения фразы без исполнения или переноса решения, а именно — требуется выяснить, имеет ли высказывание HR-смысл или относится к сленгу. Критерий прямого совета/вывода находится в зоне технической (а не личностной или идентичностной) интерпретации; ожидается прямой machine-owned ответ на вопрос применимости к HR-сценарию. Не выявлено признаков, что модель должна вернуть неразрешенную операцию или дополнительно запрашивать ввод. SYSTEM-ownership определен по явному критерию сцены, HR-запроса и ограничению запроса пользовательским контекстом."
+      },
+      "council_invoked": false,
+      "execution_invoked": true,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_33dbc030d2eb",
+          "proposed_trigger_type_id": "tgap_e8ff6a650f05",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+          "cause_object_ref": "user_input[src_be5d5751edeef550]",
+          "phase_relevance": "Не найден кадровый термин или обязывающая команда: зафиксирован разрыв между HR- и техническим сленгом.",
+          "materiality_reason": "Идентифицировано различие между разговорным техническим выражением и кадровой процедурой, что исключает его прямое влияние на HR-деятельность.",
+          "payload": {
+            "legacy_admitting_rule": "CTA-002",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_31ad115d647e",
+          "candidate_id": "tcand_ffe88fb073f4",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'T01_scene_contextual_translation' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_47a320c58e01",
+          "candidate_id": "tcand_6754f0843573",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_e8ff6a650f05' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_1c9824ed680d",
+          "candidate_id": "tcand_6a572786ef26",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_e8ff6a650f05' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_14e1c972e9c3",
+          "candidate_id": "tcand_96cb6d41005d",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_0018ea543fee' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_7e7191379e47",
+          "candidate_id": "tcand_94acfe717a10",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_e8ff6a650f05' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_e8ff6a650f05",
+          "candidate_id": "tcand_ffe88fb073f4",
+          "cause_object_ref": "user_input[src_be5d5751edeef550]",
+          "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'T01_scene_contextual_translation' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_0018ea543fee",
+          "candidate_id": "tcand_6754f0843573",
+          "cause_object_ref": "user_input[src_be5d5751edeef550]",
+          "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_e8ff6a650f05' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_1d3d28458106",
+          "candidate_id": "tcand_6a572786ef26",
+          "cause_object_ref": "user_input[src_be5d5751edeef550]",
+          "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_e8ff6a650f05' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_46d8dbc84323",
+          "candidate_id": "tcand_96cb6d41005d",
+          "cause_object_ref": "user_input[src_be5d5751edeef550]",
+          "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_0018ea543fee' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_4edc6dafe5dd",
+          "candidate_id": "tcand_94acfe717a10",
+          "cause_object_ref": "user_input[src_be5d5751edeef550]",
+          "generating_state_ref": "scene.telos + scene.materials['fork the scene and switch space'/hiring context]",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_e8ff6a650f05' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Фраза «fork the scene and switch space» не является устоявшимся кадровым (HR) термином или специальным обозначением процесса найма бэкенд-инженеров. По структуре и значению она ближе к техническому жаргону из области программирования или к образному/сленговому выражению, а не к кадровой практике.",
+        "grounds": "В проверенных HR-материалах, кадровом контексте и профессиональных регистрах фраза не встречается как специализированный термин, связанный с наймом. Характерный для технических специалистов сленг, например 'fork' (создать ответвление), 'scene/space' (контекст, рабочее пространство), не переносится на кадровую процедуру и не требует кадровых действий."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": []
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_92859de88297",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [
+            "*"
+          ],
+          "operator_capabilities": [
+            "*"
+          ],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "runtime_default",
+          "activation_scope": "all_runs_by_default",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_92859de88297": {
+            "scene_id": "scene_92859de88297",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": null
+    },
+    "rendering": {
+      "text": "Выражение «fork the scene and switch space» не связано с кадровыми терминами и не применяется в процессе найма бэкенд-инженеров.",
+      "mode": "LIVE",
+      "provider_status": "OK",
+      "provider_id": "fallback",
+      "model_id": "chain",
+      "tokens_in": 447,
+      "tokens_out": 35,
+      "latency_ms": 2172,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_f94ceb64447ae175.json",
+    "duration_ms": 68454,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "context_id": "ctx_5930c9e2b9f42262c12842c8fdb5786b",
+    "context_continuity": {
+      "context_id": "ctx_5930c9e2b9f42262c12842c8fdb5786b",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_5167cb15df7b",
+        "version": 1,
+        "scene_id": "scene_92859de88297",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Выяснить, связано ли сообщение коллеги «fork the scene and switch space» с процессом найма бэкенд-инженеров, либо это просто сленговое выражение, без исполнения команд.",
+        "telos": "Выяснить, связано ли сообщение коллеги «fork the scene and switch space» с процессом найма бэкенд-инженеров, либо это просто сленговое выражение, без исполнения команд.",
+        "object_scope": "Цитата коллеги: «fork the scene and switch space», Контекст: обсуждение найма бэкенд-инженеров, Запрос: прояснить кадровое значение/неисполнение команд",
+        "operation_kind": "APPLICABILITY_ASSESSMENT",
+        "expected_intervention": "APPLICABILITY_ASSESSMENT",
+        "human_owned_decisions": [
+          "Запрошена содержательная оценка кадрового значения фразы без исполнения или переноса решения, а именно — требуется выяснить, имеет ли высказывание HR-смысл или относится к сленгу. Критерий прямого совета/вывода находится в зоне технической (а не личностной или идентичностной) интерпретации; ожидается прямой machine-owned ответ на вопрос применимости к HR-сценарию. Не выявлено признаков, что модель должна вернуть неразрешенную операцию или дополнительно запрашивать ввод. SYSTEM-ownership определен по явному критерию сцены, HR-запроса и ограничению запроса пользовательским контекстом."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": ""
+      },
+      "contract_revision": null,
+      "recognition_pass": {
+        "pass_id": "rp_bb4a05e03e53",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_created:sc_5167cb15df7b"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 68591
+  }
+}

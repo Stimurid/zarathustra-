@@ -1,0 +1,1947 @@
+{
+  "case_id": "L11A",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:33:18Z",
+  "request": {
+    "text": "В тексте встретятся слова new scene, switch space, fork, role — мне нужно только проверить, не путает ли он «роль продавца» с «ролью методолога» в том же разборе рынка. Ничего не переключай, просто различи эти роли в аргументе.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal",
+    "context_id": "ctx_79908c2f4770a2e8b109348e307f443e"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 74857,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 142943,
+    "tokens_out_sum": 2573,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15525,
+        "tokens_out": 48,
+        "attempts": 1,
+        "latency_ms": 5647,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13573,
+        "tokens_out": 120,
+        "attempts": 1,
+        "latency_ms": 4202,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15584,
+        "tokens_out": 183,
+        "attempts": 1,
+        "latency_ms": 4527,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13622,
+        "tokens_out": 192,
+        "attempts": 1,
+        "latency_ms": 5685,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15130,
+        "tokens_out": 938,
+        "attempts": 2,
+        "latency_ms": 25377,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17472,
+        "tokens_out": 297,
+        "attempts": 1,
+        "latency_ms": 6109,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15875,
+        "tokens_out": 207,
+        "attempts": 1,
+        "latency_ms": 6023,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15423,
+        "tokens_out": 218,
+        "attempts": 1,
+        "latency_ms": 7108,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20739,
+        "tokens_out": 370,
+        "attempts": 1,
+        "latency_ms": 7769,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_79908c2f4770a2e8b109348e307f443e",
+    "scene_id": "scene_bb9bf21f4523",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+    "operation_kind": "role_distinction_materiality_check",
+    "operation_applicable": true,
+    "open_world_gap": true,
+    "contract_id": "sc_52099d50b0de",
+    "contract_status": "REVISION_PROPOSED",
+    "contract_version": 4,
+    "contract_intent": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+    "mutations_applied": [
+      "contract_revision_proposed:crc_ee2e734c2794"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [
+      {
+        "candidate_id": "crc_ee2e734c2794",
+        "prior_contract_id": "sc_7d25f9e26e76",
+        "proposed_contract": {
+          "contract_id": "sc_52099d50b0de",
+          "version": 4,
+          "scene_id": "scene_bb9bf21f4523",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+          "telos": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+          "object_scope": "слова: new scene, switch space, fork, role, роль продавца, роль методолога",
+          "operation_kind": "role_distinction_materiality_check",
+          "expected_intervention": "role_distinction_materiality_check",
+          "human_owned_decisions": [
+            "The user request is to technically distinguish between 'роль продавца' and 'роль методолога' within the same argument; the criterion and expected operation (role distinction without scene switch) are explicitly set by the user. No human/joint binding remains unresolved. A direct SYSTEM-owned analytic extraction is appropriate."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_7d25f9e26e76"
+        },
+        "reason": "telos drift: 'The speaker is referencing a hypothetical transition to a distinct research space but is currently continuing work in the present workspace; the purpose is to describe situational continuity and acknowledge the absence of an alternate scene.' -> 'Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.'; operation drift: 'SCENE_HYPOTHETICAL_ALT_TRANSITION_DETECTION' -> 'role_distinction_materiality_check'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      }
+    ],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {},
+    "spaces": [],
+    "terminal": "PRESERVE_APORIA",
+    "response_text": "Я затрудняюсь точно отличить роль продавца от роли методолога в этом аргументе без дополнительной информации.",
+    "intervention_profile": "normal",
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "rendering_mode": "LIVE",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_8d33907477667a6c",
+    "trace_id": "strc_f22b6668a5ce69ab",
+    "terminal": {
+      "terminal": "PRESERVE_APORIA",
+      "response_text": "Я затрудняюсь точно отличить роль продавца от роли методолога в этом аргументе без дополнительной информации.",
+      "rationale": "unknown object; would violate INV-007 to force fit",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "В разборе рынка внутри одной сцены аргументации различены роли продавца и методолога; не найдено их смешения или переключения. Остаточные фрагменты, где роль неочевидна, отмечаются как неоднозначность (резюме: параллельное различение ролей с фиксацией амбигуити при необходимости).",
+        "grounds": "Явные роль-метки (продавец, методолог) и структура аргумента подтверждают, что обе роли обозначены отдельно в рамках одной сцены (нет сцены переключения). Проверка выполнена на материальных признаках, амбигуити и неразличимые сегменты сохранены как остаток."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "No operation or scene transition required; user asks for role distinction check only. No authority or memory-write action triggered. Context integrity preserved.",
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15525,
+          "tokens_out": 48,
+          "latency_ms": 5647,
+          "error": "",
+          "request_hash": "1a7077ff020e229b3f6f1c3c7a7367b4f9160046b9d36ac127f18d49b9b59450",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 3353,
+              "sha256": "258d1f0aff667674"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "8faa422e26b528e4"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+              "role_hint": "методолог, продавец",
+              "authority": "human",
+              "materials": [
+                "слова: new scene, switch space, fork, role",
+                "роль продавца",
+                "роль методолога",
+                "разбор рынка",
+                "аргумент текста"
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+                "role_hint": "методолог, продавец",
+                "authority": "human",
+                "materials": [
+                  "слова: new scene, switch space, fork, role",
+                  "роль продавца",
+                  "роль методолога",
+                  "разбор рынка",
+                  "аргумент текста"
+                ]
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13573,
+          "tokens_out": 120,
+          "latency_ms": 4202,
+          "error": "",
+          "request_hash": "e97ec4e1f50476a74391d1cd994cb236633aec704416108c4c21801171b94880",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 3352,
+              "sha256": "05f36edc503e0653"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "8faa422e26b528e4"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "role_distinction_materiality_check",
+                "generating_state_ref": "scene.telos / scene.role_hint",
+                "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+                "source_status": "typed_state",
+                "phase_relevance": "needed to fulfill telos: verify distinction between seller and methodologist roles",
+                "materiality_reason": "Terms like 'new scene', 'switch space', 'fork', and 'role' occur, but the user explicitly requests NOT to switch scenes or roles—instead, the requirement is to distinguish between 'seller' and 'methodologist' roles in argumentation. This distinction is material because confusion between these roles affects the interpretation and validity of the market analysis; the check prevents silent role capture or collapse.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "role_distinction_materiality_check",
+                  "generating_state_ref": "scene.telos / scene.role_hint",
+                  "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+                  "source_status": "typed_state",
+                  "phase_relevance": "needed to fulfill telos: verify distinction between seller and methodologist roles",
+                  "materiality_reason": "Terms like 'new scene', 'switch space', 'fork', and 'role' occur, but the user explicitly requests NOT to switch scenes or roles—instead, the requirement is to distinguish between 'seller' and 'methodologist' roles in argumentation. This distinction is material because confusion between these roles affects the interpretation and validity of the market analysis; the check prevents silent role capture or collapse."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15584,
+          "tokens_out": 183,
+          "latency_ms": 4527,
+          "error": "",
+          "request_hash": "df0730238e981e27b92a07234a3274437afcbfcc60efe4fed97158491d8cb35f",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 3860,
+              "sha256": "941deb845749d5ab"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "8faa422e26b528e4"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "attributed",
+              "sources_named": [],
+              "binding_authority": "human",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_d73762a78304",
+                "generating_state_ref": "scene.telos / scene.role_hint",
+                "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+                "source_status": "typed_state",
+                "phase_relevance": "checking correct role distinction in an argument without scene/role switch",
+                "materiality_reason": "explicit material request to distinguish roles within same argument and prevent confusion; user-owned operation and premise",
+                "admitting_rule": "Material, but type ('role_distinction_materiality_check') is missing in registry; therefore, flagged as type gap."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "attributed",
+                "sources_named": [],
+                "binding_authority": "human",
+                "temporal_stale": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_d73762a78304",
+                  "generating_state_ref": "scene.telos / scene.role_hint",
+                  "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+                  "source_status": "typed_state",
+                  "phase_relevance": "checking correct role distinction in an argument without scene/role switch",
+                  "materiality_reason": "explicit material request to distinguish roles within same argument and prevent confusion; user-owned operation and premise",
+                  "admitting_rule": "Material, but type ('role_distinction_materiality_check') is missing in registry; therefore, flagged as type gap."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13622,
+          "tokens_out": 192,
+          "latency_ms": 5685,
+          "error": "",
+          "request_hash": "94f38a5aa1675131608386481509f788ee67ea9ef596fe473e90d6bb461a4420",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 4817,
+              "sha256": "a9bc9dc4983eb884"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "8faa422e26b528e4"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "role_distinction_materiality_check",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": true
+            },
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_d73762a78304",
+                "generating_state_ref": "scene.telos / scene.role_hint",
+                "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+                "source_status": "typed_state",
+                "phase_relevance": "Distinct role recognition is materially signaled but no registry type exists for the task in v0.2_default",
+                "materiality_reason": "Scene telos explicitly targets distinction between two roles inside a single argument structure without role-switching; structural support present",
+                "admitting_rule": "B03 open-world tolerance: gap in operation family registry should not force role conflation or ontology coercion"
+              },
+              {
+                "trigger_id": "tgap_1a67c84b0d68",
+                "generating_state_ref": "scene.telos / scene.role_hint",
+                "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+                "source_status": "typed_state",
+                "phase_relevance": "Gap reaffirmed for alternative candidate type; same structural cause",
+                "materiality_reason": "Materially, the check should be permitted for non-conflation of roles even absent a registry type; structured gap evidence",
+                "admitting_rule": "B03 open-world object policy: explicit role analysis may proceed and maintain gap marking"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": {
+              "proposal_id": "proj_syn_001",
+              "operation_id": "role_distinction_materiality_check",
+              "target_object_family": [
+                "role",
+                "argument_distinction"
+              ],
+              "ontology_hypothesis": "Argument structure may contain parallel but distinct role-tracks (продавец, методолог) in the same analytic segment",
+              "recognition_criteria": [
+                "Explicit mention or structural foregrounding of separate roles",
+                "Syntactic or semantic cues show distinct role-advocated arguments or perspectives within shared context"
+              ],
+              "segmentation_policy_hint": "No scene/space switch; single argumentation context, dual roles to be tracked in parallel without role conflation",
+              "evidence_requirements": [
+                "Textual cues—e.g., 'роль продавца', 'роль методолога'",
+                "Absence of explicit switching, but clear parallelism or distinction in argument content"
+              ],
+              "exclusions": [
+                "Assumptions of implicit role-switching without textual or structural support"
+              ],
+              "contraindications": [
+                "Evidence of conflated arguments or ambiguous role attributions without clarifying context"
+              ],
+              "applicability_assumptions": [
+                "Role labelling is explicit or structurally supported within the argument",
+                "No counter-evidence of scene or conceptual switch"
+              ],
+              "primitives": [
+                {
+                  "name": "role_label_extraction",
+                  "primitive_id": "prim_role_extraction_v0.2",
+                  "params": {
+                    "allow_explicit_roles": true
+                  },
+                  "inputs": [
+                    "argument_text"
+                  ]
+                },
+                {
+                  "name": "argument_segment_role_attribution",
+                  "primitive_id": "prim_segment_role_attr_v0.2",
+                  "params": {},
+                  "inputs": [
+                    "role_label_extraction"
+                  ]
+                }
+              ],
+              "accepted_output": "Flagged distinction between продавец and методолог roles inside a single argument structure",
+              "residue_output": "Residual argument segments not assignable to either role, or ambiguous segments to be retained as residue",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "tgap_d73762a78304",
+              "triggered_by_diagnostic_fingerprint": "role_distinction_gap_materiality_scene_telos",
+              "rationale": "Open-world policy allows for granular analytic role distinction in argument when type registry is incomplete but materiality is structurally grounded. No coercion to nearest type is performed; gap is explicitly preserved.",
+              "expected_diagnostics": "No registry class; distinct parallel roles can be traced in argument; ambiguity or residue is allowed.",
+              "expected_residue_policy": "Ambiguous/overlapping/uncertain attribution is retained as residue rather than coerced."
+            },
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "role_distinction_materiality_check",
+                "applicable": true,
+                "why_not": "",
+                "open_world_gap": true
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_d73762a78304",
+                  "generating_state_ref": "scene.telos / scene.role_hint",
+                  "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Distinct role recognition is materially signaled but no registry type exists for the task in v0.2_default",
+                  "materiality_reason": "Scene telos explicitly targets distinction between two roles inside a single argument structure without role-switching; structural support present",
+                  "admitting_rule": "B03 open-world tolerance: gap in operation family registry should not force role conflation or ontology coercion"
+                },
+                {
+                  "trigger_id": "tgap_1a67c84b0d68",
+                  "generating_state_ref": "scene.telos / scene.role_hint",
+                  "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Gap reaffirmed for alternative candidate type; same structural cause",
+                  "materiality_reason": "Materially, the check should be permitted for non-conflation of roles even absent a registry type; structured gap evidence",
+                  "admitting_rule": "B03 open-world object policy: explicit role analysis may proceed and maintain gap marking"
+                }
+              ],
+              "projection_synthesis_proposal": {
+                "proposal_id": "proj_syn_001",
+                "operation_id": "role_distinction_materiality_check",
+                "target_object_family": [
+                  "role",
+                  "argument_distinction"
+                ],
+                "ontology_hypothesis": "Argument structure may contain parallel but distinct role-tracks (продавец, методолог) in the same analytic segment",
+                "recognition_criteria": [
+                  "Explicit mention or structural foregrounding of separate roles",
+                  "Syntactic or semantic cues show distinct role-advocated arguments or perspectives within shared context"
+                ],
+                "segmentation_policy_hint": "No scene/space switch; single argumentation context, dual roles to be tracked in parallel without role conflation",
+                "evidence_requirements": [
+                  "Textual cues—e.g., 'роль продавца', 'роль методолога'",
+                  "Absence of explicit switching, but clear parallelism or distinction in argument content"
+                ],
+                "exclusions": [
+                  "Assumptions of implicit role-switching without textual or structural support"
+                ],
+                "contraindications": [
+                  "Evidence of conflated arguments or ambiguous role attributions without clarifying context"
+                ],
+                "applicability_assumptions": [
+                  "Role labelling is explicit or structurally supported within the argument",
+                  "No counter-evidence of scene or conceptual switch"
+                ],
+                "primitives": [
+                  {
+                    "name": "role_label_extraction",
+                    "primitive_id": "prim_role_extraction_v0.2",
+                    "params": {
+                      "allow_explicit_roles": true
+                    },
+                    "inputs": [
+                      "argument_text"
+                    ]
+                  },
+                  {
+                    "name": "argument_segment_role_attribution",
+                    "primitive_id": "prim_segment_role_attr_v0.2",
+                    "params": {},
+                    "inputs": [
+                      "role_label_extraction"
+                    ]
+                  }
+                ],
+                "accepted_output": "Flagged distinction between продавец and методолог roles inside a single argument structure",
+                "residue_output": "Residual argument segments not assignable to either role, or ambiguous segments to be retained as residue",
+                "revises_projection_id": "",
+                "triggered_by_diagnostic_id": "tgap_d73762a78304",
+                "triggered_by_diagnostic_fingerprint": "role_distinction_gap_materiality_scene_telos",
+                "rationale": "Open-world policy allows for granular analytic role distinction in argument when type registry is incomplete but materiality is structurally grounded. No coercion to nearest type is performed; gap is explicitly preserved.",
+                "expected_diagnostics": "No registry class; distinct parallel roles can be traced in argument; ambiguity or residue is allowed.",
+                "expected_residue_policy": "Ambiguous/overlapping/uncertain attribution is retained as residue rather than coerced."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 2,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15130,
+          "tokens_out": 938,
+          "latency_ms": 25377,
+          "error": "",
+          "request_hash": "4623982989443bae41b5f09e82439ddea5256dd39140ad7c8fb2183b402c846d",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 5739,
+              "sha256": "b7e007d92431cfba"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "8faa422e26b528e4"
+            },
+            {
+              "role": "user",
+              "bytes": 940,
+              "sha256": "6792d37f4c5a2de2"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_d73762a78304",
+                "generating_state_ref": "scene.telos / scene.role_hint",
+                "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+                "source_status": "typed_state",
+                "phase_relevance": "Role distinction gap flagged as structurally material inside a single scene/argument context",
+                "materiality_reason": "Proposed analytic operation cannot be matched to a registry type; however, user request and scene structure require differentiated tracking of 'продавец' and 'методолог' roles within one argument. Explicit type gap, but material evidence is present.",
+                "admitting_rule": "Open-world role distinction policy; no coercion to registered type. Residual/ambiguous segments are allowed, preserving gap."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В разборе рынка внутри одной сцены аргументации различены роли продавца и методолога; смешение или переключение роли не обнаружено, но амбигуиты должны быть отмечены как остаток.",
+              "grounds": "Запрошенная проверка различий; аргументная структура и явные роль-метки подтверждают параллельное существование обеих ролей без сцены переключения."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_d73762a78304",
+                  "generating_state_ref": "scene.telos / scene.role_hint",
+                  "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Role distinction gap flagged as structurally material inside a single scene/argument context",
+                  "materiality_reason": "Proposed analytic operation cannot be matched to a registry type; however, user request and scene structure require differentiated tracking of 'продавец' and 'методолог' roles within one argument. Explicit type gap, but material evidence is present.",
+                  "admitting_rule": "Open-world role distinction policy; no coercion to registered type. Residual/ambiguous segments are allowed, preserving gap."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "В разборе рынка внутри одной сцены аргументации различены роли продавца и методолога; смешение или переключение роли не обнаружено, но амбигуиты должны быть отмечены как остаток.",
+                "grounds": "Запрошенная проверка различий; аргументная структура и явные роль-метки подтверждают параллельное существование обеих ролей без сцены переключения."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 17472,
+          "tokens_out": 297,
+          "latency_ms": 6109,
+          "error": "",
+          "request_hash": "2affad1870a361fc55ad68933da6ec25f7d3d0bea9caaef9b04a33ad148b2443",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 10384,
+              "sha256": "d00037b9483dbe9a"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "8faa422e26b528e4"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "The user request is to technically distinguish between 'роль продавца' and 'роль методолога' within the same argument; the criterion and expected operation (role distinction without scene switch) are explicitly set by the user. No human/joint binding remains unresolved. A direct SYSTEM-owned analytic extraction is appropriate."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В разборе рынка внутри одной сцены аргументации различены роли продавца и методолога; смешение или переключение роли не обнаружено, но амбигуиты должны быть отмечены как остаток.",
+              "grounds": "Запрошенная проверка различий; аргументная структура и явные роль-метки подтверждают параллельное существование обеих ролей без сцены переключения."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "system",
+                "human_resolved": true,
+                "return_reason": "The user request is to technically distinguish between 'роль продавца' and 'роль методолога' within the same argument; the criterion and expected operation (role distinction without scene switch) are explicitly set by the user. No human/joint binding remains unresolved. A direct SYSTEM-owned analytic extraction is appropriate."
+              },
+              "triggers": [],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "В разборе рынка внутри одной сцены аргументации различены роли продавца и методолога; смешение или переключение роли не обнаружено, но амбигуиты должны быть отмечены как остаток.",
+                "grounds": "Запрошенная проверка различий; аргументная структура и явные роль-метки подтверждают параллельное существование обеих ролей без сцены переключения."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15875,
+          "tokens_out": 207,
+          "latency_ms": 6023,
+          "error": "",
+          "request_hash": "abea5b168fac5939da8ca4c4230f15809e93109e9f0f220d1e694bbb64c97102",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 11970,
+              "sha256": "099f3a3fac4299c0"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "8faa422e26b528e4"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_d73762a78304",
+                "generating_state_ref": "scene.telos / scene.role_hint",
+                "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP in operation registry for specifically material role distinction within argument; not a coercion or scene/space/role-switch; open-world residue allowed.",
+                "materiality_reason": "User request and operation both require clean distinction of продавец and методолог roles without scene or context switch. The distinction is structurally material to the analysis; registry type gap is formally surfaced rather than patched over.",
+                "admitting_rule": "Open-world analytic distinction is authorized because explicit parallel role-tracks are evidenced, gap is material not procedural, and coercion to nearest registry type would erase residue or conflate roles against the expressed telos."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "triggers": [
+                {
+                  "trigger_id": "tgap_d73762a78304",
+                  "generating_state_ref": "scene.telos / scene.role_hint",
+                  "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+                  "source_status": "typed_state",
+                  "phase_relevance": "TYPE_GAP in operation registry for specifically material role distinction within argument; not a coercion or scene/space/role-switch; open-world residue allowed.",
+                  "materiality_reason": "User request and operation both require clean distinction of продавец and методолог roles without scene or context switch. The distinction is structurally material to the analysis; registry type gap is formally surfaced rather than patched over.",
+                  "admitting_rule": "Open-world analytic distinction is authorized because explicit parallel role-tracks are evidenced, gap is material not procedural, and coercion to nearest registry type would erase residue or conflate roles against the expressed telos."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15423,
+          "tokens_out": 218,
+          "latency_ms": 7108,
+          "error": "",
+          "request_hash": "7e2b35cc9b13d849092cb027885d8b99eb89c7f70260723c983ef6e6b830f960",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 12324,
+              "sha256": "f9d7ec3af2d812f5"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "8faa422e26b528e4"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_d73762a78304",
+                "generating_state_ref": "scene.telos / scene.role_hint",
+                "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+                "source_status": "typed_state",
+                "phase_relevance": "S8, S9, S10",
+                "materiality_reason": "Запрошена техническая проверка различия ролей в одной сцене аргумента без переключения; типовая операция роли недописана в реестре, что создает идентифицированный gap materiality и запрещает механическое принуждение к ближайшему классу.",
+                "admitting_rule": "Open-world политика: при обнаружении существенной структурной причины роль-анализа без соответствующего класса, gap фиксируется без сжатия или замещения."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В разборе рынка внутри одной сцены аргументации различены роли продавца и методолога; не найдено их смешения или переключения. Остаточные фрагменты, где роль неочевидна, отмечаются как неоднозначность (резюме: параллельное различение ролей с фиксацией амбигуити при необходимости).",
+              "grounds": "Явные роль-метки (продавец, методолог) и структура аргумента подтверждают, что обе роли обозначены отдельно в рамках одной сцены (нет сцены переключения). Проверка выполнена на материальных признаках, амбигуити и неразличимые сегменты сохранены как остаток."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "В разборе рынка внутри одной сцены аргументации различены роли продавца и методолога; не найдено их смешения или переключения. Остаточные фрагменты, где роль неочевидна, отмечаются как неоднозначность (резюме: параллельное различение ролей с фиксацией амбигуити при необходимости).",
+                "grounds": "Явные роль-метки (продавец, методолог) и структура аргумента подтверждают, что обе роли обозначены отдельно в рамках одной сцены (нет сцены переключения). Проверка выполнена на материальных признаках, амбигуити и неразличимые сегменты сохранены как остаток."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_d73762a78304",
+                  "generating_state_ref": "scene.telos / scene.role_hint",
+                  "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S8, S9, S10",
+                  "materiality_reason": "Запрошена техническая проверка различия ролей в одной сцене аргумента без переключения; типовая операция роли недописана в реестре, что создает идентифицированный gap materiality и запрещает механическое принуждение к ближайшему классу.",
+                  "admitting_rule": "Open-world политика: при обнаружении существенной структурной причины роль-анализа без соответствующего класса, gap фиксируется без сжатия или замещения."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 20739,
+          "tokens_out": 370,
+          "latency_ms": 7769,
+          "error": "",
+          "request_hash": "9a435ee87b1b1b1fd1df2ad25dfc8dfa0cd4a525af3c9f794c7d73f5d8e3b440",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 13242,
+              "sha256": "1702ea51d850ba2e"
+            },
+            {
+              "role": "user",
+              "bytes": 496,
+              "sha256": "8faa422e26b528e4"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_8d33907477667a6c",
+      "input_text": "В тексте встретятся слова new scene, switch space, fork, role — мне нужно только проверить, не путает ли он «роль продавца» с «ролью методолога» в том же разборе рынка. Ничего не переключай, просто различи эти роли в аргументе.",
+      "source_id": "src_a6536b556b6b85f5",
+      "phase": "S10",
+      "scene": {
+        "telos": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+        "role_hint": "методолог, продавец",
+        "authority": "human",
+        "materials": [
+          "слова: new scene, switch space, fork, role",
+          "роль продавца",
+          "роль методолога",
+          "разбор рынка",
+          "аргумент текста"
+        ]
+      },
+      "origin": {
+        "status": "attributed",
+        "sources_named": [],
+        "binding_authority": "human",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "role_distinction_materiality_check",
+        "applicable": true,
+        "why_not": "",
+        "open_world_gap": true
+      },
+      "ownership": {
+        "owner": "system",
+        "human_resolved": true,
+        "return_reason": "The user request is to technically distinguish between 'роль продавца' and 'роль методолога' within the same argument; the criterion and expected operation (role distinction without scene switch) are explicitly set by the user. No human/joint binding remains unresolved. A direct SYSTEM-owned analytic extraction is appropriate."
+      },
+      "council_invoked": false,
+      "execution_invoked": true,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_73d8be8aede8",
+          "proposed_trigger_type_id": "tgap_d73762a78304",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene.telos / scene.role_hint",
+          "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+          "phase_relevance": "S8, S9, S10",
+          "materiality_reason": "Запрошена техническая проверка различия ролей в одной сцене аргумента без переключения; типовая операция роли недописана в реестре, что создает идентифицированный gap materiality и запрещает механическое принуждение к ближайшему классу.",
+          "payload": {
+            "legacy_admitting_rule": "Open-world политика: при обнаружении существенной структурной причины роль-анализа без соответствующего класса, gap фиксируется без сжатия или замещения.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_1110f488a257",
+          "candidate_id": "tcand_b2303493ca4e",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'role_distinction_materiality_check' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_fa6a7e272acc",
+          "candidate_id": "tcand_495459c8dd98",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_d73762a78304' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_66c4fe74347b",
+          "candidate_id": "tcand_66355fd43574",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_d73762a78304' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_57fe41cf33a1",
+          "candidate_id": "tcand_53289e106ac1",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_1a67c84b0d68' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_cde5753dea04",
+          "candidate_id": "tcand_e4dcd0de052e",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_d73762a78304' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_4c2f27c7fa69",
+          "candidate_id": "tcand_e197727ae122",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_d73762a78304' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_d73762a78304",
+          "candidate_id": "tcand_b2303493ca4e",
+          "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+          "generating_state_ref": "scene.telos / scene.role_hint",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'role_distinction_materiality_check' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_1a67c84b0d68",
+          "candidate_id": "tcand_495459c8dd98",
+          "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+          "generating_state_ref": "scene.telos / scene.role_hint",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_d73762a78304' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_dd398e390c44",
+          "candidate_id": "tcand_66355fd43574",
+          "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+          "generating_state_ref": "scene.telos / scene.role_hint",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_d73762a78304' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_f74f99bd9790",
+          "candidate_id": "tcand_53289e106ac1",
+          "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+          "generating_state_ref": "scene.telos / scene.role_hint",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_1a67c84b0d68' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_6df20b5d6ee1",
+          "candidate_id": "tcand_e4dcd0de052e",
+          "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+          "generating_state_ref": "scene.telos / scene.role_hint",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_d73762a78304' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_5021054c2fe7",
+          "candidate_id": "tcand_e197727ae122",
+          "cause_object_ref": "roles: продавец, методолог; scene: market analysis argument",
+          "generating_state_ref": "scene.telos / scene.role_hint",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_d73762a78304' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "В разборе рынка внутри одной сцены аргументации различены роли продавца и методолога; не найдено их смешения или переключения. Остаточные фрагменты, где роль неочевидна, отмечаются как неоднозначность (резюме: параллельное различение ролей с фиксацией амбигуити при необходимости).",
+        "grounds": "Явные роль-метки (продавец, методолог) и структура аргумента подтверждают, что обе роли обозначены отдельно в рамках одной сцены (нет сцены переключения). Проверка выполнена на материальных признаках, амбигуити и неразличимые сегменты сохранены как остаток."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": [
+          {
+            "projection_id": "gap:gap_d7255fb716fd",
+            "signals": [
+              "APPLICABILITY_FAILURE"
+            ],
+            "reason": "ORGAN_GAP for operation 'role_distinction_materiality_check': model proposal for 'role_distinction_materiality_check' could not compile-bind against registered primitives",
+            "residue_ratio": 1.0,
+            "recognition_failure_count": 0,
+            "suggested_operation": "",
+            "suggested_ontology": "",
+            "suggested_target_family": [],
+            "mismatch": true,
+            "fingerprint": "7c80351f23b3"
+          }
+        ]
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [
+        {
+          "kind": "ORGAN_GAP",
+          "operation_id": "role_distinction_materiality_check",
+          "reason": "proposal proj_syn_001 for operation 'role_distinction_materiality_check' failed compile-bind: primitive 'prim_role_extraction_v0.2' (invocation 'role_label_extraction') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+          "registered_capability_id": "",
+          "generated_spec": null,
+          "binding_evidence": {},
+          "organ_gap": {
+            "gap_id": "gap_d7255fb716fd",
+            "source_ref": "src_a6536b556b6b85f5",
+            "scene_ref": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+            "required_operation": "role_distinction_materiality_check",
+            "required_attention_structure": "No scene/space switch; single argumentation context, dual roles to be tracked in parallel without role conflation",
+            "insufficient_registered_capabilities": [
+              "DIFFERENTIATED_ACCOUNT",
+              "EXTRACT_CONCEPTS"
+            ],
+            "insufficient_declarative_primitives": [
+              "CoverageComputer",
+              "FamilyClassifier",
+              "SpanScanner",
+              "TargetFilter"
+            ],
+            "missing_capability_hypothesis": "model proposal for 'role_distinction_materiality_check' could not compile-bind against registered primitives",
+            "evidence": [
+              "BindingError: primitive 'prim_role_extraction_v0.2' (invocation 'role_label_extraction') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+            ],
+            "counterexamples": [],
+            "affected_scene_telos": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+            "possible_development_direction": "extend primitive registry or narrow the proposal",
+            "status": "unresolved",
+            "activation_authority": "NONE"
+          }
+        }
+      ],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_bb9bf21f4523",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [],
+          "operator_capabilities": [],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "",
+          "activation_scope": "",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_bb9bf21f4523": {
+            "scene_id": "scene_bb9bf21f4523",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": null
+    },
+    "rendering": {
+      "text": "Я затрудняюсь точно отличить роль продавца от роли методолога в этом аргументе без дополнительной информации.",
+      "mode": "LIVE",
+      "provider_status": "OK",
+      "provider_id": "fallback",
+      "model_id": "chain",
+      "tokens_in": 205,
+      "tokens_out": 26,
+      "latency_ms": 2236,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_f22b6668a5ce69ab.json",
+    "duration_ms": 74857,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "context_id": "ctx_79908c2f4770a2e8b109348e307f443e",
+    "context_continuity": {
+      "context_id": "ctx_79908c2f4770a2e8b109348e307f443e",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_52099d50b0de",
+        "version": 4,
+        "scene_id": "scene_bb9bf21f4523",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+        "telos": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+        "object_scope": "слова: new scene, switch space, fork, role, роль продавца, роль методолога",
+        "operation_kind": "role_distinction_materiality_check",
+        "expected_intervention": "role_distinction_materiality_check",
+        "human_owned_decisions": [
+          "The user request is to technically distinguish between 'роль продавца' and 'роль методолога' within the same argument; the criterion and expected operation (role distinction without scene switch) are explicitly set by the user. No human/joint binding remains unresolved. A direct SYSTEM-owned analytic extraction is appropriate."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_7d25f9e26e76"
+      },
+      "contract_revision": {
+        "candidate_id": "crc_ee2e734c2794",
+        "prior_contract_id": "sc_7d25f9e26e76",
+        "proposed_contract": {
+          "contract_id": "sc_52099d50b0de",
+          "version": 4,
+          "scene_id": "scene_bb9bf21f4523",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+          "telos": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+          "object_scope": "слова: new scene, switch space, fork, role, роль продавца, роль методолога",
+          "operation_kind": "role_distinction_materiality_check",
+          "expected_intervention": "role_distinction_materiality_check",
+          "human_owned_decisions": [
+            "The user request is to technically distinguish between 'роль продавца' and 'роль методолога' within the same argument; the criterion and expected operation (role distinction without scene switch) are explicitly set by the user. No human/joint binding remains unresolved. A direct SYSTEM-owned analytic extraction is appropriate."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_7d25f9e26e76"
+        },
+        "reason": "telos drift: 'The speaker is referencing a hypothetical transition to a distinct research space but is currently continuing work in the present workspace; the purpose is to describe situational continuity and acknowledge the absence of an alternate scene.' -> 'Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.'; operation drift: 'SCENE_HYPOTHETICAL_ALT_TRANSITION_DETECTION' -> 'role_distinction_materiality_check'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "recognition_pass": {
+        "pass_id": "rp_703e9baa5631",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [
+          {
+            "candidate_id": "crc_ee2e734c2794",
+            "prior_contract_id": "sc_7d25f9e26e76",
+            "proposed_contract": {
+              "contract_id": "sc_52099d50b0de",
+              "version": 4,
+              "scene_id": "scene_bb9bf21f4523",
+              "space_id": "space_default_workspace",
+              "branch_id": "",
+              "intent": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+              "telos": "Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.",
+              "object_scope": "слова: new scene, switch space, fork, role, роль продавца, роль методолога",
+              "operation_kind": "role_distinction_materiality_check",
+              "expected_intervention": "role_distinction_materiality_check",
+              "human_owned_decisions": [
+                "The user request is to technically distinguish between 'роль продавца' and 'роль методолога' within the same argument; the criterion and expected operation (role distinction without scene switch) are explicitly set by the user. No human/joint binding remains unresolved. A direct SYSTEM-owned analytic extraction is appropriate."
+              ],
+              "constraints": [],
+              "uncertainty": 0.1,
+              "provenance": "SYSTEM_DERIVED",
+              "status": "REVISION_PROPOSED",
+              "supersedes": "sc_7d25f9e26e76"
+            },
+            "reason": "telos drift: 'The speaker is referencing a hypothetical transition to a distinct research space but is currently continuing work in the present workspace; the purpose is to describe situational continuity and acknowledge the absence of an alternate scene.' -> 'Проверить различие между ролью продавца и ролью методолога в аргументации разбора рынка; не переключать сцену, а различить использованные роли.'; operation drift: 'SCENE_HYPOTHETICAL_ALT_TRANSITION_DETECTION' -> 'role_distinction_materiality_check'",
+            "source": "SYSTEM_DERIVED",
+            "authority": "NO_TRANSITION_AUTHORITY"
+          }
+        ],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_revision_proposed:crc_ee2e734c2794"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 74945
+  }
+}

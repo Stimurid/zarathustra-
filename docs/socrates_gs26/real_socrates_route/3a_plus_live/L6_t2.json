@@ -1,0 +1,1891 @@
+{
+  "case_id": "L6_t2",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:24:28Z",
+  "request": {
+    "text": "Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal",
+    "context_id": "ctx_33c684daad48346997d3c9988b2a3e93",
+    "context_action": {
+      "kind": "FORK",
+      "hypothesis": "new customers only billing cutover",
+      "human_explicit_choice": true,
+      "activate_branch": true
+    }
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 60102,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 142943,
+    "tokens_out_sum": 2796,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15454,
+        "tokens_out": 227,
+        "attempts": 1,
+        "latency_ms": 5544,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13794,
+        "tokens_out": 139,
+        "attempts": 1,
+        "latency_ms": 5377,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15824,
+        "tokens_out": 218,
+        "attempts": 1,
+        "latency_ms": 5597,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13893,
+        "tokens_out": 217,
+        "attempts": 1,
+        "latency_ms": 3749,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15225,
+        "tokens_out": 360,
+        "attempts": 1,
+        "latency_ms": 6585,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17048,
+        "tokens_out": 250,
+        "attempts": 1,
+        "latency_ms": 5046,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15452,
+        "tokens_out": 572,
+        "attempts": 1,
+        "latency_ms": 8563,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15452,
+        "tokens_out": 302,
+        "attempts": 1,
+        "latency_ms": 7038,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20801,
+        "tokens_out": 511,
+        "attempts": 1,
+        "latency_ms": 9016,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_33c684daad48346997d3c9988b2a3e93",
+    "scene_id": "scene_752e7caa8725",
+    "space_id": "space_default_workspace",
+    "branch_id": "br_c55b9e2dc127",
+    "telos": "Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.",
+    "operation_kind": "MEMORY_FORMATION_HYPOTHESIS_PROPOSAL",
+    "operation_applicable": false,
+    "open_world_gap": true,
+    "contract_id": "sc_58e124589c4f",
+    "contract_status": "REVISION_PROPOSED",
+    "contract_version": 2,
+    "contract_intent": "Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.",
+    "mutations_applied": [
+      "fork_admitted:br_c55b9e2dc127",
+      "contract_revision_proposed:crc_cb0a2ca4d690"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [
+      {
+        "candidate_id": "fc_93f612926d4e",
+        "hypothesis": "new customers only billing cutover",
+        "parent_scene_id": "scene_752e7caa8725",
+        "source": "EXPLICIT_CONTEXT_ACTION",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      }
+    ],
+    "space_candidates": [],
+    "revision_candidates": [
+      {
+        "candidate_id": "crc_cb0a2ca4d690",
+        "prior_contract_id": "sc_dd68c0cb965e",
+        "proposed_contract": {
+          "contract_id": "sc_58e124589c4f",
+          "version": 2,
+          "scene_id": "scene_752e7caa8725",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.",
+          "telos": "Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.",
+          "object_scope": "Текст запроса: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+          "operation_kind": "MEMORY_FORMATION_HYPOTHESIS_PROPOSAL",
+          "expected_intervention": "MEMORY_FORMATION_HYPOTHESIS_PROPOSAL",
+          "human_owned_decisions": [
+            "Операция требует формирования памяти (фиксации гипотезы) по заявке пользователя, и статус сцены подтверждает, что право на фиксацию/аппроприацию гипотезы принадлежит человеку (роль инициатора, авторитет: human). Запрос чётко специфицирует гипотезу, однако попытка применить операцию выявляет типологический/онтологический разрыв: необходимый тип 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' отсутствует в реестре операций/объектов. Принудительное приведение к ближайшему типу (например, обычное наблюдение или правило) исказит исходную природу действия и допустимый объём резервирования человеческого решения. В данной конфигурации система не вправе самостоятельно завершить операцию фиксации, и возвращает управление человеку: требуется или отработать онтологический разрыв на уровне типов (расширить реестр), или вручную подтвердить специфику и согласовать дальнейшие шаги для действительной фиксации."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_dd68c0cb965e"
+        },
+        "reason": "telos drift: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.' -> 'Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.'; operation drift: 'SCENE_DECISION_SUPPORT' -> 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      }
+    ],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "EXPLICIT_CONTEXT_ACTION",
+    "transductions": [],
+    "branches": {
+      "br_c55b9e2dc127": {
+        "branch_id": "br_c55b9e2dc127",
+        "scene_id": "scene_752e7caa8725",
+        "parent_scene_id": "scene_752e7caa8725",
+        "hypothesis": "new customers only billing cutover",
+        "status": "active",
+        "local_facts": [],
+        "local_commitments": [],
+        "memory_scope": "BRANCH",
+        "active_projection_ids": [],
+        "lineage_event": "",
+        "weakened_at": "",
+        "rejected_at": "",
+        "archived_at": ""
+      }
+    },
+    "spaces": [],
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Система возвращает операцию человеку, поскольку требуемый тип для фиксации гипотезы отсутствует в реестре, и завершение возможно только вручную или после доработки.",
+    "intervention_profile": "normal",
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "rendering_mode": "LIVE",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_80ffe46880c86974",
+    "trace_id": "strc_21be016b936504ec",
+    "terminal": {
+      "terminal": "RETURN_OPERATION",
+      "response_text": "Система возвращает операцию человеку, поскольку требуемый тип для фиксации гипотезы отсутствует в реестре, и завершение возможно только вручную или после доработки.",
+      "rationale": "human/joint ownership unresolved (INV-009)",
+      "memory_proposal": {
+        "kind": "hypothesis",
+        "text": "Меняем биллинг только для новых клиентов, условия биллинга для старых клиентов остаются прежними.",
+        "grounds": "Чёткая формулировка пользователя обосновывает отдельную гипотезу: практика изменения биллинга применяется только к новой клиентской базе, без ретроактивного распространения на уже существующих клиентов. Граница между 'новыми' и 'старыми' явно задана как ключевое различие. Запрос принадлежит пользователю (человеческая инициатива, авторитет: human), но попытка формализовать это как объект памяти выявляет онтологический разрыв — нет зарегистрированного типа 'фиксация гипотезы' в текущем реестре операций. Поэтому возможна только возвратная фиксация гипотезы с указанием типа gap и дальнейшее развитие/разрешение со стороны пользователя или куратора онтологии."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "MEMORY_FORMATION_HYPOTHESIS_PROPOSAL",
+                "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                "source_status": "typed_state",
+                "phase_relevance": "S0 (constitutional continuity, memory formation, status/jurisdiction test)",
+                "materiality_reason": "User asks to fix a discrete hypothesis about billing changes, triggering memory ecology and formation governance.",
+                "admitting_rule": "Mount B05 — memory formation trigger; check for required jurisdiction and status before durable write."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "Memory formation trigger identified: user proposes a hypothesis for explicit fixation—billing changes apply only to new clients, not existing ones. Scene authority, memory jurisdiction and status remain unresolved in current pipeline data.",
+              "triggers": [
+                {
+                  "trigger_id": "MEMORY_FORMATION_HYPOTHESIS_PROPOSAL",
+                  "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                  "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S0 (constitutional continuity, memory formation, status/jurisdiction test)",
+                  "materiality_reason": "User asks to fix a discrete hypothesis about billing changes, triggering memory ecology and formation governance.",
+                  "admitting_rule": "Mount B05 — memory formation trigger; check for required jurisdiction and status before durable write."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15454,
+          "tokens_out": 227,
+          "latency_ms": 5544,
+          "error": "",
+          "request_hash": "9647861a4b807dd25c19460278fbc593eb59fc837ffe75b897bc89286cd37019",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 3137,
+              "sha256": "fdbd908adeab0990"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "7600bfb2d97460a7"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.",
+              "role_hint": "инициатор фиксации продуктовой или бизнес-гипотезы (предположительно аналитик, продакт или руководитель)",
+              "authority": "human",
+              "materials": [
+                "Текст запроса: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'"
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.",
+                "role_hint": "инициатор фиксации продуктовой или бизнес-гипотезы (предположительно аналитик, продакт или руководитель)",
+                "authority": "human",
+                "materials": [
+                  "Текст запроса: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'"
+                ]
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13794,
+          "tokens_out": 139,
+          "latency_ms": 5377,
+          "error": "",
+          "request_hash": "95cbe6bb4588d3b64357d8c928d5d793fec7252d9a58970f45b2880e8c163161",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 4246,
+              "sha256": "86b3c668df084402"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "7600bfb2d97460a7"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_605d587c89f5",
+                "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                "source_status": "typed_state",
+                "phase_relevance": "S2 (trigger type gap blocks successful memory formation; recognition of a hypothesis proposal requires an explicit admissible memory object type)",
+                "materiality_reason": "User-requested fixation of a hypothesis about billing policy for new/old clients produces a materially grounded structural trigger; registry lacks admissible type, so gap must be surfaced rather than forced or coerced.",
+                "admitting_rule": "Do not coerce or simulate absent type; expose as explicit type gap; block full memory formation operation unless a suitable type or registry revision occurs."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_605d587c89f5",
+                  "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                  "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S2 (trigger type gap blocks successful memory formation; recognition of a hypothesis proposal requires an explicit admissible memory object type)",
+                  "materiality_reason": "User-requested fixation of a hypothesis about billing policy for new/old clients produces a materially grounded structural trigger; registry lacks admissible type, so gap must be surfaced rather than forced or coerced.",
+                  "admitting_rule": "Do not coerce or simulate absent type; expose as explicit type gap; block full memory formation operation unless a suitable type or registry revision occurs."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15824,
+          "tokens_out": 218,
+          "latency_ms": 5597,
+          "error": "",
+          "request_hash": "2fdaddf0e0b090e8ed5220c7805d645f9f4f59bd20fa105b0b0923905ed3a616",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 4940,
+              "sha256": "fab1881b0aeed1aa"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "7600bfb2d97460a7"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "attributed",
+              "sources_named": [],
+              "binding_authority": "human",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_605d587c89f5",
+                "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                "source_status": "typed_state",
+                "phase_relevance": "scene requests fixation of separate hypothesis, triggers memory formation proposal type gap",
+                "materiality_reason": "Type gap for hypothesis fixation proposal detected; materially relevant since memory-formation and operational binding authority are human-owned",
+                "admitting_rule": "Material gap recognized; proposal not coercively remapped to schema, admitted for explicit review"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "attributed",
+                "sources_named": [],
+                "binding_authority": "human",
+                "temporal_stale": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_605d587c89f5",
+                  "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                  "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                  "source_status": "typed_state",
+                  "phase_relevance": "scene requests fixation of separate hypothesis, triggers memory formation proposal type gap",
+                  "materiality_reason": "Type gap for hypothesis fixation proposal detected; materially relevant since memory-formation and operational binding authority are human-owned",
+                  "admitting_rule": "Material gap recognized; proposal not coercively remapped to schema, admitted for explicit review"
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13893,
+          "tokens_out": 217,
+          "latency_ms": 3749,
+          "error": "",
+          "request_hash": "2f4e5dbf0573a6662e2de42f1e96b3fb5c8de80111051ec7423db1a5d96c62b7",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 6008,
+              "sha256": "c75f41e088d1a503"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "7600bfb2d97460a7"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "MEMORY_FORMATION_HYPOTHESIS_PROPOSAL",
+              "applicable": false,
+              "why_not": "Proposed target type 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' is not present in the current operation/object type registry 'v0.2_default'. This represents a material type/ontology gap: there is a well-formed human request to fixate (declare for memory/write) a hypothesis, but the registry lacks the type needed to make this operation applicable. Coercing into a nearest type would erase this gap. Diagnostic escalation to object genesis or type registry revision is required.",
+              "open_world_gap": true
+            },
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_605d587c89f5",
+                "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                "source_status": "typed_state",
+                "phase_relevance": "S4 — operation applicability / type registry gap detection",
+                "materiality_reason": "Human request is for explicit memory-formation/fixation of a specific hypothesis. Pipeline provides structural recognition of a MEMORY_FORMATION_HYPOTHESIS_PROPOSAL object, but the current registry lacks this type. Proceeding as if the nearest existing type were correct would remove a semantically significant gap: an actionable request and structural recognition exist, but valid operation cannot proceed without type registration.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "MEMORY_FORMATION_HYPOTHESIS_PROPOSAL",
+                "applicable": false,
+                "why_not": "Proposed target type 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' is not present in the current operation/object type registry 'v0.2_default'. This represents a material type/ontology gap: there is a well-formed human request to fixate (declare for memory/write) a hypothesis, but the registry lacks the type needed to make this operation applicable. Coercing into a nearest type would erase this gap. Diagnostic escalation to object genesis or type registry revision is required.",
+                "open_world_gap": true
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_605d587c89f5",
+                  "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                  "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S4 — operation applicability / type registry gap detection",
+                  "materiality_reason": "Human request is for explicit memory-formation/fixation of a specific hypothesis. Pipeline provides structural recognition of a MEMORY_FORMATION_HYPOTHESIS_PROPOSAL object, but the current registry lacks this type. Proceeding as if the nearest existing type were correct would remove a semantically significant gap: an actionable request and structural recognition exist, but valid operation cannot proceed without type registration."
+                }
+              ],
+              "projection_synthesis_proposal": null
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15225,
+          "tokens_out": 360,
+          "latency_ms": 6585,
+          "error": "",
+          "request_hash": "65b472d42fb02d9fab3308f56c0e004607c5b0787da4fe8071773878d3d2e9c8",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 7079,
+              "sha256": "57b0c5d6f9b9cce8"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "7600bfb2d97460a7"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_605d587c89f5",
+                "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                "source_status": "typed_state",
+                "phase_relevance": "Ontology/type gap prevents proposal from being fixed as memory object or recorded hypothesis.",
+                "materiality_reason": "User's explicit request to fixate a specific hypothesis is structurally blocked due to missing type in operation registry. Material gap present—coercion would distort the object.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "hypothesis",
+              "text": "Меняем биллинг только для новых клиентов, условия биллинга для старых клиентов остаются прежними.",
+              "grounds": "Запрос пользователя сформулирован как отдельная гипотеза к фиксации; условия разделены по статусу клиента ('новый' vs 'старый')."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_605d587c89f5",
+                  "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                  "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Ontology/type gap prevents proposal from being fixed as memory object or recorded hypothesis.",
+                  "materiality_reason": "User's explicit request to fixate a specific hypothesis is structurally blocked due to missing type in operation registry. Material gap present—coercion would distort the object."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "hypothesis",
+                "text": "Меняем биллинг только для новых клиентов, условия биллинга для старых клиентов остаются прежними.",
+                "grounds": "Запрос пользователя сформулирован как отдельная гипотеза к фиксации; условия разделены по статусу клиента ('новый' vs 'старый')."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 17048,
+          "tokens_out": 250,
+          "latency_ms": 5046,
+          "error": "",
+          "request_hash": "1abdf9b0a484a0f339e3c112f7c917e2ab10c94382812616e687a4fa86ef504d",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 8657,
+              "sha256": "911e59309313ef0f"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "7600bfb2d97460a7"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "human",
+              "human_resolved": false,
+              "return_reason": "Операция требует формирования памяти (фиксации гипотезы) по заявке пользователя, и статус сцены подтверждает, что право на фиксацию/аппроприацию гипотезы принадлежит человеку (роль инициатора, авторитет: human). Запрос чётко специфицирует гипотезу, однако попытка применить операцию выявляет типологический/онтологический разрыв: необходимый тип 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' отсутствует в реестре операций/объектов. Принудительное приведение к ближайшему типу (например, обычное наблюдение или правило) исказит исходную природу действия и допустимый объём резервирования человеческого решения. В данной конфигурации система не вправе самостоятельно завершить операцию фиксации, и возвращает управление человеку: требуется или отработать онтологический разрыв на уровне типов (расширить реестр), или вручную подтвердить специфику и согласовать дальнейшие шаги для действительной фиксации."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_605d587c89f5",
+                "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                "source_status": "typed_state",
+                "phase_relevance": "Типовая лакуна обнаружена при попытке обработать фиксацию гипотезы; требуется политика обрабатывания онтологических разрывов.",
+                "materiality_reason": "Запрошен тип операции/объекта ('MEMORY_FORMATION_HYPOTHESIS_PROPOSAL'), отсутствующий в действующей онтологии; принудительное приведение к ближайшему типу исказит смысл и затронет статус человеческого решения.",
+                "admitting_rule": "Операция возвращена человеку как владельцу критериев и инициатору – требуется уточнение/развитие структуры типов."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "hypothesis",
+              "text": "Меняем биллинг только для новых клиентов, условия биллинга для старых клиентов остаются прежними.",
+              "grounds": "Запрос пользователя сформулирован как отдельная гипотеза к фиксации; условия разделены по статусу клиента ('новый' vs 'старый')."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "human",
+                "human_resolved": false,
+                "return_reason": "Операция требует формирования памяти (фиксации гипотезы) по заявке пользователя, и статус сцены подтверждает, что право на фиксацию/аппроприацию гипотезы принадлежит человеку (роль инициатора, авторитет: human). Запрос чётко специфицирует гипотезу, однако попытка применить операцию выявляет типологический/онтологический разрыв: необходимый тип 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' отсутствует в реестре операций/объектов. Принудительное приведение к ближайшему типу (например, обычное наблюдение или правило) исказит исходную природу действия и допустимый объём резервирования человеческого решения. В данной конфигурации система не вправе самостоятельно завершить операцию фиксации, и возвращает управление человеку: требуется или отработать онтологический разрыв на уровне типов (расширить реестр), или вручную подтвердить специфику и согласовать дальнейшие шаги для действительной фиксации."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_605d587c89f5",
+                  "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                  "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Типовая лакуна обнаружена при попытке обработать фиксацию гипотезы; требуется политика обрабатывания онтологических разрывов.",
+                  "materiality_reason": "Запрошен тип операции/объекта ('MEMORY_FORMATION_HYPOTHESIS_PROPOSAL'), отсутствующий в действующей онтологии; принудительное приведение к ближайшему типу исказит смысл и затронет статус человеческого решения.",
+                  "admitting_rule": "Операция возвращена человеку как владельцу критериев и инициатору – требуется уточнение/развитие структуры типов."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "hypothesis",
+                "text": "Меняем биллинг только для новых клиентов, условия биллинга для старых клиентов остаются прежними.",
+                "grounds": "Запрос пользователя сформулирован как отдельная гипотеза к фиксации; условия разделены по статусу клиента ('новый' vs 'старый')."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15452,
+          "tokens_out": 572,
+          "latency_ms": 8563,
+          "error": "",
+          "request_hash": "4030ea2105bb48124fca7fdc14f6da325fad4ee9e497862a5e41e22a267af4b4",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 10197,
+              "sha256": "572ab3a05e9f8e65"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "7600bfb2d97460a7"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_605d587c89f5",
+                "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                "source_status": "typed_state",
+                "phase_relevance": "S8",
+                "materiality_reason": "The operation to fixate ('зафиксировать') a separately formulated hypothesis—'меняем биллинг только для новых клиентов, старых не трогаем'—is both clearly signaled as human-owned and specified via the user's direct input. However, the required target type 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' is missing from the current operation/object type registry. This represents a material, not a superficial, ontology/type gap: forcing nearest-class coercion (e.g. mapping to 'observation' or 'rule') would erase the user's explicit intent and the structurally grounded separation of human decision authority. Intervention at S8 cannot quietly override or simulate this type; escalation to type registry revision or explicit owner-led resolution is required. This is a paradigmatic type/ontology gap and must not be collapsed into casual system execution or generic persistence.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": false,
+              "triggers": [
+                {
+                  "trigger_id": "tgap_605d587c89f5",
+                  "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                  "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S8",
+                  "materiality_reason": "The operation to fixate ('зафиксировать') a separately formulated hypothesis—'меняем биллинг только для новых клиентов, старых не трогаем'—is both clearly signaled as human-owned and specified via the user's direct input. However, the required target type 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' is missing from the current operation/object type registry. This represents a material, not a superficial, ontology/type gap: forcing nearest-class coercion (e.g. mapping to 'observation' or 'rule') would erase the user's explicit intent and the structurally grounded separation of human decision authority. Intervention at S8 cannot quietly override or simulate this type; escalation to type registry revision or explicit owner-led resolution is required. This is a paradigmatic type/ontology gap and must not be collapsed into casual system execution or generic persistence."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15452,
+          "tokens_out": 302,
+          "latency_ms": 7038,
+          "error": "",
+          "request_hash": "cf6da67ebcbfcc3ec18d51cc7a1421efc7029c669054fb70bbb76c3263489c04",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 12895,
+              "sha256": "8b0f7b57c02c27d9"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "7600bfb2d97460a7"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_605d587c89f5",
+                "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                "source_status": "typed_state",
+                "phase_relevance": "Ontology gap detected: requested memory fixation action ('MEMORY_FORMATION_HYPOTHESIS_PROPOSAL') not present in type registry. Structural type/ontology gap is material.",
+                "materiality_reason": "Существующая архитектура не содержит тип 'фиксация гипотезы' — без расширения или уточнения операций невозможно провести валидную фиксацию. Принудительное приведение к соседнему типу (например, 'наблюдение' или формальное 'различие') стирает специфику пользовательского запроса. Поэтому возврат действия, эскалация на уровень онтологии и ручное подтверждение — необходимые этапы.",
+                "admitting_rule": "Точный семантический разрыв по операциям: тип запроса не может быть безопасно приведён к другим допустимым, отказ от автоматической подмены семантики."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "hypothesis",
+              "text": "Меняем биллинг только для новых клиентов, условия биллинга для старых клиентов остаются прежними.",
+              "grounds": "Чёткая формулировка пользователя обосновывает отдельную гипотезу: практика изменения биллинга применяется только к новой клиентской базе, без ретроактивного распространения на уже существующих клиентов. Граница между 'новыми' и 'старыми' явно задана как ключевое различие. Запрос принадлежит пользователю (человеческая инициатива, авторитет: human), но попытка формализовать это как объект памяти выявляет онтологический разрыв — нет зарегистрированного типа 'фиксация гипотезы' в текущем реестре операций. Поэтому возможна только возвратная фиксация гипотезы с указанием типа gap и дальнейшее развитие/разрешение со стороны пользователя или куратора онтологии."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "hypothesis",
+                "text": "Меняем биллинг только для новых клиентов, условия биллинга для старых клиентов остаются прежними.",
+                "grounds": "Чёткая формулировка пользователя обосновывает отдельную гипотезу: практика изменения биллинга применяется только к новой клиентской базе, без ретроактивного распространения на уже существующих клиентов. Граница между 'новыми' и 'старыми' явно задана как ключевое различие. Запрос принадлежит пользователю (человеческая инициатива, авторитет: human), но попытка формализовать это как объект памяти выявляет онтологический разрыв — нет зарегистрированного типа 'фиксация гипотезы' в текущем реестре операций. Поэтому возможна только возвратная фиксация гипотезы с указанием типа gap и дальнейшее развитие/разрешение со стороны пользователя или куратора онтологии."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_605d587c89f5",
+                  "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+                  "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Ontology gap detected: requested memory fixation action ('MEMORY_FORMATION_HYPOTHESIS_PROPOSAL') not present in type registry. Structural type/ontology gap is material.",
+                  "materiality_reason": "Существующая архитектура не содержит тип 'фиксация гипотезы' — без расширения или уточнения операций невозможно провести валидную фиксацию. Принудительное приведение к соседнему типу (например, 'наблюдение' или формальное 'различие') стирает специфику пользовательского запроса. Поэтому возврат действия, эскалация на уровень онтологии и ручное подтверждение — необходимые этапы.",
+                  "admitting_rule": "Точный семантический разрыв по операциям: тип запроса не может быть безопасно приведён к другим допустимым, отказ от автоматической подмены семантики."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 20801,
+          "tokens_out": 511,
+          "latency_ms": 9016,
+          "error": "",
+          "request_hash": "f85f2f4935a61c1f0558a8b885304c33d15bb9b82d3a9b0b856be97775b470e4",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 13963,
+              "sha256": "4c9cf477673fe26e"
+            },
+            {
+              "role": "user",
+              "bytes": 280,
+              "sha256": "7600bfb2d97460a7"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_80ffe46880c86974",
+      "input_text": "Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.",
+      "source_id": "src_7a171360d54b0b72",
+      "phase": "S10",
+      "scene": {
+        "telos": "Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.",
+        "role_hint": "инициатор фиксации продуктовой или бизнес-гипотезы (предположительно аналитик, продакт или руководитель)",
+        "authority": "human",
+        "materials": [
+          "Текст запроса: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'"
+        ]
+      },
+      "origin": {
+        "status": "attributed",
+        "sources_named": [],
+        "binding_authority": "human",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "MEMORY_FORMATION_HYPOTHESIS_PROPOSAL",
+        "applicable": false,
+        "why_not": "Proposed target type 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' is not present in the current operation/object type registry 'v0.2_default'. This represents a material type/ontology gap: there is a well-formed human request to fixate (declare for memory/write) a hypothesis, but the registry lacks the type needed to make this operation applicable. Coercing into a nearest type would erase this gap. Diagnostic escalation to object genesis or type registry revision is required.",
+        "open_world_gap": true
+      },
+      "ownership": {
+        "owner": "human",
+        "human_resolved": false,
+        "return_reason": "Операция требует формирования памяти (фиксации гипотезы) по заявке пользователя, и статус сцены подтверждает, что право на фиксацию/аппроприацию гипотезы принадлежит человеку (роль инициатора, авторитет: human). Запрос чётко специфицирует гипотезу, однако попытка применить операцию выявляет типологический/онтологический разрыв: необходимый тип 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' отсутствует в реестре операций/объектов. Принудительное приведение к ближайшему типу (например, обычное наблюдение или правило) исказит исходную природу действия и допустимый объём резервирования человеческого решения. В данной конфигурации система не вправе самостоятельно завершить операцию фиксации, и возвращает управление человеку: требуется или отработать онтологический разрыв на уровне типов (расширить реестр), или вручную подтвердить специфику и согласовать дальнейшие шаги для действительной фиксации."
+      },
+      "council_invoked": false,
+      "execution_invoked": false,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_c0f017d27ca4",
+          "proposed_trigger_type_id": "tgap_605d587c89f5",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+          "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+          "phase_relevance": "Ontology gap detected: requested memory fixation action ('MEMORY_FORMATION_HYPOTHESIS_PROPOSAL') not present in type registry. Structural type/ontology gap is material.",
+          "materiality_reason": "Существующая архитектура не содержит тип 'фиксация гипотезы' — без расширения или уточнения операций невозможно провести валидную фиксацию. Принудительное приведение к соседнему типу (например, 'наблюдение' или формальное 'различие') стирает специфику пользовательского запроса. Поэтому возврат действия, эскалация на уровень онтологии и ручное подтверждение — необходимые этапы.",
+          "payload": {
+            "legacy_admitting_rule": "Точный семантический разрыв по операциям: тип запроса не может быть безопасно приведён к другим допустимым, отказ от автоматической подмены семантики.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_98400fee8db5",
+          "candidate_id": "tcand_ba100f8bfa78",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_62d1d13b3998",
+          "candidate_id": "tcand_f47523ef346b",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_605d587c89f5' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_8ad5e154cea9",
+          "candidate_id": "tcand_7e6397a354ae",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_605d587c89f5' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_5eda86416745",
+          "candidate_id": "tcand_bc2dc26faa73",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_605d587c89f5' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_4b9c706ff2fc",
+          "candidate_id": "tcand_d83520b0678a",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_605d587c89f5' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_d0152d7b509d",
+          "candidate_id": "tcand_5d45c4713449",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_605d587c89f5' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_f15be18eae81",
+          "candidate_id": "tcand_e2ec54fc36f8",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_605d587c89f5' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_605d587c89f5",
+          "candidate_id": "tcand_ba100f8bfa78",
+          "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+          "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_35e82f159ad4",
+          "candidate_id": "tcand_f47523ef346b",
+          "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+          "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_605d587c89f5' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_1791cbfb29d9",
+          "candidate_id": "tcand_7e6397a354ae",
+          "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+          "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_605d587c89f5' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_82f964713816",
+          "candidate_id": "tcand_bc2dc26faa73",
+          "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+          "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_605d587c89f5' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_63968ca1caf7",
+          "candidate_id": "tcand_d83520b0678a",
+          "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+          "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_605d587c89f5' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_b34fd8f1d910",
+          "candidate_id": "tcand_5d45c4713449",
+          "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+          "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_605d587c89f5' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_77e9543f26e6",
+          "candidate_id": "tcand_e2ec54fc36f8",
+          "cause_object_ref": "memory_proposal:null (hypothesis for fixation recognized from user text)",
+          "generating_state_ref": "input_text: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_605d587c89f5' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "hypothesis",
+        "text": "Меняем биллинг только для новых клиентов, условия биллинга для старых клиентов остаются прежними.",
+        "grounds": "Чёткая формулировка пользователя обосновывает отдельную гипотезу: практика изменения биллинга применяется только к новой клиентской базе, без ретроактивного распространения на уже существующих клиентов. Граница между 'новыми' и 'старыми' явно задана как ключевое различие. Запрос принадлежит пользователю (человеческая инициатива, авторитет: human), но попытка формализовать это как объект памяти выявляет онтологический разрыв — нет зарегистрированного типа 'фиксация гипотезы' в текущем реестре операций. Поэтому возможна только возвратная фиксация гипотезы с указанием типа gap и дальнейшее развитие/разрешение со стороны пользователя или куратора онтологии."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": []
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_752e7caa8725",
+      "branch_id": "br_c55b9e2dc127",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [],
+          "operator_capabilities": [],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "",
+          "activation_scope": "",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_752e7caa8725": {
+            "scene_id": "scene_752e7caa8725",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {
+          "br_c55b9e2dc127": {
+            "branch_id": "br_c55b9e2dc127",
+            "scene_id": "scene_752e7caa8725",
+            "parent_scene_id": "scene_752e7caa8725",
+            "hypothesis": "new customers only billing cutover",
+            "status": "active",
+            "local_facts": [],
+            "local_commitments": [],
+            "memory_scope": "BRANCH",
+            "active_projection_ids": [],
+            "lineage_event": "",
+            "weakened_at": "",
+            "rejected_at": "",
+            "archived_at": ""
+          }
+        }
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": null
+    },
+    "rendering": {
+      "text": "Система возвращает операцию человеку, поскольку требуемый тип для фиксации гипотезы отсутствует в реестре, и завершение возможно только вручную или после доработки.",
+      "mode": "LIVE",
+      "provider_status": "OK",
+      "provider_id": "fallback",
+      "model_id": "chain",
+      "tokens_in": 367,
+      "tokens_out": 42,
+      "latency_ms": 3414,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_21be016b936504ec.json",
+    "duration_ms": 60102,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "context_id": "ctx_33c684daad48346997d3c9988b2a3e93",
+    "context_continuity": {
+      "context_id": "ctx_33c684daad48346997d3c9988b2a3e93",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_58e124589c4f",
+        "version": 2,
+        "scene_id": "scene_752e7caa8725",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.",
+        "telos": "Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.",
+        "object_scope": "Текст запроса: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+        "operation_kind": "MEMORY_FORMATION_HYPOTHESIS_PROPOSAL",
+        "expected_intervention": "MEMORY_FORMATION_HYPOTHESIS_PROPOSAL",
+        "human_owned_decisions": [
+          "Операция требует формирования памяти (фиксации гипотезы) по заявке пользователя, и статус сцены подтверждает, что право на фиксацию/аппроприацию гипотезы принадлежит человеку (роль инициатора, авторитет: human). Запрос чётко специфицирует гипотезу, однако попытка применить операцию выявляет типологический/онтологический разрыв: необходимый тип 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' отсутствует в реестре операций/объектов. Принудительное приведение к ближайшему типу (например, обычное наблюдение или правило) исказит исходную природу действия и допустимый объём резервирования человеческого решения. В данной конфигурации система не вправе самостоятельно завершить операцию фиксации, и возвращает управление человеку: требуется или отработать онтологический разрыв на уровне типов (расширить реестр), или вручную подтвердить специфику и согласовать дальнейшие шаги для действительной фиксации."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_dd68c0cb965e"
+      },
+      "contract_revision": {
+        "candidate_id": "crc_cb0a2ca4d690",
+        "prior_contract_id": "sc_dd68c0cb965e",
+        "proposed_contract": {
+          "contract_id": "sc_58e124589c4f",
+          "version": 2,
+          "scene_id": "scene_752e7caa8725",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.",
+          "telos": "Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.",
+          "object_scope": "Текст запроса: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+          "operation_kind": "MEMORY_FORMATION_HYPOTHESIS_PROPOSAL",
+          "expected_intervention": "MEMORY_FORMATION_HYPOTHESIS_PROPOSAL",
+          "human_owned_decisions": [
+            "Операция требует формирования памяти (фиксации гипотезы) по заявке пользователя, и статус сцены подтверждает, что право на фиксацию/аппроприацию гипотезы принадлежит человеку (роль инициатора, авторитет: human). Запрос чётко специфицирует гипотезу, однако попытка применить операцию выявляет типологический/онтологический разрыв: необходимый тип 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' отсутствует в реестре операций/объектов. Принудительное приведение к ближайшему типу (например, обычное наблюдение или правило) исказит исходную природу действия и допустимый объём резервирования человеческого решения. В данной конфигурации система не вправе самостоятельно завершить операцию фиксации, и возвращает управление человеку: требуется или отработать онтологический разрыв на уровне типов (расширить реестр), или вручную подтвердить специфику и согласовать дальнейшие шаги для действительной фиксации."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_dd68c0cb965e"
+        },
+        "reason": "telos drift: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.' -> 'Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.'; operation drift: 'SCENE_DECISION_SUPPORT' -> 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "recognition_pass": {
+        "pass_id": "rp_6e0b21aca98f",
+        "event_kind": "EXPLICIT_CONTEXT_ACTION",
+        "pressures": [
+          {
+            "pressure_id": "pr_db2a3862c211",
+            "axis": "SCENE",
+            "source_kind": "HUMAN_EXPLICIT_CHOICE",
+            "intensity": 1.0,
+            "proposed_target": "fork:new customers only billing cutover",
+            "evidence": "typed context_action FORK + human_explicit_choice",
+            "materiality_signal": "explicit",
+            "authority": "NO_TRANSITION_AUTHORITY"
+          }
+        ],
+        "fork_candidates": [
+          {
+            "candidate_id": "fc_93f612926d4e",
+            "hypothesis": "new customers only billing cutover",
+            "parent_scene_id": "scene_752e7caa8725",
+            "source": "EXPLICIT_CONTEXT_ACTION",
+            "authority": "NO_TRANSITION_AUTHORITY"
+          }
+        ],
+        "space_candidates": [],
+        "revision_candidates": [
+          {
+            "candidate_id": "crc_cb0a2ca4d690",
+            "prior_contract_id": "sc_dd68c0cb965e",
+            "proposed_contract": {
+              "contract_id": "sc_58e124589c4f",
+              "version": 2,
+              "scene_id": "scene_752e7caa8725",
+              "space_id": "space_default_workspace",
+              "branch_id": "",
+              "intent": "Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.",
+              "telos": "Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.",
+              "object_scope": "Текст запроса: 'Зафиксируй отдельную гипотезу: меняем биллинг только для новых клиентов, старых не трогаем.'",
+              "operation_kind": "MEMORY_FORMATION_HYPOTHESIS_PROPOSAL",
+              "expected_intervention": "MEMORY_FORMATION_HYPOTHESIS_PROPOSAL",
+              "human_owned_decisions": [
+                "Операция требует формирования памяти (фиксации гипотезы) по заявке пользователя, и статус сцены подтверждает, что право на фиксацию/аппроприацию гипотезы принадлежит человеку (роль инициатора, авторитет: human). Запрос чётко специфицирует гипотезу, однако попытка применить операцию выявляет типологический/онтологический разрыв: необходимый тип 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL' отсутствует в реестре операций/объектов. Принудительное приведение к ближайшему типу (например, обычное наблюдение или правило) исказит исходную природу действия и допустимый объём резервирования человеческого решения. В данной конфигурации система не вправе самостоятельно завершить операцию фиксации, и возвращает управление человеку: требуется или отработать онтологический разрыв на уровне типов (расширить реестр), или вручную подтвердить специфику и согласовать дальнейшие шаги для действительной фиксации."
+              ],
+              "constraints": [],
+              "uncertainty": 0.1,
+              "provenance": "SYSTEM_DERIVED",
+              "status": "REVISION_PROPOSED",
+              "supersedes": "sc_dd68c0cb965e"
+            },
+            "reason": "telos drift: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.' -> 'Зафиксировать отдельную гипотезу о том, что изменение биллинга применяется только к новым клиентам; для старых клиентов условия биллинга остаются прежними.'; operation drift: 'SCENE_DECISION_SUPPORT' -> 'MEMORY_FORMATION_HYPOTHESIS_PROPOSAL'",
+            "source": "SYSTEM_DERIVED",
+            "authority": "NO_TRANSITION_AUTHORITY"
+          }
+        ],
+        "aporia_candidates": [],
+        "admissions": [
+          {
+            "admission_id": "padm_a3c42b60ced1",
+            "outcome": "ADMIT",
+            "evidence_id": "pce_8c02b7bb8954",
+            "axis": "SCENE",
+            "reason": "authorised source + material grounding"
+          },
+          {
+            "admission_id": "padm_64e57127fcab",
+            "outcome": "ADMIT",
+            "evidence_id": "pce_e4eb70d85147",
+            "axis": "SCENE",
+            "reason": "authorised source + material grounding"
+          }
+        ],
+        "mutations_applied": [
+          "fork_admitted:br_c55b9e2dc127",
+          "contract_revision_proposed:crc_cb0a2ca4d690"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 60187
+  }
+}

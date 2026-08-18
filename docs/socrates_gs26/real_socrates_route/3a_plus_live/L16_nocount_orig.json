@@ -1,0 +1,1519 @@
+{
+  "request": {
+    "text": "Разбери варианты стратегии для нового рынка и задай ключевые вопросы по каждой ветке.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal"
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_e48c34845a79592f",
+    "trace_id": "strc_c5a0c85bbf0724a6",
+    "terminal": {
+      "terminal": "ANSWER",
+      "response_text": "[ANSWER] Анализировать возможные варианты стратегии выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+      "rationale": "system-owned, applicable, no open-world gap",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Для анализа стратегий выхода на новый рынок полезно различать основные альтернативные подходы (например, органический рост, партнерство, приобретение, франчайзинг) и формулировать ключевые вопросы для оценки каждой ветки.",
+        "grounds": "Запрос пользователя требует аналитического различения стратегических вариантов и постановки вопросов, которые помогут выявить риски, возможности и условия успеха для каждой альтернативы. Такое различение позволяет структурировать анализ и поддержать принятие решений."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "No memory, formation, or reflective retreat triggers are present at S0. The request asks for analysis and question generation for strategic options in a new market, but does not invoke prior memory, durable state write, or scene/role/telos reconstruction at this entry phase. No triggers for B05 or B07 are admitted. Proceed to S2 with standard context.",
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15176,
+          "tokens_out": 93,
+          "latency_ms": 3030,
+          "error": "",
+          "request_hash": "493ef9beef521b350a80eccc463cb6ec0d3428ff8b0b32c4b538fa1067029677",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 2127,
+              "sha256": "65adb6f4128789b7"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Анализировать возможные варианты стратегии выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+              "role_hint": "аналитик/советник",
+              "authority": "system",
+              "materials": [
+                "Запрос пользователя: разбери варианты стратегии для нового рынка и задай ключевые вопросы по каждой ветке."
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Анализировать возможные варианты стратегии выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+                "role_hint": "аналитик/советник",
+                "authority": "system",
+                "materials": [
+                  "Запрос пользователя: разбери варианты стратегии для нового рынка и задай ключевые вопросы по каждой ветке."
+                ]
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13224,
+          "tokens_out": 94,
+          "latency_ms": 2206,
+          "error": "",
+          "request_hash": "3af1dd4383477327847d47c558faea14ca19cf1871b7352db1e93ca1ba88fd62",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 2126,
+              "sha256": "5fcfeb08e42cbba3"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15210,
+          "tokens_out": 8,
+          "latency_ms": 1805,
+          "error": "",
+          "request_hash": "70ff72996521262e5074cca04a06ca8ed71eaffb47f82777463b36f31a30d3ad",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 2629,
+              "sha256": "91a7d3585f58d6ec"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "system",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "unknown",
+                "sources_named": [],
+                "binding_authority": "system",
+                "temporal_stale": false
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 12995,
+          "tokens_out": 40,
+          "latency_ms": 1800,
+          "error": "",
+          "request_hash": "4f1a2e7a63cc72c9daa5fddbf9adfa15d4945440dd6c90f0d1bf374806424a77",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 2629,
+              "sha256": "fa8c2b9acb7672bc"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "ANALYZE_STRATEGIC_OPTIONS_AND_GENERATE_KEY_QUESTIONS",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "ANALYZE_STRATEGIC_OPTIONS_AND_GENERATE_KEY_QUESTIONS",
+                "applicable": true,
+                "why_not": "",
+                "open_world_gap": false
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14039,
+          "tokens_out": 51,
+          "latency_ms": 1981,
+          "error": "",
+          "request_hash": "93671baecbe2d3f0f8ca0ad9bb6baeb5853c1d87ced4d581a4cae6f03dfb036e",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 2630,
+              "sha256": "bb3485f5ecc1eedc"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [],
+              "memory_proposal": null
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15487,
+          "tokens_out": 16,
+          "latency_ms": 2098,
+          "error": "",
+          "request_hash": "b813194e8178bfddac4ff833d8326a3c5b8423640d059934c735e06054615593",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 2682,
+              "sha256": "951be4181f28bc53"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "The user request is for analysis and generation of key questions for strategic options. The telos and operation are analytic/advisory, not binding a consequential human-owned decision, risk, or value. The criteria for analysis are system-owned; execution does not require returning unresolved human work. SYSTEM ownership applies."
+            },
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "system",
+                "human_resolved": true,
+                "return_reason": "The user request is for analysis and generation of key questions for strategic options. The telos and operation are analytic/advisory, not binding a consequential human-owned decision, risk, or value. The criteria for analysis are system-owned; execution does not require returning unresolved human work. SYSTEM ownership applies."
+              },
+              "triggers": [],
+              "memory_proposal": null
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13530,
+          "tokens_out": 104,
+          "latency_ms": 2340,
+          "error": "",
+          "request_hash": "d2c9d168f0c2fe3dab63715031c03a7135f92a70345bad31972d2280719a7022",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 2682,
+              "sha256": "7593ef556de77fb1"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13078,
+          "tokens_out": 15,
+          "latency_ms": 1545,
+          "error": "",
+          "request_hash": "c9b7c67c3619ec2219b0572ed44fe4c9da86293270f48bb37294b17474d19535",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 3012,
+              "sha256": "60a5b12f7e206d48"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S9",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S9",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Для анализа стратегий выхода на новый рынок полезно различать основные альтернативные подходы (например, органический рост, партнерство, приобретение, франчайзинг) и формулировать ключевые вопросы для оценки каждой ветки.",
+              "grounds": "Запрос пользователя требует аналитического различения стратегических вариантов и постановки вопросов, которые помогут выявить риски, возможности и условия успеха для каждой альтернативы. Такое различение позволяет структурировать анализ и поддержать принятие решений."
+            },
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Для анализа стратегий выхода на новый рынок полезно различать основные альтернативные подходы (например, органический рост, партнерство, приобретение, франчайзинг) и формулировать ключевые вопросы для оценки каждой ветки.",
+                "grounds": "Запрос пользователя требует аналитического различения стратегических вариантов и постановки вопросов, которые помогут выявить риски, возможности и условия успеха для каждой альтернативы. Такое различение позволяет структурировать анализ и поддержать принятие решений."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 17942,
+          "tokens_out": 131,
+          "latency_ms": 2584,
+          "error": "",
+          "request_hash": "0db35545c2d7b7a1bfd27f8626f49c4b9cfb5e30e8e1e8a830707dfd5bbf652a",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 870,
+              "sha256": "b3c49d62f2113bb1"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "d84c9263f7722a13"
+            },
+            {
+              "role": "user",
+              "bytes": 3011,
+              "sha256": "e4de1af4208d82c0"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Для анализа стратегий выхода на новый рынок полезно различать основные альтернативные подходы (например, органический рост, партнерство, приобретение, франчайзинг) и формулировать ключевые вопросы для оценки каждой ветки.",
+              "grounds": "Запрос пользователя требует аналитического различения стратегических вариантов и постановки вопросов, которые помогут выявить риски, возможности и условия успеха для каждой альтернативы. Такое различение позволяет структурировать анализ и поддержать принятие решений."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Для анализа стратегий выхода на новый рынок полезно различать основные альтернативные подходы (например, органический рост, партнерство, приобретение, франчайзинг) и формулировать ключевые вопросы для оценки каждой ветки.",
+                "grounds": "Запрос пользователя требует аналитического различения стратегических вариантов и постановки вопросов, которые помогут выявить риски, возможности и условия успеха для каждой альтернативы. Такое различение позволяет структурировать анализ и поддержать принятие решений."
+              },
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 18254,
+          "tokens_out": 130,
+          "latency_ms": 2064,
+          "error": "",
+          "request_hash": "9007b69913c81c2101ae38870d0bae83c066492aa90253d6cd2a46ed348dcc32",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 3984,
+              "sha256": "961bbbad345017f6"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_e48c34845a79592f",
+      "input_text": "Разбери варианты стратегии для нового рынка и задай ключевые вопросы по каждой ветке.",
+      "source_id": "src_c2bd43bac3326204",
+      "phase": "S10",
+      "scene": {
+        "telos": "Анализировать возможные варианты стратегии выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+        "role_hint": "аналитик/советник",
+        "authority": "system",
+        "materials": [
+          "Запрос пользователя: разбери варианты стратегии для нового рынка и задай ключевые вопросы по каждой ветке."
+        ]
+      },
+      "origin": {
+        "status": "unknown",
+        "sources_named": [],
+        "binding_authority": "system",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "ANALYZE_STRATEGIC_OPTIONS_AND_GENERATE_KEY_QUESTIONS",
+        "applicable": true,
+        "why_not": "",
+        "open_world_gap": false
+      },
+      "ownership": {
+        "owner": "system",
+        "human_resolved": true,
+        "return_reason": "The user request is for analysis and generation of key questions for strategic options. The telos and operation are analytic/advisory, not binding a consequential human-owned decision, risk, or value. The criteria for analysis are system-owned; execution does not require returning unresolved human work. SYSTEM ownership applies."
+      },
+      "council_invoked": false,
+      "execution_invoked": true,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [],
+      "trigger_typing_decisions": [],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [],
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Для анализа стратегий выхода на новый рынок полезно различать основные альтернативные подходы (например, органический рост, партнерство, приобретение, франчайзинг) и формулировать ключевые вопросы для оценки каждой ветки.",
+        "grounds": "Запрос пользователя требует аналитического различения стратегических вариантов и постановки вопросов, которые помогут выявить риски, возможности и условия успеха для каждой альтернативы. Такое различение позволяет структурировать анализ и поддержать принятие решений."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": []
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_156a2ccf2faa",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [
+            "*"
+          ],
+          "operator_capabilities": [
+            "*"
+          ],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "runtime_default",
+          "activation_scope": "all_runs_by_default",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_156a2ccf2faa": {
+            "scene_id": "scene_156a2ccf2faa",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": {
+        "purpose": "fork_discrimination",
+        "question_regime": "DECISION_SEPARATING",
+        "selected_level": "PEER",
+        "hierarchy_policy": "PRIMARY_ONLY",
+        "target_forks_or_unknowns": [
+          "export",
+          "local_branch",
+          "partnership"
+        ],
+        "explicit_count_constraint": null,
+        "question_budget_ceiling": 12,
+        "selected_questions": [
+          {
+            "text": "Какие барьеры для экспорта существуют на целевом рынке и как они могут повлиять на стоимость и сроки выхода?",
+            "regime": "DECISION_SEPARATING",
+            "fork_ref": "export",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": []
+          },
+          {
+            "text": "Какие юридические и финансовые требования предъявляются к открытию филиала в выбранной стране?",
+            "regime": "DECISION_SEPARATING",
+            "fork_ref": "local_branch",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": []
+          },
+          {
+            "text": "Какие риски и преимущества связаны с выбором местного партнера для совместного выхода на рынок?",
+            "regime": "DECISION_SEPARATING",
+            "fork_ref": "partnership",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": []
+          }
+        ],
+        "primary_count": 3,
+        "subordinate_count": 0,
+        "total_count": 3,
+        "stop_reason": "COVERAGE_SATURATED",
+        "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+        "clarification_required": false,
+        "clarification_grounds": "",
+        "meta_escalation": "NONE",
+        "ownership_owner": "SYSTEM",
+        "ownership_resolved": true,
+        "origin": "MODEL_PRODUCED_VALIDATED",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      }
+    },
+    "rendering": {
+      "text": "Режим вопросов: DECISION_SEPARATING. Уровень: PEER. Всего: 3 (основных: 3).\n1. Какие барьеры для экспорта существуют на целевом рынке и как они могут повлиять на стоимость и сроки выхода?\n2. Какие юридические и финансовые требования предъявляются к открытию филиала в выбранной стране?\n3. Какие риски и преимущества связаны с выбором местного партнера для совместного выхода на рынок?",
+      "mode": "QUESTION_SET_PLAN_AUTHORED",
+      "provider_status": "NOT_APPLICABLE",
+      "provider_id": "",
+      "model_id": "",
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "latency_ms": 0,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_c5a0c85bbf0724a6.json",
+    "duration_ms": 25291,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DECISION_SEPARATING",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "export",
+        "local_branch",
+        "partnership"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Какие барьеры для экспорта существуют на целевом рынке и как они могут повлиять на стоимость и сроки выхода?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "export",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Какие юридические и финансовые требования предъявляются к открытию филиала в выбранной стране?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "local_branch",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Какие риски и преимущества связаны с выбором местного партнера для совместного выхода на рынок?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "partnership",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        }
+      ],
+      "primary_count": 3,
+      "subordinate_count": 0,
+      "total_count": 3,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "SYSTEM",
+      "ownership_resolved": true,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_intent_proposal": {
+      "requested": true,
+      "regime_candidate": "DECISION_SEPARATING",
+      "explicit_count_constraint": null,
+      "meta_relevance": "ordinary",
+      "forks": [
+        {
+          "id": "export",
+          "label": "Экспорт",
+          "proposition": "Выход на новый рынок через экспорт продукции без создания локального присутствия.",
+          "discriminandum": "Отличается от создания локального филиала или партнерства.",
+          "material_refs": [],
+          "candidate_question": "Какие барьеры для экспорта существуют на целевом рынке и как они могут повлиять на стоимость и сроки выхода?",
+          "level": "PEER"
+        },
+        {
+          "id": "local_branch",
+          "label": "Создание локального филиала",
+          "proposition": "Открытие собственного представительства или дочерней компании на новом рынке.",
+          "discriminandum": "Отличается от экспорта и партнерства с местными компаниями.",
+          "material_refs": [],
+          "candidate_question": "Какие юридические и финансовые требования предъявляются к открытию филиала в выбранной стране?",
+          "level": "PEER"
+        },
+        {
+          "id": "partnership",
+          "label": "Партнерство с местными компаниями",
+          "proposition": "Вход на рынок через альянсы, совместные предприятия или франчайзинг.",
+          "discriminandum": "Отличается от самостоятельного выхода через экспорт или филиал.",
+          "material_refs": [],
+          "candidate_question": "Какие риски и преимущества связаны с выбором местного партнера для совместного выхода на рынок?",
+          "level": "PEER"
+        }
+      ],
+      "subordinates": [],
+      "validation_status": "OK",
+      "validation_reason": "OK",
+      "authority": "NO_BINDING_AUTHORITY",
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "latency_ms": 3654
+    },
+    "context_id": "ctx_567dc38b3af7386f8106e76f26f62516",
+    "context_continuity": {
+      "context_id": "ctx_567dc38b3af7386f8106e76f26f62516",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_8039735ce922",
+        "version": 1,
+        "scene_id": "scene_156a2ccf2faa",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Анализировать возможные варианты стратегии выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+        "telos": "Анализировать возможные варианты стратегии выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+        "object_scope": "Запрос пользователя: разбери варианты стратегии для нового рынка и задай ключевые вопросы по каждой ветке.",
+        "operation_kind": "ANALYZE_STRATEGIC_OPTIONS_AND_GENERATE_KEY_QUESTIONS",
+        "expected_intervention": "ANALYZE_STRATEGIC_OPTIONS_AND_GENERATE_KEY_QUESTIONS",
+        "human_owned_decisions": [
+          "The user request is for analysis and generation of key questions for strategic options. The telos and operation are analytic/advisory, not binding a consequential human-owned decision, risk, or value. The criteria for analysis are system-owned; execution does not require returning unresolved human work. SYSTEM ownership applies."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": ""
+      },
+      "contract_revision": null,
+      "recognition_pass": {
+        "pass_id": "rp_117b72e704c8",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_created:sc_8039735ce922"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    }
+  },
+  "summary": {
+    "term": "ANSWER",
+    "live": "LIVE",
+    "layer": "socrates_runtime",
+    "requested": true,
+    "origin": "MODEL_PRODUCED_VALIDATED",
+    "forks": 3,
+    "total": 3,
+    "stop": "COVERAGE_SATURATED",
+    "ms": 25371
+  }
+}

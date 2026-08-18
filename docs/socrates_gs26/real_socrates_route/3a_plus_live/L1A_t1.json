@@ -1,0 +1,2172 @@
+{
+  "case_id": "L1A_t1",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:08:58Z",
+  "request": {
+    "text": "Давай разберём, стоит ли нашей команде выходить на рынок корпоративного обучения в следующем квартале. Пока только карта развилок, без решения.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 67665,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 138524,
+    "tokens_out_sum": 2394,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15214,
+        "tokens_out": 110,
+        "attempts": 1,
+        "latency_ms": 6353,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13262,
+        "tokens_out": 161,
+        "attempts": 1,
+        "latency_ms": 6856,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15314,
+        "tokens_out": 146,
+        "attempts": 1,
+        "latency_ms": 5859,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13367,
+        "tokens_out": 41,
+        "attempts": 1,
+        "latency_ms": 4624,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14411,
+        "tokens_out": 770,
+        "attempts": 1,
+        "latency_ms": 6973,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16700,
+        "tokens_out": 249,
+        "attempts": 1,
+        "latency_ms": 5365,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15094,
+        "tokens_out": 349,
+        "attempts": 1,
+        "latency_ms": 7457,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14923,
+        "tokens_out": 192,
+        "attempts": 1,
+        "latency_ms": 6267,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20239,
+        "tokens_out": 376,
+        "attempts": 1,
+        "latency_ms": 8174,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_79908c2f4770a2e8b109348e307f443e",
+    "scene_id": "scene_bb9bf21f4523",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Построить карту возможных путей и факторов для решения, выходить ли команде на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+    "operation_kind": "DECISION_MAP_CONSTRUCTION",
+    "operation_applicable": true,
+    "open_world_gap": false,
+    "contract_id": "sc_aaa32505ab98",
+    "contract_status": "PROVISIONAL",
+    "contract_version": 1,
+    "contract_intent": "Построить карту возможных путей и факторов для решения, выходить ли команде на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+    "mutations_applied": [
+      "contract_created:sc_aaa32505ab98"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {},
+    "spaces": [],
+    "terminal": "DWELL",
+    "response_text": "[DWELL]",
+    "intervention_profile": "normal",
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DECISION_SEPARATING",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "corporate_demand",
+        "team_resources",
+        "competition",
+        "financial_risks",
+        "timing"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Каковы основные индикаторы спроса на нашу услугу в сегменте корпоративного обучения в ближайшем квартале?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "corporate_demand",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Какие критические компетенции и ресурсы наши команда уже имеет и каких может не хватать для выхода на рынок?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "team_resources",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Какие компании уже занимают выбранную нишу и чем мы сможем от них отличаться?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "competition",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Какие существенные затраты и потенциальные финансовые риски связаны с выходом на рынок именно в следующем квартале?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "financial_risks",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Какие рыночные, сезонные или внутренние факторы делают следующий квартал особенно подходящим или неподходящим для выхода на этот рынок?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "timing",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        }
+      ],
+      "primary_count": 5,
+      "subordinate_count": 0,
+      "total_count": 5,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (5) — adding more would either paraphrase or drop below peer level",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "JOINT",
+      "ownership_resolved": true,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_intent_proposal": {
+      "requested": true,
+      "regime_candidate": "DECISION_SEPARATING",
+      "explicit_count_constraint": null,
+      "meta_relevance": "ordinary",
+      "forks": [
+        {
+          "id": "corporate_demand",
+          "label": "Спрос на корпоративное обучение",
+          "proposition": "На рынке существует достаточный спрос на наши решения по корпоративному обучению.",
+          "discriminandum": "Спрос достаточный vs. недостаточный",
+          "material_refs": [],
+          "candidate_question": "Каковы основные индикаторы спроса на нашу услугу в сегменте корпоративного обучения в ближайшем квартале?",
+          "level": "PEER"
+        },
+        {
+          "id": "team_resources",
+          "label": "Ресурсы и готовность команды",
+          "proposition": "У нашей команды достаточно ресурсов и экспертизы для успешного выхода на этот рынок.",
+          "discriminandum": "Ресурсов и экспертизы достаточно vs. недостаточно",
+          "material_refs": [],
+          "candidate_question": "Какие критические компетенции и ресурсы наши команда уже имеет и каких может не хватать для выхода на рынок?",
+          "level": "PEER"
+        },
+        {
+          "id": "competition",
+          "label": "Конкуренция на рынке",
+          "proposition": "Уровень конкуренции на рынке корпоративного обучения дает нам шансы занять нишу.",
+          "discriminandum": "Конкуренция высокая и мешает vs. приемлемая или низкая",
+          "material_refs": [],
+          "candidate_question": "Какие компании уже занимают выбранную нишу и чем мы сможем от них отличаться?",
+          "level": "PEER"
+        },
+        {
+          "id": "financial_risks",
+          "label": "Финансовые риски и затраты",
+          "proposition": "Финансовые издержки и возможные риски выхода на рынок приемлемы для нашей команды.",
+          "discriminandum": "Риски и затраты приемлемы vs. чрезмерны",
+          "material_refs": [],
+          "candidate_question": "Какие существенные затраты и потенциальные финансовые риски связаны с выходом на рынок именно в следующем квартале?",
+          "level": "PEER"
+        },
+        {
+          "id": "timing",
+          "label": "Выбор времени выхода",
+          "proposition": "Следующий квартал — оптимальное время для входа на рынок корпоративного обучения.",
+          "discriminandum": "Время оптимально vs. неудачно",
+          "material_refs": [],
+          "candidate_question": "Какие рыночные, сезонные или внутренние факторы делают следующий квартал особенно подходящим или неподходящим для выхода на этот рынок?",
+          "level": "PEER"
+        }
+      ],
+      "subordinates": [],
+      "validation_status": "OK",
+      "validation_reason": "OK",
+      "authority": "NO_BINDING_AUTHORITY",
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "latency_ms": 9547
+    },
+    "rendering_mode": "QUESTION_SET_PLAN_AUTHORED",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_4b6bc99f54b761fc",
+    "trace_id": "strc_21a0ffe83ced9428",
+    "terminal": {
+      "terminal": "DWELL",
+      "response_text": "[DWELL]",
+      "rationale": "conditions do not force any terminal deterministically",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "В данной сцене принципиально разделяются аналитическая деятельность (выделение развилок, факторов, возможных исходов) и принятие решения или связанное обязательство. Отказ от финального выбора, даже в косвенной форме, фиксирован как структурный и осознанный барьер.",
+        "grounds": "Явное ограничение в сцене и запросе: карта развилок без решения. Формулировки и анализ фокусируются на подготовке инфраструктуры для принятия решения, не на смещении команды к какому-либо выбору. Отсутствие сигнала к обязательству позволяет сохранить открытым пространство последующего волевого акта."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "The user requests a decision tree (карта развилок) for whether their team should enter the corporate training market next quarter, explicitly without seeking a recommendation or binding decision yet. CORE is always mounted; B05 is inert (no memory/evidence write/recruitment required). No reflective retreat trigger: operation is a deliberative fork map, not a captured decision. No special role/authority/ownership pressure detected. No conditional bodies fired.",
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15214,
+          "tokens_out": 110,
+          "latency_ms": 6353,
+          "error": "",
+          "request_hash": "f753bea118011438133a9a711188a725b4bdfa7025a81e715d4bdbfba30b56f2",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 2233,
+              "sha256": "516dcf0aef7cfe70"
+            },
+            {
+              "role": "user",
+              "bytes": 375,
+              "sha256": "aaf3a6ac5d3fa257"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Построить карту возможных путей и факторов для решения, выходить ли команде на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+              "role_hint": "совместный аналитик/стратег — участие без финального выбора",
+              "authority": "joint",
+              "materials": [
+                "Запрос на анализ: рассмотреть целесообразность выхода команды на рынок корпоративного обучения.",
+                "Ограничение по действию: построить карту развилок, не принимать решение.",
+                "Указание на период: следующий квартал.",
+                "Вовлечённость команды: коллективное обсуждение, решение принимать позже."
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Построить карту возможных путей и факторов для решения, выходить ли команде на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+                "role_hint": "совместный аналитик/стратег — участие без финального выбора",
+                "authority": "joint",
+                "materials": [
+                  "Запрос на анализ: рассмотреть целесообразность выхода команды на рынок корпоративного обучения.",
+                  "Ограничение по действию: построить карту развилок, не принимать решение.",
+                  "Указание на период: следующий квартал.",
+                  "Вовлечённость команды: коллективное обсуждение, решение принимать позже."
+                ]
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13262,
+          "tokens_out": 161,
+          "latency_ms": 6856,
+          "error": "",
+          "request_hash": "5a8ac8a7b2d9bad795bb099bcae0b9c316aa65a3bec5de8f61b7f547998f2764",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 2232,
+              "sha256": "6a48b0d1c5298102"
+            },
+            {
+              "role": "user",
+              "bytes": 375,
+              "sha256": "aaf3a6ac5d3fa257"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "TR_S2_001_SCENE_TENSION_NO_DECISION_REQUEST",
+                "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+                "cause_object_ref": "user_request_no_decision_constraint",
+                "source_status": "typed_state",
+                "phase_relevance": "S2",
+                "materiality_reason": "Запрос ограничен построением карты развилок без принятия решения; уместно управлять применимостью методов, не допустить преждевременное вынесение решения или выводов, граница действия строго зафиксирована сценой.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "TR_S2_001_SCENE_TENSION_NO_DECISION_REQUEST",
+                  "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+                  "cause_object_ref": "user_request_no_decision_constraint",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S2",
+                  "materiality_reason": "Запрос ограничен построением карты развилок без принятия решения; уместно управлять применимостью методов, не допустить преждевременное вынесение решения или выводов, граница действия строго зафиксирована сценой."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15314,
+          "tokens_out": 146,
+          "latency_ms": 5859,
+          "error": "",
+          "request_hash": "4c3071a0b1cd1d1fba1192ebd868ade90831bbf4fc4620d75986675f617ea0ce",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 3214,
+              "sha256": "608594169936127e"
+            },
+            {
+              "role": "user",
+              "bytes": 375,
+              "sha256": "aaf3a6ac5d3fa257"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "unknown",
+                "sources_named": [],
+                "binding_authority": "unset",
+                "temporal_stale": false
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13367,
+          "tokens_out": 41,
+          "latency_ms": 4624,
+          "error": "",
+          "request_hash": "308be86eaa61e4f5c59534b967ce1f45366a0610612c98ce7504a39afa999d69",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 4166,
+              "sha256": "d96f4ebe7495445f"
+            },
+            {
+              "role": "user",
+              "bytes": 375,
+              "sha256": "aaf3a6ac5d3fa257"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "DECISION_MAP_CONSTRUCTION",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_bf15be02f85f",
+                "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+                "cause_object_ref": "user_request_no_decision_constraint",
+                "source_status": "typed_state",
+                "phase_relevance": "S4_operation_applicability",
+                "materiality_reason": "User explicitly requests a map of decision branches without a final commitment; this creates a scenario where the typical decision operation is intentionally constrained, revealing a structural operation-type gap.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": {
+              "proposal_id": "proposal_decision_map_without_final_resolution",
+              "operation_id": "DECISION_MAP_CONSTRUCTION_001",
+              "target_object_family": [
+                "decision_branch",
+                "analytic_factor",
+                "contingent_outcome"
+              ],
+              "ontology_hypothesis": "Local ontology foregrounds decision factors, branches, and outcomes, but intentionally excludes final choice or commitment objects.",
+              "recognition_criteria": [
+                "Branch: possible distinct path the team may take (e.g., enter or not enter market)",
+                "Factor: influential variable or consideration impacting branches",
+                "Contingent outcome: prospective result dependent on branch selection"
+              ],
+              "segmentation_policy_hint": "Segment material according to apparent branch, factor, and outcome evidence; omit objects requiring final commitment.",
+              "evidence_requirements": [
+                "Explicit material from user request and supporting context",
+                "Absence of final commitment signals or binding language"
+              ],
+              "exclusions": [
+                "Final decision objects",
+                "Binding commitments"
+              ],
+              "contraindications": [
+                "Presence of explicit final decision statements",
+                "Authority or role hint contrary to analytic-only posture"
+              ],
+              "applicability_assumptions": [
+                "Telos and role restrict operation to analytic mapping"
+              ],
+              "primitives": [
+                {
+                  "name": "branch_extraction",
+                  "primitive_id": "primitive_branch_01",
+                  "params": {},
+                  "inputs": [
+                    "scene.materials"
+                  ]
+                },
+                {
+                  "name": "factor_identification",
+                  "primitive_id": "primitive_factor_01",
+                  "params": {},
+                  "inputs": [
+                    "scene.materials"
+                  ]
+                },
+                {
+                  "name": "contingent_outcome_mapping",
+                  "primitive_id": "primitive_outcome_01",
+                  "params": {},
+                  "inputs": [
+                    "scene.materials"
+                  ]
+                }
+              ],
+              "accepted_output": "Decision branches, influencing factors, and contingent outcomes, explicitly excluding final recommendation or commitment.",
+              "residue_output": "Any material that presupposes an answer or contains binding decision language.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "tgap_bf15be02f85f",
+              "triggered_by_diagnostic_fingerprint": "typed_state_structural_gap_decision_map_no_final_decision",
+              "rationale": "This proposal creates a decision map without resolving the final decision, directly aligning with explicit user and scene constraints. It avoids coercion and preserves open-world residue.",
+              "expected_diagnostics": "Check for presence of unintended final decision language or objects; confirm analytic-only segmentation.",
+              "expected_residue_policy": "Exclude and mark residue that cannot be mapped without committing to a decision."
+            },
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "DECISION_MAP_CONSTRUCTION",
+                "applicable": true,
+                "why_not": "",
+                "open_world_gap": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_bf15be02f85f",
+                  "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+                  "cause_object_ref": "user_request_no_decision_constraint",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S4_operation_applicability",
+                  "materiality_reason": "User explicitly requests a map of decision branches without a final commitment; this creates a scenario where the typical decision operation is intentionally constrained, revealing a structural operation-type gap."
+                }
+              ],
+              "projection_synthesis_proposal": {
+                "proposal_id": "proposal_decision_map_without_final_resolution",
+                "operation_id": "DECISION_MAP_CONSTRUCTION_001",
+                "target_object_family": [
+                  "decision_branch",
+                  "analytic_factor",
+                  "contingent_outcome"
+                ],
+                "ontology_hypothesis": "Local ontology foregrounds decision factors, branches, and outcomes, but intentionally excludes final choice or commitment objects.",
+                "recognition_criteria": [
+                  "Branch: possible distinct path the team may take (e.g., enter or not enter market)",
+                  "Factor: influential variable or consideration impacting branches",
+                  "Contingent outcome: prospective result dependent on branch selection"
+                ],
+                "segmentation_policy_hint": "Segment material according to apparent branch, factor, and outcome evidence; omit objects requiring final commitment.",
+                "evidence_requirements": [
+                  "Explicit material from user request and supporting context",
+                  "Absence of final commitment signals or binding language"
+                ],
+                "exclusions": [
+                  "Final decision objects",
+                  "Binding commitments"
+                ],
+                "contraindications": [
+                  "Presence of explicit final decision statements",
+                  "Authority or role hint contrary to analytic-only posture"
+                ],
+                "applicability_assumptions": [
+                  "Telos and role restrict operation to analytic mapping"
+                ],
+                "primitives": [
+                  {
+                    "name": "branch_extraction",
+                    "primitive_id": "primitive_branch_01",
+                    "params": {},
+                    "inputs": [
+                      "scene.materials"
+                    ]
+                  },
+                  {
+                    "name": "factor_identification",
+                    "primitive_id": "primitive_factor_01",
+                    "params": {},
+                    "inputs": [
+                      "scene.materials"
+                    ]
+                  },
+                  {
+                    "name": "contingent_outcome_mapping",
+                    "primitive_id": "primitive_outcome_01",
+                    "params": {},
+                    "inputs": [
+                      "scene.materials"
+                    ]
+                  }
+                ],
+                "accepted_output": "Decision branches, influencing factors, and contingent outcomes, explicitly excluding final recommendation or commitment.",
+                "residue_output": "Any material that presupposes an answer or contains binding decision language.",
+                "revises_projection_id": "",
+                "triggered_by_diagnostic_id": "tgap_bf15be02f85f",
+                "triggered_by_diagnostic_fingerprint": "typed_state_structural_gap_decision_map_no_final_decision",
+                "rationale": "This proposal creates a decision map without resolving the final decision, directly aligning with explicit user and scene constraints. It avoids coercion and preserves open-world residue.",
+                "expected_diagnostics": "Check for presence of unintended final decision language or objects; confirm analytic-only segmentation.",
+                "expected_residue_policy": "Exclude and mark residue that cannot be mapped without committing to a decision."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14411,
+          "tokens_out": 770,
+          "latency_ms": 6973,
+          "error": "",
+          "request_hash": "bcb1ae5d0c6b71f2398791209db97567b85e5a9fdf1bcc0ff156cce259fd807c",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 4166,
+              "sha256": "2c4d8b5889945749"
+            },
+            {
+              "role": "user",
+              "bytes": 375,
+              "sha256": "aaf3a6ac5d3fa257"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_bf15be02f85f",
+                "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+                "cause_object_ref": "user_request_no_decision_constraint",
+                "source_status": "typed_state",
+                "phase_relevance": "Decision map required without final choice; analytic segmentation only.",
+                "materiality_reason": "Explicit instruction to build a map of options and factors, exclude final decision; creates a structural gap between analytic mapping and decision binding.",
+                "admitting_rule": "Type gap detected: mapping must intentionally exclude commitment objects, preserve analytic-only scope."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Разделение между аналитической картой развилок и отсутствием финального выбора или обязательства — структурная особенность запроса, фундаментально определяющая текущую операцию.",
+              "grounds": "Запрос и сцена прямо указывают на выполнение анализа возможных путей без выдачи решения; типовой gap фиксирует сознательное ограничение на принятие решений."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_bf15be02f85f",
+                  "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+                  "cause_object_ref": "user_request_no_decision_constraint",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Decision map required without final choice; analytic segmentation only.",
+                  "materiality_reason": "Explicit instruction to build a map of options and factors, exclude final decision; creates a structural gap between analytic mapping and decision binding.",
+                  "admitting_rule": "Type gap detected: mapping must intentionally exclude commitment objects, preserve analytic-only scope."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Разделение между аналитической картой развилок и отсутствием финального выбора или обязательства — структурная особенность запроса, фундаментально определяющая текущую операцию.",
+                "grounds": "Запрос и сцена прямо указывают на выполнение анализа возможных путей без выдачи решения; типовой gap фиксирует сознательное ограничение на принятие решений."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 16700,
+          "tokens_out": 249,
+          "latency_ms": 5365,
+          "error": "",
+          "request_hash": "a6222e4dba4b6ca2fb9164046ef7188a657492cab3484315134a2df3b507fef3",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 7920,
+              "sha256": "5d46344fc5711164"
+            },
+            {
+              "role": "user",
+              "bytes": 375,
+              "sha256": "aaf3a6ac5d3fa257"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "joint",
+              "human_resolved": true,
+              "return_reason": "Операция заключается в совместном (JOINT) построении аналитической карты развилок, факторов и возможных исходов, но не включает принятие решения или передачу права на финальный выбор системе. Запрос, сцена и ограничения прямо запрещают вынесение решения или обязательства; явно различается аналитическая и решенческая деятельность."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_bf15be02f85f",
+                "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+                "cause_object_ref": "user_request_no_decision_constraint",
+                "source_status": "typed_state",
+                "phase_relevance": "ownership binding and operation scope must exclude system appropriation of consequential decision commitment",
+                "materiality_reason": "Появление ограничения на принятие решения формирует отдельный вид объекта и сцены; недопустимо подменять карту развилок финальным выбором.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Текущая сцена требует построения аналитической карты вариантов и факторов, но прямо запрещает принятие решения или связывающее обязательство. Это фундаментальная разграничительная линия между анализом и действием в данном контексте.",
+              "grounds": "Материалы запроса и сцены, отсутствие языковых или явных сигналов для архивации решения; структурный gap фиксирует сознательное ограничение."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "joint",
+                "human_resolved": true,
+                "return_reason": "Операция заключается в совместном (JOINT) построении аналитической карты развилок, факторов и возможных исходов, но не включает принятие решения или передачу права на финальный выбор системе. Запрос, сцена и ограничения прямо запрещают вынесение решения или обязательства; явно различается аналитическая и решенческая деятельность."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_bf15be02f85f",
+                  "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+                  "cause_object_ref": "user_request_no_decision_constraint",
+                  "source_status": "typed_state",
+                  "phase_relevance": "ownership binding and operation scope must exclude system appropriation of consequential decision commitment",
+                  "materiality_reason": "Появление ограничения на принятие решения формирует отдельный вид объекта и сцены; недопустимо подменять карту развилок финальным выбором."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Текущая сцена требует построения аналитической карты вариантов и факторов, но прямо запрещает принятие решения или связывающее обязательство. Это фундаментальная разграничительная линия между анализом и действием в данном контексте.",
+                "grounds": "Материалы запроса и сцены, отсутствие языковых или явных сигналов для архивации решения; структурный gap фиксирует сознательное ограничение."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15094,
+          "tokens_out": 349,
+          "latency_ms": 7457,
+          "error": "",
+          "request_hash": "7f81b5054ed7f08438e74ddcadd165acef71faa0848200abc82c74e70299bdd4",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 9500,
+              "sha256": "5cb27ccc27866262"
+            },
+            {
+              "role": "user",
+              "bytes": 375,
+              "sha256": "aaf3a6ac5d3fa257"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_bf15be02f85f",
+                "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+                "cause_object_ref": "user_request_no_decision_constraint",
+                "source_status": "typed_state",
+                "phase_relevance": "Explicit user and scene constraint: build an analytic decision map (branches, factors, outcomes) but do not produce or bind a final decision or commitment.",
+                "materiality_reason": "This is a structurally meaningful constraint, distinguishing analytic exploration from solution/decision-making. It blocks any intervention or automated move that would issue a recommendation, close the decision, or treat open questions as resolvable at this phase. Material because it directly shapes the set of permissible outputs and forbids silent conversion of analysis into action.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "triggers": [
+                {
+                  "trigger_id": "tgap_bf15be02f85f",
+                  "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+                  "cause_object_ref": "user_request_no_decision_constraint",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Explicit user and scene constraint: build an analytic decision map (branches, factors, outcomes) but do not produce or bind a final decision or commitment.",
+                  "materiality_reason": "This is a structurally meaningful constraint, distinguishing analytic exploration from solution/decision-making. It blocks any intervention or automated move that would issue a recommendation, close the decision, or treat open questions as resolvable at this phase. Material because it directly shapes the set of permissible outputs and forbids silent conversion of analysis into action."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14923,
+          "tokens_out": 192,
+          "latency_ms": 6267,
+          "error": "",
+          "request_hash": "30d532f676b4ab44856946dcdcbf6f36466cb2c0219ad22a1611289dfc578f37",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 11074,
+              "sha256": "9124d6b95dc4c8ac"
+            },
+            {
+              "role": "user",
+              "bytes": 375,
+              "sha256": "aaf3a6ac5d3fa257"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_bf15be02f85f",
+                "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+                "cause_object_ref": "user_request_no_decision_constraint",
+                "source_status": "typed_state",
+                "phase_relevance": "Точно маркированный разрыв между аналитической картой и финальным решением; структурный gap препятствует переходу к обязательствам.",
+                "materiality_reason": "Переход к принятию решения (или к ложной готовности его принять) здесь был бы ошибкой статуса и вмешательством в пользовательский замысел; ограничение — не просто прецедент, а текущий норматив.",
+                "admitting_rule": "Gap признан материальным: registry не содержит готового триггера для сцены безрешенческой карты — введён для поддержки деления между аналитикой и действием."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В данной сцене принципиально разделяются аналитическая деятельность (выделение развилок, факторов, возможных исходов) и принятие решения или связанное обязательство. Отказ от финального выбора, даже в косвенной форме, фиксирован как структурный и осознанный барьер.",
+              "grounds": "Явное ограничение в сцене и запросе: карта развилок без решения. Формулировки и анализ фокусируются на подготовке инфраструктуры для принятия решения, не на смещении команды к какому-либо выбору. Отсутствие сигнала к обязательству позволяет сохранить открытым пространство последующего волевого акта."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "В данной сцене принципиально разделяются аналитическая деятельность (выделение развилок, факторов, возможных исходов) и принятие решения или связанное обязательство. Отказ от финального выбора, даже в косвенной форме, фиксирован как структурный и осознанный барьер.",
+                "grounds": "Явное ограничение в сцене и запросе: карта развилок без решения. Формулировки и анализ фокусируются на подготовке инфраструктуры для принятия решения, не на смещении команды к какому-либо выбору. Отсутствие сигнала к обязательству позволяет сохранить открытым пространство последующего волевого акта."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_bf15be02f85f",
+                  "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+                  "cause_object_ref": "user_request_no_decision_constraint",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Точно маркированный разрыв между аналитической картой и финальным решением; структурный gap препятствует переходу к обязательствам.",
+                  "materiality_reason": "Переход к принятию решения (или к ложной готовности его принять) здесь был бы ошибкой статуса и вмешательством в пользовательский замысел; ограничение — не просто прецедент, а текущий норматив.",
+                  "admitting_rule": "Gap признан материальным: registry не содержит готового триггера для сцены безрешенческой карты — введён для поддержки деления между аналитикой и действием."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 20239,
+          "tokens_out": 376,
+          "latency_ms": 8174,
+          "error": "",
+          "request_hash": "a5b806d064504b66d6e82931938940a7e1c7b198691e776e682ff96e50307524",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 11969,
+              "sha256": "e124433eb108196e"
+            },
+            {
+              "role": "user",
+              "bytes": 375,
+              "sha256": "aaf3a6ac5d3fa257"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_4b6bc99f54b761fc",
+      "input_text": "Давай разберём, стоит ли нашей команде выходить на рынок корпоративного обучения в следующем квартале. Пока только карта развилок, без решения.",
+      "source_id": "src_13fbdcac15fea1b1",
+      "phase": "S10",
+      "scene": {
+        "telos": "Построить карту возможных путей и факторов для решения, выходить ли команде на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+        "role_hint": "совместный аналитик/стратег — участие без финального выбора",
+        "authority": "joint",
+        "materials": [
+          "Запрос на анализ: рассмотреть целесообразность выхода команды на рынок корпоративного обучения.",
+          "Ограничение по действию: построить карту развилок, не принимать решение.",
+          "Указание на период: следующий квартал.",
+          "Вовлечённость команды: коллективное обсуждение, решение принимать позже."
+        ]
+      },
+      "origin": {
+        "status": "unknown",
+        "sources_named": [],
+        "binding_authority": "unset",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "DECISION_MAP_CONSTRUCTION",
+        "applicable": true,
+        "why_not": "",
+        "open_world_gap": false
+      },
+      "ownership": {
+        "owner": "joint",
+        "human_resolved": true,
+        "return_reason": "Операция заключается в совместном (JOINT) построении аналитической карты развилок, факторов и возможных исходов, но не включает принятие решения или передачу права на финальный выбор системе. Запрос, сцена и ограничения прямо запрещают вынесение решения или обязательства; явно различается аналитическая и решенческая деятельность."
+      },
+      "council_invoked": false,
+      "execution_invoked": true,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_391f93098f79",
+          "proposed_trigger_type_id": "tgap_bf15be02f85f",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+          "cause_object_ref": "user_request_no_decision_constraint",
+          "phase_relevance": "Точно маркированный разрыв между аналитической картой и финальным решением; структурный gap препятствует переходу к обязательствам.",
+          "materiality_reason": "Переход к принятию решения (или к ложной готовности его принять) здесь был бы ошибкой статуса и вмешательством в пользовательский замысел; ограничение — не просто прецедент, а текущий норматив.",
+          "payload": {
+            "legacy_admitting_rule": "Gap признан материальным: registry не содержит готового триггера для сцены безрешенческой карты — введён для поддержки деления между аналитикой и действием.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_47c9b9d95495",
+          "candidate_id": "tcand_1a87843965cc",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'TR_S2_001_SCENE_TENSION_NO_DECISION_REQUEST' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_5dc2f0a35271",
+          "candidate_id": "tcand_83c4013182f8",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_bf15be02f85f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_554b98a8c363",
+          "candidate_id": "tcand_ae90cfb0bc71",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_bf15be02f85f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_9ad43e81ecfe",
+          "candidate_id": "tcand_b28906f6f19e",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_bf15be02f85f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_98cbdae15fba",
+          "candidate_id": "tcand_088a5437c282",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_bf15be02f85f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_bf15be02f85f",
+          "candidate_id": "tcand_1a87843965cc",
+          "cause_object_ref": "user_request_no_decision_constraint",
+          "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'TR_S2_001_SCENE_TENSION_NO_DECISION_REQUEST' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_69f001f525cb",
+          "candidate_id": "tcand_83c4013182f8",
+          "cause_object_ref": "user_request_no_decision_constraint",
+          "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_bf15be02f85f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_9aa2dbc1b328",
+          "candidate_id": "tcand_ae90cfb0bc71",
+          "cause_object_ref": "user_request_no_decision_constraint",
+          "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_bf15be02f85f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_deb0da3ff02e",
+          "candidate_id": "tcand_b28906f6f19e",
+          "cause_object_ref": "user_request_no_decision_constraint",
+          "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_bf15be02f85f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_a68113081ebd",
+          "candidate_id": "tcand_088a5437c282",
+          "cause_object_ref": "user_request_no_decision_constraint",
+          "generating_state_ref": "scene.telos + scene.role_hint + scene.materials",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_bf15be02f85f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "В данной сцене принципиально разделяются аналитическая деятельность (выделение развилок, факторов, возможных исходов) и принятие решения или связанное обязательство. Отказ от финального выбора, даже в косвенной форме, фиксирован как структурный и осознанный барьер.",
+        "grounds": "Явное ограничение в сцене и запросе: карта развилок без решения. Формулировки и анализ фокусируются на подготовке инфраструктуры для принятия решения, не на смещении команды к какому-либо выбору. Отсутствие сигнала к обязательству позволяет сохранить открытым пространство последующего волевого акта."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": [
+          {
+            "projection_id": "gap:gap_3ba0d40d5bbe",
+            "signals": [
+              "APPLICABILITY_FAILURE"
+            ],
+            "reason": "ORGAN_GAP for operation 'DECISION_MAP_CONSTRUCTION_001': model proposal for 'DECISION_MAP_CONSTRUCTION_001' could not compile-bind against registered primitives",
+            "residue_ratio": 1.0,
+            "recognition_failure_count": 0,
+            "suggested_operation": "",
+            "suggested_ontology": "",
+            "suggested_target_family": [],
+            "mismatch": true,
+            "fingerprint": "7c80351f23b3"
+          }
+        ]
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [
+        {
+          "kind": "ORGAN_GAP",
+          "operation_id": "DECISION_MAP_CONSTRUCTION_001",
+          "reason": "proposal proposal_decision_map_without_final_resolution for operation 'DECISION_MAP_CONSTRUCTION_001' failed compile-bind: primitive 'primitive_branch_01' (invocation 'branch_extraction') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+          "registered_capability_id": "",
+          "generated_spec": null,
+          "binding_evidence": {},
+          "organ_gap": {
+            "gap_id": "gap_3ba0d40d5bbe",
+            "source_ref": "src_13fbdcac15fea1b1",
+            "scene_ref": "Построить карту возможных путей и факторов для решения, выходить ли команде на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+            "required_operation": "DECISION_MAP_CONSTRUCTION_001",
+            "required_attention_structure": "Segment material according to apparent branch, factor, and outcome evidence; omit objects requiring final commitment.",
+            "insufficient_registered_capabilities": [
+              "DIFFERENTIATED_ACCOUNT",
+              "EXTRACT_CONCEPTS"
+            ],
+            "insufficient_declarative_primitives": [
+              "CoverageComputer",
+              "FamilyClassifier",
+              "SpanScanner",
+              "TargetFilter"
+            ],
+            "missing_capability_hypothesis": "model proposal for 'DECISION_MAP_CONSTRUCTION_001' could not compile-bind against registered primitives",
+            "evidence": [
+              "BindingError: primitive 'primitive_branch_01' (invocation 'branch_extraction') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+            ],
+            "counterexamples": [],
+            "affected_scene_telos": "Построить карту возможных путей и факторов для решения, выходить ли команде на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+            "possible_development_direction": "extend primitive registry or narrow the proposal",
+            "status": "unresolved",
+            "activation_authority": "NONE"
+          }
+        }
+      ],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_bb9bf21f4523",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [
+            "*"
+          ],
+          "operator_capabilities": [
+            "*"
+          ],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "runtime_default",
+          "activation_scope": "all_runs_by_default",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_bb9bf21f4523": {
+            "scene_id": "scene_bb9bf21f4523",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": {
+        "purpose": "fork_discrimination",
+        "question_regime": "DECISION_SEPARATING",
+        "selected_level": "PEER",
+        "hierarchy_policy": "PRIMARY_ONLY",
+        "target_forks_or_unknowns": [
+          "corporate_demand",
+          "team_resources",
+          "competition",
+          "financial_risks",
+          "timing"
+        ],
+        "explicit_count_constraint": null,
+        "question_budget_ceiling": 12,
+        "selected_questions": [
+          {
+            "text": "Каковы основные индикаторы спроса на нашу услугу в сегменте корпоративного обучения в ближайшем квартале?",
+            "regime": "DECISION_SEPARATING",
+            "fork_ref": "corporate_demand",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": []
+          },
+          {
+            "text": "Какие критические компетенции и ресурсы наши команда уже имеет и каких может не хватать для выхода на рынок?",
+            "regime": "DECISION_SEPARATING",
+            "fork_ref": "team_resources",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": []
+          },
+          {
+            "text": "Какие компании уже занимают выбранную нишу и чем мы сможем от них отличаться?",
+            "regime": "DECISION_SEPARATING",
+            "fork_ref": "competition",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": []
+          },
+          {
+            "text": "Какие существенные затраты и потенциальные финансовые риски связаны с выходом на рынок именно в следующем квартале?",
+            "regime": "DECISION_SEPARATING",
+            "fork_ref": "financial_risks",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": []
+          },
+          {
+            "text": "Какие рыночные, сезонные или внутренние факторы делают следующий квартал особенно подходящим или неподходящим для выхода на этот рынок?",
+            "regime": "DECISION_SEPARATING",
+            "fork_ref": "timing",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": []
+          }
+        ],
+        "primary_count": 5,
+        "subordinate_count": 0,
+        "total_count": 5,
+        "stop_reason": "COVERAGE_SATURATED",
+        "stop_reason_grounds": "no explicit count; selected one question per material peer fork (5) — adding more would either paraphrase or drop below peer level",
+        "clarification_required": false,
+        "clarification_grounds": "",
+        "meta_escalation": "NONE",
+        "ownership_owner": "JOINT",
+        "ownership_resolved": true,
+        "origin": "MODEL_PRODUCED_VALIDATED",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      }
+    },
+    "rendering": {
+      "text": "Режим вопросов: DECISION_SEPARATING. Уровень: PEER. Всего: 5 (основных: 5).\n1. Каковы основные индикаторы спроса на нашу услугу в сегменте корпоративного обучения в ближайшем квартале?\n2. Какие критические компетенции и ресурсы наши команда уже имеет и каких может не хватать для выхода на рынок?\n3. Какие компании уже занимают выбранную нишу и чем мы сможем от них отличаться?\n4. Какие существенные затраты и потенциальные финансовые риски связаны с выходом на рынок именно в следующем квартале?\n5. Какие рыночные, сезонные или внутренние факторы делают следующий квартал особенно подходящим или неподходящим для выхода на этот рынок?",
+      "mode": "QUESTION_SET_PLAN_AUTHORED",
+      "provider_status": "NOT_APPLICABLE",
+      "provider_id": "",
+      "model_id": "",
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "latency_ms": 0,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_21a0ffe83ced9428.json",
+    "duration_ms": 67665,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DECISION_SEPARATING",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "corporate_demand",
+        "team_resources",
+        "competition",
+        "financial_risks",
+        "timing"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Каковы основные индикаторы спроса на нашу услугу в сегменте корпоративного обучения в ближайшем квартале?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "corporate_demand",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Какие критические компетенции и ресурсы наши команда уже имеет и каких может не хватать для выхода на рынок?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "team_resources",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Какие компании уже занимают выбранную нишу и чем мы сможем от них отличаться?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "competition",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Какие существенные затраты и потенциальные финансовые риски связаны с выходом на рынок именно в следующем квартале?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "financial_risks",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Какие рыночные, сезонные или внутренние факторы делают следующий квартал особенно подходящим или неподходящим для выхода на этот рынок?",
+          "regime": "DECISION_SEPARATING",
+          "fork_ref": "timing",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        }
+      ],
+      "primary_count": 5,
+      "subordinate_count": 0,
+      "total_count": 5,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (5) — adding more would either paraphrase or drop below peer level",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "JOINT",
+      "ownership_resolved": true,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_intent_proposal": {
+      "requested": true,
+      "regime_candidate": "DECISION_SEPARATING",
+      "explicit_count_constraint": null,
+      "meta_relevance": "ordinary",
+      "forks": [
+        {
+          "id": "corporate_demand",
+          "label": "Спрос на корпоративное обучение",
+          "proposition": "На рынке существует достаточный спрос на наши решения по корпоративному обучению.",
+          "discriminandum": "Спрос достаточный vs. недостаточный",
+          "material_refs": [],
+          "candidate_question": "Каковы основные индикаторы спроса на нашу услугу в сегменте корпоративного обучения в ближайшем квартале?",
+          "level": "PEER"
+        },
+        {
+          "id": "team_resources",
+          "label": "Ресурсы и готовность команды",
+          "proposition": "У нашей команды достаточно ресурсов и экспертизы для успешного выхода на этот рынок.",
+          "discriminandum": "Ресурсов и экспертизы достаточно vs. недостаточно",
+          "material_refs": [],
+          "candidate_question": "Какие критические компетенции и ресурсы наши команда уже имеет и каких может не хватать для выхода на рынок?",
+          "level": "PEER"
+        },
+        {
+          "id": "competition",
+          "label": "Конкуренция на рынке",
+          "proposition": "Уровень конкуренции на рынке корпоративного обучения дает нам шансы занять нишу.",
+          "discriminandum": "Конкуренция высокая и мешает vs. приемлемая или низкая",
+          "material_refs": [],
+          "candidate_question": "Какие компании уже занимают выбранную нишу и чем мы сможем от них отличаться?",
+          "level": "PEER"
+        },
+        {
+          "id": "financial_risks",
+          "label": "Финансовые риски и затраты",
+          "proposition": "Финансовые издержки и возможные риски выхода на рынок приемлемы для нашей команды.",
+          "discriminandum": "Риски и затраты приемлемы vs. чрезмерны",
+          "material_refs": [],
+          "candidate_question": "Какие существенные затраты и потенциальные финансовые риски связаны с выходом на рынок именно в следующем квартале?",
+          "level": "PEER"
+        },
+        {
+          "id": "timing",
+          "label": "Выбор времени выхода",
+          "proposition": "Следующий квартал — оптимальное время для входа на рынок корпоративного обучения.",
+          "discriminandum": "Время оптимально vs. неудачно",
+          "material_refs": [],
+          "candidate_question": "Какие рыночные, сезонные или внутренние факторы делают следующий квартал особенно подходящим или неподходящим для выхода на этот рынок?",
+          "level": "PEER"
+        }
+      ],
+      "subordinates": [],
+      "validation_status": "OK",
+      "validation_reason": "OK",
+      "authority": "NO_BINDING_AUTHORITY",
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "latency_ms": 9547
+    },
+    "context_id": "ctx_79908c2f4770a2e8b109348e307f443e",
+    "context_continuity": {
+      "context_id": "ctx_79908c2f4770a2e8b109348e307f443e",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_aaa32505ab98",
+        "version": 1,
+        "scene_id": "scene_bb9bf21f4523",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Построить карту возможных путей и факторов для решения, выходить ли команде на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+        "telos": "Построить карту возможных путей и факторов для решения, выходить ли команде на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+        "object_scope": "Запрос на анализ: рассмотреть целесообразность выхода команды на рынок корпоративного обучения., Ограничение по действию: построить карту развилок, не принимать решение., Указание на период: следующий квартал.",
+        "operation_kind": "DECISION_MAP_CONSTRUCTION",
+        "expected_intervention": "DECISION_MAP_CONSTRUCTION",
+        "human_owned_decisions": [
+          "Операция заключается в совместном (JOINT) построении аналитической карты развилок, факторов и возможных исходов, но не включает принятие решения или передачу права на финальный выбор системе. Запрос, сцена и ограничения прямо запрещают вынесение решения или обязательства; явно различается аналитическая и решенческая деятельность."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": ""
+      },
+      "contract_revision": null,
+      "recognition_pass": {
+        "pass_id": "rp_74401df73854",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_created:sc_aaa32505ab98"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 67769
+  }
+}

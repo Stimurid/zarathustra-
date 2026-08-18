@@ -1,0 +1,1863 @@
+{
+  "case_id": "L16_nocount",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:43:44Z",
+  "request": {
+    "text": "Разбери варианты стратегии для нового рынка и задай ключевые вопросы по каждой ветке.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 76243,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 138845,
+    "tokens_out_sum": 2383,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15178,
+        "tokens_out": 70,
+        "attempts": 1,
+        "latency_ms": 5233,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13226,
+        "tokens_out": 111,
+        "attempts": 1,
+        "latency_ms": 4274,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15222,
+        "tokens_out": 152,
+        "attempts": 1,
+        "latency_ms": 5279,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13256,
+        "tokens_out": 41,
+        "attempts": 1,
+        "latency_ms": 5280,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14511,
+        "tokens_out": 833,
+        "attempts": 2,
+        "latency_ms": 24338,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16617,
+        "tokens_out": 340,
+        "attempts": 1,
+        "latency_ms": 7608,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15274,
+        "tokens_out": 393,
+        "attempts": 1,
+        "latency_ms": 7958,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15123,
+        "tokens_out": 195,
+        "attempts": 1,
+        "latency_ms": 5728,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20438,
+        "tokens_out": 248,
+        "attempts": 1,
+        "latency_ms": 8060,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_428ea33013214a6154e981039e210085",
+    "scene_id": "scene_3652867fc284",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Проанализировать возможные варианты стратегий для выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+    "operation_kind": "STRATEGIC_BRANCH_ANALYSIS_PLUS_BRANCH_QUESTION_CONSTRUCTION",
+    "operation_applicable": true,
+    "open_world_gap": true,
+    "contract_id": "sc_554de12a47eb",
+    "contract_status": "PROVISIONAL",
+    "contract_version": 1,
+    "contract_intent": "Проанализировать возможные варианты стратегий для выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+    "mutations_applied": [
+      "contract_created:sc_554de12a47eb"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {},
+    "spaces": [],
+    "terminal": "PRESERVE_APORIA",
+    "response_text": "Я сохраняю апорию, потому что запрошенный объект неопределён и его создание противоречит правилу INV-007.",
+    "intervention_profile": "normal",
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "rendering_mode": "LIVE",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_d0aa37c5cae6dfa9",
+    "trace_id": "strc_d53b5b38e7880d24",
+    "terminal": {
+      "terminal": "PRESERVE_APORIA",
+      "response_text": "Я сохраняю апорию, потому что запрошенный объект неопределён и его создание противоречит правилу INV-007.",
+      "rationale": "unknown object; would violate INV-007 to force fit",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "SYSTEM ownership is appropriate for analyzing strategic branches and constructing per-branch evaluative questions in a new market scenario when user request and telos are explicit, provided that no human/joint consequential decision binding occurs during technical execution.",
+        "grounds": "Scene analysis and input text show user is requesting technical breakdown and question generation, not outsourcing consequential value/risk/identity decisions to the model. Registry type gap triggers open-world construction, but does not alter SYSTEM ownership."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "No triggers requiring special mount or interruption at S0 detected; input asks for strategy options and diagnostic questions for a new market without pressing scene/role/authority ambiguity. Memory recall and operational retreat are not currently material. Pipeline is clear to proceed.",
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15178,
+          "tokens_out": 70,
+          "latency_ms": 5233,
+          "error": "",
+          "request_hash": "f891e2fd6ff7b80bc294a51077b32af7e3d4d6868e5a483e2782a56425d52b2d",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 2127,
+              "sha256": "246462f8800835c1"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Проанализировать возможные варианты стратегий для выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+              "role_hint": "аналитик-советник",
+              "authority": "system",
+              "materials": [
+                "Пользовательский запрос на анализ стратегий для нового рынка",
+                "Запрос на формулирование ключевых вопросов по каждой ветке стратегии"
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Проанализировать возможные варианты стратегий для выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+                "role_hint": "аналитик-советник",
+                "authority": "system",
+                "materials": [
+                  "Пользовательский запрос на анализ стратегий для нового рынка",
+                  "Запрос на формулирование ключевых вопросов по каждой ветке стратегии"
+                ]
+              },
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13226,
+          "tokens_out": 111,
+          "latency_ms": 4274,
+          "error": "",
+          "request_hash": "63881043ecb4119564fdfe96d764e7149be712e32e444a2321099278c8824104",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 2126,
+              "sha256": "656eb7c39ad74470"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "trigger_strategy_analysis_multibranch",
+                "generating_state_ref": "scene.materials[0], scene.materials[1]",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "S2 — required: enumerate and analyze alternative strategic options ('ветки'), formulate key evaluative questions for each path",
+                "materiality_reason": "Request initiates structured strategic branching analysis; system must generate differentiated scenario branches for a new market and associate probing questions with each, which requires schema for alternative generation, applicability checks for strategic frame, and prompts method for critical evaluation per path.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "trigger_strategy_analysis_multibranch",
+                  "generating_state_ref": "scene.materials[0], scene.materials[1]",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S2 — required: enumerate and analyze alternative strategic options ('ветки'), formulate key evaluative questions for each path",
+                  "materiality_reason": "Request initiates structured strategic branching analysis; system must generate differentiated scenario branches for a new market and associate probing questions with each, which requires schema for alternative generation, applicability checks for strategic frame, and prompts method for critical evaluation per path."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15222,
+          "tokens_out": 152,
+          "latency_ms": 5279,
+          "error": "",
+          "request_hash": "e54e7811a4fcdfc532077e8ffc666adcdee498f2752e18c4efa24dd01691edd5",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 2697,
+              "sha256": "7c1c6cabeaddb392"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "unknown",
+                "sources_named": [],
+                "binding_authority": "unset",
+                "temporal_stale": false
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13256,
+          "tokens_out": 41,
+          "latency_ms": 5280,
+          "error": "",
+          "request_hash": "4d661b98727095f2efa3988051c4156bc68dde0097eb4d0314fb76a20ab32674",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 3603,
+              "sha256": "1f4f8bcce9841468"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "STRATEGIC_BRANCH_ANALYSIS_PLUS_BRANCH_QUESTION_CONSTRUCTION",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": true
+            },
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_56c02cbfc01f",
+                "generating_state_ref": "scene.materials[0], scene.materials[1]",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Type gap prevents regime-registered trigger for multi-branch strategy analysis; open-world/ontology gap is material",
+                "materiality_reason": "No canonical operation family or segmentation policy for multi-branch strategic analysis; task structure identified in scene but primitive registry has a gap",
+                "admitting_rule": "Gap is tracked and does not block operation; triggering open-world gap flag and primitive proposal"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": {
+              "proposal_id": "psynth_1",
+              "operation_id": "S4_operation_0",
+              "target_object_family": [
+                "strategic_branch",
+                "branch_key_question"
+              ],
+              "ontology_hypothesis": "Request implies strategic branches with per-branch key questions, but registry lacks explicit family/primitive for this segmentation; user intent and scene telos are clear",
+              "recognition_criteria": [
+                "Identifiable discrete strategy variants in new market context",
+                "Each branch supports construction of at least one evaluation-driving question"
+              ],
+              "segmentation_policy_hint": "Derive branch alternatives from scenario assumptions or typical market entry strategies; do not treat as purely flat listing",
+              "evidence_requirements": [
+                "Explicit or plausible alternate strategic approaches",
+                "Sufficient scenario context for branch differentiation",
+                "Minimum viable information for constructing evaluative branch questions"
+              ],
+              "exclusions": [
+                "Generic strategy listing without scenario linkage",
+                "Questions not anchored to specific branches"
+              ],
+              "contraindications": [
+                "No plausible distinguishing dimensions for branches",
+                "User request is for meta-analysis only (not the case here)"
+              ],
+              "applicability_assumptions": [
+                "At least two distinct strategy branches can be articulated for a new market",
+                "Context allows explicit key question per branch"
+              ],
+              "primitives": [
+                {
+                  "name": "derive_strategic_branches",
+                  "primitive_id": "primitive_branch_inference_v0.1",
+                  "params": {
+                    "market_context": "new"
+                  },
+                  "inputs": [
+                    "input_text",
+                    "scene.materials"
+                  ]
+                },
+                {
+                  "name": "construct_key_questions_per_branch",
+                  "primitive_id": "primitive_branch_question_construction_v0.1",
+                  "params": {},
+                  "inputs": [
+                    "projection:derive_strategic_branches"
+                  ]
+                }
+              ],
+              "accepted_output": "List of plausible strategic branches plus a constructed evaluative question or question set for each branch",
+              "residue_output": "Material (e.g. scenario context or opaque branches) that does not fit current primitives but may support future projection",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "tgap_56c02cbfc01f",
+              "triggered_by_diagnostic_fingerprint": "type-gap:v0.2_default:trigger_strategy_analysis_multibranch",
+              "rationale": "User request, scene telos and task structure identify multi-branch strategic analysis as required; current primitive registry lacks canonical support, so open-world proposal is necessary",
+              "expected_diagnostics": "Manual or downstream review required for branch-completeness and evaluative relevance; readiness to escalate to object/concept construction if segmentation stalls",
+              "expected_residue_policy": "Retain unprojected scenario material for subsequent operation or field mode if needed"
+            },
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "STRATEGIC_BRANCH_ANALYSIS_PLUS_BRANCH_QUESTION_CONSTRUCTION",
+                "applicable": true,
+                "why_not": "",
+                "open_world_gap": true
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_56c02cbfc01f",
+                  "generating_state_ref": "scene.materials[0], scene.materials[1]",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Type gap prevents regime-registered trigger for multi-branch strategy analysis; open-world/ontology gap is material",
+                  "materiality_reason": "No canonical operation family or segmentation policy for multi-branch strategic analysis; task structure identified in scene but primitive registry has a gap",
+                  "admitting_rule": "Gap is tracked and does not block operation; triggering open-world gap flag and primitive proposal"
+                }
+              ],
+              "projection_synthesis_proposal": {
+                "proposal_id": "psynth_1",
+                "operation_id": "S4_operation_0",
+                "target_object_family": [
+                  "strategic_branch",
+                  "branch_key_question"
+                ],
+                "ontology_hypothesis": "Request implies strategic branches with per-branch key questions, but registry lacks explicit family/primitive for this segmentation; user intent and scene telos are clear",
+                "recognition_criteria": [
+                  "Identifiable discrete strategy variants in new market context",
+                  "Each branch supports construction of at least one evaluation-driving question"
+                ],
+                "segmentation_policy_hint": "Derive branch alternatives from scenario assumptions or typical market entry strategies; do not treat as purely flat listing",
+                "evidence_requirements": [
+                  "Explicit or plausible alternate strategic approaches",
+                  "Sufficient scenario context for branch differentiation",
+                  "Minimum viable information for constructing evaluative branch questions"
+                ],
+                "exclusions": [
+                  "Generic strategy listing without scenario linkage",
+                  "Questions not anchored to specific branches"
+                ],
+                "contraindications": [
+                  "No plausible distinguishing dimensions for branches",
+                  "User request is for meta-analysis only (not the case here)"
+                ],
+                "applicability_assumptions": [
+                  "At least two distinct strategy branches can be articulated for a new market",
+                  "Context allows explicit key question per branch"
+                ],
+                "primitives": [
+                  {
+                    "name": "derive_strategic_branches",
+                    "primitive_id": "primitive_branch_inference_v0.1",
+                    "params": {
+                      "market_context": "new"
+                    },
+                    "inputs": [
+                      "input_text",
+                      "scene.materials"
+                    ]
+                  },
+                  {
+                    "name": "construct_key_questions_per_branch",
+                    "primitive_id": "primitive_branch_question_construction_v0.1",
+                    "params": {},
+                    "inputs": [
+                      "projection:derive_strategic_branches"
+                    ]
+                  }
+                ],
+                "accepted_output": "List of plausible strategic branches plus a constructed evaluative question or question set for each branch",
+                "residue_output": "Material (e.g. scenario context or opaque branches) that does not fit current primitives but may support future projection",
+                "revises_projection_id": "",
+                "triggered_by_diagnostic_id": "tgap_56c02cbfc01f",
+                "triggered_by_diagnostic_fingerprint": "type-gap:v0.2_default:trigger_strategy_analysis_multibranch",
+                "rationale": "User request, scene telos and task structure identify multi-branch strategic analysis as required; current primitive registry lacks canonical support, so open-world proposal is necessary",
+                "expected_diagnostics": "Manual or downstream review required for branch-completeness and evaluative relevance; readiness to escalate to object/concept construction if segmentation stalls",
+                "expected_residue_policy": "Retain unprojected scenario material for subsequent operation or field mode if needed"
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 2,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14511,
+          "tokens_out": 833,
+          "latency_ms": 24338,
+          "error": "",
+          "request_hash": "fdafceb4779dc547982692898bac6ea221c82645b6d17c376706448319d9022c",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 3603,
+              "sha256": "67f9d5c2a6c6816d"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            },
+            {
+              "role": "user",
+              "bytes": 923,
+              "sha256": "8fec575ddef95302"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_56c02cbfc01f",
+                "generating_state_ref": "scene.materials[0], scene.materials[1]",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "A strategic analysis is requested that requires segmentation into multiple branches and associated evaluative questions per branch.",
+                "materiality_reason": "No canonical trigger type matches; the task materially depends on constructing open-world branch segmentation and per-branch key questions.",
+                "admitting_rule": "CTA-002"
+              },
+              {
+                "trigger_id": "tgap_5a280e5fd35b",
+                "generating_state_ref": "scene.materials[0], scene.materials[1]",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Second, structurally similar type gap confirming that no corresponding trigger type exists for the required strategic-branch segmentation.",
+                "materiality_reason": "Confirms the open-world requirement; structural cause validated by registry miss.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "User requests multi-branch strategic analysis with per-branch evaluative questions for a new market scenario, but registry lacks explicit canonical support for strategic-branch segmentation; open-world construction is needed.",
+              "grounds": "Scene telos and explicit user request combine to require construction of alternate strategic branches and associated evaluative questions; inability to find matching type in the registry presents a material world/typing gap."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_56c02cbfc01f",
+                  "generating_state_ref": "scene.materials[0], scene.materials[1]",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "A strategic analysis is requested that requires segmentation into multiple branches and associated evaluative questions per branch.",
+                  "materiality_reason": "No canonical trigger type matches; the task materially depends on constructing open-world branch segmentation and per-branch key questions."
+                },
+                {
+                  "trigger_id": "tgap_5a280e5fd35b",
+                  "generating_state_ref": "scene.materials[0], scene.materials[1]",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Second, structurally similar type gap confirming that no corresponding trigger type exists for the required strategic-branch segmentation.",
+                  "materiality_reason": "Confirms the open-world requirement; structural cause validated by registry miss."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "User requests multi-branch strategic analysis with per-branch evaluative questions for a new market scenario, but registry lacks explicit canonical support for strategic-branch segmentation; open-world construction is needed.",
+                "grounds": "Scene telos and explicit user request combine to require construction of alternate strategic branches and associated evaluative questions; inability to find matching type in the registry presents a material world/typing gap."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 16617,
+          "tokens_out": 340,
+          "latency_ms": 7608,
+          "error": "",
+          "request_hash": "6cce0efe1d32c0dacdb6b3e3e213a47e4f2d6adc36445840a1aa610c80667ad8",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 7500,
+              "sha256": "b74bf42bbacd6811"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "The user's explicit request and scene telos specify that the SYSTEM should analyze strategic branches and generate per-branch evaluative questions; while open-world object construction is required due to a registry type gap, the intellectual operation (branch breakdown and question construction) is SYSTEM-owned for technical execution. No unresolved human-owned criterion or consequential personal/judgment binding is present in the request. The product will be a constructed scenario analysis for user evaluation, not a direct commitment or identity-relevant decision."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_56c02cbfc01f",
+                "generating_state_ref": "scene.materials[0], scene.materials[1]",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Phase S6 must handle SYSTEM-ownership of open-world operation: the specific segmentation into strategic branches and construction of evaluative questions per branch.",
+                "materiality_reason": "Although there is a registry type gap (no canonical multi-branch strategy type), the user input and scene clearly request SYSTEM-driven construction and question generation as technical assistance with no binding of personal values/commitments.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "SYSTEM ownership is appropriate for analyzing strategic branches and constructing per-branch evaluative questions in a new market scenario when user request and telos are explicit, provided that no human/joint consequential decision binding occurs during technical execution.",
+              "grounds": "Scene analysis and input text show user is requesting technical breakdown and question generation, not outsourcing consequential value/risk/identity decisions to the model. Registry type gap triggers open-world construction, but does not alter SYSTEM ownership."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "system",
+                "human_resolved": true,
+                "return_reason": "The user's explicit request and scene telos specify that the SYSTEM should analyze strategic branches and generate per-branch evaluative questions; while open-world object construction is required due to a registry type gap, the intellectual operation (branch breakdown and question construction) is SYSTEM-owned for technical execution. No unresolved human-owned criterion or consequential personal/judgment binding is present in the request. The product will be a constructed scenario analysis for user evaluation, not a direct commitment or identity-relevant decision."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_56c02cbfc01f",
+                  "generating_state_ref": "scene.materials[0], scene.materials[1]",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Phase S6 must handle SYSTEM-ownership of open-world operation: the specific segmentation into strategic branches and construction of evaluative questions per branch.",
+                  "materiality_reason": "Although there is a registry type gap (no canonical multi-branch strategy type), the user input and scene clearly request SYSTEM-driven construction and question generation as technical assistance with no binding of personal values/commitments."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "SYSTEM ownership is appropriate for analyzing strategic branches and constructing per-branch evaluative questions in a new market scenario when user request and telos are explicit, provided that no human/joint consequential decision binding occurs during technical execution.",
+                "grounds": "Scene analysis and input text show user is requesting technical breakdown and question generation, not outsourcing consequential value/risk/identity decisions to the model. Registry type gap triggers open-world construction, but does not alter SYSTEM ownership."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15274,
+          "tokens_out": 393,
+          "latency_ms": 7958,
+          "error": "",
+          "request_hash": "13cf135a9d98aeced0e6ce5dbf4deff627f9b9f66cf5e4db2aed11a01b23fcea",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 9735,
+              "sha256": "456b44171bcb2619"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_56c02cbfc01f",
+                "generating_state_ref": "scene.materials[0], scene.materials[1]",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "The operation requires constructing multi-branch strategic analysis plus per-branch evaluative questions for a new market scenario, but there is no canonical object type or registry support for this segmentation.",
+                "materiality_reason": "Open-world object construction (segmentation into strategy branches and constructing evaluative questions) is required as part of the SYSTEM-owned execution to fulfill the user's explicit analytic request.",
+                "admitting_rule": "Registry type gap permits SYSTEM-driven construction under explicit telos and ownership constraint; no human/joint consequential binding is present for this phase."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "triggers": [
+                {
+                  "trigger_id": "tgap_56c02cbfc01f",
+                  "generating_state_ref": "scene.materials[0], scene.materials[1]",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "The operation requires constructing multi-branch strategic analysis plus per-branch evaluative questions for a new market scenario, but there is no canonical object type or registry support for this segmentation.",
+                  "materiality_reason": "Open-world object construction (segmentation into strategy branches and constructing evaluative questions) is required as part of the SYSTEM-owned execution to fulfill the user's explicit analytic request.",
+                  "admitting_rule": "Registry type gap permits SYSTEM-driven construction under explicit telos and ownership constraint; no human/joint consequential binding is present for this phase."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15123,
+          "tokens_out": 195,
+          "latency_ms": 5728,
+          "error": "",
+          "request_hash": "7f87b8705bcdd7cca749f53924d1a724801d79780a2fe9941a5a534f46cf3c13",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 11255,
+              "sha256": "77c6eb09b14f9cb3"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_56c02cbfc01f",
+                "generating_state_ref": "scene.materials[0], scene.materials[1]",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Requires object construction due to registry type gap in strategic branch analysis",
+                "materiality_reason": "User request and telos specify multi-branch analysis with per-branch question construction, but registry lacks direct type/primitives; this gap forces open-world projection using scenario/context segmentation",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "SYSTEM ownership is appropriate for analyzing strategic branches and constructing per-branch evaluative questions in a new market scenario when user request and telos are explicit, provided that no human/joint consequential decision binding occurs during technical execution.",
+              "grounds": "Scene analysis and input text show user is requesting technical breakdown and question generation, not outsourcing consequential value/risk/identity decisions to the model. Registry type gap triggers open-world construction, but does not alter SYSTEM ownership."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "SYSTEM ownership is appropriate for analyzing strategic branches and constructing per-branch evaluative questions in a new market scenario when user request and telos are explicit, provided that no human/joint consequential decision binding occurs during technical execution.",
+                "grounds": "Scene analysis and input text show user is requesting technical breakdown and question generation, not outsourcing consequential value/risk/identity decisions to the model. Registry type gap triggers open-world construction, but does not alter SYSTEM ownership."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_56c02cbfc01f",
+                  "generating_state_ref": "scene.materials[0], scene.materials[1]",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Requires object construction due to registry type gap in strategic branch analysis",
+                  "materiality_reason": "User request and telos specify multi-branch analysis with per-branch question construction, but registry lacks direct type/primitives; this gap forces open-world projection using scenario/context segmentation"
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 20438,
+          "tokens_out": 248,
+          "latency_ms": 8060,
+          "error": "",
+          "request_hash": "1a87ba778b071c0d2111ed9b72ba189ab469a88bb3d39f270969d977d9ddb291",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 12116,
+              "sha256": "01d05764c428bfcb"
+            },
+            {
+              "role": "user",
+              "bytes": 269,
+              "sha256": "b841b72f89be7db3"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_d0aa37c5cae6dfa9",
+      "input_text": "Разбери варианты стратегии для нового рынка и задай ключевые вопросы по каждой ветке.",
+      "source_id": "src_c2bd43bac3326204",
+      "phase": "S10",
+      "scene": {
+        "telos": "Проанализировать возможные варианты стратегий для выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+        "role_hint": "аналитик-советник",
+        "authority": "system",
+        "materials": [
+          "Пользовательский запрос на анализ стратегий для нового рынка",
+          "Запрос на формулирование ключевых вопросов по каждой ветке стратегии"
+        ]
+      },
+      "origin": {
+        "status": "unknown",
+        "sources_named": [],
+        "binding_authority": "unset",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "STRATEGIC_BRANCH_ANALYSIS_PLUS_BRANCH_QUESTION_CONSTRUCTION",
+        "applicable": true,
+        "why_not": "",
+        "open_world_gap": true
+      },
+      "ownership": {
+        "owner": "system",
+        "human_resolved": true,
+        "return_reason": "The user's explicit request and scene telos specify that the SYSTEM should analyze strategic branches and generate per-branch evaluative questions; while open-world object construction is required due to a registry type gap, the intellectual operation (branch breakdown and question construction) is SYSTEM-owned for technical execution. No unresolved human-owned criterion or consequential personal/judgment binding is present in the request. The product will be a constructed scenario analysis for user evaluation, not a direct commitment or identity-relevant decision."
+      },
+      "council_invoked": false,
+      "execution_invoked": true,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_fc2a363ebfc9",
+          "proposed_trigger_type_id": "tgap_56c02cbfc01f",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene.materials[0], scene.materials[1]",
+          "cause_object_ref": "input_text",
+          "phase_relevance": "Requires object construction due to registry type gap in strategic branch analysis",
+          "materiality_reason": "User request and telos specify multi-branch analysis with per-branch question construction, but registry lacks direct type/primitives; this gap forces open-world projection using scenario/context segmentation",
+          "payload": {
+            "legacy_admitting_rule": "CTA-002",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_d12ca997764f",
+          "candidate_id": "tcand_b3bb8e29f462",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'trigger_strategy_analysis_multibranch' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_f7db764f1c6f",
+          "candidate_id": "tcand_23788c035193",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_56c02cbfc01f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_3f1b5aa1c2b7",
+          "candidate_id": "tcand_7ff6334208e7",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_56c02cbfc01f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_9f05055837ad",
+          "candidate_id": "tcand_9c89e365c92b",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_5a280e5fd35b' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_f70e3a969e6d",
+          "candidate_id": "tcand_f6372f18ae69",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_56c02cbfc01f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_28d14103bd45",
+          "candidate_id": "tcand_0dc9a755ece4",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_56c02cbfc01f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_56c02cbfc01f",
+          "candidate_id": "tcand_b3bb8e29f462",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "scene.materials[0], scene.materials[1]",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'trigger_strategy_analysis_multibranch' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_5a280e5fd35b",
+          "candidate_id": "tcand_23788c035193",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "scene.materials[0], scene.materials[1]",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_56c02cbfc01f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_8bc3e3958dbd",
+          "candidate_id": "tcand_7ff6334208e7",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "scene.materials[0], scene.materials[1]",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_56c02cbfc01f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_8a528a2b16a6",
+          "candidate_id": "tcand_9c89e365c92b",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "scene.materials[0], scene.materials[1]",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_5a280e5fd35b' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_927d90177c13",
+          "candidate_id": "tcand_f6372f18ae69",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "scene.materials[0], scene.materials[1]",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_56c02cbfc01f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_9591573406e2",
+          "candidate_id": "tcand_0dc9a755ece4",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "scene.materials[0], scene.materials[1]",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_56c02cbfc01f' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "SYSTEM ownership is appropriate for analyzing strategic branches and constructing per-branch evaluative questions in a new market scenario when user request and telos are explicit, provided that no human/joint consequential decision binding occurs during technical execution.",
+        "grounds": "Scene analysis and input text show user is requesting technical breakdown and question generation, not outsourcing consequential value/risk/identity decisions to the model. Registry type gap triggers open-world construction, but does not alter SYSTEM ownership."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": [
+          {
+            "projection_id": "gap:gap_82de1e2d1108",
+            "signals": [
+              "APPLICABILITY_FAILURE"
+            ],
+            "reason": "ORGAN_GAP for operation 'S4_operation_0': model proposal for 'S4_operation_0' could not compile-bind against registered primitives",
+            "residue_ratio": 1.0,
+            "recognition_failure_count": 0,
+            "suggested_operation": "",
+            "suggested_ontology": "",
+            "suggested_target_family": [],
+            "mismatch": true,
+            "fingerprint": "7c80351f23b3"
+          }
+        ]
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [
+        {
+          "kind": "ORGAN_GAP",
+          "operation_id": "S4_operation_0",
+          "reason": "proposal psynth_1 for operation 'S4_operation_0' failed compile-bind: primitive 'primitive_branch_inference_v0.1' (invocation 'derive_strategic_branches') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+          "registered_capability_id": "",
+          "generated_spec": null,
+          "binding_evidence": {},
+          "organ_gap": {
+            "gap_id": "gap_82de1e2d1108",
+            "source_ref": "src_c2bd43bac3326204",
+            "scene_ref": "Проанализировать возможные варианты стратегий для выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+            "required_operation": "S4_operation_0",
+            "required_attention_structure": "Derive branch alternatives from scenario assumptions or typical market entry strategies; do not treat as purely flat listing",
+            "insufficient_registered_capabilities": [
+              "DIFFERENTIATED_ACCOUNT",
+              "EXTRACT_CONCEPTS"
+            ],
+            "insufficient_declarative_primitives": [
+              "CoverageComputer",
+              "FamilyClassifier",
+              "SpanScanner",
+              "TargetFilter"
+            ],
+            "missing_capability_hypothesis": "model proposal for 'S4_operation_0' could not compile-bind against registered primitives",
+            "evidence": [
+              "BindingError: primitive 'primitive_branch_inference_v0.1' (invocation 'derive_strategic_branches') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+            ],
+            "counterexamples": [],
+            "affected_scene_telos": "Проанализировать возможные варианты стратегий для выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+            "possible_development_direction": "extend primitive registry or narrow the proposal",
+            "status": "unresolved",
+            "activation_authority": "NONE"
+          }
+        }
+      ],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_3652867fc284",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [
+            "*"
+          ],
+          "operator_capabilities": [
+            "*"
+          ],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "runtime_default",
+          "activation_scope": "all_runs_by_default",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_3652867fc284": {
+            "scene_id": "scene_3652867fc284",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": null
+    },
+    "rendering": {
+      "text": "Я сохраняю апорию, потому что запрошенный объект неопределён и его создание противоречит правилу INV-007.",
+      "mode": "LIVE",
+      "provider_status": "OK",
+      "provider_id": "fallback",
+      "model_id": "chain",
+      "tokens_in": 234,
+      "tokens_out": 29,
+      "latency_ms": 2302,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_d53b5b38e7880d24.json",
+    "duration_ms": 76243,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "context_id": "ctx_428ea33013214a6154e981039e210085",
+    "context_continuity": {
+      "context_id": "ctx_428ea33013214a6154e981039e210085",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_554de12a47eb",
+        "version": 1,
+        "scene_id": "scene_3652867fc284",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Проанализировать возможные варианты стратегий для выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+        "telos": "Проанализировать возможные варианты стратегий для выхода на новый рынок и сформулировать ключевые вопросы для оценки каждой альтернативной ветки.",
+        "object_scope": "Пользовательский запрос на анализ стратегий для нового рынка, Запрос на формулирование ключевых вопросов по каждой ветке стратегии",
+        "operation_kind": "STRATEGIC_BRANCH_ANALYSIS_PLUS_BRANCH_QUESTION_CONSTRUCTION",
+        "expected_intervention": "STRATEGIC_BRANCH_ANALYSIS_PLUS_BRANCH_QUESTION_CONSTRUCTION",
+        "human_owned_decisions": [
+          "The user's explicit request and scene telos specify that the SYSTEM should analyze strategic branches and generate per-branch evaluative questions; while open-world object construction is required due to a registry type gap, the intellectual operation (branch breakdown and question construction) is SYSTEM-owned for technical execution. No unresolved human-owned criterion or consequential personal/judgment binding is present in the request. The product will be a constructed scenario analysis for user evaluation, not a direct commitment or identity-relevant decision."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": ""
+      },
+      "contract_revision": null,
+      "recognition_pass": {
+        "pass_id": "rp_107bda94dc04",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_created:sc_554de12a47eb"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 76327
+  }
+}

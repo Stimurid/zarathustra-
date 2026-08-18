@@ -1,0 +1,1665 @@
+{
+  "case_id": "L6_t1",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:23:28Z",
+  "request": {
+    "text": "Рабочая сцена: оцениваем, оставлять ли старый биллинг ещё на год или менять сейчас.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 51496,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 137045,
+    "tokens_out_sum": 1972,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15196,
+        "tokens_out": 107,
+        "attempts": 1,
+        "latency_ms": 4599,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13244,
+        "tokens_out": 116,
+        "attempts": 1,
+        "latency_ms": 4559,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15251,
+        "tokens_out": 166,
+        "attempts": 1,
+        "latency_ms": 6675,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13314,
+        "tokens_out": 208,
+        "attempts": 1,
+        "latency_ms": 3682,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14636,
+        "tokens_out": 281,
+        "attempts": 1,
+        "latency_ms": 4948,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16411,
+        "tokens_out": 290,
+        "attempts": 1,
+        "latency_ms": 5198,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14832,
+        "tokens_out": 241,
+        "attempts": 1,
+        "latency_ms": 5619,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14412,
+        "tokens_out": 177,
+        "attempts": 1,
+        "latency_ms": 5283,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19749,
+        "tokens_out": 386,
+        "attempts": 1,
+        "latency_ms": 7554,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_33c684daad48346997d3c9988b2a3e93",
+    "scene_id": "scene_752e7caa8725",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.",
+    "operation_kind": "SCENE_DECISION_SUPPORT",
+    "operation_applicable": false,
+    "open_world_gap": true,
+    "contract_id": "sc_dd68c0cb965e",
+    "contract_status": "PROVISIONAL",
+    "contract_version": 1,
+    "contract_intent": "Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.",
+    "mutations_applied": [
+      "contract_created:sc_dd68c0cb965e"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {},
+    "spaces": [],
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Решение о переходе на новую систему биллинга или сохранении старой остаётся за человеком, пока не будут чётко определены условия совместного владения и операционная схема.",
+    "intervention_profile": "normal",
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "rendering_mode": "LIVE",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_6cead2fd4d40b8e0",
+    "trace_id": "strc_ce39629222919811",
+    "terminal": {
+      "terminal": "RETURN_OPERATION",
+      "response_text": "Решение о переходе на новую систему биллинга или сохранении старой остаётся за человеком, пока не будут чётко определены условия совместного владения и операционная схема.",
+      "rationale": "human/joint ownership unresolved (INV-009)",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Зафиксирована материализация схемного пробела: в текущем реестре операций нет нативного типа или валидной аналитической схемы для поддержки сценария выбора между сохранением и переходом с биллинга. Принудительное выполнение этой операции системой привело бы к подмене неразрешённого человеческого решения машинной процедурой. Решение обоснованно возвращено человеку.",
+        "grounds": "Рабочая сцена и формулировка задачи содержат материальный вызов — принятие решения требует специфического операционного типа, отсутствующего в реестре. Попытка принудительно классифицировать или «смоделировать» выбор нарушила бы различие между человеческой и формальной машинной операцией принятия решений."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "Request presents a live decision scene on whether to retain or replace legacy billing for another year. Scene, telos and decision authority are not yet bound; operation applicability is flagged true but has no details. Memory, formation and retreat are not material yet: no explicit retrieval or persistence, and no near-miss trigger or structural operation error. Phase admits only scene-decision re-entry trigger candidates at this stage; none are material yet.",
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15196,
+          "tokens_out": 107,
+          "latency_ms": 4599,
+          "error": "",
+          "request_hash": "7ebac10a32a864abc8c2301f81f351e889f7b56c4145a342f8d3c2069a715bb9",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 2121,
+              "sha256": "6494c128335940e9"
+            },
+            {
+              "role": "user",
+              "bytes": 263,
+              "sha256": "49a12f6da73edd3f"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.",
+              "role_hint": "экспертная оценка/советник",
+              "authority": "human",
+              "materials": [
+                "текущая система биллинга",
+                "варианты перехода",
+                "причины для сохранения или замены",
+                "потенциальные последствия",
+                "участники решения"
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.",
+                "role_hint": "экспертная оценка/советник",
+                "authority": "human",
+                "materials": [
+                  "текущая система биллинга",
+                  "варианты перехода",
+                  "причины для сохранения или замены",
+                  "потенциальные последствия",
+                  "участники решения"
+                ]
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13244,
+          "tokens_out": 116,
+          "latency_ms": 4559,
+          "error": "",
+          "request_hash": "fa751d49b44b0b10c7bf56f3598a6f069400b4dd3723286661eeb7afbffcd98e",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 2120,
+              "sha256": "7952c7f1132c90bf"
+            },
+            {
+              "role": "user",
+              "bytes": 263,
+              "sha256": "49a12f6da73edd3f"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "T01_SCENE_DECISION_SUPPORT",
+                "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+                "cause_object_ref": "actor_state/scene_decision_point",
+                "source_status": "typed_state",
+                "phase_relevance": "decision analysis and advisory task; evaluation of alternatives regarding billing system change vs. continuation",
+                "materiality_reason": "Material impact on project direction and future state; requires evaluation of options with explicit potential for memory eligibility (if decision/commitment is to be stored) and may later escalate to role/telos/authority clarification or formation amendment.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "T01_SCENE_DECISION_SUPPORT",
+                  "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+                  "cause_object_ref": "actor_state/scene_decision_point",
+                  "source_status": "typed_state",
+                  "phase_relevance": "decision analysis and advisory task; evaluation of alternatives regarding billing system change vs. continuation",
+                  "materiality_reason": "Material impact on project direction and future state; requires evaluation of options with explicit potential for memory eligibility (if decision/commitment is to be stored) and may later escalate to role/telos/authority clarification or formation amendment."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15251,
+          "tokens_out": 166,
+          "latency_ms": 6675,
+          "error": "",
+          "request_hash": "a319e32afdd27f714923f6c3bcc1dbf03ddfc619e4df6890e37f9b334508066a",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 2622,
+              "sha256": "2b51e20ffc9efb3b"
+            },
+            {
+              "role": "user",
+              "bytes": 263,
+              "sha256": "49a12f6da73edd3f"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_8c9b39562872",
+                "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+                "cause_object_ref": "actor_state/scene_decision_point",
+                "source_status": "typed_state",
+                "phase_relevance": "Decision support operation requires explicit origin status and binding authority resolution due to lack of registered type",
+                "materiality_reason": "Scene decision point and operational telos materially affect status, authority, and transition eligibility; type gap blocks action without resolved origin and authority",
+                "admitting_rule": "Gap diagnosis and source authority resolution required before actionable execution"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "unknown",
+                "sources_named": [],
+                "binding_authority": "unset",
+                "temporal_stale": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_8c9b39562872",
+                  "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+                  "cause_object_ref": "actor_state/scene_decision_point",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Decision support operation requires explicit origin status and binding authority resolution due to lack of registered type",
+                  "materiality_reason": "Scene decision point and operational telos materially affect status, authority, and transition eligibility; type gap blocks action without resolved origin and authority",
+                  "admitting_rule": "Gap diagnosis and source authority resolution required before actionable execution"
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13314,
+          "tokens_out": 208,
+          "latency_ms": 3682,
+          "error": "",
+          "request_hash": "8c112642793ac395b637a05f60a7f1e6b7408be0a85ee3b50582067d00c9dbc4",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 3680,
+              "sha256": "94718f50a9cea61c"
+            },
+            {
+              "role": "user",
+              "bytes": 263,
+              "sha256": "49a12f6da73edd3f"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "SCENE_DECISION_SUPPORT",
+              "applicable": false,
+              "why_not": "No registry entry for requested operation type 'SCENE_DECISION_SUPPORT'; the system has detected a materially grounded structural gap, meaning the current ontology and operation registry do not define a native projectable unit or valid analytic operation for this scene decision. Forcing an answer would misclassify or coerce the material.",
+              "open_world_gap": true
+            },
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_8c9b39562872",
+                "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+                "cause_object_ref": "actor_state/scene_decision_point",
+                "source_status": "typed_state",
+                "phase_relevance": "S4_applicability_test",
+                "materiality_reason": "No recognized operation type in registry; not coercible to nearest class, because the decision support unit is materially different from existing operations.",
+                "admitting_rule": "B03 and Core mandate explicit gap preservation under open-world when materially justified; ontology gap diagnosis confirmed by cause trace."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "SCENE_DECISION_SUPPORT",
+                "applicable": false,
+                "why_not": "No registry entry for requested operation type 'SCENE_DECISION_SUPPORT'; the system has detected a materially grounded structural gap, meaning the current ontology and operation registry do not define a native projectable unit or valid analytic operation for this scene decision. Forcing an answer would misclassify or coerce the material.",
+                "open_world_gap": true
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_8c9b39562872",
+                  "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+                  "cause_object_ref": "actor_state/scene_decision_point",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S4_applicability_test",
+                  "materiality_reason": "No recognized operation type in registry; not coercible to nearest class, because the decision support unit is materially different from existing operations.",
+                  "admitting_rule": "B03 and Core mandate explicit gap preservation under open-world when materially justified; ontology gap diagnosis confirmed by cause trace."
+                }
+              ],
+              "projection_synthesis_proposal": null
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14636,
+          "tokens_out": 281,
+          "latency_ms": 4948,
+          "error": "",
+          "request_hash": "24760ef60481f65483c7679f6cbcb5ca3f4bc37018bddb0728271b8ed9949e5d",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 4716,
+              "sha256": "65292682715ec33c"
+            },
+            {
+              "role": "user",
+              "bytes": 263,
+              "sha256": "49a12f6da73edd3f"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_8c9b39562872",
+                "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+                "cause_object_ref": "actor_state/scene_decision_point",
+                "source_status": "typed_state",
+                "phase_relevance": "S5_attention_memory_semantics",
+                "materiality_reason": "Mathematically and procedurally grounded scene decision operation ('SCENE_DECISION_SUPPORT') is not defined in the registry; gap is structural, not procedural. No valid analytic operation exists for the requested evaluation.",
+                "admitting_rule": "Material ontology gap triggers attention and memory recruitment audit; do not force classification."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В рабочей сцене выявлен структурный типовой пробел между текущей поддержкой решения (оставить старый биллинг или перейти на новый) и наличием аналитической операции в реестре. Принудительное решение невозможно без корректного операционного типа.",
+              "grounds": "Registry reports type gap for 'SCENE_DECISION_SUPPORT'; structural gap blocks native analytic operation; proposal distinguishes between procedural coercion and ontology gap."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_8c9b39562872",
+                  "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+                  "cause_object_ref": "actor_state/scene_decision_point",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S5_attention_memory_semantics",
+                  "materiality_reason": "Mathematically and procedurally grounded scene decision operation ('SCENE_DECISION_SUPPORT') is not defined in the registry; gap is structural, not procedural. No valid analytic operation exists for the requested evaluation.",
+                  "admitting_rule": "Material ontology gap triggers attention and memory recruitment audit; do not force classification."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "В рабочей сцене выявлен структурный типовой пробел между текущей поддержкой решения (оставить старый биллинг или перейти на новый) и наличием аналитической операции в реестре. Принудительное решение невозможно без корректного операционного типа.",
+                "grounds": "Registry reports type gap for 'SCENE_DECISION_SUPPORT'; structural gap blocks native analytic operation; proposal distinguishes between procedural coercion and ontology gap."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 16411,
+          "tokens_out": 290,
+          "latency_ms": 5198,
+          "error": "",
+          "request_hash": "590e1a035bcdf9a0d5190ed37ad57586fdf65a1ce338cb6cb278d00e4f87639a",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 6113,
+              "sha256": "6282917d34f5b08f"
+            },
+            {
+              "role": "user",
+              "bytes": 263,
+              "sha256": "49a12f6da73edd3f"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "human",
+              "human_resolved": false,
+              "return_reason": "В сцене зафиксирован материальный структурный пробел: нет валидного операционного типа для поддержания аналитического решения по выбору между сохранением или переходом с биллинга. Принудительное взятие решения системой означало бы подмену неразрешённой человеческой операции формальной модельной процедурой. Возврат: исходное решение остаётся на стороне человека до явного формирования подходящей операционной схемы или прояснения основания для машинного выбора."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Зафиксирована ситуация схемного пробела: отсутствует определённый операционный тип для аналитического решения о переходе или сохранении биллинга, что материализует расхождение между формальным инструментарием и человеческой операцией принятия решения.",
+              "grounds": "Фазовый реестр операций не содержит средства поддержать требуемое решение; возврат только к человеку."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "human",
+                "human_resolved": false,
+                "return_reason": "В сцене зафиксирован материальный структурный пробел: нет валидного операционного типа для поддержания аналитического решения по выбору между сохранением или переходом с биллинга. Принудительное взятие решения системой означало бы подмену неразрешённой человеческой операции формальной модельной процедурой. Возврат: исходное решение остаётся на стороне человека до явного формирования подходящей операционной схемы или прояснения основания для машинного выбора."
+              },
+              "triggers": [],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Зафиксирована ситуация схемного пробела: отсутствует определённый операционный тип для аналитического решения о переходе или сохранении биллинга, что материализует расхождение между формальным инструментарием и человеческой операцией принятия решения.",
+                "grounds": "Фазовый реестр операций не содержит средства поддержать требуемое решение; возврат только к человеку."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14832,
+          "tokens_out": 241,
+          "latency_ms": 5619,
+          "error": "",
+          "request_hash": "e3a8507048f4fff411c4cbb02218af155c1d6314027bbcf7531a6e5d4c1eb482",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 7840,
+              "sha256": "e9180b27ff8a71a2"
+            },
+            {
+              "role": "user",
+              "bytes": 263,
+              "sha256": "49a12f6da73edd3f"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_8c9b39562872",
+                "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+                "cause_object_ref": "actor_state/scene_decision_point",
+                "source_status": "typed_state",
+                "phase_relevance": "S8_intervention; blocks ANSWER/DECISION_SUPPORT; forks to human binding and material registry gap.",
+                "materiality_reason": "No valid operation type exists for this analytic decision within the current registry/ontology. Forcing system execution would misclassify/coerce a material human decision; must return operation to human or await new schema.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": false,
+              "triggers": [
+                {
+                  "trigger_id": "tgap_8c9b39562872",
+                  "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+                  "cause_object_ref": "actor_state/scene_decision_point",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S8_intervention; blocks ANSWER/DECISION_SUPPORT; forks to human binding and material registry gap.",
+                  "materiality_reason": "No valid operation type exists for this analytic decision within the current registry/ontology. Forcing system execution would misclassify/coerce a material human decision; must return operation to human or await new schema."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14412,
+          "tokens_out": 177,
+          "latency_ms": 5283,
+          "error": "",
+          "request_hash": "9cce06592c0142777b2862e944996d727eb98c660994f06b5298bb0c816ad13f",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 8738,
+              "sha256": "b22376e414856fab"
+            },
+            {
+              "role": "user",
+              "bytes": 263,
+              "sha256": "49a12f6da73edd3f"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_8c9b39562872",
+                "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+                "cause_object_ref": "actor_state/scene_decision_point",
+                "source_status": "typed_state",
+                "phase_relevance": "Обнаружен структурный пробел в реестре операций; нет валидного операционного типа для поддержки данной сцены.",
+                "materiality_reason": "Формальное различие между требуемой человеческой операцией принятия решения и доступным машинным инструментарием не может быть устранено без разработки или согласования новой операционной схемы.",
+                "admitting_rule": "Не допускается принудительное выполнение или подмена решения; требуется явное развитие или уточнение операционного типа человеком."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Зафиксирована материализация схемного пробела: в текущем реестре операций нет нативного типа или валидной аналитической схемы для поддержки сценария выбора между сохранением и переходом с биллинга. Принудительное выполнение этой операции системой привело бы к подмене неразрешённого человеческого решения машинной процедурой. Решение обоснованно возвращено человеку.",
+              "grounds": "Рабочая сцена и формулировка задачи содержат материальный вызов — принятие решения требует специфического операционного типа, отсутствующего в реестре. Попытка принудительно классифицировать или «смоделировать» выбор нарушила бы различие между человеческой и формальной машинной операцией принятия решений."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Зафиксирована материализация схемного пробела: в текущем реестре операций нет нативного типа или валидной аналитической схемы для поддержки сценария выбора между сохранением и переходом с биллинга. Принудительное выполнение этой операции системой привело бы к подмене неразрешённого человеческого решения машинной процедурой. Решение обоснованно возвращено человеку.",
+                "grounds": "Рабочая сцена и формулировка задачи содержат материальный вызов — принятие решения требует специфического операционного типа, отсутствующего в реестре. Попытка принудительно классифицировать или «смоделировать» выбор нарушила бы различие между человеческой и формальной машинной операцией принятия решений."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_8c9b39562872",
+                  "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+                  "cause_object_ref": "actor_state/scene_decision_point",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Обнаружен структурный пробел в реестре операций; нет валидного операционного типа для поддержки данной сцены.",
+                  "materiality_reason": "Формальное различие между требуемой человеческой операцией принятия решения и доступным машинным инструментарием не может быть устранено без разработки или согласования новой операционной схемы.",
+                  "admitting_rule": "Не допускается принудительное выполнение или подмена решения; требуется явное развитие или уточнение операционного типа человеком."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 19749,
+          "tokens_out": 386,
+          "latency_ms": 7554,
+          "error": "",
+          "request_hash": "058bded719d17d570f21edf7b7b1141b4631c8cd6fa55f4a81889d8ee579a5d3",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 9774,
+              "sha256": "61e857ac629af571"
+            },
+            {
+              "role": "user",
+              "bytes": 263,
+              "sha256": "49a12f6da73edd3f"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_6cead2fd4d40b8e0",
+      "input_text": "Рабочая сцена: оцениваем, оставлять ли старый биллинг ещё на год или менять сейчас.",
+      "source_id": "src_0fb1dafad5d8f9bf",
+      "phase": "S10",
+      "scene": {
+        "telos": "Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.",
+        "role_hint": "экспертная оценка/советник",
+        "authority": "human",
+        "materials": [
+          "текущая система биллинга",
+          "варианты перехода",
+          "причины для сохранения или замены",
+          "потенциальные последствия",
+          "участники решения"
+        ]
+      },
+      "origin": {
+        "status": "unknown",
+        "sources_named": [],
+        "binding_authority": "unset",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "SCENE_DECISION_SUPPORT",
+        "applicable": false,
+        "why_not": "No registry entry for requested operation type 'SCENE_DECISION_SUPPORT'; the system has detected a materially grounded structural gap, meaning the current ontology and operation registry do not define a native projectable unit or valid analytic operation for this scene decision. Forcing an answer would misclassify or coerce the material.",
+        "open_world_gap": true
+      },
+      "ownership": {
+        "owner": "human",
+        "human_resolved": false,
+        "return_reason": "В сцене зафиксирован материальный структурный пробел: нет валидного операционного типа для поддержания аналитического решения по выбору между сохранением или переходом с биллинга. Принудительное взятие решения системой означало бы подмену неразрешённой человеческой операции формальной модельной процедурой. Возврат: исходное решение остаётся на стороне человека до явного формирования подходящей операционной схемы или прояснения основания для машинного выбора."
+      },
+      "council_invoked": false,
+      "execution_invoked": false,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_9a06a848d26b",
+          "proposed_trigger_type_id": "tgap_8c9b39562872",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+          "cause_object_ref": "actor_state/scene_decision_point",
+          "phase_relevance": "Обнаружен структурный пробел в реестре операций; нет валидного операционного типа для поддержки данной сцены.",
+          "materiality_reason": "Формальное различие между требуемой человеческой операцией принятия решения и доступным машинным инструментарием не может быть устранено без разработки или согласования новой операционной схемы.",
+          "payload": {
+            "legacy_admitting_rule": "Не допускается принудительное выполнение или подмена решения; требуется явное развитие или уточнение операционного типа человеком.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_72a8d4f9ebf0",
+          "candidate_id": "tcand_e2dbf7578b42",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'T01_SCENE_DECISION_SUPPORT' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_0934032a6a5a",
+          "candidate_id": "tcand_168dd38fb0e2",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_8c9b39562872' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_9c70fd41697e",
+          "candidate_id": "tcand_f75796738e0b",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_8c9b39562872' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_40824880cd06",
+          "candidate_id": "tcand_b969d0fd8adb",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_8c9b39562872' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_cbfc1fa84149",
+          "candidate_id": "tcand_900bd291b9e8",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_8c9b39562872' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_8c9b39562872",
+          "candidate_id": "tcand_e2dbf7578b42",
+          "cause_object_ref": "actor_state/scene_decision_point",
+          "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'T01_SCENE_DECISION_SUPPORT' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_f9693767b1a3",
+          "candidate_id": "tcand_168dd38fb0e2",
+          "cause_object_ref": "actor_state/scene_decision_point",
+          "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_8c9b39562872' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_c5b535e79fba",
+          "candidate_id": "tcand_f75796738e0b",
+          "cause_object_ref": "actor_state/scene_decision_point",
+          "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_8c9b39562872' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_757b5323b0b5",
+          "candidate_id": "tcand_b969d0fd8adb",
+          "cause_object_ref": "actor_state/scene_decision_point",
+          "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_8c9b39562872' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_2d791a491a52",
+          "candidate_id": "tcand_900bd291b9e8",
+          "cause_object_ref": "actor_state/scene_decision_point",
+          "generating_state_ref": "scene.telos: 'Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_8c9b39562872' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Зафиксирована материализация схемного пробела: в текущем реестре операций нет нативного типа или валидной аналитической схемы для поддержки сценария выбора между сохранением и переходом с биллинга. Принудительное выполнение этой операции системой привело бы к подмене неразрешённого человеческого решения машинной процедурой. Решение обоснованно возвращено человеку.",
+        "grounds": "Рабочая сцена и формулировка задачи содержат материальный вызов — принятие решения требует специфического операционного типа, отсутствующего в реестре. Попытка принудительно классифицировать или «смоделировать» выбор нарушила бы различие между человеческой и формальной машинной операцией принятия решений."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": []
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_752e7caa8725",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [
+            "*"
+          ],
+          "operator_capabilities": [
+            "*"
+          ],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "runtime_default",
+          "activation_scope": "all_runs_by_default",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_752e7caa8725": {
+            "scene_id": "scene_752e7caa8725",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": null
+    },
+    "rendering": {
+      "text": "Решение о переходе на новую систему биллинга или сохранении старой остаётся за человеком, пока не будут чётко определены условия совместного владения и операционная схема.",
+      "mode": "LIVE",
+      "provider_status": "OK",
+      "provider_id": "fallback",
+      "model_id": "chain",
+      "tokens_in": 230,
+      "tokens_out": 41,
+      "latency_ms": 3194,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_ce39629222919811.json",
+    "duration_ms": 51496,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "context_id": "ctx_33c684daad48346997d3c9988b2a3e93",
+    "context_continuity": {
+      "context_id": "ctx_33c684daad48346997d3c9988b2a3e93",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_dd68c0cb965e",
+        "version": 1,
+        "scene_id": "scene_752e7caa8725",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.",
+        "telos": "Оценить, стоит ли оставить старую систему биллинга ещё на год или перейти на новую прямо сейчас.",
+        "object_scope": "текущая система биллинга, варианты перехода, причины для сохранения или замены",
+        "operation_kind": "SCENE_DECISION_SUPPORT",
+        "expected_intervention": "SCENE_DECISION_SUPPORT",
+        "human_owned_decisions": [
+          "В сцене зафиксирован материальный структурный пробел: нет валидного операционного типа для поддержания аналитического решения по выбору между сохранением или переходом с биллинга. Принудительное взятие решения системой означало бы подмену неразрешённой человеческой операции формальной модельной процедурой. Возврат: исходное решение остаётся на стороне человека до явного формирования подходящей операционной схемы или прояснения основания для машинного выбора."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": ""
+      },
+      "contract_revision": null,
+      "recognition_pass": {
+        "pass_id": "rp_8acfcca8c395",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_created:sc_dd68c0cb965e"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 51582
+  }
+}

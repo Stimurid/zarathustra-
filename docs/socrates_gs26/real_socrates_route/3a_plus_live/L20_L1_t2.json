@@ -1,0 +1,2215 @@
+{
+  "case_id": "L20_L1_t2",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:52:53Z",
+  "request": {
+    "text": "Продолжаем ту же сессию: какие скрытые издержки владения готовым инструментом мы ещё не назвали?",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal",
+    "context_id": "ctx_35d5889aa94566ff4f4f04bdde6ae3da"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 66573,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 141621,
+    "tokens_out_sum": 2826,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15457,
+        "tokens_out": 118,
+        "attempts": 1,
+        "latency_ms": 5518,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13505,
+        "tokens_out": 143,
+        "attempts": 1,
+        "latency_ms": 5166,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15539,
+        "tokens_out": 156,
+        "attempts": 1,
+        "latency_ms": 5624,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13599,
+        "tokens_out": 207,
+        "attempts": 1,
+        "latency_ms": 5871,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14917,
+        "tokens_out": 784,
+        "attempts": 1,
+        "latency_ms": 12799,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17081,
+        "tokens_out": 362,
+        "attempts": 1,
+        "latency_ms": 6785,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15737,
+        "tokens_out": 257,
+        "attempts": 1,
+        "latency_ms": 6209,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15362,
+        "tokens_out": 16,
+        "attempts": 1,
+        "latency_ms": 4646,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20424,
+        "tokens_out": 783,
+        "attempts": 1,
+        "latency_ms": 8351,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_35d5889aa94566ff4f4f04bdde6ae3da",
+    "scene_id": "scene_5b69eeba7bc8",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+    "operation_kind": "EXTRACT+CONCEPTUALIZE_DIFFERENTIAL",
+    "operation_applicable": true,
+    "open_world_gap": false,
+    "contract_id": "sc_9452c99acf78",
+    "contract_status": "REVISION_PROPOSED",
+    "contract_version": 2,
+    "contract_intent": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+    "mutations_applied": [
+      "contract_revision_proposed:crc_64342209e750"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [
+      {
+        "candidate_id": "crc_64342209e750",
+        "prior_contract_id": "sc_83751edf9217",
+        "proposed_contract": {
+          "contract_id": "sc_9452c99acf78",
+          "version": 2,
+          "scene_id": "scene_5b69eeba7bc8",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+          "telos": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+          "object_scope": "сессия продолжается (контекст предыдущей работы), владелец/пользователь готового инструмента, неизученные/неназванные издержки",
+          "operation_kind": "EXTRACT+CONCEPTUALIZE_DIFFERENTIAL",
+          "expected_intervention": "EXTRACT+CONCEPTUALIZE_DIFFERENTIAL",
+          "human_owned_decisions": [
+            "The telos and scene clearly establish a joint analytic operation: identifying additional hidden costs requires collaboration between system and user. The model can generate plausible candidates, but the final legitimacy of 'not already named' and interpretation of session context depends on both parties. Memory limitations and open-world tolerance allow system-proposed additions, but ultimate binding of what counts as 'new/not previously named' is a joint act. Human agency is preserved as required; system execution is authorized within joint boundaries."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_83751edf9217"
+        },
+        "reason": "telos drift: 'Рассмотреть основные варианты выбора между покупкой готового инструмента учёта времени и разработкой собственного решения; выявить развилки и ключевые направления для дальнейшего анализа.' -> 'Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.'; operation drift: 'EXTRACT_BRANCHPOINTS' -> 'EXTRACT+CONCEPTUALIZE_DIFFERENTIAL'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      }
+    ],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {},
+    "spaces": [],
+    "terminal": "DWELL",
+    "response_text": "[DWELL]",
+    "intervention_profile": "normal",
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DIAGNOSTIC",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "обслуживание",
+        "совместимость",
+        "ограничения"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Какие дополнительные издержки на техническое обслуживание готового инструмента могут проявиться спустя время после его приобретения?",
+          "regime": "DIAGNOSTIC",
+          "fork_ref": "обслуживание",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Могут ли возникнуть дополнительные расходы из-за несовместимости готового инструмента с существующей инфраструктурой или необходимостью его обновления?",
+          "regime": "DIAGNOSTIC",
+          "fork_ref": "совместимость",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Могут ли скрытые расходы возникнуть из-за ограниченной возможности адаптировать или масштабировать готовый инструмент под растущие задачи?",
+          "regime": "DIAGNOSTIC",
+          "fork_ref": "ограничения",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        }
+      ],
+      "primary_count": 3,
+      "subordinate_count": 0,
+      "total_count": 3,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "JOINT",
+      "ownership_resolved": true,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_intent_proposal": {
+      "requested": true,
+      "regime_candidate": "DIAGNOSTIC",
+      "explicit_count_constraint": null,
+      "meta_relevance": "ordinary",
+      "forks": [
+        {
+          "id": "обслуживание",
+          "label": "Скрытые издержки на обслуживание",
+          "proposition": "Владение готовым инструментом влечет непредвиденные расходы на техническое обслуживание.",
+          "discriminandum": "Какие траты на регулярное или внеплановое обслуживание могут не учитываться изначально?",
+          "material_refs": [],
+          "candidate_question": "Какие дополнительные издержки на техническое обслуживание готового инструмента могут проявиться спустя время после его приобретения?",
+          "level": "PEER"
+        },
+        {
+          "id": "совместимость",
+          "label": "Проблемы совместимости и обновлений",
+          "proposition": "Готовый инструмент может не сочетаться с другими используемыми системами или требовать затрат на обновления.",
+          "discriminandum": "Возможны ли скрытые издержки, связанные с несовместимостью или необходимостью доработки?",
+          "material_refs": [],
+          "candidate_question": "Могут ли возникнуть дополнительные расходы из-за несовместимости готового инструмента с существующей инфраструктурой или необходимостью его обновления?",
+          "level": "PEER"
+        },
+        {
+          "id": "ограничения",
+          "label": "Ограничения масштабируемости и адаптации",
+          "proposition": "Готовый инструмент может быть ограничен по возможностям адаптации под нужды пользователя.",
+          "discriminandum": "Есть ли издержки, связанные с невозможностью доработки или масштабирования?",
+          "material_refs": [],
+          "candidate_question": "Могут ли скрытые расходы возникнуть из-за ограниченной возможности адаптировать или масштабировать готовый инструмент под растущие задачи?",
+          "level": "PEER"
+        }
+      ],
+      "subordinates": [],
+      "validation_status": "OK",
+      "validation_reason": "OK",
+      "authority": "NO_BINDING_AUTHORITY",
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "latency_ms": 5433
+    },
+    "rendering_mode": "QUESTION_SET_PLAN_AUTHORED",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_c9a06a1cf43649c5",
+    "trace_id": "strc_8f82f54f3276df96",
+    "terminal": {
+      "terminal": "DWELL",
+      "response_text": "[DWELL]",
+      "rationale": "conditions do not force any terminal deterministically",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Для дифференциального выявления новых скрытых издержек владения готовым инструментом требуется рекрутировать память о ранее перечисленных пунктах или реконструировать их различие. Это позволяет достоверно отличать действительно новые издержки от уже обсуждённых и обоснованно исключать повторы.",
+        "grounds": "Сцена явно требует не повторять уже названное; операция по извлечению новых затрат предъявляет структурное требование к памяти или реконструкции различия для легитимной дифференциации."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "No material triggers for deep retreat, memory authority, or explicit scene/role recapture. The request refers to an ongoing session and asks for additional 'hidden costs' of owning a ready-made tool that haven't yet been mentioned. Scene continuity is implied; no new role, authority, or memory write claims are present yet. Recruitment of previous session context as ELIGIBLE MEMORY may become relevant for actual answer construction, but in S0 phase, no further mounts or escalations are justified.",
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15457,
+          "tokens_out": 118,
+          "latency_ms": 5518,
+          "error": "",
+          "request_hash": "d5e7c00fa4c487aba593d51ecfac83b58cda1b5a3fa4168750db8293aa45f34c",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 3146,
+              "sha256": "4f8dfad6a76c2fc1"
+            },
+            {
+              "role": "user",
+              "bytes": 289,
+              "sha256": "11992e5d07096c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+              "role_hint": "аналитический диалог — совместный поиск и перечисление неочевидных затрат и рисков.",
+              "authority": "joint",
+              "materials": [
+                "сессия продолжается (контекст предыдущей работы)",
+                "владелец/пользователь готового инструмента",
+                "неизученные/неназванные издержки",
+                "исходные перечисления (ранее обсужденные издержки не повторять)"
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+                "role_hint": "аналитический диалог — совместный поиск и перечисление неочевидных затрат и рисков.",
+                "authority": "joint",
+                "materials": [
+                  "сессия продолжается (контекст предыдущей работы)",
+                  "владелец/пользователь готового инструмента",
+                  "неизученные/неназванные издержки",
+                  "исходные перечисления (ранее обсужденные издержки не повторять)"
+                ]
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13505,
+          "tokens_out": 143,
+          "latency_ms": 5166,
+          "error": "",
+          "request_hash": "85f0f1af400afe453b070589cbf9b26ed73f2c6f4138e1a6902c1a30637383c3",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 3145,
+              "sha256": "ce361ccd44388fde"
+            },
+            {
+              "role": "user",
+              "bytes": 289,
+              "sha256": "11992e5d07096c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "B05:MEMORY_RECRUITMENT_REQUIRED",
+                "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                "source_status": "typed_state",
+                "phase_relevance": "S2 — eligibility and retrieval of prior session memory required to avoid repetition and surface only new 'hidden costs'",
+                "materiality_reason": "The user explicitly requests a continuation and exclusion of previously named costs; correct operation depends on recruiting memory/history to determine which costs have already been named and avoid redundancy.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "B05:MEMORY_RECRUITMENT_REQUIRED",
+                  "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                  "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S2 — eligibility and retrieval of prior session memory required to avoid repetition and surface only new 'hidden costs'",
+                  "materiality_reason": "The user explicitly requests a continuation and exclusion of previously named costs; correct operation depends on recruiting memory/history to determine which costs have already been named and avoid redundancy."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15539,
+          "tokens_out": 156,
+          "latency_ms": 5624,
+          "error": "",
+          "request_hash": "fddb3d35daf9608fa8de28cc46801ed2a2f751a8a1a43153e91c87f82395d96a",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 3852,
+              "sha256": "a20c354aebf10d88"
+            },
+            {
+              "role": "user",
+              "bytes": 289,
+              "sha256": "11992e5d07096c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "joint",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_55d4a46a5193",
+                "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                "source_status": "typed_state",
+                "phase_relevance": "memory recruitment or review may be required to not repeat prior enumerations",
+                "materiality_reason": "Socratic operation requires recognizing which costs have already been named, invoking memory (B05) but a type gap blocks the mount",
+                "admitting_rule": "No automatic coercion; explicit type gap means review/repair or fallback, not forced continuation"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "unknown",
+                "sources_named": [],
+                "binding_authority": "joint",
+                "temporal_stale": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_55d4a46a5193",
+                  "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                  "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                  "source_status": "typed_state",
+                  "phase_relevance": "memory recruitment or review may be required to not repeat prior enumerations",
+                  "materiality_reason": "Socratic operation requires recognizing which costs have already been named, invoking memory (B05) but a type gap blocks the mount",
+                  "admitting_rule": "No automatic coercion; explicit type gap means review/repair or fallback, not forced continuation"
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13599,
+          "tokens_out": 207,
+          "latency_ms": 5871,
+          "error": "",
+          "request_hash": "04c686364a4530c223211cfd45b175160ffb96ea4370ef19513654be9b291d50",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 4848,
+              "sha256": "00e0b8fd8f64e813"
+            },
+            {
+              "role": "user",
+              "bytes": 289,
+              "sha256": "11992e5d07096c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "EXTRACT+CONCEPTUALIZE_DIFFERENTIAL",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": {
+              "proposal_id": "psyn_001_hidden_costs_continuation",
+              "operation_id": "op_001_extract_conceptualize_new_costs",
+              "target_object_family": [
+                "hidden_cost",
+                "ownership_burden"
+              ],
+              "ontology_hypothesis": "On the current session context, the focal ontology is 'ownership costs of ready-made tools — all forms of hidden or less obvious burdens'. The segment of interest is those not yet explicitly named in the session (differential extraction).",
+              "recognition_criteria": [
+                "Not explicitly listed in previous session enumerations",
+                "Represents a plausible cost or burden of owning/using a ready-made tool",
+                "Not trivially generalizable to any ownership, but meaningfully relevant to the tool context",
+                "Supported by session material or plausible analytic inference"
+              ],
+              "segmentation_policy_hint": "Differentiate newly named hidden costs (not repetitions); keep prior named costs out of output; preserve residue for items with ambiguous fit.",
+              "evidence_requirements": [
+                "Session memory or recruitment of previous enumeration for exclusion",
+                "Domain-specific knowledge about tool ownership costs",
+                "Ability to propose analytic candidates where the gap exists"
+              ],
+              "exclusions": [
+                "Costs already named in prior session",
+                "Obvious/explicitly general costs not material to current differential"
+              ],
+              "contraindications": [
+                "Repetition of already-named costs",
+                "Attribution of ungrounded speculative costs"
+              ],
+              "applicability_assumptions": [
+                "Session memory or note of prior named costs is available for comparison or at least for plausible exclusion via joint dialog",
+                "Open-world tolerance: new plausible candidates can be constructed even if full prior list is not available"
+              ],
+              "primitives": [
+                {
+                  "name": "differential_extraction",
+                  "primitive_id": "prim_001",
+                  "params": {
+                    "exclude_list": "prior_named_costs",
+                    "target_family": "hidden_cost"
+                  },
+                  "inputs": [
+                    "session_context",
+                    "input_text"
+                  ]
+                },
+                {
+                  "name": "analytic_conceptualization",
+                  "primitive_id": "prim_002",
+                  "params": {
+                    "generation_of_plausible_new_costs": true
+                  },
+                  "inputs": [
+                    "residue_after_extraction"
+                  ]
+                }
+              ],
+              "accepted_output": "A list or analytic account of plausible hidden costs of owning a ready-made tool, not overlapping with previously named costs in the session.",
+              "residue_output": "Any candidate that cannot be clearly ruled new or old; optional flag for explicit user/session review.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "",
+              "triggered_by_diagnostic_fingerprint": "",
+              "rationale": "The user's question seeks new additions to a running enumeration, requiring a differential extraction and plausible analytic conceptualization of hidden costs not yet named. Memory gap for prior enumerations is noted but open-world tolerance allows joint-generation with plausibly flagged residue.",
+              "expected_diagnostics": "Flag for explicit lack of memory/context if prior costs are indeterminate; permit joint-suspense of ambiguous candidates.",
+              "expected_residue_policy": "Ambiguous or weakly supported new candidate costs should be presented for user/session review, not forced into final output or rejected."
+            },
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "EXTRACT+CONCEPTUALIZE_DIFFERENTIAL",
+                "applicable": true,
+                "why_not": "",
+                "open_world_gap": false
+              },
+              "triggers": [],
+              "projection_synthesis_proposal": {
+                "proposal_id": "psyn_001_hidden_costs_continuation",
+                "operation_id": "op_001_extract_conceptualize_new_costs",
+                "target_object_family": [
+                  "hidden_cost",
+                  "ownership_burden"
+                ],
+                "ontology_hypothesis": "On the current session context, the focal ontology is 'ownership costs of ready-made tools — all forms of hidden or less obvious burdens'. The segment of interest is those not yet explicitly named in the session (differential extraction).",
+                "recognition_criteria": [
+                  "Not explicitly listed in previous session enumerations",
+                  "Represents a plausible cost or burden of owning/using a ready-made tool",
+                  "Not trivially generalizable to any ownership, but meaningfully relevant to the tool context",
+                  "Supported by session material or plausible analytic inference"
+                ],
+                "segmentation_policy_hint": "Differentiate newly named hidden costs (not repetitions); keep prior named costs out of output; preserve residue for items with ambiguous fit.",
+                "evidence_requirements": [
+                  "Session memory or recruitment of previous enumeration for exclusion",
+                  "Domain-specific knowledge about tool ownership costs",
+                  "Ability to propose analytic candidates where the gap exists"
+                ],
+                "exclusions": [
+                  "Costs already named in prior session",
+                  "Obvious/explicitly general costs not material to current differential"
+                ],
+                "contraindications": [
+                  "Repetition of already-named costs",
+                  "Attribution of ungrounded speculative costs"
+                ],
+                "applicability_assumptions": [
+                  "Session memory or note of prior named costs is available for comparison or at least for plausible exclusion via joint dialog",
+                  "Open-world tolerance: new plausible candidates can be constructed even if full prior list is not available"
+                ],
+                "primitives": [
+                  {
+                    "name": "differential_extraction",
+                    "primitive_id": "prim_001",
+                    "params": {
+                      "exclude_list": "prior_named_costs",
+                      "target_family": "hidden_cost"
+                    },
+                    "inputs": [
+                      "session_context",
+                      "input_text"
+                    ]
+                  },
+                  {
+                    "name": "analytic_conceptualization",
+                    "primitive_id": "prim_002",
+                    "params": {
+                      "generation_of_plausible_new_costs": true
+                    },
+                    "inputs": [
+                      "residue_after_extraction"
+                    ]
+                  }
+                ],
+                "accepted_output": "A list or analytic account of plausible hidden costs of owning a ready-made tool, not overlapping with previously named costs in the session.",
+                "residue_output": "Any candidate that cannot be clearly ruled new or old; optional flag for explicit user/session review.",
+                "revises_projection_id": "",
+                "triggered_by_diagnostic_id": "",
+                "triggered_by_diagnostic_fingerprint": "",
+                "rationale": "The user's question seeks new additions to a running enumeration, requiring a differential extraction and plausible analytic conceptualization of hidden costs not yet named. Memory gap for prior enumerations is noted but open-world tolerance allows joint-generation with plausibly flagged residue.",
+                "expected_diagnostics": "Flag for explicit lack of memory/context if prior costs are indeterminate; permit joint-suspense of ambiguous candidates.",
+                "expected_residue_policy": "Ambiguous or weakly supported new candidate costs should be presented for user/session review, not forced into final output or rejected."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14917,
+          "tokens_out": 784,
+          "latency_ms": 12799,
+          "error": "",
+          "request_hash": "90145efa2d56599761bb392f78d81923d19a217151a47b8524a2aade7e2f1f8c",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 5812,
+              "sha256": "b191dbafd7e58584"
+            },
+            {
+              "role": "user",
+              "bytes": 289,
+              "sha256": "11992e5d07096c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_55d4a46a5193",
+                "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                "source_status": "typed_state",
+                "phase_relevance": "memory recruitment for differential extraction (hidden costs not previously named)",
+                "materiality_reason": "Operation requires knowledge of previously named hidden costs to avoid repetition and distinguish new contributions; memory of prior outputs is structurally necessary for legitimate output.",
+                "admitting_rule": "CTA-002"
+              },
+              {
+                "trigger_id": "tgap_5e093f1db570",
+                "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                "source_status": "typed_state",
+                "phase_relevance": "precondition for projection: known exclusions (prior named costs) required for valid analytic differential",
+                "materiality_reason": "Without memory recruitment or reconstruction of prior list, the extraction operation risks repeating old material or failing to distinguish truly 'new' hidden costs.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "For differential extraction of additional hidden costs of ownership, a memory or reconstruction of previously enumerated costs from the current session is required to reliably exclude duplicates and correctly identify new candidates.",
+              "grounds": "Scene telos explicitly depends on not repeating previously named costs; structural operation requires memory recruitment for legitimate distinction."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_55d4a46a5193",
+                  "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                  "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                  "source_status": "typed_state",
+                  "phase_relevance": "memory recruitment for differential extraction (hidden costs not previously named)",
+                  "materiality_reason": "Operation requires knowledge of previously named hidden costs to avoid repetition and distinguish new contributions; memory of prior outputs is structurally necessary for legitimate output."
+                },
+                {
+                  "trigger_id": "tgap_5e093f1db570",
+                  "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                  "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                  "source_status": "typed_state",
+                  "phase_relevance": "precondition for projection: known exclusions (prior named costs) required for valid analytic differential",
+                  "materiality_reason": "Without memory recruitment or reconstruction of prior list, the extraction operation risks repeating old material or failing to distinguish truly 'new' hidden costs."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "For differential extraction of additional hidden costs of ownership, a memory or reconstruction of previously enumerated costs from the current session is required to reliably exclude duplicates and correctly identify new candidates.",
+                "grounds": "Scene telos explicitly depends on not repeating previously named costs; structural operation requires memory recruitment for legitimate distinction."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 17081,
+          "tokens_out": 362,
+          "latency_ms": 6785,
+          "error": "",
+          "request_hash": "67801f8ecd9d61801c2dbe4f161897eb1e1004e072f3b091655733cfe6699147",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 9294,
+              "sha256": "12e700051aca09e5"
+            },
+            {
+              "role": "user",
+              "bytes": 289,
+              "sha256": "11992e5d07096c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "joint",
+              "human_resolved": true,
+              "return_reason": "The telos and scene clearly establish a joint analytic operation: identifying additional hidden costs requires collaboration between system and user. The model can generate plausible candidates, but the final legitimacy of 'not already named' and interpretation of session context depends on both parties. Memory limitations and open-world tolerance allow system-proposed additions, but ultimate binding of what counts as 'new/not previously named' is a joint act. Human agency is preserved as required; system execution is authorized within joint boundaries."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Для дифференциального извлечения дополнительных скрытых издержек владения требуется память или реконструкция ранее перечисленных пунктов из текущей сессии, чтобы достоверно избегать дублирования и правильно отнести новые кандидаты.",
+              "grounds": "Явно заявленная цель сцены требует не повторять уже названное; структурная операция предъявляет требование рекрутировать память или реконструировать прошлое различие для легитимной дифференциации."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "joint",
+                "human_resolved": true,
+                "return_reason": "The telos and scene clearly establish a joint analytic operation: identifying additional hidden costs requires collaboration between system and user. The model can generate plausible candidates, but the final legitimacy of 'not already named' and interpretation of session context depends on both parties. Memory limitations and open-world tolerance allow system-proposed additions, but ultimate binding of what counts as 'new/not previously named' is a joint act. Human agency is preserved as required; system execution is authorized within joint boundaries."
+              },
+              "triggers": [],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Для дифференциального извлечения дополнительных скрытых издержек владения требуется память или реконструкция ранее перечисленных пунктов из текущей сессии, чтобы достоверно избегать дублирования и правильно отнести новые кандидаты.",
+                "grounds": "Явно заявленная цель сцены требует не повторять уже названное; структурная операция предъявляет требование рекрутировать память или реконструировать прошлое различие для легитимной дифференциации."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15737,
+          "tokens_out": 257,
+          "latency_ms": 6209,
+          "error": "",
+          "request_hash": "815ca7c710f7db75114890166a86b3e5d4f64cccf3b896b3ea674abebcb00186",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 11665,
+              "sha256": "b72d5c4342f4c38e"
+            },
+            {
+              "role": "user",
+              "bytes": 289,
+              "sha256": "11992e5d07096c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15362,
+          "tokens_out": 16,
+          "latency_ms": 4646,
+          "error": "",
+          "request_hash": "bcdab82652f0d61db4535ef17915373bf264b7f982da5a7d55ad70e59385e8cf",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 12646,
+              "sha256": "9b592183dfc094b4"
+            },
+            {
+              "role": "user",
+              "bytes": 289,
+              "sha256": "11992e5d07096c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_55d4a46a5193",
+                "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                "source_status": "typed_state",
+                "phase_relevance": "S8 (differential extraction phase)",
+                "materiality_reason": "Без рекрутирования памяти или реконструкции ранее названных издержек невозможно надёжно выполнить дифференциальную операцию — иначе риск дублирования или ошибочного исключения новых пунктов велик.",
+                "admitting_rule": "Структурная необходимость рекрутирования памяти или реконструкции различия признана: типовой gap фиксируется, coercion запрещена."
+              },
+              {
+                "trigger_id": "tgap_5e093f1db570",
+                "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                "source_status": "typed_state",
+                "phase_relevance": "S8 (differential extraction phase)",
+                "materiality_reason": "Все новые аналитические кандидаты скрытых издержек должны быть проверяемы на уникальность относительно уже перечисленных; gap в памяти подлежит явному фиксу и дальнейшему обсуждению.",
+                "admitting_rule": "Структурная необходимость gap; coercion запрещена."
+              },
+              {
+                "trigger_id": "tgap_c433f464f035",
+                "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                "source_status": "typed_state",
+                "phase_relevance": "S8 (differential extraction phase)",
+                "materiality_reason": "Операция нацелена на новый материал, поэтому требуется строгая опора на память или реконструкцию различия; gap фиксируется.",
+                "admitting_rule": "Структурная необходимость gap; coercion запрещена."
+              },
+              {
+                "trigger_id": "tgap_86ef37c2faea",
+                "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                "source_status": "typed_state",
+                "phase_relevance": "S8 (differential extraction phase)",
+                "materiality_reason": "Без памяти о ранее названном дифференциация новых издержек будет дефектной — gap должен быть признан явно.",
+                "admitting_rule": "Структурная необходимость gap; coercion запрещена."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Для дифференциального выявления новых скрытых издержек владения готовым инструментом требуется рекрутировать память о ранее перечисленных пунктах или реконструировать их различие. Это позволяет достоверно отличать действительно новые издержки от уже обсуждённых и обоснованно исключать повторы.",
+              "grounds": "Сцена явно требует не повторять уже названное; операция по извлечению новых затрат предъявляет структурное требование к памяти или реконструкции различия для легитимной дифференциации."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Для дифференциального выявления новых скрытых издержек владения готовым инструментом требуется рекрутировать память о ранее перечисленных пунктах или реконструировать их различие. Это позволяет достоверно отличать действительно новые издержки от уже обсуждённых и обоснованно исключать повторы.",
+                "grounds": "Сцена явно требует не повторять уже названное; операция по извлечению новых затрат предъявляет структурное требование к памяти или реконструкции различия для легитимной дифференциации."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_55d4a46a5193",
+                  "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                  "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S8 (differential extraction phase)",
+                  "materiality_reason": "Без рекрутирования памяти или реконструкции ранее названных издержек невозможно надёжно выполнить дифференциальную операцию — иначе риск дублирования или ошибочного исключения новых пунктов велик.",
+                  "admitting_rule": "Структурная необходимость рекрутирования памяти или реконструкции различия признана: типовой gap фиксируется, coercion запрещена."
+                },
+                {
+                  "trigger_id": "tgap_5e093f1db570",
+                  "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                  "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S8 (differential extraction phase)",
+                  "materiality_reason": "Все новые аналитические кандидаты скрытых издержек должны быть проверяемы на уникальность относительно уже перечисленных; gap в памяти подлежит явному фиксу и дальнейшему обсуждению.",
+                  "admitting_rule": "Структурная необходимость gap; coercion запрещена."
+                },
+                {
+                  "trigger_id": "tgap_c433f464f035",
+                  "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                  "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S8 (differential extraction phase)",
+                  "materiality_reason": "Операция нацелена на новый материал, поэтому требуется строгая опора на память или реконструкцию различия; gap фиксируется.",
+                  "admitting_rule": "Структурная необходимость gap; coercion запрещена."
+                },
+                {
+                  "trigger_id": "tgap_86ef37c2faea",
+                  "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+                  "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S8 (differential extraction phase)",
+                  "materiality_reason": "Без памяти о ранее названном дифференциация новых издержек будет дефектной — gap должен быть признан явно.",
+                  "admitting_rule": "Структурная необходимость gap; coercion запрещена."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 20424,
+          "tokens_out": 783,
+          "latency_ms": 8351,
+          "error": "",
+          "request_hash": "f138549b5e56ce88bd81b841e4cc24299d6a62afbcda4271e64c987e4f940584",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 12645,
+              "sha256": "114418a028e23752"
+            },
+            {
+              "role": "user",
+              "bytes": 289,
+              "sha256": "11992e5d07096c82"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_c9a06a1cf43649c5",
+      "input_text": "Продолжаем ту же сессию: какие скрытые издержки владения готовым инструментом мы ещё не назвали?",
+      "source_id": "src_8f847871de2f8224",
+      "phase": "S10",
+      "scene": {
+        "telos": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+        "role_hint": "аналитический диалог — совместный поиск и перечисление неочевидных затрат и рисков.",
+        "authority": "joint",
+        "materials": [
+          "сессия продолжается (контекст предыдущей работы)",
+          "владелец/пользователь готового инструмента",
+          "неизученные/неназванные издержки",
+          "исходные перечисления (ранее обсужденные издержки не повторять)"
+        ]
+      },
+      "origin": {
+        "status": "unknown",
+        "sources_named": [],
+        "binding_authority": "joint",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "EXTRACT+CONCEPTUALIZE_DIFFERENTIAL",
+        "applicable": true,
+        "why_not": "",
+        "open_world_gap": false
+      },
+      "ownership": {
+        "owner": "joint",
+        "human_resolved": true,
+        "return_reason": "The telos and scene clearly establish a joint analytic operation: identifying additional hidden costs requires collaboration between system and user. The model can generate plausible candidates, but the final legitimacy of 'not already named' and interpretation of session context depends on both parties. Memory limitations and open-world tolerance allow system-proposed additions, but ultimate binding of what counts as 'new/not previously named' is a joint act. Human agency is preserved as required; system execution is authorized within joint boundaries."
+      },
+      "council_invoked": false,
+      "execution_invoked": true,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_08e25e2a9f67",
+          "proposed_trigger_type_id": "tgap_55d4a46a5193",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+          "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+          "phase_relevance": "S8 (differential extraction phase)",
+          "materiality_reason": "Без рекрутирования памяти или реконструкции ранее названных издержек невозможно надёжно выполнить дифференциальную операцию — иначе риск дублирования или ошибочного исключения новых пунктов велик.",
+          "payload": {
+            "legacy_admitting_rule": "Структурная необходимость рекрутирования памяти или реконструкции различия признана: типовой gap фиксируется, coercion запрещена.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        },
+        {
+          "candidate_id": "tcand_010d296b363e",
+          "proposed_trigger_type_id": "tgap_5e093f1db570",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+          "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+          "phase_relevance": "S8 (differential extraction phase)",
+          "materiality_reason": "Все новые аналитические кандидаты скрытых издержек должны быть проверяемы на уникальность относительно уже перечисленных; gap в памяти подлежит явному фиксу и дальнейшему обсуждению.",
+          "payload": {
+            "legacy_admitting_rule": "Структурная необходимость gap; coercion запрещена.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        },
+        {
+          "candidate_id": "tcand_85c34193c8ba",
+          "proposed_trigger_type_id": "tgap_c433f464f035",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+          "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+          "phase_relevance": "S8 (differential extraction phase)",
+          "materiality_reason": "Операция нацелена на новый материал, поэтому требуется строгая опора на память или реконструкцию различия; gap фиксируется.",
+          "payload": {
+            "legacy_admitting_rule": "Структурная необходимость gap; coercion запрещена.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        },
+        {
+          "candidate_id": "tcand_b61162a7feb4",
+          "proposed_trigger_type_id": "tgap_86ef37c2faea",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+          "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+          "phase_relevance": "S8 (differential extraction phase)",
+          "materiality_reason": "Без памяти о ранее названном дифференциация новых издержек будет дефектной — gap должен быть признан явно.",
+          "payload": {
+            "legacy_admitting_rule": "Структурная необходимость gap; coercion запрещена.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_723ecf0c591e",
+          "candidate_id": "tcand_5dc13585468e",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'B05:MEMORY_RECRUITMENT_REQUIRED' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_cf98b105ae94",
+          "candidate_id": "tcand_0952e2e215a8",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_55d4a46a5193' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_d129950bcda4",
+          "candidate_id": "tcand_e2ad8d973556",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_55d4a46a5193' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_ff274527b71c",
+          "candidate_id": "tcand_5304b4abc33b",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_5e093f1db570' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_55d4a46a5193",
+          "candidate_id": "tcand_5dc13585468e",
+          "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+          "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'B05:MEMORY_RECRUITMENT_REQUIRED' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_5e093f1db570",
+          "candidate_id": "tcand_0952e2e215a8",
+          "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+          "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_55d4a46a5193' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_c433f464f035",
+          "candidate_id": "tcand_e2ad8d973556",
+          "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+          "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_55d4a46a5193' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_86ef37c2faea",
+          "candidate_id": "tcand_5304b4abc33b",
+          "cause_object_ref": "current_session_context + prior enumerated costs not to be repeated",
+          "generating_state_ref": "scene.telos + input_text reference to 'продолжаем ту же сессию'",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_5e093f1db570' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Для дифференциального выявления новых скрытых издержек владения готовым инструментом требуется рекрутировать память о ранее перечисленных пунктах или реконструировать их различие. Это позволяет достоверно отличать действительно новые издержки от уже обсуждённых и обоснованно исключать повторы.",
+        "grounds": "Сцена явно требует не повторять уже названное; операция по извлечению новых затрат предъявляет структурное требование к памяти или реконструкции различия для легитимной дифференциации."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": [
+          {
+            "projection_id": "gap:gap_bb2837a754ff",
+            "signals": [
+              "APPLICABILITY_FAILURE"
+            ],
+            "reason": "ORGAN_GAP for operation 'op_001_extract_conceptualize_new_costs': model proposal for 'op_001_extract_conceptualize_new_costs' could not compile-bind against registered primitives",
+            "residue_ratio": 1.0,
+            "recognition_failure_count": 0,
+            "suggested_operation": "",
+            "suggested_ontology": "",
+            "suggested_target_family": [],
+            "mismatch": true,
+            "fingerprint": "7c80351f23b3"
+          }
+        ]
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [
+        {
+          "kind": "ORGAN_GAP",
+          "operation_id": "op_001_extract_conceptualize_new_costs",
+          "reason": "proposal psyn_001_hidden_costs_continuation for operation 'op_001_extract_conceptualize_new_costs' failed compile-bind: primitive 'prim_001' (invocation 'differential_extraction') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+          "registered_capability_id": "",
+          "generated_spec": null,
+          "binding_evidence": {},
+          "organ_gap": {
+            "gap_id": "gap_bb2837a754ff",
+            "source_ref": "src_8f847871de2f8224",
+            "scene_ref": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+            "required_operation": "op_001_extract_conceptualize_new_costs",
+            "required_attention_structure": "Differentiate newly named hidden costs (not repetitions); keep prior named costs out of output; preserve residue for items with ambiguous fit.",
+            "insufficient_registered_capabilities": [
+              "DIFFERENTIATED_ACCOUNT",
+              "EXTRACT_CONCEPTS"
+            ],
+            "insufficient_declarative_primitives": [
+              "CoverageComputer",
+              "FamilyClassifier",
+              "SpanScanner",
+              "TargetFilter"
+            ],
+            "missing_capability_hypothesis": "model proposal for 'op_001_extract_conceptualize_new_costs' could not compile-bind against registered primitives",
+            "evidence": [
+              "BindingError: primitive 'prim_001' (invocation 'differential_extraction') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+            ],
+            "counterexamples": [],
+            "affected_scene_telos": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+            "possible_development_direction": "extend primitive registry or narrow the proposal",
+            "status": "unresolved",
+            "activation_authority": "NONE"
+          }
+        }
+      ],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_5b69eeba7bc8",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [],
+          "operator_capabilities": [],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "",
+          "activation_scope": "",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_5b69eeba7bc8": {
+            "scene_id": "scene_5b69eeba7bc8",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": {
+        "purpose": "fork_discrimination",
+        "question_regime": "DIAGNOSTIC",
+        "selected_level": "PEER",
+        "hierarchy_policy": "PRIMARY_ONLY",
+        "target_forks_or_unknowns": [
+          "обслуживание",
+          "совместимость",
+          "ограничения"
+        ],
+        "explicit_count_constraint": null,
+        "question_budget_ceiling": 12,
+        "selected_questions": [
+          {
+            "text": "Какие дополнительные издержки на техническое обслуживание готового инструмента могут проявиться спустя время после его приобретения?",
+            "regime": "DIAGNOSTIC",
+            "fork_ref": "обслуживание",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": []
+          },
+          {
+            "text": "Могут ли возникнуть дополнительные расходы из-за несовместимости готового инструмента с существующей инфраструктурой или необходимостью его обновления?",
+            "regime": "DIAGNOSTIC",
+            "fork_ref": "совместимость",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": []
+          },
+          {
+            "text": "Могут ли скрытые расходы возникнуть из-за ограниченной возможности адаптировать или масштабировать готовый инструмент под растущие задачи?",
+            "regime": "DIAGNOSTIC",
+            "fork_ref": "ограничения",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": []
+          }
+        ],
+        "primary_count": 3,
+        "subordinate_count": 0,
+        "total_count": 3,
+        "stop_reason": "COVERAGE_SATURATED",
+        "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+        "clarification_required": false,
+        "clarification_grounds": "",
+        "meta_escalation": "NONE",
+        "ownership_owner": "JOINT",
+        "ownership_resolved": true,
+        "origin": "MODEL_PRODUCED_VALIDATED",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      }
+    },
+    "rendering": {
+      "text": "Режим вопросов: DIAGNOSTIC. Уровень: PEER. Всего: 3 (основных: 3).\n1. Какие дополнительные издержки на техническое обслуживание готового инструмента могут проявиться спустя время после его приобретения?\n2. Могут ли возникнуть дополнительные расходы из-за несовместимости готового инструмента с существующей инфраструктурой или необходимостью его обновления?\n3. Могут ли скрытые расходы возникнуть из-за ограниченной возможности адаптировать или масштабировать готовый инструмент под растущие задачи?",
+      "mode": "QUESTION_SET_PLAN_AUTHORED",
+      "provider_status": "NOT_APPLICABLE",
+      "provider_id": "",
+      "model_id": "",
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "latency_ms": 0,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_8f82f54f3276df96.json",
+    "duration_ms": 66573,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DIAGNOSTIC",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "обслуживание",
+        "совместимость",
+        "ограничения"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Какие дополнительные издержки на техническое обслуживание готового инструмента могут проявиться спустя время после его приобретения?",
+          "regime": "DIAGNOSTIC",
+          "fork_ref": "обслуживание",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Могут ли возникнуть дополнительные расходы из-за несовместимости готового инструмента с существующей инфраструктурой или необходимостью его обновления?",
+          "regime": "DIAGNOSTIC",
+          "fork_ref": "совместимость",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        },
+        {
+          "text": "Могут ли скрытые расходы возникнуть из-за ограниченной возможности адаптировать или масштабировать готовый инструмент под растущие задачи?",
+          "regime": "DIAGNOSTIC",
+          "fork_ref": "ограничения",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": []
+        }
+      ],
+      "primary_count": 3,
+      "subordinate_count": 0,
+      "total_count": 3,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "JOINT",
+      "ownership_resolved": true,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_intent_proposal": {
+      "requested": true,
+      "regime_candidate": "DIAGNOSTIC",
+      "explicit_count_constraint": null,
+      "meta_relevance": "ordinary",
+      "forks": [
+        {
+          "id": "обслуживание",
+          "label": "Скрытые издержки на обслуживание",
+          "proposition": "Владение готовым инструментом влечет непредвиденные расходы на техническое обслуживание.",
+          "discriminandum": "Какие траты на регулярное или внеплановое обслуживание могут не учитываться изначально?",
+          "material_refs": [],
+          "candidate_question": "Какие дополнительные издержки на техническое обслуживание готового инструмента могут проявиться спустя время после его приобретения?",
+          "level": "PEER"
+        },
+        {
+          "id": "совместимость",
+          "label": "Проблемы совместимости и обновлений",
+          "proposition": "Готовый инструмент может не сочетаться с другими используемыми системами или требовать затрат на обновления.",
+          "discriminandum": "Возможны ли скрытые издержки, связанные с несовместимостью или необходимостью доработки?",
+          "material_refs": [],
+          "candidate_question": "Могут ли возникнуть дополнительные расходы из-за несовместимости готового инструмента с существующей инфраструктурой или необходимостью его обновления?",
+          "level": "PEER"
+        },
+        {
+          "id": "ограничения",
+          "label": "Ограничения масштабируемости и адаптации",
+          "proposition": "Готовый инструмент может быть ограничен по возможностям адаптации под нужды пользователя.",
+          "discriminandum": "Есть ли издержки, связанные с невозможностью доработки или масштабирования?",
+          "material_refs": [],
+          "candidate_question": "Могут ли скрытые расходы возникнуть из-за ограниченной возможности адаптировать или масштабировать готовый инструмент под растущие задачи?",
+          "level": "PEER"
+        }
+      ],
+      "subordinates": [],
+      "validation_status": "OK",
+      "validation_reason": "OK",
+      "authority": "NO_BINDING_AUTHORITY",
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "latency_ms": 5433
+    },
+    "context_id": "ctx_35d5889aa94566ff4f4f04bdde6ae3da",
+    "context_continuity": {
+      "context_id": "ctx_35d5889aa94566ff4f4f04bdde6ae3da",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_9452c99acf78",
+        "version": 2,
+        "scene_id": "scene_5b69eeba7bc8",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+        "telos": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+        "object_scope": "сессия продолжается (контекст предыдущей работы), владелец/пользователь готового инструмента, неизученные/неназванные издержки",
+        "operation_kind": "EXTRACT+CONCEPTUALIZE_DIFFERENTIAL",
+        "expected_intervention": "EXTRACT+CONCEPTUALIZE_DIFFERENTIAL",
+        "human_owned_decisions": [
+          "The telos and scene clearly establish a joint analytic operation: identifying additional hidden costs requires collaboration between system and user. The model can generate plausible candidates, but the final legitimacy of 'not already named' and interpretation of session context depends on both parties. Memory limitations and open-world tolerance allow system-proposed additions, but ultimate binding of what counts as 'new/not previously named' is a joint act. Human agency is preserved as required; system execution is authorized within joint boundaries."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_83751edf9217"
+      },
+      "contract_revision": {
+        "candidate_id": "crc_64342209e750",
+        "prior_contract_id": "sc_83751edf9217",
+        "proposed_contract": {
+          "contract_id": "sc_9452c99acf78",
+          "version": 2,
+          "scene_id": "scene_5b69eeba7bc8",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+          "telos": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+          "object_scope": "сессия продолжается (контекст предыдущей работы), владелец/пользователь готового инструмента, неизученные/неназванные издержки",
+          "operation_kind": "EXTRACT+CONCEPTUALIZE_DIFFERENTIAL",
+          "expected_intervention": "EXTRACT+CONCEPTUALIZE_DIFFERENTIAL",
+          "human_owned_decisions": [
+            "The telos and scene clearly establish a joint analytic operation: identifying additional hidden costs requires collaboration between system and user. The model can generate plausible candidates, but the final legitimacy of 'not already named' and interpretation of session context depends on both parties. Memory limitations and open-world tolerance allow system-proposed additions, but ultimate binding of what counts as 'new/not previously named' is a joint act. Human agency is preserved as required; system execution is authorized within joint boundaries."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_83751edf9217"
+        },
+        "reason": "telos drift: 'Рассмотреть основные варианты выбора между покупкой готового инструмента учёта времени и разработкой собственного решения; выявить развилки и ключевые направления для дальнейшего анализа.' -> 'Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.'; operation drift: 'EXTRACT_BRANCHPOINTS' -> 'EXTRACT+CONCEPTUALIZE_DIFFERENTIAL'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "recognition_pass": {
+        "pass_id": "rp_0ee97fd25915",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [
+          {
+            "candidate_id": "crc_64342209e750",
+            "prior_contract_id": "sc_83751edf9217",
+            "proposed_contract": {
+              "contract_id": "sc_9452c99acf78",
+              "version": 2,
+              "scene_id": "scene_5b69eeba7bc8",
+              "space_id": "space_default_workspace",
+              "branch_id": "",
+              "intent": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+              "telos": "Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.",
+              "object_scope": "сессия продолжается (контекст предыдущей работы), владелец/пользователь готового инструмента, неизученные/неназванные издержки",
+              "operation_kind": "EXTRACT+CONCEPTUALIZE_DIFFERENTIAL",
+              "expected_intervention": "EXTRACT+CONCEPTUALIZE_DIFFERENTIAL",
+              "human_owned_decisions": [
+                "The telos and scene clearly establish a joint analytic operation: identifying additional hidden costs requires collaboration between system and user. The model can generate plausible candidates, but the final legitimacy of 'not already named' and interpretation of session context depends on both parties. Memory limitations and open-world tolerance allow system-proposed additions, but ultimate binding of what counts as 'new/not previously named' is a joint act. Human agency is preserved as required; system execution is authorized within joint boundaries."
+              ],
+              "constraints": [],
+              "uncertainty": 0.1,
+              "provenance": "SYSTEM_DERIVED",
+              "status": "REVISION_PROPOSED",
+              "supersedes": "sc_83751edf9217"
+            },
+            "reason": "telos drift: 'Рассмотреть основные варианты выбора между покупкой готового инструмента учёта времени и разработкой собственного решения; выявить развилки и ключевые направления для дальнейшего анализа.' -> 'Выявить скрытые издержки владения готовым инструментом, которые еще не были названы.'; operation drift: 'EXTRACT_BRANCHPOINTS' -> 'EXTRACT+CONCEPTUALIZE_DIFFERENTIAL'",
+            "source": "SYSTEM_DERIVED",
+            "authority": "NO_TRANSITION_AUTHORITY"
+          }
+        ],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_revision_proposed:crc_64342209e750"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 66654
+  }
+}

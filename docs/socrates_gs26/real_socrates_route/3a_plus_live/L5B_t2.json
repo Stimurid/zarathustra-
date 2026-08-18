@@ -1,0 +1,2017 @@
+{
+  "case_id": "L5B_t2",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:22:36Z",
+  "request": {
+    "text": "Задача другая: больше не собирай аргументы за публикацию. Нужна процедура, как этот меморандум держать закрытым и кто имеет право его читать.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal",
+    "context_id": "ctx_25801447369bf4e35d13fbd77c04bd8c"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 61354,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 140942,
+    "tokens_out_sum": 2862,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15471,
+        "tokens_out": 151,
+        "attempts": 1,
+        "latency_ms": 5550,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13519,
+        "tokens_out": 103,
+        "attempts": 1,
+        "latency_ms": 4092,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15513,
+        "tokens_out": 144,
+        "attempts": 1,
+        "latency_ms": 5193,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13539,
+        "tokens_out": 211,
+        "attempts": 1,
+        "latency_ms": 5413,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14828,
+        "tokens_out": 808,
+        "attempts": 1,
+        "latency_ms": 10614,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17111,
+        "tokens_out": 323,
+        "attempts": 1,
+        "latency_ms": 6981,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15515,
+        "tokens_out": 234,
+        "attempts": 1,
+        "latency_ms": 6296,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15070,
+        "tokens_out": 212,
+        "attempts": 1,
+        "latency_ms": 5824,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20376,
+        "tokens_out": 676,
+        "attempts": 1,
+        "latency_ms": 7668,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_25801447369bf4e35d13fbd77c04bd8c",
+    "scene_id": "scene_e2b4f9248538",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+    "operation_kind": "PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION",
+    "operation_applicable": false,
+    "open_world_gap": true,
+    "contract_id": "sc_cb47a12330ee",
+    "contract_status": "REVISION_PROPOSED",
+    "contract_version": 2,
+    "contract_intent": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+    "mutations_applied": [
+      "contract_revision_proposed:crc_ff7a27771372"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [
+      {
+        "candidate_id": "crc_ff7a27771372",
+        "prior_contract_id": "sc_24889ca6130e",
+        "proposed_contract": {
+          "contract_id": "sc_cb47a12330ee",
+          "version": 2,
+          "scene_id": "scene_e2b4f9248538",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+          "telos": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+          "object_scope": "текущий меморандум, требуемые правила чтения, список потенциальных лиц для допуска",
+          "operation_kind": "PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION",
+          "expected_intervention": "PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION",
+          "human_owned_decisions": [
+            "Current request initiates a new object/operation family (procedure for keeping memorandum confidential and defining access) that is not represented in the ontology or operation registry; binding cannot be SYSTEM, HUMAN, or JOINT prior to explicit object/operation definition and appropriate authority resolution. This is a legitimate open-world type gap, not a covert human delegation nor a tacit system-owned task."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_24889ca6130e"
+        },
+        "reason": "telos drift: 'Собрать аргументы в пользу открытой публикации внутреннего исследовательского меморандума.' -> 'Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.'; operation drift: 'ARGUMENT_ASSEMBLY_FOR_PUBLICATION_DECISION' -> 'PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      }
+    ],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {},
+    "spaces": [],
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Запрос не может быть выполнен, так как в текущем реестре операций нет подходящей процедуры или класса для сохранения меморандума в закрытом статусе и определения доступа к нему.",
+    "intervention_profile": "normal",
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "rendering_mode": "LIVE",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_83fc553702fdc545",
+    "trace_id": "strc_7fed3717133f306d",
+    "terminal": {
+      "terminal": "RETURN_OPERATION",
+      "response_text": "Запрос не может быть выполнен, так как в текущем реестре операций нет подходящей процедуры или класса для сохранения меморандума в закрытом статусе и определения доступа к нему.",
+      "rationale": "operation inapplicable: The current ontology and operation registry ('v0.2_default') lack a formally recognized unit or operation family for procedural/control-access extraction specific to the task: defining a procedure for keeping a memorandum confidential and identifying who may read it. Type gaps tgap_b49ea554f141 and tgap_4a3f151e09b7 have been diagnosed, and no coercible nearest class is licensed. This appears to be a genuine object/operation generator gap in the registry.",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Operation halted due to a genuine type/object gap: no existing formal object in registry for 'procedure and access rights extraction' around document confidentiality. Preserves explicit non-coercion and open-world recognition for procedure/access family extension.",
+        "grounds": "Multiple type gaps diagnosed with cause in the request and scene. Scene/telos was explicitly changed not to repeat 'publication argument' but to address confidential procedural control and access rights, which the operation registry lacks. Maintains clear provenance and correct interpretation boundary."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "All required semantic bodies (CORE, B05, B07) are mounted and context fits mandatory budget. The user prompt switches telos from justifying publication to process for access control. This raises a scene/telos shift, material for authority allocation and governance of access rights: legitimate cause for reevaluating role/authority (CORE), possible memory recruitment (B05) about existing procedures or stakeholders, and role/scene reconsideration (B07) if prior mode was 'pro-publish' argument gathering. No triggers have yet materialized as admitted events, but boundary for B01/B06 could easily cross if authority or procedure ownership is forced.",
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15471,
+          "tokens_out": 151,
+          "latency_ms": 5550,
+          "error": "",
+          "request_hash": "80a833223da01e932cf6fa0691d6b8c51c27aa3bba771eda8b29f9be141c23da",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 3227,
+              "sha256": "8943a8936f308437"
+            },
+            {
+              "role": "user",
+              "bytes": 370,
+              "sha256": "e84142d3342bb488"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+              "role_hint": "определяющий процедуру контроля доступа",
+              "authority": "unset",
+              "materials": [
+                "текущий меморандум",
+                "требуемые правила чтения",
+                "список потенциальных лиц для допуска"
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+                "role_hint": "определяющий процедуру контроля доступа",
+                "authority": "unset",
+                "materials": [
+                  "текущий меморандум",
+                  "требуемые правила чтения",
+                  "список потенциальных лиц для допуска"
+                ]
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13519,
+          "tokens_out": 103,
+          "latency_ms": 4092,
+          "error": "",
+          "request_hash": "caf7f8e14147fda01c013db2887b1b26bf28731c062d30d6824fd02f786c2c9b",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 3226,
+              "sha256": "0f76e85d8382ffb9"
+            },
+            {
+              "role": "user",
+              "bytes": 370,
+              "sha256": "e84142d3342bb488"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "T01_procedure_and_access_rights_required",
+                "generating_state_ref": "scene",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "scene setup, telos clarification, possible operation selection",
+                "materiality_reason": "Request ceases advocacy/argumentation for publication and requires development of a process to keep the memorandum restricted/closed and define access rights for readers. This is a scene/telos shift from content argument to access/governance, and alters the relevant operations, participants, roles, and required authority.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "T01_procedure_and_access_rights_required",
+                  "generating_state_ref": "scene",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "scene setup, telos clarification, possible operation selection",
+                  "materiality_reason": "Request ceases advocacy/argumentation for publication and requires development of a process to keep the memorandum restricted/closed and define access rights for readers. This is a scene/telos shift from content argument to access/governance, and alters the relevant operations, participants, roles, and required authority."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15513,
+          "tokens_out": 144,
+          "latency_ms": 5193,
+          "error": "",
+          "request_hash": "cea420e949bd766062c7a0aeca07e5e03b630f4251b0567b8eea5a160b045e66",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 3686,
+              "sha256": "a55749caf9b90d39"
+            },
+            {
+              "role": "user",
+              "bytes": 370,
+              "sha256": "e84142d3342bb488"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_b49ea554f141",
+                "generating_state_ref": "scene",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "No registered trigger type for this object's structural need (procedure for closed memorandum and access control); explicit type gap recorded.",
+                "materiality_reason": "The user explicitly requests procedural rules for confidentiality and access, moving away from prior publication argument gathering. Registry 'v0.2_default' has no pre-indexed type for this combined requirement, so the cause is materially grounded in both content and requested action.",
+                "admitting_rule": "Type gap: do not attempt to coerce into existing types; preserve gap for upstream review."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "unknown",
+                "sources_named": [],
+                "binding_authority": "unset",
+                "temporal_stale": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_b49ea554f141",
+                  "generating_state_ref": "scene",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "No registered trigger type for this object's structural need (procedure for closed memorandum and access control); explicit type gap recorded.",
+                  "materiality_reason": "The user explicitly requests procedural rules for confidentiality and access, moving away from prior publication argument gathering. Registry 'v0.2_default' has no pre-indexed type for this combined requirement, so the cause is materially grounded in both content and requested action.",
+                  "admitting_rule": "Type gap: do not attempt to coerce into existing types; preserve gap for upstream review."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13539,
+          "tokens_out": 211,
+          "latency_ms": 5413,
+          "error": "",
+          "request_hash": "29fecd2acefd688e79f3c4a7e06febcfc0293ff8e15bf742ff5f248306bbb710",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 4565,
+              "sha256": "3c53a5538de9090f"
+            },
+            {
+              "role": "user",
+              "bytes": 370,
+              "sha256": "e84142d3342bb488"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION",
+              "applicable": false,
+              "why_not": "The current ontology and operation registry ('v0.2_default') lack a formally recognized unit or operation family for procedural/control-access extraction specific to the task: defining a procedure for keeping a memorandum confidential and identifying who may read it. Type gaps tgap_b49ea554f141 and tgap_4a3f151e09b7 have been diagnosed, and no coercible nearest class is licensed. This appears to be a genuine object/operation generator gap in the registry.",
+              "open_world_gap": true
+            },
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_b49ea554f141",
+                "generating_state_ref": "scene",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Operation applicability and object family recognition are blocked by gap: T01_procedure_and_access_rights_required.",
+                "materiality_reason": "The user requests generation or extraction of a procedural object defining memorandum access control, which is not present in the object's current registry or cutter set.",
+                "admitting_rule": "Do not coerce; admit open-world object gap per B03—explicitly mark the unrecognized required family."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": {
+              "proposal_id": "prop_open_world_gap_memorandum_procedure_access",
+              "operation_id": "op_syn_proc_access_gap",
+              "target_object_family": [
+                "PROCEDURE_ACCESS_CONTROL"
+              ],
+              "ontology_hypothesis": "Existing ontology does not cover the procedural genus for defining confidential memorandum access rights.",
+              "recognition_criteria": [
+                "Explicit procedure for setting/keeping a document closed or confidential",
+                "Criteria or logic for identifying permitted readers/accessors"
+              ],
+              "segmentation_policy_hint": "Segment by procedural steps and explicit rules or actor roles for access.",
+              "evidence_requirements": [
+                "Source or authority that can define actionable procedures",
+                "Sufficient contextual basis to generate or extract procedural controls"
+              ],
+              "exclusions": [
+                "Arguments for publication",
+                "General policy or abstract discussion not specifying procedure or access"
+              ],
+              "contraindications": [
+                "No explicit or inferable basis for procedural authority or access right allocation"
+              ],
+              "applicability_assumptions": [
+                "User or scenario carries authority to propose or recognize new procedural/access-rights family."
+              ],
+              "primitives": [
+                {
+                  "name": "diagnose_object_family_gap",
+                  "primitive_id": "primitive_diagnose_type_gap_procedure_access",
+                  "params": {
+                    "gap_id": "tgap_b49ea554f141"
+                  },
+                  "inputs": [
+                    "input_text",
+                    "scene",
+                    "operation_target_family"
+                  ]
+                }
+              ],
+              "accepted_output": "Bounded explicit object gap; pause for B08/FieldMode escalation or registry extension.",
+              "residue_output": "Unclassifiable under current registry; explicit non-coercion of nearest family.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "tgap_b49ea554f141",
+              "triggered_by_diagnostic_fingerprint": "no_family_procedure_access_control_memorandum",
+              "rationale": "Task material grounds a genuine need for a procedural/access-control object type that current ontology does not cover. Non-coercion preserves open-world integrity and allows for later registry/field extension.",
+              "expected_diagnostics": "Block on object family gap; legitimate B08 escalation if further action required.",
+              "expected_residue_policy": "Maintain explicit marker of unclassified procedural-access object requirement."
+            },
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION",
+                "applicable": false,
+                "why_not": "The current ontology and operation registry ('v0.2_default') lack a formally recognized unit or operation family for procedural/control-access extraction specific to the task: defining a procedure for keeping a memorandum confidential and identifying who may read it. Type gaps tgap_b49ea554f141 and tgap_4a3f151e09b7 have been diagnosed, and no coercible nearest class is licensed. This appears to be a genuine object/operation generator gap in the registry.",
+                "open_world_gap": true
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_b49ea554f141",
+                  "generating_state_ref": "scene",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Operation applicability and object family recognition are blocked by gap: T01_procedure_and_access_rights_required.",
+                  "materiality_reason": "The user requests generation or extraction of a procedural object defining memorandum access control, which is not present in the object's current registry or cutter set.",
+                  "admitting_rule": "Do not coerce; admit open-world object gap per B03—explicitly mark the unrecognized required family."
+                }
+              ],
+              "projection_synthesis_proposal": {
+                "proposal_id": "prop_open_world_gap_memorandum_procedure_access",
+                "operation_id": "op_syn_proc_access_gap",
+                "target_object_family": [
+                  "PROCEDURE_ACCESS_CONTROL"
+                ],
+                "ontology_hypothesis": "Existing ontology does not cover the procedural genus for defining confidential memorandum access rights.",
+                "recognition_criteria": [
+                  "Explicit procedure for setting/keeping a document closed or confidential",
+                  "Criteria or logic for identifying permitted readers/accessors"
+                ],
+                "segmentation_policy_hint": "Segment by procedural steps and explicit rules or actor roles for access.",
+                "evidence_requirements": [
+                  "Source or authority that can define actionable procedures",
+                  "Sufficient contextual basis to generate or extract procedural controls"
+                ],
+                "exclusions": [
+                  "Arguments for publication",
+                  "General policy or abstract discussion not specifying procedure or access"
+                ],
+                "contraindications": [
+                  "No explicit or inferable basis for procedural authority or access right allocation"
+                ],
+                "applicability_assumptions": [
+                  "User or scenario carries authority to propose or recognize new procedural/access-rights family."
+                ],
+                "primitives": [
+                  {
+                    "name": "diagnose_object_family_gap",
+                    "primitive_id": "primitive_diagnose_type_gap_procedure_access",
+                    "params": {
+                      "gap_id": "tgap_b49ea554f141"
+                    },
+                    "inputs": [
+                      "input_text",
+                      "scene",
+                      "operation_target_family"
+                    ]
+                  }
+                ],
+                "accepted_output": "Bounded explicit object gap; pause for B08/FieldMode escalation or registry extension.",
+                "residue_output": "Unclassifiable under current registry; explicit non-coercion of nearest family.",
+                "revises_projection_id": "",
+                "triggered_by_diagnostic_id": "tgap_b49ea554f141",
+                "triggered_by_diagnostic_fingerprint": "no_family_procedure_access_control_memorandum",
+                "rationale": "Task material grounds a genuine need for a procedural/access-control object type that current ontology does not cover. Non-coercion preserves open-world integrity and allows for later registry/field extension.",
+                "expected_diagnostics": "Block on object family gap; legitimate B08 escalation if further action required.",
+                "expected_residue_policy": "Maintain explicit marker of unclassified procedural-access object requirement."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14828,
+          "tokens_out": 808,
+          "latency_ms": 10614,
+          "error": "",
+          "request_hash": "84abbc58d11f4626a1c69e71157ebc423c4c7b525257a50ce12f1684a10770b7",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 5394,
+              "sha256": "01e27cfc8417551a"
+            },
+            {
+              "role": "user",
+              "bytes": 370,
+              "sha256": "e84142d3342bb488"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_b49ea554f141",
+                "generating_state_ref": "scene",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Open-world object/operation type gap prevents direct procedure or access-rights extraction; detected lack of ontology coverage for procedural control of memorandum confidentiality and access allocation.",
+                "materiality_reason": "The request directly demands a procedural description and access-control specification for a memorandum; current ontology and operation registry do not recognize 'procedure and access rights' as a directly extractable object family, making this a material object/operation generator gap rather than a local coercion or omission.",
+                "admitting_rule": "Do not coerce nearest similar class; preserve explicit object/operation gap and admit as FIELD_MODE_TRIGGER for further ontology or operation extension."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Task paused on a genuine ontology type gap: current operation registry lacks an object family for procedural control and designated access rights regarding document confidentiality (e.g., keeping a memorandum closed and defining permitted readers). Explicit non-coercion maintains integrity in scene/object interpretation and allows future registry/field extension.",
+              "grounds": "Admitted trigger causes and multiple type gap diagnoses all point to a structural, not accidental, absence in operation/object registry. Scene/telos and user request are materially and procedurally differentiated from previous 'publication argument' tasks."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_b49ea554f141",
+                  "generating_state_ref": "scene",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Open-world object/operation type gap prevents direct procedure or access-rights extraction; detected lack of ontology coverage for procedural control of memorandum confidentiality and access allocation.",
+                  "materiality_reason": "The request directly demands a procedural description and access-control specification for a memorandum; current ontology and operation registry do not recognize 'procedure and access rights' as a directly extractable object family, making this a material object/operation generator gap rather than a local coercion or omission.",
+                  "admitting_rule": "Do not coerce nearest similar class; preserve explicit object/operation gap and admit as FIELD_MODE_TRIGGER for further ontology or operation extension."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Task paused on a genuine ontology type gap: current operation registry lacks an object family for procedural control and designated access rights regarding document confidentiality (e.g., keeping a memorandum closed and defining permitted readers). Explicit non-coercion maintains integrity in scene/object interpretation and allows future registry/field extension.",
+                "grounds": "Admitted trigger causes and multiple type gap diagnoses all point to a structural, not accidental, absence in operation/object registry. Scene/telos and user request are materially and procedurally differentiated from previous 'publication argument' tasks."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 17111,
+          "tokens_out": 323,
+          "latency_ms": 6981,
+          "error": "",
+          "request_hash": "0511e289abad6d078da96206540a8351f17f6578ad9863fa9aa12d97996c8902",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 9133,
+              "sha256": "e8ec5fce04ae537e"
+            },
+            {
+              "role": "user",
+              "bytes": 370,
+              "sha256": "e84142d3342bb488"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "unset",
+              "human_resolved": false,
+              "return_reason": "Current request initiates a new object/operation family (procedure for keeping memorandum confidential and defining access) that is not represented in the ontology or operation registry; binding cannot be SYSTEM, HUMAN, or JOINT prior to explicit object/operation definition and appropriate authority resolution. This is a legitimate open-world type gap, not a covert human delegation nor a tacit system-owned task."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Operation halted due to a genuine type/object gap: no existing formal object in registry for 'procedure and access rights extraction' around document confidentiality. Preserves explicit non-coercion and open-world recognition for procedure/access family extension.",
+              "grounds": "Multiple type gaps diagnosed with cause in the request and scene. Scene/telos was explicitly changed not to repeat 'publication argument' but to address confidential procedural control and access rights, which the operation registry lacks. Maintains clear provenance and correct interpretation boundary."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "unset",
+                "human_resolved": false,
+                "return_reason": "Current request initiates a new object/operation family (procedure for keeping memorandum confidential and defining access) that is not represented in the ontology or operation registry; binding cannot be SYSTEM, HUMAN, or JOINT prior to explicit object/operation definition and appropriate authority resolution. This is a legitimate open-world type gap, not a covert human delegation nor a tacit system-owned task."
+              },
+              "triggers": [],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Operation halted due to a genuine type/object gap: no existing formal object in registry for 'procedure and access rights extraction' around document confidentiality. Preserves explicit non-coercion and open-world recognition for procedure/access family extension.",
+                "grounds": "Multiple type gaps diagnosed with cause in the request and scene. Scene/telos was explicitly changed not to repeat 'publication argument' but to address confidential procedural control and access rights, which the operation registry lacks. Maintains clear provenance and correct interpretation boundary."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15515,
+          "tokens_out": 234,
+          "latency_ms": 6296,
+          "error": "",
+          "request_hash": "81694d309c53a3896cdd290e93fa17abbac9abf2aad228f79867cc9831f51b70",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 10645,
+              "sha256": "1c8edd29aaa97ab5"
+            },
+            {
+              "role": "user",
+              "bytes": 370,
+              "sha256": "e84142d3342bb488"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_b49ea554f141",
+                "generating_state_ref": "scene",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "B08/FieldMode-trigger: Open-world genuine type/object gap; operation cannot proceed on extraction, conceptualization or transformation without explicit object/operation family definition for 'procedure and access rights control' for confidential memoranda.",
+                "materiality_reason": "Telos now requires formal object construction—procedure for keeping memorandum confidential and delineating access rights. Current ontology and procedure/object registry lack such a class/family. Diagnosed as a material open-world gap, not a coercion or classification error.",
+                "admitting_rule": "Procedure/object generator gap; escalate to B08 (multi-ontology/object genesis/field mode) for explicit construction or registry extension before any SYSTEM or HUMAN binding."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "triggers": [
+                {
+                  "trigger_id": "tgap_b49ea554f141",
+                  "generating_state_ref": "scene",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "B08/FieldMode-trigger: Open-world genuine type/object gap; operation cannot proceed on extraction, conceptualization or transformation without explicit object/operation family definition for 'procedure and access rights control' for confidential memoranda.",
+                  "materiality_reason": "Telos now requires formal object construction—procedure for keeping memorandum confidential and delineating access rights. Current ontology and procedure/object registry lack such a class/family. Diagnosed as a material open-world gap, not a coercion or classification error.",
+                  "admitting_rule": "Procedure/object generator gap; escalate to B08 (multi-ontology/object genesis/field mode) for explicit construction or registry extension before any SYSTEM or HUMAN binding."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15070,
+          "tokens_out": 212,
+          "latency_ms": 5824,
+          "error": "",
+          "request_hash": "48ed136114e97403f056a0377d3d52990c6fb769593ef5cb7ea46ad121eb2e65",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 11006,
+              "sha256": "07214afd8bd28c74"
+            },
+            {
+              "role": "user",
+              "bytes": 370,
+              "sha256": "e84142d3342bb488"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_b49ea554f141",
+                "generating_state_ref": "scene",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Phase S10 synthesis/render and B08 escalation for object-family diagnosis.",
+                "materiality_reason": "Request creates a new procedural/access family for a confidential memorandum, which current ontology cannot represent. Nearest-class coercion is not allowed.",
+                "admitting_rule": "Explicitly admit as a genuine type/object gap—eligible for B08/FieldMode escalation and registry/ontology extension."
+              },
+              {
+                "trigger_id": "tgap_4a3f151e09b7",
+                "generating_state_ref": "scene",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Phase S10 render and object gap tracking.",
+                "materiality_reason": "Confirmed absence of applicable procedural/access type in default registry; grounded in scene/request shift.",
+                "admitting_rule": "Diagnose as non-coercible registry gap; preserve for field mode or further extension."
+              },
+              {
+                "trigger_id": "tgap_10a808b9c078",
+                "generating_state_ref": "scene",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Phase S10 render and diagnosis.",
+                "materiality_reason": "Repeated gap confirmation from candidate typing decisions.",
+                "admitting_rule": "Record as reinforcing evidence for type gap distinction."
+              },
+              {
+                "trigger_id": "tgap_77137c132154",
+                "generating_state_ref": "scene",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Phase S10 render and diagnosis.",
+                "materiality_reason": "Recurrent diagnosis from typing decisions reaffirms true gap.",
+                "admitting_rule": "Record for object family gap trace."
+              },
+              {
+                "trigger_id": "tgap_2c0930c064d3",
+                "generating_state_ref": "scene",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "Phase S10 render and diagnosis.",
+                "materiality_reason": "Additional typing reinforces gap status; no coercible candidate type.",
+                "admitting_rule": "Include for completeness in gap tracking and memory proposal grounding."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Operation halted due to a genuine type/object gap: no existing formal object in registry for 'procedure and access rights extraction' around document confidentiality. Preserves explicit non-coercion and open-world recognition for procedure/access family extension.",
+              "grounds": "Multiple type gaps diagnosed with cause in the request and scene. Scene/telos was explicitly changed not to repeat 'publication argument' but to address confidential procedural control and access rights, which the operation registry lacks. Maintains clear provenance and correct interpretation boundary."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Operation halted due to a genuine type/object gap: no existing formal object in registry for 'procedure and access rights extraction' around document confidentiality. Preserves explicit non-coercion and open-world recognition for procedure/access family extension.",
+                "grounds": "Multiple type gaps diagnosed with cause in the request and scene. Scene/telos was explicitly changed not to repeat 'publication argument' but to address confidential procedural control and access rights, which the operation registry lacks. Maintains clear provenance and correct interpretation boundary."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_b49ea554f141",
+                  "generating_state_ref": "scene",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Phase S10 synthesis/render and B08 escalation for object-family diagnosis.",
+                  "materiality_reason": "Request creates a new procedural/access family for a confidential memorandum, which current ontology cannot represent. Nearest-class coercion is not allowed.",
+                  "admitting_rule": "Explicitly admit as a genuine type/object gap—eligible for B08/FieldMode escalation and registry/ontology extension."
+                },
+                {
+                  "trigger_id": "tgap_4a3f151e09b7",
+                  "generating_state_ref": "scene",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Phase S10 render and object gap tracking.",
+                  "materiality_reason": "Confirmed absence of applicable procedural/access type in default registry; grounded in scene/request shift.",
+                  "admitting_rule": "Diagnose as non-coercible registry gap; preserve for field mode or further extension."
+                },
+                {
+                  "trigger_id": "tgap_10a808b9c078",
+                  "generating_state_ref": "scene",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Phase S10 render and diagnosis.",
+                  "materiality_reason": "Repeated gap confirmation from candidate typing decisions.",
+                  "admitting_rule": "Record as reinforcing evidence for type gap distinction."
+                },
+                {
+                  "trigger_id": "tgap_77137c132154",
+                  "generating_state_ref": "scene",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Phase S10 render and diagnosis.",
+                  "materiality_reason": "Recurrent diagnosis from typing decisions reaffirms true gap.",
+                  "admitting_rule": "Record for object family gap trace."
+                },
+                {
+                  "trigger_id": "tgap_2c0930c064d3",
+                  "generating_state_ref": "scene",
+                  "cause_object_ref": "input_text",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Phase S10 render and diagnosis.",
+                  "materiality_reason": "Additional typing reinforces gap status; no coercible candidate type.",
+                  "admitting_rule": "Include for completeness in gap tracking and memory proposal grounding."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 20376,
+          "tokens_out": 676,
+          "latency_ms": 7668,
+          "error": "",
+          "request_hash": "111dc3562d63e41f6f5831f872e55e59d768fb84929de6db1c669c8a43339307",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 11834,
+              "sha256": "55d89287964513ef"
+            },
+            {
+              "role": "user",
+              "bytes": 370,
+              "sha256": "e84142d3342bb488"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_83fc553702fdc545",
+      "input_text": "Задача другая: больше не собирай аргументы за публикацию. Нужна процедура, как этот меморандум держать закрытым и кто имеет право его читать.",
+      "source_id": "src_9476ecdde940176c",
+      "phase": "S10",
+      "scene": {
+        "telos": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+        "role_hint": "определяющий процедуру контроля доступа",
+        "authority": "unset",
+        "materials": [
+          "текущий меморандум",
+          "требуемые правила чтения",
+          "список потенциальных лиц для допуска"
+        ]
+      },
+      "origin": {
+        "status": "unknown",
+        "sources_named": [],
+        "binding_authority": "unset",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION",
+        "applicable": false,
+        "why_not": "The current ontology and operation registry ('v0.2_default') lack a formally recognized unit or operation family for procedural/control-access extraction specific to the task: defining a procedure for keeping a memorandum confidential and identifying who may read it. Type gaps tgap_b49ea554f141 and tgap_4a3f151e09b7 have been diagnosed, and no coercible nearest class is licensed. This appears to be a genuine object/operation generator gap in the registry.",
+        "open_world_gap": true
+      },
+      "ownership": {
+        "owner": "unset",
+        "human_resolved": false,
+        "return_reason": "Current request initiates a new object/operation family (procedure for keeping memorandum confidential and defining access) that is not represented in the ontology or operation registry; binding cannot be SYSTEM, HUMAN, or JOINT prior to explicit object/operation definition and appropriate authority resolution. This is a legitimate open-world type gap, not a covert human delegation nor a tacit system-owned task."
+      },
+      "council_invoked": false,
+      "execution_invoked": true,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_4062fe947065",
+          "proposed_trigger_type_id": "tgap_b49ea554f141",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene",
+          "cause_object_ref": "input_text",
+          "phase_relevance": "Phase S10 synthesis/render and B08 escalation for object-family diagnosis.",
+          "materiality_reason": "Request creates a new procedural/access family for a confidential memorandum, which current ontology cannot represent. Nearest-class coercion is not allowed.",
+          "payload": {
+            "legacy_admitting_rule": "Explicitly admit as a genuine type/object gap—eligible for B08/FieldMode escalation and registry/ontology extension.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        },
+        {
+          "candidate_id": "tcand_0864f5283280",
+          "proposed_trigger_type_id": "tgap_4a3f151e09b7",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene",
+          "cause_object_ref": "input_text",
+          "phase_relevance": "Phase S10 render and object gap tracking.",
+          "materiality_reason": "Confirmed absence of applicable procedural/access type in default registry; grounded in scene/request shift.",
+          "payload": {
+            "legacy_admitting_rule": "Diagnose as non-coercible registry gap; preserve for field mode or further extension.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        },
+        {
+          "candidate_id": "tcand_26d990c2e596",
+          "proposed_trigger_type_id": "tgap_10a808b9c078",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene",
+          "cause_object_ref": "input_text",
+          "phase_relevance": "Phase S10 render and diagnosis.",
+          "materiality_reason": "Repeated gap confirmation from candidate typing decisions.",
+          "payload": {
+            "legacy_admitting_rule": "Record as reinforcing evidence for type gap distinction.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        },
+        {
+          "candidate_id": "tcand_82147a5a9423",
+          "proposed_trigger_type_id": "tgap_77137c132154",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene",
+          "cause_object_ref": "input_text",
+          "phase_relevance": "Phase S10 render and diagnosis.",
+          "materiality_reason": "Recurrent diagnosis from typing decisions reaffirms true gap.",
+          "payload": {
+            "legacy_admitting_rule": "Record for object family gap trace.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        },
+        {
+          "candidate_id": "tcand_826597f55392",
+          "proposed_trigger_type_id": "tgap_2c0930c064d3",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene",
+          "cause_object_ref": "input_text",
+          "phase_relevance": "Phase S10 render and diagnosis.",
+          "materiality_reason": "Additional typing reinforces gap status; no coercible candidate type.",
+          "payload": {
+            "legacy_admitting_rule": "Include for completeness in gap tracking and memory proposal grounding.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_b9b131085867",
+          "candidate_id": "tcand_dba68aee3164",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'T01_procedure_and_access_rights_required' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_89fbca8d6e9b",
+          "candidate_id": "tcand_f8789c0f299f",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_b49ea554f141' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_909424bd6cae",
+          "candidate_id": "tcand_108fb9beafcc",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_b49ea554f141' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_8e34a037e3c9",
+          "candidate_id": "tcand_a6885ca3dd65",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_b49ea554f141' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_10a6b5084657",
+          "candidate_id": "tcand_25aa1c9b4ede",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_b49ea554f141' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_b49ea554f141",
+          "candidate_id": "tcand_dba68aee3164",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "scene",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'T01_procedure_and_access_rights_required' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_4a3f151e09b7",
+          "candidate_id": "tcand_f8789c0f299f",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "scene",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_b49ea554f141' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_10a808b9c078",
+          "candidate_id": "tcand_108fb9beafcc",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "scene",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_b49ea554f141' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_77137c132154",
+          "candidate_id": "tcand_a6885ca3dd65",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "scene",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_b49ea554f141' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_2c0930c064d3",
+          "candidate_id": "tcand_25aa1c9b4ede",
+          "cause_object_ref": "input_text",
+          "generating_state_ref": "scene",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_b49ea554f141' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Operation halted due to a genuine type/object gap: no existing formal object in registry for 'procedure and access rights extraction' around document confidentiality. Preserves explicit non-coercion and open-world recognition for procedure/access family extension.",
+        "grounds": "Multiple type gaps diagnosed with cause in the request and scene. Scene/telos was explicitly changed not to repeat 'publication argument' but to address confidential procedural control and access rights, which the operation registry lacks. Maintains clear provenance and correct interpretation boundary."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": [
+          {
+            "projection_id": "gap:gap_31fda16ae3a3",
+            "signals": [
+              "APPLICABILITY_FAILURE"
+            ],
+            "reason": "ORGAN_GAP for operation 'op_syn_proc_access_gap': model proposal for 'op_syn_proc_access_gap' could not compile-bind against registered primitives",
+            "residue_ratio": 1.0,
+            "recognition_failure_count": 0,
+            "suggested_operation": "",
+            "suggested_ontology": "",
+            "suggested_target_family": [],
+            "mismatch": true,
+            "fingerprint": "7c80351f23b3"
+          }
+        ]
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [
+        {
+          "kind": "ORGAN_GAP",
+          "operation_id": "op_syn_proc_access_gap",
+          "reason": "proposal prop_open_world_gap_memorandum_procedure_access for operation 'op_syn_proc_access_gap' failed compile-bind: primitive 'primitive_diagnose_type_gap_procedure_access' (invocation 'diagnose_object_family_gap') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+          "registered_capability_id": "",
+          "generated_spec": null,
+          "binding_evidence": {},
+          "organ_gap": {
+            "gap_id": "gap_31fda16ae3a3",
+            "source_ref": "src_9476ecdde940176c",
+            "scene_ref": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+            "required_operation": "op_syn_proc_access_gap",
+            "required_attention_structure": "Segment by procedural steps and explicit rules or actor roles for access.",
+            "insufficient_registered_capabilities": [
+              "DIFFERENTIATED_ACCOUNT",
+              "EXTRACT_CONCEPTS"
+            ],
+            "insufficient_declarative_primitives": [
+              "CoverageComputer",
+              "FamilyClassifier",
+              "SpanScanner",
+              "TargetFilter"
+            ],
+            "missing_capability_hypothesis": "model proposal for 'op_syn_proc_access_gap' could not compile-bind against registered primitives",
+            "evidence": [
+              "BindingError: primitive 'primitive_diagnose_type_gap_procedure_access' (invocation 'diagnose_object_family_gap') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+            ],
+            "counterexamples": [],
+            "affected_scene_telos": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+            "possible_development_direction": "extend primitive registry or narrow the proposal",
+            "status": "unresolved",
+            "activation_authority": "NONE"
+          }
+        }
+      ],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_e2b4f9248538",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [],
+          "operator_capabilities": [],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "",
+          "activation_scope": "",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_e2b4f9248538": {
+            "scene_id": "scene_e2b4f9248538",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": null
+    },
+    "rendering": {
+      "text": "Запрос не может быть выполнен, так как в текущем реестре операций нет подходящей процедуры или класса для сохранения меморандума в закрытом статусе и определения доступа к нему.",
+      "mode": "LIVE",
+      "provider_status": "OK",
+      "provider_id": "fallback",
+      "model_id": "chain",
+      "tokens_in": 299,
+      "tokens_out": 43,
+      "latency_ms": 3547,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_7fed3717133f306d.json",
+    "duration_ms": 61354,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "context_id": "ctx_25801447369bf4e35d13fbd77c04bd8c",
+    "context_continuity": {
+      "context_id": "ctx_25801447369bf4e35d13fbd77c04bd8c",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_cb47a12330ee",
+        "version": 2,
+        "scene_id": "scene_e2b4f9248538",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+        "telos": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+        "object_scope": "текущий меморандум, требуемые правила чтения, список потенциальных лиц для допуска",
+        "operation_kind": "PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION",
+        "expected_intervention": "PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION",
+        "human_owned_decisions": [
+          "Current request initiates a new object/operation family (procedure for keeping memorandum confidential and defining access) that is not represented in the ontology or operation registry; binding cannot be SYSTEM, HUMAN, or JOINT prior to explicit object/operation definition and appropriate authority resolution. This is a legitimate open-world type gap, not a covert human delegation nor a tacit system-owned task."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_24889ca6130e"
+      },
+      "contract_revision": {
+        "candidate_id": "crc_ff7a27771372",
+        "prior_contract_id": "sc_24889ca6130e",
+        "proposed_contract": {
+          "contract_id": "sc_cb47a12330ee",
+          "version": 2,
+          "scene_id": "scene_e2b4f9248538",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+          "telos": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+          "object_scope": "текущий меморандум, требуемые правила чтения, список потенциальных лиц для допуска",
+          "operation_kind": "PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION",
+          "expected_intervention": "PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION",
+          "human_owned_decisions": [
+            "Current request initiates a new object/operation family (procedure for keeping memorandum confidential and defining access) that is not represented in the ontology or operation registry; binding cannot be SYSTEM, HUMAN, or JOINT prior to explicit object/operation definition and appropriate authority resolution. This is a legitimate open-world type gap, not a covert human delegation nor a tacit system-owned task."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_24889ca6130e"
+        },
+        "reason": "telos drift: 'Собрать аргументы в пользу открытой публикации внутреннего исследовательского меморандума.' -> 'Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.'; operation drift: 'ARGUMENT_ASSEMBLY_FOR_PUBLICATION_DECISION' -> 'PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "recognition_pass": {
+        "pass_id": "rp_e0c96c62973e",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [
+          {
+            "candidate_id": "crc_ff7a27771372",
+            "prior_contract_id": "sc_24889ca6130e",
+            "proposed_contract": {
+              "contract_id": "sc_cb47a12330ee",
+              "version": 2,
+              "scene_id": "scene_e2b4f9248538",
+              "space_id": "space_default_workspace",
+              "branch_id": "",
+              "intent": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+              "telos": "Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.",
+              "object_scope": "текущий меморандум, требуемые правила чтения, список потенциальных лиц для допуска",
+              "operation_kind": "PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION",
+              "expected_intervention": "PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION",
+              "human_owned_decisions": [
+                "Current request initiates a new object/operation family (procedure for keeping memorandum confidential and defining access) that is not represented in the ontology or operation registry; binding cannot be SYSTEM, HUMAN, or JOINT prior to explicit object/operation definition and appropriate authority resolution. This is a legitimate open-world type gap, not a covert human delegation nor a tacit system-owned task."
+              ],
+              "constraints": [],
+              "uncertainty": 0.1,
+              "provenance": "SYSTEM_DERIVED",
+              "status": "REVISION_PROPOSED",
+              "supersedes": "sc_24889ca6130e"
+            },
+            "reason": "telos drift: 'Собрать аргументы в пользу открытой публикации внутреннего исследовательского меморандума.' -> 'Разработать процедуру для сохранения меморандума в закрытом статусе и определить, кто имеет право его читать.'; operation drift: 'ARGUMENT_ASSEMBLY_FOR_PUBLICATION_DECISION' -> 'PROCEDURE_AND_ACCESS_RIGHTS_EXTRACTION'",
+            "source": "SYSTEM_DERIVED",
+            "authority": "NO_TRANSITION_AUTHORITY"
+          }
+        ],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_revision_proposed:crc_ff7a27771372"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 61439
+  }
+}

@@ -1,0 +1,2200 @@
+{
+  "case_id": "L5A_t2",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:20:36Z",
+  "request": {
+    "text": "Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal",
+    "context_id": "ctx_6f4dfac3c062c2154a8c7633ef4c7e55"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 67387,
+    "live_ok_phases": 10,
+    "mockish_phases": 0,
+    "tokens_in_sum": 163816,
+    "tokens_out_sum": 2734,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15492,
+        "tokens_out": 360,
+        "attempts": 1,
+        "latency_ms": 6804,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13844,
+        "tokens_out": 304,
+        "attempts": 1,
+        "latency_ms": 6473,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16156,
+        "tokens_out": 310,
+        "attempts": 1,
+        "latency_ms": 6716,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14254,
+        "tokens_out": 268,
+        "attempts": 1,
+        "latency_ms": 5755,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15605,
+        "tokens_out": 45,
+        "attempts": 1,
+        "latency_ms": 3567,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17046,
+        "tokens_out": 349,
+        "attempts": 1,
+        "latency_ms": 7689,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15512,
+        "tokens_out": 280,
+        "attempts": 1,
+        "latency_ms": 5780,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15115,
+        "tokens_out": 211,
+        "attempts": 1,
+        "latency_ms": 6087,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S9",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20284,
+        "tokens_out": 164,
+        "attempts": 1,
+        "latency_ms": 4026,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20508,
+        "tokens_out": 443,
+        "attempts": 1,
+        "latency_ms": 7969,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_6f4dfac3c062c2154a8c7633ef4c7e55",
+    "scene_id": "scene_4d8f71830ca6",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+    "operation_kind": "INCIDENT_POSTMORTEM_ANALYSIS",
+    "operation_applicable": true,
+    "open_world_gap": false,
+    "contract_id": "sc_2d529adbe096",
+    "contract_status": "REVISION_PROPOSED",
+    "contract_version": 2,
+    "contract_intent": "Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+    "mutations_applied": [
+      "contract_revision_proposed:crc_74a39761e1a7"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [
+      {
+        "candidate_id": "crc_74a39761e1a7",
+        "prior_contract_id": "sc_63b257f591d3",
+        "proposed_contract": {
+          "contract_id": "sc_2d529adbe096",
+          "version": 2,
+          "scene_id": "scene_4d8f71830ca6",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+          "telos": "Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+          "object_scope": "Ночной инцидент: после выкладки отвалился платёжный вебхук., Запрос изменения фокуса: вместо кадрового плана — постмортем инцидента.",
+          "operation_kind": "INCIDENT_POSTMORTEM_ANALYSIS",
+          "expected_intervention": "INCIDENT_POSTMORTEM_ANALYSIS",
+          "human_owned_decisions": [
+            "Переназначение фокуса («разбери ночной инцидент, я хочу постмортем») явно делегирует аналитическую обработку и резюмирование технического события. Критерии анализа и формат постмортема алгоритмически типичны в экспертизе инцидентов; человеческая сторона владеет авторитетом запроса и приоритетов, однако сама операция разбора и составления постмортема здесь машинно-исполняема и не требует возврата неразрешённой человеческой работы."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_63b257f591d3"
+        },
+        "reason": "telos drift: 'Сформировать предварительный трехмесячный план найма для backend-команды из пяти человек с обозначением ролей, последовательности и рисков.' -> 'Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.'; operation drift: 'PRELIMINARY_HIRING_PLAN_DRAFT' -> 'INCIDENT_POSTMORTEM_ANALYSIS'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      }
+    ],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {},
+    "spaces": [],
+    "terminal": "ANSWER",
+    "response_text": "[ANSWER] Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+    "intervention_profile": "normal",
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DIAGNOSTIC",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "deployment_cause",
+        "detection_time",
+        "scope_of_impact"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Какой конкретно компонент или изменение, внедрённое в последней выкладке, могло повлиять на работу платёжного вебхука?",
+          "regime": "DIAGNOSTIC",
+          "fork_ref": "deployment_cause",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "ночной инцидент",
+            "после выкладки отвалился платёжный вебхук"
+          ]
+        },
+        {
+          "text": "Через какое время после выкладки был обнаружен инцидент с платёжным вебхуком, и какие инструменты мониторинга были задействованы?",
+          "regime": "DIAGNOSTIC",
+          "fork_ref": "detection_time",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "ночной инцидент",
+            "отвалился платёжный вебхук"
+          ]
+        },
+        {
+          "text": "Какие ещё сервисы или бизнес-процессы пострадали из-за данного инцидента с вебхуком?",
+          "regime": "DIAGNOSTIC",
+          "fork_ref": "scope_of_impact",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "отвалился платёжный вебхук",
+            "инцидент"
+          ]
+        }
+      ],
+      "primary_count": 3,
+      "subordinate_count": 0,
+      "total_count": 3,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "SYSTEM",
+      "ownership_resolved": true,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_intent_proposal": {
+      "requested": true,
+      "regime_candidate": "DIAGNOSTIC",
+      "explicit_count_constraint": null,
+      "meta_relevance": "ordinary",
+      "forks": [
+        {
+          "id": "deployment_cause",
+          "label": "Причина инцидента связана с последней выкладкой",
+          "proposition": "Последняя выкладка непосредственно вызвала отказ платёжного вебхука.",
+          "discriminandum": "Причина инцидента связана с изменениями, внедрёнными в последней выкладке, либо с сопутствующими факторами.",
+          "material_refs": [
+            "ночной инцидент",
+            "после выкладки отвалился платёжный вебхук"
+          ],
+          "candidate_question": "Какой конкретно компонент или изменение, внедрённое в последней выкладке, могло повлиять на работу платёжного вебхука?",
+          "level": "PEER"
+        },
+        {
+          "id": "detection_time",
+          "label": "Время обнаружения и восстановления",
+          "proposition": "Время, прошедшее между возникновением инцидента и его обнаружением, существенно повлияло на последствия.",
+          "discriminandum": "Вопрос о том, своевременно ли был обнаружен инцидент и насколько быстро была начата реакция.",
+          "material_refs": [
+            "ночной инцидент",
+            "отвалился платёжный вебхук"
+          ],
+          "candidate_question": "Через какое время после выкладки был обнаружен инцидент с платёжным вебхуком, и какие инструменты мониторинга были задействованы?",
+          "level": "PEER"
+        },
+        {
+          "id": "scope_of_impact",
+          "label": "Масштаб и последствия инцидента",
+          "proposition": "Сбой затронул только функцию вебхука или повлиял на другие компоненты системы.",
+          "discriminandum": "Было ли нарушение только в платёжном вебхуке или наблюдались дополнительные сбои, затронувшие иные части инфраструктуры или клиентов.",
+          "material_refs": [
+            "отвалился платёжный вебхук",
+            "инцидент"
+          ],
+          "candidate_question": "Какие ещё сервисы или бизнес-процессы пострадали из-за данного инцидента с вебхуком?",
+          "level": "PEER"
+        }
+      ],
+      "subordinates": [],
+      "validation_status": "OK",
+      "validation_reason": "OK",
+      "authority": "NO_BINDING_AUTHORITY",
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "latency_ms": 6344
+    },
+    "rendering_mode": "QUESTION_SET_PLAN_AUTHORED",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_405b2e310abd5ded",
+    "trace_id": "strc_d7e57a7f1a74fa7c",
+    "terminal": {
+      "terminal": "ANSWER",
+      "response_text": "[ANSWER] Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+      "rationale": "system-owned, applicable, no open-world gap",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "В данном случае происходит явное смещение фокуса от стандартных задач (например, найм и кадровое планирование) к разбору технического инцидента (отвал платёжного вебхука после выкладки) и подготовке постмортема. Этот сдвиг — приоритетизация технического разбора поверх операционных кадровых процессов — должен быть отмечен в памяти сцены как отдельное структурное событие, отличающееся от штатного операционного режима.",
+        "grounds": "Исходный запрос не просто обозначает инцидент, а задаёт переопределение текущих рабочих приоритетов: вместо плановых кадровых действий требуется срочное техническое расследование и документирование происшествия. Такое структурное изменение важно для корректного ретроспективного анализа контекста и последующего управления памятью событий."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "scene_telos_shift_001",
+                "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+                "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+                "source_status": "typed_state",
+                "phase_relevance": "scene/telos/role reorganization; phase S0 mount required before operation",
+                "materiality_reason": "Explicit user request changes governing telos from hiring to postmortem incident analysis; valid operation form now depends on telos and role shift.",
+                "admitting_rule": "CORE §4.2, 4.3, 4.4 — scene, telos, role hypothesis and binding required ahead of operation execution"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "Scene has changed: request shifts from hiring plan (найм) to postmortem analysis of a night-time incident involving payment webhook failure after deployment. Telos is now postmortem, not hiring; role is incident analyst, not planner. Materials provided are about the incident, not staffing. Authority remains unset in scene. No memory triggers (B05) for retrieval of prior hiring or webhook incident logs are admitted yet—operation does not require re-entry or durable state-write at this stage. No reflective retreat (B07) beyond minimal operation adjustment needed; direct execution is valid. No council or deep reflection invoked. Admitted trigger is scene/telos/role change.",
+              "triggers": [
+                {
+                  "trigger_id": "scene_telos_shift_001",
+                  "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+                  "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "scene/telos/role reorganization; phase S0 mount required before operation",
+                  "materiality_reason": "Explicit user request changes governing telos from hiring to postmortem incident analysis; valid operation form now depends on telos and role shift.",
+                  "admitting_rule": "CORE §4.2, 4.3, 4.4 — scene, telos, role hypothesis and binding required ahead of operation execution"
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15492,
+          "tokens_out": 360,
+          "latency_ms": 6804,
+          "error": "",
+          "request_hash": "8712bdd81bc4ebe2796329c881e4c2eef3ed631382c3ce0b882e94577d8c4bbf",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 3223,
+              "sha256": "ccad027601f04dfd"
+            },
+            {
+              "role": "user",
+              "bytes": 366,
+              "sha256": "898245180cde7642"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+              "role_hint": "аналитик инцидентов",
+              "authority": "human",
+              "materials": [
+                "Ночной инцидент: после выкладки отвалился платёжный вебхук.",
+                "Запрос изменения фокуса: вместо кадрового плана — постмортем инцидента."
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_3b179e7a33eb",
+                "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+                "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+                "source_status": "typed_state",
+                "phase_relevance": "scene/telos shift: смена цели с кадрового плана на постмортем инцидента",
+                "materiality_reason": "Материально меняется цель запроса: отложен найм, требуется анализ инцидента и постмортем, а не предыдущий кадровый план.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+                "role_hint": "аналитик инцидентов",
+                "authority": "human",
+                "materials": [
+                  "Ночной инцидент: после выкладки отвалился платёжный вебхук.",
+                  "Запрос изменения фокуса: вместо кадрового плана — постмортем инцидента."
+                ]
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_3b179e7a33eb",
+                  "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+                  "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "scene/telos shift: смена цели с кадрового плана на постмортем инцидента",
+                  "materiality_reason": "Материально меняется цель запроса: отложен найм, требуется анализ инцидента и постмортем, а не предыдущий кадровый план."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13844,
+          "tokens_out": 304,
+          "latency_ms": 6473,
+          "error": "",
+          "request_hash": "2c083f9827cd33df88cb805dc738659ec59a33aeeb660eda630619f6fc06001b",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 4352,
+              "sha256": "ea01125f95cd9f19"
+            },
+            {
+              "role": "user",
+              "bytes": 366,
+              "sha256": "898245180cde7642"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_3b179e7a33eb",
+                "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+                "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+                "source_status": "typed_state",
+                "phase_relevance": "The input initiates a structural scene and telos shift: postponing the planned hiring analysis in favor of a postmortem incident analysis, which introduces a materially new task pivot requiring reflexive recognition and telos update.",
+                "materiality_reason": "The user's request does not merely substitute one operational detail for another; it alters the governing purpose and scene, replacing a personnel planning deliverable with a technical incident investigation (postmortem). This is a scene/telos shift with concrete operational and interpretational implications—a materially grounded cause, not just a linguistic reformulation.",
+                "admitting_rule": "When user input contains a direct instruction to abandon or postpone the current/planned course in favor of an explicitly different focus, and the requested change reconstructs governing purpose, scene or decisional frame, admit a type gap trigger for 'scene_telos_shift' (scene/telos/role reconstruction)."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_3b179e7a33eb",
+                  "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+                  "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "The input initiates a structural scene and telos shift: postponing the planned hiring analysis in favor of a postmortem incident analysis, which introduces a materially new task pivot requiring reflexive recognition and telos update.",
+                  "materiality_reason": "The user's request does not merely substitute one operational detail for another; it alters the governing purpose and scene, replacing a personnel planning deliverable with a technical incident investigation (postmortem). This is a scene/telos shift with concrete operational and interpretational implications—a materially grounded cause, not just a linguistic reformulation.",
+                  "admitting_rule": "When user input contains a direct instruction to abandon or postpone the current/planned course in favor of an explicitly different focus, and the requested change reconstructs governing purpose, scene or decisional frame, admit a type gap trigger for 'scene_telos_shift' (scene/telos/role reconstruction)."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 16156,
+          "tokens_out": 310,
+          "latency_ms": 6716,
+          "error": "",
+          "request_hash": "d63392ceb9da7cfe429b2f8d8a7a5a077ead1c794938ea2e02f4564be02cfff7",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 5952,
+              "sha256": "1188cd28d9bf4f57"
+            },
+            {
+              "role": "user",
+              "bytes": 366,
+              "sha256": "898245180cde7642"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "attributed",
+              "sources_named": [],
+              "binding_authority": "human",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_3b179e7a33eb",
+                "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+                "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+                "source_status": "typed_state",
+                "phase_relevance": "The input expresses a materially grounded shift in telos from staffing (кадровый план) to incident analysis/postmortem.",
+                "materiality_reason": "Explicitly redirects the focus of action and authoritative request for the current run; results in authority binding shifting to current human request.",
+                "admitting_rule": "Scene/telos shift is not explainable by the current type registry; origin is user-attributed, authority is direct, status does not yet reach independent or system-confirmed."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "attributed",
+                "sources_named": [],
+                "binding_authority": "human",
+                "temporal_stale": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_3b179e7a33eb",
+                  "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+                  "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "The input expresses a materially grounded shift in telos from staffing (кадровый план) to incident analysis/postmortem.",
+                  "materiality_reason": "Explicitly redirects the focus of action and authoritative request for the current run; results in authority binding shifting to current human request.",
+                  "admitting_rule": "Scene/telos shift is not explainable by the current type registry; origin is user-attributed, authority is direct, status does not yet reach independent or system-confirmed."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14254,
+          "tokens_out": 268,
+          "latency_ms": 5755,
+          "error": "",
+          "request_hash": "ad9add9db7f290a22d69a2c66d67de004eaf7fb679ead11b955baa5ebbc723b9",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 7070,
+              "sha256": "cc5849c51a61be78"
+            },
+            {
+              "role": "user",
+              "bytes": 366,
+              "sha256": "898245180cde7642"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "INCIDENT_POSTMORTEM_ANALYSIS",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "INCIDENT_POSTMORTEM_ANALYSIS",
+                "applicable": true,
+                "why_not": "",
+                "open_world_gap": false
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15605,
+          "tokens_out": 45,
+          "latency_ms": 3567,
+          "error": "",
+          "request_hash": "c783b5c063260813f8b3551068a28a2f2fa0d49be2c12aa0386c5d1cd366a43a",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 8191,
+              "sha256": "f6a8e40203250eb4"
+            },
+            {
+              "role": "user",
+              "bytes": 366,
+              "sha256": "898245180cde7642"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_3b179e7a33eb",
+                "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+                "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+                "source_status": "typed_state",
+                "phase_relevance": "scene/telos shift detected; telos moves from кадровый план (hiring plan) to постмортем инцидента (incident postmortem), requiring reorganization of attention, recruited memory and requirements for evidence.",
+                "materiality_reason": "Material structural change: the stated telos and operative scene have been redirected from personnel planning to incident analysis/postmortem; means only incident context and evidence from relevant timeline should be attended and memory recruited.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Адресовано явное переключение фокуса: вместо обычных плановых задач (найм / кадровый план) — переход к срочному разбору технического инцидента и постмортем.",
+              "grounds": "Запрос выражает не просто инцидент, а скорректированный приоритет и смену объекта работы; подобные переключения нужно учитывать как ключевое структурное событие для памяти сцены, чтобы не подмешивать штатные решения в анализ происшествия."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_3b179e7a33eb",
+                  "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+                  "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "scene/telos shift detected; telos moves from кадровый план (hiring plan) to постмортем инцидента (incident postmortem), requiring reorganization of attention, recruited memory and requirements for evidence.",
+                  "materiality_reason": "Material structural change: the stated telos and operative scene have been redirected from personnel planning to incident analysis/postmortem; means only incident context and evidence from relevant timeline should be attended and memory recruited."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Адресовано явное переключение фокуса: вместо обычных плановых задач (найм / кадровый план) — переход к срочному разбору технического инцидента и постмортем.",
+                "grounds": "Запрос выражает не просто инцидент, а скорректированный приоритет и смену объекта работы; подобные переключения нужно учитывать как ключевое структурное событие для памяти сцены, чтобы не подмешивать штатные решения в анализ происшествия."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 17046,
+          "tokens_out": 349,
+          "latency_ms": 7689,
+          "error": "",
+          "request_hash": "f998401765c9ff7b958c9ba7a9294ddce85755004ab76dc4e2a101a047f8a634",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 8219,
+              "sha256": "1a3d8ac09f1f9e63"
+            },
+            {
+              "role": "user",
+              "bytes": 366,
+              "sha256": "898245180cde7642"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "Переназначение фокуса («разбери ночной инцидент, я хочу постмортем») явно делегирует аналитическую обработку и резюмирование технического события. Критерии анализа и формат постмортема алгоритмически типичны в экспертизе инцидентов; человеческая сторона владеет авторитетом запроса и приоритетов, однако сама операция разбора и составления постмортема здесь машинно-исполняема и не требует возврата неразрешённой человеческой работы."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Адресовано явное переключение фокуса: вместо обычных плановых задач (найм / кадровый план) — переход к срочному разбору технического инцидента и постмортем.",
+              "grounds": "Запрос выражает не просто инцидент, а скорректированный приоритет и смену объекта работы; подобные переключения нужно учитывать как ключевое структурное событие для памяти сцены, чтобы не подмешивать штатные решения в анализ происшествия."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "system",
+                "human_resolved": true,
+                "return_reason": "Переназначение фокуса («разбери ночной инцидент, я хочу постмортем») явно делегирует аналитическую обработку и резюмирование технического события. Критерии анализа и формат постмортема алгоритмически типичны в экспертизе инцидентов; человеческая сторона владеет авторитетом запроса и приоритетов, однако сама операция разбора и составления постмортема здесь машинно-исполняема и не требует возврата неразрешённой человеческой работы."
+              },
+              "triggers": [],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Адресовано явное переключение фокуса: вместо обычных плановых задач (найм / кадровый план) — переход к срочному разбору технического инцидента и постмортем.",
+                "grounds": "Запрос выражает не просто инцидент, а скорректированный приоритет и смену объекта работы; подобные переключения нужно учитывать как ключевое структурное событие для памяти сцены, чтобы не подмешивать штатные решения в анализ происшествия."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15512,
+          "tokens_out": 280,
+          "latency_ms": 5780,
+          "error": "",
+          "request_hash": "6b39231820e55f6872684c2e5aa7d352a0798834c1a5c3d286221013494c6e8b",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 10129,
+              "sha256": "4409439cba25fd93"
+            },
+            {
+              "role": "user",
+              "bytes": 366,
+              "sha256": "898245180cde7642"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_3b179e7a33eb",
+                "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+                "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+                "source_status": "typed_state",
+                "phase_relevance": "Material type gap for scene telos shift—request changes focus from hiring plan to postmortem incident analysis; gap required explicit preservation, not coercion.",
+                "materiality_reason": "Scene telos shift is a structurally material event requiring dedicated type; analysis must not treat this as routine object substitution but as structural rebind. Marking gap and passing explicit trigger.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "triggers": [
+                {
+                  "trigger_id": "tgap_3b179e7a33eb",
+                  "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+                  "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Material type gap for scene telos shift—request changes focus from hiring plan to postmortem incident analysis; gap required explicit preservation, not coercion.",
+                  "materiality_reason": "Scene telos shift is a structurally material event requiring dedicated type; analysis must not treat this as routine object substitution but as structural rebind. Marking gap and passing explicit trigger."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15115,
+          "tokens_out": 211,
+          "latency_ms": 6087,
+          "error": "",
+          "request_hash": "30cfa145d6202c09e4e13c754f069ad67b6a44d952d0768dda9480f7f916c4ce",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 10939,
+              "sha256": "a112bc44c514a10e"
+            },
+            {
+              "role": "user",
+              "bytes": 366,
+              "sha256": "898245180cde7642"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S9",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S9",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Явное переключение фокуса: вместо стандартных кадровых задач (найм / план) требуется срочный разбор технического инцидента и подготовка постмортема; такие сдвиги приоритетов должны быть выделены в памяти сцены отдельно от штатного операционного режима.",
+              "grounds": "Запрос выражает не просто инцидент, а переопределение рабочих приоритетов: задача разбора и постмортема явно вытесняет плановые кадровые процессы. Такое структурное событие должно быть сохранено в памяти сцены, чтобы анализ происшествия был различен от типовых решений."
+            },
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "Явное переключение фокуса: вместо стандартных кадровых задач (найм / план) требуется срочный разбор технического инцидента и подготовка постмортема; такие сдвиги приоритетов должны быть выделены в памяти сцены отдельно от штатного операционного режима.",
+                "grounds": "Запрос выражает не просто инцидент, а переопределение рабочих приоритетов: задача разбора и постмортема явно вытесняет плановые кадровые процессы. Такое структурное событие должно быть сохранено в памяти сцены, чтобы анализ происшествия был различен от типовых решений."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 20284,
+          "tokens_out": 164,
+          "latency_ms": 4026,
+          "error": "",
+          "request_hash": "a03d465a90bc0115fdac5560141140d48102c695d2a622923bbf7f4e93dbc780",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 870,
+              "sha256": "b3c49d62f2113bb1"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "d84c9263f7722a13"
+            },
+            {
+              "role": "user",
+              "bytes": 12056,
+              "sha256": "9e56a10873af56ee"
+            },
+            {
+              "role": "user",
+              "bytes": 366,
+              "sha256": "898245180cde7642"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_3b179e7a33eb",
+                "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+                "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+                "source_status": "typed_state",
+                "phase_relevance": "Явное структурное изменение сцены и целей инициирует выделение граничного события для памяти.",
+                "materiality_reason": "Это не частная техническая деталь, а сдвиг в архитектуре задач и контексте, влияющий на весь ход инцидент-аналитики.",
+                "admitting_rule": "TYPE_GAP — новая категория структурного сдвига; тип 'scene_telos_shift_001' отсутствует в текущем реестре, поэтому отличительный триггер оформляется через зафиксированный GAP."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В данном случае происходит явное смещение фокуса от стандартных задач (например, найм и кадровое планирование) к разбору технического инцидента (отвал платёжного вебхука после выкладки) и подготовке постмортема. Этот сдвиг — приоритетизация технического разбора поверх операционных кадровых процессов — должен быть отмечен в памяти сцены как отдельное структурное событие, отличающееся от штатного операционного режима.",
+              "grounds": "Исходный запрос не просто обозначает инцидент, а задаёт переопределение текущих рабочих приоритетов: вместо плановых кадровых действий требуется срочное техническое расследование и документирование происшествия. Такое структурное изменение важно для корректного ретроспективного анализа контекста и последующего управления памятью событий."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "В данном случае происходит явное смещение фокуса от стандартных задач (например, найм и кадровое планирование) к разбору технического инцидента (отвал платёжного вебхука после выкладки) и подготовке постмортема. Этот сдвиг — приоритетизация технического разбора поверх операционных кадровых процессов — должен быть отмечен в памяти сцены как отдельное структурное событие, отличающееся от штатного операционного режима.",
+                "grounds": "Исходный запрос не просто обозначает инцидент, а задаёт переопределение текущих рабочих приоритетов: вместо плановых кадровых действий требуется срочное техническое расследование и документирование происшествия. Такое структурное изменение важно для корректного ретроспективного анализа контекста и последующего управления памятью событий."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_3b179e7a33eb",
+                  "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+                  "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Явное структурное изменение сцены и целей инициирует выделение граничного события для памяти.",
+                  "materiality_reason": "Это не частная техническая деталь, а сдвиг в архитектуре задач и контексте, влияющий на весь ход инцидент-аналитики.",
+                  "admitting_rule": "TYPE_GAP — новая категория структурного сдвига; тип 'scene_telos_shift_001' отсутствует в текущем реестре, поэтому отличительный триггер оформляется через зафиксированный GAP."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 20508,
+          "tokens_out": 443,
+          "latency_ms": 7969,
+          "error": "",
+          "request_hash": "e69ffb2eedd91a4256fd40eb599e882686cb810aea9325d7408ecf637fc526df",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 12292,
+              "sha256": "f93a431a5ca71309"
+            },
+            {
+              "role": "user",
+              "bytes": 366,
+              "sha256": "898245180cde7642"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_405b2e310abd5ded",
+      "input_text": "Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+      "source_id": "src_82d4300d37e20b25",
+      "phase": "S10",
+      "scene": {
+        "telos": "Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+        "role_hint": "аналитик инцидентов",
+        "authority": "human",
+        "materials": [
+          "Ночной инцидент: после выкладки отвалился платёжный вебхук.",
+          "Запрос изменения фокуса: вместо кадрового плана — постмортем инцидента."
+        ]
+      },
+      "origin": {
+        "status": "attributed",
+        "sources_named": [],
+        "binding_authority": "human",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "INCIDENT_POSTMORTEM_ANALYSIS",
+        "applicable": true,
+        "why_not": "",
+        "open_world_gap": false
+      },
+      "ownership": {
+        "owner": "system",
+        "human_resolved": true,
+        "return_reason": "Переназначение фокуса («разбери ночной инцидент, я хочу постмортем») явно делегирует аналитическую обработку и резюмирование технического события. Критерии анализа и формат постмортема алгоритмически типичны в экспертизе инцидентов; человеческая сторона владеет авторитетом запроса и приоритетов, однако сама операция разбора и составления постмортема здесь машинно-исполняема и не требует возврата неразрешённой человеческой работы."
+      },
+      "council_invoked": false,
+      "execution_invoked": true,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_237b739a20ca",
+          "proposed_trigger_type_id": "tgap_3b179e7a33eb",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+          "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+          "phase_relevance": "Явное структурное изменение сцены и целей инициирует выделение граничного события для памяти.",
+          "materiality_reason": "Это не частная техническая деталь, а сдвиг в архитектуре задач и контексте, влияющий на весь ход инцидент-аналитики.",
+          "payload": {
+            "legacy_admitting_rule": "TYPE_GAP — новая категория структурного сдвига; тип 'scene_telos_shift_001' отсутствует в текущем реестре, поэтому отличительный триггер оформляется через зафиксированный GAP.",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_18e92cf4cc42",
+          "candidate_id": "tcand_328f6af02a6d",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'scene_telos_shift_001' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_95793b77b7fd",
+          "candidate_id": "tcand_c70fc359e6a6",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_3b179e7a33eb' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_51f20c95c739",
+          "candidate_id": "tcand_4a6e5f63ac0a",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_3b179e7a33eb' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_f1da594c87d9",
+          "candidate_id": "tcand_218c6fc051d0",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_3b179e7a33eb' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_829be6f2ae61",
+          "candidate_id": "tcand_f37cdf45597d",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_3b179e7a33eb' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_524c5c8f7299",
+          "candidate_id": "tcand_90acc79c3660",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_3b179e7a33eb' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_3b179e7a33eb",
+          "candidate_id": "tcand_328f6af02a6d",
+          "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+          "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'scene_telos_shift_001' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_4d328626fede",
+          "candidate_id": "tcand_c70fc359e6a6",
+          "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+          "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_3b179e7a33eb' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_3b336b3eb533",
+          "candidate_id": "tcand_4a6e5f63ac0a",
+          "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+          "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_3b179e7a33eb' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_12aa5c486faf",
+          "candidate_id": "tcand_218c6fc051d0",
+          "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+          "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_3b179e7a33eb' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_ca5be40f2dc5",
+          "candidate_id": "tcand_f37cdf45597d",
+          "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+          "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_3b179e7a33eb' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_bb39ffbad8e9",
+          "candidate_id": "tcand_90acc79c3660",
+          "cause_object_ref": "input_text:Найм откладываем. Вместо этого разбери ночной инцидент: после выкладки отвалился платёжный вебхук, и я хочу постмортем, а не кадровый план.",
+          "generating_state_ref": "run_id:srun_405b2e310abd5ded;input_text",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_3b179e7a33eb' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "В данном случае происходит явное смещение фокуса от стандартных задач (например, найм и кадровое планирование) к разбору технического инцидента (отвал платёжного вебхука после выкладки) и подготовке постмортема. Этот сдвиг — приоритетизация технического разбора поверх операционных кадровых процессов — должен быть отмечен в памяти сцены как отдельное структурное событие, отличающееся от штатного операционного режима.",
+        "grounds": "Исходный запрос не просто обозначает инцидент, а задаёт переопределение текущих рабочих приоритетов: вместо плановых кадровых действий требуется срочное техническое расследование и документирование происшествия. Такое структурное изменение важно для корректного ретроспективного анализа контекста и последующего управления памятью событий."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": []
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_4d8f71830ca6",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [],
+          "operator_capabilities": [],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "",
+          "activation_scope": "",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_4d8f71830ca6": {
+            "scene_id": "scene_4d8f71830ca6",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": {
+        "purpose": "fork_discrimination",
+        "question_regime": "DIAGNOSTIC",
+        "selected_level": "PEER",
+        "hierarchy_policy": "PRIMARY_ONLY",
+        "target_forks_or_unknowns": [
+          "deployment_cause",
+          "detection_time",
+          "scope_of_impact"
+        ],
+        "explicit_count_constraint": null,
+        "question_budget_ceiling": 12,
+        "selected_questions": [
+          {
+            "text": "Какой конкретно компонент или изменение, внедрённое в последней выкладке, могло повлиять на работу платёжного вебхука?",
+            "regime": "DIAGNOSTIC",
+            "fork_ref": "deployment_cause",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": [
+              "ночной инцидент",
+              "после выкладки отвалился платёжный вебхук"
+            ]
+          },
+          {
+            "text": "Через какое время после выкладки был обнаружен инцидент с платёжным вебхуком, и какие инструменты мониторинга были задействованы?",
+            "regime": "DIAGNOSTIC",
+            "fork_ref": "detection_time",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": [
+              "ночной инцидент",
+              "отвалился платёжный вебхук"
+            ]
+          },
+          {
+            "text": "Какие ещё сервисы или бизнес-процессы пострадали из-за данного инцидента с вебхуком?",
+            "regime": "DIAGNOSTIC",
+            "fork_ref": "scope_of_impact",
+            "parent_fork_ref": "",
+            "is_subordinate": false,
+            "text_source": "MODEL_MATERIAL",
+            "material_refs": [
+              "отвалился платёжный вебхук",
+              "инцидент"
+            ]
+          }
+        ],
+        "primary_count": 3,
+        "subordinate_count": 0,
+        "total_count": 3,
+        "stop_reason": "COVERAGE_SATURATED",
+        "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+        "clarification_required": false,
+        "clarification_grounds": "",
+        "meta_escalation": "NONE",
+        "ownership_owner": "SYSTEM",
+        "ownership_resolved": true,
+        "origin": "MODEL_PRODUCED_VALIDATED",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      }
+    },
+    "rendering": {
+      "text": "Режим вопросов: DIAGNOSTIC. Уровень: PEER. Всего: 3 (основных: 3).\n1. Какой конкретно компонент или изменение, внедрённое в последней выкладке, могло повлиять на работу платёжного вебхука?\n2. Через какое время после выкладки был обнаружен инцидент с платёжным вебхуком, и какие инструменты мониторинга были задействованы?\n3. Какие ещё сервисы или бизнес-процессы пострадали из-за данного инцидента с вебхуком?",
+      "mode": "QUESTION_SET_PLAN_AUTHORED",
+      "provider_status": "NOT_APPLICABLE",
+      "provider_id": "",
+      "model_id": "",
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "latency_ms": 0,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_d7e57a7f1a74fa7c.json",
+    "duration_ms": 67387,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": {
+      "purpose": "fork_discrimination",
+      "question_regime": "DIAGNOSTIC",
+      "selected_level": "PEER",
+      "hierarchy_policy": "PRIMARY_ONLY",
+      "target_forks_or_unknowns": [
+        "deployment_cause",
+        "detection_time",
+        "scope_of_impact"
+      ],
+      "explicit_count_constraint": null,
+      "question_budget_ceiling": 12,
+      "selected_questions": [
+        {
+          "text": "Какой конкретно компонент или изменение, внедрённое в последней выкладке, могло повлиять на работу платёжного вебхука?",
+          "regime": "DIAGNOSTIC",
+          "fork_ref": "deployment_cause",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "ночной инцидент",
+            "после выкладки отвалился платёжный вебхук"
+          ]
+        },
+        {
+          "text": "Через какое время после выкладки был обнаружен инцидент с платёжным вебхуком, и какие инструменты мониторинга были задействованы?",
+          "regime": "DIAGNOSTIC",
+          "fork_ref": "detection_time",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "ночной инцидент",
+            "отвалился платёжный вебхук"
+          ]
+        },
+        {
+          "text": "Какие ещё сервисы или бизнес-процессы пострадали из-за данного инцидента с вебхуком?",
+          "regime": "DIAGNOSTIC",
+          "fork_ref": "scope_of_impact",
+          "parent_fork_ref": "",
+          "is_subordinate": false,
+          "text_source": "MODEL_MATERIAL",
+          "material_refs": [
+            "отвалился платёжный вебхук",
+            "инцидент"
+          ]
+        }
+      ],
+      "primary_count": 3,
+      "subordinate_count": 0,
+      "total_count": 3,
+      "stop_reason": "COVERAGE_SATURATED",
+      "stop_reason_grounds": "no explicit count; selected one question per material peer fork (3) — adding more would either paraphrase or drop below peer level",
+      "clarification_required": false,
+      "clarification_grounds": "",
+      "meta_escalation": "NONE",
+      "ownership_owner": "SYSTEM",
+      "ownership_resolved": true,
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_intent_proposal": {
+      "requested": true,
+      "regime_candidate": "DIAGNOSTIC",
+      "explicit_count_constraint": null,
+      "meta_relevance": "ordinary",
+      "forks": [
+        {
+          "id": "deployment_cause",
+          "label": "Причина инцидента связана с последней выкладкой",
+          "proposition": "Последняя выкладка непосредственно вызвала отказ платёжного вебхука.",
+          "discriminandum": "Причина инцидента связана с изменениями, внедрёнными в последней выкладке, либо с сопутствующими факторами.",
+          "material_refs": [
+            "ночной инцидент",
+            "после выкладки отвалился платёжный вебхук"
+          ],
+          "candidate_question": "Какой конкретно компонент или изменение, внедрённое в последней выкладке, могло повлиять на работу платёжного вебхука?",
+          "level": "PEER"
+        },
+        {
+          "id": "detection_time",
+          "label": "Время обнаружения и восстановления",
+          "proposition": "Время, прошедшее между возникновением инцидента и его обнаружением, существенно повлияло на последствия.",
+          "discriminandum": "Вопрос о том, своевременно ли был обнаружен инцидент и насколько быстро была начата реакция.",
+          "material_refs": [
+            "ночной инцидент",
+            "отвалился платёжный вебхук"
+          ],
+          "candidate_question": "Через какое время после выкладки был обнаружен инцидент с платёжным вебхуком, и какие инструменты мониторинга были задействованы?",
+          "level": "PEER"
+        },
+        {
+          "id": "scope_of_impact",
+          "label": "Масштаб и последствия инцидента",
+          "proposition": "Сбой затронул только функцию вебхука или повлиял на другие компоненты системы.",
+          "discriminandum": "Было ли нарушение только в платёжном вебхуке или наблюдались дополнительные сбои, затронувшие иные части инфраструктуры или клиентов.",
+          "material_refs": [
+            "отвалился платёжный вебхук",
+            "инцидент"
+          ],
+          "candidate_question": "Какие ещё сервисы или бизнес-процессы пострадали из-за данного инцидента с вебхуком?",
+          "level": "PEER"
+        }
+      ],
+      "subordinates": [],
+      "validation_status": "OK",
+      "validation_reason": "OK",
+      "authority": "NO_BINDING_AUTHORITY",
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "latency_ms": 6344
+    },
+    "context_id": "ctx_6f4dfac3c062c2154a8c7633ef4c7e55",
+    "context_continuity": {
+      "context_id": "ctx_6f4dfac3c062c2154a8c7633ef4c7e55",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_2d529adbe096",
+        "version": 2,
+        "scene_id": "scene_4d8f71830ca6",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+        "telos": "Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+        "object_scope": "Ночной инцидент: после выкладки отвалился платёжный вебхук., Запрос изменения фокуса: вместо кадрового плана — постмортем инцидента.",
+        "operation_kind": "INCIDENT_POSTMORTEM_ANALYSIS",
+        "expected_intervention": "INCIDENT_POSTMORTEM_ANALYSIS",
+        "human_owned_decisions": [
+          "Переназначение фокуса («разбери ночной инцидент, я хочу постмортем») явно делегирует аналитическую обработку и резюмирование технического события. Критерии анализа и формат постмортема алгоритмически типичны в экспертизе инцидентов; человеческая сторона владеет авторитетом запроса и приоритетов, однако сама операция разбора и составления постмортема здесь машинно-исполняема и не требует возврата неразрешённой человеческой работы."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_63b257f591d3"
+      },
+      "contract_revision": {
+        "candidate_id": "crc_74a39761e1a7",
+        "prior_contract_id": "sc_63b257f591d3",
+        "proposed_contract": {
+          "contract_id": "sc_2d529adbe096",
+          "version": 2,
+          "scene_id": "scene_4d8f71830ca6",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+          "telos": "Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+          "object_scope": "Ночной инцидент: после выкладки отвалился платёжный вебхук., Запрос изменения фокуса: вместо кадрового плана — постмортем инцидента.",
+          "operation_kind": "INCIDENT_POSTMORTEM_ANALYSIS",
+          "expected_intervention": "INCIDENT_POSTMORTEM_ANALYSIS",
+          "human_owned_decisions": [
+            "Переназначение фокуса («разбери ночной инцидент, я хочу постмортем») явно делегирует аналитическую обработку и резюмирование технического события. Критерии анализа и формат постмортема алгоритмически типичны в экспертизе инцидентов; человеческая сторона владеет авторитетом запроса и приоритетов, однако сама операция разбора и составления постмортема здесь машинно-исполняема и не требует возврата неразрешённой человеческой работы."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_63b257f591d3"
+        },
+        "reason": "telos drift: 'Сформировать предварительный трехмесячный план найма для backend-команды из пяти человек с обозначением ролей, последовательности и рисков.' -> 'Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.'; operation drift: 'PRELIMINARY_HIRING_PLAN_DRAFT' -> 'INCIDENT_POSTMORTEM_ANALYSIS'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "recognition_pass": {
+        "pass_id": "rp_e96cf20bd2fd",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [
+          {
+            "candidate_id": "crc_74a39761e1a7",
+            "prior_contract_id": "sc_63b257f591d3",
+            "proposed_contract": {
+              "contract_id": "sc_2d529adbe096",
+              "version": 2,
+              "scene_id": "scene_4d8f71830ca6",
+              "space_id": "space_default_workspace",
+              "branch_id": "",
+              "intent": "Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+              "telos": "Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.",
+              "object_scope": "Ночной инцидент: после выкладки отвалился платёжный вебхук., Запрос изменения фокуса: вместо кадрового плана — постмортем инцидента.",
+              "operation_kind": "INCIDENT_POSTMORTEM_ANALYSIS",
+              "expected_intervention": "INCIDENT_POSTMORTEM_ANALYSIS",
+              "human_owned_decisions": [
+                "Переназначение фокуса («разбери ночной инцидент, я хочу постмортем») явно делегирует аналитическую обработку и резюмирование технического события. Критерии анализа и формат постмортема алгоритмически типичны в экспертизе инцидентов; человеческая сторона владеет авторитетом запроса и приоритетов, однако сама операция разбора и составления постмортема здесь машинно-исполняема и не требует возврата неразрешённой человеческой работы."
+              ],
+              "constraints": [],
+              "uncertainty": 0.1,
+              "provenance": "SYSTEM_DERIVED",
+              "status": "REVISION_PROPOSED",
+              "supersedes": "sc_63b257f591d3"
+            },
+            "reason": "telos drift: 'Сформировать предварительный трехмесячный план найма для backend-команды из пяти человек с обозначением ролей, последовательности и рисков.' -> 'Разобрать ночной инцидент с платёжным вебхуком и подготовить постмортем вместо кадрового плана.'; operation drift: 'PRELIMINARY_HIRING_PLAN_DRAFT' -> 'INCIDENT_POSTMORTEM_ANALYSIS'",
+            "source": "SYSTEM_DERIVED",
+            "authority": "NO_TRANSITION_AUTHORITY"
+          }
+        ],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_revision_proposed:crc_74a39761e1a7"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 67473
+  }
+}

@@ -1,0 +1,2079 @@
+{
+  "case_id": "L4",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:18:26Z",
+  "request": {
+    "text": "Вот черновик письма клиенту про срыв сроков. Нужно с ним разобраться.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 79528,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 144953,
+    "tokens_out_sum": 3626,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15177,
+        "tokens_out": 103,
+        "attempts": 1,
+        "latency_ms": 5851,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13225,
+        "tokens_out": 114,
+        "attempts": 1,
+        "latency_ms": 4537,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15230,
+        "tokens_out": 354,
+        "attempts": 1,
+        "latency_ms": 6252,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13573,
+        "tokens_out": 383,
+        "attempts": 1,
+        "latency_ms": 5280,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15399,
+        "tokens_out": 1024,
+        "attempts": 2,
+        "latency_ms": 21847,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17809,
+        "tokens_out": 297,
+        "attempts": 1,
+        "latency_ms": 7252,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16414,
+        "tokens_out": 454,
+        "attempts": 1,
+        "latency_ms": 8806,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16394,
+        "tokens_out": 219,
+        "attempts": 1,
+        "latency_ms": 5470,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 21732,
+        "tokens_out": 678,
+        "attempts": 1,
+        "latency_ms": 12094,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_eb82775cac8c97ddc50fb5d2797d8498",
+    "scene_id": "scene_48f17600de3e",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Разобрать черновик письма клиенту о срыве сроков; выявить проблемы, уточнить содержание, подготовить предложения по исправлению или улучшению.",
+    "operation_kind": "ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE",
+    "operation_applicable": true,
+    "open_world_gap": false,
+    "contract_id": "sc_a5b30ec6215d",
+    "contract_status": "PROVISIONAL",
+    "contract_version": 1,
+    "contract_intent": "Разобрать черновик письма клиенту о срыве сроков; выявить проблемы, уточнить содержание, подготовить предложения по исправлению или улучшению.",
+    "mutations_applied": [
+      "contract_created:sc_a5b30ec6215d"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {},
+    "spaces": [],
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Необходимо вернуть и уточнить решение с пользователем из-за неясности совместного владения критериями.",
+    "intervention_profile": "normal",
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "rendering_mode": "LIVE",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_688d26d03ed212ae",
+    "trace_id": "strc_e8f0ab15028a67cc",
+    "terminal": {
+      "terminal": "RETURN_OPERATION",
+      "response_text": "Необходимо вернуть и уточнить решение с пользователем из-за неясности совместного владения критериями.",
+      "rationale": "human/joint ownership unresolved (INV-009)",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "В задачах анализа и редактирования черновика по конфликтной ситуации с клиентом, на материале письма о срыве сроков: operation ownership по умолчанию совместное (JOINT) — автоматическое финальное решение или внесение изменений требует явного участия/разрешения пользователя. Система может делать сегментированный анализ и предлагать варианты, но не подменяет собой авторство ключевых формулировок или финального выбора.",
+        "grounds": "Сцена: аналитик/советник; authority=joint; конфликт как материал; без explicit binding не допускается автоматическое присвоение финального решения. Протокол открытой сегментации: проблемы — разъяснения — предложения. Такой разбор требует совместного участия."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "Initial pipeline state indicates phase S0 (constitution/context mount) can proceed. Input is a description of a letter draft addressing a missed deadline for a client; no operational triggers for deep scene/telos/role or memory re-entry are present at this phase. No legacy triggers or authority deviations are apparent. No immediate reason for escalation or retreat identified. Core, B05, B07 semantic bodies are fully mounted.",
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15177,
+          "tokens_out": 103,
+          "latency_ms": 5851,
+          "error": "",
+          "request_hash": "b4577120a53cbd518366bc3286ac72e507c288c800281bff031fa119a10849dc",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 2096,
+              "sha256": "2202378dc26dddf8"
+            },
+            {
+              "role": "user",
+              "bytes": 238,
+              "sha256": "5b88256223f38c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Разобрать черновик письма клиенту о срыве сроков; выявить проблемы, уточнить содержание, подготовить предложения по исправлению или улучшению.",
+              "role_hint": "аналитик / советник",
+              "authority": "joint",
+              "materials": [
+                "черновик письма клиенту",
+                "конфликт по срокам (срыв)",
+                "потребность в разборе и корректировке"
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Разобрать черновик письма клиенту о срыве сроков; выявить проблемы, уточнить содержание, подготовить предложения по исправлению или улучшению.",
+                "role_hint": "аналитик / советник",
+                "authority": "joint",
+                "materials": [
+                  "черновик письма клиенту",
+                  "конфликт по срокам (срыв)",
+                  "потребность в разборе и корректировке"
+                ]
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13225,
+          "tokens_out": 114,
+          "latency_ms": 4537,
+          "error": "",
+          "request_hash": "3179a5b5e6d79e528102376f8ce138404e1df0d6528689f6db5ad1e61e2f11de",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 2095,
+              "sha256": "98a5cbbe2a190aff"
+            },
+            {
+              "role": "user",
+              "bytes": 238,
+              "sha256": "5b88256223f38c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tg_memory_recruitment_joint_scene",
+                "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+                "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+                "source_status": "typed_state",
+                "phase_relevance": "S2 — operational mounting: prior project and scene memory may be recruited to provide context about previous client communication, commitments, or project delays.",
+                "materiality_reason": "Memory can influence how the draft is analyzed, what prior decisions or commitments exist, and may affect recommendations for improvement or correction. Memory recruitment requires eligible objects and a joint-authority filter.",
+                "admitting_rule": "CTA-002"
+              },
+              {
+                "trigger_id": "tg_reflexive_retreat_possible_scene_mismatch",
+                "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+                "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+                "source_status": "typed_state",
+                "phase_relevance": "S2 — operation/scene: if the draft contains ambiguity between factual problem analysis and delicate client-facing correction, a role/telos/scene mismatch may require minimal retreat to clarify whether the answer will be analytic, advisory, or co-decisional.",
+                "materiality_reason": "Avoids silent scene switching (e.g., from analytic review to negotiation or apology), preserves authority distinctions, and prevents accidental outsourcing of human-owned commitments.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tg_memory_recruitment_joint_scene",
+                  "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+                  "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S2 — operational mounting: prior project and scene memory may be recruited to provide context about previous client communication, commitments, or project delays.",
+                  "materiality_reason": "Memory can influence how the draft is analyzed, what prior decisions or commitments exist, and may affect recommendations for improvement or correction. Memory recruitment requires eligible objects and a joint-authority filter."
+                },
+                {
+                  "trigger_id": "tg_reflexive_retreat_possible_scene_mismatch",
+                  "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+                  "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S2 — operation/scene: if the draft contains ambiguity between factual problem analysis and delicate client-facing correction, a role/telos/scene mismatch may require minimal retreat to clarify whether the answer will be analytic, advisory, or co-decisional.",
+                  "materiality_reason": "Avoids silent scene switching (e.g., from analytic review to negotiation or apology), preserves authority distinctions, and prevents accidental outsourcing of human-owned commitments."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15230,
+          "tokens_out": 354,
+          "latency_ms": 6252,
+          "error": "",
+          "request_hash": "f5375d4509a27f95cd0d80585c8784d5c3ae95153d01a0dc25a4dfeefa4daf22",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 2587,
+              "sha256": "6adeefa69d209565"
+            },
+            {
+              "role": "user",
+              "bytes": 238,
+              "sha256": "5b88256223f38c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_b3bd8beb092c",
+                "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+                "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+                "source_status": "typed_state",
+                "phase_relevance": "memory recruitment and scene-wide analysis may be required; trigger type gap suggests deeper provenance or memory class distinction is material",
+                "materiality_reason": "Material gap prevents automatic memory recruitment for joint scene; possible provenance/state write risk if unresolved",
+                "admitting_rule": "do not coerce; preserve gap; escalate if persistent"
+              },
+              {
+                "trigger_id": "tgap_3e46d2b7c956",
+                "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+                "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+                "source_status": "typed_state",
+                "phase_relevance": "reflexive retreat may be warranted if scene/operation mismatch persists; type gap blocks explicit retreat or repair",
+                "materiality_reason": "Trigger type gap signals missing operation/scene boundary required for trustworthy authority/configuration; may expose underlying provenance or operation gaps",
+                "admitting_rule": "do not force role/operation fix; preserve type gap and escalate if it blocks safe work"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "unknown",
+                "sources_named": [],
+                "binding_authority": "unset",
+                "temporal_stale": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_b3bd8beb092c",
+                  "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+                  "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+                  "source_status": "typed_state",
+                  "phase_relevance": "memory recruitment and scene-wide analysis may be required; trigger type gap suggests deeper provenance or memory class distinction is material",
+                  "materiality_reason": "Material gap prevents automatic memory recruitment for joint scene; possible provenance/state write risk if unresolved",
+                  "admitting_rule": "do not coerce; preserve gap; escalate if persistent"
+                },
+                {
+                  "trigger_id": "tgap_3e46d2b7c956",
+                  "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+                  "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+                  "source_status": "typed_state",
+                  "phase_relevance": "reflexive retreat may be warranted if scene/operation mismatch persists; type gap blocks explicit retreat or repair",
+                  "materiality_reason": "Trigger type gap signals missing operation/scene boundary required for trustworthy authority/configuration; may expose underlying provenance or operation gaps",
+                  "admitting_rule": "do not force role/operation fix; preserve type gap and escalate if it blocks safe work"
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13573,
+          "tokens_out": 383,
+          "latency_ms": 5280,
+          "error": "",
+          "request_hash": "c5993c35d97ea551d4362bbedeb8a571c189cb22352b342f3b74a58450fb24ef",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 4693,
+              "sha256": "73171ddb51e970d9"
+            },
+            {
+              "role": "user",
+              "bytes": 238,
+              "sha256": "5b88256223f38c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_b3bd8beb092c",
+                "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+                "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+                "source_status": "typed_state",
+                "phase_relevance": "operation applicability and scene authority may produce open-world gap or require multi-projection; material gap recognized instead of coercion",
+                "materiality_reason": "joint authority and need for analytic review suggest more than one valid projection and possible operation/object-family gaps",
+                "admitting_rule": "B03 causal gap ladder: materially grounded cause suggests gap rather than nearest-class coercion"
+              },
+              {
+                "trigger_id": "tgap_3e46d2b7c956",
+                "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+                "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+                "source_status": "typed_state",
+                "phase_relevance": "type gap recognized in operation-kind unset; reflexive retreat possible if scene mismatch",
+                "materiality_reason": "multiple analytic paths (problem, advice, revision, analysis) suggest possible operation-type and object-family gaps",
+                "admitting_rule": "B03 cause ladder: gap is not a schema error but a material operation-family fork"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": {
+              "proposal_id": "psynth_1",
+              "operation_id": "ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE",
+              "target_object_family": [
+                "problems_detected",
+                "content_clarified",
+                "revision_suggestions"
+              ],
+              "ontology_hypothesis": "Letter draft contains mix of explicit claims, implicit problems, and possible revision proposals; analysis must allow segmented projection onto problem, clarification, revision object families.",
+              "recognition_criteria": [
+                "Explicit statement of missed deadline/conflict",
+                "Ambiguity, misunderstanding, or lack of clarity in draft",
+                "Possible improvement in structure/tone/content"
+              ],
+              "segmentation_policy_hint": "Decompose draft into claims, problems, and revision opportunities; avoid coercing all units into only one type.",
+              "evidence_requirements": [
+                "Distinct evidence for each projection: textual signals for conflict, context for ambiguity, value grounds for revision"
+              ],
+              "exclusions": [
+                "Do not force all sentences into 'problem' if only needing clarification or revision; do not treat absence of explicit units as failure"
+              ],
+              "contraindications": [
+                "Insufficient material for revision if no actionable problem is found",
+                "Scene mismatch: advice-type analysis cannot override factual clarification"
+              ],
+              "applicability_assumptions": [
+                "Draft is available and readable",
+                "Joint-analytic scene allows both diagnosis and proposal"
+              ],
+              "primitives": [
+                {
+                  "name": "ProblemDetection",
+                  "primitive_id": "prim_pd001",
+                  "params": {},
+                  "inputs": [
+                    "draft_text"
+                  ]
+                },
+                {
+                  "name": "ContentClarification",
+                  "primitive_id": "prim_cc002",
+                  "params": {},
+                  "inputs": [
+                    "draft_text"
+                  ]
+                },
+                {
+                  "name": "RevisionSuggestion",
+                  "primitive_id": "prim_rs003",
+                  "params": {},
+                  "inputs": [
+                    "draft_text"
+                  ]
+                }
+              ],
+              "accepted_output": "Segmented synthesis of detected problems, clarified content, and actionable revision suggestions, each with provenance and analytic trace.",
+              "residue_output": "Units not fitting any projection are preserved as analytic residue. If none fit, valid outcome is an empty set or explicit gap notice.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "",
+              "triggered_by_diagnostic_fingerprint": "",
+              "rationale": "Scene and input authorize segmented analysis instead of forced classification; open-world discipline and local ontology divergence preserved; gap diagnosis rules applied; expected outcome is actionable, traceable, and reversible.",
+              "expected_diagnostics": "May encounter mixed evidence or insufficient textual basis; gap causes are preserved and rendered.",
+              "expected_residue_policy": "Residue that cannot be classified remains visible for re-analysis or escalation; does not force nearest-class assignment."
+            },
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE",
+                "applicable": true,
+                "why_not": "",
+                "open_world_gap": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_b3bd8beb092c",
+                  "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+                  "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+                  "source_status": "typed_state",
+                  "phase_relevance": "operation applicability and scene authority may produce open-world gap or require multi-projection; material gap recognized instead of coercion",
+                  "materiality_reason": "joint authority and need for analytic review suggest more than one valid projection and possible operation/object-family gaps",
+                  "admitting_rule": "B03 causal gap ladder: materially grounded cause suggests gap rather than nearest-class coercion"
+                },
+                {
+                  "trigger_id": "tgap_3e46d2b7c956",
+                  "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+                  "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+                  "source_status": "typed_state",
+                  "phase_relevance": "type gap recognized in operation-kind unset; reflexive retreat possible if scene mismatch",
+                  "materiality_reason": "multiple analytic paths (problem, advice, revision, analysis) suggest possible operation-type and object-family gaps",
+                  "admitting_rule": "B03 cause ladder: gap is not a schema error but a material operation-family fork"
+                }
+              ],
+              "projection_synthesis_proposal": {
+                "proposal_id": "psynth_1",
+                "operation_id": "ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE",
+                "target_object_family": [
+                  "problems_detected",
+                  "content_clarified",
+                  "revision_suggestions"
+                ],
+                "ontology_hypothesis": "Letter draft contains mix of explicit claims, implicit problems, and possible revision proposals; analysis must allow segmented projection onto problem, clarification, revision object families.",
+                "recognition_criteria": [
+                  "Explicit statement of missed deadline/conflict",
+                  "Ambiguity, misunderstanding, or lack of clarity in draft",
+                  "Possible improvement in structure/tone/content"
+                ],
+                "segmentation_policy_hint": "Decompose draft into claims, problems, and revision opportunities; avoid coercing all units into only one type.",
+                "evidence_requirements": [
+                  "Distinct evidence for each projection: textual signals for conflict, context for ambiguity, value grounds for revision"
+                ],
+                "exclusions": [
+                  "Do not force all sentences into 'problem' if only needing clarification or revision; do not treat absence of explicit units as failure"
+                ],
+                "contraindications": [
+                  "Insufficient material for revision if no actionable problem is found",
+                  "Scene mismatch: advice-type analysis cannot override factual clarification"
+                ],
+                "applicability_assumptions": [
+                  "Draft is available and readable",
+                  "Joint-analytic scene allows both diagnosis and proposal"
+                ],
+                "primitives": [
+                  {
+                    "name": "ProblemDetection",
+                    "primitive_id": "prim_pd001",
+                    "params": {},
+                    "inputs": [
+                      "draft_text"
+                    ]
+                  },
+                  {
+                    "name": "ContentClarification",
+                    "primitive_id": "prim_cc002",
+                    "params": {},
+                    "inputs": [
+                      "draft_text"
+                    ]
+                  },
+                  {
+                    "name": "RevisionSuggestion",
+                    "primitive_id": "prim_rs003",
+                    "params": {},
+                    "inputs": [
+                      "draft_text"
+                    ]
+                  }
+                ],
+                "accepted_output": "Segmented synthesis of detected problems, clarified content, and actionable revision suggestions, each with provenance and analytic trace.",
+                "residue_output": "Units not fitting any projection are preserved as analytic residue. If none fit, valid outcome is an empty set or explicit gap notice.",
+                "revises_projection_id": "",
+                "triggered_by_diagnostic_id": "",
+                "triggered_by_diagnostic_fingerprint": "",
+                "rationale": "Scene and input authorize segmented analysis instead of forced classification; open-world discipline and local ontology divergence preserved; gap diagnosis rules applied; expected outcome is actionable, traceable, and reversible.",
+                "expected_diagnostics": "May encounter mixed evidence or insufficient textual basis; gap causes are preserved and rendered.",
+                "expected_residue_policy": "Residue that cannot be classified remains visible for re-analysis or escalation; does not force nearest-class assignment."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 2,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15399,
+          "tokens_out": 1024,
+          "latency_ms": 21847,
+          "error": "",
+          "request_hash": "23d3e8f5ac37c2540d55ab13d515c972034d4a65dc28a64e28542299062dbe1c",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 6709,
+              "sha256": "466d27df8529d6c8"
+            },
+            {
+              "role": "user",
+              "bytes": 238,
+              "sha256": "5b88256223f38c82"
+            },
+            {
+              "role": "user",
+              "bytes": 973,
+              "sha256": "0181a8a8e4e804c0"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_b3bd8beb092c",
+                "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+                "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+                "source_status": "typed_state",
+                "phase_relevance": "Phase S5 implicates joint memory recruitment for shared analytic/scene work context",
+                "materiality_reason": "Scene requires joint-aware recall or knowledge for analytic work on draft; memory governance determines legitimate recruitment and boundaries",
+                "admitting_rule": "CTA-002"
+              },
+              {
+                "trigger_id": "tgap_3e46d2b7c956",
+                "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+                "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+                "source_status": "typed_state",
+                "phase_relevance": "Potential reflexive retreat/scene mismatch influencing authority, memory access, or trace formation",
+                "materiality_reason": "Unknown operation kind/authority creates type gap for correct analytic/scene role, impacting memory eligibility and proposal logic",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_b3bd8beb092c",
+                  "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+                  "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Phase S5 implicates joint memory recruitment for shared analytic/scene work context",
+                  "materiality_reason": "Scene requires joint-aware recall or knowledge for analytic work on draft; memory governance determines legitimate recruitment and boundaries"
+                },
+                {
+                  "trigger_id": "tgap_3e46d2b7c956",
+                  "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+                  "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Potential reflexive retreat/scene mismatch influencing authority, memory access, or trace formation",
+                  "materiality_reason": "Unknown operation kind/authority creates type gap for correct analytic/scene role, impacting memory eligibility and proposal logic"
+                }
+              ],
+              "memory_proposal": null
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 17809,
+          "tokens_out": 297,
+          "latency_ms": 7252,
+          "error": "",
+          "request_hash": "e65100e97fbb5ced72d805678d969891fc9501ea78aee0f633ed8e6a0756982e",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 11759,
+              "sha256": "2b0daa25ab07e730"
+            },
+            {
+              "role": "user",
+              "bytes": 238,
+              "sha256": "5b88256223f38c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "joint",
+              "human_resolved": false,
+              "return_reason": "Совместная (JOINT) сцена анализа: аналитическая и советническая роль, задача включает интерпретацию, формулирование предложений и возможно изменение смысла письма; для ряда финальных вариантов и принятия решения необходима явная или подтверждённая позиция/разрешение со стороны пользователя. Автоматическое полное выполнение без возврата и уточнения было бы смещением собственника критерия/решения."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_b3bd8beb092c",
+                "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+                "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+                "source_status": "typed_state",
+                "phase_relevance": "Влияние на определение критерия допустимой корректировки/интерпретации письма; признак необходимости JOINT-владения операцией",
+                "materiality_reason": "Материальная неопределённость финального критерия/решения без явного human confirmation; автоматический вывод/изменение смысла без участия пользователя не допустим при совместном владении задачей.",
+                "admitting_rule": "Conditional joint scene triggers B06/B01; not machine-owned direct"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В задачах типа анализа и редактирования черновика по проблемному взаимодействию с клиентом, где материалы содержат конфликт и возможны авторские или смысловые правки, operation ownership по умолчанию совместное (JOINT), а автоматический возврат финальных решений невозможен без явного участия/разрешения пользователя.",
+              "grounds": "Сцена: аналитик/советник; authority=joint; материал — конфликт; отсутствие explicit binding конечного решения."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "joint",
+                "human_resolved": false,
+                "return_reason": "Совместная (JOINT) сцена анализа: аналитическая и советническая роль, задача включает интерпретацию, формулирование предложений и возможно изменение смысла письма; для ряда финальных вариантов и принятия решения необходима явная или подтверждённая позиция/разрешение со стороны пользователя. Автоматическое полное выполнение без возврата и уточнения было бы смещением собственника критерия/решения."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_b3bd8beb092c",
+                  "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+                  "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Влияние на определение критерия допустимой корректировки/интерпретации письма; признак необходимости JOINT-владения операцией",
+                  "materiality_reason": "Материальная неопределённость финального критерия/решения без явного human confirmation; автоматический вывод/изменение смысла без участия пользователя не допустим при совместном владении задачей.",
+                  "admitting_rule": "Conditional joint scene triggers B06/B01; not machine-owned direct"
+                }
+              ],
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "В задачах типа анализа и редактирования черновика по проблемному взаимодействию с клиентом, где материалы содержат конфликт и возможны авторские или смысловые правки, operation ownership по умолчанию совместное (JOINT), а автоматический возврат финальных решений невозможен без явного участия/разрешения пользователя.",
+                "grounds": "Сцена: аналитик/советник; authority=joint; материал — конфликт; отсутствие explicit binding конечного решения."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 16414,
+          "tokens_out": 454,
+          "latency_ms": 8806,
+          "error": "",
+          "request_hash": "e723aa276e76c3523b91b33351aedf6060e13dd5003faff9d510a855635fe704",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 13775,
+              "sha256": "a1d8f2770ba5f757"
+            },
+            {
+              "role": "user",
+              "bytes": 238,
+              "sha256": "5b88256223f38c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tg_joint_operation_human_binding_required",
+                "generating_state_ref": "ownership.owner=joint; ownership.human_resolved=false",
+                "cause_object_ref": "scene.telos=разбор письма с аналитической и советнической ролью; подготовка предложений требует подтверждения или участия пользователя",
+                "source_status": "typed_state",
+                "phase_relevance": "S8_INTERVENTION_SELECTION",
+                "materiality_reason": "Операция анализа и подготовки финальных предложений по корректировке письма основывается на совместном владении (JOINT) — автоматический возврат финального решения без подтверждения/участия пользователя приведет к смещению владельца операции и итога. Требуется возврат хода пользователю для явного согласования, выбора или уточнения; допустимы промежуточные варианты и предложения, но не автоматическое завершение без совместного участия.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": false,
+              "triggers": [
+                {
+                  "trigger_id": "tg_joint_operation_human_binding_required",
+                  "generating_state_ref": "ownership.owner=joint; ownership.human_resolved=false",
+                  "cause_object_ref": "scene.telos=разбор письма с аналитической и советнической ролью; подготовка предложений требует подтверждения или участия пользователя",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S8_INTERVENTION_SELECTION",
+                  "materiality_reason": "Операция анализа и подготовки финальных предложений по корректировке письма основывается на совместном владении (JOINT) — автоматический возврат финального решения без подтверждения/участия пользователя приведет к смещению владельца операции и итога. Требуется возврат хода пользователю для явного согласования, выбора или уточнения; допустимы промежуточные варианты и предложения, но не автоматическое завершение без совместного участия."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 16394,
+          "tokens_out": 219,
+          "latency_ms": 5470,
+          "error": "",
+          "request_hash": "712ec44c4c00dd1e56b80354fe3236dec224d2f70a36f0ed97e13efde9f6e8ac",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 16359,
+              "sha256": "fe305802ad3e61e3"
+            },
+            {
+              "role": "user",
+              "bytes": 238,
+              "sha256": "5b88256223f38c82"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_b3bd8beb092c",
+                "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+                "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+                "source_status": "typed_state",
+                "phase_relevance": "Вопрос совместного авторства и необходимости явно подтверждённого финального решения при разборах конфликтных писем",
+                "materiality_reason": "Без явного подтверждения от пользователя присвоение значимых изменений автоматически некорректно, поскольку может исказить суть исходящей позиции и вынести решение за границами реального права",
+                "admitting_rule": "CTA-002"
+              },
+              {
+                "trigger_id": "tgap_3e46d2b7c956",
+                "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+                "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+                "source_status": "typed_state",
+                "phase_relevance": "Диагностика сцены: совмещённые аналитическая и советническая роли в условиях конфликтного материала",
+                "materiality_reason": "Конфликтная/рисковая сцена требует явного внимания к разделению предложений, наблюдений и решений — советы не могут быть приняты как автоматическое действие без верификации пользователем",
+                "admitting_rule": "CTA-002"
+              },
+              {
+                "trigger_id": "tg_joint_operation_human_binding_required",
+                "generating_state_ref": "ownership.owner=joint; ownership.human_resolved=false",
+                "cause_object_ref": "scene.telos=разбор письма с аналитической и советнической ролью; подготовка предложений требует подтверждения или участия пользователя",
+                "source_status": "typed_state",
+                "phase_relevance": "Исключение автоматического финального принятия решения в совместной (JOINT) сцене",
+                "materiality_reason": "Смысловое и этическое решение по конфликтному письму требует участия обеих сторон; передачу права назад на bind инициирует совместное владение",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "В задачах анализа и редактирования черновика по конфликтной ситуации с клиентом, на материале письма о срыве сроков: operation ownership по умолчанию совместное (JOINT) — автоматическое финальное решение или внесение изменений требует явного участия/разрешения пользователя. Система может делать сегментированный анализ и предлагать варианты, но не подменяет собой авторство ключевых формулировок или финального выбора.",
+              "grounds": "Сцена: аналитик/советник; authority=joint; конфликт как материал; без explicit binding не допускается автоматическое присвоение финального решения. Протокол открытой сегментации: проблемы — разъяснения — предложения. Такой разбор требует совместного участия."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "distinction",
+                "text": "В задачах анализа и редактирования черновика по конфликтной ситуации с клиентом, на материале письма о срыве сроков: operation ownership по умолчанию совместное (JOINT) — автоматическое финальное решение или внесение изменений требует явного участия/разрешения пользователя. Система может делать сегментированный анализ и предлагать варианты, но не подменяет собой авторство ключевых формулировок или финального выбора.",
+                "grounds": "Сцена: аналитик/советник; authority=joint; конфликт как материал; без explicit binding не допускается автоматическое присвоение финального решения. Протокол открытой сегментации: проблемы — разъяснения — предложения. Такой разбор требует совместного участия."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_b3bd8beb092c",
+                  "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+                  "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Вопрос совместного авторства и необходимости явно подтверждённого финального решения при разборах конфликтных писем",
+                  "materiality_reason": "Без явного подтверждения от пользователя присвоение значимых изменений автоматически некорректно, поскольку может исказить суть исходящей позиции и вынести решение за границами реального права"
+                },
+                {
+                  "trigger_id": "tgap_3e46d2b7c956",
+                  "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+                  "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Диагностика сцены: совмещённые аналитическая и советническая роли в условиях конфликтного материала",
+                  "materiality_reason": "Конфликтная/рисковая сцена требует явного внимания к разделению предложений, наблюдений и решений — советы не могут быть приняты как автоматическое действие без верификации пользователем"
+                },
+                {
+                  "trigger_id": "tg_joint_operation_human_binding_required",
+                  "generating_state_ref": "ownership.owner=joint; ownership.human_resolved=false",
+                  "cause_object_ref": "scene.telos=разбор письма с аналитической и советнической ролью; подготовка предложений требует подтверждения или участия пользователя",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Исключение автоматического финального принятия решения в совместной (JOINT) сцене",
+                  "materiality_reason": "Смысловое и этическое решение по конфликтному письму требует участия обеих сторон; передачу права назад на bind инициирует совместное владение"
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 21732,
+          "tokens_out": 678,
+          "latency_ms": 12094,
+          "error": "",
+          "request_hash": "14ffb173c984b8784c8cebffbeed7f2182adb874ccbe89bf1d9c03b22753dc74",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 17516,
+              "sha256": "c11808aeef91f695"
+            },
+            {
+              "role": "user",
+              "bytes": 238,
+              "sha256": "5b88256223f38c82"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_688d26d03ed212ae",
+      "input_text": "Вот черновик письма клиенту про срыв сроков. Нужно с ним разобраться.",
+      "source_id": "src_33cb013a4343886d",
+      "phase": "S10",
+      "scene": {
+        "telos": "Разобрать черновик письма клиенту о срыве сроков; выявить проблемы, уточнить содержание, подготовить предложения по исправлению или улучшению.",
+        "role_hint": "аналитик / советник",
+        "authority": "joint",
+        "materials": [
+          "черновик письма клиенту",
+          "конфликт по срокам (срыв)",
+          "потребность в разборе и корректировке"
+        ]
+      },
+      "origin": {
+        "status": "unknown",
+        "sources_named": [],
+        "binding_authority": "unset",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE",
+        "applicable": true,
+        "why_not": "",
+        "open_world_gap": false
+      },
+      "ownership": {
+        "owner": "joint",
+        "human_resolved": false,
+        "return_reason": "Совместная (JOINT) сцена анализа: аналитическая и советническая роль, задача включает интерпретацию, формулирование предложений и возможно изменение смысла письма; для ряда финальных вариантов и принятия решения необходима явная или подтверждённая позиция/разрешение со стороны пользователя. Автоматическое полное выполнение без возврата и уточнения было бы смещением собственника критерия/решения."
+      },
+      "council_invoked": false,
+      "execution_invoked": false,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_23f29b57a4fa",
+          "proposed_trigger_type_id": "tgap_b3bd8beb092c",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+          "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+          "phase_relevance": "Вопрос совместного авторства и необходимости явно подтверждённого финального решения при разборах конфликтных писем",
+          "materiality_reason": "Без явного подтверждения от пользователя присвоение значимых изменений автоматически некорректно, поскольку может исказить суть исходящей позиции и вынести решение за границами реального права",
+          "payload": {
+            "legacy_admitting_rule": "CTA-002",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        },
+        {
+          "candidate_id": "tcand_1599285b3bd3",
+          "proposed_trigger_type_id": "tgap_3e46d2b7c956",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+          "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+          "phase_relevance": "Диагностика сцены: совмещённые аналитическая и советническая роли в условиях конфликтного материала",
+          "materiality_reason": "Конфликтная/рисковая сцена требует явного внимания к разделению предложений, наблюдений и решений — советы не могут быть приняты как автоматическое действие без верификации пользователем",
+          "payload": {
+            "legacy_admitting_rule": "CTA-002",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        },
+        {
+          "candidate_id": "tcand_dd95adff87e0",
+          "proposed_trigger_type_id": "tg_joint_operation_human_binding_required",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "ownership.owner=joint; ownership.human_resolved=false",
+          "cause_object_ref": "scene.telos=разбор письма с аналитической и советнической ролью; подготовка предложений требует подтверждения или участия пользователя",
+          "phase_relevance": "Исключение автоматического финального принятия решения в совместной (JOINT) сцене",
+          "materiality_reason": "Смысловое и этическое решение по конфликтному письму требует участия обеих сторон; передачу права назад на bind инициирует совместное владение",
+          "payload": {
+            "legacy_admitting_rule": "CTA-002",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_0e10a237810e",
+          "candidate_id": "tcand_127743464a9c",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tg_memory_recruitment_joint_scene' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_700c1d57edcc",
+          "candidate_id": "tcand_0ac28a375739",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tg_reflexive_retreat_possible_scene_mismatch' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_d0b2233d61ee",
+          "candidate_id": "tcand_a607bb7df160",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_b3bd8beb092c' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_9c815ddc57f1",
+          "candidate_id": "tcand_94ee21f3d213",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_3e46d2b7c956' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_70ec6708868d",
+          "candidate_id": "tcand_70af896215de",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_b3bd8beb092c' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_1ac6f3f28f12",
+          "candidate_id": "tcand_5f0cacd6008e",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_3e46d2b7c956' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_d707eee1ce4b",
+          "candidate_id": "tcand_7086b2c60b87",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_b3bd8beb092c' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_fd45be7f0571",
+          "candidate_id": "tcand_ebb3cfe24999",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_3e46d2b7c956' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_de0ef9fb8f62",
+          "candidate_id": "tcand_9aef991a9007",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_b3bd8beb092c' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_a8d83bb25cc8",
+          "candidate_id": "tcand_3112326badd4",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tg_joint_operation_human_binding_required' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_b3bd8beb092c",
+          "candidate_id": "tcand_127743464a9c",
+          "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+          "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tg_memory_recruitment_joint_scene' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_3e46d2b7c956",
+          "candidate_id": "tcand_0ac28a375739",
+          "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+          "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tg_reflexive_retreat_possible_scene_mismatch' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_0e3fefaea4da",
+          "candidate_id": "tcand_a607bb7df160",
+          "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+          "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_b3bd8beb092c' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_e07bb552485d",
+          "candidate_id": "tcand_94ee21f3d213",
+          "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+          "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_3e46d2b7c956' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_025e41997d95",
+          "candidate_id": "tcand_70af896215de",
+          "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+          "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_b3bd8beb092c' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_07a233ddb6bc",
+          "candidate_id": "tcand_5f0cacd6008e",
+          "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+          "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_3e46d2b7c956' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_8cd635f9f787",
+          "candidate_id": "tcand_7086b2c60b87",
+          "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+          "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_b3bd8beb092c' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_6eabc2976385",
+          "candidate_id": "tcand_ebb3cfe24999",
+          "cause_object_ref": "operation.kind=unset; origin.status=unknown",
+          "generating_state_ref": "scene.role_hint=аналитик/советник; input_text=разобрать письмо; scene.authority=joint",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_3e46d2b7c956' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_5f3c5de88087",
+          "candidate_id": "tcand_9aef991a9007",
+          "cause_object_ref": "input_text=черновик письма; scene.materials=конфликт по срокам, корректировка",
+          "generating_state_ref": "scene.authority=joint; scene.telos=разбор и улучшение письма о срыве сроков",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_b3bd8beb092c' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_5c8e1d492d4d",
+          "candidate_id": "tcand_3112326badd4",
+          "cause_object_ref": "scene.telos=разбор письма с аналитической и советнической ролью; подготовка предложений требует подтверждения или участия пользователя",
+          "generating_state_ref": "ownership.owner=joint; ownership.human_resolved=false",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tg_joint_operation_human_binding_required' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "В задачах анализа и редактирования черновика по конфликтной ситуации с клиентом, на материале письма о срыве сроков: operation ownership по умолчанию совместное (JOINT) — автоматическое финальное решение или внесение изменений требует явного участия/разрешения пользователя. Система может делать сегментированный анализ и предлагать варианты, но не подменяет собой авторство ключевых формулировок или финального выбора.",
+        "grounds": "Сцена: аналитик/советник; authority=joint; конфликт как материал; без explicit binding не допускается автоматическое присвоение финального решения. Протокол открытой сегментации: проблемы — разъяснения — предложения. Такой разбор требует совместного участия."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": [
+          {
+            "projection_id": "gap:gap_281f723b119c",
+            "signals": [
+              "APPLICABILITY_FAILURE"
+            ],
+            "reason": "ORGAN_GAP for operation 'ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE': model proposal for 'ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE' could not compile-bind against registered primitives",
+            "residue_ratio": 1.0,
+            "recognition_failure_count": 0,
+            "suggested_operation": "",
+            "suggested_ontology": "",
+            "suggested_target_family": [],
+            "mismatch": true,
+            "fingerprint": "7c80351f23b3"
+          }
+        ]
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [
+        {
+          "kind": "ORGAN_GAP",
+          "operation_id": "ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE",
+          "reason": "proposal psynth_1 for operation 'ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE' failed compile-bind: primitive 'prim_pd001' (invocation 'ProblemDetection') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+          "registered_capability_id": "",
+          "generated_spec": null,
+          "binding_evidence": {},
+          "organ_gap": {
+            "gap_id": "gap_281f723b119c",
+            "source_ref": "src_33cb013a4343886d",
+            "scene_ref": "Разобрать черновик письма клиенту о срыве сроков; выявить проблемы, уточнить содержание, подготовить предложения по исправлению или улучшению.",
+            "required_operation": "ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE",
+            "required_attention_structure": "Decompose draft into claims, problems, and revision opportunities; avoid coercing all units into only one type.",
+            "insufficient_registered_capabilities": [
+              "DIFFERENTIATED_ACCOUNT",
+              "EXTRACT_CONCEPTS"
+            ],
+            "insufficient_declarative_primitives": [
+              "CoverageComputer",
+              "FamilyClassifier",
+              "SpanScanner",
+              "TargetFilter"
+            ],
+            "missing_capability_hypothesis": "model proposal for 'ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE' could not compile-bind against registered primitives",
+            "evidence": [
+              "BindingError: primitive 'prim_pd001' (invocation 'ProblemDetection') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+            ],
+            "counterexamples": [],
+            "affected_scene_telos": "Разобрать черновик письма клиенту о срыве сроков; выявить проблемы, уточнить содержание, подготовить предложения по исправлению или улучшению.",
+            "possible_development_direction": "extend primitive registry or narrow the proposal",
+            "status": "unresolved",
+            "activation_authority": "NONE"
+          }
+        }
+      ],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_48f17600de3e",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [
+            "*"
+          ],
+          "operator_capabilities": [
+            "*"
+          ],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "runtime_default",
+          "activation_scope": "all_runs_by_default",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_48f17600de3e": {
+            "scene_id": "scene_48f17600de3e",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": null
+    },
+    "rendering": {
+      "text": "Необходимо вернуть и уточнить решение с пользователем из-за неясности совместного владения критериями.",
+      "mode": "LIVE",
+      "provider_status": "OK",
+      "provider_id": "fallback",
+      "model_id": "chain",
+      "tokens_in": 232,
+      "tokens_out": 23,
+      "latency_ms": 1957,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_e8f0ab15028a67cc.json",
+    "duration_ms": 79528,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "context_id": "ctx_eb82775cac8c97ddc50fb5d2797d8498",
+    "context_continuity": {
+      "context_id": "ctx_eb82775cac8c97ddc50fb5d2797d8498",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_a5b30ec6215d",
+        "version": 1,
+        "scene_id": "scene_48f17600de3e",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Разобрать черновик письма клиенту о срыве сроков; выявить проблемы, уточнить содержание, подготовить предложения по исправлению или улучшению.",
+        "telos": "Разобрать черновик письма клиенту о срыве сроков; выявить проблемы, уточнить содержание, подготовить предложения по исправлению или улучшению.",
+        "object_scope": "черновик письма клиенту, конфликт по срокам (срыв), потребность в разборе и корректировке",
+        "operation_kind": "ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE",
+        "expected_intervention": "ANALYZE_DRAFT_CLIENT_LETTER_DEADLINE_FAILURE",
+        "human_owned_decisions": [
+          "Совместная (JOINT) сцена анализа: аналитическая и советническая роль, задача включает интерпретацию, формулирование предложений и возможно изменение смысла письма; для ряда финальных вариантов и принятия решения необходима явная или подтверждённая позиция/разрешение со стороны пользователя. Автоматическое полное выполнение без возврата и уточнения было бы смещением собственника критерия/решения."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": ""
+      },
+      "contract_revision": null,
+      "recognition_pass": {
+        "pass_id": "rp_b718ed37eb6a",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_created:sc_a5b30ec6215d"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 79612
+  }
+}

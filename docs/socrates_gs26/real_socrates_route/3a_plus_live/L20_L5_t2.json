@@ -1,0 +1,1957 @@
+{
+  "case_id": "L20_L5_t2",
+  "deployed_sha": "dba32e1fcb2917e07846975ca4f7ca3d16e1b80d",
+  "ts": "2026-08-18T01:57:09Z",
+  "request": {
+    "text": "Миграцию отменяем. Нужен разбор, почему вчерашний дашборд показал нули, и как чинить данные, а не план переезда.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal",
+    "context_id": "ctx_58447bd148624d8d69f76399cde15842"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 75472,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 143274,
+    "tokens_out_sum": 3101,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15473,
+        "tokens_out": 79,
+        "attempts": 1,
+        "latency_ms": 6085,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13521,
+        "tokens_out": 128,
+        "attempts": 1,
+        "latency_ms": 5786,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15540,
+        "tokens_out": 226,
+        "attempts": 1,
+        "latency_ms": 5270,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13633,
+        "tokens_out": 270,
+        "attempts": 1,
+        "latency_ms": 4617,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14986,
+        "tokens_out": 924,
+        "attempts": 1,
+        "latency_ms": 17658,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17398,
+        "tokens_out": 329,
+        "attempts": 1,
+        "latency_ms": 9586,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15861,
+        "tokens_out": 474,
+        "attempts": 1,
+        "latency_ms": 6638,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15745,
+        "tokens_out": 241,
+        "attempts": 1,
+        "latency_ms": 6162,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 21117,
+        "tokens_out": 430,
+        "attempts": 1,
+        "latency_ms": 11302,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_58447bd148624d8d69f76399cde15842",
+    "scene_id": "scene_ec01f49a894d",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+    "operation_kind": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+    "operation_applicable": true,
+    "open_world_gap": true,
+    "contract_id": "sc_fc83b08d2e93",
+    "contract_status": "REVISION_PROPOSED",
+    "contract_version": 2,
+    "contract_intent": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+    "mutations_applied": [
+      "contract_revision_proposed:crc_d05652a3e105"
+    ],
+    "mutations_refused": [],
+    "fork_candidates": [],
+    "space_candidates": [],
+    "revision_candidates": [
+      {
+        "candidate_id": "crc_d05652a3e105",
+        "prior_contract_id": "sc_b303a7f87d72",
+        "proposed_contract": {
+          "contract_id": "sc_fc83b08d2e93",
+          "version": 2,
+          "scene_id": "scene_ec01f49a894d",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+          "telos": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+          "object_scope": "факт отмены миграции, наблюдение: на дашборде за вчера нули, требование: анализ причин и рекомендации по исправлению данных",
+          "operation_kind": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+          "expected_intervention": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+          "human_owned_decisions": [
+            "Техническая диагностика причин появления нулей и формирование конкретных шагов по восстановлению данных — явно SYSTEM-owned operation: критерии — анализ технических структур и фикс, цель и допуски заданы; нет скрытого human/joint-binding, не требуется стороннее принятие решений или подтверждение. В контексте сцены исполнение не требует возвращения недоупорядоченных human operation."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_b303a7f87d72"
+        },
+        "reason": "telos drift: 'Составить план по переносу систем отчетности с таблиц (например, Excel или аналогичных) на склад данных (data warehouse), чтобы улучшить хранение, обработку и анализ отчетных данных.' -> 'Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.'; operation drift: 'PLAN_CONSTRUCTION' -> 'TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      }
+    ],
+    "clarification_required": false,
+    "clarification_reason": "",
+    "event_kind": "USER_TURN",
+    "transductions": [],
+    "branches": {},
+    "spaces": [],
+    "terminal": "PRESERVE_APORIA",
+    "response_text": "Ответ нужно оставить в состоянии апории, поскольку объект неизвестен и принудительная классификация нарушит принцип INV-007.",
+    "intervention_profile": "normal",
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "rendering_mode": "LIVE",
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "run_id": "srun_767ca01877df7db2",
+    "trace_id": "strc_6cb1bf39f6e7e24d",
+    "terminal": {
+      "terminal": "PRESERVE_APORIA",
+      "response_text": "Ответ нужно оставить в состоянии апории, поскольку объект неизвестен и принудительная классификация нарушит принцип INV-007.",
+      "rationale": "unknown object; would violate INV-007 to force fit",
+      "memory_proposal": {
+        "kind": "observation",
+        "text": "Факт: зафиксировано структурное аномальное поведение — на дашборде за вчера отображаются нули. Задача: произвести технический разбор причин произошедшего и предложить конкретные шаги по восстановлению фактических данных. Миграция и сценарии переезда явно сняты, анализ сфокусирован на устранении причин и самой корректировке данных.",
+        "grounds": "Эта фиксация исходит из явного запроса пользователя: требуется разобрать, почему на вчерашнем дашборде оказались нули, и что делать для восстановления данных, при этом ориентиры на миграцию/переезд деактивируются. Основание — директива текущей сцены и наблюдаемая аномалия."
+      }
+    },
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "mounted_phases": [
+      {
+        "phase": "S0",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S0",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "context_ok": true,
+              "notes": "No explicit memory or reflexive retreat triggers at S0: the request is for diagnostic analysis of dashboard zero values and data repair, not migration planning. Scene and telos are set by the user's explicit redirection, and no ambiguous prior commitments or memory recruitment are required to enter the phase.",
+              "triggers": []
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15473,
+          "tokens_out": 79,
+          "latency_ms": 6085,
+          "error": "",
+          "request_hash": "06c5476a56edb89234939176bd19de075683d145a484228b9f6ee143a3d46f7c",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1343,
+              "sha256": "a4d2fdd84f5863d7"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "26597aa736460db5"
+            },
+            {
+              "role": "user",
+              "bytes": 3172,
+              "sha256": "16e48b714865dba1"
+            },
+            {
+              "role": "user",
+              "bytes": 315,
+              "sha256": "e0c6b5634d8b9d49"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S1",
+        "router": "P01",
+        "mount": {
+          "router_id": "P01",
+          "phase": "S1",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B01",
+              "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+              "bytes": 14393
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 56125,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": {
+              "telos": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+              "role_hint": "аналитик/разбор технической причины и восстановление данных",
+              "authority": "system",
+              "materials": [
+                "факт отмены миграции",
+                "наблюдение: на дашборде за вчера нули",
+                "требование: анализ причин и рекомендации по исправлению данных"
+              ]
+            },
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "scene": {
+                "telos": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                "role_hint": "аналитик/разбор технической причины и восстановление данных",
+                "authority": "system",
+                "materials": [
+                  "факт отмены миграции",
+                  "наблюдение: на дашборде за вчера нули",
+                  "требование: анализ причин и рекомендации по исправлению данных"
+                ]
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13521,
+          "tokens_out": 128,
+          "latency_ms": 5786,
+          "error": "",
+          "request_hash": "7c4ea4507bf3a186bd6e0cfcc362061d9d894a49d9cdad127476515a058e0025",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14454,
+              "sha256": "c142ed5ab5741b6f"
+            },
+            {
+              "role": "system",
+              "bytes": 3911,
+              "sha256": "daa96c48ed06b1d4"
+            },
+            {
+              "role": "system",
+              "bytes": 1877,
+              "sha256": "7e2b1d7188283260"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "a88d9e490c4b028b"
+            },
+            {
+              "role": "user",
+              "bytes": 3171,
+              "sha256": "cf7536c0bf5501bf"
+            },
+            {
+              "role": "user",
+              "bytes": 315,
+              "sha256": "e0c6b5634d8b9d49"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S2",
+        "router": "P00",
+        "mount": {
+          "router_id": "P00",
+          "phase": "S2",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            },
+            {
+              "body_id": "B07",
+              "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+              "bytes": 11055
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 65734,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "trg_dashboard_zero_analysis",
+                "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+                "source_status": "typed_state",
+                "phase_relevance": "The telos and role_hint require technical analysis and data repair focus; migration and transfer planning are excluded.",
+                "materiality_reason": "The explicit request to analyze dashboard zeros and repair data, not to plan migration, establishes a key operational boundary for the phase. This trigger anchors the scene, operation applicability, and actor authority for subsequent work.",
+                "admitting_rule": "Include trigger as scene and telos anchor for S2; necessary for proper operation selection and authority binding."
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "trg_dashboard_zero_analysis",
+                  "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                  "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+                  "source_status": "typed_state",
+                  "phase_relevance": "The telos and role_hint require technical analysis and data repair focus; migration and transfer planning are excluded.",
+                  "materiality_reason": "The explicit request to analyze dashboard zeros and repair data, not to plan migration, establishes a key operational boundary for the phase. This trigger anchors the scene, operation applicability, and actor authority for subsequent work.",
+                  "admitting_rule": "Include trigger as scene and telos anchor for S2; necessary for proper operation selection and authority binding."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15540,
+          "tokens_out": 226,
+          "latency_ms": 5270,
+          "error": "",
+          "request_hash": "7c7d9ce140f29870402ff1e77c509bfdad47f79fe8a8879b9c7980f62d40abbf",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 11116,
+              "sha256": "e27b912e5692160b"
+            },
+            {
+              "role": "system",
+              "bytes": 3978,
+              "sha256": "da8101beba3e6d38"
+            },
+            {
+              "role": "system",
+              "bytes": 1258,
+              "sha256": "7d949f60e0b600fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "3f9f9dafc475b5de"
+            },
+            {
+              "role": "user",
+              "bytes": 3785,
+              "sha256": "d91d69fe5ac75e52"
+            },
+            {
+              "role": "user",
+              "bytes": 315,
+              "sha256": "e0c6b5634d8b9d49"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S3",
+        "router": "P02",
+        "mount": {
+          "router_id": "P02",
+          "phase": "S3",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 54088,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            },
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_02e54eb7b166",
+                "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+                "source_status": "typed_state",
+                "phase_relevance": "S3_origin/status/materiality: trigger candidate flagged as type gap; valid scene/materials for technical origin/status analysis; cause structurally grounded",
+                "materiality_reason": "Proposed trigger type 'trg_dashboard_zero_analysis' is not in registry v0.2_default and the grounded cause object suggests trigger is not forced or coerced; type gap is material",
+                "admitting_rule": "type gap recognized and not forcibly resolved; scene and materials admit technical analysis trigger"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "origin": {
+                "status": "unknown",
+                "sources_named": [],
+                "binding_authority": "unset",
+                "temporal_stale": false
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_02e54eb7b166",
+                  "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                  "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+                  "source_status": "typed_state",
+                  "phase_relevance": "S3_origin/status/materiality: trigger candidate flagged as type gap; valid scene/materials for technical origin/status analysis; cause structurally grounded",
+                  "materiality_reason": "Proposed trigger type 'trg_dashboard_zero_analysis' is not in registry v0.2_default and the grounded cause object suggests trigger is not forced or coerced; type gap is material",
+                  "admitting_rule": "type gap recognized and not forcibly resolved; scene and materials admit technical analysis trigger"
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 13633,
+          "tokens_out": 270,
+          "latency_ms": 4617,
+          "error": "",
+          "request_hash": "40f17b6935ddc988b9ea5b5afb0f42a47e7a52b3b82896b4643fc2296f9e0d1a",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 3925,
+              "sha256": "be819c37851a284a"
+            },
+            {
+              "role": "system",
+              "bytes": 2044,
+              "sha256": "7d3a0deee09ece85"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "8e578de97d4ab6ce"
+            },
+            {
+              "role": "user",
+              "bytes": 5082,
+              "sha256": "5f445be6673583f5"
+            },
+            {
+              "role": "user",
+              "bytes": 315,
+              "sha256": "e0c6b5634d8b9d49"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S4",
+        "router": "P03",
+        "mount": {
+          "router_id": "P03",
+          "phase": "S4",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B03",
+              "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+              "bytes": 13973
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55705,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": {
+              "kind": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": true
+            },
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_02e54eb7b166",
+                "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+                "source_status": "typed_state",
+                "phase_relevance": "A structured diagnostic-type operation for technical data anomaly analysis is required by the scene telos, but the existing operation type registry lacks an exact fit.",
+                "materiality_reason": "The explicit analytic goal (analyze cause of zeroes and how to repair data) is not covered by standard extract/classify/conceptualize, and cannot be forced into a migration/planning mold.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": {
+              "proposal_id": "psynth_01",
+              "operation_id": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+              "target_object_family": [
+                "technical_diagnostic_cause",
+                "data_repair_action"
+              ],
+              "ontology_hypothesis": "A local ontology with objects: observed_dashboard_anomaly, causal_chain_step, required_data_fix.",
+              "recognition_criteria": [
+                "Evidence of observed anomaly on dashboard ('нули за вчера')",
+                "Material trace of technical causation (log, missing data, process interruption, etc.)",
+                "Candidate action for data restoration"
+              ],
+              "segmentation_policy_hint": "Maintain separation between factual anomaly identification, hypothesized technical causes, and specific recommended data repair actions.",
+              "evidence_requirements": [
+                "Access to system/process logs or data-feed history",
+                "Fact traces from data sources",
+                "Constraints from dashboard calculation chain"
+              ],
+              "exclusions": [
+                "General migration planning",
+                "Source code refactor outside immediate data repair"
+              ],
+              "contraindications": [
+                "Ambiguity between cause analysis and high-level planning when the latter is explicitly de-scoped",
+                "Lack of evidence/trace (if true gap, flag)"
+              ],
+              "applicability_assumptions": [
+                "At least some direct trace exists for yesterday’s zero anomaly",
+                "Material for repair proposal can be constructed, else output an explicit insufficiency/partial"
+              ],
+              "primitives": [
+                {
+                  "name": "find_dashboard_zero_anomaly",
+                  "primitive_id": "prim_001",
+                  "params": {},
+                  "inputs": [
+                    "dashboard_data",
+                    "log_entries"
+                  ]
+                },
+                {
+                  "name": "diagnose_causal_chain",
+                  "primitive_id": "prim_002",
+                  "params": {},
+                  "inputs": [
+                    "find_dashboard_zero_anomaly"
+                  ]
+                },
+                {
+                  "name": "construct_data_repair_action",
+                  "primitive_id": "prim_003",
+                  "params": {},
+                  "inputs": [
+                    "diagnose_causal_chain"
+                  ]
+                }
+              ],
+              "accepted_output": "List of probable technical causes for dashboard anomaly, and actionable proposal for data repair.",
+              "residue_output": "Material not explained or fixed by technical analysis (e.g., system-wide failures external to current ontology or unexplained evidence).",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "tgap_02e54eb7b166",
+              "triggered_by_diagnostic_fingerprint": "",
+              "rationale": "Current evidence and telos call for a specialized analytic projection outside routine schema; an open-world object family for 'technical diagnostic cause' and 'data repair action' is locally justified.",
+              "expected_diagnostics": "Explicit check for required factual traces; boundary warning if anomaly origin is out-of-scope.",
+              "expected_residue_policy": "Do not coercively force all material into cause/fix. Preserve open residue for separate follow-up if unknowns remain."
+            },
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "operation": {
+                "kind": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+                "applicable": true,
+                "why_not": "",
+                "open_world_gap": true
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_02e54eb7b166",
+                  "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                  "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+                  "source_status": "typed_state",
+                  "phase_relevance": "A structured diagnostic-type operation for technical data anomaly analysis is required by the scene telos, but the existing operation type registry lacks an exact fit.",
+                  "materiality_reason": "The explicit analytic goal (analyze cause of zeroes and how to repair data) is not covered by standard extract/classify/conceptualize, and cannot be forced into a migration/planning mold."
+                }
+              ],
+              "projection_synthesis_proposal": {
+                "proposal_id": "psynth_01",
+                "operation_id": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+                "target_object_family": [
+                  "technical_diagnostic_cause",
+                  "data_repair_action"
+                ],
+                "ontology_hypothesis": "A local ontology with objects: observed_dashboard_anomaly, causal_chain_step, required_data_fix.",
+                "recognition_criteria": [
+                  "Evidence of observed anomaly on dashboard ('нули за вчера')",
+                  "Material trace of technical causation (log, missing data, process interruption, etc.)",
+                  "Candidate action for data restoration"
+                ],
+                "segmentation_policy_hint": "Maintain separation between factual anomaly identification, hypothesized technical causes, and specific recommended data repair actions.",
+                "evidence_requirements": [
+                  "Access to system/process logs or data-feed history",
+                  "Fact traces from data sources",
+                  "Constraints from dashboard calculation chain"
+                ],
+                "exclusions": [
+                  "General migration planning",
+                  "Source code refactor outside immediate data repair"
+                ],
+                "contraindications": [
+                  "Ambiguity between cause analysis and high-level planning when the latter is explicitly de-scoped",
+                  "Lack of evidence/trace (if true gap, flag)"
+                ],
+                "applicability_assumptions": [
+                  "At least some direct trace exists for yesterday’s zero anomaly",
+                  "Material for repair proposal can be constructed, else output an explicit insufficiency/partial"
+                ],
+                "primitives": [
+                  {
+                    "name": "find_dashboard_zero_anomaly",
+                    "primitive_id": "prim_001",
+                    "params": {},
+                    "inputs": [
+                      "dashboard_data",
+                      "log_entries"
+                    ]
+                  },
+                  {
+                    "name": "diagnose_causal_chain",
+                    "primitive_id": "prim_002",
+                    "params": {},
+                    "inputs": [
+                      "find_dashboard_zero_anomaly"
+                    ]
+                  },
+                  {
+                    "name": "construct_data_repair_action",
+                    "primitive_id": "prim_003",
+                    "params": {},
+                    "inputs": [
+                      "diagnose_causal_chain"
+                    ]
+                  }
+                ],
+                "accepted_output": "List of probable technical causes for dashboard anomaly, and actionable proposal for data repair.",
+                "residue_output": "Material not explained or fixed by technical analysis (e.g., system-wide failures external to current ontology or unexplained evidence).",
+                "revises_projection_id": "",
+                "triggered_by_diagnostic_id": "tgap_02e54eb7b166",
+                "triggered_by_diagnostic_fingerprint": "",
+                "rationale": "Current evidence and telos call for a specialized analytic projection outside routine schema; an open-world object family for 'technical diagnostic cause' and 'data repair action' is locally justified.",
+                "expected_diagnostics": "Explicit check for required factual traces; boundary warning if anomaly origin is out-of-scope.",
+                "expected_residue_policy": "Do not coercively force all material into cause/fix. Preserve open residue for separate follow-up if unknowns remain."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 14986,
+          "tokens_out": 924,
+          "latency_ms": 17658,
+          "error": "",
+          "request_hash": "8de0a9ec23273e54e59be39e16e9d0cec778e86cdf2b00850a462c2ce1312e47",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14034,
+              "sha256": "4b71c5ea811a5679"
+            },
+            {
+              "role": "system",
+              "bytes": 4192,
+              "sha256": "acea9bbb5df265b6"
+            },
+            {
+              "role": "system",
+              "bytes": 4399,
+              "sha256": "f0d99f29329fdaa0"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "11c53b6ec4121dd9"
+            },
+            {
+              "role": "user",
+              "bytes": 6355,
+              "sha256": "49bf09f9d4adeaee"
+            },
+            {
+              "role": "user",
+              "bytes": 315,
+              "sha256": "e0c6b5634d8b9d49"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S5",
+        "router": "P04",
+        "mount": {
+          "router_id": "P04",
+          "phase": "S5",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B04",
+              "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+              "bytes": 11941
+            },
+            {
+              "body_id": "B05",
+              "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+              "bytes": 12947
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 66620,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_02e54eb7b166",
+                "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+                "source_status": "typed_state",
+                "phase_relevance": "A dashboard anomaly (zeros for yesterday) explicitly grounds an open technical cause/fix analysis. Registry lacks a precise object/class for this analysis, showing a local type gap.",
+                "materiality_reason": "Neither standard memory nor fixed retrieval covers the technical diagnostic object family for this dashboard anomaly. An open technical cause analysis is required; inability to type this is operationally material for both attention and expected memory formation.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "observation",
+              "text": "Факт: на дашборде за вчера отображаются нули — требуется технический разбор причин и конкретные шаги по восстановлению исходных данных. Миграционные сценарии и планы переезда в данный момент деактивированы.",
+              "grounds": "Директива в текущем запросе: отмена миграции и акцент на восстановлении данных; обнаружена структурная аномалия (нули)."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "triggers": [
+                {
+                  "trigger_id": "tgap_02e54eb7b166",
+                  "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                  "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+                  "source_status": "typed_state",
+                  "phase_relevance": "A dashboard anomaly (zeros for yesterday) explicitly grounds an open technical cause/fix analysis. Registry lacks a precise object/class for this analysis, showing a local type gap.",
+                  "materiality_reason": "Neither standard memory nor fixed retrieval covers the technical diagnostic object family for this dashboard anomaly. An open technical cause analysis is required; inability to type this is operationally material for both attention and expected memory formation."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "observation",
+                "text": "Факт: на дашборде за вчера отображаются нули — требуется технический разбор причин и конкретные шаги по восстановлению исходных данных. Миграционные сценарии и планы переезда в данный момент деактивированы.",
+                "grounds": "Директива в текущем запросе: отмена миграции и акцент на восстановлении данных; обнаружена структурная аномалия (нули)."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 17398,
+          "tokens_out": 329,
+          "latency_ms": 9586,
+          "error": "",
+          "request_hash": "2e96cc948dd53ad7233cdd9b9cb72f69d7f3c7804e2ab8fc126b684d4d17dc5c",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12002,
+              "sha256": "bab8dea0e1c63171"
+            },
+            {
+              "role": "system",
+              "bytes": 13008,
+              "sha256": "9ac369735a71abe9"
+            },
+            {
+              "role": "system",
+              "bytes": 4341,
+              "sha256": "8680ce188d7b9807"
+            },
+            {
+              "role": "system",
+              "bytes": 1808,
+              "sha256": "fcc09d060c3dc9fc"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "447d08d17b50daec"
+            },
+            {
+              "role": "user",
+              "bytes": 10685,
+              "sha256": "9a71b91439368606"
+            },
+            {
+              "role": "user",
+              "bytes": 315,
+              "sha256": "e0c6b5634d8b9d49"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S6",
+        "router": "P05",
+        "mount": {
+          "router_id": "P05",
+          "phase": "S6",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B06",
+              "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+              "bytes": 14135
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 55867,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "Техническая диагностика причин появления нулей и формирование конкретных шагов по восстановлению данных — явно SYSTEM-owned operation: критерии — анализ технических структур и фикс, цель и допуски заданы; нет скрытого human/joint-binding, не требуется стороннее принятие решений или подтверждение. В контексте сцены исполнение не требует возвращения недоупорядоченных human operation."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_02e54eb7b166",
+                "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+                "source_status": "typed_state",
+                "phase_relevance": "Operation type gap signals creation of specialized technical diagnostic and repair objects; ensures the ontology reconstructs the correct operation family rather than coercing into a false migration/planning frame.",
+                "materiality_reason": "Material technical cause and repair are the explicit telos; a type gap clarifies refusal to conflate with migration planning. The system retains ownership since analytic execution is algorithmic and does not bind a human-only commitment.",
+                "admitting_rule": "Type gap detected and admitted per open-world object policy; retains clear separation between technical diagnostic/recommendation and unrelated planning."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "observation",
+              "text": "Факт: на дашборде за вчера отображаются нули — требуется технический разбор причин и конкретные шаги по восстановлению исходных данных. Миграционные сценарии и планы переезда в данный момент деактивированы.",
+              "grounds": "Директива в текущем запросе: отмена миграции и акцент на восстановлении данных; обнаружена структурная аномалия (нули)."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "ownership": {
+                "owner": "system",
+                "human_resolved": true,
+                "return_reason": "Техническая диагностика причин появления нулей и формирование конкретных шагов по восстановлению данных — явно SYSTEM-owned operation: критерии — анализ технических структур и фикс, цель и допуски заданы; нет скрытого human/joint-binding, не требуется стороннее принятие решений или подтверждение. В контексте сцены исполнение не требует возвращения недоупорядоченных human operation."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_02e54eb7b166",
+                  "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                  "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Operation type gap signals creation of specialized technical diagnostic and repair objects; ensures the ontology reconstructs the correct operation family rather than coercing into a false migration/planning frame.",
+                  "materiality_reason": "Material technical cause and repair are the explicit telos; a type gap clarifies refusal to conflate with migration planning. The system retains ownership since analytic execution is algorithmic and does not bind a human-only commitment.",
+                  "admitting_rule": "Type gap detected and admitted per open-world object policy; retains clear separation between technical diagnostic/recommendation and unrelated planning."
+                }
+              ],
+              "memory_proposal": {
+                "kind": "observation",
+                "text": "Факт: на дашборде за вчера отображаются нули — требуется технический разбор причин и конкретные шаги по восстановлению исходных данных. Миграционные сценарии и планы переезда в данный момент деактивированы.",
+                "grounds": "Директива в текущем запросе: отмена миграции и акцент на восстановлении данных; обнаружена структурная аномалия (нули)."
+              }
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15861,
+          "tokens_out": 474,
+          "latency_ms": 6638,
+          "error": "",
+          "request_hash": "7e43e59548e1eb76daa82c5a326ba3c3c8ea73e4c9f7ed1fd246d4b4a15f3b10",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 14196,
+              "sha256": "7fec8b1022fe82e3"
+            },
+            {
+              "role": "system",
+              "bytes": 4347,
+              "sha256": "94554835abc55f0a"
+            },
+            {
+              "role": "system",
+              "bytes": 2338,
+              "sha256": "fca8ed0fe8a4030d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "e57ae43f0e866888"
+            },
+            {
+              "role": "user",
+              "bytes": 12622,
+              "sha256": "198e49d8e15119f0"
+            },
+            {
+              "role": "user",
+              "bytes": 315,
+              "sha256": "e0c6b5634d8b9d49"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S8",
+        "router": "P07",
+        "mount": {
+          "router_id": "P07",
+          "phase": "S8",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 53638,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_02e54eb7b166",
+                "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+                "source_status": "typed_state",
+                "phase_relevance": "Object family for technical diagnostic cause and data repair action; open-world object generator required—materially justified by source scene and operation kind",
+                "materiality_reason": "Standard event/trigger typing failed; registry did not contain specialized analytic type for dashboard zero diagnosis. Material open-world gap: new analytic cause/fix object family justified by explicit telos, scene directive, and technical anomaly; no human/joint binding requires return. Execution of technical analysis and repair proposal is fully system-owned and permitted.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": null,
+            "invoke_council": false,
+            "invoke_execution": true,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "invoke_execution": true,
+              "triggers": [
+                {
+                  "trigger_id": "tgap_02e54eb7b166",
+                  "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                  "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Object family for technical diagnostic cause and data repair action; open-world object generator required—materially justified by source scene and operation kind",
+                  "materiality_reason": "Standard event/trigger typing failed; registry did not contain specialized analytic type for dashboard zero diagnosis. Material open-world gap: new analytic cause/fix object family justified by explicit telos, scene directive, and technical anomaly; no human/joint binding requires return. Execution of technical analysis and repair proposal is fully system-owned and permitted."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 15745,
+          "tokens_out": 241,
+          "latency_ms": 6162,
+          "error": "",
+          "request_hash": "01437099339900adccd9ee15d973fdf9cd33449fa4f2ba2053429c3842200944",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4532,
+              "sha256": "b196b86c4e705f6a"
+            },
+            {
+              "role": "system",
+              "bytes": 1304,
+              "sha256": "f6afa451cb13db0d"
+            },
+            {
+              "role": "system",
+              "bytes": 136,
+              "sha256": "48894f773015e467"
+            },
+            {
+              "role": "user",
+              "bytes": 14559,
+              "sha256": "541cc55e524f04d2"
+            },
+            {
+              "role": "user",
+              "bytes": 315,
+              "sha256": "e0c6b5634d8b9d49"
+            }
+          ]
+        }
+      },
+      {
+        "phase": "S10",
+        "router": "P08",
+        "mount": {
+          "router_id": "P08",
+          "phase": "S10",
+          "required": [
+            {
+              "body_id": "CORE",
+              "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+              "bytes": 41732
+            },
+            {
+              "body_id": "B02",
+              "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+              "bytes": 12356
+            },
+            {
+              "body_id": "B09",
+              "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+              "bytes": 10778
+            },
+            {
+              "body_id": "B10",
+              "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+              "semantic_version": "0.2",
+              "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+              "bytes": 11906
+            }
+          ],
+          "conditional_admitted": [],
+          "admitted_triggers": [],
+          "rejected_triggers": [],
+          "total_bytes": 76772,
+          "budget_bytes": 300000
+        },
+        "execution": {
+          "delta": {
+            "scene": null,
+            "origin": null,
+            "operation": null,
+            "ownership": null,
+            "triggers": [
+              {
+                "trigger_id": "tgap_02e54eb7b166",
+                "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+                "source_status": "typed_state",
+                "phase_relevance": "Требуется перейти к диагностике технической причины, потому что стандартный триггер/тип для этого анализируемого запроса отсутствует в реестре; прямой типовой обработчик не присвоен.",
+                "materiality_reason": "Типовая событийная классификация недостаточна — наблюдается содержательный структурный разрыв между случившимся и доступной схемой типов триггеров. Материальный обоснованный разрыв фиксируется явно, а не замазывается ближайшим известным классом.",
+                "admitting_rule": "CTA-002"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "observation",
+              "text": "Факт: зафиксировано структурное аномальное поведение — на дашборде за вчера отображаются нули. Задача: произвести технический разбор причин произошедшего и предложить конкретные шаги по восстановлению фактических данных. Миграция и сценарии переезда явно сняты, анализ сфокусирован на устранении причин и самой корректировке данных.",
+              "grounds": "Эта фиксация исходит из явного запроса пользователя: требуется разобрать, почему на вчерашнем дашборде оказались нули, и что делать для восстановления данных, при этом ориентиры на миграцию/переезд деактивируются. Основание — директива текущей сцены и наблюдаемая аномалия."
+            },
+            "invoke_council": false,
+            "invoke_execution": false,
+            "reflective_return": null,
+            "projection_synthesis_proposal": null,
+            "origin_kind": "MODEL_PRODUCED",
+            "parsed": {
+              "memory_proposal": {
+                "kind": "observation",
+                "text": "Факт: зафиксировано структурное аномальное поведение — на дашборде за вчера отображаются нули. Задача: произвести технический разбор причин произошедшего и предложить конкретные шаги по восстановлению фактических данных. Миграция и сценарии переезда явно сняты, анализ сфокусирован на устранении причин и самой корректировке данных.",
+                "grounds": "Эта фиксация исходит из явного запроса пользователя: требуется разобрать, почему на вчерашнем дашборде оказались нули, и что делать для восстановления данных, при этом ориентиры на миграцию/переезд деактивируются. Основание — директива текущей сцены и наблюдаемая аномалия."
+              },
+              "triggers": [
+                {
+                  "trigger_id": "tgap_02e54eb7b166",
+                  "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+                  "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+                  "source_status": "typed_state",
+                  "phase_relevance": "Требуется перейти к диагностике технической причины, потому что стандартный триггер/тип для этого анализируемого запроса отсутствует в реестре; прямой типовой обработчик не присвоен.",
+                  "materiality_reason": "Типовая событийная классификация недостаточна — наблюдается содержательный структурный разрыв между случившимся и доступной схемой типов триггеров. Материальный обоснованный разрыв фиксируется явно, а не замазывается ближайшим известным классом."
+                }
+              ]
+            }
+          },
+          "mode": "LIVE",
+          "provider_status": "OK",
+          "attempts": 1,
+          "provider_id": "fallback",
+          "model_id": "chain",
+          "tokens_in": 21117,
+          "tokens_out": 430,
+          "latency_ms": 11302,
+          "error": "",
+          "request_hash": "270f59a3c5571fa64d015f9a90bc07b9e92b55357003532a18c689d08f53c98d",
+          "messages_summary": [
+            {
+              "role": "system",
+              "bytes": 41794,
+              "sha256": "64321ada3a4f3946"
+            },
+            {
+              "role": "system",
+              "bytes": 12417,
+              "sha256": "003cbfd182dfda69"
+            },
+            {
+              "role": "system",
+              "bytes": 10839,
+              "sha256": "464d30cc80353fc7"
+            },
+            {
+              "role": "system",
+              "bytes": 11967,
+              "sha256": "7e1f61412a547000"
+            },
+            {
+              "role": "system",
+              "bytes": 4681,
+              "sha256": "413d945b190027b8"
+            },
+            {
+              "role": "system",
+              "bytes": 1810,
+              "sha256": "8b6a21413071b270"
+            },
+            {
+              "role": "system",
+              "bytes": 137,
+              "sha256": "2df0bbfdef20c98f"
+            },
+            {
+              "role": "user",
+              "bytes": 15831,
+              "sha256": "3818fd9cab30edc5"
+            },
+            {
+              "role": "user",
+              "bytes": 315,
+              "sha256": "e0c6b5634d8b9d49"
+            }
+          ]
+        }
+      }
+    ],
+    "state": {
+      "run_id": "srun_767ca01877df7db2",
+      "input_text": "Миграцию отменяем. Нужен разбор, почему вчерашний дашборд показал нули, и как чинить данные, а не план переезда.",
+      "source_id": "src_4007e54fdd5dc8e3",
+      "phase": "S10",
+      "scene": {
+        "telos": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+        "role_hint": "аналитик/разбор технической причины и восстановление данных",
+        "authority": "system",
+        "materials": [
+          "факт отмены миграции",
+          "наблюдение: на дашборде за вчера нули",
+          "требование: анализ причин и рекомендации по исправлению данных"
+        ]
+      },
+      "origin": {
+        "status": "unknown",
+        "sources_named": [],
+        "binding_authority": "unset",
+        "temporal_stale": false
+      },
+      "operation": {
+        "kind": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+        "applicable": true,
+        "why_not": "",
+        "open_world_gap": true
+      },
+      "ownership": {
+        "owner": "system",
+        "human_resolved": true,
+        "return_reason": "Техническая диагностика причин появления нулей и формирование конкретных шагов по восстановлению данных — явно SYSTEM-owned operation: критерии — анализ технических структур и фикс, цель и допуски заданы; нет скрытого human/joint-binding, не требуется стороннее принятие решений или подтверждение. В контексте сцены исполнение не требует возвращения недоупорядоченных human operation."
+      },
+      "council_invoked": false,
+      "execution_invoked": true,
+      "admitted_trigger_causes": [],
+      "pending_trigger_candidates": [
+        {
+          "candidate_id": "tcand_59609cfa3e7e",
+          "proposed_trigger_type_id": "tgap_02e54eb7b166",
+          "source_kind": "TYPED_PIPELINE_STATE",
+          "source_ref": "phase_delta:S10",
+          "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+          "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+          "phase_relevance": "Требуется перейти к диагностике технической причины, потому что стандартный триггер/тип для этого анализируемого запроса отсутствует в реестре; прямой типовой обработчик не присвоен.",
+          "materiality_reason": "Типовая событийная классификация недостаточна — наблюдается содержательный структурный разрыв между случившимся и доступной схемой типов триггеров. Материальный обоснованный разрыв фиксируется явно, а не замазывается ближайшим известным классом.",
+          "payload": {
+            "legacy_admitting_rule": "CTA-002",
+            "legacy_source_status": "typed_state"
+          },
+          "authority": "NO_MOUNT_AUTHORITY"
+        }
+      ],
+      "trigger_typing_decisions": [
+        {
+          "typing_id": "ttype_ce376622625b",
+          "candidate_id": "tcand_8e6ed9e7dbb1",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'trg_dashboard_zero_analysis' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_90d14a9d84a5",
+          "candidate_id": "tcand_ae293033dc30",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_02e54eb7b166' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_7b5fce9a83fd",
+          "candidate_id": "tcand_90e91105aabe",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_02e54eb7b166' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_445e8e1b76d0",
+          "candidate_id": "tcand_76e680b12ecf",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_02e54eb7b166' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_eecbd2fabc91",
+          "candidate_id": "tcand_5a9be61ee6fc",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_02e54eb7b166' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        },
+        {
+          "typing_id": "ttype_d285fd06d730",
+          "candidate_id": "tcand_93463d7f90e3",
+          "outcome": "TYPE_GAP",
+          "trigger_type_id": "",
+          "reason": "proposed type 'tgap_02e54eb7b166' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "rejection_reason": null,
+          "type_gap_ref": "",
+          "registry_version": "v0.2_default"
+        }
+      ],
+      "trigger_admission_decisions": [],
+      "admitted_trigger_events": [],
+      "rejected_trigger_candidates": [],
+      "trigger_type_gaps": [
+        {
+          "gap_id": "tgap_02e54eb7b166",
+          "candidate_id": "tcand_8e6ed9e7dbb1",
+          "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+          "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'trg_dashboard_zero_analysis' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_a4ac73e9be50",
+          "candidate_id": "tcand_ae293033dc30",
+          "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+          "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_02e54eb7b166' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_2299c0428295",
+          "candidate_id": "tcand_90e91105aabe",
+          "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+          "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_02e54eb7b166' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_0d6ba1bd4e20",
+          "candidate_id": "tcand_76e680b12ecf",
+          "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+          "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_02e54eb7b166' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_22b5bc735e63",
+          "candidate_id": "tcand_5a9be61ee6fc",
+          "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+          "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_02e54eb7b166' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        },
+        {
+          "gap_id": "tgap_141c8800d392",
+          "candidate_id": "tcand_93463d7f90e3",
+          "cause_object_ref": "scene.materials:наблюдение: на дашборде за вчера нули; требование: анализ причин и рекомендации по исправлению данных",
+          "generating_state_ref": "scene.telos:Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+          "registry_version": "v0.2_default",
+          "reason": "proposed type 'tgap_02e54eb7b166' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+          "conditional_mount_authority": false
+        }
+      ],
+      "memory_proposal": {
+        "kind": "observation",
+        "text": "Факт: зафиксировано структурное аномальное поведение — на дашборде за вчера отображаются нули. Задача: произвести технический разбор причин произошедшего и предложить конкретные шаги по восстановлению фактических данных. Миграция и сценарии переезда явно сняты, анализ сфокусирован на устранении причин и самой корректировке данных.",
+        "grounds": "Эта фиксация исходит из явного запроса пользователя: требуется разобрать, почему на вчерашнем дашборде оказались нули, и что делать для восстановления данных, при этом ориентиры на миграцию/переезд деактивируются. Основание — директива текущей сцены и наблюдаемая аномалия."
+      },
+      "committed_memory_note_id": "",
+      "projection_lineage": {
+        "iteration": 0,
+        "entries": [],
+        "revisions": [],
+        "diagnostics_history": [
+          {
+            "projection_id": "gap:gap_d514c2d4be51",
+            "signals": [
+              "APPLICABILITY_FAILURE"
+            ],
+            "reason": "ORGAN_GAP for operation 'TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL': model proposal for 'TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL' could not compile-bind against registered primitives",
+            "residue_ratio": 1.0,
+            "recognition_failure_count": 0,
+            "suggested_operation": "",
+            "suggested_ontology": "",
+            "suggested_target_family": [],
+            "mismatch": true,
+            "fingerprint": "7c80351f23b3"
+          }
+        ]
+      },
+      "pending_diagnostic": null,
+      "reentry_from": "",
+      "pending_reflective_context": null,
+      "capability_resolutions": [
+        {
+          "kind": "ORGAN_GAP",
+          "operation_id": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+          "reason": "proposal psynth_01 for operation 'TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL' failed compile-bind: primitive 'prim_001' (invocation 'find_dashboard_zero_anomaly') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+          "registered_capability_id": "",
+          "generated_spec": null,
+          "binding_evidence": {},
+          "organ_gap": {
+            "gap_id": "gap_d514c2d4be51",
+            "source_ref": "src_4007e54fdd5dc8e3",
+            "scene_ref": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+            "required_operation": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+            "required_attention_structure": "Maintain separation between factual anomaly identification, hypothesized technical causes, and specific recommended data repair actions.",
+            "insufficient_registered_capabilities": [
+              "DIFFERENTIATED_ACCOUNT",
+              "EXTRACT_CONCEPTS"
+            ],
+            "insufficient_declarative_primitives": [
+              "CoverageComputer",
+              "FamilyClassifier",
+              "SpanScanner",
+              "TargetFilter"
+            ],
+            "missing_capability_hypothesis": "model proposal for 'TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL' could not compile-bind against registered primitives",
+            "evidence": [
+              "BindingError: primitive 'prim_001' (invocation 'find_dashboard_zero_anomaly') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+            ],
+            "counterexamples": [],
+            "affected_scene_telos": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+            "possible_development_direction": "extend primitive registry or narrow the proposal",
+            "status": "unresolved",
+            "activation_authority": "NONE"
+          }
+        }
+      ],
+      "operation_target_family": [],
+      "operation_hypotheses": {},
+      "pending_projection_proposal": null,
+      "space_id": "space_default_workspace",
+      "scene_id": "scene_ec01f49a894d",
+      "branch_id": "",
+      "space_registry": {
+        "space_default_workspace": {
+          "space_id": "space_default_workspace",
+          "version": "v0.1_candidate",
+          "name": "default_workspace",
+          "telos_scope": "general assistance",
+          "world_model_mounts": [],
+          "ontology_refs": [],
+          "proof_regime": "default",
+          "claim_status_policy": "default",
+          "allowed_operation_families": [],
+          "operator_capabilities": [],
+          "corpus_namespaces": [
+            "*"
+          ],
+          "retrieval_policy": "default",
+          "memory_default_scope": "PROJECT",
+          "memory_recruitment_policy": "default",
+          "authority_refs": [],
+          "transition_policy": "default",
+          "provenance": "",
+          "activation_scope": "",
+          "lineage": [],
+          "supersedes": "",
+          "status": "active"
+        }
+      },
+      "scene_registry": {
+        "scenes": {
+          "scene_ec01f49a894d": {
+            "scene_id": "scene_ec01f49a894d",
+            "space_id": "space_default_workspace",
+            "parent_scene_id": "",
+            "branch_id": "",
+            "version": ""
+          }
+        },
+        "branches": {}
+      },
+      "context_transductions": [],
+      "conflict_registry": [],
+      "passports": [],
+      "intervention_plan": {
+        "profile_name": "normal",
+        "epistemic_pressure": "MEDIUM",
+        "rhetorical_harshness": "POLITE",
+        "liberatory_pressure": "LIGHT",
+        "max_projection_iterations": 3,
+        "counterexample_budget": 1,
+        "reconstruction_required": false,
+        "release_pass_required": false,
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "liberatory_pass_result": {
+        "triggered": false,
+        "executed": false,
+        "survived_flag": false,
+        "survival_reason": "",
+        "reconstruction_note": "",
+        "release_kind": "NOT_APPLICABLE",
+        "authority": "NO_TRUTH_STATUS_AUTHORITY"
+      },
+      "question_set_plan": null
+    },
+    "rendering": {
+      "text": "Ответ нужно оставить в состоянии апории, поскольку объект неизвестен и принудительная классификация нарушит принцип INV-007.",
+      "mode": "LIVE",
+      "provider_status": "OK",
+      "provider_id": "fallback",
+      "model_id": "chain",
+      "tokens_in": 230,
+      "tokens_out": 26,
+      "latency_ms": 2194,
+      "error": "",
+      "terminal_preserved": true
+    },
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_6cb1bf39f6e7e24d.json",
+    "duration_ms": 75472,
+    "intervention_profile": "normal",
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "context_id": "ctx_58447bd148624d8d69f76399cde15842",
+    "context_continuity": {
+      "context_id": "ctx_58447bd148624d8d69f76399cde15842",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_fc83b08d2e93",
+        "version": 2,
+        "scene_id": "scene_ec01f49a894d",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+        "telos": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+        "object_scope": "факт отмены миграции, наблюдение: на дашборде за вчера нули, требование: анализ причин и рекомендации по исправлению данных",
+        "operation_kind": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+        "expected_intervention": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+        "human_owned_decisions": [
+          "Техническая диагностика причин появления нулей и формирование конкретных шагов по восстановлению данных — явно SYSTEM-owned operation: критерии — анализ технических структур и фикс, цель и допуски заданы; нет скрытого human/joint-binding, не требуется стороннее принятие решений или подтверждение. В контексте сцены исполнение не требует возвращения недоупорядоченных human operation."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_b303a7f87d72"
+      },
+      "contract_revision": {
+        "candidate_id": "crc_d05652a3e105",
+        "prior_contract_id": "sc_b303a7f87d72",
+        "proposed_contract": {
+          "contract_id": "sc_fc83b08d2e93",
+          "version": 2,
+          "scene_id": "scene_ec01f49a894d",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+          "telos": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+          "object_scope": "факт отмены миграции, наблюдение: на дашборде за вчера нули, требование: анализ причин и рекомендации по исправлению данных",
+          "operation_kind": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+          "expected_intervention": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+          "human_owned_decisions": [
+            "Техническая диагностика причин появления нулей и формирование конкретных шагов по восстановлению данных — явно SYSTEM-owned operation: критерии — анализ технических структур и фикс, цель и допуски заданы; нет скрытого human/joint-binding, не требуется стороннее принятие решений или подтверждение. В контексте сцены исполнение не требует возвращения недоупорядоченных human operation."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "REVISION_PROPOSED",
+          "supersedes": "sc_b303a7f87d72"
+        },
+        "reason": "telos drift: 'Составить план по переносу систем отчетности с таблиц (например, Excel или аналогичных) на склад данных (data warehouse), чтобы улучшить хранение, обработку и анализ отчетных данных.' -> 'Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.'; operation drift: 'PLAN_CONSTRUCTION' -> 'TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL'",
+        "source": "SYSTEM_DERIVED",
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "recognition_pass": {
+        "pass_id": "rp_0196be0e2558",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [
+          {
+            "candidate_id": "crc_d05652a3e105",
+            "prior_contract_id": "sc_b303a7f87d72",
+            "proposed_contract": {
+              "contract_id": "sc_fc83b08d2e93",
+              "version": 2,
+              "scene_id": "scene_ec01f49a894d",
+              "space_id": "space_default_workspace",
+              "branch_id": "",
+              "intent": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+              "telos": "Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.",
+              "object_scope": "факт отмены миграции, наблюдение: на дашборде за вчера нули, требование: анализ причин и рекомендации по исправлению данных",
+              "operation_kind": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+              "expected_intervention": "TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL",
+              "human_owned_decisions": [
+                "Техническая диагностика причин появления нулей и формирование конкретных шагов по восстановлению данных — явно SYSTEM-owned operation: критерии — анализ технических структур и фикс, цель и допуски заданы; нет скрытого human/joint-binding, не требуется стороннее принятие решений или подтверждение. В контексте сцены исполнение не требует возвращения недоупорядоченных human operation."
+              ],
+              "constraints": [],
+              "uncertainty": 0.1,
+              "provenance": "SYSTEM_DERIVED",
+              "status": "REVISION_PROPOSED",
+              "supersedes": "sc_b303a7f87d72"
+            },
+            "reason": "telos drift: 'Составить план по переносу систем отчетности с таблиц (например, Excel или аналогичных) на склад данных (data warehouse), чтобы улучшить хранение, обработку и анализ отчетных данных.' -> 'Разобрать причину появления нулей на вчерашнем дашборде и определить, как исправить данные; акцент не на миграции или плане переезда.'; operation drift: 'PLAN_CONSTRUCTION' -> 'TECHNICAL_CAUSE_ANALYSIS_AND_DATA_REPAIR_PROPOSAL'",
+            "source": "SYSTEM_DERIVED",
+            "authority": "NO_TRANSITION_AUTHORITY"
+          }
+        ],
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_revision_proposed:crc_d05652a3e105"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "_client_latency_ms": 75555
+  }
+}
