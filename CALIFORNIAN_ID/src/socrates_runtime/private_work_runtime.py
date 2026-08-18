@@ -42,9 +42,11 @@ SOVEREIGN_STOP_TERMINALS: frozenset[Terminal] = frozenset({
     Terminal.FAILED_EXPLICIT,
     Terminal.SEMANTIC_MOUNT_MISSING,
     Terminal.SEMANTIC_CONTEXT_BUDGET_EXCEEDED,
-    Terminal.PRESERVE_APORIA,
     Terminal.RETURN_OPERATION,
 })
+# PRESERVE_APORIA is NOT in this set: a bounded private operation may
+# enrich the honest gap text, but apply_response_plan never changes
+# the terminal (P15: no masking).
 
 # Sanctioned public product is the bounded distillate itself.
 # No bureaucracy marker in ordinary response text.

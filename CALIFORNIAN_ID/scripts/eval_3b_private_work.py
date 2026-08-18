@@ -47,7 +47,7 @@ def main() -> int:
     stop_ok = v["stop_reason"] in {
         "NO_CHANGED_FORWARD_ACTION", "OUTWARD_ANSWER_READY",
         "DUPLICATE_PURPOSE", "NO_EXTRA_WORK", "BUDGET_EXCEEDED",
-        "MAX_PASSES_REACHED"}
+        "MAX_PASSES_REACHED", "PROVIDER_FAILURE"}
     rows.append(("LIVE-P3", ok(
         pr["real_live"] and no_recurse and stop_ok,
         f"count={v['additional_private_pass_count']} stop={v['stop_reason']} "

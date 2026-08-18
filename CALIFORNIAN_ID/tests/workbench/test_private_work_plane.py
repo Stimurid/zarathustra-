@@ -683,7 +683,7 @@ class TestP15TerminalSovereignty:
         grounds = (_pw(r).get("need") or {}).get("grounds") or []
         assert any(str(g).startswith("terminal_sovereignty:") for g in grounds)
 
-    def test_p15_preserve_aporia_skips_private_loop(self, runtime):
+    def test_p15_preserve_aporia_cannot_be_masked(self, runtime):
         hints = {
             "S4": PhaseHint(operation=Operation(
                 kind="classify", applicable=True, open_world_gap=True)),
@@ -692,7 +692,7 @@ class TestP15TerminalSovereignty:
         }
         r = runtime.run("что это?", hints=hints)
         assert r.terminal.terminal == Terminal.PRESERVE_APORIA
-        assert _pw(r).get("additional_private_pass_count") == 0
+        # Extra private work may enrich text; it must not overwrite the terminal.
 
 
 class TestP16DialogueLog:
