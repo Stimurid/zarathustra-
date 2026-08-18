@@ -23,6 +23,7 @@ from socrates_runtime.scene_contract import (
     ContractRevisionOutcome,
     OperationShiftKind,
     SceneContractStatus,
+    TelosRelation,
     derive_scene_contract,
     detect_contract_drift,
     assess_scene_contract_drift,
@@ -407,6 +408,73 @@ class TestSceneContractUnit:
         assert drift.authority == "NO_TRANSITION_AUTHORITY"
         assert drift.proposed_contract.status == SceneContractStatus.REVISION_PROPOSED
         assert drift.proposed_contract.contract_id != prior.contract_id
+
+    def test_joint_system_ownership_jitter_is_not_drift(self):
+        state = PipelineState(run_id="r", input_text="x")
+        state.scene_id = "scene_stable"
+        state.space_id = "space_default_workspace"
+        state.scene = Scene(telos="build a decision map", materials=_MAP_MAT)
+        state.operation = Operation(kind="DECISION_MAP")
+        state.ownership = Ownership(owner=Authority.JOINT, human_resolved=False)
+        prior = derive_scene_contract(state)
+        state.ownership = Ownership(owner=Authority.SYSTEM, human_resolved=True)
+        assessment = assess_scene_contract_drift(prior, state)
+        assert assessment.ownership_boundary_changed is False
+        assert detect_contract_drift(prior, state) is None
+
+    def test_human_ownership_locus_change_is_material(self):
+        state = PipelineState(run_id="r", input_text="x")
+        state.scene_id = "scene_stable"
+        state.space_id = "space_default_workspace"
+        state.scene = Scene(telos="build a decision map", materials=_MAP_MAT)
+        state.operation = Operation(kind="DECISION_MAP")
+        state.ownership = Ownership(owner=Authority.HUMAN, human_resolved=True)
+        prior = derive_scene_contract(state)
+        state.ownership = Ownership(owner=Authority.SYSTEM, human_resolved=True)
+        assessment = assess_scene_contract_drift(prior, state)
+        assert assessment.ownership_boundary_changed is True
+        drift = detect_contract_drift(prior, state)
+        assert drift is not None
+        assert drift.authority == "NO_TRANSITION_AUTHORITY"
+
+    def test_russian_paraphrase_is_continuation(self):
+        state = PipelineState(run_id="r", input_text="x")
+        state.scene_id = "scene_stable"
+        state.space_id = "space_default_workspace"
+        state.scene = Scene(
+            telos=("Построить карту развилок для команды по вопросу: стоит ли "
+                   "выходить на рынок корпоративного обучения в следующем квартале."),
+            materials=("рынок корпоративного обучения", "карта развилок"))
+        state.operation = Operation(kind="SCENE_INIT_FORK_MAP")
+        prior = derive_scene_contract(state)
+        state.scene = Scene(
+            telos=("Сформировать карту развилок выхода на рынок корпоративного "
+                   "обучения на следующий квартал, без финального решения."),
+            materials=("рынок корпоративного обучения", "карта развилок"))
+        state.operation = Operation(kind="SCENARIO_MAP_PROJECTION")
+        assessment = assess_scene_contract_drift(prior, state)
+        assert assessment.telos_relation != TelosRelation.DIVERGENT
+        assert assessment.material_drift is False
+        assert detect_contract_drift(prior, state) is None
+
+    def test_cross_script_same_scene_is_not_material(self):
+        state = PipelineState(run_id="r", input_text="x")
+        state.scene_id = "scene_stable"
+        state.space_id = "space_default_workspace"
+        state.scene = Scene(
+            telos="Построить карту развилок выхода на рынок корпоративного обучения.",
+            materials=("рынок корпоративного обучения", "карта развилок"))
+        state.operation = Operation(kind="BUILD_FORK_MAP_NO_DECISION")
+        prior = derive_scene_contract(state)
+        state.scene = Scene(
+            telos=("Diagnose data sufficiency for distinguishing too-early from "
+                   "already-time on the same corporate learning market map."),
+            materials=("corporate learning market", "same exit map"))
+        state.operation = Operation(kind="DIAGNOSTIC_DATA_SUFFICIENCY_ASSESSMENT")
+        assessment = assess_scene_contract_drift(prior, state)
+        assert assessment.scene_identity_continuous is True
+        assert assessment.material_drift is False
+        assert detect_contract_drift(prior, state) is None
 
 
 class TestContractRevisionRepairR1R8:

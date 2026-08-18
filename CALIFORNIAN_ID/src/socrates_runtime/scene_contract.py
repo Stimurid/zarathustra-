@@ -63,8 +63,12 @@ class ContractRevisionOutcome(str, Enum):
 # Content-bearing tokens only. Not a keyword classifier: the same tokenizer
 # is applied to both sides of a typed-field comparison.
 _TOKEN_RE = re.compile(r"[0-9A-Za-zА-Яа-яЁё]{4,}")
-_SCOPE_CONTINUOUS = 0.18
-_TELOS_CONTINUATION = 0.18
+_CYR_RE = re.compile(r"[А-Яа-яЁё]")
+_LAT_RE = re.compile(r"[A-Za-z]")
+# Coverage of the smaller bag. Jaccard under-counts inflected paraphrase
+# and is diluted by long S1 materials dumps.
+_SCOPE_CONTINUOUS = 0.22
+_TELOS_CONTINUATION = 0.22
 
 
 def _norm(text: str) -> str:
@@ -81,6 +85,36 @@ def _jaccard(a: frozenset[str], b: frozenset[str]) -> float | None:
     if not a or not b:
         return None
     return len(a & b) / len(a | b)
+
+
+def _coverage(a: frozenset[str], b: frozenset[str]) -> float | None:
+    """Share of the smaller token bag found in the intersection."""
+    if not a and not b:
+        return None
+    if not a or not b:
+        return None
+    return len(a & b) / min(len(a), len(b))
+
+
+def _dominant_script(text: str) -> str:
+    cyr = len(_CYR_RE.findall(text or ""))
+    lat = len(_LAT_RE.findall(text or ""))
+    if cyr == 0 and lat == 0:
+        return "none"
+    if cyr and lat:
+        if cyr >= 2 * lat:
+            return "cyr"
+        if lat >= 2 * cyr:
+            return "lat"
+        return "mixed"
+    return "cyr" if cyr else "lat"
+
+
+def _scripts_commensurable(a: str, b: str) -> bool:
+    sa, sb = _dominant_script(a), _dominant_script(b)
+    if sa in {"none", "mixed"} or sb in {"none", "mixed"}:
+        return True
+    return sa == sb
 
 
 @dataclass
@@ -248,17 +282,22 @@ def derive_scene_contract(state: PipelineState, *,
 def _object_scope_relation(prior: SceneContract,
                            state: PipelineState) -> ObjectScopeRelation:
     new_scope = ", ".join(state.scene.materials[:3])
+    prior_text = " ".join((prior.object_scope, prior.telos, prior.intent))
+    turn_text = " ".join((new_scope, state.scene.telos or ""))
+    if (not _scripts_commensurable(prior_text, turn_text)
+            and prior.scene_id and prior.scene_id == state.scene_id):
+        return ObjectScopeRelation.CONTINUOUS
     prior_bag = _tokens(prior.object_scope) | _tokens(prior.telos) | _tokens(
         prior.intent)
     turn_bag = _tokens(new_scope) | _tokens(state.scene.telos)
     if not _tokens(prior.object_scope) and not _tokens(new_scope):
         return ObjectScopeRelation.UNKNOWN
-    j = _jaccard(prior_bag, turn_bag)
-    if j is None:
+    cov = _coverage(prior_bag, turn_bag)
+    if cov is None:
         return ObjectScopeRelation.UNKNOWN
     if _norm(prior.object_scope) and _norm(prior.object_scope) == _norm(new_scope):
         return ObjectScopeRelation.SAME
-    if j >= _SCOPE_CONTINUOUS:
+    if cov >= _SCOPE_CONTINUOUS:
         return ObjectScopeRelation.CONTINUOUS
     return ObjectScopeRelation.DISJOINT
 
@@ -267,10 +306,13 @@ def _telos_relation(prior: SceneContract, state: PipelineState) -> TelosRelation
     new_telos = state.scene.telos or ""
     if _norm(prior.telos) == _norm(new_telos):
         return TelosRelation.EQUAL
-    j = _jaccard(_tokens(prior.telos), _tokens(new_telos))
-    if j is None:
+    if (not _scripts_commensurable(prior.telos, new_telos)
+            and prior.scene_id and prior.scene_id == state.scene_id):
         return TelosRelation.CONTINUATION
-    if j >= _TELOS_CONTINUATION:
+    cov = _coverage(_tokens(prior.telos), _tokens(new_telos))
+    if cov is None:
+        return TelosRelation.CONTINUATION
+    if cov >= _TELOS_CONTINUATION:
         return TelosRelation.CONTINUATION
     return TelosRelation.DIVERGENT
 
@@ -278,11 +320,17 @@ def _telos_relation(prior: SceneContract, state: PipelineState) -> TelosRelation
 def _ownership_boundary_changed(prior: SceneContract,
                                 state: PipelineState) -> bool:
     current = state.ownership.owner
-    if current in {Authority.UNSET,}:
+    if current in {Authority.UNSET}:
         return False
     if not prior.ownership_owner:
         return False
-    return current.value != prior.ownership_owner
+    prev = prior.ownership_owner.lower()
+    cur = current.value.lower()
+    if prev == cur:
+        return False
+    # Material only when the HUMAN locus appears or disappears.
+    # SYSTEM↔JOINT is ordinary S6 jitter, not a scene-contract boundary.
+    return (prev == Authority.HUMAN.value) != (cur == Authority.HUMAN.value)
 
 
 def _epistemic_policy_changed(prior: SceneContract,

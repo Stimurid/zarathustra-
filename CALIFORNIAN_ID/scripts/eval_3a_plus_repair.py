@@ -59,7 +59,11 @@ def main():
     requested = prop.get("requested")
     origin = plan.get("origin")
     n_forks = len(plan.get("forks") or plan.get("selected_questions") or [])
-    if terminal == "PRESERVE_APORIA":
+    if terminal in {"PRESERVE_APORIA", "RETURN_OPERATION"} and c(r6).get(
+            "open_world_gap"):
+        r6_ok = live_ok(r6)
+        r6_reason = "sovereignty_outranks_overlay_on_s4_gap"
+    elif terminal == "PRESERVE_APORIA":
         r6_ok = live_ok(r6)
         r6_reason = "preserve_aporia_outranks_overlay"
     else:
