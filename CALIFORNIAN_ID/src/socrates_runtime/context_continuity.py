@@ -114,6 +114,7 @@ def snapshot_context(ctx: SocratesContext,
     ctx.last_intent_summary = contract.intent if contract else state.scene.telos
     ctx.context_transduction_ids = tuple(
         t.transition_id for t in state.context_transductions)
+    prior_dyad = (ctx.recognition_state or {}).get("dyad")
     ctx.recognition_state = {
         "last_pass_id": recognition.pass_id,
         "last_event": recognition.event_kind.value,
@@ -125,6 +126,11 @@ def snapshot_context(ctx: SocratesContext,
             recognition.drift_assessment.to_public()
             if recognition.drift_assessment else None),
     }
+    dyad_proj = getattr(state, "dyad_session_projection", None)
+    if dyad_proj:
+        ctx.recognition_state["dyad"] = dyad_proj
+    elif prior_dyad:
+        ctx.recognition_state["dyad"] = prior_dyad
     if contract is not None:
         _upsert_contract_history(ctx, contract.to_public())
         ctx.active_contract_id = contract.contract_id

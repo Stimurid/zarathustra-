@@ -1,0 +1,68 @@
+{
+  "case": "CASE13c_apparatus_mismatch",
+  "run_id": "srun_17cbdf7fd5212ab0",
+  "trace_id": "strc_c54ad2bc90917909",
+  "terminal": "ANSWER",
+  "response_text": "[ANSWER] answer directly",
+  "dyad": {
+    "dyadic_state_ref": "_process_local",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "AMBIGUOUS",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "telos:answer directly",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_ac578bd44b09"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "",
+    "causal_effect": "none",
+    "likely_failure_source": "APPARATUS_MISMATCH",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_c76e7b4f0f88",
+    "classification": "PROJECTION_GAP",
+    "aporia": {
+      "observation_id": "apo_8f8de28c99a5",
+      "grade": "OPEN_QUESTION",
+      "subject_ref": "src_ac578bd44b09fd79",
+      "resistance_evidence": [
+        "single_projection_mismatch"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_e50c5aaa743c",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=PROJECTION_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "single_projection_mismatch"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "private_work_status": "NO_EXTRA_WORK",
+  "memory_outcome": null,
+  "trace_path": "C:\\Users\\Timur Shchukin\\AppData\\Local\\Temp\\pytest-of-Timur Shchukin\\pytest-1577\\test_runtime_distinguishes_fai0\\traces_app\\strc_c54ad2bc90917909.json"
+}

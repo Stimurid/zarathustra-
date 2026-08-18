@@ -94,6 +94,8 @@ class SocratesRunResult:
     private_work: dict[str, Any] | None = None
     #: 3C apparatus diagnostic (ephemeral; never a durable write).
     apparatus_diagnostic: dict[str, Any] | None = None
+    #: 3D dyadic pass (ephemeral projection; never a durable/global write).
+    dyad: dict[str, Any] | None = None
 
     def to_public(self) -> dict[str, Any]:
         return {
@@ -125,6 +127,7 @@ class SocratesRunResult:
             "context_continuity": self.context_continuity,
             "private_work": self.private_work,
             "apparatus_diagnostic": self.apparatus_diagnostic,
+            "dyad": self.dyad,
         }
 
 
@@ -171,7 +174,9 @@ class SocratesRuntime:
         self.identity = SocratesIdentity.bootstrap()
         self.trace_dir = Path(trace_dir) if trace_dir else Path.cwd() / "runs" / "socrates"
         from .aporia_and_world_map import WorldMapRegistry
+        from .hybrid_dyad import DyadicSessionRegistry
         self.world_map_registry = WorldMapRegistry()
+        self.dyad_registry = DyadicSessionRegistry()
         self._apparatus_repeat: dict[str, int] = {}
 
     # ------------------------------------------------------------------
@@ -337,6 +342,43 @@ class SocratesRuntime:
             "apparatus_diagnostic",
             apparatus_diagnostic=apparatus_diag.to_public())
 
+        # 3D: hybrid dyad projection. Deterministic; not a second
+        # orchestrator; does not increment 3B private LLM budget.
+        from .hybrid_dyad import (
+            DyadicSession,
+            apply_dyad_to_outcome,
+            run_dyadic_pass,
+            session_key_for,
+        )
+        dkey = session_key_for(resolved_cid or context_id)
+        session = self.dyad_registry.get(dkey)
+        if prior_ctx is not None:
+            prior_dyad = (prior_ctx.recognition_state or {}).get("dyad")
+            if prior_dyad and not session.records:
+                loaded = DyadicSession.from_public(prior_dyad)
+                loaded.session_key = dkey
+                session = loaded
+                self.dyad_registry.put(session)
+        prior_scene_key = ""
+        if prior_ctx is not None and prior_ctx.last_telos:
+            prior_scene_key = f"telos:{prior_ctx.last_telos.strip().lower()}"
+        dyad_result = run_dyadic_pass(
+            state, outcome, input_text=input_text, session=session,
+            apparatus_diag=apparatus_diag.to_public(),
+            private_work=private_shadow.to_public() if private_shadow else None,
+            prior_scene_key=prior_scene_key)
+        self.dyad_registry.put(session)
+        state.dyad_session_projection = session.to_public()
+        # Terminal adaptation before B2Q/render; excerpt merge after render.
+        adapted = apply_dyad_to_outcome(outcome, dyad_result)
+        if adapted.terminal != outcome.terminal:
+            outcome = TerminalOutcome(
+                terminal=adapted.terminal,
+                response_text=outcome.response_text,
+                rationale=adapted.rationale,
+                memory_proposal=outcome.memory_proposal)
+        trace.record("dyad", dyad=dyad_result.to_public())
+
         # B2Q + B2Q-R: derive the QuestionSetPlan post-terminal.
         #
         # Two activation paths, in strict priority order:
@@ -451,6 +493,19 @@ class SocratesRuntime:
                     rationale=outcome.rationale,
                     memory_proposal=outcome.memory_proposal)
 
+        dyad_excerpt = (dyad_result.public_excerpt or "").strip()
+        if dyad_excerpt:
+            if rendering is not None and dyad_excerpt not in (rendering.text or ""):
+                rendering.text = (dyad_excerpt + "\n" + (rendering.text or "")).strip()
+            merged_text = (rendering.text if rendering is not None else outcome.response_text) or ""
+            if dyad_excerpt not in merged_text:
+                merged_text = (dyad_excerpt + "\n" + merged_text).strip()
+            outcome = TerminalOutcome(
+                terminal=outcome.terminal,
+                response_text=merged_text,
+                rationale=outcome.rationale,
+                memory_proposal=outcome.memory_proposal)
+
         native = self._call_native_organs(config, state, trace)
         memory = self._commit_memory_if_any(config, state, trace)
 
@@ -504,6 +559,7 @@ class SocratesRuntime:
             context_continuity=context_continuity_meta,
             private_work=private_shadow.to_public() if private_shadow else None,
             apparatus_diagnostic=apparatus_diag.to_public(),
+            dyad=dyad_result.to_public(),
         )
 
     # ------------------------------------------------------------------

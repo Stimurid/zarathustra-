@@ -365,6 +365,9 @@ class PipelineState:
     #: the material topology + explicit-count rules, not a habitual
     #: default. Carries ``authority="NO_TRUTH_STATUS_AUTHORITY"``.
     question_set_plan: Any = None
+    #: 3D ephemeral dyadic projection (not a second store). Copied into
+    #: existing context snapshot recognition_state.dyad when continuity runs.
+    dyad_session_projection: dict[str, Any] | None = None
 
     @property
     def source_id(self) -> str:
@@ -437,4 +440,5 @@ class PipelineState:
             "question_set_plan": (self.question_set_plan.to_public()
                                     if self.question_set_plan is not None
                                     else None),
+            "dyad_session_projection": self.dyad_session_projection,
         }

@@ -76,6 +76,12 @@ def log_dialogue(*, source: str, input_text: str,
         if isinstance(ad, dict):
             record["apparatus_classification"] = ad.get("classification")
             record["apparatus_stop_reason"] = ad.get("stop_reason")
+        dyad = response.get("dyad")
+        if isinstance(dyad, dict):
+            record["dyad_prediction_class"] = dyad.get("prediction_class")
+            record["dyad_surprise_class"] = dyad.get("surprise_class")
+            record["dyad_write_decision"] = dyad.get("write_decision")
+            record["dyad_causal_effect"] = dyad.get("causal_effect")
         if error:
             record["error"] = error[:2000]
         if extra:

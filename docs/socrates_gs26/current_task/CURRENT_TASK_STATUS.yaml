@@ -1,33 +1,34 @@
-task_id: SOCRATES-GS26-3C-APORIA-APPARATUS-LEARNING-20260818-001
+task_id: SOCRATES-GS26-3D-HYBRID-DYAD-20260819-001
 status: PASS
-authority_date: '2026-08-18'
+authority_date: '2026-08-19'
 repository: 'C:/projects/zarathustra-push'
 remote: 'https://github.com/Stimurid/zarathustra-.git'
 
-start_branch: socrates/gs26-real-socrates-and-shiva
-start_head: cd99bb425360f07c69a5d18c21956399d4e27028
+start_branch: socrates/3c-aporia-apparatus-learning
+start_head: 9d9abb76d12a5ab94994984e808512dacf411156
 production_at_start: c2d5833847303fa3280d0cb9168bf5b37325a200
-work_branch: socrates/3c-aporia-apparatus-learning
-current_head: 77a11787cf6dbe488f314da45fec0c4e39024766
+work_branch: socrates/3d-hybrid-dyad
+current_head: PENDING_COMMIT
 
 package_order:
-  - 3C_APORIA_APPARATUS_LEARNING
-current_package: 3C_APORIA_APPARATUS_LEARNING
+  - 3D_HYBRID_DYAD
+current_package: 3D_HYBRID_DYAD
 completed_packages:
   - B2Q_R_NATURAL_QUESTION_INFERENCE
   - 3A_PLUS_CONTEXT_CONTINUITY
   - 3A_PLUS_R_CONTRACT_ADMISSION
   - 3B_PRIVATE_WORK_PLANE
   - 3C_APORIA_APPARATUS_LEARNING
-next_package: STOP_AFTER_3C
+  - 3D_HYBRID_DYAD
+next_package: STOP_AFTER_3D
 
-entry_classification: SUBSTRATE_ONLY
+entry_classification: SUBSTRATE_PLUS_UNWIRED_TYPES
 exit_classification: PASS_ACTIVE_IN_RUNTIME
-architecture_decision: WIRE_EXISTING_APORIA_WORLD_MAP_AT_POST_3B_SEAM
+architecture_decision: TYPED_DYAD_PROJECTION_ON_EXISTING_CONTEXT_STORE
 
 regression:
-  full_backend_floor: 1214
-  full_backend_current: 1257_passed_4_skipped_0_failed
+  full_backend_floor: 1257
+  full_backend_current: 1276_passed_4_skipped_0_failed
 
 open_defects:
   - id: D-S26-QSEL-003
@@ -36,9 +37,10 @@ open_defects:
     nonblocking: true
 
 resume_from:
-  package: STOP_AFTER_3C
+  package: STOP_AFTER_3D
   what_to_do_next: |
-    3C PASS / ACTIVE_IN_RUNTIME. Do not start 3D unless a new handoff is issued.
+    3D PASS / ACTIVE_IN_RUNTIME. Do not start 3E unless a new handoff is issued.
+    Production remains on 3B c2d5833; 3C/3D VM install is a separate acceptance.
 
 cursor_constraints:
   - LOCAL_FOREGROUND_ONLY
@@ -47,8 +49,9 @@ cursor_constraints:
   - NO_PROXY_SSH_DEPLOY
 
 nonclaims:
-  - '3D/3E/3F NOT STARTED.'
+  - '3E/3F NOT STARTED.'
+  - 'No persona residency / Indago migration / Tinkuy-as-persona-home.'
   - 'D-S26-QSEL-003 unchanged unless separately proven.'
-  - 'No automatic candidate→current promotion.'
-  - 'No new source/fabric/argument/memory store.'
-last_updated: '2026-08-18'
+  - 'No new source/fabric/argument/memory/relationship store.'
+  - 'Production VM not migrated by this package.'
+last_updated: '2026-08-19'

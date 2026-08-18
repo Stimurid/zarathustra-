@@ -1,0 +1,165 @@
+{
+  "case": "CASE13b_genuine_disagreement",
+  "run_id": "srun_5835537d36e6158e",
+  "trace_id": "strc_5bc468c49f0babd4",
+  "terminal": "ANSWER",
+  "response_text": "[dyad disagreement held]\n[ANSWER] answer directly",
+  "dyad": {
+    "dyadic_state_ref": "_process_local",
+    "prediction_class": "USER_NEED",
+    "predicted_need": "CHALLENGE",
+    "predicted_claim": "interpretation X as the working frame",
+    "surprise_class": "EXPECTED",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "telos:answer directly",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_b7b58bd44f2f"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "[dyad disagreement held]",
+    "causal_effect": "disagreement_held",
+    "likely_failure_source": "GENUINE_DISAGREEMENT",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": true,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_527041919be4",
+    "classification": "APPARATUS_MISMATCH_CANDIDATE",
+    "aporia": {
+      "observation_id": "apo_46dcbdf14cb6",
+      "grade": "APORIA",
+      "subject_ref": "src_b7b58bd44f2f3a26",
+      "resistance_evidence": [
+        "repeated_projection_failure:3"
+      ],
+      "apparatus_limitation_candidate": "EXTRACT_CONCEPTS",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": {
+      "candidate_id": "amc_00e00871e9ec",
+      "aporia_evidence_refs": [
+        "apo_46dcbdf14cb6"
+      ],
+      "current_apparatus_refs": [
+        "EXTRACT_CONCEPTS"
+      ],
+      "failure_pattern": "repeated_projection_loss",
+      "candidate_diagnosis": "APPARATUS_MISMATCH_CANDIDATE",
+      "confidence": "MEDIUM",
+      "alternatives_considered": [
+        "keep_current",
+        "DIFFERENTIATED_ACCOUNT"
+      ],
+      "why_ordinary_uncertainty_insufficient": "same apparatus lost material on repeated encounters",
+      "hypothesis_id": "amh_ffcda9ac631a",
+      "apparatus_kind": "PROJECTION"
+    },
+    "review": {
+      "review_id": "arv_32a53add7b36",
+      "hypothesis_id": "amh_ffcda9ac631a",
+      "outcome": "REVISION_WARRANTED",
+      "reason": "same_material_reveals_new_distinction",
+      "surviving_ref": "op:DIFFERENTIATED_ACCOUNT"
+    },
+    "candidate_change": {
+      "change_id": "cac_bf5c8f6863b9",
+      "kind": "DISTINCTION",
+      "predecessor_apparatus_ref": "EXTRACT_CONCEPTS",
+      "proposed_ref": "op:DIFFERENTIATED_ACCOUNT",
+      "rationale": "replay same material under differentiated account",
+      "reveals": [
+        "lost"
+      ],
+      "erases": [],
+      "authority": "NO_ADOPTION_AUTHORITY"
+    },
+    "replay": {
+      "replay_id": "rpl_d2ed5e039c61",
+      "material_ref": "mat_b7b58bd44f2f3a26",
+      "old_view": {
+        "material_ref": "mat_b7b58bd44f2f3a26",
+        "distinguished": [
+          "concept"
+        ],
+        "lost": [
+          "lost"
+        ],
+        "epistemic_status": "UNRESOLVED",
+        "aporia_present": false,
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "candidate_view": {
+        "material_ref": "mat_b7b58bd44f2f3a26",
+        "distinguished": [
+          "concept",
+          "lost"
+        ],
+        "lost": [],
+        "epistemic_status": "UNRESOLVED",
+        "aporia_present": false,
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "newly_distinct": [
+        "lost"
+      ],
+      "destroyed": [],
+      "false_distinctions": [],
+      "epistemic_status_changed": false,
+      "hypothesis_became_fact": false,
+      "productive_aporia_destroyed": false,
+      "authority_intact": true,
+      "forward_action_improved": true,
+      "adoption": "PROPOSE_WORLD_MAP_UPDATE",
+      "reason": "same_material_reveals_new_distinction"
+    },
+    "world_map_proposal": {
+      "proposal_id": "wmp_6cb40f4f8faf",
+      "space_id": "space_default_workspace",
+      "base_version_id": "wmv_seed",
+      "to_add": [
+        {
+          "entry_id": "wme_7f72ab7e0115",
+          "kind": "distinction",
+          "subject": "op:DIFFERENTIATED_ACCOUNT",
+          "content": "lost",
+          "provenance": "replay:rpl_d2ed5e039c61",
+          "status": "active"
+        }
+      ],
+      "to_supersede": [],
+      "to_withdraw": [],
+      "reason": "same_material_reveals_new_distinction",
+      "triggered_by_aporia_id": "apo_46dcbdf14cb6",
+      "triggered_by_review_id": "arv_32a53add7b36",
+      "authority": "NO_DURABLE_WRITE"
+    },
+    "lineage": {
+      "record_id": "aln_d2a77d75c755",
+      "predecessor_version_id": "wmv_seed",
+      "initiating_aporia_id": "apo_46dcbdf14cb6",
+      "diagnostic_classification": "APPARATUS_MISMATCH_CANDIDATE",
+      "candidate_change_id": "cac_bf5c8f6863b9",
+      "replay_id": "rpl_d2ed5e039c61",
+      "comparison_adoption": "PROPOSE_WORLD_MAP_UPDATE",
+      "adoption_status": "PROPOSAL_ONLY",
+      "authority": "NO_DURABLE_WRITE"
+    },
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "repeated_projection_failure:3"
+    ],
+    "stop_reason": "PROPOSE_WORLD_MAP_UPDATE"
+  },
+  "private_work_status": "NO_EXTRA_WORK",
+  "memory_outcome": null,
+  "trace_path": "C:\\Users\\Timur Shchukin\\AppData\\Local\\Temp\\pytest-of-Timur Shchukin\\pytest-1577\\test_runtime_distinguishes_fai0\\traces\\strc_5bc468c49f0babd4.json"
+}

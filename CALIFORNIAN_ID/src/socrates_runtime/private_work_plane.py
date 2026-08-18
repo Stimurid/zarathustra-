@@ -108,6 +108,7 @@ REGISTERED_PRIVATE_MODULES: frozenset[str] = frozenset({
     "operation_disambiguation",
     "response_plan",
     "apparatus_diagnostic",
+    "dyad_assessment",
 })
 
 ALLOWED_PRIVATE_PURPOSES: frozenset[str] = frozenset({
@@ -117,6 +118,7 @@ ALLOWED_PRIVATE_PURPOSES: frozenset[str] = frozenset({
     "OPERATION_DISAMBIGUATION",
     "RESPONSE_PLAN_RECONSTRUCTION",
     "APPARATUS_DIAGNOSTIC",
+    "DYAD_CONTEXT_ASSESSMENT",
 })
 
 PURPOSE_TO_MODULE: dict[str, str] = {
@@ -126,6 +128,7 @@ PURPOSE_TO_MODULE: dict[str, str] = {
     "OPERATION_DISAMBIGUATION": "operation_disambiguation",
     "RESPONSE_PLAN_RECONSTRUCTION": "response_plan",
     "APPARATUS_DIAGNOSTIC": "apparatus_diagnostic",
+    "DYAD_CONTEXT_ASSESSMENT": "dyad_assessment",
 }
 
 _AUTHORITY_INFLATING_KEYS: frozenset[str] = frozenset({
