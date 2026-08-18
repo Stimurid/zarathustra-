@@ -5,7 +5,7 @@
 - Repo: `C:/projects/zarathustra-push` (`https://github.com/Stimurid/zarathustra-.git`)
 - Start branch: `socrates/gs26-real-socrates-and-shiva` @ `cd99bb4` (3B checkpoint; implementation `c2d5833`)
 - Work branch: `socrates/3c-aporia-apparatus-learning`
-- End SHA: filled after commit
+- End SHA: `77a11787cf6dbe488f314da45fec0c4e39024766`
 
 ## B. INVENTORY
 
@@ -37,7 +37,7 @@ New CASE 1–12 + substrate. Full backend **1257 passed / 4 skipped / 0 failed**
 
 ## I. GIT
 
-Branch `socrates/3c-aporia-apparatus-learning` (pushed after commit).
+Commit `77a11787cf6dbe488f314da45fec0c4e39024766` on `socrates/3c-aporia-apparatus-learning`.
 
 ## J. REMAINING DEFECTS
 
