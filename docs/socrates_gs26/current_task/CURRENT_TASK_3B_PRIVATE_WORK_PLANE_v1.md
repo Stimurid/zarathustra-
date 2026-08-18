@@ -48,15 +48,25 @@ New types (no existing owner): `PrivateWorkNeedAssessment`, `PrivateNeedDecision
 
 Pass budget: additional private passes default 0; max additional 2; MAX_AUTOPROMPT_PASSES=3 is a safety ceiling not a ritual.
 
+## Mechanical status (pre-deploy)
+
+- Substrate reused/hardened: module allowlist, WorkPacket validation, dispatcher ignores `request.pass_index`, duplicate registered purpose stop.
+- Runtime seam: `SocratesRuntime.run` → `run_private_work` after liberatory, before B2Q-R / render.
+- Consumer: `ResponsePlan` merges bounded distillate into public text (no bureaucracy marker).
+- Memory: `_commit_memory_if_any` calls `enforce_no_durable_write`; PRIVATE surface → `private_write_blocked`. Promotion DEFERRED_BY_DESIGN.
+- B2Q-R: `ACCOUNT_AS_INTERNAL_SPECIALIZED_CALL` (token ceiling shared; does not increment additional private pass count).
+- Tests P1–P23: meaningful predicates; tautological marker removed.
+- Full backend: **1242 passed / 4 skipped / 0 failed**.
+
 ## Package scope
 
-1. Durable checkpoint (this commit)
-2. Harden substrate (schema, dispatcher index, module allowlist, injection evidence-only)
-3. Wire SocratesRuntime causal consumer (ResponsePlan)
-4. Real memory-write path consumes `enforce_no_durable_write`
-5. Tests P1–P23; remove `assert True` marker
-6. Full backend ≥ 1214
-7. Deploy + LIVE-P1..P8
+1. Durable checkpoint — DONE (`856cd8f`)
+2. Harden substrate — DONE
+3. Wire SocratesRuntime causal consumer — DONE
+4. Real memory-write path consumes `enforce_no_durable_write` — DONE
+5. Tests P1–P23 — DONE
+6. Full backend ≥ 1214 — DONE (1242/4/0)
+7. Deploy + LIVE-P1..P8 — IN PROGRESS
 8. STOP — do NOT begin 3C
 
 ## Nonclaims

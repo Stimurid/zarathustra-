@@ -2539,6 +2539,16 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                     status=HTTPStatus.BAD_REQUEST); return
             context_action = raw_action
 
+        raw_max_add = data.get("private_work_max_additional")
+        private_work_max_additional: int | None = None
+        if raw_max_add is not None:
+            try:
+                private_work_max_additional = int(raw_max_add)
+            except (TypeError, ValueError):
+                self._send_json(
+                    {"error": "private_work_max_additional must be an integer"},
+                    status=HTTPStatus.BAD_REQUEST); return
+
         from . import socrates_bridge
         try:
             payload = socrates_bridge.dispatch_socrates_run(
@@ -2547,7 +2557,9 @@ class _WebUIHandler(BaseHTTPRequestHandler):
                 question_set_request=question_set_request,
                 context_id=context_id,
                 context_action=context_action,
-                runs_dir=os.environ.get("CALIFORNIAN_ID_RUNS_DIR"))
+                runs_dir=os.environ.get("CALIFORNIAN_ID_RUNS_DIR"),
+                private_work_max_additional=private_work_max_additional,
+            )
         except ValueError as exc:
             self._send_json({"error": str(exc)},
                             status=HTTPStatus.BAD_REQUEST); return

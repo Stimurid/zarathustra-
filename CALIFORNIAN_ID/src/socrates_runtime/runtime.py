@@ -91,6 +91,7 @@ class SocratesRunResult:
     #: 3A+ cross-turn continuity evidence
     context_id: str = ""
     context_continuity: dict[str, Any] | None = None
+    private_work: dict[str, Any] | None = None
 
     def to_public(self) -> dict[str, Any]:
         return {
@@ -120,6 +121,7 @@ class SocratesRunResult:
                 if self.question_intent_proposal is not None else None),
             "context_id": self.context_id,
             "context_continuity": self.context_continuity,
+            "private_work": self.private_work,
         }
 
 
@@ -185,6 +187,7 @@ class SocratesRuntime:
             context_store: Any = None,
             context_action: dict[str, Any] | None = None,
             injected_pressures: tuple[Any, ...] = (),
+            private_work_max_additional: int | None = None,
             ) -> SocratesRunResult:
         """One end-to-end Socrates run.
 
@@ -288,6 +291,24 @@ class SocratesRuntime:
         state.liberatory_pass_result = liberatory
         trace.record("liberatory_pass", **liberatory.to_public())
 
+        # 3B: bounded additional private pass BEFORE B2Q-R overlay / render.
+        from .private_work_runtime import InternalCallBudget, run_private_work
+        from .private_work_plane import MAX_ADDITIONAL_PRIVATE_PASSES
+        cap = MAX_ADDITIONAL_PRIVATE_PASSES
+        if private_work_max_additional is None:
+            max_add = cap
+        else:
+            max_add = max(0, min(int(private_work_max_additional), cap))
+        call_budget = InternalCallBudget(max_additional_private=max_add)
+        pw_client = None
+        if mode == ExecutionMode.LIVE:
+            pw_client = self._build_live_client(trace)
+        outcome, private_shadow, call_budget = run_private_work(
+            state=state, outcome=outcome, intervention_plan=plan,
+            input_text=input_text, mode=mode, client=pw_client,
+            budget=call_budget)
+        trace.record("private_work", private_work=private_shadow.to_public())
+
         # B2Q + B2Q-R: derive the QuestionSetPlan post-terminal.
         #
         # Two activation paths, in strict priority order:
@@ -347,6 +368,7 @@ class SocratesRuntime:
                             ownership=getattr(state, "ownership", None),
                             request=question_intent_proposal.to_request_dict(),
                             origin="MODEL_PRODUCED_VALIDATED")
+                        call_budget.record_specialized()
         state.question_set_plan = qsp
         if qsp is not None:
             trace.record("question_set_plan", **qsp.to_public())
@@ -388,6 +410,18 @@ class SocratesRuntime:
                     rationale=outcome.rationale,
                     memory_proposal=outcome.memory_proposal)
             trace.record("rendering", **rendering.to_public())
+
+        if (rendering is not None and qsp is None
+                and private_shadow is not None
+                and private_shadow.causal_effect == "response_plan_merged_distillate"):
+            excerpt = (private_shadow.public_product_excerpt or "").strip()
+            if excerpt and excerpt not in (rendering.text or ""):
+                rendering.text = (excerpt + "\n" + (rendering.text or "")).strip()
+                outcome = TerminalOutcome(
+                    terminal=outcome.terminal,
+                    response_text=rendering.text,
+                    rationale=outcome.rationale,
+                    memory_proposal=outcome.memory_proposal)
 
         native = self._call_native_organs(config, state, trace)
         memory = self._commit_memory_if_any(config, state, trace)
@@ -440,6 +474,7 @@ class SocratesRuntime:
             question_intent_proposal=question_intent_proposal,
             context_id=final_context_id,
             context_continuity=context_continuity_meta,
+            private_work=private_shadow.to_public() if private_shadow else None,
         )
 
     # ------------------------------------------------------------------
@@ -550,6 +585,14 @@ class SocratesRuntime:
                               ) -> dict[str, Any] | None:
         if state.memory_proposal is None:
             return None
+        from .private_work_plane import (
+            DurableWriteAttempt, SurfaceKind, enforce_no_durable_write,
+        )
+        try:
+            enforce_no_durable_write(state.memory_proposal)
+        except DurableWriteAttempt as exc:
+            trace.record_memory_proposal(state.memory_proposal, "private_write_blocked")
+            return {"status": "private_write_blocked", "reason": str(exc)}
         prop_res = wm_binding.propose_write(
             workspace_id=config.workspace_id or "default",
             kind=state.memory_proposal.kind,

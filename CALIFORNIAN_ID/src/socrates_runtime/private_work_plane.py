@@ -79,6 +79,59 @@ class StopReason(str, Enum):
     MAX_PASSES_REACHED = "MAX_PASSES_REACHED"
     OUTWARD_ANSWER_READY = "OUTWARD_ANSWER_READY"
     ERROR = "ERROR"
+    NEED_FULFILLED = "NEED_FULFILLED"
+    TERMINAL_SOVEREIGNTY = "TERMINAL_SOVEREIGNTY"
+    VALIDATION_ERROR = "VALIDATION_ERROR"
+    UNKNOWN_MODULE = "UNKNOWN_MODULE"
+    PROVIDER_FAILURE = "PROVIDER_FAILURE"
+    DUPLICATE_PURPOSE = "DUPLICATE_PURPOSE"
+    NO_EXTRA_WORK = "NO_EXTRA_WORK"
+
+
+class PrivateNeedDecision(str, Enum):
+    NO_EXTRA_WORK = "NO_EXTRA_WORK"
+    PROPOSE_PRIVATE_OPERATION = "PROPOSE_PRIVATE_OPERATION"
+
+
+class BenefitJudgement(str, Enum):
+    BENEFIT_EXPECTED_TO_EXCEED_COST = "BENEFIT_EXPECTED_TO_EXCEED_COST"
+    BENEFIT_NOT_EXPECTED = "BENEFIT_NOT_EXPECTED"
+
+
+#: Registered private-module ids. Not a second capability registry —
+#: these names bind to existing critic/review/projection/source operations.
+#: Arbitrary strings fail closed.
+REGISTERED_PRIVATE_MODULES: frozenset[str] = frozenset({
+    "critic",
+    "projection_diagnostic",
+    "source_gap",
+    "operation_disambiguation",
+    "response_plan",
+})
+
+ALLOWED_PRIVATE_PURPOSES: frozenset[str] = frozenset({
+    "COUNTEREXAMPLE_REVIEW",
+    "SOURCE_GAP_RECONSTRUCTION",
+    "PROJECTION_DIAGNOSTIC_REVIEW",
+    "OPERATION_DISAMBIGUATION",
+    "RESPONSE_PLAN_RECONSTRUCTION",
+})
+
+PURPOSE_TO_MODULE: dict[str, str] = {
+    "COUNTEREXAMPLE_REVIEW": "critic",
+    "SOURCE_GAP_RECONSTRUCTION": "source_gap",
+    "PROJECTION_DIAGNOSTIC_REVIEW": "projection_diagnostic",
+    "OPERATION_DISAMBIGUATION": "operation_disambiguation",
+    "RESPONSE_PLAN_RECONSTRUCTION": "response_plan",
+}
+
+_AUTHORITY_INFLATING_KEYS: frozenset[str] = frozenset({
+    "system", "system_instruction", "mount", "profile", "write_durable",
+    "space_id", "scene_id", "pass_budget", "authority", "chain_of_thought",
+    "hidden_cot", "install_module",
+})
+
+MAX_ADDITIONAL_PRIVATE_PASSES: int = 2
 
 
 # ---------------------------------------------------------- private artifacts
@@ -105,15 +158,20 @@ class ModuleCallPlan:
     """Private: a planned bounded call to a module / source / critic /
     cutter / review with typed purpose + budget + stop condition.
 
-    Compact typed pass-2 input. NEVER pipes raw internal prose.
+    ``module_id`` is NOT execution authority. It must resolve against
+    :data:`REGISTERED_PRIVATE_MODULES` (and, when applicable, an existing
+    CapabilityResolver). Unknown ids fail closed.
     """
     plan_id: str
-    module_id: str                          # e.g. "retrieval", "cutter", "critic"
+    module_id: str
     purpose: str
     budget_tokens: int
     stop_condition: str
-    inputs_ref: tuple[str, ...] = ()        # typed refs, not raw prose
+    inputs_ref: tuple[str, ...] = ()
     surface: SurfaceKind = SurfaceKind.PRIVATE
+
+    def is_registered(self) -> bool:
+        return self.module_id in REGISTERED_PRIVATE_MODULES
 
 
 @dataclass(frozen=True)
@@ -191,6 +249,15 @@ class WorkPacket:
     referenced_artifact_ids: tuple[str, ...]
     typed_summary: dict[str, Any]
     max_prose_chars: int = 800
+    purpose: str = ""
+    operation_kind: str = ""
+    authority: str = "NO_BINDING_AUTHORITY"
+    status: str = "OK"
+    stop_signal: str = "STOP"
+    changed_forward_action: str = ""
+    input_refs: tuple[str, ...] = ()
+    output_refs: tuple[str, ...] = ()
+    distillate: str = ""
 
     def prose_char_count(self) -> int:
         total = 0
@@ -216,18 +283,20 @@ class WorkPacket:
 class AutopromptRequest:
     """A request from Socrates to itself for a bounded next pass.
 
-    NO_MOUNT_AUTHORITY. Autoprompts cannot install code, mint mount
-    events, write durable memory, or bypass any B05/D-S26-TRIG-001
-    governance path. The runtime dispatcher decides whether to
-    honour the request based on the loop guards below.
+    NO_MOUNT_AUTHORITY / NO_TRANSITION_AUTHORITY / NO_DURABLE_WRITE.
+    ``pass_index`` is advisory evidence only — it cannot control
+    dispatcher state.
     """
     request_id: str
-    pass_index: int                         # which pass in the sequence
+    pass_index: int
     purpose: str
     budget_tokens: int
     stop_condition: str
-    provenance_ids: tuple[str, ...]         # what motivated the request
+    provenance_ids: tuple[str, ...]
     authority: str = "NO_MOUNT_AUTHORITY"
+    module_id: str = ""
+    no_transition_authority: str = "NO_TRANSITION_AUTHORITY"
+    no_durable_write: str = "NO_DURABLE_WRITE"
 
 
 @dataclass(frozen=True)
@@ -257,13 +326,16 @@ class AutopromptDispatcher:
     """
 
     def __init__(self, *,
-                 max_passes: int = MAX_AUTOPROMPT_PASSES,
+                 max_passes: int = MAX_ADDITIONAL_PRIVATE_PASSES,
                  budget_tokens_total: int = 8000) -> None:
-        self.max_passes = max_passes
+        # max_passes here is ADDITIONAL private passes, not S0–S10.
+        # MAX_AUTOPROMPT_PASSES remains the hard safety ceiling.
+        self.max_passes = min(max_passes, MAX_AUTOPROMPT_PASSES)
         self.budget_tokens_total = budget_tokens_total
         self._passes_so_far = 0
         self._budget_spent = 0
         self._history: list[AutopromptDecision] = []
+        self._purposes_honoured: list[str] = []
 
     @property
     def passes_so_far(self) -> int:
@@ -277,6 +349,30 @@ class AutopromptDispatcher:
                last_reflection: ReflectionResult | None = None,
                incoming_packet: WorkPacket | None = None,
                ) -> AutopromptDecision:
+        # request.pass_index is ignored for control — dispatcher owns the counter.
+        if request.module_id and request.module_id not in REGISTERED_PRIVATE_MODULES:
+            d = AutopromptDecision(
+                decision_id=_new_id("apd"), request_id=request.request_id,
+                honour=False, stop_reason=StopReason.UNKNOWN_MODULE,
+                reason=f"unknown module_id={request.module_id!r}")
+            self._history.append(d); return d
+        if (request.purpose
+                and request.purpose.isupper()
+                and "_" in request.purpose
+                and request.purpose not in ALLOWED_PRIVATE_PURPOSES):
+            d = AutopromptDecision(
+                decision_id=_new_id("apd"), request_id=request.request_id,
+                honour=False, stop_reason=StopReason.VALIDATION_ERROR,
+                reason=f"unknown purpose={request.purpose!r}")
+            self._history.append(d); return d
+        if (request.purpose
+                and request.purpose in ALLOWED_PRIVATE_PURPOSES
+                and request.purpose in self._purposes_honoured):
+            d = AutopromptDecision(
+                decision_id=_new_id("apd"), request_id=request.request_id,
+                honour=False, stop_reason=StopReason.DUPLICATE_PURPOSE,
+                reason=f"duplicate purpose={request.purpose}")
+            self._history.append(d); return d
         # Loop bound
         if self._passes_so_far >= self.max_passes:
             d = AutopromptDecision(
@@ -314,6 +410,8 @@ class AutopromptDispatcher:
         # Honour
         self._passes_so_far += 1
         self._budget_spent += request.budget_tokens
+        if request.purpose:
+            self._purposes_honoured.append(request.purpose)
         d = AutopromptDecision(
             decision_id=_new_id("apd"), request_id=request.request_id,
             honour=True, stop_reason=None,
@@ -355,24 +453,88 @@ def enforce_no_durable_write(artifact: Any) -> None:
 # ---------------------------------------------------------- prompt injection
 
 
+def validate_work_packet(packet: WorkPacket) -> str:
+    """Return empty string if OK, else a structured refusal reason."""
+    if packet.authority not in {"", "NO_BINDING_AUTHORITY"}:
+        return "authority_inflating"
+    if not packet.is_prose_bounded():
+        return "raw-prose-pipe"
+    keys = {str(k).lower() for k in (packet.typed_summary or {})}
+    if keys & {k.lower() for k in _AUTHORITY_INFLATING_KEYS}:
+        return "authority_inflating_keys"
+    distillate = packet.distillate or packet.typed_summary.get("distillate", "")
+    if isinstance(distillate, str) and len(distillate) > packet.max_prose_chars:
+        return "distillate_unbounded"
+    return ""
+
+
+def resolve_private_module(module_id: str) -> str | None:
+    if module_id in REGISTERED_PRIVATE_MODULES:
+        return module_id
+    return None
+
+
+@dataclass(frozen=True)
+class PrivateWorkNeedAssessment:
+    """Typed qualitative need. Not a keyword router. Not numeric EV."""
+
+    assessment_id: str
+    decision: PrivateNeedDecision
+    benefit: BenefitJudgement
+    purpose: str
+    module_id: str
+    grounds: tuple[str, ...]
+    authority: str = "NO_TRANSITION_AUTHORITY"
+
+    def to_public(self) -> dict[str, Any]:
+        return {
+            "assessment_id": self.assessment_id,
+            "decision": self.decision.value,
+            "benefit": self.benefit.value,
+            "purpose": self.purpose,
+            "module_id": self.module_id,
+            "grounds": list(self.grounds),
+            "authority": self.authority,
+        }
+
+
+def private_payload_is_instruction_shaped(content: str) -> bool:
+    """Evidence-only detector. True means 'looks like an instruction'.
+    Never grants authority. content_is_system_instruction stays False.
+    """
+    text = (content or "").lower()
+    needles = (
+        "ignore previous", "system:", "switch to shiva", "mount b07",
+        "write this to durable", "start three more", "change scene",
+        "change space", "you are now",
+    )
+    return any(n in text for n in needles)
+
+
 def content_is_system_instruction(content: str) -> bool:
     """False by default — retrieved/model text inside private work is
     NEVER promoted to system instruction by content pattern alone.
 
-    This is a stub that documents the invariant: any promotion to
-    instruction requires an EXPLICIT typed authority record; content
-    location or shape does not grant authority. Called by the private
-    dispatcher as a sanity marker; any override would be caught by
-    the test :func:`test_private_content_cannot_be_system_instruction`.
+    Instruction-shaped content may be *detected* as evidence via
+    :func:`private_payload_is_instruction_shaped` but detection ≠
+    authority. Promotion requires an EXPLICIT typed authority record.
     """
     return False
 
 
 __all__ = [
+    "ALLOWED_PRIVATE_PURPOSES",
     "AutopromptDecision", "AutopromptDispatcher", "AutopromptRequest",
+    "BenefitJudgement",
     "DurableWriteAttempt", "EpistemicStatusDelta",
+    "MAX_ADDITIONAL_PRIVATE_PASSES",
     "MAX_AUTOPROMPT_PASSES", "ModuleCallPlan",
-    "PRIVATE_WORK_AUTHORITY", "ReflectionResult", "ResponsePlan",
+    "PRIVATE_WORK_AUTHORITY", "PURPOSE_TO_MODULE",
+    "PrivateNeedDecision", "PrivateWorkNeedAssessment",
+    "REGISTERED_PRIVATE_MODULES",
+    "ReflectionResult", "ResponsePlan",
     "SourceNeed", "StopReason", "SurfaceKind", "WorkPacket",
     "content_is_system_instruction", "enforce_no_durable_write",
+    "private_payload_is_instruction_shaped",
+    "resolve_private_module", "validate_work_packet",
 ]

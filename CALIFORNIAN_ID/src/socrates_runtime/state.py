@@ -131,9 +131,16 @@ class MemoryProposal:
     kind: str = ""            # observation | distinction | hypothesis | …
     text: str = ""
     grounds: str = ""
+    #: Optional surface tag. PRIVATE artifacts cannot commit without
+    #: B05 ``durable_write_admitted``. Default None = existing WM gate.
+    surface: Any = None
 
     def to_public(self) -> dict[str, Any]:
-        return asdict(self)
+        d: dict[str, Any] = {
+            "kind": self.kind, "text": self.text, "grounds": self.grounds}
+        if self.surface is not None:
+            d["surface"] = getattr(self.surface, "value", self.surface)
+        return d
 
 
 # ---------------------------------------------------------- terminals

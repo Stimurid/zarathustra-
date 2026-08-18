@@ -8,7 +8,7 @@ start_branch: socrates/gs26-real-socrates-and-shiva
 start_head: f5e3f290e4713e1f2191358801d5a4fa97f88f77
 production_at_start: 2f3474e2388bb1caa24be6080ebddb550de383e0
 work_branch: socrates/gs26-real-socrates-and-shiva
-current_head: SET_AT_COMMIT
+current_head: mechanical_pre_deploy
 
 package_order:
   - 3B_PRIVATE_WORK_PLANE
@@ -25,7 +25,7 @@ b2qr_accounting: ACCOUNT_AS_INTERNAL_SPECIALIZED_CALL
 
 regression:
   full_backend_floor: 1214
-  full_backend_current: SET_AFTER_TESTS
+  full_backend_current: 1242_passed_4_skipped_0_failed
 
 open_defects:
   - id: D-S26-QSEL-003
@@ -36,8 +36,8 @@ open_defects:
 resume_from:
   package: 3B_PRIVATE_WORK_PLANE
   what_to_do_next: |
-    After durable checkpoint: harden private_work_plane, wire SocratesRuntime
-    post-liberatory/pre-render, P1-P23, full backend, deploy, LIVE-P1..P8, STOP.
+    Mechanical 3B is green (1242/4/0). Commit/push HTTPS, exact-SHA deploy,
+    LIVE-P1..P8, evidence checkpoint, STOP. Do not start 3C.
 
 cursor_constraints:
   - LOCAL_FOREGROUND_ONLY

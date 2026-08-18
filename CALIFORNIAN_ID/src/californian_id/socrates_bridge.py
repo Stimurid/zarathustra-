@@ -54,6 +54,7 @@ def dispatch_socrates_run(*, text: str, execution_mode: str,
                           context_id: str | None = None,
                           context_action: dict[str, Any] | None = None,
                           runs_dir: str | None = None,
+                          private_work_max_additional: int | None = None,
                           ) -> dict[str, Any]:
     """Construct :class:`SocratesRuntime`, invoke `.run`, return the
     public JSON payload the ``/api/socrates/run`` handler serialises.
@@ -91,6 +92,7 @@ def dispatch_socrates_run(*, text: str, execution_mode: str,
             context_id=context_id,
             context_store=store,
             context_action=context_action,
+            private_work_max_additional=private_work_max_additional,
         )
     except TypeError:
         # Backcompat: SocratesRuntime.run without newer kwargs.
@@ -136,4 +138,5 @@ def dispatch_socrates_run(*, text: str, execution_mode: str,
         # 3A+: cross-turn context continuity
         "context_id": public.get("context_id"),
         "context_continuity": public.get("context_continuity"),
+        "private_work": public.get("private_work"),
     }
