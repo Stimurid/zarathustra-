@@ -51,14 +51,40 @@ def no_fork_mutation(rec) -> bool:
     return "fork_admitted" not in applied
 
 
-def has_revision(rec) -> bool:
+def same_branch_or_trunk(a, b) -> bool:
+    ba = (c(a).get("branch_id") or "")
+    bb = (c(b).get("branch_id") or "")
+    return ba == bb
+
+
+def no_revision_candidate(rec) -> bool:
     ca = c(rec)
     if ca.get("revision_candidates"):
-        return True
+        return False
     if ca.get("contract_status") == "REVISION_PROPOSED":
-        return True
+        return False
     applied = " ".join(ca.get("mutations_applied") or [])
-    return "contract_revision_proposed" in applied
+    if "contract_revision_proposed" in applied:
+        return False
+    if "contract_revision_admitted" in applied:
+        return False
+    if "contract_revision_held" in applied:
+        return False
+    return True
+
+
+def admission_outcome(rec) -> str | None:
+    ca = c(rec)
+    adms = ca.get("revision_admissions") or []
+    if adms:
+        return adms[-1].get("outcome")
+    meta = (rec or {}).get("continuity") or {}
+    cra = meta.get("contract_revision_admission") or (
+        (rec or {}).get("response") or {}).get("context_continuity", {}).get(
+            "contract_revision_admission")
+    if isinstance(cra, dict):
+        return cra.get("outcome")
+    return None
 
 
 def verdict(ok: bool, reason: str, **extra) -> dict:
@@ -67,20 +93,50 @@ def verdict(ok: bool, reason: str, **extra) -> dict:
     return d
 
 
+def has_revision(rec) -> bool:
+    return not no_revision_candidate(rec)
+
+
+def same_active_contract(t1, t2) -> bool:
+    c1, c2 = c(t1), c(t2)
+    return bool(c1.get("contract_id")) and (
+        c1.get("contract_id") == c2.get("contract_id")
+        and c1.get("contract_version") == c2.get("contract_version"))
+
+
 def pair_l1(t1n, t2n, label):
+    """SAME-SCENE / SAME-INTENT. Fails if any contract revision appears."""
     t1, t2 = load(t1n), load(t2n)
     if not t1 or not t2:
         return verdict(False, "missing evidence files", t1=bool(t1), t2=bool(t2))
     s = same(t1, t2, "context_id", "scene_id", "space_id")
     ok = (live_ok(t1) and live_ok(t2) and all(s.values())
-          and no_fork_mutation(t2) and no_space_mutation(t2))
+          and same_branch_or_trunk(t1, t2)
+          and no_fork_mutation(t2) and no_space_mutation(t2)
+          and no_revision_candidate(t2)
+          and same_active_contract(t1, t2))
     return verdict(ok, label, live=(live_ok(t1), live_ok(t2)), identity=s,
+                   branch_same=same_branch_or_trunk(t1, t2),
                    applied_t2=c(t2).get("mutations_applied"),
                    contract=(c(t1).get("contract_status"),
                              c(t2).get("contract_status")),
+                   contract_ids=(c(t1).get("contract_id"),
+                                 c(t2).get("contract_id")),
                    telos=(c(t1).get("telos"), c(t2).get("telos")),
                    op=(c(t1).get("operation_kind"), c(t2).get("operation_kind")),
                    revision_on_continue=has_revision(t2))
+
+
+def pair_suboperation(t1n, t2n, label):
+    """Same scene sub-operation: op.kind may change; no SceneContract revision."""
+    v = pair_l1(t1n, t2n, label)
+    t1, t2 = load(t1n), load(t2n)
+    if t1 and t2:
+        op_changed = (c(t1).get("operation_kind") or "") != (
+            c(t2).get("operation_kind") or "")
+        v["operation_changed"] = op_changed
+        v["reason"] = label
+    return v
 
 
 def pair_l2(t1n, t2n, label):
@@ -99,31 +155,63 @@ def pair_l2(t1n, t2n, label):
                    intent_shift=intent_shift, revision=has_revision(t2),
                    telos=(c(t1).get("telos"), c(t2).get("telos")),
                    op=(c(t1).get("operation_kind"), c(t2).get("operation_kind")),
-                   contract=c(t2).get("contract_status"))
+                   contract=c(t2).get("contract_status"),
+                   admission=admission_outcome(t2))
 
 
 def pair_l5(t1n, t2n, label):
-    v = pair_l2(t1n, t2n, label)
+    """Material drift HOLD: candidate exists; old active remains; admission explicit."""
     t1, t2 = load(t1n), load(t2n)
-    old_preserved = False
-    if t1 and t2:
-        old_id = c(t1).get("contract_id")
-        new_id = c(t2).get("contract_id")
-        old_preserved = bool(old_id) and old_id != new_id and has_revision(t2)
-        # silent overwrite = same id with changed telos and no revision
-        silent = (old_id == new_id and (
-            c(t1).get("telos") != c(t2).get("telos")) and not has_revision(t2))
-        v["old_contract_id"] = old_id
-        v["new_contract_id"] = new_id
-        v["old_preserved_via_new_id"] = old_preserved
-        v["silent_overwrite"] = silent
-        if silent:
-            v["result"] = "FAIL"
-            v["reason"] = label + " silent overwrite"
-        elif v["result"] == "PASS" and not old_preserved:
-            # still pass if revision proposed even if ids equal? derive creates new id
-            pass
-    return v
+    if not t1 or not t2:
+        return verdict(False, "missing")
+    s = same(t1, t2, "context_id", "space_id")
+    old_id = c(t1).get("contract_id")
+    new_id = c(t2).get("contract_id")
+    outcome = admission_outcome(t2)
+    candidate = bool(c(t2).get("revision_candidates")) or has_revision(t2)
+    old_still_active = bool(old_id) and old_id == new_id
+    activated_without_admit = (
+        bool(old_id) and old_id != new_id
+        and outcome != "ADMIT_REVISION")
+    ok = (live_ok(t1) and live_ok(t2) and all(s.values())
+          and no_fork_mutation(t2) and no_space_mutation(t2)
+          and candidate and old_still_active
+          and outcome in {"HOLD_PROPOSAL", "ASK_HUMAN"}
+          and not activated_without_admit)
+    return verdict(
+        ok, label, live=(live_ok(t1), live_ok(t2)), identity=s,
+        revision=has_revision(t2),
+        admission=outcome,
+        old_contract_id=old_id, new_contract_id=new_id,
+        old_still_active=old_still_active,
+        activated_without_admit=activated_without_admit,
+        telos=(c(t1).get("telos"), c(t2).get("telos")),
+        op=(c(t1).get("operation_kind"), c(t2).get("operation_kind")),
+        contract=c(t2).get("contract_status"))
+
+
+def pair_drift_admit(t1n, t2n, label):
+    """Material drift ADMIT: explicit ADMIT_REVISION; new active; old addressable."""
+    t1, t2 = load(t1n), load(t2n)
+    if not t1 or not t2:
+        return verdict(False, "missing")
+    old_id = c(t1).get("contract_id")
+    new_id = c(t2).get("contract_id")
+    outcome = admission_outcome(t2)
+    hist = c(t2).get("contract_history") or []
+    old_in_hist = any(
+        (h.get("contract_id") == old_id) for h in hist) if hist else True
+    applied = " ".join(c(t2).get("mutations_applied") or [])
+    ok = (live_ok(t1) and live_ok(t2)
+          and outcome == "ADMIT_REVISION"
+          and bool(old_id) and bool(new_id) and old_id != new_id
+          and "contract_revision_admitted:" in applied
+          and old_in_hist)
+    return verdict(
+        ok, label, live=(live_ok(t1), live_ok(t2)),
+        admission=outcome,
+        old_contract_id=old_id, new_contract_id=new_id,
+        applied=c(t2).get("mutations_applied"))
 
 
 def main():
@@ -134,12 +222,13 @@ def main():
     report["L2B"] = pair_l2("L2B_t1.json", "L2B_t2.json", "intent shift B")
 
     l3 = load("L3.json")
+    l3_status = c(l3).get("contract_status")
     report["L3"] = verdict(
-        live_ok(l3) and (c(l3).get("contract_status") in {
-            "PROVISIONAL", "CONFIRMED", None} or True) and live_ok(l3),
+        live_ok(l3) and l3_status in {"PROVISIONAL", "CONFIRMED"}
+        and c(l3).get("clarification_required") is not True,
         "direct assistance",
         live=live_ok(l3),
-        contract=c(l3).get("contract_status"),
+        contract=l3_status,
         terminal=c(l3).get("terminal"),
         clarification=c(l3).get("clarification_required"))
 
@@ -279,13 +368,17 @@ def main():
         and c(p1).get("space_id") == c(p2).get("space_id")
         and c(p1).get("scene_id") == c(p2).get("scene_id")
         and no_fork_mutation(p1) and no_fork_mutation(p2)
-        and no_space_mutation(p1) and no_space_mutation(p2),
+        and no_space_mutation(p1) and no_space_mutation(p2)
+        and no_revision_candidate(p1) and no_revision_candidate(p2)
+        and same_active_contract(p1, p2),
         "paraphrase stability",
         live=(live_ok(p1), live_ok(p2)),
         scene=(c(p1).get("scene_id"), c(p2).get("scene_id")),
-        space=(c(p1).get("space_id"), c(p2).get("space_id")))
+        space=(c(p1).get("space_id"), c(p2).get("space_id")),
+        contract_ids=(c(p1).get("contract_id"), c(p2).get("contract_id")))
 
-    def q16(name, expect_requested=None, expect_n=None, expect_false=False):
+    def q16(name, expect_requested=None, expect_n=None, expect_false=False,
+            allow_aporia=False):
         rec = load(name)
         prop = c(rec).get("question_intent_proposal") or (
             rec or {}).get("response", {}).get("question_intent_proposal")
@@ -295,21 +388,25 @@ def main():
         n = (prop or {}).get("explicit_count_constraint")
         origin = (plan or {}).get("origin")
         ok_live = live_ok(rec)
-        if expect_false:
+        terminal = c(rec).get("terminal")
+        if allow_aporia and terminal == "PRESERVE_APORIA":
+            ok = ok_live
+        elif expect_false:
             ok = ok_live and (requested is False or plan in (None, {}))
         elif expect_requested:
             ok = ok_live and requested is True and origin == "MODEL_PRODUCED_VALIDATED"
             if expect_n is not None:
                 ok = ok and n == expect_n
         else:
-            ok = ok_live
+            ok = ok_live and requested is True
         return verdict(ok, name, live=ok_live, requested=requested,
                        n=n, origin=origin,
-                       terminal=c(rec).get("terminal"),
+                       terminal=terminal,
                        qsr_in_request=("question_set_request" in (
                            (rec or {}).get("request") or {})))
 
-    report["L16_nocount"] = q16("L16_nocount.json", expect_requested=True)
+    report["L16_nocount"] = q16(
+        "L16_nocount.json", expect_requested=True, allow_aporia=True)
     report["L16_count"] = q16("L16_count.json", expect_requested=True, expect_n=7)
     report["L16_decoy"] = q16("L16_decoy.json", expect_false=True)
 
@@ -338,18 +435,16 @@ def main():
         or ((l18 or {}).get("response") or {}).get("terminal", {}).get("terminal")
         == "FAILED_EXPLICIT"
     )
-    # no silent substitute: context_id should remain the unknown one or empty, not a new ctx
     returned_cid = c(l18).get("context_id") or ""
-    silent_sub = bool(returned_cid) and returned_cid != "ctx_deadbeefdeadbeef" and fail_closed is False
+    silent_sub = bool(returned_cid) and returned_cid != "ctx_deadbeefdeadbeef" and (
+        fail_closed is False)
     report["L18"] = verdict(
-        live_ok(l18) is False and fail_closed and not silent_sub
-        or (fail_closed and not silent_sub),
+        fail_closed and not silent_sub,
         "unknown context fail closed",
         terminal=c(l18).get("terminal"),
         returned_context_id=returned_cid,
         error=((l18 or {}).get("response") or {}).get("error"),
         execution_mode=pp(l18).get("execution_mode"),
-        # L18 may fail before provider; still must be LIVE request
         request_mode=((l18 or {}).get("request") or {}).get("execution_mode"))
 
     l19s = load("L19_sqlite.json")
@@ -388,18 +483,25 @@ def main():
     counts = {"PASS": 0, "FAIL": 0, "N/A": 0, "OTHER": 0}
     for k, v in report.items():
         r = v.get("result")
-        counts[r] = counts.get(r, 0) + 1 if r in counts else counts.get("OTHER", 0)
-        if r not in ("PASS", "FAIL", "N/A"):
+        if r in counts:
+            counts[r] += 1
+        else:
             counts["OTHER"] += 1
+    all_pass = counts["FAIL"] == 0 and counts["OTHER"] == 0 and counts["PASS"] > 0
     out = {
         "counts": counts,
+        "all_pass": all_pass,
         "cases": report,
         "deterministic_behavioral_claims": 0,
-        "note": "evaluator uses only LIVE saved JSON; DETERMINISTIC never consulted",
+        "note": "evaluator uses only LIVE saved JSON; DETERMINISTIC never consulted; "
+                "all_pass is false whenever any case is FAIL",
     }
+    if counts["FAIL"] > 0:
+        out["note"] += "; REPORT MUST NOT CLAIM ALL PASS"
     (OUT / "EVALUATION.json").write_text(
         json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(json.dumps({"counts": counts}, ensure_ascii=False, indent=2))
+    print(json.dumps({"counts": counts, "all_pass": all_pass},
+                     ensure_ascii=False, indent=2))
     for k, v in report.items():
         print(f"{k:12} {v.get('result'):6} {v.get('reason')}")
 

@@ -29,9 +29,16 @@ from .epistemic_ops import (
     fork_scene_branch,
 )
 from .scene_contract import (
+    ContractRevisionAdmission,
     ContractRevisionCandidate,
+    ContractRevisionOutcome,
     SceneContract,
+    SceneContractDriftAssessment,
+    SceneContractProvenance,
     SceneContractStatus,
+    admit_contract_revision,
+    apply_user_contract_edit,
+    assess_scene_contract_drift,
     derive_scene_contract,
     detect_contract_drift,
 )
@@ -100,6 +107,9 @@ class RecognitionPass:
     space_candidates: list[SpaceTransitionCandidate] = field(default_factory=list)
     revision_candidates: list[ContractRevisionCandidate] = field(
         default_factory=list)
+    revision_admissions: list[ContractRevisionAdmission] = field(
+        default_factory=list)
+    drift_assessment: SceneContractDriftAssessment | None = None
     aporia_candidates: list[AporiaCandidate] = field(default_factory=list)
     admissions: list[TransitionAdmission] = field(default_factory=list)
     mutations_applied: list[str] = field(default_factory=list)
@@ -116,6 +126,10 @@ class RecognitionPass:
             "space_candidates": [c.to_public() for c in self.space_candidates],
             "revision_candidates": [c.to_public()
                                       for c in self.revision_candidates],
+            "revision_admissions": [a.to_public()
+                                    for a in self.revision_admissions],
+            "drift_assessment": (self.drift_assessment.to_public()
+                                 if self.drift_assessment else None),
             "aporia_candidates": [c.to_public() for c in self.aporia_candidates],
             "admissions": [asdict(a) for a in self.admissions],
             "mutations_applied": list(self.mutations_applied),
@@ -151,8 +165,9 @@ def run_recognition_pass(*,
     action = context_action or {}
     action_kind = (action.get("kind") or "").upper()
 
-    # Contract drift from typed state delta (no lexical parsing)
+    # Contract drift from typed structural assessment (no lexical parsing)
     if prior_contract is not None:
+        rp.drift_assessment = assess_scene_contract_drift(prior_contract, state)
         drift = detect_contract_drift(prior_contract, state)
         if drift is not None:
             rp.revision_candidates.append(drift)
@@ -190,8 +205,10 @@ def run_recognition_pass(*,
             intensity=0.9,
             material="explicit" if action.get("human_explicit_choice") else ""))
 
-    if action_kind == "CONTRACT_CONFIRM":
-        pass  # handled in apply — promotes PROVISIONAL -> CONFIRMED
+    if action_kind in {
+            "CONTRACT_CONFIRM", "CONTRACT_ADMIT_REVISION",
+            "CONTRACT_REJECT_REVISION", "CONTRACT_EDIT"}:
+        pass  # handled in apply — admission, not candidate minting
 
     # Ensure default workspace space is registered
     if not state.space_registry.has(DEFAULT_WORKSPACE_SPACE_ID):
@@ -215,7 +232,11 @@ def apply_recognition_admissions(state: PipelineState,
                                  context_action: dict[str, Any] | None = None,
                                  ) -> tuple[SceneContract | None,
                                             ContractRevisionCandidate | None]:
-    """Apply ADMIT outcomes; refuse non-admitted mutations."""
+    """Apply ADMIT outcomes; refuse non-admitted mutations.
+
+    ContractRevisionCandidate never becomes the active SceneContract unless
+    ContractRevisionAdmission.outcome is ADMIT_REVISION.
+    """
     action = context_action or {}
     action_kind = (action.get("kind") or "").upper()
     new_contract: SceneContract | None = None
@@ -325,20 +346,90 @@ def apply_recognition_admissions(state: PipelineState,
     # Contract revision / initial contract
     if action_kind == "CONTRACT_CONFIRM" and prior_contract is not None:
         from dataclasses import replace
-        from .scene_contract import SceneContractProvenance
         new_contract = replace(
             prior_contract,
             status=SceneContractStatus.CONFIRMED,
             provenance=SceneContractProvenance.USER_EXPLICIT)
         rp.mutations_applied.append(
             f"contract_confirmed:{new_contract.contract_id}")
-    elif rp.revision_candidates:
-        rev = rp.revision_candidates[0]
-        # Same-space intent shift: revision candidate, no space switch
-        admitted_revision = rev
-        rp.mutations_applied.append(
-            f"contract_revision_proposed:{rev.candidate_id}")
-        new_contract = rev.proposed_contract
+        rp.revision_admissions.append(ContractRevisionAdmission(
+            admission_id=f"cra_{secrets.token_hex(6)}",
+            candidate_id="",
+            outcome=ContractRevisionOutcome.NO_DRIFT,
+            reason="USER_EXPLICIT CONTRACT_CONFIRM of active contract; "
+                   "not a revision activation",
+            authority="USER_EXPLICIT",
+            prior_contract_id=prior_contract.contract_id,
+            active_contract_id=new_contract.contract_id,
+        ))
+    elif prior_contract is not None:
+        rev = rp.revision_candidates[0] if rp.revision_candidates else None
+        if (action_kind == "CONTRACT_ADMIT_REVISION"
+                and action.get("human_explicit_choice") and rev is None):
+            proposed = derive_scene_contract(
+                state, prior=prior_contract,
+                provenance=SceneContractProvenance.USER_EXPLICIT)
+            proposed.status = SceneContractStatus.REVISION_PROPOSED
+            rev = ContractRevisionCandidate(
+                candidate_id=_new_id("crc"),
+                prior_contract_id=prior_contract.contract_id,
+                proposed_contract=proposed,
+                reason="USER_EXPLICIT CONTRACT_ADMIT_REVISION of current typed state",
+                source="USER_EXPLICIT",
+                authority="USER_EXPLICIT",
+            )
+            rp.revision_candidates.append(rev)
+        if action_kind == "CONTRACT_EDIT" and action.get("human_explicit_choice"):
+            edited = apply_user_contract_edit(prior_contract, state, action)
+            synthetic = ContractRevisionCandidate(
+                candidate_id=rev.candidate_id if rev else f"crc_{secrets.token_hex(6)}",
+                prior_contract_id=prior_contract.contract_id,
+                proposed_contract=edited,
+                reason="USER_EXPLICIT CONTRACT_EDIT",
+                source="USER_EXPLICIT",
+                authority="USER_EXPLICIT",
+            )
+            if rev is None:
+                rp.revision_candidates.append(synthetic)
+            else:
+                rp.revision_candidates[0] = synthetic
+            rev = synthetic
+        cra = admit_contract_revision(
+            prior=prior_contract, candidate=rev, context_action=action)
+        rp.revision_admissions.append(cra)
+        if cra.outcome == ContractRevisionOutcome.ADMIT_REVISION and rev is not None:
+            activated = rev.proposed_contract
+            if action_kind == "CONTRACT_EDIT":
+                activated.status = SceneContractStatus.CONFIRMED
+                activated.provenance = SceneContractProvenance.USER_EXPLICIT
+            else:
+                activated.status = SceneContractStatus.PROVISIONAL
+                activated.provenance = SceneContractProvenance.USER_EXPLICIT
+            new_contract = activated
+            admitted_revision = rev
+            rp.mutations_applied.append(
+                f"contract_revision_admitted:{rev.candidate_id}")
+        elif cra.outcome == ContractRevisionOutcome.REJECT_REVISION:
+            new_contract = prior_contract
+            if rev is not None:
+                rp.mutations_refused.append(
+                    f"contract_revision_rejected:{rev.candidate_id}")
+        elif cra.outcome == ContractRevisionOutcome.HOLD_PROPOSAL:
+            new_contract = prior_contract
+            admitted_revision = rev
+            if rev is not None:
+                rp.mutations_applied.append(
+                    f"contract_revision_held:{rev.candidate_id}")
+        elif cra.outcome == ContractRevisionOutcome.ASK_HUMAN:
+            new_contract = prior_contract
+            admitted_revision = rev
+            rp.clarification_required = True
+            rp.clarification_reason = cra.reason
+            if rev is not None:
+                rp.mutations_applied.append(
+                    f"contract_revision_held:{rev.candidate_id}")
+        else:
+            new_contract = prior_contract
     elif prior_contract is None:
         new_contract = derive_scene_contract(state)
         rp.mutations_applied.append(

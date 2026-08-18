@@ -1,20 +1,20 @@
-task_id: SOCRATES-GS26-3A-PLUS-CURSOR-20260818-001
-status: COMPLETED
-current_head: dba32e1fcb2917e07846975ca4f7ca3d16e1b80d
-production_at_start: 2236a4c
+task_id: SOCRATES-GS26-3A-PLUS-R-CONTRACT-ADMISSION-20260818-001
+status: IN_PROGRESS
+current_head: ba71ebb58a8e56fb75e88cd3609c5d2e3887639e
+production_at_start: dba32e1fcb2917e07846975ca4f7ca3d16e1b80d
 production_deployed: dba32e1fcb2917e07846975ca4f7ca3d16e1b80d
 
-current_package: STOP_AFTER_3A_PLUS
+current_package: 3A_PLUS_R_CONTRACT_ADMISSION
 completed_packages:
   - B2Q_R_NATURAL_QUESTION_INFERENCE
   - 3A_PLUS_CONTEXT_CONTINUITY
-next_package: 3B_PRIVATE_WORK_PLANE
+next_package: STOP_AFTER_3A_PLUS_R
 
 regression:
-  full_backend_floor: 1174
-  full_backend_current: 1198
+  full_backend_floor: 1198
+  full_backend_current: SET_AFTER_TESTS
 
-continuity_decision: ADD_MINIMAL_SERVER_CONTEXT_STORE
+continuity_decision: ADD_NARROW_CONTRACT_REVISION_ADMISSION
 
 cursor_constraints:
   - LOCAL_FOREGROUND_ONLY
@@ -23,23 +23,32 @@ cursor_constraints:
   - NO_PROXY_SSH_DEPLOY
 
 open_defects:
+  - id: D-S26-CTX-001
+    summary: ContractRevisionCandidate bypasses admission and becomes active persisted SceneContract.
+    status: IN_REPAIR
+    blocking: true
+  - id: D-S26-CTX-002
+    summary: SceneContract drift too sensitive; continuation/sub-op/paraphrase treated as drift.
+    status: IN_REPAIR
+    blocking: true
+  - id: D-S26-EVAL-001
+    summary: LIVE evaluator tautology (or True) and pair_l1 ignores contract_revision_proposed.
+    status: IN_REPAIR
+    blocking: true
   - id: D-S26-QSEL-003
     summary: QUESTION remains post-terminal rendering subtype not first-class governor terminal.
     status: OPEN
     nonblocking: true
 
 resume_from:
-  package: 3A_PLUS_CONTEXT_CONTINUITY
+  package: 3A_PLUS_R_CONTRACT_ADMISSION
   what_to_do_next: |
-    Implement server-side ContextStore, context_id API, recognition pass,
-    SceneContract, branch/Space transitions; tests T1-T23; deploy; LIVE-C1..C10.
-
-regression:
-  full_backend_floor: 1174
-  full_backend_current: SET_AFTER_TESTS
+    Implement ContractRevisionAdmission + SceneContractDriftAssessment;
+    hold-not-activate; R1-R8; repair evaluator; deploy; LIVE-R1..R7; STOP.
 
 nonclaims:
   - '3B/3C/3D/3E/3F NOT STARTED.'
   - 'D-S26-QSEL-003 unchanged unless proven in this package.'
-  - 'Space memory namespace may remain PARTIAL_FOUNDATION.'
+  - 'L9 known-Space remains MECHANICALLY PROVEN / LIVE N/A.'
+  - 'B2Q-R not reopened; PRESERVE_APORIA may outrank question overlay.'
 last_updated: '2026-08-18'

@@ -376,7 +376,9 @@ class TestR12_TerminalSovereignty:
         assert "Terminal.CHALLENGE" in src
         assert "Terminal.DWELL" in src
         # Must NOT extend to hard stops.
-        assert "Terminal.FAILED_EXPLICIT" not in src.split("_q_overlayable")[1].split("if ")[0] or True
+        overlay_src = src.split("_q_overlayable")[1].split("if ")[0]
+        assert "Terminal.FAILED_EXPLICIT" not in overlay_src
+        assert "Terminal.PRESERVE_APORIA" not in overlay_src
 
 
 class TestR13_OutputQuality:

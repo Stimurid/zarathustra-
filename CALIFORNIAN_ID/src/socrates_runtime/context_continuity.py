@@ -1,7 +1,6 @@
 """Cross-turn context continuity orchestration — 3A+ wiring seam."""
 from __future__ import annotations
 
-from dataclasses import asdict
 from typing import Any
 
 from .context_recognition import (
@@ -15,7 +14,12 @@ from .context_store import (
     SocratesContext,
 )
 from .epistemic_model import DEFAULT_WORKSPACE_SPACE_ID, build_default_workspace_space
-from .scene_contract import SceneContract, SceneContractStatus
+from .scene_contract import (
+    ContractRevisionCandidate,
+    SceneContract,
+    SceneContractStatus,
+    scene_contract_from_entry,
+)
 from .state import PipelineState
 
 
@@ -60,30 +64,31 @@ def hydrate_state_from_context(state: PipelineState,
 
 
 def load_prior_contract(ctx: SocratesContext | None) -> SceneContract | None:
+    """Load the ACTIVE contract. Held REVISION_PROPOSED entries are not active."""
     if ctx is None or not ctx.contract_history:
         return None
+    if ctx.active_contract_id:
+        for entry in ctx.contract_history:
+            if entry.get("contract_id") == ctx.active_contract_id:
+                if entry.get("status") == SceneContractStatus.REVISION_PROPOSED.value:
+                    continue
+                return scene_contract_from_entry(
+                    entry,
+                    fallback_scene_id=ctx.scene_id,
+                    fallback_space_id=ctx.space_id,
+                    fallback_branch_id=ctx.branch_id,
+                )
     for entry in reversed(ctx.contract_history):
-        if entry.get("status") not in (
-                SceneContractStatus.SUSPENDED.value,):
-            from .scene_contract import SceneContractProvenance
-            return SceneContract(
-                contract_id=entry["contract_id"],
-                version=int(entry.get("version", 1)),
-                scene_id=entry.get("scene_id", ctx.scene_id),
-                space_id=entry.get("space_id", ctx.space_id),
-                branch_id=entry.get("branch_id", ctx.branch_id),
-                intent=entry.get("intent", ""),
-                telos=entry.get("telos", ""),
-                object_scope=entry.get("object_scope", ""),
-                operation_kind=entry.get("operation_kind", ""),
-                expected_intervention=entry.get("expected_intervention", ""),
-                uncertainty=float(entry.get("uncertainty", 0.0)),
-                provenance=SceneContractProvenance(
-                    entry.get("provenance", "SYSTEM_DERIVED")),
-                status=SceneContractStatus(
-                    entry.get("status", "PROVISIONAL")),
-                supersedes=entry.get("supersedes", ""),
-            )
+        if entry.get("status") in {
+                SceneContractStatus.SUSPENDED.value,
+                SceneContractStatus.REVISION_PROPOSED.value}:
+            continue
+        return scene_contract_from_entry(
+            entry,
+            fallback_scene_id=ctx.scene_id,
+            fallback_space_id=ctx.space_id,
+            fallback_branch_id=ctx.branch_id,
+        )
     return None
 
 
@@ -92,8 +97,13 @@ def snapshot_context(ctx: SocratesContext,
                      *,
                      contract: SceneContract | None,
                      recognition: RecognitionPass,
+                     held_revision: ContractRevisionCandidate | None = None,
                      ) -> SocratesContext:
-    """Update context snapshot after a run + recognition pass."""
+    """Update context snapshot after a run + recognition pass.
+
+    ``contract`` is the ACTIVE SceneContract. A held revision candidate may
+    be appended to history but must not become ``active_contract_id``.
+    """
     ctx.space_id = state.space_id
     ctx.scene_id = state.scene_id
     ctx.branch_id = state.branch_id
@@ -109,19 +119,29 @@ def snapshot_context(ctx: SocratesContext,
         "last_event": recognition.event_kind.value,
         "mutations_applied": list(recognition.mutations_applied),
         "mutations_refused": list(recognition.mutations_refused),
+        "revision_admissions": [
+            a.to_public() for a in recognition.revision_admissions],
+        "drift_assessment": (
+            recognition.drift_assessment.to_public()
+            if recognition.drift_assessment else None),
     }
     if contract is not None:
-        entry = contract.to_public()
-        if not ctx.contract_history or (
-                ctx.contract_history[-1].get("contract_id")
-                != contract.contract_id
-                or ctx.contract_history[-1].get("version")
-                != contract.version):
-            ctx.contract_history.append(entry)
-        else:
-            ctx.contract_history[-1] = entry
+        _upsert_contract_history(ctx, contract.to_public())
         ctx.active_contract_id = contract.contract_id
+    if held_revision is not None:
+        _upsert_contract_history(ctx, held_revision.proposed_contract.to_public())
+        ctx.recognition_state["held_revision"] = held_revision.to_public()
+        # active_contract_id stays on the prior/active contract
     return ctx
+
+
+def _upsert_contract_history(ctx: SocratesContext, entry: dict[str, Any]) -> None:
+    cid = entry.get("contract_id")
+    for i, h in enumerate(ctx.contract_history):
+        if h.get("contract_id") == cid:
+            ctx.contract_history[i] = entry
+            return
+    ctx.contract_history.append(entry)
 
 
 def resolve_context(store: ContextStore | None,
@@ -175,15 +195,25 @@ def process_context_continuity(*,
         prior_contract=prior_contract,
         context_action=context_action,
     )
-    ctx = snapshot_context(ctx, state, contract=contract, recognition=rp)
+    held = None
+    if revision is not None:
+        applied = " ".join(rp.mutations_applied)
+        if "contract_revision_admitted:" not in applied:
+            held = revision
+    ctx = snapshot_context(
+        ctx, state, contract=contract, recognition=rp, held_revision=held)
     store.save(ctx)
 
+    admission_pub = None
+    if rp.revision_admissions:
+        admission_pub = rp.revision_admissions[-1].to_public()
     meta = {
         "context_id": cid,
         "context_created": created,
         "prior_context_version": ctx.context_version,
         "contract": contract.to_public() if contract else None,
         "contract_revision": revision.to_public() if revision else None,
+        "contract_revision_admission": admission_pub,
         "recognition_pass": rp.to_public(),
     }
     return ctx, cid, contract, rp, meta
