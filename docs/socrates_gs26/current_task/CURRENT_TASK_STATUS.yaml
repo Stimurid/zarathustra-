@@ -1,34 +1,33 @@
-task_id: SOCRATES-GS26-3B-PRIVATE-WORK-PLANE-20260818-001
+task_id: SOCRATES-GS26-3C-APORIA-APPARATUS-LEARNING-20260818-001
 status: PASS
 authority_date: '2026-08-18'
 repository: 'C:/projects/zarathustra-push'
 remote: 'https://github.com/Stimurid/zarathustra-.git'
 
 start_branch: socrates/gs26-real-socrates-and-shiva
-start_head: f5e3f290e4713e1f2191358801d5a4fa97f88f77
-production_at_start: 2f3474e2388bb1caa24be6080ebddb550de383e0
-work_branch: socrates/gs26-real-socrates-and-shiva
-current_head: c2d5833847303fa3280d0cb9168bf5b37325a200
-production_now: c2d5833847303fa3280d0cb9168bf5b37325a200
+start_head: cd99bb425360f07c69a5d18c21956399d4e27028
+production_at_start: c2d5833847303fa3280d0cb9168bf5b37325a200
+work_branch: socrates/3c-aporia-apparatus-learning
+current_head: pending_commit
 
 package_order:
-  - 3B_PRIVATE_WORK_PLANE
-current_package: 3B_PRIVATE_WORK_PLANE
+  - 3C_APORIA_APPARATUS_LEARNING
+current_package: 3C_APORIA_APPARATUS_LEARNING
 completed_packages:
   - B2Q_R_NATURAL_QUESTION_INFERENCE
   - 3A_PLUS_CONTEXT_CONTINUITY
   - 3A_PLUS_R_CONTRACT_ADMISSION
   - 3B_PRIVATE_WORK_PLANE
-next_package: STOP_AFTER_3B
+  - 3C_APORIA_APPARATUS_LEARNING
+next_package: STOP_AFTER_3C
 
 entry_classification: SUBSTRATE_ONLY
 exit_classification: PASS_ACTIVE_IN_RUNTIME
-architecture_decision: WIRE_EXISTING_PRIVATE_WORK_AT_PRE_RENDER_SEAM
-b2qr_accounting: ACCOUNT_AS_INTERNAL_SPECIALIZED_CALL
+architecture_decision: WIRE_EXISTING_APORIA_WORLD_MAP_AT_POST_3B_SEAM
 
 regression:
   full_backend_floor: 1214
-  full_backend_current: 1243_passed_4_skipped_0_failed
+  full_backend_current: 1257_passed_4_skipped_0_failed
 
 open_defects:
   - id: D-S26-QSEL-003
@@ -37,10 +36,9 @@ open_defects:
     nonblocking: true
 
 resume_from:
-  package: STOP_AFTER_3B
+  package: STOP_AFTER_3C
   what_to_do_next: |
-    3B PASS / ACTIVE_IN_RUNTIME on c2d5833. Do not start 3C unless a new
-    handoff is issued. Next frontier if a later session is authorized: 3C.
+    3C PASS / ACTIVE_IN_RUNTIME. Do not start 3D unless a new handoff is issued.
 
 cursor_constraints:
   - LOCAL_FOREGROUND_ONLY
@@ -49,8 +47,8 @@ cursor_constraints:
   - NO_PROXY_SSH_DEPLOY
 
 nonclaims:
-  - '3C/3D/3E/3F NOT STARTED.'
+  - '3D/3E/3F NOT STARTED.'
   - 'D-S26-QSEL-003 unchanged unless separately proven.'
-  - 'No raw CoT capture/export.'
-  - 'Private→durable promotion DEFERRED_BY_DESIGN unless existing B05 admits.'
+  - 'No automatic candidate→current promotion.'
+  - 'No new source/fabric/argument/memory store.'
 last_updated: '2026-08-18'

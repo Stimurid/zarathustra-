@@ -1,0 +1,136 @@
+{
+  "case": "CASE8_same_material_replay",
+  "run_id": "srun_7ef88ddb34ea535e",
+  "trace_id": "strc_6e3bbcaf13ae8d26",
+  "terminal": "ANSWER",
+  "apparatus_diagnostic": {
+    "result_id": "adr_dd774af3e593",
+    "classification": "APPARATUS_MISMATCH_CANDIDATE",
+    "aporia": {
+      "observation_id": "apo_61c7c2754e07",
+      "grade": "APORIA",
+      "subject_ref": "src_16367aacb67a4a01",
+      "resistance_evidence": [
+        "repeated_projection_failure:2"
+      ],
+      "apparatus_limitation_candidate": "EXTRACT_CONCEPTS",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": {
+      "candidate_id": "amc_2875d73c4552",
+      "aporia_evidence_refs": [
+        "apo_61c7c2754e07"
+      ],
+      "current_apparatus_refs": [
+        "EXTRACT_CONCEPTS"
+      ],
+      "failure_pattern": "repeated_projection_loss",
+      "candidate_diagnosis": "APPARATUS_MISMATCH_CANDIDATE",
+      "confidence": "MEDIUM",
+      "alternatives_considered": [
+        "keep_current",
+        "DIFFERENTIATED_ACCOUNT"
+      ],
+      "why_ordinary_uncertainty_insufficient": "same apparatus lost material on repeated encounters",
+      "hypothesis_id": "amh_387c598aa3af",
+      "apparatus_kind": "PROJECTION"
+    },
+    "review": {
+      "review_id": "arv_2dc8ab88f424",
+      "hypothesis_id": "amh_387c598aa3af",
+      "outcome": "REVISION_WARRANTED",
+      "reason": "same_material_reveals_new_distinction",
+      "surviving_ref": "op:DIFFERENTIATED_ACCOUNT"
+    },
+    "candidate_change": {
+      "change_id": "cac_d8d41ead5a19",
+      "kind": "DISTINCTION",
+      "predecessor_apparatus_ref": "EXTRACT_CONCEPTS",
+      "proposed_ref": "op:DIFFERENTIATED_ACCOUNT",
+      "rationale": "replay same material under differentiated account",
+      "reveals": [
+        "hidden_relation"
+      ],
+      "erases": [],
+      "authority": "NO_ADOPTION_AUTHORITY"
+    },
+    "replay": {
+      "replay_id": "rpl_28a612d8fce5",
+      "material_ref": "mat_16367aacb67a4a01",
+      "old_view": {
+        "material_ref": "mat_16367aacb67a4a01",
+        "distinguished": [],
+        "lost": [
+          "hidden_relation"
+        ],
+        "epistemic_status": "UNRESOLVED",
+        "aporia_present": false,
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "candidate_view": {
+        "material_ref": "mat_16367aacb67a4a01",
+        "distinguished": [
+          "hidden_relation"
+        ],
+        "lost": [],
+        "epistemic_status": "UNRESOLVED",
+        "aporia_present": false,
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "newly_distinct": [
+        "hidden_relation"
+      ],
+      "destroyed": [],
+      "false_distinctions": [],
+      "epistemic_status_changed": false,
+      "hypothesis_became_fact": false,
+      "productive_aporia_destroyed": false,
+      "authority_intact": true,
+      "forward_action_improved": true,
+      "adoption": "PROPOSE_WORLD_MAP_UPDATE",
+      "reason": "same_material_reveals_new_distinction"
+    },
+    "world_map_proposal": {
+      "proposal_id": "wmp_1bf3f402a769",
+      "space_id": "space_default_workspace",
+      "base_version_id": "wmv_seed",
+      "to_add": [
+        {
+          "entry_id": "wme_6f9ea59ce24e",
+          "kind": "distinction",
+          "subject": "op:DIFFERENTIATED_ACCOUNT",
+          "content": "hidden_relation",
+          "provenance": "replay:rpl_28a612d8fce5",
+          "status": "active"
+        }
+      ],
+      "to_supersede": [],
+      "to_withdraw": [],
+      "reason": "same_material_reveals_new_distinction",
+      "triggered_by_aporia_id": "apo_61c7c2754e07",
+      "triggered_by_review_id": "arv_2dc8ab88f424",
+      "authority": "NO_DURABLE_WRITE"
+    },
+    "lineage": {
+      "record_id": "aln_53ed5425e293",
+      "predecessor_version_id": "wmv_seed",
+      "initiating_aporia_id": "apo_61c7c2754e07",
+      "diagnostic_classification": "APPARATUS_MISMATCH_CANDIDATE",
+      "candidate_change_id": "cac_d8d41ead5a19",
+      "replay_id": "rpl_28a612d8fce5",
+      "comparison_adoption": "PROPOSE_WORLD_MAP_UPDATE",
+      "adoption_status": "PROPOSAL_ONLY",
+      "authority": "NO_DURABLE_WRITE"
+    },
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "repeated_projection_failure:2"
+    ],
+    "stop_reason": "PROPOSE_WORLD_MAP_UPDATE"
+  },
+  "private_work_status": "NO_EXTRA_WORK",
+  "memory_outcome": null,
+  "trace_path": "C:\\Users\\Timur Shchukin\\AppData\\Local\\Temp\\pytest-of-Timur Shchukin\\pytest-1568\\test_surviving_comparison_yiel0\\traces\\strc_6e3bbcaf13ae8d26.json"
+}

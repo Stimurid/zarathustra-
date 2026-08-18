@@ -72,6 +72,10 @@ def log_dialogue(*, source: str, input_text: str,
             record["additional_private_pass_count"] = pw.get(
                 "additional_private_pass_count")
             record["private_work_stop_reason"] = pw.get("stop_reason")
+        ad = response.get("apparatus_diagnostic")
+        if isinstance(ad, dict):
+            record["apparatus_classification"] = ad.get("classification")
+            record["apparatus_stop_reason"] = ad.get("stop_reason")
         if error:
             record["error"] = error[:2000]
         if extra:

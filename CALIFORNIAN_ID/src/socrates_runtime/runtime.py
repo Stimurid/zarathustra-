@@ -92,6 +92,8 @@ class SocratesRunResult:
     context_id: str = ""
     context_continuity: dict[str, Any] | None = None
     private_work: dict[str, Any] | None = None
+    #: 3C apparatus diagnostic (ephemeral; never a durable write).
+    apparatus_diagnostic: dict[str, Any] | None = None
 
     def to_public(self) -> dict[str, Any]:
         return {
@@ -122,6 +124,7 @@ class SocratesRunResult:
             "context_id": self.context_id,
             "context_continuity": self.context_continuity,
             "private_work": self.private_work,
+            "apparatus_diagnostic": self.apparatus_diagnostic,
         }
 
 
@@ -167,6 +170,9 @@ class SocratesRuntime:
                 cutter_registry=self.cutter_registry))
         self.identity = SocratesIdentity.bootstrap()
         self.trace_dir = Path(trace_dir) if trace_dir else Path.cwd() / "runs" / "socrates"
+        from .aporia_and_world_map import WorldMapRegistry
+        self.world_map_registry = WorldMapRegistry()
+        self._apparatus_repeat: dict[str, int] = {}
 
     # ------------------------------------------------------------------
 
@@ -308,6 +314,28 @@ class SocratesRuntime:
             input_text=input_text, mode=mode, client=pw_client,
             budget=call_budget)
         trace.record("private_work", private_work=private_shadow.to_public())
+
+        # 3C: aporia/apparatus diagnostic. Deterministic typed pass —
+        # not a second orchestrator. Uses 3B budget only as a stop
+        # ceiling (does not increment additional_private_pass_count).
+        from .aporia_and_world_map import (
+            WorldMapVersion, run_apparatus_diagnostic,
+        )
+        space_id = getattr(state, "space_id", "") or "space_default_workspace"
+        if self.world_map_registry.latest(space_id) is None:
+            self.world_map_registry.seed(WorldMapVersion(
+                version_id="wmv_seed",
+                space_id=space_id,
+                version_number=1,
+                entries=(),
+            ))
+        apparatus_diag = run_apparatus_diagnostic(
+            state, outcome, input_text=input_text,
+            registry=self.world_map_registry,
+            repeat_index=self._apparatus_repeat)
+        trace.record(
+            "apparatus_diagnostic",
+            apparatus_diagnostic=apparatus_diag.to_public())
 
         # B2Q + B2Q-R: derive the QuestionSetPlan post-terminal.
         #
@@ -475,6 +503,7 @@ class SocratesRuntime:
             context_id=final_context_id,
             context_continuity=context_continuity_meta,
             private_work=private_shadow.to_public() if private_shadow else None,
+            apparatus_diagnostic=apparatus_diag.to_public(),
         )
 
     # ------------------------------------------------------------------

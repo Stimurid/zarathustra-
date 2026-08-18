@@ -226,15 +226,8 @@ class TestWorldMapRegistry:
 
 
 def test_generation_3c_marker():
-    """Package 3C acceptance envelope:
-
-    * aporia grade gate: ordinary uncertainty CANNOT open apparatus
-      mismatch ✓ (TestAporiaGrading — 3 tests)
-    * apparatus review may reject / warrant / defer ✓ (TestApparatusReview)
-    * world-map registry: prior versions addressable ✓
-    * world-map update requires REVISION_WARRANTED review OR
-      authorized_transition_ref (B05) ✓
-    * proposal.authority = "NO_DURABLE_WRITE" public constant ✓
-    * supersede preserves history ✓
-    """
-    assert True
+    """Non-tautological marker: SocratesRuntime invokes apparatus diagnostic."""
+    from socrates_runtime.runtime import SocratesRuntime as RT
+    src = open(RT.run.__code__.co_filename, encoding="utf-8").read()
+    assert "run_apparatus_diagnostic" in src
+    assert "run_private_work" in src

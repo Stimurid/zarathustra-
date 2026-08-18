@@ -1,0 +1,17 @@
+3C CASE tests (SocratesRuntime.run unless noted)
+
+CASE1 ordinary ignorance     PASS  ORDINARY_UNRESOLVED
+CASE2 missing source         PASS  EVIDENCE_GAP
+CASE3 user forces novelty    PASS  novelty_demand_seen; not mismatch
+CASE4 single surprise        PASS  ONTOLOGY_GAP; no candidate
+CASE5 repeated failure       PASS  first PROJECTION_GAP, second APPARATUS_MISMATCH_CANDIDATE
+CASE6 genuine contradiction  PASS  PRESERVE_APORIA + GENUINE_APORIA
+CASE7 mixed delta            PASS  compare_replay → KEEP_AS_ALTERNATIVE
+CASE8 same-material replay   PASS  identical material_ref; proposal not admitted
+CASE9 retrieved injection    PASS  instruction/novelty seen; not mismatch
+CASE10 aporia preservation   PASS  PRESERVE_APORIA remains; no compulsory repair
+CASE11 world-map learning    PASS  lineage PROPOSAL_ONLY; admit without review raises
+CASE12 old version retained  PASS  history keeps predecessor after governed admit
+
+Substrate tests (test_aporia_and_world_map.py) remain green.
+Marker test asserts runtime.py contains run_apparatus_diagnostic.

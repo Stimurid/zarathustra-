@@ -139,4 +139,5 @@ def dispatch_socrates_run(*, text: str, execution_mode: str,
         "context_id": public.get("context_id"),
         "context_continuity": public.get("context_continuity"),
         "private_work": public.get("private_work"),
+        "apparatus_diagnostic": public.get("apparatus_diagnostic"),
     }

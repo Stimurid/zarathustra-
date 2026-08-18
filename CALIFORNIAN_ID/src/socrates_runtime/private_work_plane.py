@@ -107,6 +107,7 @@ REGISTERED_PRIVATE_MODULES: frozenset[str] = frozenset({
     "source_gap",
     "operation_disambiguation",
     "response_plan",
+    "apparatus_diagnostic",
 })
 
 ALLOWED_PRIVATE_PURPOSES: frozenset[str] = frozenset({
@@ -115,6 +116,7 @@ ALLOWED_PRIVATE_PURPOSES: frozenset[str] = frozenset({
     "PROJECTION_DIAGNOSTIC_REVIEW",
     "OPERATION_DISAMBIGUATION",
     "RESPONSE_PLAN_RECONSTRUCTION",
+    "APPARATUS_DIAGNOSTIC",
 })
 
 PURPOSE_TO_MODULE: dict[str, str] = {
@@ -123,6 +125,7 @@ PURPOSE_TO_MODULE: dict[str, str] = {
     "PROJECTION_DIAGNOSTIC_REVIEW": "projection_diagnostic",
     "OPERATION_DISAMBIGUATION": "operation_disambiguation",
     "RESPONSE_PLAN_RECONSTRUCTION": "response_plan",
+    "APPARATUS_DIAGNOSTIC": "apparatus_diagnostic",
 }
 
 _AUTHORITY_INFLATING_KEYS: frozenset[str] = frozenset({
