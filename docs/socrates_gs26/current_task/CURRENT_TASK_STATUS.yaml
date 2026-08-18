@@ -1,22 +1,43 @@
-task_id: SOCRATES-GS26-3A-PLUS-R-CONTRACT-ADMISSION-20260818-001
-status: COMPLETE
-current_head: 2f3474e2388bb1caa24be6080ebddb550de383e0
-production_at_start: dba32e1fcb2917e07846975ca4f7ca3d16e1b80d
-production_deployed: 2f3474e2388bb1caa24be6080ebddb550de383e0
+task_id: SOCRATES-GS26-3B-PRIVATE-WORK-PLANE-20260818-001
+status: IN_PROGRESS
+authority_date: '2026-08-18'
+repository: 'C:/projects/zarathustra-push'
+remote: 'https://github.com/Stimurid/zarathustra-.git'
 
-current_package: 3A_PLUS_R_CONTRACT_ADMISSION
+start_branch: socrates/gs26-real-socrates-and-shiva
+start_head: f5e3f290e4713e1f2191358801d5a4fa97f88f77
+production_at_start: 2f3474e2388bb1caa24be6080ebddb550de383e0
+work_branch: socrates/gs26-real-socrates-and-shiva
+current_head: SET_AT_COMMIT
+
+package_order:
+  - 3B_PRIVATE_WORK_PLANE
+current_package: 3B_PRIVATE_WORK_PLANE
 completed_packages:
   - B2Q_R_NATURAL_QUESTION_INFERENCE
   - 3A_PLUS_CONTEXT_CONTINUITY
   - 3A_PLUS_R_CONTRACT_ADMISSION
-next_package: STOP_AFTER_3A_PLUS_R
+next_package: STOP_AFTER_3B
+
+entry_classification: SUBSTRATE_ONLY
+architecture_decision: WIRE_EXISTING_PRIVATE_WORK_AT_PRE_RENDER_SEAM
+b2qr_accounting: ACCOUNT_AS_INTERNAL_SPECIALIZED_CALL
 
 regression:
-  full_backend_floor: 1198
-  full_backend_current: 1214_passed_4_skipped_0_failed
+  full_backend_floor: 1214
+  full_backend_current: SET_AFTER_TESTS
 
-continuity_decision: ADD_NARROW_CONTRACT_REVISION_ADMISSION
-gate: PASS
+open_defects:
+  - id: D-S26-QSEL-003
+    summary: QUESTION remains post-terminal rendering subtype not first-class governor terminal.
+    status: OPEN
+    nonblocking: true
+
+resume_from:
+  package: 3B_PRIVATE_WORK_PLANE
+  what_to_do_next: |
+    After durable checkpoint: harden private_work_plane, wire SocratesRuntime
+    post-liberatory/pre-render, P1-P23, full backend, deploy, LIVE-P1..P8, STOP.
 
 cursor_constraints:
   - LOCAL_FOREGROUND_ONLY
@@ -24,32 +45,9 @@ cursor_constraints:
   - NO_MCP_DRIVE_GITHUB
   - NO_PROXY_SSH_DEPLOY
 
-open_defects:
-  - id: D-S26-CTX-001
-    summary: ContractRevisionCandidate bypasses admission and becomes active persisted SceneContract.
-    status: CLOSED
-    blocking: true
-  - id: D-S26-CTX-002
-    summary: SceneContract drift too sensitive; continuation/sub-op/paraphrase treated as drift.
-    status: CLOSED
-    blocking: true
-  - id: D-S26-EVAL-001
-    summary: LIVE evaluator tautology (or True) and pair_l1 ignores contract_revision_proposed.
-    status: CLOSED
-    blocking: true
-  - id: D-S26-QSEL-003
-    summary: QUESTION remains post-terminal rendering subtype not first-class governor terminal.
-    status: OPEN
-    nonblocking: true
-
-resume_from:
-  package: STOP
-  what_to_do_next: |
-    3A+R PASS. Do NOT start 3B unless a new handoff authorizes it.
-
 nonclaims:
-  - '3B/3C/3D/3E/3F NOT STARTED.'
-  - 'D-S26-QSEL-003 unchanged.'
-  - 'L9 known-Space remains MECHANICALLY PROVEN / LIVE N/A.'
-  - 'B2Q-R not reopened; PRESERVE_APORIA/RETURN_OPERATION may outrank question overlay on S4 open-world gap.'
+  - '3C/3D/3E/3F NOT STARTED.'
+  - 'D-S26-QSEL-003 unchanged unless separately proven.'
+  - 'No raw CoT capture/export.'
+  - 'Private→durable promotion DEFERRED_BY_DESIGN unless existing B05 admits.'
 last_updated: '2026-08-18'
