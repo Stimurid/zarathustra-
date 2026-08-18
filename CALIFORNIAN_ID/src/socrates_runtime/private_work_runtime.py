@@ -7,9 +7,7 @@ They cannot mutate Scene/Space/contract/profile/mount/memory.
 from __future__ import annotations
 
 import json
-import re
 import secrets
-import time
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -251,12 +249,42 @@ def _deterministic_packet(need: PrivateWorkNeedAssessment,
     )
 
 
+def _extract_json_object(text: str) -> str:
+    """First balanced JSON object. Same strategy as B2Q-R."""
+    if not text:
+        return ""
+    depth = 0
+    start = -1
+    in_str = False
+    esc = False
+    for i, ch in enumerate(text):
+        if in_str:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == '"':
+                in_str = False
+            continue
+        if ch == '"':
+            in_str = True
+        elif ch == "{":
+            if depth == 0:
+                start = i
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0 and start >= 0:
+                return text[start:i + 1]
+    return ""
+
+
 def _parse_live_packet(text: str, need: PrivateWorkNeedAssessment) -> WorkPacket | None:
-    m = re.search(r"\{.*\}", text or "", re.S)
-    if not m:
+    js = _extract_json_object(text or "")
+    if not js:
         return None
     try:
-        raw = json.loads(m.group(0))
+        raw = json.loads(js)
     except json.JSONDecodeError:
         return None
     if not isinstance(raw, dict):
@@ -297,7 +325,7 @@ def _live_private_call(client: Any, need: PrivateWorkNeedAssessment,
         "Keys: distillate (string, <=400 chars, the specific review product), "
         "changed_forward_action (string, empty if the public answer should "
         "not change), status (OK|NO_CHANGE), stop_signal (STOP). "
-        "authority is never yours."
+        "authority is never yours. JSON only."
     )
     user = (
         f"purpose={need.purpose}\n"
@@ -305,12 +333,21 @@ def _live_private_call(client: Any, need: PrivateWorkNeedAssessment,
         f"operation={state.operation.kind} applicable={state.operation.applicable}\n"
         f"telos={state.scene.telos[:200] if state.scene else ''}\n"
         f"user_text_excerpt={(input_text or '')[:400]}\n"
+        "Return JSON only."
     )
+    messages = [
+        Message(role="system", content=system),
+        Message(role="user", content=user),
+    ]
     try:
-        resp = client.complete([
-            Message(role="system", content=system),
-            Message(role="user", content=user),
-        ], temperature=0.0, max_tokens=400)
+        # Production clients implement generate() (B2Q-R pattern).
+        # Tests may supply complete().
+        if hasattr(client, "generate"):
+            resp = client.generate(
+                messages, settings={"temperature": 0.0, "max_tokens": 400})
+        else:
+            resp = client.complete(
+                messages, temperature=0.0, max_tokens=400)
         text = getattr(resp, "text", None) or str(resp)
         return _parse_live_packet(text, need)
     except Exception:  # noqa: BLE001

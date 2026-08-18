@@ -414,6 +414,32 @@ class TestP3ProjectionMismatch:
         assert shadow.public_product_excerpt in (new_out.response_text or "")
 
 
+class TestLiveGenerateSeam:
+    def test_generate_preferred_and_causally_merges(self):
+        class _Client:
+            def generate(self, messages, settings=None):
+                return type("R", (), {"text": json.dumps({
+                    "distillate": "from-generate",
+                    "changed_forward_action": "render_with_private_distillate",
+                    "status": "OK",
+                    "stop_signal": "STOP",
+                })})()
+
+            def complete(self, *a, **k):
+                raise AssertionError("complete must not run when generate exists")
+
+        state = PipelineState(run_id="gen", input_text="x")
+        state.capability_resolutions = [_gap_resolution()]
+        outcome = TerminalOutcome(terminal=Terminal.ANSWER,
+                                  response_text="plain")
+        new_out, shadow, _ = run_private_work(
+            state=state, outcome=outcome, input_text="x",
+            mode="LIVE", client=_Client())
+        assert shadow.status == "ADMITTED"
+        assert "from-generate" in (new_out.response_text or "")
+        assert shadow.additional_pass_count == 1
+
+
 class TestP4NoChangedForwardAction:
     def test_p4_live_packet_without_delta_stops(self):
         class _Client:
