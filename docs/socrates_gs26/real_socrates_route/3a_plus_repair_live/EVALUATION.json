@@ -1,0 +1,145 @@
+{
+  "counts": {
+    "PASS": 7,
+    "FAIL": 0,
+    "N/A": 0,
+    "OTHER": 0
+  },
+  "all_pass": true,
+  "cases": {
+    "LIVE-R1": {
+      "result": "PASS",
+      "reason": "same intent paraphrase",
+      "live": [
+        true,
+        true
+      ],
+      "identity": {
+        "context_id": true,
+        "scene_id": true,
+        "space_id": true
+      },
+      "branch_same": true,
+      "applied_t2": [],
+      "contract": [
+        "PROVISIONAL",
+        "PROVISIONAL"
+      ],
+      "contract_ids": [
+        "sc_b5938be98bb7",
+        "sc_b5938be98bb7"
+      ],
+      "telos": [
+        "Построить карту развилок/альтернатив по поводу возможного выхода команды на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+        "Составить карту ключевых развилок (вариантов развития/решений), связанных с выходом на рынок корпоративного обучения в следующем квартале, без выбора или принятия решения."
+      ],
+      "op": [
+        "BUILD_DECISION_BRANCH_MAP",
+        "MAPPING_BRANCH_POINT_EXTRACTION"
+      ],
+      "revision_on_continue": false
+    },
+    "LIVE-R2": {
+      "result": "PASS",
+      "reason": "same scene sub-operation",
+      "live": [
+        true,
+        true
+      ],
+      "identity": {
+        "context_id": true,
+        "scene_id": true,
+        "space_id": true
+      },
+      "branch_same": true,
+      "applied_t2": [],
+      "contract": [
+        "PROVISIONAL",
+        "PROVISIONAL"
+      ],
+      "contract_ids": [
+        "sc_1aa581726b0f",
+        "sc_1aa581726b0f"
+      ],
+      "telos": [
+        "Построить карту развилок для выхода команды на рынок корпоративного обучения в следующем квартале, при этом не принимать решения.",
+        "Определить, каких данных не хватает для различения момента, когда выход на рынок корпоративного обучения считается преждевременным («рано») и когда он становится своевременным («уже пора»), используя ту же карту выхода на рынок."
+      ],
+      "op": [
+        "SCENARIO_BRANCH_MAP_CONSTRUCTION",
+        "APPLICABILITY_ASSESSMENT"
+      ],
+      "revision_on_continue": false,
+      "operation_changed": true
+    },
+    "LIVE-R3": {
+      "result": "PASS",
+      "reason": "material drift hold",
+      "live": [
+        true,
+        true
+      ],
+      "identity": {
+        "context_id": true,
+        "space_id": true
+      },
+      "revision": true,
+      "admission": "HOLD_PROPOSAL",
+      "old_contract_id": "sc_35d140f3fb32",
+      "new_contract_id": "sc_35d140f3fb32",
+      "old_still_active": true,
+      "activated_without_admit": false,
+      "telos": [
+        "Составить предварительный трёхмесячный план найма backend-команды из пяти человек с указанием ролей, последовательности действий и кадровых рисков.",
+        "Подготовить постмортем-инцидент по сбою платёжного вебхука после ночного релиза, исключая кадровые аспекты."
+      ],
+      "op": [
+        "PRELIMINARY_HIRING_PLAN_3MO_BACKEND_TEAM",
+        "POSTMORTEM_INCIDENT_ANALYSIS"
+      ],
+      "contract": "PROVISIONAL"
+    },
+    "LIVE-R4": {
+      "result": "PASS",
+      "reason": "material drift admit",
+      "live": [
+        true,
+        true
+      ],
+      "admission": "ADMIT_REVISION",
+      "old_contract_id": "sc_d09e25f6eb01",
+      "new_contract_id": "sc_356cb10546d0",
+      "applied": [
+        "contract_revision_admitted:crc_942b666a7ed5"
+      ]
+    },
+    "LIVE-R5": {
+      "result": "PASS",
+      "reason": "direct assistance",
+      "live": true,
+      "contract": "PROVISIONAL",
+      "terminal": "ANSWER",
+      "clarification": false
+    },
+    "LIVE-R6": {
+      "result": "PASS",
+      "reason": "sovereignty_outranks_overlay_on_s4_gap",
+      "live": true,
+      "requested": null,
+      "origin": null,
+      "n_forks": 0,
+      "terminal": "RETURN_OPERATION"
+    },
+    "LIVE-R7": {
+      "result": "PASS",
+      "reason": "source/lexical negative",
+      "live": true,
+      "applied": [
+        "contract_created:sc_541db9ca6ca2"
+      ],
+      "terminal": "ANSWER"
+    }
+  },
+  "deterministic_behavioral_claims": 0,
+  "note": "LIVE repair evaluator; all_pass is false when any case is FAIL"
+}

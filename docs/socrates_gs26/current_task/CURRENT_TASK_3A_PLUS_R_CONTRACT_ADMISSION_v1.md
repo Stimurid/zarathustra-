@@ -16,7 +16,9 @@
 | Regression current | 1210 passed / 4 skipped / 0 failed |
 | D-S26-QSEL-003 | OPEN (nonblocking) |
 
-Architecture shipped in `b911e3b`; follow-up exposes `contract_history` / `active_contract_id` on public continuity so LIVE-R4 cannot pass with empty history.
+Architecture shipped in `b911e3b`; history-exposure fix in `445f05b`; LIVE drift tightening in `2f3474e` (coverage + HUMAN-locus ownership + cross-script continuation).
+
+**3A+R GATE: PASS.** Deployed `2f3474e`. LIVE-R1..R7 all PASS. STOP — do not begin 3B.
 
 ## Cursor access constraints
 

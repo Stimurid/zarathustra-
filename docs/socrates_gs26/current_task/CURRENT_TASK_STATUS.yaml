@@ -1,20 +1,22 @@
 task_id: SOCRATES-GS26-3A-PLUS-R-CONTRACT-ADMISSION-20260818-001
-status: IN_PROGRESS
-current_head: b911e3b8f5086fc153c4857220c41483fa318820
+status: COMPLETE
+current_head: 2f3474e2388bb1caa24be6080ebddb550de383e0
 production_at_start: dba32e1fcb2917e07846975ca4f7ca3d16e1b80d
-production_deployed: dba32e1fcb2917e07846975ca4f7ca3d16e1b80d
+production_deployed: 2f3474e2388bb1caa24be6080ebddb550de383e0
 
 current_package: 3A_PLUS_R_CONTRACT_ADMISSION
 completed_packages:
   - B2Q_R_NATURAL_QUESTION_INFERENCE
   - 3A_PLUS_CONTEXT_CONTINUITY
+  - 3A_PLUS_R_CONTRACT_ADMISSION
 next_package: STOP_AFTER_3A_PLUS_R
 
 regression:
   full_backend_floor: 1198
-  full_backend_current: 1210_passed_4_skipped_0_failed
+  full_backend_current: 1214_passed_4_skipped_0_failed
 
 continuity_decision: ADD_NARROW_CONTRACT_REVISION_ADMISSION
+gate: PASS
 
 cursor_constraints:
   - LOCAL_FOREGROUND_ONLY
@@ -25,15 +27,15 @@ cursor_constraints:
 open_defects:
   - id: D-S26-CTX-001
     summary: ContractRevisionCandidate bypasses admission and becomes active persisted SceneContract.
-    status: MECHANICAL_CLOSED
+    status: CLOSED
     blocking: true
   - id: D-S26-CTX-002
     summary: SceneContract drift too sensitive; continuation/sub-op/paraphrase treated as drift.
-    status: MECHANICAL_CLOSED
+    status: CLOSED
     blocking: true
   - id: D-S26-EVAL-001
     summary: LIVE evaluator tautology (or True) and pair_l1 ignores contract_revision_proposed.
-    status: MECHANICAL_CLOSED
+    status: CLOSED
     blocking: true
   - id: D-S26-QSEL-003
     summary: QUESTION remains post-terminal rendering subtype not first-class governor terminal.
@@ -41,14 +43,13 @@ open_defects:
     nonblocking: true
 
 resume_from:
-  package: 3A_PLUS_R_CONTRACT_ADMISSION
+  package: STOP
   what_to_do_next: |
-    Mechanical green 1210/4/0. Commit history-exposure evaluator fix;
-    HTTPS push; rollback snapshot; exact-SHA deploy; LIVE-R1..R7; STOP.
+    3A+R PASS. Do NOT start 3B unless a new handoff authorizes it.
 
 nonclaims:
   - '3B/3C/3D/3E/3F NOT STARTED.'
-  - 'D-S26-QSEL-003 unchanged unless proven in this package.'
+  - 'D-S26-QSEL-003 unchanged.'
   - 'L9 known-Space remains MECHANICALLY PROVEN / LIVE N/A.'
-  - 'B2Q-R not reopened; PRESERVE_APORIA may outrank question overlay.'
+  - 'B2Q-R not reopened; PRESERVE_APORIA/RETURN_OPERATION may outrank question overlay on S4 open-world gap.'
 last_updated: '2026-08-18'

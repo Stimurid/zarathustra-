@@ -1,0 +1,301 @@
+{
+  "case_id": "R1_t1",
+  "deployed_sha": "2f3474e2388bb1caa24be6080ebddb550de383e0",
+  "ts": "2026-08-18T11:48:18Z",
+  "elapsed_s": 51.446,
+  "request": {
+    "text": "Давай построим карту развилок: стоит ли команде выходить на рынок корпоративного обучения в следующем квартале. Пока только карта, без решения.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 51248,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 135192,
+    "tokens_out_sum": 1758,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15211,
+        "tokens_out": 125,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13259,
+        "tokens_out": 141,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15291,
+        "tokens_out": 9,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13076,
+        "tokens_out": 41,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14120,
+        "tokens_out": 819,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16355,
+        "tokens_out": 153,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14534,
+        "tokens_out": 301,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14142,
+        "tokens_out": 16,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19204,
+        "tokens_out": 153,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_75b62bd1dce95815c1a605d34c026bcf",
+    "scene_id": "scene_8a90dee9dfde",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Построить карту развилок/альтернатив по поводу возможного выхода команды на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+    "operation_kind": "BUILD_DECISION_BRANCH_MAP",
+    "operation_applicable": true,
+    "open_world_gap": false,
+    "contract_id": "sc_b5938be98bb7",
+    "contract_status": "PROVISIONAL",
+    "contract_version": 1,
+    "contract_intent": "Построить карту развилок/альтернатив по поводу возможного выхода команды на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+    "contract_supersedes": "",
+    "mutations_applied": [
+      "contract_created:sc_b5938be98bb7"
+    ],
+    "mutations_refused": [],
+    "revision_candidates": [],
+    "revision_admissions": [],
+    "drift_assessment": null,
+    "contract_revision_admission": null,
+    "active_contract_id": "sc_b5938be98bb7",
+    "contract_history": [
+      {
+        "contract_id": "sc_b5938be98bb7",
+        "version": 1,
+        "scene_id": "scene_8a90dee9dfde",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Построить карту развилок/альтернатив по поводу возможного выхода команды на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+        "telos": "Построить карту развилок/альтернатив по поводу возможного выхода команды на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+        "object_scope": "Запрос на построение карты развилок (тип: стратегическое решение, стадия: раннее рассмотрение, без выбора финального варианта), Команда рассматривает рынок корпоративного обучения, Временной горизонт: ближайший квартал",
+        "operation_kind": "BUILD_DECISION_BRANCH_MAP",
+        "expected_intervention": "BUILD_DECISION_BRANCH_MAP",
+        "human_owned_decisions": [
+          "Карта развилок строится как совместное аналитическое действие: структура альтернатив создаётся на основе сценических материалов и предлагаемых формализаций (system), но решение о выборе ветви, принятии на себя риска или формировании суждения остаётся за пользователем (human). В данном сеансе карта строится без перехода к принятию решения. Не требуется возвращать пользователю нерешённую HUMAN-операцию, так как граница владения операцией (структурирование vs выбор) специально обозначена и согласована сценой/запросом."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "joint"
+      }
+    ],
+    "clarification_required": false,
+    "terminal": "DWELL",
+    "question_set_plan": null,
+    "question_intent_proposal": {
+      "requested": false,
+      "regime_candidate": "",
+      "explicit_count_constraint": null,
+      "meta_relevance": "ordinary",
+      "forks": [],
+      "subordinates": [],
+      "validation_status": "OK",
+      "validation_reason": "requested=false",
+      "authority": "NO_BINDING_AUTHORITY",
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "latency_ms": 1932
+    },
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "context_id": "ctx_75b62bd1dce95815c1a605d34c026bcf",
+    "terminal": {
+      "terminal": "DWELL",
+      "response_text": "Команда продолжает анализировать варианты выхода на рынок корпоративного обучения, не принимая финального решения.",
+      "rationale": "conditions do not force any terminal deterministically",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "Разделение между построением структуры стратегических развилок (карты альтернативных ходов) и самим выбором/принятием решения: в данной сцене карта строится отдельно от этапа оценки и выбора.",
+        "grounds": "Текущий запрос и сцена явно ограничивают задачу только построением структурированной карты возможных альтернатив, исключая рекомендации и финальные решения. Такая дистинкция важна для правильного кадрирования сцены, поддержки эпистемической прозрачности и недопущения преждевременной перегонки карты в выбор или решение."
+      }
+    },
+    "context_continuity": {
+      "context_id": "ctx_75b62bd1dce95815c1a605d34c026bcf",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_b5938be98bb7",
+        "version": 1,
+        "scene_id": "scene_8a90dee9dfde",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Построить карту развилок/альтернатив по поводу возможного выхода команды на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+        "telos": "Построить карту развилок/альтернатив по поводу возможного выхода команды на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+        "object_scope": "Запрос на построение карты развилок (тип: стратегическое решение, стадия: раннее рассмотрение, без выбора финального варианта), Команда рассматривает рынок корпоративного обучения, Временной горизонт: ближайший квартал",
+        "operation_kind": "BUILD_DECISION_BRANCH_MAP",
+        "expected_intervention": "BUILD_DECISION_BRANCH_MAP",
+        "human_owned_decisions": [
+          "Карта развилок строится как совместное аналитическое действие: структура альтернатив создаётся на основе сценических материалов и предлагаемых формализаций (system), но решение о выборе ветви, принятии на себя риска или формировании суждения остаётся за пользователем (human). В данном сеансе карта строится без перехода к принятию решения. Не требуется возвращать пользователю нерешённую HUMAN-операцию, так как граница владения операцией (структурирование vs выбор) специально обозначена и согласована сценой/запросом."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "joint"
+      },
+      "contract_revision": null,
+      "contract_revision_admission": null,
+      "recognition_pass": {
+        "pass_id": "rp_bafe34c03475",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [],
+        "revision_admissions": [],
+        "drift_assessment": null,
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_created:sc_b5938be98bb7"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "active_contract_id": "sc_b5938be98bb7",
+      "contract_history": [
+        {
+          "contract_id": "sc_b5938be98bb7",
+          "version": 1,
+          "scene_id": "scene_8a90dee9dfde",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Построить карту развилок/альтернатив по поводу возможного выхода команды на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+          "telos": "Построить карту развилок/альтернатив по поводу возможного выхода команды на рынок корпоративного обучения в следующем квартале, без принятия окончательного решения.",
+          "object_scope": "Запрос на построение карты развилок (тип: стратегическое решение, стадия: раннее рассмотрение, без выбора финального варианта), Команда рассматривает рынок корпоративного обучения, Временной горизонт: ближайший квартал",
+          "operation_kind": "BUILD_DECISION_BRANCH_MAP",
+          "expected_intervention": "BUILD_DECISION_BRANCH_MAP",
+          "human_owned_decisions": [
+            "Карта развилок строится как совместное аналитическое действие: структура альтернатив создаётся на основе сценических материалов и предлагаемых формализаций (system), но решение о выборе ветви, принятии на себя риска или формировании суждения остаётся за пользователем (human). В данном сеансе карта строится без перехода к принятию решения. Не требуется возвращать пользователю нерешённую HUMAN-операцию, так как граница владения операцией (структурирование vs выбор) специально обозначена и согласована сценой/запросом."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "PROVISIONAL",
+          "supersedes": "",
+          "ownership_owner": "joint"
+        }
+      ],
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "question_set_plan": null,
+    "question_intent_proposal": {
+      "requested": false,
+      "regime_candidate": "",
+      "explicit_count_constraint": null,
+      "meta_relevance": "ordinary",
+      "forks": [],
+      "subordinates": [],
+      "validation_status": "OK",
+      "validation_reason": "requested=false",
+      "authority": "NO_BINDING_AUTHORITY",
+      "origin": "MODEL_PRODUCED_VALIDATED",
+      "latency_ms": 1932
+    },
+    "error": null,
+    "http_status": null
+  }
+}

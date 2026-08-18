@@ -1,0 +1,277 @@
+{
+  "case_id": "R2_t1",
+  "deployed_sha": "2f3474e2388bb1caa24be6080ebddb550de383e0",
+  "ts": "2026-08-18T11:50:12Z",
+  "elapsed_s": 69.856,
+  "request": {
+    "text": "Построй карту развилок: выход команды на рынок корпоративного обучения в следующем квартале, без решения.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "duration_ms": 69772,
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 139659,
+    "tokens_out_sum": 2773,
+    "origin_kinds": [
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED",
+      "MODEL_PRODUCED"
+    ],
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15186,
+        "tokens_out": 100,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13234,
+        "tokens_out": 139,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15264,
+        "tokens_out": 137,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13291,
+        "tokens_out": 261,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14774,
+        "tokens_out": 823,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16914,
+        "tokens_out": 330,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15349,
+        "tokens_out": 449,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15175,
+        "tokens_out": 136,
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20472,
+        "tokens_out": 398,
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "real_live": true
+  },
+  "continuity": {
+    "context_id": "ctx_cd36bb6fe4534240ab058c2494b2c576",
+    "scene_id": "scene_8cf5dc0da413",
+    "space_id": "space_default_workspace",
+    "branch_id": "",
+    "telos": "Построить карту развилок для выхода команды на рынок корпоративного обучения в следующем квартале, при этом не принимать решения.",
+    "operation_kind": "SCENARIO_BRANCH_MAP_CONSTRUCTION",
+    "operation_applicable": false,
+    "open_world_gap": true,
+    "contract_id": "sc_1aa581726b0f",
+    "contract_status": "PROVISIONAL",
+    "contract_version": 1,
+    "contract_intent": "Построить карту развилок для выхода команды на рынок корпоративного обучения в следующем квартале, при этом не принимать решения.",
+    "contract_supersedes": "",
+    "mutations_applied": [
+      "contract_created:sc_1aa581726b0f"
+    ],
+    "mutations_refused": [],
+    "revision_candidates": [],
+    "revision_admissions": [],
+    "drift_assessment": null,
+    "contract_revision_admission": null,
+    "active_contract_id": "sc_1aa581726b0f",
+    "contract_history": [
+      {
+        "contract_id": "sc_1aa581726b0f",
+        "version": 1,
+        "scene_id": "scene_8cf5dc0da413",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Построить карту развилок для выхода команды на рынок корпоративного обучения в следующем квартале, при этом не принимать решения.",
+        "telos": "Построить карту развилок для выхода команды на рынок корпоративного обучения в следующем квартале, при этом не принимать решения.",
+        "object_scope": "Исходный запрос: создать карту развилок (вариантов, путей, сценариев) выхода команды на рынок корпоративного обучения в следующем квартале, Явное указание не выносить решение — только аналитическая работа, без выбора окончательной стратегии",
+        "operation_kind": "SCENARIO_BRANCH_MAP_CONSTRUCTION",
+        "expected_intervention": "SCENARIO_BRANCH_MAP_CONSTRUCTION",
+        "human_owned_decisions": [
+          "Требуемая операция построения карты развилок ('SCENARIO_BRANCH_MAP_CONSTRUCTION') отсутствует в реестре допустимых операций (object_generator_limit/type_gap); интеллектуальное содержание и критерии допустимости карты еще не определены. Запрос явно не делегирует принятие решения или критерий отбора сценариев системе. Необходима явная экстраполяция/проектирование нового объекта или подтверждение допустимого стандарта карты развилок со стороны человека/группы."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "human"
+      }
+    ],
+    "clarification_required": false,
+    "terminal": "RETURN_OPERATION",
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "error": null,
+    "http_status": null
+  },
+  "response": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "context_id": "ctx_cd36bb6fe4534240ab058c2494b2c576",
+    "terminal": {
+      "terminal": "RETURN_OPERATION",
+      "response_text": "Запрос не выполнен, так как операция построения карты развилок требует дополнительного проектирования или утверждения со стороны человека или команды.",
+      "rationale": "human/joint ownership unresolved (INV-009)",
+      "memory_proposal": {
+        "kind": "distinction",
+        "text": "В запросе на построение карты развилок для выхода команды на рынок корпоративного обучения диагностирован типовой разрыв (type gap): требуемый объект и операция отсутствуют в зафиксированном реестре типов. Требуется выделение и описание нового типа или интервенция человека для уточнения критериев допустимости и структуры карты.",
+        "grounds": "Аналитическая задача по построению многовариантной карты сценариев без принятия решения явно не сведена к известным операциям системы; все попытки типизации привели к выводам о structural type gap и object_generator_limit. Требуется новая формализация, либо ручное уточнение понятий и правил допускаемый карты."
+      }
+    },
+    "context_continuity": {
+      "context_id": "ctx_cd36bb6fe4534240ab058c2494b2c576",
+      "context_created": false,
+      "prior_context_version": 1,
+      "contract": {
+        "contract_id": "sc_1aa581726b0f",
+        "version": 1,
+        "scene_id": "scene_8cf5dc0da413",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Построить карту развилок для выхода команды на рынок корпоративного обучения в следующем квартале, при этом не принимать решения.",
+        "telos": "Построить карту развилок для выхода команды на рынок корпоративного обучения в следующем квартале, при этом не принимать решения.",
+        "object_scope": "Исходный запрос: создать карту развилок (вариантов, путей, сценариев) выхода команды на рынок корпоративного обучения в следующем квартале, Явное указание не выносить решение — только аналитическая работа, без выбора окончательной стратегии",
+        "operation_kind": "SCENARIO_BRANCH_MAP_CONSTRUCTION",
+        "expected_intervention": "SCENARIO_BRANCH_MAP_CONSTRUCTION",
+        "human_owned_decisions": [
+          "Требуемая операция построения карты развилок ('SCENARIO_BRANCH_MAP_CONSTRUCTION') отсутствует в реестре допустимых операций (object_generator_limit/type_gap); интеллектуальное содержание и критерии допустимости карты еще не определены. Запрос явно не делегирует принятие решения или критерий отбора сценариев системе. Необходима явная экстраполяция/проектирование нового объекта или подтверждение допустимого стандарта карты развилок со стороны человека/группы."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "human"
+      },
+      "contract_revision": null,
+      "contract_revision_admission": null,
+      "recognition_pass": {
+        "pass_id": "rp_807fe2faa2db",
+        "event_kind": "USER_TURN",
+        "pressures": [],
+        "fork_candidates": [],
+        "space_candidates": [],
+        "revision_candidates": [],
+        "revision_admissions": [],
+        "drift_assessment": null,
+        "aporia_candidates": [],
+        "admissions": [],
+        "mutations_applied": [
+          "contract_created:sc_1aa581726b0f"
+        ],
+        "mutations_refused": [],
+        "clarification_required": false,
+        "clarification_reason": ""
+      },
+      "active_contract_id": "sc_1aa581726b0f",
+      "contract_history": [
+        {
+          "contract_id": "sc_1aa581726b0f",
+          "version": 1,
+          "scene_id": "scene_8cf5dc0da413",
+          "space_id": "space_default_workspace",
+          "branch_id": "",
+          "intent": "Построить карту развилок для выхода команды на рынок корпоративного обучения в следующем квартале, при этом не принимать решения.",
+          "telos": "Построить карту развилок для выхода команды на рынок корпоративного обучения в следующем квартале, при этом не принимать решения.",
+          "object_scope": "Исходный запрос: создать карту развилок (вариантов, путей, сценариев) выхода команды на рынок корпоративного обучения в следующем квартале, Явное указание не выносить решение — только аналитическая работа, без выбора окончательной стратегии",
+          "operation_kind": "SCENARIO_BRANCH_MAP_CONSTRUCTION",
+          "expected_intervention": "SCENARIO_BRANCH_MAP_CONSTRUCTION",
+          "human_owned_decisions": [
+            "Требуемая операция построения карты развилок ('SCENARIO_BRANCH_MAP_CONSTRUCTION') отсутствует в реестре допустимых операций (object_generator_limit/type_gap); интеллектуальное содержание и критерии допустимости карты еще не определены. Запрос явно не делегирует принятие решения или критерий отбора сценариев системе. Необходима явная экстраполяция/проектирование нового объекта или подтверждение допустимого стандарта карты развилок со стороны человека/группы."
+          ],
+          "constraints": [],
+          "uncertainty": 0.1,
+          "provenance": "SYSTEM_DERIVED",
+          "status": "PROVISIONAL",
+          "supersedes": "",
+          "ownership_owner": "human"
+        }
+      ],
+      "space_memory_provenance": {
+        "status": "ACTIVE",
+        "space_id": "space_default_workspace",
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT"
+      }
+    },
+    "question_set_plan": null,
+    "question_intent_proposal": null,
+    "error": null,
+    "http_status": null
+  }
+}
