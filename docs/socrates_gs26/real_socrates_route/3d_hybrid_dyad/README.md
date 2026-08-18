@@ -5,6 +5,7 @@
 **3B accepted SHA:** `c2d5833847303fa3280d0cb9168bf5b37325a200`
 **3C implementation SHA:** `77a11787cf6dbe488f314da45fec0c4e39024766`
 **3C evidence checkpoint / start HEAD:** `9d9abb76d12a5ab94994984e808512dacf411156`
+**3D implementation SHA:** `aa0c7148d4fbb07c08ca28bdf4f3e5edde84984d`
 
 ## Gate
 

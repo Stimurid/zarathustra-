@@ -7,6 +7,7 @@
 - 3C implementation: `77a11787cf6dbe488f314da45fec0c4e39024766`
 - 3B accepted: `c2d5833847303fa3280d0cb9168bf5b37325a200`
 - Work branch: `socrates/3d-hybrid-dyad` (created from the 3C tip; 3C not rolled back)
+- 3D implementation SHA: `aa0c7148d4fbb07c08ca28bdf4f3e5edde84984d`
 - Unrelated local dirt left untouched (`.gitignore`, `.cursor/`, install scripts, `3a_plus_*.tgz`, `3b_live3/`)
 
 ## B. ARCHAEOLOGY
@@ -62,7 +63,7 @@ Traces in `live_traces/`. HTTP bridge exposes compact `dyad`. Context-store hydr
 
 ## M. GIT
 
-Branch `socrates/3d-hybrid-dyad`. Suggested commit: `socrates: implement 3d hybrid dyad runtime`. No merge to `main`. Unrelated dirt excluded.
+Commit `aa0c7148d4fbb07c08ca28bdf4f3e5edde84984d` on `socrates/3d-hybrid-dyad`. No merge to `main`. Unrelated dirt excluded.
 
 ## N. REMAINING DEFECTS
 
