@@ -48,15 +48,18 @@ New types (no existing owner): `PrivateWorkNeedAssessment`, `PrivateNeedDecision
 
 Pass budget: additional private passes default 0; max additional 2; MAX_AUTOPROMPT_PASSES=3 is a safety ceiling not a ritual.
 
-## Mechanical status (pre-deploy)
+## Mechanical + LIVE status
 
 - Substrate reused/hardened: module allowlist, WorkPacket validation, dispatcher ignores `request.pass_index`, duplicate registered purpose stop.
 - Runtime seam: `SocratesRuntime.run` → `run_private_work` after liberatory, before B2Q-R / render.
-- Consumer: `ResponsePlan` merges bounded distillate into public text (no bureaucracy marker).
+- Consumer: `ResponsePlan` merges bounded distillate into public text (no bureaucracy marker). `PRESERVE_APORIA` may be enriched; terminal is never rewritten.
 - Memory: `_commit_memory_if_any` calls `enforce_no_durable_write`; PRIVATE surface → `private_write_blocked`. Promotion DEFERRED_BY_DESIGN.
 - B2Q-R: `ACCOUNT_AS_INTERNAL_SPECIALIZED_CALL` (token ceiling shared; does not increment additional private pass count).
+- Live private call: `client.generate()` with `complete()` test fallback.
 - Tests P1–P23: meaningful predicates; tautological marker removed.
-- Full backend: **1242 passed / 4 skipped / 0 failed**.
+- Full backend: **1243 passed / 4 skipped / 0 failed**.
+- LIVE-P1..P8: **PASS** on production `c2d5833847303fa3280d0cb9168bf5b37325a200`.
+- Exit classification: **PASS / ACTIVE_IN_RUNTIME**.
 
 ## Package scope
 
@@ -65,8 +68,8 @@ Pass budget: additional private passes default 0; max additional 2; MAX_AUTOPROM
 3. Wire SocratesRuntime causal consumer — DONE
 4. Real memory-write path consumes `enforce_no_durable_write` — DONE
 5. Tests P1–P23 — DONE
-6. Full backend ≥ 1214 — DONE (1242/4/0)
-7. Deploy + LIVE-P1..P8 — IN PROGRESS
+6. Full backend ≥ 1214 — DONE (1243/4/0)
+7. Deploy + LIVE-P1..P8 — DONE (`c2d5833`)
 8. STOP — do NOT begin 3C
 
 ## Nonclaims

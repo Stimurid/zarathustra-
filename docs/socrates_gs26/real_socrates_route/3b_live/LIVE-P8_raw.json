@@ -1,0 +1,103 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "execution_mode": "LIVE",
+  "run_id": "srun_9c753f8545ac3c0f",
+  "trace_id": "strc_6dd58b152427438c",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Окончательное решение по выбору оферты должен принять человек-владелец операции.",
+    "rationale": "human/joint ownership unresolved (INV-009)",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "В задачах, где выбор между вариантами связан с человеческими ценностями, риском или ответственностью, система не вправе закрывать вопрос за человека-владельца операции. Окончательное решение — за человеком.",
+      "grounds": "Сцена, материалы и статус владения прямо указывают на границу между машинным исполнением и человеческим правом на выбор. Это не техническая, а принципиальная разграничительная линия."
+    }
+  },
+  "rendering": {
+    "text": "Окончательное решение по выбору оферты должен принять человек-владелец операции.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 177,
+    "tokens_out": 20,
+    "latency_ms": 2624,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_b55d93764355",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "terminal_sovereignty:RETURN_OPERATION"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "context_id": "ctx_0e26f7ec492c4e8cdb946dfb1725122a",
+  "context_continuity": {
+    "context_id": "ctx_0e26f7ec492c4e8cdb946dfb1725122a",
+    "active_contract_id": "sc_3c3419731c84",
+    "contract": {
+      "contract_id": "sc_3c3419731c84",
+      "version": 1,
+      "scene_id": "scene_08f618038970",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Определить, какую оферту выбрать, оставляя решение за человеком-владельцем операции.",
+      "telos": "Определить, какую оферту выбрать, оставляя решение за человеком-владельцем операции.",
+      "object_scope": "Это должен решить человек-владелец операции: какую оферту выбрать., Не закрывай вопрос за него.",
+      "operation_kind": "DEFER_TO_HUMAN_DECISION",
+      "expected_intervention": "DEFER_TO_HUMAN_DECISION",
+      "human_owned_decisions": [
+        "Выбор оферты связан с человеческими ценностями, риском и ответственностью; сцена и материалы прямо указывают, что окончательное решение должен принять человек-владелец операции. Система не вправе закрывать вопрос за него."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "human"
+    },
+    "contract_revision_admission": null
+  },
+  "memory_outcome": null,
+  "provider_id": "fallback",
+  "model_id": "chain"
+}

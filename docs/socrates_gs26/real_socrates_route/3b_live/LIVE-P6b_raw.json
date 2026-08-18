@@ -1,0 +1,118 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "execution_mode": "LIVE",
+  "run_id": "srun_d150612e4f9b6fd0",
+  "trace_id": "strc_c6661628e3ba9101",
+  "terminal": {
+    "terminal": "PRESERVE_APORIA",
+    "response_text": "Текущим проекционным органам не хватает автоматизированных процедур валидации секретов и контроля изменений при деплое. Конкретный вывод: необходимо внедрить автоматическую проверку конфигурации секретов перед деплоем и откатом для предотвращения подобных сбоев.\nВ данном случае невозможно сделать однозначный вывод из-за недостатка информации о рассматриваемом объекте.",
+    "rationale": "unknown object; would violate INV-007 to force fit",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Текущие проекционные органы системного анализа охватывают только технические и процессные сбои; отсутствует орган для анализа латентных организационных рисков и сбоев эскалации между ролями.",
+      "grounds": "В инциденте выявлены техническая ошибка (misconfigured secret), недостатки процесса (junior deploy без достаточных ограничений), но остаток — отсутствие проекции для организационных рисков и межролевых сбоев."
+    }
+  },
+  "rendering": {
+    "text": "Текущим проекционным органам не хватает автоматизированных процедур валидации секретов и контроля изменений при деплое. Конкретный вывод: необходимо внедрить автоматическую проверку конфигурации секретов перед деплоем и откатом для предотвращения подобных сбоев.\nВ данном случае невозможно сделать однозначный вывод из-за недостатка информации о рассматриваемом объекте.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 436,
+    "tokens_out": 21,
+    "latency_ms": 1824,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "private_work": {
+    "private_work_status": "ADMITTED",
+    "additional_private_pass_count": 1,
+    "passes": [
+      {
+        "pass_id": "apr_121b9c9d9019",
+        "purpose": "SOURCE_GAP_RECONSTRUCTION",
+        "module_id": "source_gap",
+        "honour": true,
+        "stop_reason": "",
+        "kind": "ADDITIONAL_PRIVATE_PASS",
+        "execution": "ADDITIONAL_PRIVATE_PASS",
+        "packet_id": "wp_7a2167922e59",
+        "product_type": "WorkPacket",
+        "changed_forward_action": "В публичный ответ включить вывод о необходимости автоматической проверки конфигурации секретов перед деплоем и откатом."
+      }
+    ],
+    "need": {
+      "assessment_id": "pna_b8b19f86ca8e",
+      "decision": "PROPOSE_PRIVATE_OPERATION",
+      "benefit": "BENEFIT_EXPECTED_TO_EXCEED_COST",
+      "purpose": "SOURCE_GAP_RECONSTRUCTION",
+      "module_id": "source_gap",
+      "grounds": [
+        "capability_resolution.ORGAN_GAP"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "OUTWARD_ANSWER_READY",
+    "changed_forward_action": "В публичный ответ включить вывод о необходимости автоматической проверки конфигурации секретов перед деплоем и откатом.",
+    "causal_effect": "response_plan_merged_distillate",
+    "durable_write_attempt": "none",
+    "response_plan_id": "rp_8186d6ac0f67",
+    "packet_refs": [
+      "wp_7a2167922e59"
+    ],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 1,
+      "specialized_calls": 0,
+      "tokens_spent": 700,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "Текущим проекционным органам не хватает автоматизированных процедур валидации секретов и контроля изменений при деплое. Конкретный вывод: необходимо внедрить автоматическую проверку конфигурации секретов перед деплоем и откатом для предотвращения подобных сбоев.",
+    "kind": "ADDITIONAL_PRIVATE_PASS"
+  },
+  "intervention_profile": "bald_ape",
+  "intervention_plan": {
+    "profile_name": "bald_ape",
+    "epistemic_pressure": "MAX",
+    "rhetorical_harshness": "PROFANE",
+    "liberatory_pressure": "HIGH",
+    "max_projection_iterations": 7,
+    "counterexample_budget": 5,
+    "reconstruction_required": true,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "context_id": "ctx_7612dd39ebab9c340c3d6f7a7d0adfbe",
+  "context_continuity": {
+    "context_id": "ctx_7612dd39ebab9c340c3d6f7a7d0adfbe",
+    "active_contract_id": "sc_f1d2099c8986",
+    "contract": {
+      "contract_id": "sc_f1d2099c8986",
+      "version": 1,
+      "scene_id": "scene_2fd7ace56fc7",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Системный анализ инцидента для выявления причин и выводов без передачи операции человеку.",
+      "telos": "Системный анализ инцидента для выявления причин и выводов без передачи операции человеку.",
+      "object_scope": "junior deploy, rollback failed, misconfigured secret",
+      "operation_kind": "SYSTEMIC_INCIDENT_ANALYSIS",
+      "expected_intervention": "SYSTEMIC_INCIDENT_ANALYSIS",
+      "human_owned_decisions": [
+        "Операция системного анализа инцидента явно делегирована системе, критерии и ответственность заданы: требуется провести анализ и сформулировать вывод без возврата человеку. Нет оснований для возврата или запроса дополнительного человеческого решения."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "system"
+    },
+    "contract_revision_admission": null
+  },
+  "memory_outcome": null,
+  "provider_id": "fallback",
+  "model_id": "chain"
+}

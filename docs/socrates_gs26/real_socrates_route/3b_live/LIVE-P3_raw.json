@@ -1,0 +1,100 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "execution_mode": "LIVE",
+  "run_id": "srun_d7c793f5fa39454d",
+  "trace_id": "strc_9b9ea6be3129d96b",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "Если внутренний разбор инцидента не изменяет публичный вывод, публичная forward action остаётся прежней и решение не возвращается человеку.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": null
+  },
+  "rendering": {
+    "text": "Если внутренний разбор инцидента не изменяет публичный вывод, публичная forward action остаётся прежней и решение не возвращается человеку.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 201,
+    "tokens_out": 30,
+    "latency_ms": 1898,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_28f9738d830e",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "rhetorical_harshness_ignored:POLITE",
+        "no_typed_material_need"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "context_id": "ctx_0f4a936939399a252a7cad2326925b5d",
+  "context_continuity": {
+    "context_id": "ctx_0f4a936939399a252a7cad2326925b5d",
+    "active_contract_id": "sc_07a0331822d2",
+    "contract": {
+      "contract_id": "sc_07a0331822d2",
+      "version": 1,
+      "scene_id": "scene_e87716d8361a",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Проверить, изменяет ли внутренний разбор инцидента публичный вывод; если нет — не менять публичную forward action и не возвращать решение человеку.",
+      "telos": "Проверить, изменяет ли внутренний разбор инцидента публичный вывод; если нет — не менять публичную forward action и не возвращать решение человеку.",
+      "object_scope": "junior deploy, rollback failed, misconfigured secret",
+      "operation_kind": "INTERNAL_INCIDENT_ANALYSIS",
+      "expected_intervention": "INTERNAL_INCIDENT_ANALYSIS",
+      "human_owned_decisions": [
+        "Операция внутреннего разбора инцидента проводится по системной процедуре; критерии и последствия публичного вывода заданы явно: если внутренний разбор не изменяет публичный вывод, не требуется возврат решения человеку. Нет неразрешённого человеческого суждения или критерия."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "system"
+    },
+    "contract_revision_admission": null
+  },
+  "memory_outcome": null,
+  "provider_id": "fallback",
+  "model_id": "chain"
+}

@@ -1,0 +1,157 @@
+{
+  "case_id": "LIVE-P7a",
+  "deployed_sha": "c2d5833847303fa3280d0cb9168bf5b37325a200",
+  "ts": "2026-08-18T17:33:57Z",
+  "request": {
+    "text": "Разбери этот короткий инцидент как системный анализ, не возвращая операцию человеку: junior deploy, rollback failed, misconfigured secret. Назови, чего не хватает текущим проекционным органам, и дай один конкретный вывод, который должен войти в публичный ответ. Владелец — система; операция применима.",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 146793,
+    "tokens_out_sum": 2817,
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "additional_private_pass_count": 1,
+    "private_work_status": "ADMITTED",
+    "private_kind": "ADDITIONAL_PRIVATE_PASS",
+    "extra_pass_count_from_passes": 1,
+    "real_live": true
+  },
+  "private_view": {
+    "private_work_status": "ADMITTED",
+    "additional_private_pass_count": 1,
+    "passes": [
+      {
+        "pass_id": "apr_0d0d267f5f12",
+        "purpose": "SOURCE_GAP_RECONSTRUCTION",
+        "module_id": "source_gap",
+        "honour": true,
+        "stop_reason": "",
+        "packet_id": "wp_b4aa65e1fea9",
+        "product_type": "WorkPacket",
+        "kind": "ADDITIONAL_PRIVATE_PASS"
+      }
+    ],
+    "need": {
+      "assessment_id": "pna_ba30e1608b5c",
+      "decision": "PROPOSE_PRIVATE_OPERATION",
+      "benefit": "BENEFIT_EXPECTED_TO_EXCEED_COST",
+      "purpose": "SOURCE_GAP_RECONSTRUCTION",
+      "module_id": "source_gap",
+      "grounds": [
+        "capability_resolution.ORGAN_GAP"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "OUTWARD_ANSWER_READY",
+    "changed_forward_action": "В публичный ответ включить вывод о необходимости автоматической валидации секретов и тестирования rollback-процедур.",
+    "causal_effect": "response_plan_merged_distillate",
+    "packet_refs": [
+      "wp_b4aa65e1fea9"
+    ],
+    "response_plan_id": "rp_30517cedd93b",
+    "budgets": {
+      "additional_private_passes": 1,
+      "specialized_calls": 0,
+      "tokens_spent": 700,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "injection_shaped_seen": false,
+    "excerpt_in_public_text": true,
+    "excerpt_len": 262,
+    "public_has_cot": false,
+    "public_has_bureaucracy_marker": false,
+    "terminal": "PRESERVE_APORIA",
+    "profile": "normal",
+    "plan_profile": "normal",
+    "scene_id": "scene_3a0836ac9a60",
+    "space_id": "space_default_workspace",
+    "context_id": "ctx_35af099cb83f7aa1ea339b57fd5f6c99",
+    "active_contract_id": "sc_57bd61d976e3",
+    "organ_gap": true,
+    "durable_write_attempt": "none",
+    "memory_outcome": ""
+  },
+  "error": null,
+  "http_status": null
+}

@@ -1,5 +1,5 @@
 task_id: SOCRATES-GS26-3B-PRIVATE-WORK-PLANE-20260818-001
-status: IN_PROGRESS
+status: PASS
 authority_date: '2026-08-18'
 repository: 'C:/projects/zarathustra-push'
 remote: 'https://github.com/Stimurid/zarathustra-.git'
@@ -8,7 +8,8 @@ start_branch: socrates/gs26-real-socrates-and-shiva
 start_head: f5e3f290e4713e1f2191358801d5a4fa97f88f77
 production_at_start: 2f3474e2388bb1caa24be6080ebddb550de383e0
 work_branch: socrates/gs26-real-socrates-and-shiva
-current_head: mechanical_pre_deploy
+current_head: c2d5833847303fa3280d0cb9168bf5b37325a200
+production_now: c2d5833847303fa3280d0cb9168bf5b37325a200
 
 package_order:
   - 3B_PRIVATE_WORK_PLANE
@@ -17,15 +18,17 @@ completed_packages:
   - B2Q_R_NATURAL_QUESTION_INFERENCE
   - 3A_PLUS_CONTEXT_CONTINUITY
   - 3A_PLUS_R_CONTRACT_ADMISSION
+  - 3B_PRIVATE_WORK_PLANE
 next_package: STOP_AFTER_3B
 
 entry_classification: SUBSTRATE_ONLY
+exit_classification: PASS_ACTIVE_IN_RUNTIME
 architecture_decision: WIRE_EXISTING_PRIVATE_WORK_AT_PRE_RENDER_SEAM
 b2qr_accounting: ACCOUNT_AS_INTERNAL_SPECIALIZED_CALL
 
 regression:
   full_backend_floor: 1214
-  full_backend_current: 1242_passed_4_skipped_0_failed
+  full_backend_current: 1243_passed_4_skipped_0_failed
 
 open_defects:
   - id: D-S26-QSEL-003
@@ -34,10 +37,10 @@ open_defects:
     nonblocking: true
 
 resume_from:
-  package: 3B_PRIVATE_WORK_PLANE
+  package: STOP_AFTER_3B
   what_to_do_next: |
-    Mechanical 3B is green (1242/4/0). Commit/push HTTPS, exact-SHA deploy,
-    LIVE-P1..P8, evidence checkpoint, STOP. Do not start 3C.
+    3B PASS / ACTIVE_IN_RUNTIME on c2d5833. Do not start 3C unless a new
+    handoff is issued. Next frontier if a later session is authorized: 3C.
 
 cursor_constraints:
   - LOCAL_FOREGROUND_ONLY

@@ -1,0 +1,104 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "execution_mode": "LIVE",
+  "run_id": "srun_04ecd0fa1c54ca70",
+  "trace_id": "strc_d698af399c782b64",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "2+2 будет 4.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": {
+      "kind": "observation",
+      "text": "A user asked the system to compute '2+2' in Russian ('Сколько будет 2+2?'). The system determined that this is a simple arithmetic question, with no consequential human-owned decision or risk, and that direct system execution is authorized and applicable.",
+      "grounds": "Explicit user request for arithmetic evaluation; scene, telos, and ownership are stable and system-owned; no material trigger for scene/role/authority change; no human-owned binding or risk allocation."
+    }
+  },
+  "rendering": {
+    "text": "2+2 будет 4.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 174,
+    "tokens_out": 7,
+    "latency_ms": 1810,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_eb9343bce4b1",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "rhetorical_harshness_ignored:POLITE",
+        "no_typed_material_need"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": true,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "context_id": "ctx_585a52f06903c4251ab62a063b274922",
+  "context_continuity": {
+    "context_id": "ctx_585a52f06903c4251ab62a063b274922",
+    "active_contract_id": "sc_c1c6aaa454f0",
+    "contract": {
+      "contract_id": "sc_c1c6aaa454f0",
+      "version": 1,
+      "scene_id": "scene_caac7d3fdd3f",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "answer a simple arithmetic question; user asks 'Сколько будет 2+2?' (What is 2+2?)",
+      "telos": "answer a simple arithmetic question; user asks 'Сколько будет 2+2?' (What is 2+2?)",
+      "object_scope": "explicit user question: arithmetic (2+2), no material scene/role/authority change required for arithmetic, prior instructions about mounting modules and memory write are system-internal, not user-owned or binding for scene/telos",
+      "operation_kind": "ARITHMETIC_EVALUATION",
+      "expected_intervention": "ARITHMETIC_EVALUATION",
+      "human_owned_decisions": [
+        "The operation is a simple arithmetic evaluation ('2+2'), with explicit user question and no human-owned criterion, risk, or consequential commitment. Scene and telos are stable; system is authorized to execute directly without question."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "system"
+    },
+    "contract_revision_admission": null
+  },
+  "memory_outcome": null,
+  "provider_id": "fallback",
+  "model_id": "chain"
+}
