@@ -13,7 +13,10 @@
 | Remote tip | `ba71ebb58a8e56fb75e88cd3609c5d2e3887639e` |
 | Production SHA (inherited) | `dba32e1fcb2917e07846975ca4f7ca3d16e1b80d` |
 | Regression floor | 1198 passed / 4 skipped / 0 failed |
+| Regression current | 1210 passed / 4 skipped / 0 failed |
 | D-S26-QSEL-003 | OPEN (nonblocking) |
+
+Architecture shipped in `b911e3b`; follow-up exposes `contract_history` / `active_contract_id` on public continuity so LIVE-R4 cannot pass with empty history.
 
 ## Cursor access constraints
 

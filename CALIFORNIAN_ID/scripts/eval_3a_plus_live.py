@@ -199,8 +199,8 @@ def pair_drift_admit(t1n, t2n, label):
     new_id = c(t2).get("contract_id")
     outcome = admission_outcome(t2)
     hist = c(t2).get("contract_history") or []
-    old_in_hist = any(
-        (h.get("contract_id") == old_id) for h in hist) if hist else True
+    old_in_hist = bool(old_id) and any(
+        (h.get("contract_id") == old_id) for h in hist)
     applied = " ".join(c(t2).get("mutations_applied") or [])
     ok = (live_ok(t1) and live_ok(t2)
           and outcome == "ADMIT_REVISION"

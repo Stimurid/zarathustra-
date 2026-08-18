@@ -215,6 +215,8 @@ def process_context_continuity(*,
         "contract_revision": revision.to_public() if revision else None,
         "contract_revision_admission": admission_pub,
         "recognition_pass": rp.to_public(),
+        "active_contract_id": ctx.active_contract_id,
+        "contract_history": list(ctx.contract_history),
     }
     return ctx, cid, contract, rp, meta
 

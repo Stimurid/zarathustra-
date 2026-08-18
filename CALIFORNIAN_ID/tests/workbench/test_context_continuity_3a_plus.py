@@ -504,6 +504,9 @@ class TestContractRevisionRepairR1R8:
         hist = ctx_store.load(cid).contract_history
         assert any(h["contract_id"] == c1 for h in hist)
         assert any(h["contract_id"] == c2 for h in hist)
+        pub_hist = r2.context_continuity.get("contract_history") or []
+        assert any(h["contract_id"] == c1 for h in pub_hist)
+        assert r2.context_continuity.get("active_contract_id") == c2
 
     def test_r5_material_drift_hold(self, runtime, ctx_store):
         r1 = runtime.run(
@@ -624,6 +627,7 @@ class TestEvaluatorAndB2qrOrdering:
             assert " or True" not in text, name
             assert " and True" not in text, name
             assert "assert True" not in text, name
+            assert "if hist else True" not in text, name
 
     def test_preserve_aporia_outranks_question_overlay(self):
         import inspect

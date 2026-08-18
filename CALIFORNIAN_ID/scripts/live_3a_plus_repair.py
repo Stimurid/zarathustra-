@@ -115,6 +115,8 @@ def continuity(d: dict) -> dict:
         "revision_admissions": rp.get("revision_admissions") or [],
         "drift_assessment": rp.get("drift_assessment"),
         "contract_revision_admission": cc.get("contract_revision_admission"),
+        "active_contract_id": cc.get("active_contract_id") or contract.get("contract_id"),
+        "contract_history": cc.get("contract_history") or [],
         "clarification_required": rp.get("clarification_required"),
         "terminal": (d.get("terminal") or {}).get("terminal"),
         "question_set_plan": d.get("question_set_plan"),

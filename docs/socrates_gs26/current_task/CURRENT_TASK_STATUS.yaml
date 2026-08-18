@@ -1,6 +1,6 @@
 task_id: SOCRATES-GS26-3A-PLUS-R-CONTRACT-ADMISSION-20260818-001
 status: IN_PROGRESS
-current_head: ba71ebb58a8e56fb75e88cd3609c5d2e3887639e
+current_head: b911e3b8f5086fc153c4857220c41483fa318820
 production_at_start: dba32e1fcb2917e07846975ca4f7ca3d16e1b80d
 production_deployed: dba32e1fcb2917e07846975ca4f7ca3d16e1b80d
 
@@ -12,7 +12,7 @@ next_package: STOP_AFTER_3A_PLUS_R
 
 regression:
   full_backend_floor: 1198
-  full_backend_current: SET_AFTER_TESTS
+  full_backend_current: 1210_passed_4_skipped_0_failed
 
 continuity_decision: ADD_NARROW_CONTRACT_REVISION_ADMISSION
 
@@ -25,15 +25,15 @@ cursor_constraints:
 open_defects:
   - id: D-S26-CTX-001
     summary: ContractRevisionCandidate bypasses admission and becomes active persisted SceneContract.
-    status: IN_REPAIR
+    status: MECHANICAL_CLOSED
     blocking: true
   - id: D-S26-CTX-002
     summary: SceneContract drift too sensitive; continuation/sub-op/paraphrase treated as drift.
-    status: IN_REPAIR
+    status: MECHANICAL_CLOSED
     blocking: true
   - id: D-S26-EVAL-001
     summary: LIVE evaluator tautology (or True) and pair_l1 ignores contract_revision_proposed.
-    status: IN_REPAIR
+    status: MECHANICAL_CLOSED
     blocking: true
   - id: D-S26-QSEL-003
     summary: QUESTION remains post-terminal rendering subtype not first-class governor terminal.
@@ -43,8 +43,8 @@ open_defects:
 resume_from:
   package: 3A_PLUS_R_CONTRACT_ADMISSION
   what_to_do_next: |
-    Implement ContractRevisionAdmission + SceneContractDriftAssessment;
-    hold-not-activate; R1-R8; repair evaluator; deploy; LIVE-R1..R7; STOP.
+    Mechanical green 1210/4/0. Commit history-exposure evaluator fix;
+    HTTPS push; rollback snapshot; exact-SHA deploy; LIVE-R1..R7; STOP.
 
 nonclaims:
   - '3B/3C/3D/3E/3F NOT STARTED.'
