@@ -1,20 +1,18 @@
 task_id: SOCRATES-GS26-3A-PLUS-CURSOR-20260818-001
-status: IN_PROGRESS
-authority_date: '2026-08-18'
-repository: 'C:/projects/zarathustra-push'
-remote: 'https://github.com/Stimurid/zarathustra-.git'
-
-start_branch: socrates/gs26-real-socrates-and-shiva
-start_head: 06ef2f87adb4a90986b9094e7a879fd72b69b0f9
+status: COMPLETED
+current_head: dba32e1fcb2917e07846975ca4f7ca3d16e1b80d
 production_at_start: 2236a4c
+production_deployed: dba32e1fcb2917e07846975ca4f7ca3d16e1b80d
 
-work_branch: socrates/gs26-real-socrates-and-shiva
-current_head: SET_AT_COMMIT
-
-current_package: 3A_PLUS_CONTEXT_CONTINUITY
+current_package: STOP_AFTER_3A_PLUS
 completed_packages:
   - B2Q_R_NATURAL_QUESTION_INFERENCE
-next_package: STOP_AFTER_3A_PLUS
+  - 3A_PLUS_CONTEXT_CONTINUITY
+next_package: 3B_PRIVATE_WORK_PLANE
+
+regression:
+  full_backend_floor: 1174
+  full_backend_current: 1198
 
 continuity_decision: ADD_MINIMAL_SERVER_CONTEXT_STORE
 
