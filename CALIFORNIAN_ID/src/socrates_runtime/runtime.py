@@ -372,6 +372,35 @@ class SocratesRuntime:
             run_dyadic_pass,
             session_key_for,
         )
+
+        # Owner-hardening (D-S26-3D-LIVE-TELOS-HC-001):
+        # Detect a typed pre-3D scene-transition signal. Recognition
+        # only mints new scene identity AFTER 3D on this turn, so a
+        # genuine same-context scene boundary must ride a typed
+        # human-explicit signal available before 3D. NEW_SCENE is the
+        # explicit "start a new scene inside this context" action;
+        # SPACE_TRANSITION also implies a new scene by containment.
+        # When such a signal fires, mint a fresh scene_id pre-3D so
+        # (a) dyad prior_scene_key mismatches → scene_shift fires now,
+        # not one turn late, and (b) new dyad records land under the
+        # new scene_id, so turn 3+ sees clean isolation.
+        _act = context_action or {}
+        _act_kind = str(_act.get("kind") or "").upper()
+        _pre3d_scene_boundary = (
+            _act_kind in {"NEW_SCENE", "SPACE_TRANSITION"}
+            and bool(_act.get("human_explicit_choice")))
+        if _pre3d_scene_boundary:
+            from .epistemic_model import SceneRef
+            from .epistemic_model import new_scene_id as _new_scene_id
+            new_sid = _new_scene_id()
+            state.scene_registry.add_scene(SceneRef(
+                scene_id=new_sid, space_id=state.space_id,
+                parent_scene_id=state.scene_id))
+            state.scene_id = new_sid
+            trace.record("pre_3d_scene_transition",
+                         action_kind=_act_kind,
+                         new_scene_id=new_sid)
+
         dkey = session_key_for(resolved_cid or context_id)
         session = self.dyad_registry.get(dkey)
         if prior_ctx is not None:
@@ -392,7 +421,9 @@ class SocratesRuntime:
                     migrated = []
                     for r in loaded.records:
                         if (r.scope_kind == ScopeKind.SCENE
-                                and r.scope_id.startswith("telos:")):
+                                and (r.scope_id.startswith("telos:")
+                                     or r.scope_id == "scene:default"
+                                     or r.scope_id == "")):
                             r = _dc_replace(r, scope_id=new_scope)
                         migrated.append(r)
                     loaded.records = migrated
