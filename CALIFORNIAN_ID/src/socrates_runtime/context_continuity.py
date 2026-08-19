@@ -131,6 +131,31 @@ def snapshot_context(ctx: SocratesContext,
         ctx.recognition_state["dyad"] = dyad_proj
     elif prior_dyad:
         ctx.recognition_state["dyad"] = prior_dyad
+    # 3C repair (D-S26-3C-LIVE-REPEAT-001): persist the runtime-local
+    # apparatus_repeat counter into the context snapshot so a fresh
+    # SocratesRuntime built for the next HTTP request can hydrate the
+    # dict and reach APPARATUS_MISMATCH_CANDIDATE when repeated
+    # projection failure is warranted. Empty projection preserves any
+    # counter previously written to this context.
+    prior_repeat = (ctx.recognition_state or {}).get("apparatus_repeat")
+    ap_proj = getattr(state, "apparatus_repeat_projection", None)
+    if ap_proj:
+        merged: dict[str, int] = {}
+        if isinstance(prior_repeat, dict):
+            for k, v in prior_repeat.items():
+                try:
+                    merged[str(k)] = int(v or 0)
+                except (TypeError, ValueError):
+                    continue
+        for k, v in ap_proj.items():
+            try:
+                merged[str(k)] = max(
+                    int(merged.get(k) or 0), int(v or 0))
+            except (TypeError, ValueError):
+                continue
+        ctx.recognition_state["apparatus_repeat"] = merged
+    elif prior_repeat:
+        ctx.recognition_state["apparatus_repeat"] = prior_repeat
     if contract is not None:
         _upsert_contract_history(ctx, contract.to_public())
         ctx.active_contract_id = contract.contract_id

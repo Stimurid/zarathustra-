@@ -334,18 +334,40 @@ class SocratesRuntime:
                 version_number=1,
                 entries=(),
             ))
+        # 3C repair (D-S26-3C-LIVE-REPEAT-001): hydrate the runtime-local
+        # apparatus_repeat counter from the persisted context snapshot so
+        # repeated projection failure can accumulate across HTTP requests
+        # (each request builds a fresh SocratesRuntime). The counter is
+        # a dict keyed by "{space_id}:{apparatus_ref}" — safe to merge
+        # into the local dict without leaking across contexts because
+        # the SocratesContext itself scopes the counter.
+        if prior_ctx is not None:
+            prior_repeat = (prior_ctx.recognition_state or {}).get(
+                "apparatus_repeat") or {}
+            for k, v in prior_repeat.items():
+                try:
+                    self._apparatus_repeat[k] = max(
+                        int(self._apparatus_repeat.get(k) or 0),
+                        int(v or 0))
+                except (TypeError, ValueError):
+                    continue
         apparatus_diag = run_apparatus_diagnostic(
             state, outcome, input_text=input_text,
             registry=self.world_map_registry,
             repeat_index=self._apparatus_repeat)
+        # Publish the (possibly incremented) counter onto state so
+        # process_context_continuity can persist it for the next request.
+        state.apparatus_repeat_projection = dict(self._apparatus_repeat)
         trace.record(
             "apparatus_diagnostic",
             apparatus_diagnostic=apparatus_diag.to_public())
 
         # 3D: hybrid dyad projection. Deterministic; not a second
         # orchestrator; does not increment 3B private LLM budget.
+        from dataclasses import replace as _dc_replace
         from .hybrid_dyad import (
             DyadicSession,
+            ScopeKind,
             apply_dyad_to_outcome,
             run_dyadic_pass,
             session_key_for,
@@ -357,11 +379,38 @@ class SocratesRuntime:
             if prior_dyad and not session.records:
                 loaded = DyadicSession.from_public(prior_dyad)
                 loaded.session_key = dkey
+                # 3D repair (D-S26-3D-LIVE-TELOS-001): migrate legacy
+                # telos-fallback scope_ids to the persisted scene_id.
+                # Turn 1 wrote SCENE-scoped records with scope_id
+                # "telos:<wording>" because state.scene_id was not yet
+                # assigned (recognition runs *after* 3D). Now that
+                # ctx.scene_id is persisted, rewrite those scope_ids
+                # so scene_scope_key(state)="scene:<scene_id>" on turn 2
+                # sees the prior records as belonging to the same scene.
+                if prior_ctx.scene_id:
+                    new_scope = f"scene:{prior_ctx.scene_id}"
+                    migrated = []
+                    for r in loaded.records:
+                        if (r.scope_kind == ScopeKind.SCENE
+                                and r.scope_id.startswith("telos:")):
+                            r = _dc_replace(r, scope_id=new_scope)
+                        migrated.append(r)
+                    loaded.records = migrated
                 session = loaded
                 self.dyad_registry.put(session)
+        # 3D repair (D-S26-3D-LIVE-TELOS-001): prefer the stable persisted
+        # scene_id over telos wording. Turn 2 with same context_id should
+        # only be classified as SCENE_SHIFT when the recognition DAG
+        # actually assigned a new scene, not when S1 rephrased the telos.
+        # Falls back to last_telos when no scene_id was ever assigned
+        # (early first-turn state) to preserve the in-process CASE4
+        # scene-boundary contract.
         prior_scene_key = ""
-        if prior_ctx is not None and prior_ctx.last_telos:
-            prior_scene_key = f"telos:{prior_ctx.last_telos.strip().lower()}"
+        if prior_ctx is not None:
+            if prior_ctx.scene_id:
+                prior_scene_key = f"scene:{prior_ctx.scene_id}"
+            elif prior_ctx.last_telos:
+                prior_scene_key = f"telos:{prior_ctx.last_telos.strip().lower()}"
         dyad_result = run_dyadic_pass(
             state, outcome, input_text=input_text, session=session,
             apparatus_diag=apparatus_diag.to_public(),

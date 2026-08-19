@@ -345,13 +345,21 @@ class DyadicSessionRegistry:
 
 
 def scene_scope_key(state: PipelineState) -> str:
-    """Dyad scene isolation follows current telos.
+    """Dyad scene isolation: prefer stable persisted scene_id, fall back to telos.
 
-    ``scene_id`` is assigned in 3A+ recognition *after* the 3D pass on
-    a first turn, so keying the dyad on ``scene_id`` would split the
-    same telos across turns. Telos is the discriminator available at
-    the 3D seam.
+    On the first turn of a fresh context, ``state.scene_id`` is empty
+    (3A+ recognition assigns it *after* the 3D pass). Telos is then the
+    only discriminator available at the 3D seam and remains the fallback.
+
+    On the second and later turns of an existing context, ``state.scene_id``
+    is hydrated from ``prior_ctx.scene_id`` before 3D runs. Keying on
+    ``scene_id`` there prevents natural S1-telos rephrasing (D-S26-3D-LIVE-
+    TELOS-001) from being misclassified as ``SCENE_SHIFT`` — the scene
+    identity is the persisted DAG node, not the current turn's telos wording.
     """
+    scene_id = (getattr(state, "scene_id", "") or "").strip()
+    if scene_id:
+        return f"scene:{scene_id}"
     telos = (state.scene.telos or "").strip().lower()
     return f"telos:{telos}" if telos else "scene:default"
 

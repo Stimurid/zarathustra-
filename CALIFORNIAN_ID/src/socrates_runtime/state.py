@@ -368,6 +368,13 @@ class PipelineState:
     #: 3D ephemeral dyadic projection (not a second store). Copied into
     #: existing context snapshot recognition_state.dyad when continuity runs.
     dyad_session_projection: dict[str, Any] | None = None
+    #: 3C apparatus repeat counter projection (not a second store).
+    #: Snapshot of the runtime-local `_apparatus_repeat` dict at end of
+    #: run so context_continuity can persist it under
+    #: recognition_state.apparatus_repeat. Empty means "no repeat state
+    #: this run" (the runtime hydrates its counter from
+    #: prior_ctx.recognition_state.apparatus_repeat on entry).
+    apparatus_repeat_projection: dict[str, int] | None = None
 
     @property
     def source_id(self) -> str:

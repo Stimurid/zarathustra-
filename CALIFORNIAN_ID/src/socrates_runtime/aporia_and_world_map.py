@@ -806,6 +806,19 @@ def run_apparatus_diagnostic(
         grade = AporiaGrade.OPEN_QUESTION
         grounds.append("novelty_demand_cannot_mint_mismatch")
 
+    # 3C repair (D-S26-3C-LIVE-ORGAN-PRIORITY-001): when the terminal
+    # committed to PRESERVE_APORIA upstream, the primary classification
+    # is genuine aporia. The organ/source gap that would otherwise
+    # dominate (Order 1 above) remains visible as a contributing ground
+    # so downstream consumers (dyad likely_failure_source, dialogue log)
+    # see genuine aporia while the evidence of specific insufficiency
+    # is not erased. Non-terminal-aporia paths are unchanged.
+    if term_val == Terminal.PRESERVE_APORIA and classification == GapKind.EVIDENCE_GAP:
+        classification = GapKind.GENUINE_APORIA
+        grade = AporiaGrade.APORIA
+        grounds.append("contributing:typed_source_or_organ_gap")
+        grounds.append("preserve_aporia_terminal_promoted_over_evidence_gap")
+
     aporia = AporiaObservation(
         observation_id=_new_id("apo"),
         grade=grade,
