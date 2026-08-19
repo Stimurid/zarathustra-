@@ -18,25 +18,23 @@
 | Production health | green (`tinkuy-web`, port 8085) |
 | Rollback | NOT REQUIRED; snapshots `pre_c2d5833`, `pre_b31b88f` |
 
-## Semantic state
+## Semantic state (after closure PASS on fe34f3d)
 
 | Package | State |
 |---|---|
 | 3B | production accepted / retained |
-| 3C | repository PASS / ACTIVE_IN_RUNTIME; production **deployed**; production acceptance **PARTIAL** |
-| 3D | repository PASS / ACTIVE_IN_RUNTIME; production **deployed**; production acceptance **PARTIAL** |
-| 3E | **NOT STARTED** / blocked until closure PASS |
+| 3C | repository accepted / production accepted |
+| 3D | repository accepted / production accepted |
+| 3E | NOT STARTED / next eligible (opened by PASS, not started) |
 
-Do not mark 3C or 3D production fully accepted.
-
-## Open defects (closure pass owns the three new ones)
+## Open defects
 
 | ID | Status |
 |---|---|
-| D-S26-QSEL-003 | OPEN (nonblocking for 3C/3D; still OPEN) |
-| D-S26-3D-LIVE-TELOS-001 | OPEN |
-| D-S26-3C-LIVE-REPEAT-001 | OPEN |
-| D-S26-3C-LIVE-ORGAN-PRIORITY-001 | OPEN |
+| D-S26-QSEL-003 | OPEN (nonblocking, unchanged) |
+| D-S26-3D-LIVE-TELOS-001 | CLOSED at fe34f3d — LIVE A + LIVE B |
+| D-S26-3C-LIVE-REPEAT-001 | CLOSED at fe34f3d — mechanical CASE E/F/K + LIVE D nonclaim |
+| D-S26-3C-LIVE-ORGAN-PRIORITY-001 | CLOSED at fe34f3d — LIVE B2 + H2 GENUINE_APORIA promotion |
 
 ## Method
 

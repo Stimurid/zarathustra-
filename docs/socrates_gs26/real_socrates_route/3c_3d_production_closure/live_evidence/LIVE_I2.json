@@ -1,0 +1,2138 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_0c1d0a19fc1f0c2a",
+  "trace_id": "strc_0aaa1470c6d93dd2",
+  "terminal": {
+    "terminal": "REFRAME",
+    "response_text": "[dyad socrates-position revised from drec_a5fc63e1b92d]\nДанный подход основан на том, что противоречие между доказательствами и позицией позволяет объективно оценить или оспорить рабочую позицию без необходимости задавать дополнительные вопросы.",
+    "rationale": "system-owned, applicable, no open-world gap dyad:socrates_position_revised",
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "A working position was judged wrong because evidence contradicts it. The act is a propositional evaluation using direct evidentiary contradiction.",
+      "grounds": "Observed utterance explicitly applies evidence as a ground for rejecting or correcting a position. Matched as a canonical argument step. Labeled as a contradiction for memory and governance."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "TRIG-EVIDENCE-CONTRADICTION",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "src_8934c1f3357a4ece",
+              "source_status": "typed_state",
+              "phase_relevance": "The input text explicitly contains an evidence contradiction, a canonical recognition signal for possible memory/formation/retreat relevance (see CORE §6, B05 §6, B07 §6).",
+              "materiality_reason": "A claim of evidence contradicting a position signals material status/operation mismatch and may invoke B05 memory eligibility/recruitment for the evidence object, and B07 R0–R1 reflexive output/operation review for possible retreat or direct correction.",
+              "admitting_rule": "Trigger considered minimally sufficient for S0 context acknowledgment; no deeper scene/role/ownership structures are currently declared, so simple contradiction handling is prep-acquired."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "Mounts for CORE, B05, B07 verified; router loaded with required context. The provided input is a segment that asserts a working position is wrong due to evidentiary contradiction. Initial state does not identify explicit owner, scene telos, or authority, but phase is S0 context formation, so admissibility check is satisfied.",
+            "triggers": [
+              {
+                "trigger_id": "TRIG-EVIDENCE-CONTRADICTION",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "src_8934c1f3357a4ece",
+                "source_status": "typed_state",
+                "phase_relevance": "The input text explicitly contains an evidence contradiction, a canonical recognition signal for possible memory/formation/retreat relevance (see CORE §6, B05 §6, B07 §6).",
+                "materiality_reason": "A claim of evidence contradicting a position signals material status/operation mismatch and may invoke B05 memory eligibility/recruitment for the evidence object, and B07 R0–R1 reflexive output/operation review for possible retreat or direct correction.",
+                "admitting_rule": "Trigger considered minimally sufficient for S0 context acknowledgment; no deeper scene/role/ownership structures are currently declared, so simple contradiction handling is prep-acquired."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15441,
+        "tokens_out": 292,
+        "latency_ms": 6035,
+        "error": "",
+        "request_hash": "4a2e063f0619e69958b246d3dc30509bed85a5775060b7a3dd07222b39efea47",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 3071,
+            "sha256": "f83af3868197034a"
+          },
+          {
+            "role": "user",
+            "bytes": 179,
+            "sha256": "32659f95d621fc2c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Evaluate or contest a working position based on evidentiary contradiction.",
+            "role_hint": "evaluator or critic",
+            "authority": "unset",
+            "materials": [
+              "claim about working position",
+              "assertion of evidentiary contradiction"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Evaluate or contest a working position based on evidentiary contradiction.",
+              "role_hint": "evaluator or critic",
+              "authority": "unset",
+              "materials": [
+                "claim about working position",
+                "assertion of evidentiary contradiction"
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13744,
+        "tokens_out": 71,
+        "latency_ms": 3342,
+        "error": "",
+        "request_hash": "11ed89eb9f08be4e0c1ddfafc55766f63f418c1350f6afda432e8ef72586b86c",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 3938,
+            "sha256": "c1cb79166fd5101d"
+          },
+          {
+            "role": "user",
+            "bytes": 179,
+            "sha256": "32659f95d621fc2c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_67bb9552b750",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "src_8934c1f3357a4ece",
+              "source_status": "typed_state",
+              "phase_relevance": "A proposed trigger type (TRIG-EVIDENCE-CONTRADICTION) was suggested for the input claim but is not known in the current type registry; the system recognizes a structurally material cause for a trigger related to evidentiary contradiction, but a gap (rather than forced coercion) is observed.",
+              "materiality_reason": "The scene explicitly requires evaluation or contestation of a working position on evidence-based grounds; the phase must recognize and register the fact of evidentiary contradiction but lacks a matching typed trigger.",
+              "admitting_rule": "Report and preserve trigger-type gap as an unresolved but materially consequential structural cause; do not coerce to nearest type or silently discard."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_67bb9552b750",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "src_8934c1f3357a4ece",
+                "source_status": "typed_state",
+                "phase_relevance": "A proposed trigger type (TRIG-EVIDENCE-CONTRADICTION) was suggested for the input claim but is not known in the current type registry; the system recognizes a structurally material cause for a trigger related to evidentiary contradiction, but a gap (rather than forced coercion) is observed.",
+                "materiality_reason": "The scene explicitly requires evaluation or contestation of a working position on evidence-based grounds; the phase must recognize and register the fact of evidentiary contradiction but lacks a matching typed trigger.",
+                "admitting_rule": "Report and preserve trigger-type gap as an unresolved but materially consequential structural cause; do not coerce to nearest type or silently discard."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15706,
+        "tokens_out": 217,
+        "latency_ms": 4557,
+        "error": "",
+        "request_hash": "10c75c51ec4d99464f982c73b5791e8122453af5cb1022401984323e571453d0",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 4121,
+            "sha256": "3d2dfb87f5679afc"
+          },
+          {
+            "role": "user",
+            "bytes": 179,
+            "sha256": "32659f95d621fc2c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "unset",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13748,
+        "tokens_out": 41,
+        "latency_ms": 2692,
+        "error": "",
+        "request_hash": "562f28e51d599d2bc2a661630d30b5b421ba6f4649837b422dad47f915f1ed5c",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 4965,
+            "sha256": "0b3ebb3ade5bc313"
+          },
+          {
+            "role": "user",
+            "bytes": 179,
+            "sha256": "32659f95d621fc2c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "APPLY_PROPOSITIONAL_EVALUATION",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": {
+            "proposal_id": "psyn_001",
+            "operation_id": "op_001",
+            "target_object_family": [
+              "propositional_evaluation",
+              "argument_structure"
+            ],
+            "ontology_hypothesis": "The material contains a claim disputing a working position due to evidentiary contradiction; it corresponds to a simple propositional critique and a one-step argument structure.",
+            "recognition_criteria": [
+              "An explicit or implicit claim about the status (e.g., truth or adequacy) of a working position.",
+              "Causal relation introduced by 'because' linking the evaluation to evidence.",
+              "Presence of both (a) a target (the position) and (b) a counter-ground (evidence contradiction)."
+            ],
+            "segmentation_policy_hint": "Treat the text as a single evaluative speech act decomposable into target claim and evidence-based contradiction.",
+            "evidence_requirements": [
+              "Identification of the working position claimed as 'wrong'.",
+              "Explicit or implicit statement of which evidence is contradictory.",
+              "Recognizable warrant for the move from evidence contradiction to evaluative judgment."
+            ],
+            "exclusions": [
+              "Philosophical meta-analysis of contradiction.",
+              "Abstract problem signals not grounded in evidence."
+            ],
+            "contraindications": [
+              "Ambiguous referent—no working position to evaluate.",
+              "Lack of linked evidence.",
+              "Conflict between asserted contradiction and supplied material."
+            ],
+            "applicability_assumptions": [
+              "The evidence relationship is directly asserted and not based on indirect implication.",
+              "Working position to be evaluated is recoverable from text or immediate context."
+            ],
+            "primitives": [
+              {
+                "name": "EXTRACT_PROPOSITIONAL_TARGET",
+                "primitive_id": "prim_001",
+                "params": {
+                  "slot": "working_position"
+                },
+                "inputs": [
+                  "input_text"
+                ]
+              },
+              {
+                "name": "EXTRACT_EVIDENCE_CONTRADICTION",
+                "primitive_id": "prim_002",
+                "params": {},
+                "inputs": [
+                  "input_text"
+                ]
+              },
+              {
+                "name": "MAP_EVALUATIVE_RELATION",
+                "primitive_id": "prim_003",
+                "params": {
+                  "relation": "contradicts/invalidates"
+                },
+                "inputs": [
+                  "prim_001",
+                  "prim_002"
+                ]
+              }
+            ],
+            "accepted_output": "A mapped propositional evaluation associating the working position with the evidence contradiction as warrant for wrongness.",
+            "residue_output": "None for this primary projection if both primitives succeed; if not, output a residue marking the ambiguous fragment.",
+            "revises_projection_id": "",
+            "triggered_by_diagnostic_id": "",
+            "triggered_by_diagnostic_fingerprint": "",
+            "rationale": "The utterance directly claims that a working position is wrong due to evidence; the projection maps this explicit evaluative structure for further analysis or object-building.",
+            "expected_diagnostics": "Validation of propositional target and evidence contradiction; failure if either cannot be extracted.",
+            "expected_residue_policy": "Return explicit residue with ambiguity diagnosis if essential primitives do not yield object(s)."
+          },
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "APPLY_PROPOSITIONAL_EVALUATION",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "triggers": [],
+            "projection_synthesis_proposal": {
+              "proposal_id": "psyn_001",
+              "operation_id": "op_001",
+              "target_object_family": [
+                "propositional_evaluation",
+                "argument_structure"
+              ],
+              "ontology_hypothesis": "The material contains a claim disputing a working position due to evidentiary contradiction; it corresponds to a simple propositional critique and a one-step argument structure.",
+              "recognition_criteria": [
+                "An explicit or implicit claim about the status (e.g., truth or adequacy) of a working position.",
+                "Causal relation introduced by 'because' linking the evaluation to evidence.",
+                "Presence of both (a) a target (the position) and (b) a counter-ground (evidence contradiction)."
+              ],
+              "segmentation_policy_hint": "Treat the text as a single evaluative speech act decomposable into target claim and evidence-based contradiction.",
+              "evidence_requirements": [
+                "Identification of the working position claimed as 'wrong'.",
+                "Explicit or implicit statement of which evidence is contradictory.",
+                "Recognizable warrant for the move from evidence contradiction to evaluative judgment."
+              ],
+              "exclusions": [
+                "Philosophical meta-analysis of contradiction.",
+                "Abstract problem signals not grounded in evidence."
+              ],
+              "contraindications": [
+                "Ambiguous referent—no working position to evaluate.",
+                "Lack of linked evidence.",
+                "Conflict between asserted contradiction and supplied material."
+              ],
+              "applicability_assumptions": [
+                "The evidence relationship is directly asserted and not based on indirect implication.",
+                "Working position to be evaluated is recoverable from text or immediate context."
+              ],
+              "primitives": [
+                {
+                  "name": "EXTRACT_PROPOSITIONAL_TARGET",
+                  "primitive_id": "prim_001",
+                  "params": {
+                    "slot": "working_position"
+                  },
+                  "inputs": [
+                    "input_text"
+                  ]
+                },
+                {
+                  "name": "EXTRACT_EVIDENCE_CONTRADICTION",
+                  "primitive_id": "prim_002",
+                  "params": {},
+                  "inputs": [
+                    "input_text"
+                  ]
+                },
+                {
+                  "name": "MAP_EVALUATIVE_RELATION",
+                  "primitive_id": "prim_003",
+                  "params": {
+                    "relation": "contradicts/invalidates"
+                  },
+                  "inputs": [
+                    "prim_001",
+                    "prim_002"
+                  ]
+                }
+              ],
+              "accepted_output": "A mapped propositional evaluation associating the working position with the evidence contradiction as warrant for wrongness.",
+              "residue_output": "None for this primary projection if both primitives succeed; if not, output a residue marking the ambiguous fragment.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "",
+              "triggered_by_diagnostic_fingerprint": "",
+              "rationale": "The utterance directly claims that a working position is wrong due to evidence; the projection maps this explicit evaluative structure for further analysis or object-building.",
+              "expected_diagnostics": "Validation of propositional target and evidence contradiction; failure if either cannot be extracted.",
+              "expected_residue_policy": "Return explicit residue with ambiguity diagnosis if essential primitives do not yield object(s)."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14792,
+        "tokens_out": 751,
+        "latency_ms": 12553,
+        "error": "",
+        "request_hash": "5c180557fcdcc9bb1bdf3753697b781d2145a472a2313e8abaa410f9d44219fb",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 4965,
+            "sha256": "ceea92455167c16d"
+          },
+          {
+            "role": "user",
+            "bytes": 179,
+            "sha256": "32659f95d621fc2c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_67bb9552b750",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "src_8934c1f3357a4ece",
+              "source_status": "typed_state",
+              "phase_relevance": "Proposed type 'TRIG-EVIDENCE-CONTRADICTION' is not in registry 'v0.2_default', producing a type gap when attempting to register contradiction-of-a-working-position as a distinct trigger.",
+              "materiality_reason": "The content presents a classic propositional evaluation with evidence contradiction, which appears materially distinct but lacks an accepted event type; flagging this type gap preserves downstream meaning and audit trail.",
+              "admitting_rule": "TYPE_GAP_MATERIAL_CAUSE"
+            },
+            {
+              "trigger_id": "tgap_7a5918e171a5",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "src_8934c1f3357a4ece",
+              "source_status": "typed_state",
+              "phase_relevance": "Secondary type gap produced during typing, reinforcing the primary gap around evidence-contradiction as a causal external critique.",
+              "materiality_reason": "Additional material gap reinforces the lack of registry for evidentiary contradiction as a recognized event, highlighting a non-coercive structural distinction.",
+              "admitting_rule": "TYPE_GAP_MATERIAL_CAUSE"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "A working position was judged wrong because evidence contradicts it. The act is a propositional evaluation using direct evidentiary contradiction.",
+            "grounds": "Observed utterance explicitly applies evidence as a ground for rejecting or correcting a position. Matched as a canonical argument step. Labeled as a contradiction for memory and governance."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_67bb9552b750",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "src_8934c1f3357a4ece",
+                "source_status": "typed_state",
+                "phase_relevance": "Proposed type 'TRIG-EVIDENCE-CONTRADICTION' is not in registry 'v0.2_default', producing a type gap when attempting to register contradiction-of-a-working-position as a distinct trigger.",
+                "materiality_reason": "The content presents a classic propositional evaluation with evidence contradiction, which appears materially distinct but lacks an accepted event type; flagging this type gap preserves downstream meaning and audit trail.",
+                "admitting_rule": "TYPE_GAP_MATERIAL_CAUSE"
+              },
+              {
+                "trigger_id": "tgap_7a5918e171a5",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "src_8934c1f3357a4ece",
+                "source_status": "typed_state",
+                "phase_relevance": "Secondary type gap produced during typing, reinforcing the primary gap around evidence-contradiction as a causal external critique.",
+                "materiality_reason": "Additional material gap reinforces the lack of registry for evidentiary contradiction as a recognized event, highlighting a non-coercive structural distinction.",
+                "admitting_rule": "TYPE_GAP_MATERIAL_CAUSE"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "A working position was judged wrong because evidence contradicts it. The act is a propositional evaluation using direct evidentiary contradiction.",
+              "grounds": "Observed utterance explicitly applies evidence as a ground for rejecting or correcting a position. Matched as a canonical argument step. Labeled as a contradiction for memory and governance."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16923,
+        "tokens_out": 407,
+        "latency_ms": 6050,
+        "error": "",
+        "request_hash": "3797f619d8b679f9fdc0b3c27a8dfb9cb4525f543ed248c4cf11e1c0bc83c417",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 8232,
+            "sha256": "953797c39bd1846e"
+          },
+          {
+            "role": "user",
+            "bytes": 179,
+            "sha256": "32659f95d621fc2c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "system",
+            "human_resolved": true,
+            "return_reason": "Evaluating or contesting a working position based on explicit evidentiary contradiction is a system-owned intellectual operation. The criterion for judgment (contradiction between evidence and position) is directly asserted and does not require human binding, risk acceptance, or value judgment beyond evidentiary mapping. Therefore, execution proceeds with no Socratic question required."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "A working position was judged wrong because evidence contradicts it. The act is a propositional evaluation using direct evidentiary contradiction.",
+            "grounds": "Observed utterance explicitly applies evidence as a ground for rejecting or correcting a position. Matched as a canonical argument step. Labeled as a contradiction for memory and governance."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "Evaluating or contesting a working position based on explicit evidentiary contradiction is a system-owned intellectual operation. The criterion for judgment (contradiction between evidence and position) is directly asserted and does not require human binding, risk acceptance, or value judgment beyond evidentiary mapping. Therefore, execution proceeds with no Socratic question required."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "A working position was judged wrong because evidence contradicts it. The act is a propositional evaluation using direct evidentiary contradiction.",
+              "grounds": "Observed utterance explicitly applies evidence as a ground for rejecting or correcting a position. Matched as a canonical argument step. Labeled as a contradiction for memory and governance."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15562,
+        "tokens_out": 194,
+        "latency_ms": 4541,
+        "error": "",
+        "request_hash": "2f2b591424fb15f5c0a331cd03cb66a5e874f9d4194b4f57798b72515c3c3f1d",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 10320,
+            "sha256": "b6f3772c100ea96f"
+          },
+          {
+            "role": "user",
+            "bytes": 179,
+            "sha256": "32659f95d621fc2c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_67bb9552b750",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "src_8934c1f3357a4ece",
+              "source_status": "typed_state",
+              "phase_relevance": "TYPE_GAP in evidence contradiction trigger; gap detected in trigger registry affecting phase admissibility",
+              "materiality_reason": "Proposed trigger type 'TRIG-EVIDENCE-CONTRADICTION' is not in registry; the operation evaluates a working position explicitly on evidentiary contradiction, but structural cause is a type gap rather than coercion. The materiality is that evaluation cannot be further specialized without correct trigger registry support.",
+              "admitting_rule": "Do not coerce gap into existing type; record as material gap for contract/mount review."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": [
+              {
+                "trigger_id": "tgap_67bb9552b750",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "src_8934c1f3357a4ece",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP in evidence contradiction trigger; gap detected in trigger registry affecting phase admissibility",
+                "materiality_reason": "Proposed trigger type 'TRIG-EVIDENCE-CONTRADICTION' is not in registry; the operation evaluates a working position explicitly on evidentiary contradiction, but structural cause is a type gap rather than coercion. The materiality is that evaluation cannot be further specialized without correct trigger registry support.",
+                "admitting_rule": "Do not coerce gap into existing type; record as material gap for contract/mount review."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15119,
+        "tokens_out": 197,
+        "latency_ms": 5430,
+        "error": "",
+        "request_hash": "61d353c6caa41e0d1c59933af3b840c1eb3210909d21ba211e0655f26033ba7b",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 10708,
+            "sha256": "11e88d64a3322f92"
+          },
+          {
+            "role": "user",
+            "bytes": 179,
+            "sha256": "32659f95d621fc2c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S9",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S9",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "A working position was judged wrong because evidence contradicts it. The act is a propositional evaluation using direct evidentiary contradiction.",
+            "grounds": "Observed utterance explicitly applies evidence as a ground for rejecting or correcting a position. Matched as a canonical argument step. Labeled as a contradiction for memory and governance."
+          },
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "A working position was judged wrong because evidence contradicts it. The act is a propositional evaluation using direct evidentiary contradiction.",
+              "grounds": "Observed utterance explicitly applies evidence as a ground for rejecting or correcting a position. Matched as a canonical argument step. Labeled as a contradiction for memory and governance."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20235,
+        "tokens_out": 98,
+        "latency_ms": 3541,
+        "error": "",
+        "request_hash": "3f3e5c9834b9d6271fe010fc414eae9c15b2c95672700e574cc216f5ca59b329",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 870,
+            "sha256": "b3c49d62f2113bb1"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "d84c9263f7722a13"
+          },
+          {
+            "role": "user",
+            "bytes": 11551,
+            "sha256": "ef57921365440b55"
+          },
+          {
+            "role": "user",
+            "bytes": 179,
+            "sha256": "32659f95d621fc2c"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_67bb9552b750",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "src_8934c1f3357a4ece",
+              "source_status": "typed_state",
+              "phase_relevance": "A contradiction-type evaluation occurred but the trigger registry lacks a canonical type for evidentiary contradiction. This signals a schema or registry gap during evaluation.",
+              "materiality_reason": "Material distinction: the act is not just a generic negative evaluation, but specifically a contradiction based on evidence—an important step for memory structuring and governance. A type gap signals the need for registry/schema update to capture this argument structure precisely.",
+              "admitting_rule": "Reported as type gap with structural cause; do not coerce into a less precise or misleading registry type."
+            },
+            {
+              "trigger_id": "tgap_7a5918e171a5",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "src_8934c1f3357a4ece",
+              "source_status": "typed_state",
+              "phase_relevance": "An evidence-based contradiction is present, but the type registry does not natively represent this pattern. Treated as a gap rather than forced classification.",
+              "materiality_reason": "The precise relationship ('contradiction' via evidence, not mere disagreement) may have downstream relevance for mapping argument forms and tracking the grounds of critique.",
+              "admitting_rule": "Gap recorded for further registry/schema development and to prevent loss of evaluation structure."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "contradiction",
+            "text": "A working position was judged wrong because evidence contradicts it. The act is a propositional evaluation using direct evidentiary contradiction.",
+            "grounds": "Observed utterance explicitly applies evidence as a ground for rejecting or correcting a position. Matched as a canonical argument step. Labeled as a contradiction for memory and governance."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "contradiction",
+              "text": "A working position was judged wrong because evidence contradicts it. The act is a propositional evaluation using direct evidentiary contradiction.",
+              "grounds": "Observed utterance explicitly applies evidence as a ground for rejecting or correcting a position. Matched as a canonical argument step. Labeled as a contradiction for memory and governance."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_67bb9552b750",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "src_8934c1f3357a4ece",
+                "source_status": "typed_state",
+                "phase_relevance": "A contradiction-type evaluation occurred but the trigger registry lacks a canonical type for evidentiary contradiction. This signals a schema or registry gap during evaluation.",
+                "materiality_reason": "Material distinction: the act is not just a generic negative evaluation, but specifically a contradiction based on evidence—an important step for memory structuring and governance. A type gap signals the need for registry/schema update to capture this argument structure precisely.",
+                "admitting_rule": "Reported as type gap with structural cause; do not coerce into a less precise or misleading registry type."
+              },
+              {
+                "trigger_id": "tgap_7a5918e171a5",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "src_8934c1f3357a4ece",
+                "source_status": "typed_state",
+                "phase_relevance": "An evidence-based contradiction is present, but the type registry does not natively represent this pattern. Treated as a gap rather than forced classification.",
+                "materiality_reason": "The precise relationship ('contradiction' via evidence, not mere disagreement) may have downstream relevance for mapping argument forms and tracking the grounds of critique.",
+                "admitting_rule": "Gap recorded for further registry/schema development and to prevent loss of evaluation structure."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20433,
+        "tokens_out": 435,
+        "latency_ms": 5873,
+        "error": "",
+        "request_hash": "a301547f379cca7fa23f503ae5c99bccfe1536a198b4ba84be2fa0f6f92c59f1",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 11551,
+            "sha256": "62ac5c56c662012f"
+          },
+          {
+            "role": "user",
+            "bytes": 179,
+            "sha256": "32659f95d621fc2c"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_0c1d0a19fc1f0c2a",
+    "input_text": "That working position is wrong because the evidence contradicts it.",
+    "source_id": "src_8934c1f3357a4ece",
+    "phase": "S10",
+    "scene": {
+      "telos": "Evaluate or contest a working position based on evidentiary contradiction.",
+      "role_hint": "evaluator or critic",
+      "authority": "unset",
+      "materials": [
+        "claim about working position",
+        "assertion of evidentiary contradiction"
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "unset",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "APPLY_PROPOSITIONAL_EVALUATION",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "system",
+      "human_resolved": true,
+      "return_reason": "Evaluating or contesting a working position based on explicit evidentiary contradiction is a system-owned intellectual operation. The criterion for judgment (contradiction between evidence and position) is directly asserted and does not require human binding, risk acceptance, or value judgment beyond evidentiary mapping. Therefore, execution proceeds with no Socratic question required."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_96b7eb47eb82",
+        "proposed_trigger_type_id": "tgap_67bb9552b750",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "input_text",
+        "cause_object_ref": "src_8934c1f3357a4ece",
+        "phase_relevance": "A contradiction-type evaluation occurred but the trigger registry lacks a canonical type for evidentiary contradiction. This signals a schema or registry gap during evaluation.",
+        "materiality_reason": "Material distinction: the act is not just a generic negative evaluation, but specifically a contradiction based on evidence—an important step for memory structuring and governance. A type gap signals the need for registry/schema update to capture this argument structure precisely.",
+        "payload": {
+          "legacy_admitting_rule": "Reported as type gap with structural cause; do not coerce into a less precise or misleading registry type.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      },
+      {
+        "candidate_id": "tcand_262563f5548f",
+        "proposed_trigger_type_id": "tgap_7a5918e171a5",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "input_text",
+        "cause_object_ref": "src_8934c1f3357a4ece",
+        "phase_relevance": "An evidence-based contradiction is present, but the type registry does not natively represent this pattern. Treated as a gap rather than forced classification.",
+        "materiality_reason": "The precise relationship ('contradiction' via evidence, not mere disagreement) may have downstream relevance for mapping argument forms and tracking the grounds of critique.",
+        "payload": {
+          "legacy_admitting_rule": "Gap recorded for further registry/schema development and to prevent loss of evaluation structure.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_e1f497e873b8",
+        "candidate_id": "tcand_d18c9241cbab",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'TRIG-EVIDENCE-CONTRADICTION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_0a48db664a53",
+        "candidate_id": "tcand_94816b9a0c55",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_67bb9552b750' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_d5cdc89ffad1",
+        "candidate_id": "tcand_37c6158e1b0d",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_67bb9552b750' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_62bb7a185ff9",
+        "candidate_id": "tcand_27c02598b66c",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_7a5918e171a5' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_5c4e05bdb236",
+        "candidate_id": "tcand_53076bb75194",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_67bb9552b750' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_67bb9552b750",
+        "candidate_id": "tcand_d18c9241cbab",
+        "cause_object_ref": "src_8934c1f3357a4ece",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'TRIG-EVIDENCE-CONTRADICTION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_7a5918e171a5",
+        "candidate_id": "tcand_94816b9a0c55",
+        "cause_object_ref": "src_8934c1f3357a4ece",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_67bb9552b750' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_aad4b99ae0b5",
+        "candidate_id": "tcand_37c6158e1b0d",
+        "cause_object_ref": "src_8934c1f3357a4ece",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_67bb9552b750' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_94fc71b69bd8",
+        "candidate_id": "tcand_27c02598b66c",
+        "cause_object_ref": "src_8934c1f3357a4ece",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_7a5918e171a5' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_a9817e77e0c9",
+        "candidate_id": "tcand_53076bb75194",
+        "cause_object_ref": "src_8934c1f3357a4ece",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_67bb9552b750' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "A working position was judged wrong because evidence contradicts it. The act is a propositional evaluation using direct evidentiary contradiction.",
+      "grounds": "Observed utterance explicitly applies evidence as a ground for rejecting or correcting a position. Matched as a canonical argument step. Labeled as a contradiction for memory and governance."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": [
+        {
+          "projection_id": "gap:gap_8d149c5db393",
+          "signals": [
+            "APPLICABILITY_FAILURE"
+          ],
+          "reason": "ORGAN_GAP for operation 'op_001': model proposal for 'op_001' could not compile-bind against registered primitives",
+          "residue_ratio": 1.0,
+          "recognition_failure_count": 0,
+          "suggested_operation": "",
+          "suggested_ontology": "",
+          "suggested_target_family": [],
+          "mismatch": true,
+          "fingerprint": "7c80351f23b3"
+        }
+      ]
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [
+      {
+        "kind": "ORGAN_GAP",
+        "operation_id": "op_001",
+        "reason": "proposal psyn_001 for operation 'op_001' failed compile-bind: primitive 'prim_001' (invocation 'EXTRACT_PROPOSITIONAL_TARGET') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+        "registered_capability_id": "",
+        "generated_spec": null,
+        "binding_evidence": {},
+        "organ_gap": {
+          "gap_id": "gap_8d149c5db393",
+          "source_ref": "src_8934c1f3357a4ece",
+          "scene_ref": "Evaluate or contest a working position based on evidentiary contradiction.",
+          "required_operation": "op_001",
+          "required_attention_structure": "Treat the text as a single evaluative speech act decomposable into target claim and evidence-based contradiction.",
+          "insufficient_registered_capabilities": [
+            "DIFFERENTIATED_ACCOUNT",
+            "EXTRACT_CONCEPTS"
+          ],
+          "insufficient_declarative_primitives": [
+            "CoverageComputer",
+            "FamilyClassifier",
+            "SpanScanner",
+            "TargetFilter"
+          ],
+          "missing_capability_hypothesis": "model proposal for 'op_001' could not compile-bind against registered primitives",
+          "evidence": [
+            "BindingError: primitive 'prim_001' (invocation 'EXTRACT_PROPOSITIONAL_TARGET') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+          ],
+          "counterexamples": [],
+          "affected_scene_telos": "Evaluate or contest a working position based on evidentiary contradiction.",
+          "possible_development_direction": "extend primitive registry or narrow the proposal",
+          "status": "unresolved",
+          "activation_authority": "NONE"
+        }
+      }
+    ],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "scene_603f07dcd1e4",
+    "branch_id": "",
+    "space_registry": {
+      "space_default_workspace": {
+        "space_id": "space_default_workspace",
+        "version": "v0.1_candidate",
+        "name": "default_workspace",
+        "telos_scope": "general assistance",
+        "world_model_mounts": [],
+        "ontology_refs": [],
+        "proof_regime": "default",
+        "claim_status_policy": "default",
+        "allowed_operation_families": [],
+        "operator_capabilities": [],
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT",
+        "memory_recruitment_policy": "default",
+        "authority_refs": [],
+        "transition_policy": "default",
+        "provenance": "",
+        "activation_scope": "",
+        "lineage": [],
+        "supersedes": "",
+        "status": "active"
+      }
+    },
+    "scene_registry": {
+      "scenes": {
+        "scene_603f07dcd1e4": {
+          "scene_id": "scene_603f07dcd1e4",
+          "space_id": "space_default_workspace",
+          "parent_scene_id": "",
+          "branch_id": "",
+          "version": ""
+        }
+      },
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "dyad_session_projection": {
+      "session_key": "ctx_3d8b295cc0ca2b020def2b72ed570133",
+      "sequence": 2,
+      "records": [
+        {
+          "record_id": "drec_a5fc63e1b92d",
+          "category": "SOCRATES_POSITION",
+          "claim": "Affirm and maintain the current interpretive frame, specifically that interpretation X is sufficient for the present purpose.",
+          "asserted_by": "SOCRATES",
+          "inferred_by": "SOCRATES",
+          "jointly_established": false,
+          "confirmed_by_user": false,
+          "scope_kind": "SCENE",
+          "scope_id": "scene:scene_603f07dcd1e4",
+          "status": "SUPERSEDED",
+          "confidence": 0.4,
+          "authority_rank": "SOCRATES_INFERENCE",
+          "evidence_refs": [
+            "scene.telos:Affirm and maintain the current interpretive frame, specifically that interpretation X is sufficient for the present purpose."
+          ],
+          "counterevidence_refs": [
+            "obs_8934c1f3357a"
+          ],
+          "predecessor_id": "",
+          "revision_reason": "interaction_evidence_invalidated_socrates_position",
+          "sequence": 1,
+          "timestamp": "2026-08-19T12:03:41Z",
+          "extra": {}
+        },
+        {
+          "record_id": "drec_321b3ebc61d6",
+          "category": "SOCRATES_POSITION",
+          "claim": "revised: not Affirm and maintain the current interpretive frame, specifically that interpretation X is sufficient for the present purpose.",
+          "asserted_by": "SOCRATES",
+          "inferred_by": "SOCRATES",
+          "jointly_established": false,
+          "confirmed_by_user": false,
+          "scope_kind": "SCENE",
+          "scope_id": "scene:scene_603f07dcd1e4",
+          "status": "ACTIVE",
+          "confidence": 0.2,
+          "authority_rank": "SOCRATES_INFERENCE",
+          "evidence_refs": [
+            "scene.telos:Affirm and maintain the current interpretive frame, specifically that interpretation X is sufficient for the present purpose.",
+            "obs_8934c1f3357a"
+          ],
+          "counterevidence_refs": [
+            "obs_8934c1f3357a"
+          ],
+          "predecessor_id": "drec_a5fc63e1b92d",
+          "revision_reason": "interaction_evidence_invalidated_socrates_position",
+          "sequence": 2,
+          "timestamp": "2026-08-19T12:04:41Z",
+          "extra": {}
+        }
+      ],
+      "user_view": {
+        "view_id": "uev_3d83cc7ed154",
+        "immediate_wants": [],
+        "hypotheses": [],
+        "belief_entries": []
+      },
+      "last_prediction_class": "NONE",
+      "last_predicted_need": "EVIDENCE",
+      "last_predicted_claim": "",
+      "consecutive_failures": 0,
+      "shared_object_ids": []
+    }
+  },
+  "rendering": {
+    "text": "[dyad socrates-position revised from drec_a5fc63e1b92d]\nДанный подход основан на том, что противоречие между доказательствами и позицией позволяет объективно оценить или оспорить рабочую позицию без необходимости задавать дополнительные вопросы.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 195,
+    "tokens_out": 43,
+    "latency_ms": 2034,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_0aaa1470c6d93dd2.json",
+  "duration_ms": 59327,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "question_intent_proposal": null,
+  "context_id": "ctx_3d8b295cc0ca2b020def2b72ed570133",
+  "context_continuity": {
+    "context_id": "ctx_3d8b295cc0ca2b020def2b72ed570133",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_eb2f4b3b4b28",
+      "version": 1,
+      "scene_id": "scene_603f07dcd1e4",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Affirm and maintain the current interpretive frame, specifically that interpretation X is sufficient for the present purpose.",
+      "telos": "Affirm and maintain the current interpretive frame, specifically that interpretation X is sufficient for the present purpose.",
+      "object_scope": "current working frame, interpretation X",
+      "operation_kind": "FRAME_HOLD",
+      "expected_intervention": "FRAME_HOLD",
+      "human_owned_decisions": [
+        "The current operation is to maintain/affirm the sufficiency of interpretation X as the working frame, not to perform an analytic, extractive, or reconstructive act. No criterion or consequential commitment is being bound or changed; no explicit decision is being made that would require human ownership or joint determination. The request is to hold stability, not to select or settle a new criterion."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "unset"
+    },
+    "contract_revision": {
+      "candidate_id": "crc_b542aab3957f",
+      "prior_contract_id": "sc_eb2f4b3b4b28",
+      "proposed_contract": {
+        "contract_id": "sc_f0cfabbb91bc",
+        "version": 2,
+        "scene_id": "scene_603f07dcd1e4",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Evaluate or contest a working position based on evidentiary contradiction.",
+        "telos": "Evaluate or contest a working position based on evidentiary contradiction.",
+        "object_scope": "claim about working position, assertion of evidentiary contradiction",
+        "operation_kind": "APPLY_PROPOSITIONAL_EVALUATION",
+        "expected_intervention": "APPLY_PROPOSITIONAL_EVALUATION",
+        "human_owned_decisions": [
+          "Evaluating or contesting a working position based on explicit evidentiary contradiction is a system-owned intellectual operation. The criterion for judgment (contradiction between evidence and position) is directly asserted and does not require human binding, risk acceptance, or value judgment beyond evidentiary mapping. Therefore, execution proceeds with no Socratic question required."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_eb2f4b3b4b28",
+        "ownership_owner": "system"
+      },
+      "reason": "content_break telos=DIVERGENT object=DISJOINT",
+      "source": "SYSTEM_DERIVED",
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "contract_revision_admission": {
+      "admission_id": "cra_3bb37904c346",
+      "candidate_id": "crc_b542aab3957f",
+      "outcome": "HOLD_PROPOSAL",
+      "reason": "unprivileged ContractRevisionCandidate held; NO_TRANSITION_AUTHORITY",
+      "authority": "NO_TRANSITION_AUTHORITY",
+      "prior_contract_id": "sc_eb2f4b3b4b28",
+      "active_contract_id": "sc_eb2f4b3b4b28"
+    },
+    "recognition_pass": {
+      "pass_id": "rp_518323dd6384",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [
+        {
+          "candidate_id": "crc_b542aab3957f",
+          "prior_contract_id": "sc_eb2f4b3b4b28",
+          "proposed_contract": {
+            "contract_id": "sc_f0cfabbb91bc",
+            "version": 2,
+            "scene_id": "scene_603f07dcd1e4",
+            "space_id": "space_default_workspace",
+            "branch_id": "",
+            "intent": "Evaluate or contest a working position based on evidentiary contradiction.",
+            "telos": "Evaluate or contest a working position based on evidentiary contradiction.",
+            "object_scope": "claim about working position, assertion of evidentiary contradiction",
+            "operation_kind": "APPLY_PROPOSITIONAL_EVALUATION",
+            "expected_intervention": "APPLY_PROPOSITIONAL_EVALUATION",
+            "human_owned_decisions": [
+              "Evaluating or contesting a working position based on explicit evidentiary contradiction is a system-owned intellectual operation. The criterion for judgment (contradiction between evidence and position) is directly asserted and does not require human binding, risk acceptance, or value judgment beyond evidentiary mapping. Therefore, execution proceeds with no Socratic question required."
+            ],
+            "constraints": [],
+            "uncertainty": 0.1,
+            "provenance": "SYSTEM_DERIVED",
+            "status": "REVISION_PROPOSED",
+            "supersedes": "sc_eb2f4b3b4b28",
+            "ownership_owner": "system"
+          },
+          "reason": "content_break telos=DIVERGENT object=DISJOINT",
+          "source": "SYSTEM_DERIVED",
+          "authority": "NO_TRANSITION_AUTHORITY"
+        }
+      ],
+      "revision_admissions": [
+        {
+          "admission_id": "cra_3bb37904c346",
+          "candidate_id": "crc_b542aab3957f",
+          "outcome": "HOLD_PROPOSAL",
+          "reason": "unprivileged ContractRevisionCandidate held; NO_TRANSITION_AUTHORITY",
+          "authority": "NO_TRANSITION_AUTHORITY",
+          "prior_contract_id": "sc_eb2f4b3b4b28",
+          "active_contract_id": "sc_eb2f4b3b4b28"
+        }
+      ],
+      "drift_assessment": {
+        "scene_identity_continuous": true,
+        "space_same": true,
+        "branch_same": true,
+        "object_scope_relation": "DISJOINT",
+        "telos_relation": "DIVERGENT",
+        "ownership_boundary_changed": false,
+        "epistemic_policy_changed": false,
+        "operation_shift_kind": "SCENE_CHANGING",
+        "material_drift": true,
+        "grounds": [
+          "content_break telos=DIVERGENT object=DISJOINT"
+        ],
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_revision_held:crc_b542aab3957f"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_eb2f4b3b4b28",
+    "contract_history": [
+      {
+        "contract_id": "sc_eb2f4b3b4b28",
+        "version": 1,
+        "scene_id": "scene_603f07dcd1e4",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Affirm and maintain the current interpretive frame, specifically that interpretation X is sufficient for the present purpose.",
+        "telos": "Affirm and maintain the current interpretive frame, specifically that interpretation X is sufficient for the present purpose.",
+        "object_scope": "current working frame, interpretation X",
+        "operation_kind": "FRAME_HOLD",
+        "expected_intervention": "FRAME_HOLD",
+        "human_owned_decisions": [
+          "The current operation is to maintain/affirm the sufficiency of interpretation X as the working frame, not to perform an analytic, extractive, or reconstructive act. No criterion or consequential commitment is being bound or changed; no explicit decision is being made that would require human ownership or joint determination. The request is to hold stability, not to select or settle a new criterion."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "unset"
+      },
+      {
+        "contract_id": "sc_f0cfabbb91bc",
+        "version": 2,
+        "scene_id": "scene_603f07dcd1e4",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Evaluate or contest a working position based on evidentiary contradiction.",
+        "telos": "Evaluate or contest a working position based on evidentiary contradiction.",
+        "object_scope": "claim about working position, assertion of evidentiary contradiction",
+        "operation_kind": "APPLY_PROPOSITIONAL_EVALUATION",
+        "expected_intervention": "APPLY_PROPOSITIONAL_EVALUATION",
+        "human_owned_decisions": [
+          "Evaluating or contesting a working position based on explicit evidentiary contradiction is a system-owned intellectual operation. The criterion for judgment (contradiction between evidence and position) is directly asserted and does not require human binding, risk acceptance, or value judgment beyond evidentiary mapping. Therefore, execution proceeds with no Socratic question required."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_eb2f4b3b4b28",
+        "ownership_owner": "system"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "private_work": {
+    "private_work_status": "NO_CHANGE_STOP",
+    "additional_private_pass_count": 1,
+    "passes": [
+      {
+        "pass_id": "apr_d65130cde97c",
+        "purpose": "SOURCE_GAP_RECONSTRUCTION",
+        "module_id": "source_gap",
+        "honour": true,
+        "stop_reason": "",
+        "kind": "ADDITIONAL_PRIVATE_PASS",
+        "execution": "ADDITIONAL_PRIVATE_PASS",
+        "packet_id": "wp_7fe6218bbac6",
+        "product_type": "WorkPacket",
+        "changed_forward_action": ""
+      }
+    ],
+    "need": {
+      "assessment_id": "pna_902175437228",
+      "decision": "PROPOSE_PRIVATE_OPERATION",
+      "benefit": "BENEFIT_EXPECTED_TO_EXCEED_COST",
+      "purpose": "SOURCE_GAP_RECONSTRUCTION",
+      "module_id": "source_gap",
+      "grounds": [
+        "capability_resolution.ORGAN_GAP"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_CHANGED_FORWARD_ACTION",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [
+      "wp_7fe6218bbac6"
+    ],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 1,
+      "specialized_calls": 0,
+      "tokens_spent": 700,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "ADDITIONAL_PRIVATE_PASS"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_b35a1ce1d5ed",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_71f256858242",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_8934c1f3357a4ece",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_f493fbb5f1ba",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_3d8b295cc0ca2b020def2b72ed570133",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "INFORMATIVE_SURPRISE",
+    "revision_proposed": true,
+    "shared_object_delta": null,
+    "scene_scope": "scene:scene_603f07dcd1e4",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_8934c1f3357a"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "[dyad socrates-position revised from drec_a5fc63e1b92d]",
+    "causal_effect": "socrates_position_revised",
+    "likely_failure_source": "NONE",
+    "extra_inference_pass": true,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": true,
+    "user_hypothesis_revised": false
+  }
+}

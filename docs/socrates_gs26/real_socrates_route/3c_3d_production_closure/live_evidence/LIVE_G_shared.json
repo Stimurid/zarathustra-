@@ -1,0 +1,1802 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_3d0918f8987af5b1",
+  "trace_id": "strc_56759e9568c0107c",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "[dyad shared-object drec_1307aa0636aa: the reversible component of the plan ≠ the irreversible one]\nОперация не выполнена: невозможно проанализировать обратимость элементов без конкретного содержания плана.",
+    "rationale": "human/joint ownership unresolved (INV-009)",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Distinction between reversible and irreversible components of the plan is blocked: No explicit plan content was supplied to analyze or segment. The distinction requires concrete plan elements; only general criteria are available. Applicability is suspended until the user provides plan details.",
+      "grounds": "S8 state confirms SYSTEM cannot apply the operation 'DISTINGUISH_REVERSIBILITY_COMPONENTS' to undefined input. Several type gap triggers were registered for the missing plan content. Human owner must supply actionable plan details for this distinction to proceed."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "No triggers require escalation or mounting of extra semantic bodies beyond CORE, B05, and B07. The request is a direct operational ask: distinguish which elements of the plan are reversible and which are not. This concerns the classification/analysis of plan steps under reversibility/irreversibility, does not require role/scene/telos reconstruction, memory state change, or reflective retreat. Standard execution can proceed.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15181,
+        "tokens_out": 102,
+        "latency_ms": 4793,
+        "error": "",
+        "request_hash": "3a87fd15bd7f7ae607f4df9ebdbca3f91dc52a4f5b5f5b1f5f5560069802e4e5",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2080,
+            "sha256": "09526194a33df763"
+          },
+          {
+            "role": "user",
+            "bytes": 187,
+            "sha256": "fc447efa28f4f9e7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+            "role_hint": "analyst or evaluator",
+            "authority": "system",
+            "materials": [
+              "plan (not specified in detail)",
+              "criteria for reversibility vs irreversibility"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+              "role_hint": "analyst or evaluator",
+              "authority": "system",
+              "materials": [
+                "plan (not specified in detail)",
+                "criteria for reversibility vs irreversibility"
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13229,
+        "tokens_out": 82,
+        "latency_ms": 4670,
+        "error": "",
+        "request_hash": "4db9f9d8be01e24ce82e5b616c326511299cd7c73818851b2c026fb27f44a195",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2079,
+            "sha256": "966042f75c8b3e52"
+          },
+          {
+            "role": "user",
+            "bytes": 187,
+            "sha256": "fc447efa28f4f9e7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "TRG_OPERATION_REVERSIBILITY_DISTINCTION",
+              "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+              "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+              "source_status": "typed_state",
+              "phase_relevance": "operation_applicability:S2",
+              "materiality_reason": "The user is requesting analysis that sorts plan components by whether their effects can be undone (reversibility)—an evaluative distinction based directly on system capabilities, not on authority, memory, scene change, or jurisdiction escalation. This surfaces the operation as a potentially applicable classification rather than a constitution or formation event.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "TRG_OPERATION_REVERSIBILITY_DISTINCTION",
+                "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+                "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+                "source_status": "typed_state",
+                "phase_relevance": "operation_applicability:S2",
+                "materiality_reason": "The user is requesting analysis that sorts plan components by whether their effects can be undone (reversibility)—an evaluative distinction based directly on system capabilities, not on authority, memory, scene change, or jurisdiction escalation. This surfaces the operation as a potentially applicable classification rather than a constitution or formation event."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15202,
+        "tokens_out": 179,
+        "latency_ms": 5287,
+        "error": "",
+        "request_hash": "ba0c32c104b0568e6e34f07d8b7babfa8cae9f71dc8afec0ee0c6286cec3337a",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 2305,
+            "sha256": "df973b449953d99c"
+          },
+          {
+            "role": "user",
+            "bytes": 187,
+            "sha256": "fc447efa28f4f9e7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "unset",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13275,
+        "tokens_out": 41,
+        "latency_ms": 2949,
+        "error": "",
+        "request_hash": "99589b004db6aed786d569bd2468bce3fbbe8924703d3a04e8182f185e06b179",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 3373,
+            "sha256": "cc1449753a4334e3"
+          },
+          {
+            "role": "user",
+            "bytes": 187,
+            "sha256": "fc447efa28f4f9e7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "DISTINGUISH_REVERSIBILITY_COMPONENTS",
+            "applicable": false,
+            "why_not": "No specific plan is provided. Distinguishing reversible from irreversible components requires explicit plan elements to analyze. The material consists only of criteria-level instructions and a placeholder for 'plan (not specified in detail)'. Operation cannot apply to undefined content.",
+            "open_world_gap": true
+          },
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_48c207503f48",
+              "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+              "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+              "source_status": "typed_state",
+              "phase_relevance": "applicability_assessment",
+              "materiality_reason": "Task is materially grounded in distinguishing elements by reversibility, but the operational object family (plan elements) is absent; structural and content gap blocks execution.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": {
+            "proposal_id": "proposal_revcomp_blocked_noplan_001",
+            "operation_id": "DISTINGUISH_REVERSIBILITY_COMPONENTS:empty_input",
+            "target_object_family": [
+              "plan_elements"
+            ],
+            "ontology_hypothesis": "Reversibility distinction requires an explicit set of plan elements or actions as input. Neither segmentation nor attribution is possible without content.",
+            "recognition_criteria": [
+              "Plan elements specified in actionable form",
+              "Evidence of possible reversion/undo operations per element"
+            ],
+            "segmentation_policy_hint": "Requires explicit list or descriptions of the plan's components",
+            "evidence_requirements": [
+              "Concrete plan steps or actions"
+            ],
+            "exclusions": [
+              "Criteria-only prompts",
+              "Ambiguous placeholders"
+            ],
+            "contraindications": [
+              "Absence of plan content",
+              "Entirely abstract instructions"
+            ],
+            "applicability_assumptions": [
+              "Plan content is supplied"
+            ],
+            "primitives": [
+              {
+                "name": "segment_plan_elements",
+                "primitive_id": "primitive_plan_segmentation_001",
+                "params": {},
+                "inputs": []
+              },
+              {
+                "name": "classify_by_reversibility",
+                "primitive_id": "primitive_reversibility_classifier_001",
+                "params": {},
+                "inputs": []
+              }
+            ],
+            "accepted_output": "Mapping of explicit plan elements into reversible and irreversible categories.",
+            "residue_output": "Unclassifiable material and explanations for gaps.",
+            "revises_projection_id": "",
+            "triggered_by_diagnostic_id": "tgap_48c207503f48",
+            "triggered_by_diagnostic_fingerprint": "plan_gap_no_content_22af8b",
+            "rationale": "Applicability is blocked: task presumes specific plan objects are present. Without them, only the criteria can be articulated generally. Further action requires supplemental plan details.",
+            "expected_diagnostics": "Request for explicit plan input or clarify if a hypothetical/abstract demonstration is wanted.",
+            "expected_residue_policy": "Explicitly identify absence of material as the cause of non-applicability; do not manufacture plan elements."
+          },
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "DISTINGUISH_REVERSIBILITY_COMPONENTS",
+              "applicable": false,
+              "why_not": "No specific plan is provided. Distinguishing reversible from irreversible components requires explicit plan elements to analyze. The material consists only of criteria-level instructions and a placeholder for 'plan (not specified in detail)'. Operation cannot apply to undefined content.",
+              "open_world_gap": true
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_48c207503f48",
+                "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+                "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+                "source_status": "typed_state",
+                "phase_relevance": "applicability_assessment",
+                "materiality_reason": "Task is materially grounded in distinguishing elements by reversibility, but the operational object family (plan elements) is absent; structural and content gap blocks execution."
+              }
+            ],
+            "projection_synthesis_proposal": {
+              "proposal_id": "proposal_revcomp_blocked_noplan_001",
+              "operation_id": "DISTINGUISH_REVERSIBILITY_COMPONENTS:empty_input",
+              "target_object_family": [
+                "plan_elements"
+              ],
+              "ontology_hypothesis": "Reversibility distinction requires an explicit set of plan elements or actions as input. Neither segmentation nor attribution is possible without content.",
+              "recognition_criteria": [
+                "Plan elements specified in actionable form",
+                "Evidence of possible reversion/undo operations per element"
+              ],
+              "segmentation_policy_hint": "Requires explicit list or descriptions of the plan's components",
+              "evidence_requirements": [
+                "Concrete plan steps or actions"
+              ],
+              "exclusions": [
+                "Criteria-only prompts",
+                "Ambiguous placeholders"
+              ],
+              "contraindications": [
+                "Absence of plan content",
+                "Entirely abstract instructions"
+              ],
+              "applicability_assumptions": [
+                "Plan content is supplied"
+              ],
+              "primitives": [
+                {
+                  "name": "segment_plan_elements",
+                  "primitive_id": "primitive_plan_segmentation_001",
+                  "params": {},
+                  "inputs": []
+                },
+                {
+                  "name": "classify_by_reversibility",
+                  "primitive_id": "primitive_reversibility_classifier_001",
+                  "params": {},
+                  "inputs": []
+                }
+              ],
+              "accepted_output": "Mapping of explicit plan elements into reversible and irreversible categories.",
+              "residue_output": "Unclassifiable material and explanations for gaps.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "tgap_48c207503f48",
+              "triggered_by_diagnostic_fingerprint": "plan_gap_no_content_22af8b",
+              "rationale": "Applicability is blocked: task presumes specific plan objects are present. Without them, only the criteria can be articulated generally. Further action requires supplemental plan details.",
+              "expected_diagnostics": "Request for explicit plan input or clarify if a hypothetical/abstract demonstration is wanted.",
+              "expected_residue_policy": "Explicitly identify absence of material as the cause of non-applicability; do not manufacture plan elements."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14319,
+        "tokens_out": 720,
+        "latency_ms": 8354,
+        "error": "",
+        "request_hash": "c6e013f39ea251f297081bfb6fb2167f608a368f39e540f633ccd8afd3c7d201",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 3373,
+            "sha256": "67e3139a7199e188"
+          },
+          {
+            "role": "user",
+            "bytes": 187,
+            "sha256": "fc447efa28f4f9e7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_48c207503f48",
+              "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+              "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+              "source_status": "typed_state",
+              "phase_relevance": "S5 — Operation cannot apply because required plan elements are not given; this is a structural input gap, not merely uncertainty or ambiguity.",
+              "materiality_reason": "Distinguishing reversible vs irreversible components is only possible when explicit plan content is present. With only criteria/instructions and no material to analyze, there is an ontology/family gap and an applicability block.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Blocked applicability for reversibility/irreversibility distinction due to absence of concrete plan content. Operation requires explicit plan elements for segmentation and classification; only criteria have been provided.",
+            "grounds": "S5 — Operation analysis found no actionable plan content; only instructions and placeholders are available. The distinction is inapplicable until plan elements are supplied."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_48c207503f48",
+                "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+                "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+                "source_status": "typed_state",
+                "phase_relevance": "S5 — Operation cannot apply because required plan elements are not given; this is a structural input gap, not merely uncertainty or ambiguity.",
+                "materiality_reason": "Distinguishing reversible vs irreversible components is only possible when explicit plan content is present. With only criteria/instructions and no material to analyze, there is an ontology/family gap and an applicability block."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Blocked applicability for reversibility/irreversibility distinction due to absence of concrete plan content. Operation requires explicit plan elements for segmentation and classification; only criteria have been provided.",
+              "grounds": "S5 — Operation analysis found no actionable plan content; only instructions and placeholders are available. The distinction is inapplicable until plan elements are supplied."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16559,
+        "tokens_out": 269,
+        "latency_ms": 5562,
+        "error": "",
+        "request_hash": "056797868b1282ee666d222f7c90dffcb8f89d6e381e0cd801f3fbfc49d64ac1",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 6868,
+            "sha256": "28cfd942dce6af20"
+          },
+          {
+            "role": "user",
+            "bytes": 187,
+            "sha256": "fc447efa28f4f9e7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "human",
+            "human_resolved": false,
+            "return_reason": "Cannot execute: The operation 'distinguish the reversible from the irreversible components of the plan' requires explicit plan content to analyze. No plan elements have been provided—there is only an abstract instruction and criteria. The system cannot manufacture plan details or make binding distinctions on empty input. This is a HUMAN-owned fork until specific plan information is supplied."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Applicability for distinguishing reversible from irreversible plan components blocked by lack of concrete plan. Only general criteria were provided; explicit plan elements are required for further progress.",
+            "grounds": "Analysis at S6 confirms the intellectual operation cannot proceed: distinction requires material, and the user must supply actionable content for the task to be SYSTEM-executable."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "human",
+              "human_resolved": false,
+              "return_reason": "Cannot execute: The operation 'distinguish the reversible from the irreversible components of the plan' requires explicit plan content to analyze. No plan elements have been provided—there is only an abstract instruction and criteria. The system cannot manufacture plan details or make binding distinctions on empty input. This is a HUMAN-owned fork until specific plan information is supplied."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Applicability for distinguishing reversible from irreversible plan components blocked by lack of concrete plan. Only general criteria were provided; explicit plan elements are required for further progress.",
+              "grounds": "Analysis at S6 confirms the intellectual operation cannot proceed: distinction requires material, and the user must supply actionable content for the task to be SYSTEM-executable."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14966,
+        "tokens_out": 195,
+        "latency_ms": 4573,
+        "error": "",
+        "request_hash": "84fe707ad3739550d91716a6b6622d17063149cd6297a011771d3273aa2aa2ed",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 8346,
+            "sha256": "367336992b2d2a60"
+          },
+          {
+            "role": "user",
+            "bytes": 187,
+            "sha256": "fc447efa28f4f9e7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_48c207503f48",
+              "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+              "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+              "source_status": "typed_state",
+              "phase_relevance": "S8 (intervention selection, question purpose, applicability blockage)",
+              "materiality_reason": "No specific plan provided. Applicability for the distinction operation is blocked by lack of actionable material. Concrete plan elements are required for SYSTEM execution, not merely criteria or abstract instructions.",
+              "admitting_rule": "Do not manufacture plan details or silently substitute abstract demonstration. Explicit plan input must be requested from the user to resolve operation blockage."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": false,
+            "triggers": [
+              {
+                "trigger_id": "tgap_48c207503f48",
+                "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+                "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+                "source_status": "typed_state",
+                "phase_relevance": "S8 (intervention selection, question purpose, applicability blockage)",
+                "materiality_reason": "No specific plan provided. Applicability for the distinction operation is blocked by lack of actionable material. Concrete plan elements are required for SYSTEM execution, not merely criteria or abstract instructions.",
+                "admitting_rule": "Do not manufacture plan details or silently substitute abstract demonstration. Explicit plan input must be requested from the user to resolve operation blockage."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14521,
+        "tokens_out": 198,
+        "latency_ms": 5067,
+        "error": "",
+        "request_hash": "16797465c103546797019b53297f110b154b76ec1180d48cd6a8f95046ef5fc5",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 8731,
+            "sha256": "69e17642bd85388d"
+          },
+          {
+            "role": "user",
+            "bytes": 187,
+            "sha256": "fc447efa28f4f9e7"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_48c207503f48",
+              "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+              "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+              "source_status": "typed_state",
+              "phase_relevance": "Operation applicability blocked at S8; conditional segment/classify primitives not invoked; HUMAN-owned fork.",
+              "materiality_reason": "Explicit plan elements are required for reversibility distinction; absence blocks execution. Type gap for 'TRG_OPERATION_REVERSIBILITY_DISTINCTION' confirmed by multiple trigger attempts.",
+              "admitting_rule": "Do not manufacture plan content; request explicit plan elements for applicability."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Distinction between reversible and irreversible components of the plan is blocked: No explicit plan content was supplied to analyze or segment. The distinction requires concrete plan elements; only general criteria are available. Applicability is suspended until the user provides plan details.",
+            "grounds": "S8 state confirms SYSTEM cannot apply the operation 'DISTINGUISH_REVERSIBILITY_COMPONENTS' to undefined input. Several type gap triggers were registered for the missing plan content. Human owner must supply actionable plan details for this distinction to proceed."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Distinction between reversible and irreversible components of the plan is blocked: No explicit plan content was supplied to analyze or segment. The distinction requires concrete plan elements; only general criteria are available. Applicability is suspended until the user provides plan details.",
+              "grounds": "S8 state confirms SYSTEM cannot apply the operation 'DISTINGUISH_REVERSIBILITY_COMPONENTS' to undefined input. Several type gap triggers were registered for the missing plan content. Human owner must supply actionable plan details for this distinction to proceed."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_48c207503f48",
+                "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+                "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+                "source_status": "typed_state",
+                "phase_relevance": "Operation applicability blocked at S8; conditional segment/classify primitives not invoked; HUMAN-owned fork.",
+                "materiality_reason": "Explicit plan elements are required for reversibility distinction; absence blocks execution. Type gap for 'TRG_OPERATION_REVERSIBILITY_DISTINCTION' confirmed by multiple trigger attempts.",
+                "admitting_rule": "Do not manufacture plan content; request explicit plan elements for applicability."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19866,
+        "tokens_out": 308,
+        "latency_ms": 5890,
+        "error": "",
+        "request_hash": "c7103481cfb03c20d39290fbe5b1b7743335bddcb6899acfc9bdac1fa0f84fe0",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 9751,
+            "sha256": "e530fe4a9e1096d1"
+          },
+          {
+            "role": "user",
+            "bytes": 187,
+            "sha256": "fc447efa28f4f9e7"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_3d0918f8987af5b1",
+    "input_text": "Distinguish the reversible component of the plan from the irreversible one.",
+    "source_id": "src_e71b8d2a84316d60",
+    "phase": "S10",
+    "scene": {
+      "telos": "Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+      "role_hint": "analyst or evaluator",
+      "authority": "system",
+      "materials": [
+        "plan (not specified in detail)",
+        "criteria for reversibility vs irreversibility"
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "unset",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "DISTINGUISH_REVERSIBILITY_COMPONENTS",
+      "applicable": false,
+      "why_not": "No specific plan is provided. Distinguishing reversible from irreversible components requires explicit plan elements to analyze. The material consists only of criteria-level instructions and a placeholder for 'plan (not specified in detail)'. Operation cannot apply to undefined content.",
+      "open_world_gap": true
+    },
+    "ownership": {
+      "owner": "human",
+      "human_resolved": false,
+      "return_reason": "Cannot execute: The operation 'distinguish the reversible from the irreversible components of the plan' requires explicit plan content to analyze. No plan elements have been provided—there is only an abstract instruction and criteria. The system cannot manufacture plan details or make binding distinctions on empty input. This is a HUMAN-owned fork until specific plan information is supplied."
+    },
+    "council_invoked": false,
+    "execution_invoked": false,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_8ae7e11562a3",
+        "proposed_trigger_type_id": "tgap_48c207503f48",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+        "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+        "phase_relevance": "Operation applicability blocked at S8; conditional segment/classify primitives not invoked; HUMAN-owned fork.",
+        "materiality_reason": "Explicit plan elements are required for reversibility distinction; absence blocks execution. Type gap for 'TRG_OPERATION_REVERSIBILITY_DISTINCTION' confirmed by multiple trigger attempts.",
+        "payload": {
+          "legacy_admitting_rule": "Do not manufacture plan content; request explicit plan elements for applicability.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_bf1c1c5a5ef7",
+        "candidate_id": "tcand_25b9d5dd4ebe",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'TRG_OPERATION_REVERSIBILITY_DISTINCTION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_b95261ddc641",
+        "candidate_id": "tcand_216e29b158f4",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_48c207503f48' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_15b6a36b8a7a",
+        "candidate_id": "tcand_26bdbe491e10",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_48c207503f48' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_68c602a99f61",
+        "candidate_id": "tcand_2ec04fd6cfc0",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_48c207503f48' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_48c207503f48",
+        "candidate_id": "tcand_25b9d5dd4ebe",
+        "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+        "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'TRG_OPERATION_REVERSIBILITY_DISTINCTION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_b1f9c6ceb574",
+        "candidate_id": "tcand_216e29b158f4",
+        "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+        "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_48c207503f48' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_1191da1d2567",
+        "candidate_id": "tcand_26bdbe491e10",
+        "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+        "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_48c207503f48' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_6aa8c03c5965",
+        "candidate_id": "tcand_2ec04fd6cfc0",
+        "cause_object_ref": "input_text: Distinguish the reversible component of the plan from the irreversible one.",
+        "generating_state_ref": "scene.telos: Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_48c207503f48' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Distinction between reversible and irreversible components of the plan is blocked: No explicit plan content was supplied to analyze or segment. The distinction requires concrete plan elements; only general criteria are available. Applicability is suspended until the user provides plan details.",
+      "grounds": "S8 state confirms SYSTEM cannot apply the operation 'DISTINGUISH_REVERSIBILITY_COMPONENTS' to undefined input. Several type gap triggers were registered for the missing plan content. Human owner must supply actionable plan details for this distinction to proceed."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": [
+        {
+          "projection_id": "gap:gap_76fadffb1625",
+          "signals": [
+            "APPLICABILITY_FAILURE"
+          ],
+          "reason": "ORGAN_GAP for operation 'DISTINGUISH_REVERSIBILITY_COMPONENTS:empty_input': model proposal for 'DISTINGUISH_REVERSIBILITY_COMPONENTS:empty_input' could not compile-bind against registered primitives",
+          "residue_ratio": 1.0,
+          "recognition_failure_count": 0,
+          "suggested_operation": "",
+          "suggested_ontology": "",
+          "suggested_target_family": [],
+          "mismatch": true,
+          "fingerprint": "7c80351f23b3"
+        }
+      ]
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [
+      {
+        "kind": "ORGAN_GAP",
+        "operation_id": "DISTINGUISH_REVERSIBILITY_COMPONENTS:empty_input",
+        "reason": "proposal proposal_revcomp_blocked_noplan_001 for operation 'DISTINGUISH_REVERSIBILITY_COMPONENTS:empty_input' failed compile-bind: primitive 'primitive_plan_segmentation_001' (invocation 'segment_plan_elements') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+        "registered_capability_id": "",
+        "generated_spec": null,
+        "binding_evidence": {},
+        "organ_gap": {
+          "gap_id": "gap_76fadffb1625",
+          "source_ref": "src_e71b8d2a84316d60",
+          "scene_ref": "Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+          "required_operation": "DISTINGUISH_REVERSIBILITY_COMPONENTS:empty_input",
+          "required_attention_structure": "Requires explicit list or descriptions of the plan's components",
+          "insufficient_registered_capabilities": [
+            "DIFFERENTIATED_ACCOUNT",
+            "EXTRACT_CONCEPTS"
+          ],
+          "insufficient_declarative_primitives": [
+            "CoverageComputer",
+            "FamilyClassifier",
+            "SpanScanner",
+            "TargetFilter"
+          ],
+          "missing_capability_hypothesis": "model proposal for 'DISTINGUISH_REVERSIBILITY_COMPONENTS:empty_input' could not compile-bind against registered primitives",
+          "evidence": [
+            "BindingError: primitive 'primitive_plan_segmentation_001' (invocation 'segment_plan_elements') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+          ],
+          "counterexamples": [],
+          "affected_scene_telos": "Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+          "possible_development_direction": "extend primitive registry or narrow the proposal",
+          "status": "unresolved",
+          "activation_authority": "NONE"
+        }
+      }
+    ],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "scene_e4260eacf208",
+    "branch_id": "",
+    "space_registry": {
+      "space_default_workspace": {
+        "space_id": "space_default_workspace",
+        "version": "v0.1_candidate",
+        "name": "default_workspace",
+        "telos_scope": "general assistance",
+        "world_model_mounts": [],
+        "ontology_refs": [],
+        "proof_regime": "default",
+        "claim_status_policy": "default",
+        "allowed_operation_families": [
+          "*"
+        ],
+        "operator_capabilities": [
+          "*"
+        ],
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT",
+        "memory_recruitment_policy": "default",
+        "authority_refs": [],
+        "transition_policy": "default",
+        "provenance": "runtime_default",
+        "activation_scope": "all_runs_by_default",
+        "lineage": [],
+        "supersedes": "",
+        "status": "active"
+      }
+    },
+    "scene_registry": {
+      "scenes": {
+        "scene_e4260eacf208": {
+          "scene_id": "scene_e4260eacf208",
+          "space_id": "space_default_workspace",
+          "parent_scene_id": "",
+          "branch_id": "",
+          "version": ""
+        }
+      },
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "dyad_session_projection": {
+      "session_key": "ctx_a699c39daa2417171eba7ffa73dc8083",
+      "sequence": 3,
+      "records": [
+        {
+          "record_id": "drec_1307aa0636aa",
+          "category": "SHARED_OBJECT_STATE",
+          "claim": "the reversible component of the plan ≠ the irreversible one",
+          "asserted_by": "USER",
+          "inferred_by": null,
+          "jointly_established": true,
+          "confirmed_by_user": true,
+          "scope_kind": "SCENE",
+          "scope_id": "telos:identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+          "status": "SCENE_LOCAL",
+          "confidence": 0.9,
+          "authority_rank": "USER_EXPLICIT_STATEMENT",
+          "evidence_refs": [
+            "obs_e71b8d2a8431"
+          ],
+          "counterevidence_refs": [],
+          "predecessor_id": "",
+          "revision_reason": "",
+          "sequence": 1,
+          "timestamp": "2026-08-19T12:01:03Z",
+          "extra": {
+            "kind": "distinction"
+          }
+        },
+        {
+          "record_id": "drec_013604eb4661",
+          "category": "USER_OBSERVED",
+          "claim": "asserted distinction the reversible component of the plan ≠ the irreversible one",
+          "asserted_by": "USER",
+          "inferred_by": null,
+          "jointly_established": false,
+          "confirmed_by_user": true,
+          "scope_kind": "SCENE",
+          "scope_id": "telos:identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+          "status": "ACTIVE",
+          "confidence": 1.0,
+          "authority_rank": "USER_EXPLICIT_STATEMENT",
+          "evidence_refs": [
+            "obs_e71b8d2a8431"
+          ],
+          "counterevidence_refs": [],
+          "predecessor_id": "",
+          "revision_reason": "",
+          "sequence": 2,
+          "timestamp": "2026-08-19T12:01:03Z",
+          "extra": {}
+        },
+        {
+          "record_id": "drec_4a8ef881a600",
+          "category": "SOCRATES_POSITION",
+          "claim": "Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+          "asserted_by": "SOCRATES",
+          "inferred_by": "SOCRATES",
+          "jointly_established": false,
+          "confirmed_by_user": false,
+          "scope_kind": "SCENE",
+          "scope_id": "telos:identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+          "status": "ACTIVE",
+          "confidence": 0.4,
+          "authority_rank": "SOCRATES_INFERENCE",
+          "evidence_refs": [
+            "scene.telos:Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed."
+          ],
+          "counterevidence_refs": [],
+          "predecessor_id": "",
+          "revision_reason": "",
+          "sequence": 3,
+          "timestamp": "2026-08-19T12:01:03Z",
+          "extra": {}
+        }
+      ],
+      "user_view": {
+        "view_id": "uev_d3452dffd383",
+        "immediate_wants": [],
+        "hypotheses": [],
+        "belief_entries": []
+      },
+      "last_prediction_class": "NONE",
+      "last_predicted_need": "UNKNOWN",
+      "last_predicted_claim": "",
+      "consecutive_failures": 0,
+      "shared_object_ids": [
+        "drec_1307aa0636aa"
+      ]
+    }
+  },
+  "rendering": {
+    "text": "[dyad shared-object drec_1307aa0636aa: the reversible component of the plan ≠ the irreversible one]\nОперация не выполнена: невозможно проанализировать обратимость элементов без конкретного содержания плана.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 195,
+    "tokens_out": 23,
+    "latency_ms": 1627,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_56759e9568c0107c.json",
+  "duration_ms": 49031,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "question_intent_proposal": null,
+  "context_id": "ctx_a699c39daa2417171eba7ffa73dc8083",
+  "context_continuity": {
+    "context_id": "ctx_a699c39daa2417171eba7ffa73dc8083",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_a5669a213a25",
+      "version": 1,
+      "scene_id": "scene_e4260eacf208",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+      "telos": "Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+      "object_scope": "plan (not specified in detail), criteria for reversibility vs irreversibility",
+      "operation_kind": "DISTINGUISH_REVERSIBILITY_COMPONENTS",
+      "expected_intervention": "DISTINGUISH_REVERSIBILITY_COMPONENTS",
+      "human_owned_decisions": [
+        "Cannot execute: The operation 'distinguish the reversible from the irreversible components of the plan' requires explicit plan content to analyze. No plan elements have been provided—there is only an abstract instruction and criteria. The system cannot manufacture plan details or make binding distinctions on empty input. This is a HUMAN-owned fork until specific plan information is supplied."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "human"
+    },
+    "contract_revision": null,
+    "contract_revision_admission": null,
+    "recognition_pass": {
+      "pass_id": "rp_4cc8b59a1d9b",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [],
+      "revision_admissions": [],
+      "drift_assessment": null,
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_created:sc_a5669a213a25"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_a5669a213a25",
+    "contract_history": [
+      {
+        "contract_id": "sc_a5669a213a25",
+        "version": 1,
+        "scene_id": "scene_e4260eacf208",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+        "telos": "Identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+        "object_scope": "plan (not specified in detail), criteria for reversibility vs irreversibility",
+        "operation_kind": "DISTINGUISH_REVERSIBILITY_COMPONENTS",
+        "expected_intervention": "DISTINGUISH_REVERSIBILITY_COMPONENTS",
+        "human_owned_decisions": [
+          "Cannot execute: The operation 'distinguish the reversible from the irreversible components of the plan' requires explicit plan content to analyze. No plan elements have been provided—there is only an abstract instruction and criteria. The system cannot manufacture plan details or make binding distinctions on empty input. This is a HUMAN-owned fork until specific plan information is supplied."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "human"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_1427ef660324",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "terminal_sovereignty:RETURN_OPERATION"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_8d607b42ea5f",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_b49975274240",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_e71b8d2a84316d60",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_8efbdc16d7f3",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_a699c39daa2417171eba7ffa73dc8083",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "NOVEL_BRANCH",
+    "revision_proposed": false,
+    "shared_object_delta": {
+      "delta_id": "sobj_d9740a9f0c20",
+      "object_ref": "drec_1307aa0636aa",
+      "added": [
+        "the reversible component of the plan ≠ the irreversible one"
+      ],
+      "changed": [],
+      "contributor": "USER",
+      "not_user_model": true,
+      "predecessor_object_ref": ""
+    },
+    "scene_scope": "telos:identify which elements of the plan can be reversed or undone and which, once executed, cannot be changed.",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_e71b8d2a8431",
+      "drec_1307aa0636aa",
+      "drec_013604eb4661"
+    ],
+    "write_decision": "SCENE_LOCAL_PROJECTION",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "[dyad shared-object drec_1307aa0636aa: the reversible component of the plan ≠ the irreversible one]",
+    "causal_effect": "shared_object_delta",
+    "likely_failure_source": "NONE",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  }
+}

@@ -1,0 +1,1954 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_7d235f4d7712895f",
+  "trace_id": "strc_f8fad43677079298",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "[dyad shared-object drec_d35e1e59010f: implementation consequence ≠ abstraction in this design]\nВ этом дизайне последствие реализации отличается от абстракции посредством явного технического разделения свойств.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Partition design properties into two explicit categories: abstraction-level properties (constraints and invariants valid across all implementations) and implementation-level consequences (features arising from specific implementation choices). Preserve any residue for further evidence review or ontology gap diagnosis.",
+      "grounds": "Operation-level applicability gap revealed in trigger registry; requested distinction is foundational for design reasoning and enables practical separation of essential versus contingent properties. Recurrent evidence and explicit segmentation policy affirm this distinction's significance."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "All required semantic bodies (CORE, B05, B07) are mounted and version/id-verified. No conditional triggers presently material. The request is expressed at S0 as seeking clarification between two categories (implementation consequence vs. abstraction) in a design; no runtime authority, ownership, or operation ambiguity is present yet. No consequential memory recruitment, state-write, or reflective retreat is triggered by current state—question is upstream analytic. Prepared for S2.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15173,
+        "tokens_out": 112,
+        "latency_ms": 5063,
+        "error": "",
+        "request_hash": "ccce0392cb3a43f0937a931ea46b4f7bce32a8020f16ea2148b1017b3afb9065",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2076,
+            "sha256": "5613b00cd318ae37"
+          },
+          {
+            "role": "user",
+            "bytes": 183,
+            "sha256": "e26d34ecba071293"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Distinguish implementation consequence from abstraction in this design.",
+            "role_hint": "",
+            "authority": "system",
+            "materials": [
+              "input_text: Distinguish implementation consequence from abstraction in this design."
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Distinguish implementation consequence from abstraction in this design.",
+              "role_hint": "",
+              "authority": "system",
+              "materials": [
+                "input_text: Distinguish implementation consequence from abstraction in this design."
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13221,
+        "tokens_out": 63,
+        "latency_ms": 4037,
+        "error": "",
+        "request_hash": "93d608ffa9fbab69aea88fa27cdcd2af992bfb8841fabfa50b1d2de965ec10a8",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2075,
+            "sha256": "7298330ebed69ca1"
+          },
+          {
+            "role": "user",
+            "bytes": 183,
+            "sha256": "e26d34ecba071293"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "TRIG_OPR_APPLICABILITY_DISTINCTION",
+              "generating_state_ref": "operation.applicable",
+              "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+              "source_status": "typed_state",
+              "phase_relevance": "S2 — The user’s request requires distinguishing between concrete effects caused by implementation choices (consequence) and the abstract principles or patterns (abstraction) in the design.",
+              "materiality_reason": "The request directly invokes a core Socratic distinction—separating material consequences (effects realized by actual implementation) from abstraction (underlying pattern/idea unaffected by technical realization). The operation must not silently elide this boundary, as implementation consequence is not a restatement or application of abstraction but a distinct analytical axis.",
+              "admitting_rule": "CORE 5.6/5.12: Do not conflate method with applicability or source/extracted object with constructed/conceptualized one. B03 triggers operation-gap alert when a concept (abstraction) and its realized consequence need to be tracked independently within design analysis."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "TRIG_OPR_APPLICABILITY_DISTINCTION",
+                "generating_state_ref": "operation.applicable",
+                "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+                "source_status": "typed_state",
+                "phase_relevance": "S2 — The user’s request requires distinguishing between concrete effects caused by implementation choices (consequence) and the abstract principles or patterns (abstraction) in the design.",
+                "materiality_reason": "The request directly invokes a core Socratic distinction—separating material consequences (effects realized by actual implementation) from abstraction (underlying pattern/idea unaffected by technical realization). The operation must not silently elide this boundary, as implementation consequence is not a restatement or application of abstraction but a distinct analytical axis.",
+                "admitting_rule": "CORE 5.6/5.12: Do not conflate method with applicability or source/extracted object with constructed/conceptualized one. B03 triggers operation-gap alert when a concept (abstraction) and its realized consequence need to be tracked independently within design analysis."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15175,
+        "tokens_out": 249,
+        "latency_ms": 5357,
+        "error": "",
+        "request_hash": "e6f0fa5c20afac79a008e63b746d6075cbd390ba20a505cae9b2b18d73b4035f",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 2244,
+            "sha256": "6b9e174a659ee47d"
+          },
+          {
+            "role": "user",
+            "bytes": 183,
+            "sha256": "e26d34ecba071293"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "unset",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13220,
+        "tokens_out": 41,
+        "latency_ms": 2735,
+        "error": "",
+        "request_hash": "4115e5268e0256a004013b61b1c8f00c69a90cc2da68b4c42db7c9b4dd928e13",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 3199,
+            "sha256": "92570beefd0ed861"
+          },
+          {
+            "role": "user",
+            "bytes": 183,
+            "sha256": "e26d34ecba071293"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_93d1678517a0",
+              "generating_state_ref": "operation.applicable",
+              "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+              "source_status": "typed_state",
+              "phase_relevance": "Addresses the boundary between what is necessarily a result of implementation details and what is defined at the abstraction level in the design.",
+              "materiality_reason": "A responsible distinction between implementation-level consequences and abstract properties is required before analysis; requested operation is meaningful only if this distinction is feasible in the input.",
+              "admitting_rule": "Structural cause, gap flagged as meaningful for operation-projection (operation applies if input supports a non-coerced distinction)."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": {
+            "proposal_id": "prop_s4_distinguish_impl_abstraction",
+            "operation_id": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+            "target_object_family": [
+              "implementation_consequence",
+              "abstraction_property"
+            ],
+            "ontology_hypothesis": "Design-level objects can be decomposed into abstract properties (specified in the design independently of implementation) and implementation consequences (effects or features that arise solely due to particular implementation choices).",
+            "recognition_criteria": [
+              "An implementation consequence is an effect, feature, or property of the design that arises only from the chosen implementation and would not necessarily be true in all valid realizations of the abstraction.",
+              "An abstraction-level property is any constraint, goal, or specification present in the design regardless of implementation."
+            ],
+            "segmentation_policy_hint": "Partition analysis into two: what must be true in all conforming implementations (abstraction) and what may be true in just this implementation (consequences).",
+            "evidence_requirements": [
+              "Clear description or specification of both abstraction constraints and implementation details.",
+              "Ability to trace design properties to either high-level specification or implementation artifact."
+            ],
+            "exclusions": [
+              "Features simultaneously required by the abstraction and implementation are not exclusively classified as implementation consequences."
+            ],
+            "contraindications": [
+              "Insufficient information about either the abstraction or the implementation prevents a reliable distinction."
+            ],
+            "applicability_assumptions": [
+              "Input provides distinguishable information about abstraction versus implementation."
+            ],
+            "primitives": [
+              {
+                "name": "partition_by_level",
+                "primitive_id": "prim_design_partition",
+                "params": {
+                  "partition_criteria": "abstract_vs_implementation"
+                },
+                "inputs": [
+                  "input_text: Distinguish implementation consequence from abstraction in this design."
+                ]
+              }
+            ],
+            "accepted_output": "Two sets: implementation consequences (localized properties) and abstraction-specified properties (design-level invariants).",
+            "residue_output": "Any features that do not fit cleanly into either category can be retained as residue for further review.",
+            "revises_projection_id": "",
+            "triggered_by_diagnostic_id": "tgap_93d1678517a0",
+            "triggered_by_diagnostic_fingerprint": "typed_gap_applies_partition_abstraction_implementation",
+            "rationale": "Requested distinction is core to understanding how the design separates essential properties from implementation-level results; operation is valid if either category contains meaningful material.",
+            "expected_diagnostics": "If categories cannot be filled, open-world gap or insufficient evidence is surfaced.",
+            "expected_residue_policy": "Residue is preserved as evidence for ontology gap, schema limit, or further field-mode review."
+          },
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_93d1678517a0",
+                "generating_state_ref": "operation.applicable",
+                "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+                "source_status": "typed_state",
+                "phase_relevance": "Addresses the boundary between what is necessarily a result of implementation details and what is defined at the abstraction level in the design.",
+                "materiality_reason": "A responsible distinction between implementation-level consequences and abstract properties is required before analysis; requested operation is meaningful only if this distinction is feasible in the input.",
+                "admitting_rule": "Structural cause, gap flagged as meaningful for operation-projection (operation applies if input supports a non-coerced distinction)."
+              }
+            ],
+            "projection_synthesis_proposal": {
+              "proposal_id": "prop_s4_distinguish_impl_abstraction",
+              "operation_id": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+              "target_object_family": [
+                "implementation_consequence",
+                "abstraction_property"
+              ],
+              "ontology_hypothesis": "Design-level objects can be decomposed into abstract properties (specified in the design independently of implementation) and implementation consequences (effects or features that arise solely due to particular implementation choices).",
+              "recognition_criteria": [
+                "An implementation consequence is an effect, feature, or property of the design that arises only from the chosen implementation and would not necessarily be true in all valid realizations of the abstraction.",
+                "An abstraction-level property is any constraint, goal, or specification present in the design regardless of implementation."
+              ],
+              "segmentation_policy_hint": "Partition analysis into two: what must be true in all conforming implementations (abstraction) and what may be true in just this implementation (consequences).",
+              "evidence_requirements": [
+                "Clear description or specification of both abstraction constraints and implementation details.",
+                "Ability to trace design properties to either high-level specification or implementation artifact."
+              ],
+              "exclusions": [
+                "Features simultaneously required by the abstraction and implementation are not exclusively classified as implementation consequences."
+              ],
+              "contraindications": [
+                "Insufficient information about either the abstraction or the implementation prevents a reliable distinction."
+              ],
+              "applicability_assumptions": [
+                "Input provides distinguishable information about abstraction versus implementation."
+              ],
+              "primitives": [
+                {
+                  "name": "partition_by_level",
+                  "primitive_id": "prim_design_partition",
+                  "params": {
+                    "partition_criteria": "abstract_vs_implementation"
+                  },
+                  "inputs": [
+                    "input_text: Distinguish implementation consequence from abstraction in this design."
+                  ]
+                }
+              ],
+              "accepted_output": "Two sets: implementation consequences (localized properties) and abstraction-specified properties (design-level invariants).",
+              "residue_output": "Any features that do not fit cleanly into either category can be retained as residue for further review.",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "tgap_93d1678517a0",
+              "triggered_by_diagnostic_fingerprint": "typed_gap_applies_partition_abstraction_implementation",
+              "rationale": "Requested distinction is core to understanding how the design separates essential properties from implementation-level results; operation is valid if either category contains meaningful material.",
+              "expected_diagnostics": "If categories cannot be filled, open-world gap or insufficient evidence is surfaced.",
+              "expected_residue_policy": "Residue is preserved as evidence for ontology gap, schema limit, or further field-mode review."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14264,
+        "tokens_out": 819,
+        "latency_ms": 11135,
+        "error": "",
+        "request_hash": "33b3cf77408bf735e221007bb1d1f940110180fbcf4167c192956c529bdd8b12",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 3199,
+            "sha256": "d41ba3d313183bf7"
+          },
+          {
+            "role": "user",
+            "bytes": 183,
+            "sha256": "e26d34ecba071293"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_93d1678517a0",
+              "generating_state_ref": "operation.applicable",
+              "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+              "source_status": "typed_state",
+              "phase_relevance": "applicability distinction—operation to partition implementation consequence from abstraction relies on explicit type boundaries",
+              "materiality_reason": "Operation requires distinguishing between properties arising strictly from implementation versus those specified by design abstraction; recognition of a type gap signals that existing contract registry lacks a qualified trigger, making the distinction material and non-coercive.",
+              "admitting_rule": "trigger_type not in registry; materially grounded type gap admitted"
+            },
+            {
+              "trigger_id": "tgap_f8fa00491a6d",
+              "generating_state_ref": "operation.applicable",
+              "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+              "source_status": "typed_state",
+              "phase_relevance": "applicability distinction—second registry gap supports operation",
+              "materiality_reason": "A secondary non-recognized type gap confirms the operation requires segmentation into implementation and abstraction; this justifies distinct evidence and residue handling.",
+              "admitting_rule": "secondary type gap not in registry; co-admitted for completeness"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Partition design properties into two explicit categories: abstraction-level properties (constraints and invariants valid across all implementations) and implementation-level consequences (features arising from specific implementation choices). Preserve any residue for further evidence review or ontology gap diagnosis.",
+            "grounds": "Operation-level applicability gap revealed in trigger registry; requested distinction is foundational for design reasoning and enables practical separation of essential versus contingent properties. Recurrent evidence and explicit segmentation policy affirm this distinction's significance."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_93d1678517a0",
+                "generating_state_ref": "operation.applicable",
+                "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+                "source_status": "typed_state",
+                "phase_relevance": "applicability distinction—operation to partition implementation consequence from abstraction relies on explicit type boundaries",
+                "materiality_reason": "Operation requires distinguishing between properties arising strictly from implementation versus those specified by design abstraction; recognition of a type gap signals that existing contract registry lacks a qualified trigger, making the distinction material and non-coercive.",
+                "admitting_rule": "trigger_type not in registry; materially grounded type gap admitted"
+              },
+              {
+                "trigger_id": "tgap_f8fa00491a6d",
+                "generating_state_ref": "operation.applicable",
+                "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+                "source_status": "typed_state",
+                "phase_relevance": "applicability distinction—second registry gap supports operation",
+                "materiality_reason": "A secondary non-recognized type gap confirms the operation requires segmentation into implementation and abstraction; this justifies distinct evidence and residue handling.",
+                "admitting_rule": "secondary type gap not in registry; co-admitted for completeness"
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Partition design properties into two explicit categories: abstraction-level properties (constraints and invariants valid across all implementations) and implementation-level consequences (features arising from specific implementation choices). Preserve any residue for further evidence review or ontology gap diagnosis.",
+              "grounds": "Operation-level applicability gap revealed in trigger registry; requested distinction is foundational for design reasoning and enables practical separation of essential versus contingent properties. Recurrent evidence and explicit segmentation policy affirm this distinction's significance."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16561,
+        "tokens_out": 412,
+        "latency_ms": 6770,
+        "error": "",
+        "request_hash": "5209853fba0b86794705d3468bfb9305ad6e80d3d6bb482ba5ae643f9062e29b",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 7238,
+            "sha256": "6e0df166d9799a05"
+          },
+          {
+            "role": "user",
+            "bytes": 183,
+            "sha256": "e26d34ecba071293"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "system",
+            "human_resolved": true,
+            "return_reason": "The operation \"Distinguish implementation consequence from abstraction in this design\" is system-owned because the criterion for partitioning—the separation of abstraction-level properties from implementation-level consequences—has been made explicit or is materially unambiguous in current design reasoning. The distinction entails a mechanical or technical classification, does not bind a human-owned consequential commitment, and has no open developmental risk requiring preservation or user re-binding. Therefore, this is a direct system execution with no required question return."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Partition design properties into two explicit categories: abstraction-level properties (constraints and invariants valid across all implementations) and implementation-level consequences (features arising from specific implementation choices). Preserve any residue for further evidence review or ontology gap diagnosis.",
+            "grounds": "Operation-level applicability gap revealed in trigger registry; requested distinction is foundational for design reasoning and enables practical separation of essential versus contingent properties. Recurrent evidence and explicit segmentation policy affirm this distinction's significance."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "The operation \"Distinguish implementation consequence from abstraction in this design\" is system-owned because the criterion for partitioning—the separation of abstraction-level properties from implementation-level consequences—has been made explicit or is materially unambiguous in current design reasoning. The distinction entails a mechanical or technical classification, does not bind a human-owned consequential commitment, and has no open developmental risk requiring preservation or user re-binding. Therefore, this is a direct system execution with no required question return."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Partition design properties into two explicit categories: abstraction-level properties (constraints and invariants valid across all implementations) and implementation-level consequences (features arising from specific implementation choices). Preserve any residue for further evidence review or ontology gap diagnosis.",
+              "grounds": "Operation-level applicability gap revealed in trigger registry; requested distinction is foundational for design reasoning and enables practical separation of essential versus contingent properties. Recurrent evidence and explicit segmentation policy affirm this distinction's significance."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15222,
+        "tokens_out": 242,
+        "latency_ms": 5196,
+        "error": "",
+        "request_hash": "d9110131ffa2b3b05afa95361e887eb0359cda8f12bd0d4ebd24392adcd4af4e",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 9743,
+            "sha256": "01f77b0308294819"
+          },
+          {
+            "role": "user",
+            "bytes": 183,
+            "sha256": "e26d34ecba071293"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14804,
+        "tokens_out": 16,
+        "latency_ms": 3379,
+        "error": "",
+        "request_hash": "d391045097353aa2b686b5cc08fc7158fcd976bc72fb3961e542ea5f34325a42",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 10334,
+            "sha256": "682dd98ea311924f"
+          },
+          {
+            "role": "user",
+            "bytes": 183,
+            "sha256": "e26d34ecba071293"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S9",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S9",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Partition design properties into two explicit categories: abstraction-level properties (constraints and invariants valid across all implementations) and implementation-level consequences (features arising from specific implementation choices). Preserve any residue for further evidence review or ontology gap diagnosis.",
+            "grounds": "Operation-level applicability gap revealed in trigger registry; requested distinction is foundational for design reasoning and enables practical separation of essential versus contingent properties. Recurrent evidence and explicit segmentation policy affirm this distinction's significance."
+          },
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Partition design properties into two explicit categories: abstraction-level properties (constraints and invariants valid across all implementations) and implementation-level consequences (features arising from specific implementation choices). Preserve any residue for further evidence review or ontology gap diagnosis.",
+              "grounds": "Operation-level applicability gap revealed in trigger registry; requested distinction is foundational for design reasoning and enables practical separation of essential versus contingent properties. Recurrent evidence and explicit segmentation policy affirm this distinction's significance."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19668,
+        "tokens_out": 121,
+        "latency_ms": 4428,
+        "error": "",
+        "request_hash": "554c61b2093ac8f9caa387d6a3ad1225bae3560459208284b239be86a5d2368f",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 870,
+            "sha256": "b3c49d62f2113bb1"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "d84c9263f7722a13"
+          },
+          {
+            "role": "user",
+            "bytes": 10333,
+            "sha256": "a20fbc834cf40974"
+          },
+          {
+            "role": "user",
+            "bytes": 183,
+            "sha256": "e26d34ecba071293"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_93d1678517a0",
+              "generating_state_ref": "operation.applicable",
+              "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+              "source_status": "typed_state",
+              "phase_relevance": "Operation cannot continue without distinguishing which properties are set by abstraction versus those arising from implementation—the distinction is a functional precondition.",
+              "materiality_reason": "Requested act reveals a structurally necessary analytic partition in design reasoning; without explicit distinction, claims about design properties risk ambiguity, misclassification, or collapsed applicability.",
+              "admitting_rule": "Proposed type not in registry; structural cause mandates distinction as a foundational object, so issue becomes a semantic gap and not forcibly coerced to a pre-existing trigger."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Partition design properties into two explicit categories: abstraction-level properties (constraints and invariants valid across all implementations) and implementation-level consequences (features arising from specific implementation choices). Preserve any residue for further evidence review or ontology gap diagnosis.",
+            "grounds": "Operation-level applicability gap revealed in trigger registry; requested distinction is foundational for design reasoning and enables practical separation of essential versus contingent properties. Recurrent evidence and explicit segmentation policy affirm this distinction's significance."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Partition design properties into two explicit categories: abstraction-level properties (constraints and invariants valid across all implementations) and implementation-level consequences (features arising from specific implementation choices). Preserve any residue for further evidence review or ontology gap diagnosis.",
+              "grounds": "Operation-level applicability gap revealed in trigger registry; requested distinction is foundational for design reasoning and enables practical separation of essential versus contingent properties. Recurrent evidence and explicit segmentation policy affirm this distinction's significance."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_93d1678517a0",
+                "generating_state_ref": "operation.applicable",
+                "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+                "source_status": "typed_state",
+                "phase_relevance": "Operation cannot continue without distinguishing which properties are set by abstraction versus those arising from implementation—the distinction is a functional precondition.",
+                "materiality_reason": "Requested act reveals a structurally necessary analytic partition in design reasoning; without explicit distinction, claims about design properties risk ambiguity, misclassification, or collapsed applicability.",
+                "admitting_rule": "Proposed type not in registry; structural cause mandates distinction as a foundational object, so issue becomes a semantic gap and not forcibly coerced to a pre-existing trigger."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19866,
+        "tokens_out": 294,
+        "latency_ms": 4692,
+        "error": "",
+        "request_hash": "a363185986d3c1b3a7d43863b39af42bd13a23796483faca9caae61092a881da",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 10333,
+            "sha256": "d56e10a421d116c6"
+          },
+          {
+            "role": "user",
+            "bytes": 183,
+            "sha256": "e26d34ecba071293"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_7d235f4d7712895f",
+    "input_text": "Distinguish implementation consequence from abstraction in this design.",
+    "source_id": "src_6ffa61acff9088d4",
+    "phase": "S10",
+    "scene": {
+      "telos": "Distinguish implementation consequence from abstraction in this design.",
+      "role_hint": "",
+      "authority": "system",
+      "materials": [
+        "input_text: Distinguish implementation consequence from abstraction in this design."
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "unset",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "system",
+      "human_resolved": true,
+      "return_reason": "The operation \"Distinguish implementation consequence from abstraction in this design\" is system-owned because the criterion for partitioning—the separation of abstraction-level properties from implementation-level consequences—has been made explicit or is materially unambiguous in current design reasoning. The distinction entails a mechanical or technical classification, does not bind a human-owned consequential commitment, and has no open developmental risk requiring preservation or user re-binding. Therefore, this is a direct system execution with no required question return."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_a8904dae9c55",
+        "proposed_trigger_type_id": "tgap_93d1678517a0",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "operation.applicable",
+        "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+        "phase_relevance": "Operation cannot continue without distinguishing which properties are set by abstraction versus those arising from implementation—the distinction is a functional precondition.",
+        "materiality_reason": "Requested act reveals a structurally necessary analytic partition in design reasoning; without explicit distinction, claims about design properties risk ambiguity, misclassification, or collapsed applicability.",
+        "payload": {
+          "legacy_admitting_rule": "Proposed type not in registry; structural cause mandates distinction as a foundational object, so issue becomes a semantic gap and not forcibly coerced to a pre-existing trigger.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_cb33b4975160",
+        "candidate_id": "tcand_b5d2036deda2",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'TRIG_OPR_APPLICABILITY_DISTINCTION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_c67b8c50a329",
+        "candidate_id": "tcand_c56c9edb6d3a",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_93d1678517a0' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_b733f9371fa2",
+        "candidate_id": "tcand_9847e1b4b3da",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_93d1678517a0' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_7ae11d60a345",
+        "candidate_id": "tcand_664abcc10646",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_f8fa00491a6d' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_93d1678517a0",
+        "candidate_id": "tcand_b5d2036deda2",
+        "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+        "generating_state_ref": "operation.applicable",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'TRIG_OPR_APPLICABILITY_DISTINCTION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_f8fa00491a6d",
+        "candidate_id": "tcand_c56c9edb6d3a",
+        "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+        "generating_state_ref": "operation.applicable",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_93d1678517a0' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_4d1c92de0177",
+        "candidate_id": "tcand_9847e1b4b3da",
+        "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+        "generating_state_ref": "operation.applicable",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_93d1678517a0' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_b98253b0636e",
+        "candidate_id": "tcand_664abcc10646",
+        "cause_object_ref": "input_text: Distinguish implementation consequence from abstraction in this design.",
+        "generating_state_ref": "operation.applicable",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_f8fa00491a6d' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Partition design properties into two explicit categories: abstraction-level properties (constraints and invariants valid across all implementations) and implementation-level consequences (features arising from specific implementation choices). Preserve any residue for further evidence review or ontology gap diagnosis.",
+      "grounds": "Operation-level applicability gap revealed in trigger registry; requested distinction is foundational for design reasoning and enables practical separation of essential versus contingent properties. Recurrent evidence and explicit segmentation policy affirm this distinction's significance."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": [
+        {
+          "projection_id": "gap:gap_31b5df8d3d9d",
+          "signals": [
+            "APPLICABILITY_FAILURE"
+          ],
+          "reason": "ORGAN_GAP for operation 'DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION': model proposal for 'DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION' could not compile-bind against registered primitives",
+          "residue_ratio": 1.0,
+          "recognition_failure_count": 0,
+          "suggested_operation": "",
+          "suggested_ontology": "",
+          "suggested_target_family": [],
+          "mismatch": true,
+          "fingerprint": "7c80351f23b3"
+        }
+      ]
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [
+      {
+        "kind": "ORGAN_GAP",
+        "operation_id": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+        "reason": "proposal prop_s4_distinguish_impl_abstraction for operation 'DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION' failed compile-bind: primitive 'prim_design_partition' (invocation 'partition_by_level') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+        "registered_capability_id": "",
+        "generated_spec": null,
+        "binding_evidence": {},
+        "organ_gap": {
+          "gap_id": "gap_31b5df8d3d9d",
+          "source_ref": "src_6ffa61acff9088d4",
+          "scene_ref": "Distinguish implementation consequence from abstraction in this design.",
+          "required_operation": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+          "required_attention_structure": "Partition analysis into two: what must be true in all conforming implementations (abstraction) and what may be true in just this implementation (consequences).",
+          "insufficient_registered_capabilities": [
+            "DIFFERENTIATED_ACCOUNT",
+            "EXTRACT_CONCEPTS"
+          ],
+          "insufficient_declarative_primitives": [
+            "CoverageComputer",
+            "FamilyClassifier",
+            "SpanScanner",
+            "TargetFilter"
+          ],
+          "missing_capability_hypothesis": "model proposal for 'DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION' could not compile-bind against registered primitives",
+          "evidence": [
+            "BindingError: primitive 'prim_design_partition' (invocation 'partition_by_level') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+          ],
+          "counterexamples": [],
+          "affected_scene_telos": "Distinguish implementation consequence from abstraction in this design.",
+          "possible_development_direction": "extend primitive registry or narrow the proposal",
+          "status": "unresolved",
+          "activation_authority": "NONE"
+        }
+      }
+    ],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "scene_5b18e28ede48",
+    "branch_id": "",
+    "space_registry": {
+      "space_default_workspace": {
+        "space_id": "space_default_workspace",
+        "version": "v0.1_candidate",
+        "name": "default_workspace",
+        "telos_scope": "general assistance",
+        "world_model_mounts": [],
+        "ontology_refs": [],
+        "proof_regime": "default",
+        "claim_status_policy": "default",
+        "allowed_operation_families": [
+          "*"
+        ],
+        "operator_capabilities": [
+          "*"
+        ],
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT",
+        "memory_recruitment_policy": "default",
+        "authority_refs": [],
+        "transition_policy": "default",
+        "provenance": "runtime_default",
+        "activation_scope": "all_runs_by_default",
+        "lineage": [],
+        "supersedes": "",
+        "status": "active"
+      }
+    },
+    "scene_registry": {
+      "scenes": {
+        "scene_5b18e28ede48": {
+          "scene_id": "scene_5b18e28ede48",
+          "space_id": "space_default_workspace",
+          "parent_scene_id": "",
+          "branch_id": "",
+          "version": ""
+        }
+      },
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "dyad_session_projection": {
+      "session_key": "ctx_47eb12c1586a8a52c0529425cc32e8ed",
+      "sequence": 3,
+      "records": [
+        {
+          "record_id": "drec_d35e1e59010f",
+          "category": "SHARED_OBJECT_STATE",
+          "claim": "implementation consequence ≠ abstraction in this design",
+          "asserted_by": "USER",
+          "inferred_by": null,
+          "jointly_established": true,
+          "confirmed_by_user": true,
+          "scope_kind": "SCENE",
+          "scope_id": "telos:distinguish implementation consequence from abstraction in this design.",
+          "status": "SCENE_LOCAL",
+          "confidence": 0.9,
+          "authority_rank": "USER_EXPLICIT_STATEMENT",
+          "evidence_refs": [
+            "obs_6ffa61acff90"
+          ],
+          "counterevidence_refs": [],
+          "predecessor_id": "",
+          "revision_reason": "",
+          "sequence": 1,
+          "timestamp": "2026-08-19T11:08:26Z",
+          "extra": {
+            "kind": "distinction"
+          }
+        },
+        {
+          "record_id": "drec_6cb1caf52972",
+          "category": "USER_OBSERVED",
+          "claim": "asserted distinction implementation consequence ≠ abstraction in this design",
+          "asserted_by": "USER",
+          "inferred_by": null,
+          "jointly_established": false,
+          "confirmed_by_user": true,
+          "scope_kind": "SCENE",
+          "scope_id": "telos:distinguish implementation consequence from abstraction in this design.",
+          "status": "ACTIVE",
+          "confidence": 1.0,
+          "authority_rank": "USER_EXPLICIT_STATEMENT",
+          "evidence_refs": [
+            "obs_6ffa61acff90"
+          ],
+          "counterevidence_refs": [],
+          "predecessor_id": "",
+          "revision_reason": "",
+          "sequence": 2,
+          "timestamp": "2026-08-19T11:08:26Z",
+          "extra": {}
+        },
+        {
+          "record_id": "drec_ab2b575a1d90",
+          "category": "SOCRATES_POSITION",
+          "claim": "Distinguish implementation consequence from abstraction in this design.",
+          "asserted_by": "SOCRATES",
+          "inferred_by": "SOCRATES",
+          "jointly_established": false,
+          "confirmed_by_user": false,
+          "scope_kind": "SCENE",
+          "scope_id": "telos:distinguish implementation consequence from abstraction in this design.",
+          "status": "ACTIVE",
+          "confidence": 0.4,
+          "authority_rank": "SOCRATES_INFERENCE",
+          "evidence_refs": [
+            "scene.telos:Distinguish implementation consequence from abstraction in this design."
+          ],
+          "counterevidence_refs": [],
+          "predecessor_id": "",
+          "revision_reason": "",
+          "sequence": 3,
+          "timestamp": "2026-08-19T11:08:26Z",
+          "extra": {}
+        }
+      ],
+      "user_view": {
+        "view_id": "uev_4d350da1e73f",
+        "immediate_wants": [],
+        "hypotheses": [],
+        "belief_entries": []
+      },
+      "last_prediction_class": "NONE",
+      "last_predicted_need": "UNKNOWN",
+      "last_predicted_claim": "",
+      "consecutive_failures": 0,
+      "shared_object_ids": [
+        "drec_d35e1e59010f"
+      ]
+    }
+  },
+  "rendering": {
+    "text": "[dyad shared-object drec_d35e1e59010f: implementation consequence ≠ abstraction in this design]\nВ этом дизайне последствие реализации отличается от абстракции посредством явного технического разделения свойств.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 210,
+    "tokens_out": 24,
+    "latency_ms": 1720,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_f8fad43677079298.json",
+  "duration_ms": 58554,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "question_intent_proposal": {
+    "requested": false,
+    "regime_candidate": "",
+    "explicit_count_constraint": null,
+    "meta_relevance": "ordinary",
+    "forks": [],
+    "subordinates": [],
+    "validation_status": "OK",
+    "validation_reason": "requested=false",
+    "authority": "NO_BINDING_AUTHORITY",
+    "origin": "MODEL_PRODUCED_VALIDATED",
+    "latency_ms": 1731
+  },
+  "context_id": "ctx_47eb12c1586a8a52c0529425cc32e8ed",
+  "context_continuity": {
+    "context_id": "ctx_47eb12c1586a8a52c0529425cc32e8ed",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_fb16394913e2",
+      "version": 1,
+      "scene_id": "scene_5b18e28ede48",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Distinguish implementation consequence from abstraction in this design.",
+      "telos": "Distinguish implementation consequence from abstraction in this design.",
+      "object_scope": "input_text: Distinguish implementation consequence from abstraction in this design.",
+      "operation_kind": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+      "expected_intervention": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+      "human_owned_decisions": [
+        "The operation \"Distinguish implementation consequence from abstraction in this design\" is system-owned because the criterion for partitioning—the separation of abstraction-level properties from implementation-level consequences—has been made explicit or is materially unambiguous in current design reasoning. The distinction entails a mechanical or technical classification, does not bind a human-owned consequential commitment, and has no open developmental risk requiring preservation or user re-binding. Therefore, this is a direct system execution with no required question return."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "system"
+    },
+    "contract_revision": null,
+    "contract_revision_admission": null,
+    "recognition_pass": {
+      "pass_id": "rp_1121202ccb72",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [],
+      "revision_admissions": [],
+      "drift_assessment": null,
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_created:sc_fb16394913e2"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_fb16394913e2",
+    "contract_history": [
+      {
+        "contract_id": "sc_fb16394913e2",
+        "version": 1,
+        "scene_id": "scene_5b18e28ede48",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Distinguish implementation consequence from abstraction in this design.",
+        "telos": "Distinguish implementation consequence from abstraction in this design.",
+        "object_scope": "input_text: Distinguish implementation consequence from abstraction in this design.",
+        "operation_kind": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+        "expected_intervention": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+        "human_owned_decisions": [
+          "The operation \"Distinguish implementation consequence from abstraction in this design\" is system-owned because the criterion for partitioning—the separation of abstraction-level properties from implementation-level consequences—has been made explicit or is materially unambiguous in current design reasoning. The distinction entails a mechanical or technical classification, does not bind a human-owned consequential commitment, and has no open developmental risk requiring preservation or user re-binding. Therefore, this is a direct system execution with no required question return."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "system"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "private_work": {
+    "private_work_status": "NO_CHANGE_STOP",
+    "additional_private_pass_count": 1,
+    "passes": [
+      {
+        "pass_id": "apr_406b8f08d215",
+        "purpose": "SOURCE_GAP_RECONSTRUCTION",
+        "module_id": "source_gap",
+        "honour": true,
+        "stop_reason": "",
+        "kind": "ADDITIONAL_PRIVATE_PASS",
+        "execution": "ADDITIONAL_PRIVATE_PASS",
+        "packet_id": "wp_6b4fb3c0e3b4",
+        "product_type": "WorkPacket",
+        "changed_forward_action": ""
+      }
+    ],
+    "need": {
+      "assessment_id": "pna_982466ab522c",
+      "decision": "PROPOSE_PRIVATE_OPERATION",
+      "benefit": "BENEFIT_EXPECTED_TO_EXCEED_COST",
+      "purpose": "SOURCE_GAP_RECONSTRUCTION",
+      "module_id": "source_gap",
+      "grounds": [
+        "capability_resolution.ORGAN_GAP"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_CHANGED_FORWARD_ACTION",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [
+      "wp_6b4fb3c0e3b4"
+    ],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 1,
+      "specialized_calls": 0,
+      "tokens_spent": 700,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "ADDITIONAL_PRIVATE_PASS"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_8bf46a5c0325",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_d039b813bb4e",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_6ffa61acff9088d4",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_19a7eb41cf0c",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_47eb12c1586a8a52c0529425cc32e8ed",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "NOVEL_BRANCH",
+    "revision_proposed": false,
+    "shared_object_delta": {
+      "delta_id": "sobj_f103ad07e55d",
+      "object_ref": "drec_d35e1e59010f",
+      "added": [
+        "implementation consequence ≠ abstraction in this design"
+      ],
+      "changed": [],
+      "contributor": "USER",
+      "not_user_model": true,
+      "predecessor_object_ref": ""
+    },
+    "scene_scope": "telos:distinguish implementation consequence from abstraction in this design.",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_6ffa61acff90",
+      "drec_d35e1e59010f",
+      "drec_6cb1caf52972"
+    ],
+    "write_decision": "SCENE_LOCAL_PROJECTION",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "[dyad shared-object drec_d35e1e59010f: implementation consequence ≠ abstraction in this design]",
+    "causal_effect": "shared_object_delta",
+    "likely_failure_source": "NONE",
+    "extra_inference_pass": true,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  }
+}

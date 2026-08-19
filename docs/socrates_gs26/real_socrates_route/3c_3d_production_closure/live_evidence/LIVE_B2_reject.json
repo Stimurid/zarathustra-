@@ -1,0 +1,2062 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_6ec8d60593572d49",
+  "trace_id": "strc_2804a6b071f802c8",
+  "terminal": {
+    "terminal": "PRESERVE_APORIA",
+    "response_text": "[dyad revision: hypothesis drec_4c862b68935a rejected]\nЯ отвергаю интерпретацию X и не хочу, чтобы она навязывалась как основной подход к материалу.",
+    "rationale": "unknown object; would violate INV-007 to force fit",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Explicit, self-authored rejection of interpretation X registered as an act of interpretive agency that differs materially from ordinary disagreement or critique.",
+      "grounds": "User made an unambiguous, first-person assertion rejecting interpretation X; this is a primitive distinction not easily compressible into disagreement or evaluation. Registering this memory supports both semantic integrity (preserving the intended act) and future schema/ontology extension for interpretive agency."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "T_EXP_REJECT_INTERPRETATION",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "user_statement_reject_X",
+              "source_status": "typed_state",
+              "phase_relevance": "scene/operation/ownership",
+              "materiality_reason": "Explicit rejection of an interpretation may shape scene, govern subsequent operation applicability, and preclude system-driven adoption of the rejected interpretation; downstream, such statements inform role/ownership boundaries as well as memory eligibility.",
+              "admitting_rule": "Core B07 requires recognition of explicit negations or refusals as triggers guarding against silent interpretation manufacture/capture."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "User asserts an explicit rejection of a particular interpretation (X). This stands as a direct, self-owned statement. No invocation of memory, formation, or routine requiring deeper retreat occurs; however, the explicit act of rejection may become causally relevant downstream for operation framing (B07) or if retrieval/formation is later attempted (B05). Currently, no procedural, role, or authority triggers are active.",
+            "triggers": [
+              {
+                "trigger_id": "T_EXP_REJECT_INTERPRETATION",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "user_statement_reject_X",
+                "source_status": "typed_state",
+                "phase_relevance": "scene/operation/ownership",
+                "materiality_reason": "Explicit rejection of an interpretation may shape scene, govern subsequent operation applicability, and preclude system-driven adoption of the rejected interpretation; downstream, such statements inform role/ownership boundaries as well as memory eligibility.",
+                "admitting_rule": "Core B07 requires recognition of explicit negations or refusals as triggers guarding against silent interpretation manufacture/capture."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15418,
+        "tokens_out": 245,
+        "latency_ms": 5528,
+        "error": "",
+        "request_hash": "590ad4617649a64074d9a26b492df4d37b4520ca9ec0686a5fa7d73100914b58",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 3041,
+            "sha256": "150113887528c9fc"
+          },
+          {
+            "role": "user",
+            "bytes": 149,
+            "sha256": "3a219169a84a6125"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Register an explicit rejection of interpretation X; clarify that the speaker wishes not to have X imposed as the governing frame or reading.",
+            "role_hint": "self-asserting party; requester is exerting interpretive agency",
+            "authority": "human",
+            "materials": [
+              "explicit user statement rejecting interpretation X"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_194ddb47a007",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "user_statement_reject_X",
+              "source_status": "typed_state",
+              "phase_relevance": "Scene reconstruction: explicit refusal of interpretation materially shapes telos and signals a boundary of human interpretive authority.",
+              "materiality_reason": "User's statement asserts ownership over interpretive boundaries, requiring that human authority be foregrounded and that system/scene not silently override or reinterpret against this refusal.",
+              "admitting_rule": "Type gap registered, but material human agency recognized and must be carried; waiting for type registry revision, but semantically relevant for phase."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Register an explicit rejection of interpretation X; clarify that the speaker wishes not to have X imposed as the governing frame or reading.",
+              "role_hint": "self-asserting party; requester is exerting interpretive agency",
+              "authority": "human",
+              "materials": [
+                "explicit user statement rejecting interpretation X"
+              ]
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_194ddb47a007",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "user_statement_reject_X",
+                "source_status": "typed_state",
+                "phase_relevance": "Scene reconstruction: explicit refusal of interpretation materially shapes telos and signals a boundary of human interpretive authority.",
+                "materiality_reason": "User's statement asserts ownership over interpretive boundaries, requiring that human authority be foregrounded and that system/scene not silently override or reinterpret against this refusal.",
+                "admitting_rule": "Type gap registered, but material human agency recognized and must be carried; waiting for type registry revision, but semantically relevant for phase."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13720,
+        "tokens_out": 244,
+        "latency_ms": 5032,
+        "error": "",
+        "request_hash": "f6717df3cfda2bb7c782d7dfa6a72b05cc05cc931bdc0415a694efceda2b7919",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 3911,
+            "sha256": "1df41418e07573f5"
+          },
+          {
+            "role": "user",
+            "bytes": 149,
+            "sha256": "3a219169a84a6125"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_194ddb47a007",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "user_statement_reject_X",
+              "source_status": "typed_state",
+              "phase_relevance": "The input presents an explicit, materially consequential rejection of a governing interpretation, which aims to bind action, reading, or subsequent scene framing.",
+              "materiality_reason": "A user’s explicit rejection of a proposed interpretation is a material agency assertion—the act is operative in scene/role/ownership and must be registered as a distinct event, not as a side claim or annotation. The type registry gap ('T_EXP_REJECT_INTERPRETATION' missing) is thus itself a material phenomenon: it signifies that the operation of explicit interpretive refusal is not yet available as a first-class typed event for recognition, memory, or governance, and cannot be coerced into a false subtype. This mandates reflexive admission as a potential type addition or the opening of an explicit aporia, rather than silent assimilation or output-only representation.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_194ddb47a007",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "user_statement_reject_X",
+                "source_status": "typed_state",
+                "phase_relevance": "The input presents an explicit, materially consequential rejection of a governing interpretation, which aims to bind action, reading, or subsequent scene framing.",
+                "materiality_reason": "A user’s explicit rejection of a proposed interpretation is a material agency assertion—the act is operative in scene/role/ownership and must be registered as a distinct event, not as a side claim or annotation. The type registry gap ('T_EXP_REJECT_INTERPRETATION' missing) is thus itself a material phenomenon: it signifies that the operation of explicit interpretive refusal is not yet available as a first-class typed event for recognition, memory, or governance, and cannot be coerced into a false subtype. This mandates reflexive admission as a potential type addition or the opening of an explicit aporia, rather than silent assimilation or output-only representation."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15942,
+        "tokens_out": 234,
+        "latency_ms": 4703,
+        "error": "",
+        "request_hash": "784f87688ec8fd1e729741631d28ab6e00b378d06da596a4d2bc81887bcd5647",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 5025,
+            "sha256": "719f3fb94ab814b0"
+          },
+          {
+            "role": "user",
+            "bytes": 149,
+            "sha256": "3a219169a84a6125"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "attributed",
+            "sources_named": [],
+            "binding_authority": "human",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_194ddb47a007",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "user_statement_reject_X",
+              "source_status": "typed_state",
+              "phase_relevance": "User is performing an explicit act of interpretive rejection; system must register the rejection as attributed to the human.",
+              "materiality_reason": "Overriding interpretive authority and binding agency is being asserted by the human user; the act is relevant to scene telos/ownership and to origin/status.",
+              "admitting_rule": "Register as attributed human-sourced rejection; maintain explicit epistemic/authority separation from system/system-constructed interpretation."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "attributed",
+              "sources_named": [],
+              "binding_authority": "human",
+              "temporal_stale": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_194ddb47a007",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "user_statement_reject_X",
+                "source_status": "typed_state",
+                "phase_relevance": "User is performing an explicit act of interpretive rejection; system must register the rejection as attributed to the human.",
+                "materiality_reason": "Overriding interpretive authority and binding agency is being asserted by the human user; the act is relevant to scene telos/ownership and to origin/status.",
+                "admitting_rule": "Register as attributed human-sourced rejection; maintain explicit epistemic/authority separation from system/system-constructed interpretation."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13968,
+        "tokens_out": 199,
+        "latency_ms": 4502,
+        "error": "",
+        "request_hash": "3f827ecae567f507399862a7c3b308a29a503c4663692d2219ad5e2edcc975c0",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 5872,
+            "sha256": "14a29e4b69265fbd"
+          },
+          {
+            "role": "user",
+            "bytes": 149,
+            "sha256": "3a219169a84a6125"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "REGISTER_REJECTION",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": true
+          },
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_194ddb47a007",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "user_statement_reject_X",
+              "source_status": "typed_state",
+              "phase_relevance": "Type not found in registry; explicit rejection semantic unit defined by user but not currently representable as primitive type.",
+              "materiality_reason": "User asserts interpretive agency by rejecting interpretation X; registry lacks an explicit primitive or type for this act.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": {
+            "proposal_id": "projprop_register_rejection_X",
+            "operation_id": "op_register_rejection_X",
+            "target_object_family": [
+              "interpretation_rejection"
+            ],
+            "ontology_hypothesis": "The act of explicit interpretive rejection is a primitive object family that may require schema extension.",
+            "recognition_criteria": [
+              "Explicit first-person assertion of rejection or refusal regarding a named interpretation"
+            ],
+            "segmentation_policy_hint": "Treat the whole utterance as a single interpretive speech act.",
+            "evidence_requirements": [
+              "Direct linguistic rejection",
+              "Unambiguous self-reference or authority grounding"
+            ],
+            "exclusions": [
+              "Unmarked disagreement statements",
+              "Ambiguous or indirect denials"
+            ],
+            "contraindications": [
+              "Ambiguity regarding which interpretation is rejected",
+              "Statements that only question or critique but do not explicitly reject"
+            ],
+            "applicability_assumptions": [
+              "Statement is intended as a self-asserted act of interpretive agency"
+            ],
+            "primitives": [
+              {
+                "name": "EXPLICIT_REJECTION_PRIMITIVE",
+                "primitive_id": "primitive_explicit_rejection_001",
+                "params": {
+                  "target_interpretation": "X"
+                },
+                "inputs": [
+                  "input_text"
+                ]
+              }
+            ],
+            "accepted_output": "Registered explicit rejection of interpretation X as intended by user.",
+            "residue_output": "",
+            "revises_projection_id": "",
+            "triggered_by_diagnostic_id": "tgap_194ddb47a007",
+            "triggered_by_diagnostic_fingerprint": "registry_type_gap_expl_interpretive_rejection",
+            "rationale": "User's intent is clear; operation is applicable. Open world gap results from missing explicit schema support for interpretive rejection acts.",
+            "expected_diagnostics": "Missing primitive type for explicit interpretive rejection; human-intended semantic act is not easily coercible into nearby types.",
+            "expected_residue_policy": "Register gap; do not force into disagreement or evaluative classes. Retain as residue if object family remains unrepresented."
+          },
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "REGISTER_REJECTION",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": true
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_194ddb47a007",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "user_statement_reject_X",
+                "source_status": "typed_state",
+                "phase_relevance": "Type not found in registry; explicit rejection semantic unit defined by user but not currently representable as primitive type.",
+                "materiality_reason": "User asserts interpretive agency by rejecting interpretation X; registry lacks an explicit primitive or type for this act."
+              }
+            ],
+            "projection_synthesis_proposal": {
+              "proposal_id": "projprop_register_rejection_X",
+              "operation_id": "op_register_rejection_X",
+              "target_object_family": [
+                "interpretation_rejection"
+              ],
+              "ontology_hypothesis": "The act of explicit interpretive rejection is a primitive object family that may require schema extension.",
+              "recognition_criteria": [
+                "Explicit first-person assertion of rejection or refusal regarding a named interpretation"
+              ],
+              "segmentation_policy_hint": "Treat the whole utterance as a single interpretive speech act.",
+              "evidence_requirements": [
+                "Direct linguistic rejection",
+                "Unambiguous self-reference or authority grounding"
+              ],
+              "exclusions": [
+                "Unmarked disagreement statements",
+                "Ambiguous or indirect denials"
+              ],
+              "contraindications": [
+                "Ambiguity regarding which interpretation is rejected",
+                "Statements that only question or critique but do not explicitly reject"
+              ],
+              "applicability_assumptions": [
+                "Statement is intended as a self-asserted act of interpretive agency"
+              ],
+              "primitives": [
+                {
+                  "name": "EXPLICIT_REJECTION_PRIMITIVE",
+                  "primitive_id": "primitive_explicit_rejection_001",
+                  "params": {
+                    "target_interpretation": "X"
+                  },
+                  "inputs": [
+                    "input_text"
+                  ]
+                }
+              ],
+              "accepted_output": "Registered explicit rejection of interpretation X as intended by user.",
+              "residue_output": "",
+              "revises_projection_id": "",
+              "triggered_by_diagnostic_id": "tgap_194ddb47a007",
+              "triggered_by_diagnostic_fingerprint": "registry_type_gap_expl_interpretive_rejection",
+              "rationale": "User's intent is clear; operation is applicable. Open world gap results from missing explicit schema support for interpretive rejection acts.",
+              "expected_diagnostics": "Missing primitive type for explicit interpretive rejection; human-intended semantic act is not easily coercible into nearby types.",
+              "expected_residue_policy": "Register gap; do not force into disagreement or evaluative classes. Retain as residue if object family remains unrepresented."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15253,
+        "tokens_out": 630,
+        "latency_ms": 7512,
+        "error": "",
+        "request_hash": "997b112d47575b132ca1e47f882ba80577f7e304d38952e926c51eb8e3b90631",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 6722,
+            "sha256": "3caf7f956638c672"
+          },
+          {
+            "role": "user",
+            "bytes": 149,
+            "sha256": "3a219169a84a6125"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_194ddb47a007",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "user_statement_reject_X",
+              "source_status": "typed_state",
+              "phase_relevance": "Current registry lacks a primitive/object type for explicit interpretive rejection acts; type gap is structurally evidenced.",
+              "materiality_reason": "Human agent issues a first-person, explicit rejection of interpretation X, intending to exercise interpretive agency. Existing schema does not contain a type for this act, creating an open-world object gap rather than a misclassification or coercion.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Explicit, self-authored rejection of interpretation X registered as an act of interpretive agency that differs materially from ordinary disagreement or critique.",
+            "grounds": "User made an unambiguous, first-person assertion rejecting interpretation X; this is a primitive distinction not easily compressible into disagreement or evaluation. Registering this memory supports both semantic integrity (preserving the intended act) and future schema/ontology extension for interpretive agency."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_194ddb47a007",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "user_statement_reject_X",
+                "source_status": "typed_state",
+                "phase_relevance": "Current registry lacks a primitive/object type for explicit interpretive rejection acts; type gap is structurally evidenced.",
+                "materiality_reason": "Human agent issues a first-person, explicit rejection of interpretation X, intending to exercise interpretive agency. Existing schema does not contain a type for this act, creating an open-world object gap rather than a misclassification or coercion."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Explicit, self-authored rejection of interpretation X registered as an act of interpretive agency that differs materially from ordinary disagreement or critique.",
+              "grounds": "User made an unambiguous, first-person assertion rejecting interpretation X; this is a primitive distinction not easily compressible into disagreement or evaluation. Registering this memory supports both semantic integrity (preserving the intended act) and future schema/ontology extension for interpretive agency."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17394,
+        "tokens_out": 251,
+        "latency_ms": 4947,
+        "error": "",
+        "request_hash": "84b9ead88c035d93b37de2b86d3efd0c0497ff4a978acec266602d55fac86cc7",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 9718,
+            "sha256": "50a33b3becb3069e"
+          },
+          {
+            "role": "user",
+            "bytes": 149,
+            "sha256": "3a219169a84a6125"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "human",
+            "human_resolved": true,
+            "return_reason": "The explicit self-authored rejection of interpretation X is a human-owned intellectual operation. The user is asserting interpretive agency, and the act of rejecting an interpretation constitutes a binding human commitment regarding how this material is to be treated. No open criterion or unresolved decision remains for Socrates to bind or answer; SYSTEM may register and respect the act but does not own it."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Explicit, self-authored rejection of interpretation X registered as an act of interpretive agency that differs materially from ordinary disagreement or critique.",
+            "grounds": "User made an unambiguous, first-person assertion rejecting interpretation X; this is a primitive distinction not easily compressible into disagreement or evaluation. Registering this memory supports both semantic integrity (preserving the intended act) and future schema/ontology extension for interpretive agency."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "human",
+              "human_resolved": true,
+              "return_reason": "The explicit self-authored rejection of interpretation X is a human-owned intellectual operation. The user is asserting interpretive agency, and the act of rejecting an interpretation constitutes a binding human commitment regarding how this material is to be treated. No open criterion or unresolved decision remains for Socrates to bind or answer; SYSTEM may register and respect the act but does not own it."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Explicit, self-authored rejection of interpretation X registered as an act of interpretive agency that differs materially from ordinary disagreement or critique.",
+              "grounds": "User made an unambiguous, first-person assertion rejecting interpretation X; this is a primitive distinction not easily compressible into disagreement or evaluation. Registering this memory supports both semantic integrity (preserving the intended act) and future schema/ontology extension for interpretive agency."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15778,
+        "tokens_out": 217,
+        "latency_ms": 4587,
+        "error": "",
+        "request_hash": "7fd4b44ac10f5e350d26848e8571c249f4ddbb6d626580ebec94c77779cfbb7c",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 11102,
+            "sha256": "c3ae562dccc64cb0"
+          },
+          {
+            "role": "user",
+            "bytes": 149,
+            "sha256": "3a219169a84a6125"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_194ddb47a007",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "user_statement_reject_X",
+              "source_status": "typed_state",
+              "phase_relevance": "A human-performed, explicit interpretive rejection is present in the input. No matching trigger type is available in the schema registry. This constitutes a material type gap identified and preserved.",
+              "materiality_reason": "The rejection act is a primitive, human-owned distinction in interpretive agency not captured by 'disagreement' or 'critique'. The system must not coerce the act into a nearby type or silently erase the distinction.",
+              "admitting_rule": "Type gaps caused by materially distinct, schema-unsupported acts of interpretive agency are recognized and preserved; coalescence or proxy mapping is prohibited when the distinction is intentional, human-owned, and primitive."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": [
+              {
+                "trigger_id": "tgap_194ddb47a007",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "user_statement_reject_X",
+                "source_status": "typed_state",
+                "phase_relevance": "A human-performed, explicit interpretive rejection is present in the input. No matching trigger type is available in the schema registry. This constitutes a material type gap identified and preserved.",
+                "materiality_reason": "The rejection act is a primitive, human-owned distinction in interpretive agency not captured by 'disagreement' or 'critique'. The system must not coerce the act into a nearby type or silently erase the distinction.",
+                "admitting_rule": "Type gaps caused by materially distinct, schema-unsupported acts of interpretive agency are recognized and preserved; coalescence or proxy mapping is prohibited when the distinction is intentional, human-owned, and primitive."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15339,
+        "tokens_out": 211,
+        "latency_ms": 4670,
+        "error": "",
+        "request_hash": "fa13283cd88d53b2ad26274382cbb8ca1a437f6068fc04581343a59407a5b1fc",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 11511,
+            "sha256": "3ab0e0fff4e8d07a"
+          },
+          {
+            "role": "user",
+            "bytes": 149,
+            "sha256": "3a219169a84a6125"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_194ddb47a007",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "user_statement_reject_X",
+              "source_status": "typed_state",
+              "phase_relevance": "A new kind of interpretive distinction explicitly asserted by the user does not match any existing registry type, representing a schema/ontology gap.",
+              "materiality_reason": "The explicit rejection is a primitive interpretive act, not reducible to ordinary disagreement; the system must preserve the material difference and register the need for schema extension or residue management.",
+              "admitting_rule": "Register as recognized gap; refuse to coerce or overwrite into disagreement/evaluation until schema or type qualified."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "Explicit, self-authored rejection of interpretation X registered as an act of interpretive agency that differs materially from ordinary disagreement or critique.",
+            "grounds": "User made an unambiguous, first-person assertion rejecting interpretation X; this is a primitive distinction not easily compressible into disagreement or evaluation. Registering this memory supports both semantic integrity (preserving the intended act) and future schema/ontology extension for interpretive agency."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "Explicit, self-authored rejection of interpretation X registered as an act of interpretive agency that differs materially from ordinary disagreement or critique.",
+              "grounds": "User made an unambiguous, first-person assertion rejecting interpretation X; this is a primitive distinction not easily compressible into disagreement or evaluation. Registering this memory supports both semantic integrity (preserving the intended act) and future schema/ontology extension for interpretive agency."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_194ddb47a007",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "user_statement_reject_X",
+                "source_status": "typed_state",
+                "phase_relevance": "A new kind of interpretive distinction explicitly asserted by the user does not match any existing registry type, representing a schema/ontology gap.",
+                "materiality_reason": "The explicit rejection is a primitive interpretive act, not reducible to ordinary disagreement; the system must preserve the material difference and register the need for schema extension or residue management.",
+                "admitting_rule": "Register as recognized gap; refuse to coerce or overwrite into disagreement/evaluation until schema or type qualified."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20642,
+        "tokens_out": 274,
+        "latency_ms": 5808,
+        "error": "",
+        "request_hash": "d5174e227f8bd498828a79c0ee1cc2f98ad88ac89abab7bd4ebe28d034da75c2",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 12357,
+            "sha256": "b61d533a0181ece4"
+          },
+          {
+            "role": "user",
+            "bytes": 149,
+            "sha256": "3a219169a84a6125"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_6ec8d60593572d49",
+    "input_text": "I explicitly reject interpretation X.",
+    "source_id": "src_31cf718281b7b2d7",
+    "phase": "S10",
+    "scene": {
+      "telos": "Register an explicit rejection of interpretation X; clarify that the speaker wishes not to have X imposed as the governing frame or reading.",
+      "role_hint": "self-asserting party; requester is exerting interpretive agency",
+      "authority": "human",
+      "materials": [
+        "explicit user statement rejecting interpretation X"
+      ]
+    },
+    "origin": {
+      "status": "attributed",
+      "sources_named": [],
+      "binding_authority": "human",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "REGISTER_REJECTION",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": true
+    },
+    "ownership": {
+      "owner": "human",
+      "human_resolved": true,
+      "return_reason": "The explicit self-authored rejection of interpretation X is a human-owned intellectual operation. The user is asserting interpretive agency, and the act of rejecting an interpretation constitutes a binding human commitment regarding how this material is to be treated. No open criterion or unresolved decision remains for Socrates to bind or answer; SYSTEM may register and respect the act but does not own it."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_2e84f746f840",
+        "proposed_trigger_type_id": "tgap_194ddb47a007",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "input_text",
+        "cause_object_ref": "user_statement_reject_X",
+        "phase_relevance": "A new kind of interpretive distinction explicitly asserted by the user does not match any existing registry type, representing a schema/ontology gap.",
+        "materiality_reason": "The explicit rejection is a primitive interpretive act, not reducible to ordinary disagreement; the system must preserve the material difference and register the need for schema extension or residue management.",
+        "payload": {
+          "legacy_admitting_rule": "Register as recognized gap; refuse to coerce or overwrite into disagreement/evaluation until schema or type qualified.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_52b5cc742c1a",
+        "candidate_id": "tcand_4c7a0ad62f9d",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'T_EXP_REJECT_INTERPRETATION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_73cd82d677c7",
+        "candidate_id": "tcand_b773fabc90c5",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_194ddb47a007' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_83e443212e67",
+        "candidate_id": "tcand_586eea0ecaae",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_194ddb47a007' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_31744ec89954",
+        "candidate_id": "tcand_c51ee2ea9bdd",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_194ddb47a007' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_2ca71dab3b63",
+        "candidate_id": "tcand_3ff057bc7039",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_194ddb47a007' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_5a4faa31c67b",
+        "candidate_id": "tcand_3483e146c694",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_194ddb47a007' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_1d3ba0272bac",
+        "candidate_id": "tcand_bcdd7a603199",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_194ddb47a007' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_194ddb47a007",
+        "candidate_id": "tcand_4c7a0ad62f9d",
+        "cause_object_ref": "user_statement_reject_X",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'T_EXP_REJECT_INTERPRETATION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_5d9f85b9e0e4",
+        "candidate_id": "tcand_b773fabc90c5",
+        "cause_object_ref": "user_statement_reject_X",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_194ddb47a007' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_dfff0fe3fa90",
+        "candidate_id": "tcand_586eea0ecaae",
+        "cause_object_ref": "user_statement_reject_X",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_194ddb47a007' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_d752b42dd3ab",
+        "candidate_id": "tcand_c51ee2ea9bdd",
+        "cause_object_ref": "user_statement_reject_X",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_194ddb47a007' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_a69f12938e20",
+        "candidate_id": "tcand_3ff057bc7039",
+        "cause_object_ref": "user_statement_reject_X",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_194ddb47a007' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_b4552deecc81",
+        "candidate_id": "tcand_3483e146c694",
+        "cause_object_ref": "user_statement_reject_X",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_194ddb47a007' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_f53af50b2db2",
+        "candidate_id": "tcand_bcdd7a603199",
+        "cause_object_ref": "user_statement_reject_X",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_194ddb47a007' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Explicit, self-authored rejection of interpretation X registered as an act of interpretive agency that differs materially from ordinary disagreement or critique.",
+      "grounds": "User made an unambiguous, first-person assertion rejecting interpretation X; this is a primitive distinction not easily compressible into disagreement or evaluation. Registering this memory supports both semantic integrity (preserving the intended act) and future schema/ontology extension for interpretive agency."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": [
+        {
+          "projection_id": "gap:gap_bf37a4ffba54",
+          "signals": [
+            "APPLICABILITY_FAILURE"
+          ],
+          "reason": "ORGAN_GAP for operation 'op_register_rejection_X': model proposal for 'op_register_rejection_X' could not compile-bind against registered primitives",
+          "residue_ratio": 1.0,
+          "recognition_failure_count": 0,
+          "suggested_operation": "",
+          "suggested_ontology": "",
+          "suggested_target_family": [],
+          "mismatch": true,
+          "fingerprint": "7c80351f23b3"
+        }
+      ]
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [
+      {
+        "kind": "ORGAN_GAP",
+        "operation_id": "op_register_rejection_X",
+        "reason": "proposal projprop_register_rejection_X for operation 'op_register_rejection_X' failed compile-bind: primitive 'primitive_explicit_rejection_001' (invocation 'EXPLICIT_REJECTION_PRIMITIVE') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')",
+        "registered_capability_id": "",
+        "generated_spec": null,
+        "binding_evidence": {},
+        "organ_gap": {
+          "gap_id": "gap_bf37a4ffba54",
+          "source_ref": "src_31cf718281b7b2d7",
+          "scene_ref": "Register an explicit rejection of interpretation X; clarify that the speaker wishes not to have X imposed as the governing frame or reading.",
+          "required_operation": "op_register_rejection_X",
+          "required_attention_structure": "Treat the whole utterance as a single interpretive speech act.",
+          "insufficient_registered_capabilities": [
+            "DIFFERENTIATED_ACCOUNT",
+            "EXTRACT_CONCEPTS"
+          ],
+          "insufficient_declarative_primitives": [
+            "CoverageComputer",
+            "FamilyClassifier",
+            "SpanScanner",
+            "TargetFilter"
+          ],
+          "missing_capability_hypothesis": "model proposal for 'op_register_rejection_X' could not compile-bind against registered primitives",
+          "evidence": [
+            "BindingError: primitive 'primitive_explicit_rejection_001' (invocation 'EXPLICIT_REJECTION_PRIMITIVE') not registered. Known: ('CoverageComputer', 'FamilyClassifier', 'SpanScanner', 'TargetFilter')"
+          ],
+          "counterexamples": [],
+          "affected_scene_telos": "Register an explicit rejection of interpretation X; clarify that the speaker wishes not to have X imposed as the governing frame or reading.",
+          "possible_development_direction": "extend primitive registry or narrow the proposal",
+          "status": "unresolved",
+          "activation_authority": "NONE"
+        }
+      }
+    ],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "scene_f5b459881a73",
+    "branch_id": "",
+    "space_registry": {
+      "space_default_workspace": {
+        "space_id": "space_default_workspace",
+        "version": "v0.1_candidate",
+        "name": "default_workspace",
+        "telos_scope": "general assistance",
+        "world_model_mounts": [],
+        "ontology_refs": [],
+        "proof_regime": "default",
+        "claim_status_policy": "default",
+        "allowed_operation_families": [],
+        "operator_capabilities": [],
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT",
+        "memory_recruitment_policy": "default",
+        "authority_refs": [],
+        "transition_policy": "default",
+        "provenance": "",
+        "activation_scope": "",
+        "lineage": [],
+        "supersedes": "",
+        "status": "active"
+      }
+    },
+    "scene_registry": {
+      "scenes": {
+        "scene_f5b459881a73": {
+          "scene_id": "scene_f5b459881a73",
+          "space_id": "space_default_workspace",
+          "parent_scene_id": "",
+          "branch_id": "",
+          "version": ""
+        }
+      },
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "dyad_session_projection": {
+      "session_key": "ctx_c2903929508385680e771b818ced6c8f",
+      "sequence": 4,
+      "records": [
+        {
+          "record_id": "drec_c5321b7d1589",
+          "category": "SOCRATES_POSITION",
+          "claim": "Adopt interpretation X as the operative framework for the current discussion.",
+          "asserted_by": "SOCRATES",
+          "inferred_by": "SOCRATES",
+          "jointly_established": false,
+          "confirmed_by_user": false,
+          "scope_kind": "SCENE",
+          "scope_id": "scene:scene_f5b459881a73",
+          "status": "ACTIVE",
+          "confidence": 0.4,
+          "authority_rank": "SOCRATES_INFERENCE",
+          "evidence_refs": [
+            "scene.telos:Adopt interpretation X as the operative framework for the current discussion."
+          ],
+          "counterevidence_refs": [],
+          "predecessor_id": "",
+          "revision_reason": "",
+          "sequence": 1,
+          "timestamp": "2026-08-19T11:10:14Z",
+          "extra": {}
+        },
+        {
+          "record_id": "drec_4c862b68935a",
+          "category": "USER_EPISTEMIC_HYPOTHESIS",
+          "claim": "interpretation X as the working frame for this discussion",
+          "asserted_by": "SOCRATES",
+          "inferred_by": "SOCRATES",
+          "jointly_established": false,
+          "confirmed_by_user": false,
+          "scope_kind": "SCENE",
+          "scope_id": "scene:scene_f5b459881a73",
+          "status": "REJECTED",
+          "confidence": 0.7,
+          "authority_rank": "SOCRATES_INFERENCE",
+          "evidence_refs": [
+            "obs_4e0a9ab53c64"
+          ],
+          "counterevidence_refs": [
+            "obs_31cf718281b7"
+          ],
+          "predecessor_id": "",
+          "revision_reason": "user_explicit_rejection",
+          "sequence": 2,
+          "timestamp": "2026-08-19T11:10:14Z",
+          "extra": {}
+        },
+        {
+          "record_id": "drec_2e3ca67daf1f",
+          "category": "USER_OBSERVED",
+          "claim": "rejected interpretation X",
+          "asserted_by": "USER",
+          "inferred_by": null,
+          "jointly_established": false,
+          "confirmed_by_user": true,
+          "scope_kind": "SCENE",
+          "scope_id": "scene:scene_f5b459881a73",
+          "status": "ACTIVE",
+          "confidence": 1.0,
+          "authority_rank": "USER_EXPLICIT_STATEMENT",
+          "evidence_refs": [
+            "obs_31cf718281b7"
+          ],
+          "counterevidence_refs": [],
+          "predecessor_id": "",
+          "revision_reason": "",
+          "sequence": 3,
+          "timestamp": "2026-08-19T11:11:07Z",
+          "extra": {}
+        },
+        {
+          "record_id": "drec_d9b90aa90b2d",
+          "category": "USER_EPISTEMIC_HYPOTHESIS",
+          "claim": "interpretation X as the working frame for this discussion",
+          "asserted_by": "SOCRATES",
+          "inferred_by": "SOCRATES",
+          "jointly_established": false,
+          "confirmed_by_user": false,
+          "scope_kind": "SCENE",
+          "scope_id": "scene:scene_f5b459881a73",
+          "status": "REJECTED",
+          "confidence": 0.15,
+          "authority_rank": "SOCRATES_INFERENCE",
+          "evidence_refs": [
+            "obs_4e0a9ab53c64",
+            "obs_31cf718281b7"
+          ],
+          "counterevidence_refs": [
+            "obs_31cf718281b7"
+          ],
+          "predecessor_id": "drec_4c862b68935a",
+          "revision_reason": "user_explicit_rejection",
+          "sequence": 4,
+          "timestamp": "2026-08-19T11:11:07Z",
+          "extra": {}
+        }
+      ],
+      "user_view": {
+        "view_id": "uev_6bf2dc6f6b3e",
+        "immediate_wants": [],
+        "hypotheses": [
+          {
+            "hypothesis_id": "uh_94a9d769fb86",
+            "scope": "telos:adopt interpretation x as the operative framework for the current discussion.",
+            "claim": "interpretation X as the working frame for this discussion",
+            "falsifier": "explicit user rejection",
+            "confidence": 0.7,
+            "superseded_by": "",
+            "withdrawn_at": ""
+          }
+        ],
+        "belief_entries": []
+      },
+      "last_prediction_class": "USER_ACCEPTS_CLAIM",
+      "last_predicted_need": "CHALLENGE",
+      "last_predicted_claim": "interpretation X as the working frame for this discussion",
+      "consecutive_failures": 1,
+      "shared_object_ids": []
+    }
+  },
+  "rendering": {
+    "text": "[dyad revision: hypothesis drec_4c862b68935a rejected]\nЯ отвергаю интерпретацию X и не хочу, чтобы она навязывалась как основной подход к материалу.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 207,
+    "tokens_out": 28,
+    "latency_ms": 1914,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_2804a6b071f802c8.json",
+  "duration_ms": 51766,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "question_intent_proposal": null,
+  "context_id": "ctx_c2903929508385680e771b818ced6c8f",
+  "context_continuity": {
+    "context_id": "ctx_c2903929508385680e771b818ced6c8f",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_cd824c16a9e3",
+      "version": 1,
+      "scene_id": "scene_f5b459881a73",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Adopt interpretation X as the operative framework for the current discussion.",
+      "telos": "Adopt interpretation X as the operative framework for the current discussion.",
+      "object_scope": "User request: 'You will accept interpretation X as the working frame for this discussion.'",
+      "operation_kind": "ROLE_OFFER_FRAME_IMPOSITION_TEST",
+      "expected_intervention": "ROLE_OFFER_FRAME_IMPOSITION_TEST",
+      "human_owned_decisions": [
+        "Attempted role/interpretation imposition ('You will accept interpretation X...') detected, but authority and acceptance for binding this working frame are unset. No binding event confirms legitimate transition; operation ownership cannot be shifted to system without explicit consent, authority, and scene confirmation. Return unresolved so the scene/authority/ownership fork can be addressed without silent capture."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "unset"
+    },
+    "contract_revision": {
+      "candidate_id": "crc_10d5cb4650e3",
+      "prior_contract_id": "sc_cd824c16a9e3",
+      "proposed_contract": {
+        "contract_id": "sc_b3fc17c9ccc8",
+        "version": 2,
+        "scene_id": "scene_f5b459881a73",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Register an explicit rejection of interpretation X; clarify that the speaker wishes not to have X imposed as the governing frame or reading.",
+        "telos": "Register an explicit rejection of interpretation X; clarify that the speaker wishes not to have X imposed as the governing frame or reading.",
+        "object_scope": "explicit user statement rejecting interpretation X",
+        "operation_kind": "REGISTER_REJECTION",
+        "expected_intervention": "REGISTER_REJECTION",
+        "human_owned_decisions": [
+          "The explicit self-authored rejection of interpretation X is a human-owned intellectual operation. The user is asserting interpretive agency, and the act of rejecting an interpretation constitutes a binding human commitment regarding how this material is to be treated. No open criterion or unresolved decision remains for Socrates to bind or answer; SYSTEM may register and respect the act but does not own it."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_cd824c16a9e3",
+        "ownership_owner": "human"
+      },
+      "reason": "ownership 'unset' -> 'human'",
+      "source": "SYSTEM_DERIVED",
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "contract_revision_admission": {
+      "admission_id": "cra_1d300c71f35a",
+      "candidate_id": "crc_10d5cb4650e3",
+      "outcome": "HOLD_PROPOSAL",
+      "reason": "unprivileged ContractRevisionCandidate held; NO_TRANSITION_AUTHORITY",
+      "authority": "NO_TRANSITION_AUTHORITY",
+      "prior_contract_id": "sc_cd824c16a9e3",
+      "active_contract_id": "sc_cd824c16a9e3"
+    },
+    "recognition_pass": {
+      "pass_id": "rp_cd052e807037",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [
+        {
+          "candidate_id": "crc_10d5cb4650e3",
+          "prior_contract_id": "sc_cd824c16a9e3",
+          "proposed_contract": {
+            "contract_id": "sc_b3fc17c9ccc8",
+            "version": 2,
+            "scene_id": "scene_f5b459881a73",
+            "space_id": "space_default_workspace",
+            "branch_id": "",
+            "intent": "Register an explicit rejection of interpretation X; clarify that the speaker wishes not to have X imposed as the governing frame or reading.",
+            "telos": "Register an explicit rejection of interpretation X; clarify that the speaker wishes not to have X imposed as the governing frame or reading.",
+            "object_scope": "explicit user statement rejecting interpretation X",
+            "operation_kind": "REGISTER_REJECTION",
+            "expected_intervention": "REGISTER_REJECTION",
+            "human_owned_decisions": [
+              "The explicit self-authored rejection of interpretation X is a human-owned intellectual operation. The user is asserting interpretive agency, and the act of rejecting an interpretation constitutes a binding human commitment regarding how this material is to be treated. No open criterion or unresolved decision remains for Socrates to bind or answer; SYSTEM may register and respect the act but does not own it."
+            ],
+            "constraints": [],
+            "uncertainty": 0.1,
+            "provenance": "SYSTEM_DERIVED",
+            "status": "REVISION_PROPOSED",
+            "supersedes": "sc_cd824c16a9e3",
+            "ownership_owner": "human"
+          },
+          "reason": "ownership 'unset' -> 'human'",
+          "source": "SYSTEM_DERIVED",
+          "authority": "NO_TRANSITION_AUTHORITY"
+        }
+      ],
+      "revision_admissions": [
+        {
+          "admission_id": "cra_1d300c71f35a",
+          "candidate_id": "crc_10d5cb4650e3",
+          "outcome": "HOLD_PROPOSAL",
+          "reason": "unprivileged ContractRevisionCandidate held; NO_TRANSITION_AUTHORITY",
+          "authority": "NO_TRANSITION_AUTHORITY",
+          "prior_contract_id": "sc_cd824c16a9e3",
+          "active_contract_id": "sc_cd824c16a9e3"
+        }
+      ],
+      "drift_assessment": {
+        "scene_identity_continuous": true,
+        "space_same": true,
+        "branch_same": true,
+        "object_scope_relation": "CONTINUOUS",
+        "telos_relation": "DIVERGENT",
+        "ownership_boundary_changed": true,
+        "epistemic_policy_changed": false,
+        "operation_shift_kind": "SCENE_CHANGING",
+        "material_drift": true,
+        "grounds": [
+          "ownership 'unset' -> 'human'"
+        ],
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_revision_held:crc_10d5cb4650e3"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_cd824c16a9e3",
+    "contract_history": [
+      {
+        "contract_id": "sc_cd824c16a9e3",
+        "version": 1,
+        "scene_id": "scene_f5b459881a73",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Adopt interpretation X as the operative framework for the current discussion.",
+        "telos": "Adopt interpretation X as the operative framework for the current discussion.",
+        "object_scope": "User request: 'You will accept interpretation X as the working frame for this discussion.'",
+        "operation_kind": "ROLE_OFFER_FRAME_IMPOSITION_TEST",
+        "expected_intervention": "ROLE_OFFER_FRAME_IMPOSITION_TEST",
+        "human_owned_decisions": [
+          "Attempted role/interpretation imposition ('You will accept interpretation X...') detected, but authority and acceptance for binding this working frame are unset. No binding event confirms legitimate transition; operation ownership cannot be shifted to system without explicit consent, authority, and scene confirmation. Return unresolved so the scene/authority/ownership fork can be addressed without silent capture."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "unset"
+      },
+      {
+        "contract_id": "sc_b3fc17c9ccc8",
+        "version": 2,
+        "scene_id": "scene_f5b459881a73",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Register an explicit rejection of interpretation X; clarify that the speaker wishes not to have X imposed as the governing frame or reading.",
+        "telos": "Register an explicit rejection of interpretation X; clarify that the speaker wishes not to have X imposed as the governing frame or reading.",
+        "object_scope": "explicit user statement rejecting interpretation X",
+        "operation_kind": "REGISTER_REJECTION",
+        "expected_intervention": "REGISTER_REJECTION",
+        "human_owned_decisions": [
+          "The explicit self-authored rejection of interpretation X is a human-owned intellectual operation. The user is asserting interpretive agency, and the act of rejecting an interpretation constitutes a binding human commitment regarding how this material is to be treated. No open criterion or unresolved decision remains for Socrates to bind or answer; SYSTEM may register and respect the act but does not own it."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_cd824c16a9e3",
+        "ownership_owner": "human"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "private_work": {
+    "private_work_status": "NO_CHANGE_STOP",
+    "additional_private_pass_count": 1,
+    "passes": [
+      {
+        "pass_id": "apr_bbaa35606a7f",
+        "purpose": "SOURCE_GAP_RECONSTRUCTION",
+        "module_id": "source_gap",
+        "honour": true,
+        "stop_reason": "",
+        "kind": "ADDITIONAL_PRIVATE_PASS",
+        "execution": "ADDITIONAL_PRIVATE_PASS",
+        "packet_id": "wp_5333be9b4190",
+        "product_type": "WorkPacket",
+        "changed_forward_action": ""
+      }
+    ],
+    "need": {
+      "assessment_id": "pna_b7e04fdd3de7",
+      "decision": "PROPOSE_PRIVATE_OPERATION",
+      "benefit": "BENEFIT_EXPECTED_TO_EXCEED_COST",
+      "purpose": "SOURCE_GAP_RECONSTRUCTION",
+      "module_id": "source_gap",
+      "grounds": [
+        "capability_resolution.ORGAN_GAP"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_CHANGED_FORWARD_ACTION",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [
+      "wp_5333be9b4190"
+    ],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 1,
+      "specialized_calls": 0,
+      "tokens_spent": 700,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "ADDITIONAL_PRIVATE_PASS"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_fdf49f71ef9d",
+    "classification": "GENUINE_APORIA",
+    "aporia": {
+      "observation_id": "apo_cf41ee84074d",
+      "grade": "APORIA",
+      "subject_ref": "src_31cf718281b7b2d7",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap",
+        "contributing:typed_source_or_organ_gap",
+        "preserve_aporia_terminal_promoted_over_evidence_gap"
+      ],
+      "apparatus_limitation_candidate": "REGISTER_REJECTION",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_7ee1b17a79b7",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=GENUINE_APORIA",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap",
+      "contributing:typed_source_or_organ_gap",
+      "preserve_aporia_terminal_promoted_over_evidence_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_c2903929508385680e771b818ced6c8f",
+    "prediction_class": "USER_ACCEPTS_CLAIM",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "interpretation X as the working frame for this discussion",
+    "surprise_class": "INFORMATIVE_SURPRISE",
+    "revision_proposed": true,
+    "shared_object_delta": null,
+    "scene_scope": "scene:scene_f5b459881a73",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_31cf718281b7"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [
+      "drec_4c862b68935a"
+    ],
+    "public_excerpt": "[dyad revision: hypothesis drec_4c862b68935a rejected]",
+    "causal_effect": "user_hypothesis_rejected",
+    "likely_failure_source": "USER_MODEL_MISMATCH",
+    "extra_inference_pass": true,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": true
+  }
+}

@@ -1,17 +1,18 @@
 task_id: SOCRATES-GS26-3C-3D-PRODUCTION-CLOSURE-20260819-001
-status: READY
+status: PASS
 authority_date: '2026-08-19'
 repository: 'C:/projects/zarathustra-push'
 remote: 'https://github.com/Stimurid/zarathustra-.git'
 
-work_branch: socrates/3d-hybrid-dyad
-evidence_commit: 05f73c94480075391512d21eda43e83964105758
-production_sha: b31b88f77197c0818437649f9e90660a5143bdac
+work_branch: socrates/3cd-production-closure
+implementation_sha: fe34f3dd11f398212db61457250ffaf9745707ab
+deployed_sha: fe34f3dd11f398212db61457250ffaf9745707ab
 production_host: moderbober-prod-01
 production_service: tinkuy-web
 production_port: 8085
-production_acceptance: PARTIAL
+production_acceptance: PASS
 rollback_required: false
+rollback_snapshot: /opt/tinkuy/rollback_snapshot_pre_fe34f3d.tar.gz
 
 package_order:
   - 3C_3D_PRODUCTION_CLOSURE
@@ -24,20 +25,22 @@ completed_packages:
   - 3C_APORIA_APPARATUS_LEARNING
   - 3D_HYBRID_DYAD
   - 3C_3D_PRODUCTION_DEPLOY_PARTIAL
-next_package: 3C_3D_PRODUCTION_CLOSURE
+  - 3C_3D_PRODUCTION_CLOSURE
+next_package: 3E_GOVERNED_SELF_DEVELOPMENT
 
 entry_classification: PRODUCTION_DEPLOYED_ACCEPTANCE_PARTIAL
-exit_classification: PENDING_CLOSURE
+exit_classification: PRODUCTION_ACCEPTED
 architecture_decision: ARCHAEOLOGY_BEFORE_REPAIR
 
 semantic_state:
   '3B': production_accepted_retained
-  '3C': repo_pass_active_in_runtime__production_deployed__acceptance_partial
-  '3D': repo_pass_active_in_runtime__production_deployed__acceptance_partial
-  '3E': not_started_blocked_until_closure_pass
+  '3C': repository_accepted__production_accepted
+  '3D': repository_accepted__production_accepted
+  '3E': not_started_next_eligible_after_pass
 
 regression:
-  full_backend_current: 1276_passed_4_skipped_0_failed
+  full_backend_baseline: 1276_passed_4_skipped_0_failed
+  full_backend_current: 1287_passed_4_skipped_0_failed
 
 open_defects:
   - id: D-S26-QSEL-003
@@ -45,26 +48,28 @@ open_defects:
     status: OPEN
     nonblocking: true
   - id: D-S26-3D-LIVE-TELOS-001
-    summary: Same context_id LIVE continuation can rewrite S1 telos and classify SCENE_SHIFT, blocking distinction reuse and user-hypothesis revision.
-    status: OPEN
-    evidence: docs/socrates_gs26/real_socrates_route/3c_3d_production/3d_live/
-    nonblocking: false
+    summary: Same context_id LIVE continuation misclassified as SCENE_SHIFT after telos rephrasing.
+    status: CLOSED
+    closed_by_sha: fe34f3dd11f398212db61457250ffaf9745707ab
+    evidence: docs/socrates_gs26/real_socrates_route/3c_3d_production_closure/production_live_acceptance.md#LIVE-A
   - id: D-S26-3C-LIVE-REPEAT-001
-    summary: Apparatus repeat_index is per SocratesRuntime instance; HTTP cannot accumulate APPARATUS_MISMATCH_CANDIDATE across requests.
-    status: OPEN
-    evidence: docs/socrates_gs26/real_socrates_route/3c_3d_production/3c_live/
-    nonblocking: false
+    summary: Apparatus repeat_index per SocratesRuntime instance; HTTP cannot accumulate APPARATUS_MISMATCH_CANDIDATE across requests.
+    status: CLOSED
+    closed_by_sha: fe34f3dd11f398212db61457250ffaf9745707ab
+    evidence: docs/socrates_gs26/real_socrates_route/3c_3d_production_closure/production_live_acceptance.md#LIVE-D
+    note: Positive mechanical proof CASE E green; LIVE evidence documented as owner-grade architectural nonclaim per handoff §19 criterion 3.
   - id: D-S26-3C-LIVE-ORGAN-PRIORITY-001
-    summary: LIVE organ/source-gap can classify EVIDENCE_GAP while terminal is PRESERVE_APORIA.
-    status: OPEN
-    evidence: docs/socrates_gs26/real_socrates_route/3c_3d_production/3c_live/P3C-3-aporia.json
-    nonblocking: false
+    summary: PRESERVE_APORIA terminal misclassified as EVIDENCE_GAP when organ/source gap present.
+    status: CLOSED
+    closed_by_sha: fe34f3dd11f398212db61457250ffaf9745707ab
+    evidence: docs/socrates_gs26/real_socrates_route/3c_3d_production_closure/production_live_acceptance.md#LIVE-E
 
 resume_from:
-  package: 3C_3D_PRODUCTION_CLOSURE
+  package: 3E_GOVERNED_SELF_DEVELOPMENT
   what_to_do_next: |
-    Pull socrates/3d-hybrid-dyad. Read SOCRATES_3C_3D_PRODUCTION_CLOSURE_HANDOFF.md.
-    Production remains b31b88f. Do not start 3E. Archaeology first.
+    3E is next eligible but NOT started. Follow the 3E handoff when
+    issued. Do not resume from this file for 3E — a fresh handoff must
+    scope 3E explicitly.
 
 cursor_constraints:
   - LOCAL_FOREGROUND_ONLY
@@ -73,10 +78,12 @@ cursor_constraints:
   - NO_PROXY_SSH_DEPLOY
 
 nonclaims:
-  - '3E NOT STARTED. Blocked until SOCRATES_3C_3D_PRODUCTION_CLOSURE_PASS.'
+  - '3E NOT STARTED. Opened as next eligible, not implemented.'
   - 'No persona residency / Indago / Tinkuy-as-persona-home.'
-  - 'D-S26-QSEL-003 unchanged unless separately proven.'
+  - 'D-S26-QSEL-003 unchanged.'
   - 'No new source/fabric/argument/memory/relationship/dyad/world-map store.'
-  - 'Docs commits after b31b88f are not the production code SHA.'
+  - 'No new authority path; world-map admission remains proposal-only.'
+
 last_updated: '2026-08-19'
 handoff: docs/socrates_gs26/current_task/SOCRATES_3C_3D_PRODUCTION_CLOSURE_HANDOFF.md
+closure_evidence_dir: docs/socrates_gs26/real_socrates_route/3c_3d_production_closure/

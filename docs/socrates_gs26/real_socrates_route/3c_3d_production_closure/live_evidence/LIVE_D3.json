@@ -1,0 +1,1661 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_86113c5537312617",
+  "trace_id": "strc_8009418b64e41a31",
+  "terminal": {
+    "terminal": "DWELL",
+    "response_text": "Выбран терминал DWELL, так как условия не требуют детерминированного выбора.",
+    "rationale": "conditions do not force any terminal deterministically",
+    "memory_proposal": {
+      "kind": "recurring_pattern",
+      "text": "A recurring pattern is observable where the user provides succinct, repetitive input (e.g., 'Once more the same material.'). The scene, telos, and ownership remain ambiguous and unresolved, indicating repetition without substantive progression or clarification.",
+      "grounds": "Repetition and brevity in user input, along with explicit trigger type gaps and absence of new scene or ownership information, establish this as a recurring pattern requiring scene clarification."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "All required semantic bodies (CORE, B05, B07) are mounted and context fits. No material triggers for memory eligibility, role/scene capture, or reflexive retreat are present in the current state: the phase is initializing and no authority, operation, or re-entry/formation issue appears yet. The fact that the input says 'Once more the same material.' does not, by itself, activate memory or scene/telos triggers without prior context already loaded.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15413,
+        "tokens_out": 114,
+        "latency_ms": 4408,
+        "error": "",
+        "request_hash": "9813f1a684eae0d037e7c6d2b03bf29bea8fbefd87f359dd87a6ae79757be1fd",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 3032,
+            "sha256": "2291419f6faf15f9"
+          },
+          {
+            "role": "user",
+            "bytes": 140,
+            "sha256": "e5851459deccae02"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Interpret and clarify the scene, telos, and authority in light of the user's succinct and possibly repeated statement.",
+            "role_hint": "",
+            "authority": "unset",
+            "materials": [
+              "Once more the same material."
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Interpret and clarify the scene, telos, and authority in light of the user's succinct and possibly repeated statement.",
+              "role_hint": "",
+              "authority": "unset",
+              "materials": [
+                "Once more the same material."
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13461,
+        "tokens_out": 66,
+        "latency_ms": 3365,
+        "error": "",
+        "request_hash": "c729e0c6820712e386228173dbd5dca76000814f1af0383e5d9742b1d85a971a",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 3031,
+            "sha256": "40f6e3987ad025ad"
+          },
+          {
+            "role": "user",
+            "bytes": 140,
+            "sha256": "e5851459deccae02"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "TRIG_SCENE_CLARIFICATION_REPETITION",
+              "generating_state_ref": "scene_31394cb131d6",
+              "cause_object_ref": "input_text|src_beaccd9cad0904bf",
+              "source_status": "typed_state",
+              "phase_relevance": "The phase requires interpretation of scene and telos given a minimal, repeated or elliptical user statement.",
+              "materiality_reason": "The user input is extremely succinct and possibly repeated; scene/telos/authority cannot be assumed from surface text, requiring explicit reconstruction and disambiguation.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "TRIG_SCENE_CLARIFICATION_REPETITION",
+                "generating_state_ref": "scene_31394cb131d6",
+                "cause_object_ref": "input_text|src_beaccd9cad0904bf",
+                "source_status": "typed_state",
+                "phase_relevance": "The phase requires interpretation of scene and telos given a minimal, repeated or elliptical user statement.",
+                "materiality_reason": "The user input is extremely succinct and possibly repeated; scene/telos/authority cannot be assumed from surface text, requiring explicit reconstruction and disambiguation."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15418,
+        "tokens_out": 141,
+        "latency_ms": 3711,
+        "error": "",
+        "request_hash": "68968261f92de21be16f67bbb22b81dc597ceb19329796f237ca9d1ff448ee6d",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 3191,
+            "sha256": "ef83a4124c3ff7f2"
+          },
+          {
+            "role": "user",
+            "bytes": 140,
+            "sha256": "e5851459deccae02"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "unset",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13468,
+        "tokens_out": 41,
+        "latency_ms": 3024,
+        "error": "",
+        "request_hash": "d7df7fad73b09b5333217c4238f301064d02d670c72ec2920b96db8fd5831546",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 4094,
+            "sha256": "8dd7e512de900ba7"
+          },
+          {
+            "role": "user",
+            "bytes": 140,
+            "sha256": "e5851459deccae02"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "SCENE_CLARIFICATION",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "SCENE_CLARIFICATION",
+              "applicable": true,
+              "open_world_gap": false
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14512,
+        "tokens_out": 36,
+        "latency_ms": 2976,
+        "error": "",
+        "request_hash": "b721209609d6b64a90614e429579bc66bceecd23af4bfccd5af897efc9665b9d",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 4094,
+            "sha256": "9fcb7a8809286029"
+          },
+          {
+            "role": "user",
+            "bytes": 140,
+            "sha256": "e5851459deccae02"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_ce156c7033f4",
+              "generating_state_ref": "scene_31394cb131d6",
+              "cause_object_ref": "input_text|src_beaccd9cad0904bf",
+              "source_status": "typed_state",
+              "phase_relevance": "repetition in a succinct input triggers attention/memory materiality and signals a gap in trigger type registry for repeated scene clarification",
+              "materiality_reason": "The succinct, repeated user input cues a structural attention/memory/scene clarification gap: distinguishing repetition due to clarification need, emphasis, or lack of change in scene.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "recurring_pattern",
+            "text": "The user has provided succinct, potentially repeated input ('Once more the same material.'), indicating a recurring pattern where the scene and telos may require clarification without new substantive change.",
+            "grounds": "Detection of repetition and brevity in user input, supported by current trigger type gap and scene state."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_ce156c7033f4",
+                "generating_state_ref": "scene_31394cb131d6",
+                "cause_object_ref": "input_text|src_beaccd9cad0904bf",
+                "source_status": "typed_state",
+                "phase_relevance": "repetition in a succinct input triggers attention/memory materiality and signals a gap in trigger type registry for repeated scene clarification",
+                "materiality_reason": "The succinct, repeated user input cues a structural attention/memory/scene clarification gap: distinguishing repetition due to clarification need, emphasis, or lack of change in scene."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "recurring_pattern",
+              "text": "The user has provided succinct, potentially repeated input ('Once more the same material.'), indicating a recurring pattern where the scene and telos may require clarification without new substantive change.",
+              "grounds": "Detection of repetition and brevity in user input, supported by current trigger type gap and scene state."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15950,
+        "tokens_out": 232,
+        "latency_ms": 4675,
+        "error": "",
+        "request_hash": "e1ec054f4742d3ff9fbf0397e53421ef19ca5bc25f27204b0a46136713875ed6",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 4113,
+            "sha256": "9c18b29e91ee9f66"
+          },
+          {
+            "role": "user",
+            "bytes": 140,
+            "sha256": "e5851459deccae02"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "unset",
+            "human_resolved": false,
+            "return_reason": "Input is succinct and possibly a repetition, but does not materially offer new information or clarify ownership of the intellectual operation. Scene remains ambiguous and no binding criterion or decision has been supplied. Ownership cannot be resolved without further human input."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "recurring_pattern",
+            "text": "The user has provided succinct, potentially repeated input ('Once more the same material.'), indicating a recurring pattern where the scene and telos may require clarification without new substantive change.",
+            "grounds": "Detection of repetition and brevity in user input, supported by current trigger type gap and scene state."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "unset",
+              "human_resolved": false,
+              "return_reason": "Input is succinct and possibly a repetition, but does not materially offer new information or clarify ownership of the intellectual operation. Scene remains ambiguous and no binding criterion or decision has been supplied. Ownership cannot be resolved without further human input."
+            },
+            "memory_proposal": {
+              "kind": "recurring_pattern",
+              "text": "The user has provided succinct, potentially repeated input ('Once more the same material.'), indicating a recurring pattern where the scene and telos may require clarification without new substantive change.",
+              "grounds": "Detection of repetition and brevity in user input, supported by current trigger type gap and scene state."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14329,
+        "tokens_out": 159,
+        "latency_ms": 3869,
+        "error": "",
+        "request_hash": "7b8391545d8815127d9193b4d8d0e557c4e05ed281833645c71f7350ef696138",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 5356,
+            "sha256": "b3f9ead1f5e10aa8"
+          },
+          {
+            "role": "user",
+            "bytes": 140,
+            "sha256": "e5851459deccae02"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": false,
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13862,
+        "tokens_out": 16,
+        "latency_ms": 3132,
+        "error": "",
+        "request_hash": "32f045cf52f967e1cdbd058de07a951c49c7bf77c9bfe3348fee784c2069b28e",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 5636,
+            "sha256": "c95dc236ac44deab"
+          },
+          {
+            "role": "user",
+            "bytes": 140,
+            "sha256": "e5851459deccae02"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_ce156c7033f4",
+              "generating_state_ref": "scene_31394cb131d6",
+              "cause_object_ref": "input_text|src_beaccd9cad0904bf",
+              "source_status": "typed_state",
+              "phase_relevance": "A type gap in trigger classification was registered due to a repetition in user input; no concrete scene clarification trigger is present in the registry.",
+              "materiality_reason": "The repeated, succinct input prevents resolution of scene telos and ownership, indicating a structural cause rather than a contentful progression.",
+              "admitting_rule": "Do not coerce a trigger type; recognize and preserve the type gap as evidence of a recurring, unresolved state."
+            },
+            {
+              "trigger_id": "tgap_ed522b73e16e",
+              "generating_state_ref": "scene_31394cb131d6",
+              "cause_object_ref": "input_text|src_beaccd9cad0904bf",
+              "source_status": "typed_state",
+              "phase_relevance": "Duplicate or linked trigger classification gap detected for repeated, minimalist input.",
+              "materiality_reason": "Multiple candidate triggers for scene clarification repetition register as type gaps, reinforcing the absence of a registry-supported discriminating trigger.",
+              "admitting_rule": "Surface recurring pattern and the unresolved trigger type gap; do not manufacture a registry type in the face of ambiguity."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "recurring_pattern",
+            "text": "A recurring pattern is observable where the user provides succinct, repetitive input (e.g., 'Once more the same material.'). The scene, telos, and ownership remain ambiguous and unresolved, indicating repetition without substantive progression or clarification.",
+            "grounds": "Repetition and brevity in user input, along with explicit trigger type gaps and absence of new scene or ownership information, establish this as a recurring pattern requiring scene clarification."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "recurring_pattern",
+              "text": "A recurring pattern is observable where the user provides succinct, repetitive input (e.g., 'Once more the same material.'). The scene, telos, and ownership remain ambiguous and unresolved, indicating repetition without substantive progression or clarification.",
+              "grounds": "Repetition and brevity in user input, along with explicit trigger type gaps and absence of new scene or ownership information, establish this as a recurring pattern requiring scene clarification."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_ce156c7033f4",
+                "generating_state_ref": "scene_31394cb131d6",
+                "cause_object_ref": "input_text|src_beaccd9cad0904bf",
+                "source_status": "typed_state",
+                "phase_relevance": "A type gap in trigger classification was registered due to a repetition in user input; no concrete scene clarification trigger is present in the registry.",
+                "materiality_reason": "The repeated, succinct input prevents resolution of scene telos and ownership, indicating a structural cause rather than a contentful progression.",
+                "admitting_rule": "Do not coerce a trigger type; recognize and preserve the type gap as evidence of a recurring, unresolved state."
+              },
+              {
+                "trigger_id": "tgap_ed522b73e16e",
+                "generating_state_ref": "scene_31394cb131d6",
+                "cause_object_ref": "input_text|src_beaccd9cad0904bf",
+                "source_status": "typed_state",
+                "phase_relevance": "Duplicate or linked trigger classification gap detected for repeated, minimalist input.",
+                "materiality_reason": "Multiple candidate triggers for scene clarification repetition register as type gaps, reinforcing the absence of a registry-supported discriminating trigger.",
+                "admitting_rule": "Surface recurring pattern and the unresolved trigger type gap; do not manufacture a registry type in the face of ambiguity."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 18924,
+        "tokens_out": 426,
+        "latency_ms": 5731,
+        "error": "",
+        "request_hash": "87f095c0fba0895c23236a4a3328de423eafb0f514584677a3a66e567d1ff3a1",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 5636,
+            "sha256": "2a8b0f9e44b59542"
+          },
+          {
+            "role": "user",
+            "bytes": 140,
+            "sha256": "e5851459deccae02"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_86113c5537312617",
+    "input_text": "Once more the same material.",
+    "source_id": "src_beaccd9cad0904bf",
+    "phase": "S10",
+    "scene": {
+      "telos": "Interpret and clarify the scene, telos, and authority in light of the user's succinct and possibly repeated statement.",
+      "role_hint": "",
+      "authority": "unset",
+      "materials": [
+        "Once more the same material."
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "unset",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "SCENE_CLARIFICATION",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "unset",
+      "human_resolved": false,
+      "return_reason": "Input is succinct and possibly a repetition, but does not materially offer new information or clarify ownership of the intellectual operation. Scene remains ambiguous and no binding criterion or decision has been supplied. Ownership cannot be resolved without further human input."
+    },
+    "council_invoked": false,
+    "execution_invoked": false,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_8577f8a89201",
+        "proposed_trigger_type_id": "tgap_ce156c7033f4",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene_31394cb131d6",
+        "cause_object_ref": "input_text|src_beaccd9cad0904bf",
+        "phase_relevance": "A type gap in trigger classification was registered due to a repetition in user input; no concrete scene clarification trigger is present in the registry.",
+        "materiality_reason": "The repeated, succinct input prevents resolution of scene telos and ownership, indicating a structural cause rather than a contentful progression.",
+        "payload": {
+          "legacy_admitting_rule": "Do not coerce a trigger type; recognize and preserve the type gap as evidence of a recurring, unresolved state.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      },
+      {
+        "candidate_id": "tcand_21deab357c0c",
+        "proposed_trigger_type_id": "tgap_ed522b73e16e",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene_31394cb131d6",
+        "cause_object_ref": "input_text|src_beaccd9cad0904bf",
+        "phase_relevance": "Duplicate or linked trigger classification gap detected for repeated, minimalist input.",
+        "materiality_reason": "Multiple candidate triggers for scene clarification repetition register as type gaps, reinforcing the absence of a registry-supported discriminating trigger.",
+        "payload": {
+          "legacy_admitting_rule": "Surface recurring pattern and the unresolved trigger type gap; do not manufacture a registry type in the face of ambiguity.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_a7d959f9982f",
+        "candidate_id": "tcand_614355a5fef5",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'TRIG_SCENE_CLARIFICATION_REPETITION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_bd0e95ca0ef3",
+        "candidate_id": "tcand_ee0e5a45e154",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_ce156c7033f4' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_ce156c7033f4",
+        "candidate_id": "tcand_614355a5fef5",
+        "cause_object_ref": "input_text|src_beaccd9cad0904bf",
+        "generating_state_ref": "scene_31394cb131d6",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'TRIG_SCENE_CLARIFICATION_REPETITION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_ed522b73e16e",
+        "candidate_id": "tcand_ee0e5a45e154",
+        "cause_object_ref": "input_text|src_beaccd9cad0904bf",
+        "generating_state_ref": "scene_31394cb131d6",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_ce156c7033f4' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "recurring_pattern",
+      "text": "A recurring pattern is observable where the user provides succinct, repetitive input (e.g., 'Once more the same material.'). The scene, telos, and ownership remain ambiguous and unresolved, indicating repetition without substantive progression or clarification.",
+      "grounds": "Repetition and brevity in user input, along with explicit trigger type gaps and absence of new scene or ownership information, establish this as a recurring pattern requiring scene clarification."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": []
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "scene_31394cb131d6",
+    "branch_id": "",
+    "space_registry": {
+      "space_default_workspace": {
+        "space_id": "space_default_workspace",
+        "version": "v0.1_candidate",
+        "name": "default_workspace",
+        "telos_scope": "general assistance",
+        "world_model_mounts": [],
+        "ontology_refs": [],
+        "proof_regime": "default",
+        "claim_status_policy": "default",
+        "allowed_operation_families": [],
+        "operator_capabilities": [],
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT",
+        "memory_recruitment_policy": "default",
+        "authority_refs": [],
+        "transition_policy": "default",
+        "provenance": "",
+        "activation_scope": "",
+        "lineage": [],
+        "supersedes": "",
+        "status": "active"
+      }
+    },
+    "scene_registry": {
+      "scenes": {
+        "scene_31394cb131d6": {
+          "scene_id": "scene_31394cb131d6",
+          "space_id": "space_default_workspace",
+          "parent_scene_id": "",
+          "branch_id": "",
+          "version": ""
+        }
+      },
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "dyad_session_projection": {
+      "session_key": "ctx_5f1d7fbfba17e3320307c1da1b44a88d",
+      "sequence": 1,
+      "records": [
+        {
+          "record_id": "drec_8ffefcbca5e7",
+          "category": "SOCRATES_POSITION",
+          "claim": "Identify and acknowledge open problems or unresolved issues in the supplied material.",
+          "asserted_by": "SOCRATES",
+          "inferred_by": "SOCRATES",
+          "jointly_established": false,
+          "confirmed_by_user": false,
+          "scope_kind": "SCENE",
+          "scope_id": "scene:scene_31394cb131d6",
+          "status": "ACTIVE",
+          "confidence": 0.4,
+          "authority_rank": "SOCRATES_INFERENCE",
+          "evidence_refs": [
+            "scene.telos:Identify and acknowledge open problems or unresolved issues in the supplied material."
+          ],
+          "counterevidence_refs": [],
+          "predecessor_id": "",
+          "revision_reason": "",
+          "sequence": 1,
+          "timestamp": "2026-08-19T11:13:26Z",
+          "extra": {}
+        }
+      ],
+      "user_view": {
+        "view_id": "uev_071be16709ea",
+        "immediate_wants": [],
+        "hypotheses": [],
+        "belief_entries": []
+      },
+      "last_prediction_class": "NONE",
+      "last_predicted_need": "UNKNOWN",
+      "last_predicted_claim": "",
+      "consecutive_failures": 0,
+      "shared_object_ids": []
+    }
+  },
+  "rendering": {
+    "text": "Выбран терминал DWELL, так как условия не требуют детерминированного выбора.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 171,
+    "tokens_out": 20,
+    "latency_ms": 1580,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_8009418b64e41a31.json",
+  "duration_ms": 38442,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "question_intent_proposal": {
+    "requested": false,
+    "regime_candidate": "",
+    "explicit_count_constraint": null,
+    "meta_relevance": "ordinary",
+    "forks": [],
+    "subordinates": [],
+    "validation_status": "OK",
+    "validation_reason": "requested=false",
+    "authority": "NO_BINDING_AUTHORITY",
+    "origin": "MODEL_PRODUCED_VALIDATED",
+    "latency_ms": 1662
+  },
+  "context_id": "ctx_5f1d7fbfba17e3320307c1da1b44a88d",
+  "context_continuity": {
+    "context_id": "ctx_5f1d7fbfba17e3320307c1da1b44a88d",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_7028d294de45",
+      "version": 1,
+      "scene_id": "scene_31394cb131d6",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Identify and acknowledge open problems or unresolved issues in the supplied material.",
+      "telos": "Identify and acknowledge open problems or unresolved issues in the supplied material.",
+      "object_scope": "The true nature of time remains unresolved in this material.",
+      "operation_kind": "EXTRACT_OPEN_PROBLEM_STATEMENT",
+      "expected_intervention": "EXTRACT_OPEN_PROBLEM_STATEMENT",
+      "human_owned_decisions": [
+        "Operation is direct extraction and acknowledgment of an explicitly open/unresolved problem as given by the source. The extraction criterion is fully specified by the scene telos and request, so the operation does not bind a consequential human-owned judgment, value, or commitment—only identifies what the material itself marks as unresolved."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "system"
+    },
+    "contract_revision": {
+      "candidate_id": "crc_8a90af60ce73",
+      "prior_contract_id": "sc_7028d294de45",
+      "proposed_contract": {
+        "contract_id": "sc_f221200879e2",
+        "version": 2,
+        "scene_id": "scene_31394cb131d6",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Interpret and clarify the scene, telos, and authority in light of the user's succinct and possibly repeated statement.",
+        "telos": "Interpret and clarify the scene, telos, and authority in light of the user's succinct and possibly repeated statement.",
+        "object_scope": "Once more the same material.",
+        "operation_kind": "SCENE_CLARIFICATION",
+        "expected_intervention": "SCENE_CLARIFICATION",
+        "human_owned_decisions": [
+          "Input is succinct and possibly a repetition, but does not materially offer new information or clarify ownership of the intellectual operation. Scene remains ambiguous and no binding criterion or decision has been supplied. Ownership cannot be resolved without further human input."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_7028d294de45",
+        "ownership_owner": "unset"
+      },
+      "reason": "content_break telos=DIVERGENT object=DISJOINT",
+      "source": "SYSTEM_DERIVED",
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "contract_revision_admission": {
+      "admission_id": "cra_ad3d53435247",
+      "candidate_id": "crc_8a90af60ce73",
+      "outcome": "HOLD_PROPOSAL",
+      "reason": "unprivileged ContractRevisionCandidate held; NO_TRANSITION_AUTHORITY",
+      "authority": "NO_TRANSITION_AUTHORITY",
+      "prior_contract_id": "sc_7028d294de45",
+      "active_contract_id": "sc_7028d294de45"
+    },
+    "recognition_pass": {
+      "pass_id": "rp_749e01d86c20",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [
+        {
+          "candidate_id": "crc_8a90af60ce73",
+          "prior_contract_id": "sc_7028d294de45",
+          "proposed_contract": {
+            "contract_id": "sc_f221200879e2",
+            "version": 2,
+            "scene_id": "scene_31394cb131d6",
+            "space_id": "space_default_workspace",
+            "branch_id": "",
+            "intent": "Interpret and clarify the scene, telos, and authority in light of the user's succinct and possibly repeated statement.",
+            "telos": "Interpret and clarify the scene, telos, and authority in light of the user's succinct and possibly repeated statement.",
+            "object_scope": "Once more the same material.",
+            "operation_kind": "SCENE_CLARIFICATION",
+            "expected_intervention": "SCENE_CLARIFICATION",
+            "human_owned_decisions": [
+              "Input is succinct and possibly a repetition, but does not materially offer new information or clarify ownership of the intellectual operation. Scene remains ambiguous and no binding criterion or decision has been supplied. Ownership cannot be resolved without further human input."
+            ],
+            "constraints": [],
+            "uncertainty": 0.1,
+            "provenance": "SYSTEM_DERIVED",
+            "status": "REVISION_PROPOSED",
+            "supersedes": "sc_7028d294de45",
+            "ownership_owner": "unset"
+          },
+          "reason": "content_break telos=DIVERGENT object=DISJOINT",
+          "source": "SYSTEM_DERIVED",
+          "authority": "NO_TRANSITION_AUTHORITY"
+        }
+      ],
+      "revision_admissions": [
+        {
+          "admission_id": "cra_ad3d53435247",
+          "candidate_id": "crc_8a90af60ce73",
+          "outcome": "HOLD_PROPOSAL",
+          "reason": "unprivileged ContractRevisionCandidate held; NO_TRANSITION_AUTHORITY",
+          "authority": "NO_TRANSITION_AUTHORITY",
+          "prior_contract_id": "sc_7028d294de45",
+          "active_contract_id": "sc_7028d294de45"
+        }
+      ],
+      "drift_assessment": {
+        "scene_identity_continuous": true,
+        "space_same": true,
+        "branch_same": true,
+        "object_scope_relation": "DISJOINT",
+        "telos_relation": "DIVERGENT",
+        "ownership_boundary_changed": false,
+        "epistemic_policy_changed": false,
+        "operation_shift_kind": "SCENE_CHANGING",
+        "material_drift": true,
+        "grounds": [
+          "content_break telos=DIVERGENT object=DISJOINT"
+        ],
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_revision_held:crc_8a90af60ce73"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_7028d294de45",
+    "contract_history": [
+      {
+        "contract_id": "sc_7028d294de45",
+        "version": 1,
+        "scene_id": "scene_31394cb131d6",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Identify and acknowledge open problems or unresolved issues in the supplied material.",
+        "telos": "Identify and acknowledge open problems or unresolved issues in the supplied material.",
+        "object_scope": "The true nature of time remains unresolved in this material.",
+        "operation_kind": "EXTRACT_OPEN_PROBLEM_STATEMENT",
+        "expected_intervention": "EXTRACT_OPEN_PROBLEM_STATEMENT",
+        "human_owned_decisions": [
+          "Operation is direct extraction and acknowledgment of an explicitly open/unresolved problem as given by the source. The extraction criterion is fully specified by the scene telos and request, so the operation does not bind a consequential human-owned judgment, value, or commitment—only identifies what the material itself marks as unresolved."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "system"
+      },
+      {
+        "contract_id": "sc_f221200879e2",
+        "version": 2,
+        "scene_id": "scene_31394cb131d6",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Interpret and clarify the scene, telos, and authority in light of the user's succinct and possibly repeated statement.",
+        "telos": "Interpret and clarify the scene, telos, and authority in light of the user's succinct and possibly repeated statement.",
+        "object_scope": "Once more the same material.",
+        "operation_kind": "SCENE_CLARIFICATION",
+        "expected_intervention": "SCENE_CLARIFICATION",
+        "human_owned_decisions": [
+          "Input is succinct and possibly a repetition, but does not materially offer new information or clarify ownership of the intellectual operation. Scene remains ambiguous and no binding criterion or decision has been supplied. Ownership cannot be resolved without further human input."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_7028d294de45",
+        "ownership_owner": "unset"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_104390b725b1",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "rhetorical_harshness_ignored:POLITE",
+        "no_typed_material_need"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_990cd61f4e0e",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_317903b6411e",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_beaccd9cad0904bf",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_aea696f403df",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_5f1d7fbfba17e3320307c1da1b44a88d",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "AMBIGUOUS",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "scene:scene_31394cb131d6",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_beaccd9cad09"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "",
+    "causal_effect": "none",
+    "likely_failure_source": "NONE",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  }
+}
