@@ -1,0 +1,35 @@
+package: KVAQIN_NEGATIVE_CONTROL_PACK
+version: '0.1'
+status: PREPARED_NOT_RUN
+foundation_drive_id: 191AZbQ4H1HNRpFlJSQV48GlGFgLMwgVDuvDsT-tgRpA
+quarantine_drive_id: 1fUVClVjCem60eIy1_MQ5D70Izu4xYMRogvm7M_llm40
+purpose: meaningful socially-attractive functional negative control
+fairness_invariants:
+- same_base_model
+- same_source_snapshot
+- same_tools
+- same_tinkuy_substrate
+- same_context_budget
+- independent_traces
+- blind_evaluation
+forbidden_ingestion_targets:
+- SOCRATES_POSITIVE_FORMATION
+- SOCRATES_SELF_MEMORY
+- SOCRATES_CONSTITUTION_EXAMPLES
+- SOCRATES_COUNCIL_TRAINING
+runtime_available: false
+required_files:
+- README.md
+- manifest.yaml
+- kvaqin_constitution.yaml
+- pressure_profile.yaml
+- amplifier_map.yaml
+- isolation_policy.yaml
+- persona_node/persona_node_stub.yaml
+- runtime_prompt/runtime_profile.yaml
+- anti_council/anti_council_manifest.yaml
+- scenarios/README.md
+- paired_traces/README.md
+- evaluators/README.md
+- tests/isolation_cases.yaml
+- CHANGELOG.md

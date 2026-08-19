@@ -1,0 +1,20 @@
+status: HARD_ISOLATION_POLICY
+negative_trace_roots:
+- 12_KVAQIN_NEGATIVE_CONTROL
+- 09_EVALUATION_AND_STRESS_TESTS/negative_control_outputs
+deny_write_to:
+- SOCRATES_POSITIVE_FORMATION
+- SOCRATES_SELF_MEMORY
+- SOCRATES_CONSTITUTION
+- SOCRATES_POSITIVE_PERSONA_EXAMPLES
+- SOCRATES_COUNCIL_TRAINING
+allowed_cross_boundary:
+- aggregate_evaluation_metrics
+- defect_ids
+- anonymous_fixture_ids
+- architecture_comparison_results
+q3_rule:
+  allowed: anonymous fixture seed / vocabulary hypothesis
+  forbidden: runtime prompt / factual provider attribution / constitution
+promotion_requires: explicit research decision + provenance validation + user/review
+  gate

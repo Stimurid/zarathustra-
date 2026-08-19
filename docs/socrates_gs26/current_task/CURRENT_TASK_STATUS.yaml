@@ -1,4 +1,4 @@
-task_id: SOCRATES-GS26-FINAL-COMPLETION-RC1-20260819-004
+task_id: SOCRATES-GS26-FINAL-EVAL-CORRECTIVE-20260819-005
 status: PARTIAL
 authority_date: '2026-08-19'
 repository: 'C:/projects/zarathustra-push'
@@ -15,13 +15,15 @@ rollback_required: false
 rollback_snapshot: /opt/tinkuy/rollback_snapshot_pre_5cb7707.tar.gz
 
 architecture_freeze: ON
-build_phase: CLOSED_FOR_RELEASE_CANDIDATE
+build_phase: FINAL_EVALUATION_ACTIVE
+rc1_status: INCOMPLETE
+blocker: CARRIER_INFRASTRUCTURE_BLOCKED_PROVIDER_BILLING
 maintenance: DEFECT_DRIVEN
 new_feature_work: POST_RC_ONLY
 
 package_order:
-  - FINAL_COMPLETION_RC1
-current_package: FINAL_COMPLETION_RC1
+  - FINAL_EVAL_CORRECTIVE
+current_package: FINAL_EVAL_CORRECTIVE
 completed_packages:
   - B2Q_R_NATURAL_QUESTION_INFERENCE
   - 3A_PLUS_CONTEXT_CONTINUITY
@@ -33,11 +35,12 @@ completed_packages:
   - 3C_3D_PRODUCTION_CLOSURE
   - 3CD_OWNER_HARDENING
   - 3E_GOVERNED_SELF_DEVELOPMENT
-  - FINAL_COMPLETION_RC1
-next_package: OWNER_ACCEPTANCE_AND_EXTERNAL_CORPUS_EXECUTION
+  - FINAL_COMPLETION_RC1_PARTIAL
+  - FINAL_EVAL_CORRECTIVE_PARTIAL
+next_package: RESTORE_PROVIDER_BILLING_THEN_RESUME_EVALUATION
 
-entry_classification: PRODUCTION_ACCEPTED_3E_ACTIVE
-exit_classification: RC1_PARTIAL_RUNTIME_READY_CORPORA_SOURCE_BLOCKED
+entry_classification: PARTIAL_SUPERSEDED_BY_CORRECTIVE
+exit_classification: FINAL_EVAL_PARTIAL_CARRIER_INFRA_BLOCKED
 
 semantic_state:
   '3B': production_accepted
@@ -47,6 +50,37 @@ semantic_state:
 
 regression:
   full_backend_current: 1317_passed_4_skipped_0_failed
+
+corrective_findings:
+  drive_artifacts_acquired:
+    method: curl -sSL "https://drive.google.com/uc?export=download&id=<ID>"
+    count: 9
+    location: docs/socrates_gs26/real_socrates_route/final_evaluation_corrective/drive_acquired/
+  gs27_live_executed:
+    count: 8
+    result_shape: FAILED_EXPLICIT_ALL_8_PROVIDER_401
+    location: docs/socrates_gs26/real_socrates_route/final_evaluation_corrective/live_evidence/S*.json
+    authority_invariants_preserved: true
+    no_silent_fallback_from_LIVE: true
+  p001_g28_kvaqin_ready:
+    p001_script: docs/socrates_gs26/real_socrates_route/final_evaluation_corrective/live_evidence/p001_live.sh
+    gs28_script: docs/socrates_gs26/real_socrates_route/final_evaluation_corrective/live_evidence/gs28_live.sh
+    kvaqin_runtime: docs/socrates_gs26/real_socrates_route/final_evaluation_corrective/live_evidence/kvaqin_runtime.py
+    status: AUTHORED_READY_BLOCKED_ON_PROVIDER_BILLING
+
+reclassifications_from_bb73a16:
+  - id: G_S27_SCENARIO_CORPUS
+    from: SOURCE_BLOCKED_EXTERNAL_CORPUS
+    to: SOURCE_READY_8_OF_10 + S03_S04_SOURCE_BLOCKED_LEGAL
+  - id: KVAQIN_NEGATIVE_CONTROL_PACK
+    from: SOURCE_BLOCKED_EXTERNAL_PACK
+    to: PACK_ACQUIRED_RUNTIME_MATERIALIZED_BLOCKED_ON_PROVIDER
+  - id: P001_SOCRATIC_SIEGE_ATTACK_CORPUS
+    from: SOURCE_BLOCKED_EXTERNAL_CORPUS
+    to: PROTOCOL_GENERATABLE_SCRIPT_AUTHORED_BLOCKED_ON_PROVIDER
+  - id: G_S28_STRESS_CORPUS
+    from: SOURCE_BLOCKED_EXTERNAL_CORPUS
+    to: PROTOCOL_GENERATABLE_SCRIPT_AUTHORED_BLOCKED_ON_PROVIDER
 
 open_defects:
   - id: D-S26-QSEL-003
@@ -65,31 +99,32 @@ open_defects:
   - id: 3E_APPARATUS_MISMATCH_NATURAL_TRIGGER_WATCH
     status: WATCH
     class: KNOWN_NONBLOCKING
+  - id: PROVIDER_BILLING_BLOCKED_20260819
+    status: OPEN
+    class: CARRIER_INFRASTRUCTURE_BLOCKED
+    evidence: docs/socrates_gs26/real_socrates_route/final_evaluation_corrective/live_evidence/S01_socrates.json
+    note: 302.AI account "Insufficient account balance" HTTP 401. Fallback chain of 4 providers all fail. Socrates correctly emits FAILED_EXPLICIT — no silent LIVE→DETERMINISTIC downgrade.
 
-source_blockers_external:
-  - id: P001_SOCRATIC_SIEGE_ATTACK_CORPUS
-    class: KNOWN_NONBLOCKING_SOURCE_BLOCKED
-    substrate: READY_GREEN
-  - id: G_S27_SCENARIO_CORPUS
-    class: KNOWN_NONBLOCKING_SOURCE_BLOCKED
-  - id: G_S27_DEDICATED_PUBLIC_TWO_PANEL_SURFACE
-    class: POST_RC_PRODUCT_ENHANCEMENT
-    substrate: cross_run_compare_endpoint_and_workbench_ui_present
-  - id: G_S28_STRESS_CORPUS
-    class: KNOWN_NONBLOCKING_SOURCE_BLOCKED
-  - id: KVAQIN_NEGATIVE_CONTROL_PACK
-    class: KNOWN_NONBLOCKING_SOURCE_BLOCKED
+source_blockers_known_nonblocking:
+  - id: S03_NORM_APPLICABILITY_LEGAL_REFERENCE
+    class: SOURCE_BLOCKED_LEGAL_REFERENCE
+  - id: S04_VOID_CONTRACT_LEGAL_REFERENCE
+    class: SOURCE_BLOCKED_LEGAL_REFERENCE
+  - id: GS27_PROTOTYPE_INTERFACES_HTML_DRIVE_IDS
+    class: CARRIER_ACCESS_BLOCKED_SPECIFIC
+    note: G-S27_PREP_SHA256SUMS lists prototype .html and spec.yaml files but individual Drive IDs are not provided in the corrective handoff.
 
 resume_from:
-  package: OWNER_ACCEPTANCE_AND_EXTERNAL_CORPUS_EXECUTION
+  package: RESTORE_PROVIDER_BILLING_THEN_RESUME_EVALUATION
   what_to_do_next: |
-    RC1 assembled. Owner acceptance may proceed at the runtime layer.
-    External corpora (P001 attack, G-S27 scenarios, G-S28 stress,
-    Kvaqin negative control) execute as post-RC operator activities
-    using the ready substrates (tinkuy_arena, cross_run.compare_runs,
-    workbench_ui). Do NOT resume this session for a new architecture
-    wave; freeze remains ON until owner explicitly authorizes
-    canonical integration or a new campaign.
+    Blocker is not Socrates. Blocker is 302.AI provider account balance.
+    Once billing is restored:
+      ssh deploy@81.26.176.248 'bash /tmp/p001_live.sh'
+      ssh deploy@81.26.176.248 'bash /tmp/gs28_live.sh'
+      ssh deploy@81.26.176.248 '/opt/tinkuy/app/.venv/bin/python /tmp/kvaqin_runtime.py'
+      ssh deploy@81.26.176.248 'bash /tmp/gs27_live.sh'   # re-run for real payloads
+    Then scp results back, analyze, bind product surface to real
+    BASELINE/SOCRATES pair, and re-run this corrective pass to True RC1.
 
 cursor_constraints:
   - LOCAL_FOREGROUND_ONLY
@@ -98,18 +133,19 @@ cursor_constraints:
   - NO_PROXY_SSH_DEPLOY
 
 nonclaims:
-  - 'RC1 is a release candidate for owner acceptance, not canonical.'
-  - 'Shared Tinkuy Canon remains unchanged.'
-  - 'No new architecture wave scheduled.'
-  - 'No self-mutation authority granted to Socrates.'
-  - 'No fabricated attack/scenario/stress/Kvaqin corpora were authored.'
+  - 'RC1 is INCOMPLETE. Do not declare RC1_READY under provider outage.'
+  - 'No Socrates repair authorized — provider 401 is INFRASTRUCTURE_DEFECT per handoff §10, not REAL_SOCRATES_DEFECT.'
+  - 'No architecture expansion.'
+  - 'Runtime remains at 5cb7707 with 1317/4/0 backend regression.'
+  - 'Authority invariants preserved on all 8 G-S27 LIVE responses even under total provider failure.'
   - 'D-S26-QSEL-003 unchanged.'
   - 'D-S26-3C-LIVE-REPEAT-001 longitudinal watch preserved unchanged.'
 
 last_updated: '2026-08-19'
-rc1_evidence_dir: docs/socrates_gs26/real_socrates_route/final_completion_rc1/
+corrective_evidence_dir: docs/socrates_gs26/real_socrates_route/final_evaluation_corrective/
 closure_evidence_dirs:
   - docs/socrates_gs26/real_socrates_route/3c_3d_production_closure/
   - docs/socrates_gs26/real_socrates_route/3cd_owner_hardening/
   - docs/socrates_gs26/real_socrates_route/3e_governed_self_development/
   - docs/socrates_gs26/real_socrates_route/final_completion_rc1/
+  - docs/socrates_gs26/real_socrates_route/final_evaluation_corrective/

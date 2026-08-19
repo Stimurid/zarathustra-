@@ -1,0 +1,27 @@
+manifest_id: G-S27_PREP_SOURCE_MANIFEST
+version: 0.1.0
+status: candidate_prep
+sources:
+- drive_id: 1SvbBgdq4ylx30cC8Q0PSwaxYDpb4mr0S
+  role: PRIMARY_ACCEPTANCE_SCENARIO_CORPUS
+  read_depth: FULL_RAW
+- drive_id: 10eI3f9iM8ItpL3obfNP9p7R55JTFFt89
+  role: G-S20_HUMAN_OPERATION_MAPPING
+  read_depth: FULL_RAW
+- drive_id: 1YlK48TcjJ5nzs7_m10ZIFxwtYiZC5FkU
+  role: PRIMARY_PESKOV_TRANSCRIPT_FOR_S07_CORRECTION
+  read_depth: previously_verified
+- drive_id: 1usu4BleADqz5uANyeRtLnYITB8iQQqgP
+  role: G-S16_CORRECTED_PESKOV_PAIRED_FIXTURE
+  read_depth: previously_verified
+- drive_id: 1bIbRlBpZ7k6_efZ1fTAbuKg8KFvjUCNw8ztdRnAg0Ng
+  role: MASTER_GS27_CONTRACT
+  read_depth: section_verified
+- drive_id: 1JUBCgqA7mnRGs_VkdMSPyU6llCszaDrS
+  role: G-S26_CURRENT_INTEGRATION_GATE
+  read_depth: verified
+source_rules:
+- S03 and S04 remain blocked until verified legal references are acquired
+- No externally dependent extended fixture is promoted from design to runnable fixture without source acquisition
+- Primary scenario prose is preserved inside each core package; generated fields are marked as prep architecture, not source
+  claims
