@@ -1,0 +1,51 @@
+architecture_state: FROZEN_FOR_RC
+architecture_freeze: ON
+build_phase: FINAL_COMPLETION_CAMPAIGN_ACTIVE
+
+production_base:
+  deployed_sha: 5cb7707dec9677abacd8f7f186d9321929e99c88
+  branch_of_record: socrates/3e-governed-self-development
+  evidence_tip_sha: 737fc736826ee607244c48c377743ec40141a16e
+  host: moderbober-prod-01
+  service: tinkuy-web
+  port: 8085
+  active: true
+  http_200: true
+  execution_mode: LIVE
+  runtime_layer: socrates_runtime
+  provider_id: fallback
+  model_id: chain
+
+completed_packages:
+  - '3B_PRIVATE_WORK_PLANE'
+  - '3C_APORIA_APPARATUS_LEARNING'
+  - '3D_HYBRID_DYAD'
+  - '3C_3D_PRODUCTION_CLOSURE'
+  - '3CD_OWNER_HARDENING'
+  - '3E_GOVERNED_SELF_DEVELOPMENT'
+
+remaining_release_work:
+  P001_SIEGE: SOURCE_BLOCKED_EXTERNAL_CORPUS
+  G-S27_REAL_SCENARIOS: SOURCE_BLOCKED_EXTERNAL_CORPUS
+  G-S27_PRODUCT_SURFACES: PARTIAL_AUDIT_PRESENT
+  G-S28_STRESS: SOURCE_BLOCKED_EXTERNAL_CORPUS
+  KVAQIN_THREE_ARM: SOURCE_BLOCKED_EXTERNAL_PACK
+  RC1_HANDOFF: ASSEMBLED_AS_PARTIAL
+
+known_nonblocking:
+  D-S26-QSEL-003:
+    status: OPEN
+    reason: QUESTION rendering subtype not first-class governor terminal; nonblocking per handoff.
+  D-S26-3C-LIVE-REPEAT-001:
+    status: CLOSED_WITH_LONGITUDINAL_WATCH
+    reason: Mechanical positive path proved (CASE E/F/K); natural LIVE mismatch trigger not obtained on the current provider chain.
+  3E_APPARATUS_MISMATCH_NATURAL_TRIGGER_WATCH:
+    status: WATCH
+    reason: LIVE 3E-D did not naturally trigger APPARATUS_MISMATCH_CANDIDATE; mechanical proof intact.
+
+authority_state:
+  no_durable_write: preserved
+  no_adoption_authority: preserved
+  no_self_mutation_authority: preserved
+  no_world_map_bypass: preserved
+  no_direct_runtime_or_deploy_mutation: preserved

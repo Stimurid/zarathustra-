@@ -1,22 +1,27 @@
-task_id: SOCRATES-GS26-3E-GOVERNED-SELF-DEVELOPMENT-20260819-003
-status: PASS
+task_id: SOCRATES-GS26-FINAL-COMPLETION-RC1-20260819-004
+status: PARTIAL
 authority_date: '2026-08-19'
 repository: 'C:/projects/zarathustra-push'
 remote: 'https://github.com/Stimurid/zarathustra-.git'
 
-work_branch: socrates/3e-governed-self-development
+work_branch: socrates/final-completion-rc1
 implementation_sha: 5cb7707dec9677abacd8f7f186d9321929e99c88
 deployed_sha: 5cb7707dec9677abacd8f7f186d9321929e99c88
 production_host: moderbober-prod-01
 production_service: tinkuy-web
 production_port: 8085
-production_acceptance: PASS
+production_acceptance: ACCEPTED_AT_RUNTIME_LAYER
 rollback_required: false
 rollback_snapshot: /opt/tinkuy/rollback_snapshot_pre_5cb7707.tar.gz
 
+architecture_freeze: ON
+build_phase: CLOSED_FOR_RELEASE_CANDIDATE
+maintenance: DEFECT_DRIVEN
+new_feature_work: POST_RC_ONLY
+
 package_order:
-  - 3E_GOVERNED_SELF_DEVELOPMENT
-current_package: 3E_GOVERNED_SELF_DEVELOPMENT
+  - FINAL_COMPLETION_RC1
+current_package: FINAL_COMPLETION_RC1
 completed_packages:
   - B2Q_R_NATURAL_QUESTION_INFERENCE
   - 3A_PLUS_CONTEXT_CONTINUITY
@@ -28,10 +33,11 @@ completed_packages:
   - 3C_3D_PRODUCTION_CLOSURE
   - 3CD_OWNER_HARDENING
   - 3E_GOVERNED_SELF_DEVELOPMENT
-next_package: P001_SOCRATIC_SIEGE
+  - FINAL_COMPLETION_RC1
+next_package: OWNER_ACCEPTANCE_AND_EXTERNAL_CORPUS_EXECUTION
 
-entry_classification: PRODUCTION_ACCEPTED_OWNER_HARDENED
-exit_classification: PRODUCTION_ACCEPTED_3E_ACTIVE_NO_SELF_MUTATION_AUTHORITY
+entry_classification: PRODUCTION_ACCEPTED_3E_ACTIVE
+exit_classification: RC1_PARTIAL_RUNTIME_READY_CORPORA_SOURCE_BLOCKED
 
 semantic_state:
   '3B': production_accepted
@@ -40,41 +46,50 @@ semantic_state:
   '3E': production_accepted__governed_candidate_mutation_plane_active__no_self_mutation_authority
 
 regression:
-  full_backend_baseline: 1276_passed_4_skipped_0_failed
-  full_backend_after_closure: 1287_passed_4_skipped_0_failed
-  full_backend_after_hardening: 1295_passed_4_skipped_0_failed
   full_backend_current: 1317_passed_4_skipped_0_failed
 
 open_defects:
   - id: D-S26-QSEL-003
-    summary: QUESTION remains post-terminal rendering subtype not first-class governor terminal.
     status: OPEN
-    nonblocking: true
+    class: KNOWN_NONBLOCKING
   - id: D-S26-3D-LIVE-TELOS-001
-    summary: Same context_id LIVE continuation misclassified as SCENE_SHIFT after telos rephrasing.
     status: CLOSED
     closed_by_sha: fe34f3dd11f398212db61457250ffaf9745707ab
     hardened_by_sha: 486eff34baf338b0e8977ab03c5160f4c856944f
-    evidence: docs/socrates_gs26/real_socrates_route/3c_3d_production_closure/production_live_acceptance.md ; docs/socrates_gs26/real_socrates_route/3cd_owner_hardening/production_live_acceptance.md
   - id: D-S26-3C-LIVE-REPEAT-001
-    summary: Apparatus repeat_index per SocratesRuntime instance; HTTP cannot accumulate APPARATUS_MISMATCH_CANDIDATE across requests.
-    status: CLOSED
+    status: CLOSED_WITH_LONGITUDINAL_WATCH
     closed_by_sha: fe34f3dd11f398212db61457250ffaf9745707ab
-    watch: longitudinal
-    evidence: docs/socrates_gs26/real_socrates_route/3c_3d_production_closure/production_live_acceptance.md#LIVE-D
-    note: Positive mechanical proof CASE E green; LIVE evidence documented as owner-grade architectural nonclaim per handoff §19 criterion 3. Repeats as longitudinal watch under 3E.
   - id: D-S26-3C-LIVE-ORGAN-PRIORITY-001
-    summary: PRESERVE_APORIA terminal misclassified as EVIDENCE_GAP when organ/source gap present.
     status: CLOSED
     closed_by_sha: fe34f3dd11f398212db61457250ffaf9745707ab
-    evidence: docs/socrates_gs26/real_socrates_route/3c_3d_production_closure/production_live_acceptance.md#LIVE-E
+  - id: 3E_APPARATUS_MISMATCH_NATURAL_TRIGGER_WATCH
+    status: WATCH
+    class: KNOWN_NONBLOCKING
+
+source_blockers_external:
+  - id: P001_SOCRATIC_SIEGE_ATTACK_CORPUS
+    class: KNOWN_NONBLOCKING_SOURCE_BLOCKED
+    substrate: READY_GREEN
+  - id: G_S27_SCENARIO_CORPUS
+    class: KNOWN_NONBLOCKING_SOURCE_BLOCKED
+  - id: G_S27_DEDICATED_PUBLIC_TWO_PANEL_SURFACE
+    class: POST_RC_PRODUCT_ENHANCEMENT
+    substrate: cross_run_compare_endpoint_and_workbench_ui_present
+  - id: G_S28_STRESS_CORPUS
+    class: KNOWN_NONBLOCKING_SOURCE_BLOCKED
+  - id: KVAQIN_NEGATIVE_CONTROL_PACK
+    class: KNOWN_NONBLOCKING_SOURCE_BLOCKED
 
 resume_from:
-  package: P001_SOCRATIC_SIEGE
+  package: OWNER_ACCEPTANCE_AND_EXTERNAL_CORPUS_EXECUTION
   what_to_do_next: |
-    P001 (Socratic Siege) is next eligible but NOT started. Follow the
-    P001 handoff when issued. Do not resume from this file — a fresh
-    handoff must scope P001 explicitly.
+    RC1 assembled. Owner acceptance may proceed at the runtime layer.
+    External corpora (P001 attack, G-S27 scenarios, G-S28 stress,
+    Kvaqin negative control) execute as post-RC operator activities
+    using the ready substrates (tinkuy_arena, cross_run.compare_runs,
+    workbench_ui). Do NOT resume this session for a new architecture
+    wave; freeze remains ON until owner explicitly authorizes
+    canonical integration or a new campaign.
 
 cursor_constraints:
   - LOCAL_FOREGROUND_ONLY
@@ -83,22 +98,18 @@ cursor_constraints:
   - NO_PROXY_SSH_DEPLOY
 
 nonclaims:
-  - '3E production accepted. 3E does NOT grant Socrates self-mutation authority.'
-  - 'authority = NO_ADOPTION_AUTHORITY on every 3E response.'
-  - 'self_mutation_authority = "NO" on every 3E response.'
-  - 'AUTHORIZED reachable ONLY with external authorized_transition_ref supplied on request.'
-  - 'APPLIED never mintable by the runtime.'
-  - 'No persona residency / Indago / Tinkuy-as-persona-home.'
+  - 'RC1 is a release candidate for owner acceptance, not canonical.'
+  - 'Shared Tinkuy Canon remains unchanged.'
+  - 'No new architecture wave scheduled.'
+  - 'No self-mutation authority granted to Socrates.'
+  - 'No fabricated attack/scenario/stress/Kvaqin corpora were authored.'
   - 'D-S26-QSEL-003 unchanged.'
   - 'D-S26-3C-LIVE-REPEAT-001 longitudinal watch preserved unchanged.'
-  - 'No new source/fabric/argument/memory/relationship/dyad/world-map store.'
-  - 'No new authority path; world-map admission remains proposal-only.'
-  - 'No direct code, systemd, or environment mutation by the runtime.'
-  - 'P001_SOCRATIC_SIEGE NOT STARTED. Opened as next eligible.'
 
 last_updated: '2026-08-19'
-handoff: docs/socrates_gs26/current_task/SOCRATES_3C_3D_PRODUCTION_CLOSURE_HANDOFF.md
+rc1_evidence_dir: docs/socrates_gs26/real_socrates_route/final_completion_rc1/
 closure_evidence_dirs:
   - docs/socrates_gs26/real_socrates_route/3c_3d_production_closure/
   - docs/socrates_gs26/real_socrates_route/3cd_owner_hardening/
   - docs/socrates_gs26/real_socrates_route/3e_governed_self_development/
+  - docs/socrates_gs26/real_socrates_route/final_completion_rc1/

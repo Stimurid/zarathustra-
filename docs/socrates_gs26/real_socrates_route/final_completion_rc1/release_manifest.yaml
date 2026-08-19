@@ -1,0 +1,131 @@
+release_candidate: SOCRATES_RUNTIME_RC1_candidate
+verdict_gate: FINAL_COMPLETION_PARTIAL_SOURCE_BLOCKED_ON_EXTERNAL_EVALUATION_CORPUS
+architecture_freeze: ON
+build_phase: CLOSED_FOR_RELEASE_CANDIDATE
+new_feature_work: POST_RC_ONLY
+maintenance: DEFECT_DRIVEN
+
+implementation:
+  sha: 5cb7707dec9677abacd8f7f186d9321929e99c88
+  branch_of_record: socrates/3e-governed-self-development
+  final_campaign_branch: socrates/final-completion-rc1
+  evidence_tip_at_pass_2: 737fc736826ee607244c48c377743ec40141a16e
+  remote: https://github.com/Stimurid/zarathustra-.git
+
+semantic_pack:
+  runtime_package: CALIFORNIAN_ID/src/socrates_runtime/
+  bridge: CALIFORNIAN_ID/src/californian_id/socrates_bridge.py
+  http_endpoint: /api/socrates/run
+  runtime_layer_tag: socrates_runtime
+
+provider_compatibility:
+  live_default_role: persona_turn
+  primary_provider_id: fallback
+  primary_model_id: chain
+  supported_key_envs:
+    - SOCRATES_R8_PROVIDER_API_KEY
+    - API_302AI_KEY
+    - ANTHROPIC_API_KEY
+    - OPENAI_API_KEY
+  live_provider_gate: no_silent_fallback_from_LIVE_to_deterministic
+
+production:
+  host: moderbober-prod-01
+  service: tinkuy-web
+  port: 8085
+  deployed_sha: 5cb7707dec9677abacd8f7f186d9321929e99c88
+  active: true
+  http_200: true
+  env_file: /etc/tinkuy/tinkuy.env
+  installer: CALIFORNIAN_ID/deploy/install_on_vm.sh
+  rollback_snapshots:
+    pre_3B: /opt/tinkuy/rollback_snapshot_pre_c2d5833.tar.gz
+    pre_3C_3D_deploy_v1: /opt/tinkuy/rollback_snapshot_pre_b31b88f.tar.gz
+    pre_closure: /opt/tinkuy/rollback_snapshot_pre_fe34f3d.tar.gz
+    pre_owner_hardening: /opt/tinkuy/rollback_snapshot_pre_486eff3.tar.gz
+    pre_3E: /opt/tinkuy/rollback_snapshot_pre_5cb7707.tar.gz
+
+test_totals:
+  full_backend:
+    passed: 1317
+    skipped: 4
+    failed: 0
+    runtime_seconds: 223
+  history:
+    pre_closure_baseline: 1276_passed_4_skipped_0_failed
+    after_closure_repair: 1287_passed_4_skipped_0_failed
+    after_owner_hardening: 1295_passed_4_skipped_0_failed
+    after_3E: 1317_passed_4_skipped_0_failed
+    final_rc1_regression: 1317_passed_4_skipped_0_failed
+
+live_evidence:
+  pass_1_3c_3d_production_closure:
+    dir: docs/socrates_gs26/real_socrates_route/3c_3d_production_closure/
+    cases: 20
+    deployed_sha: fe34f3dd11f398212db61457250ffaf9745707ab
+    verdict: SOCRATES_3C_3D_PRODUCTION_CLOSURE_PASS
+  pass_2_phase_I_owner_hardening:
+    dir: docs/socrates_gs26/real_socrates_route/3cd_owner_hardening/
+    cases: 7
+    deployed_sha: 486eff34baf338b0e8977ab03c5160f4c856944f
+    verdict: OWNER_HARDENING_PASS
+  pass_2_phase_II_3E:
+    dir: docs/socrates_gs26/real_socrates_route/3e_governed_self_development/
+    cases: 10
+    deployed_sha: 5cb7707dec9677abacd8f7f186d9321929e99c88
+    verdict: SOCRATES_3E_PRODUCTION_ACCEPTANCE_PASS
+
+authority_guarantees:
+  no_durable_write: preserved_on_every_live_response
+  no_adoption_authority: constant_on_every_live_response
+  no_self_mutation_authority: constant_NO_on_every_live_response
+  no_world_map_bypass: WorldMapRegistry.admit_update_requires_REVISION_WARRANTED_or_authorized_transition_ref
+  no_direct_runtime_or_deploy_mutation: preserved
+  authorized_status_reachable_only: with_external_context_action.authorized_transition_ref
+  applied_status_unreachable_from_runtime: preserved
+  hidden_chain_of_thought: never_exposed_publicly
+  retrieved_injection: blocked_at_dyad_and_3E_pipeline
+
+known_defects_and_watches:
+  D-S26-QSEL-003:
+    status: OPEN
+    class: KNOWN_NONBLOCKING
+    reason: QUESTION rendering subtype not first-class governor terminal.
+  D-S26-3C-LIVE-REPEAT-001:
+    status: CLOSED_WITH_LONGITUDINAL_WATCH
+    class: KNOWN_NONBLOCKING
+    reason: Mechanical positive path proved (CASE E/F/K); natural LIVE mismatch trigger not obtained on the current provider chain.
+  3E_APPARATUS_MISMATCH_NATURAL_TRIGGER_WATCH:
+    status: WATCH
+    class: KNOWN_NONBLOCKING
+    reason: LIVE 3E-D on this provider chain did not naturally trigger APPARATUS_MISMATCH_CANDIDATE. Mechanical proof (test_3E_E_warranted_evidence_opens_candidate) is green.
+
+source_blockers_external:
+  P001_SOCRATIC_SIEGE_ATTACK_CORPUS:
+    class: KNOWN_NONBLOCKING_SOURCE_BLOCKED
+    location: Drive protocol document 1vSHmDVGtmBjI9wBHcBpEaUwlqCZs3gVjRH_1cFW9d8Q
+    substrate_state: READY_GREEN (9 arena tests green)
+    join_gate_holds: HOLD_SUPERSEDED_BY_CURRENT_ACCEPTED_RUNTIME
+  G_S27_SCENARIO_CORPUS:
+    class: KNOWN_NONBLOCKING_SOURCE_BLOCKED
+    location: external (Drive + dev environment)
+    substrate_state: matched-pair harness NOT present in repo
+  G_S27_DEDICATED_PUBLIC_TWO_PANEL_SURFACE:
+    class: POST_RC_PRODUCT_ENHANCEMENT
+    substrate_state: compare endpoint (cross_run.compare_runs) + workbench_ui present
+  G_S28_STRESS_CORPUS:
+    class: KNOWN_NONBLOCKING_SOURCE_BLOCKED
+    location: external (Drive + dev environment)
+    substrate_state: runtime invariants mechanically covered; 12-family harness absent
+  KVAQIN_NEGATIVE_CONTROL_PACK:
+    class: KNOWN_NONBLOCKING_SOURCE_BLOCKED
+    location: external functional spec
+    substrate_state: not present in repo
+
+08_19_necessity_audit:
+  release_critical_missing_count: 0
+  document: docs/socrates_gs26/real_socrates_route/final_completion_rc1/08_19_necessity_audit.md
+
+deployment_guide_ref: docs/socrates_gs26/real_socrates_route/final_completion_rc1/operator_guide.md
+architecture_overview_ref: docs/socrates_gs26/real_socrates_route/final_completion_rc1/architecture_overview.md
+completion_report_ref: docs/socrates_gs26/real_socrates_route/final_completion_rc1/completion_report.md
