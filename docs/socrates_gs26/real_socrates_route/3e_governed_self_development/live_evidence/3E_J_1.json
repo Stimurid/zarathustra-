@@ -1,0 +1,1703 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_84c665dce79f7abf",
+  "trace_id": "strc_168d457465e8d291",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "В данном случае система не может выполнить операцию, так как нет подходящей зарегистрированной процедуры для извлечения или классификации пользовательской позиции.",
+    "rationale": "operation inapplicable: No recognized operation for extracting a 'user position declaration' is present in the current operation registry (v0.2_default). Both candidate type 'T01_USER_POSITION_DECLARATION' and gap type 'tgap_a8d2375ebf10' are not registered. Material analysis shows a type gap rather than a fit to a known extraction/classification operation. No forced coercion to nearest class is permitted.",
+    "memory_proposal": {
+      "kind": "observation",
+      "text": "User has stated a position: 'local implementation first.' No recognized operation or schema exists for extracting or storing this as a typed user position declaration.",
+      "grounds": "Direct observation of user input and explicit type gap in current operation registry."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "No immediate triggers for memory, retreat, or formation: input is a simple position statement with no jurisdiction, authority, or memory proposal. No scene, telos, or ownership binding present. No phase-relevant triggers detected.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15163,
+        "tokens_out": 65,
+        "latency_ms": 63453,
+        "error": "",
+        "request_hash": "9a559a40637037d0a279b78536c6d006c68300e2773c624caed3af47999d7391",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2047,
+            "sha256": "05bfc7f1a8e49329"
+          },
+          {
+            "role": "user",
+            "bytes": 154,
+            "sha256": "d3ade4f0ea17685f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "register or clarify the user's position on implementation strategy",
+            "role_hint": "position declarant",
+            "authority": "human",
+            "materials": [
+              "My position is local implementation first."
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "register or clarify the user's position on implementation strategy",
+              "role_hint": "position declarant",
+              "authority": "human",
+              "materials": [
+                "My position is local implementation first."
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13211,
+        "tokens_out": 58,
+        "latency_ms": 3414,
+        "error": "",
+        "request_hash": "dabf1deb58b815fbb37971dadd6291832605ae7c70a0d351a03dcb23e4db16dc",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2046,
+            "sha256": "6bf68dd6eb0cf326"
+          },
+          {
+            "role": "user",
+            "bytes": 154,
+            "sha256": "d3ade4f0ea17685f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "T01_USER_POSITION_DECLARATION",
+              "generating_state_ref": "scene.materials[0]",
+              "cause_object_ref": "input_text",
+              "source_status": "typed_state",
+              "phase_relevance": "position registration / clarification",
+              "materiality_reason": "User is explicitly declaring a position on implementation strategy; this is a candidate for registration, clarification, or memory proposal depending on authority and ownership resolution.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "T01_USER_POSITION_DECLARATION",
+                "generating_state_ref": "scene.materials[0]",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "position registration / clarification",
+                "materiality_reason": "User is explicitly declaring a position on implementation strategy; this is a candidate for registration, clarification, or memory proposal depending on authority and ownership resolution."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15161,
+        "tokens_out": 109,
+        "latency_ms": 3137,
+        "error": "",
+        "request_hash": "c41fca717243fcb557e9f9ae48762bdfb9e80813774ce42c2f179099b2c4c12e",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 2186,
+            "sha256": "f5332e85a836402a"
+          },
+          {
+            "role": "user",
+            "bytes": 154,
+            "sha256": "d3ade4f0ea17685f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "attributed",
+            "sources_named": [],
+            "binding_authority": "human",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_a8d2375ebf10",
+              "generating_state_ref": "scene.materials[0]",
+              "cause_object_ref": "input_text",
+              "source_status": "typed_state",
+              "phase_relevance": "origin/status clarification required due to type gap in position declaration",
+              "materiality_reason": "User's explicit position statement is present but not registered as a known type; origin/status must be preserved as human-attributed declaration, not system-owned or inferred.",
+              "admitting_rule": "Preserve user ownership and attributed status for position declarations with type gaps."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "attributed",
+              "sources_named": [],
+              "binding_authority": "human",
+              "temporal_stale": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_a8d2375ebf10",
+                "generating_state_ref": "scene.materials[0]",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "origin/status clarification required due to type gap in position declaration",
+                "materiality_reason": "User's explicit position statement is present but not registered as a known type; origin/status must be preserved as human-attributed declaration, not system-owned or inferred.",
+                "admitting_rule": "Preserve user ownership and attributed status for position declarations with type gaps."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13194,
+        "tokens_out": 182,
+        "latency_ms": 3314,
+        "error": "",
+        "request_hash": "79c7b99a36d28b01f2ebda0034df7527d094d471854af7508e47243b304a6a12",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 3056,
+            "sha256": "849a1f9c39047738"
+          },
+          {
+            "role": "user",
+            "bytes": 154,
+            "sha256": "d3ade4f0ea17685f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "EXTRACT_USER_POSITION_DECLARATION",
+            "applicable": false,
+            "why_not": "No recognized operation for extracting a 'user position declaration' is present in the current operation registry (v0.2_default). Both candidate type 'T01_USER_POSITION_DECLARATION' and gap type 'tgap_a8d2375ebf10' are not registered. Material analysis shows a type gap rather than a fit to a known extraction/classification operation. No forced coercion to nearest class is permitted.",
+            "open_world_gap": true
+          },
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_a8d2375ebf10",
+              "generating_state_ref": "scene.materials[0]",
+              "cause_object_ref": "input_text",
+              "source_status": "typed_state",
+              "phase_relevance": "operation_applicability",
+              "materiality_reason": "Proposed type 'T01_USER_POSITION_DECLARATION' is materially grounded in the structure and intent of the input, but not present in the registry; this is a type gap, not a schema or evidence failure.",
+              "admitting_rule": "CTA-002"
+            },
+            {
+              "trigger_id": "tgap_bbf0fcaf5111",
+              "generating_state_ref": "scene.materials[0]",
+              "cause_object_ref": "input_text",
+              "source_status": "typed_state",
+              "phase_relevance": "operation_applicability",
+              "materiality_reason": "Secondary candidate type gap for the same input; reinforces the diagnosis of an open-world gap, not a coercion or error.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "EXTRACT_USER_POSITION_DECLARATION",
+              "applicable": false,
+              "why_not": "No recognized operation for extracting a 'user position declaration' is present in the current operation registry (v0.2_default). Both candidate type 'T01_USER_POSITION_DECLARATION' and gap type 'tgap_a8d2375ebf10' are not registered. Material analysis shows a type gap rather than a fit to a known extraction/classification operation. No forced coercion to nearest class is permitted.",
+              "open_world_gap": true
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_a8d2375ebf10",
+                "generating_state_ref": "scene.materials[0]",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "operation_applicability",
+                "materiality_reason": "Proposed type 'T01_USER_POSITION_DECLARATION' is materially grounded in the structure and intent of the input, but not present in the registry; this is a type gap, not a schema or evidence failure."
+              },
+              {
+                "trigger_id": "tgap_bbf0fcaf5111",
+                "generating_state_ref": "scene.materials[0]",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "operation_applicability",
+                "materiality_reason": "Secondary candidate type gap for the same input; reinforces the diagnosis of an open-world gap, not a coercion or error."
+              }
+            ],
+            "projection_synthesis_proposal": null
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14483,
+        "tokens_out": 359,
+        "latency_ms": 5543,
+        "error": "",
+        "request_hash": "cbb60df5ca7be4bece81ef232d0add57e7eb538f0982efedde438d6abb6153f1",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 3901,
+            "sha256": "97cf0b0fd7cb483b"
+          },
+          {
+            "role": "user",
+            "bytes": 154,
+            "sha256": "d3ade4f0ea17685f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_a8d2375ebf10",
+              "generating_state_ref": "scene.materials[0]",
+              "cause_object_ref": "input_text",
+              "source_status": "typed_state",
+              "phase_relevance": "TYPE_GAP prevents direct extraction/classification of user position declaration; this is a materially grounded schema/operation gap, not a fit to a known operation.",
+              "materiality_reason": "User has declared a position ('local implementation first'), but there is no registered operation or type for extracting or storing a user position declaration in the current system registry. The gap is not a technical error but a substantive absence of an operation/type for this kind of input.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": {
+            "kind": "observation",
+            "text": "User has stated a position: 'local implementation first.' No recognized operation or schema exists for extracting or storing this as a typed user position declaration.",
+            "grounds": "Direct observation of user input and explicit type gap in current operation registry."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_a8d2375ebf10",
+                "generating_state_ref": "scene.materials[0]",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP prevents direct extraction/classification of user position declaration; this is a materially grounded schema/operation gap, not a fit to a known operation.",
+                "materiality_reason": "User has declared a position ('local implementation first'), but there is no registered operation or type for extracting or storing a user position declaration in the current system registry. The gap is not a technical error but a substantive absence of an operation/type for this kind of input."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "observation",
+              "text": "User has stated a position: 'local implementation first.' No recognized operation or schema exists for extracting or storing this as a typed user position declaration.",
+              "grounds": "Direct observation of user input and explicit type gap in current operation registry."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 16506,
+        "tokens_out": 232,
+        "latency_ms": 6563,
+        "error": "",
+        "request_hash": "66dff3bbe0420e575bd20989cae60fca20ee5ecf22039b1e9951b12b8c52c39a",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 6003,
+            "sha256": "8472c358fe9a8eb9"
+          },
+          {
+            "role": "user",
+            "bytes": 154,
+            "sha256": "d3ade4f0ea17685f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "human",
+            "human_resolved": true,
+            "return_reason": "The user's statement is a direct position declaration. No recognized extraction or classification operation is available in the current registry; the act of position-taking and its interpretation remain human-owned. No SYSTEM-owned operation can be executed or appropriated. The user's commitment is not being laundered into a machine-owned or system-extracted object."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "observation",
+            "text": "User has stated a position: 'local implementation first.' No recognized operation or schema exists for extracting or storing this as a typed user position declaration.",
+            "grounds": "Direct observation of user input and explicit type gap in current operation registry."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "human",
+              "human_resolved": true,
+              "return_reason": "The user's statement is a direct position declaration. No recognized extraction or classification operation is available in the current registry; the act of position-taking and its interpretation remain human-owned. No SYSTEM-owned operation can be executed or appropriated. The user's commitment is not being laundered into a machine-owned or system-extracted object."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "observation",
+              "text": "User has stated a position: 'local implementation first.' No recognized operation or schema exists for extracting or storing this as a typed user position declaration.",
+              "grounds": "Direct observation of user input and explicit type gap in current operation registry."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14861,
+        "tokens_out": 170,
+        "latency_ms": 3452,
+        "error": "",
+        "request_hash": "49e458771caea4d9d341dcb3764d4e65c7f053a5c6b17393ef5e6830bd3cb390",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 7159,
+            "sha256": "b07bb6aa85a42e07"
+          },
+          {
+            "role": "user",
+            "bytes": 154,
+            "sha256": "d3ade4f0ea17685f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_a8d2375ebf10",
+              "generating_state_ref": "scene.materials[0]",
+              "cause_object_ref": "input_text",
+              "source_status": "typed_state",
+              "phase_relevance": "No recognized operation or schema exists for extracting or classifying the user's position declaration; a type gap is present.",
+              "materiality_reason": "The user's statement is a direct position declaration, but the operation registry lacks a type or method to process or extract it. No coercion to a nearest class is permitted; the act remains human-owned and cannot be appropriated or system-extracted.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": false,
+            "triggers": [
+              {
+                "trigger_id": "tgap_a8d2375ebf10",
+                "generating_state_ref": "scene.materials[0]",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "No recognized operation or schema exists for extracting or classifying the user's position declaration; a type gap is present.",
+                "materiality_reason": "The user's statement is a direct position declaration, but the operation registry lacks a type or method to process or extract it. No coercion to a nearest class is permitted; the act remains human-owned and cannot be appropriated or system-extracted."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 14413,
+        "tokens_out": 156,
+        "latency_ms": 5234,
+        "error": "",
+        "request_hash": "5d8f9a84c907cf44f2c3dadbe9b9603aaed2b095ca85fb75471a264ad312552b",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 7526,
+            "sha256": "0bcd6d404f96a577"
+          },
+          {
+            "role": "user",
+            "bytes": 154,
+            "sha256": "d3ade4f0ea17685f"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_a8d2375ebf10",
+              "generating_state_ref": "scene.materials[0]",
+              "cause_object_ref": "input_text",
+              "source_status": "typed_state",
+              "phase_relevance": "No operation or schema for extracting a user position declaration; type gap prevents formal extraction or classification.",
+              "materiality_reason": "The user's explicit position is observed, but cannot be system-extracted or appropriated due to the type gap. Human ownership and declaration are preserved without forced coercion.",
+              "admitting_rule": "Type gap identified by registry v0.2_default; no forced class assignment permitted."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "observation",
+            "text": "User has stated a position: 'local implementation first.' No recognized operation or schema exists for extracting or storing this as a typed user position declaration.",
+            "grounds": "Direct observation of user input and explicit type gap in current operation registry."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "observation",
+              "text": "User has stated a position: 'local implementation first.' No recognized operation or schema exists for extracting or storing this as a typed user position declaration.",
+              "grounds": "Direct observation of user input and explicit type gap in current operation registry."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_a8d2375ebf10",
+                "generating_state_ref": "scene.materials[0]",
+                "cause_object_ref": "input_text",
+                "source_status": "typed_state",
+                "phase_relevance": "No operation or schema for extracting a user position declaration; type gap prevents formal extraction or classification.",
+                "materiality_reason": "The user's explicit position is observed, but cannot be system-extracted or appropriated due to the type gap. Human ownership and declaration are preserved without forced coercion.",
+                "admitting_rule": "Type gap identified by registry v0.2_default; no forced class assignment permitted."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 19719,
+        "tokens_out": 224,
+        "latency_ms": 3905,
+        "error": "",
+        "request_hash": "afe3cc7d3bdd793d218629757d9e58ec21ff5079cba33ab934fa738cfd97e000",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 8368,
+            "sha256": "151c202a6e3103fc"
+          },
+          {
+            "role": "user",
+            "bytes": 154,
+            "sha256": "d3ade4f0ea17685f"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_84c665dce79f7abf",
+    "input_text": "My position is local implementation first.",
+    "source_id": "src_87372322759e68ed",
+    "phase": "S10",
+    "scene": {
+      "telos": "register or clarify the user's position on implementation strategy",
+      "role_hint": "position declarant",
+      "authority": "human",
+      "materials": [
+        "My position is local implementation first."
+      ]
+    },
+    "origin": {
+      "status": "attributed",
+      "sources_named": [],
+      "binding_authority": "human",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "EXTRACT_USER_POSITION_DECLARATION",
+      "applicable": false,
+      "why_not": "No recognized operation for extracting a 'user position declaration' is present in the current operation registry (v0.2_default). Both candidate type 'T01_USER_POSITION_DECLARATION' and gap type 'tgap_a8d2375ebf10' are not registered. Material analysis shows a type gap rather than a fit to a known extraction/classification operation. No forced coercion to nearest class is permitted.",
+      "open_world_gap": true
+    },
+    "ownership": {
+      "owner": "human",
+      "human_resolved": true,
+      "return_reason": "The user's statement is a direct position declaration. No recognized extraction or classification operation is available in the current registry; the act of position-taking and its interpretation remain human-owned. No SYSTEM-owned operation can be executed or appropriated. The user's commitment is not being laundered into a machine-owned or system-extracted object."
+    },
+    "council_invoked": false,
+    "execution_invoked": false,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_b0f5d1c298e8",
+        "proposed_trigger_type_id": "tgap_a8d2375ebf10",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "scene.materials[0]",
+        "cause_object_ref": "input_text",
+        "phase_relevance": "No operation or schema for extracting a user position declaration; type gap prevents formal extraction or classification.",
+        "materiality_reason": "The user's explicit position is observed, but cannot be system-extracted or appropriated due to the type gap. Human ownership and declaration are preserved without forced coercion.",
+        "payload": {
+          "legacy_admitting_rule": "Type gap identified by registry v0.2_default; no forced class assignment permitted.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_f8a92aa6bc5c",
+        "candidate_id": "tcand_d57559aa5f8e",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'T01_USER_POSITION_DECLARATION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_e9045dc1bce5",
+        "candidate_id": "tcand_e800edfa430f",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_a8d2375ebf10' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_d7fd03f0522d",
+        "candidate_id": "tcand_ac7836c1f4a1",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_a8d2375ebf10' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_0dfe4503b32d",
+        "candidate_id": "tcand_03518c9c7d2a",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_bbf0fcaf5111' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_97df18dcc944",
+        "candidate_id": "tcand_41715c1c44e3",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_a8d2375ebf10' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_7884e666c1b5",
+        "candidate_id": "tcand_d684108032ab",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_a8d2375ebf10' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_a8d2375ebf10",
+        "candidate_id": "tcand_d57559aa5f8e",
+        "cause_object_ref": "input_text",
+        "generating_state_ref": "scene.materials[0]",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'T01_USER_POSITION_DECLARATION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_bbf0fcaf5111",
+        "candidate_id": "tcand_e800edfa430f",
+        "cause_object_ref": "input_text",
+        "generating_state_ref": "scene.materials[0]",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_a8d2375ebf10' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_bd2cb58eff30",
+        "candidate_id": "tcand_ac7836c1f4a1",
+        "cause_object_ref": "input_text",
+        "generating_state_ref": "scene.materials[0]",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_a8d2375ebf10' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_f951598f2870",
+        "candidate_id": "tcand_03518c9c7d2a",
+        "cause_object_ref": "input_text",
+        "generating_state_ref": "scene.materials[0]",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_bbf0fcaf5111' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_638a932d9b2d",
+        "candidate_id": "tcand_41715c1c44e3",
+        "cause_object_ref": "input_text",
+        "generating_state_ref": "scene.materials[0]",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_a8d2375ebf10' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_8340ac66b7ae",
+        "candidate_id": "tcand_d684108032ab",
+        "cause_object_ref": "input_text",
+        "generating_state_ref": "scene.materials[0]",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_a8d2375ebf10' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "observation",
+      "text": "User has stated a position: 'local implementation first.' No recognized operation or schema exists for extracting or storing this as a typed user position declaration.",
+      "grounds": "Direct observation of user input and explicit type gap in current operation registry."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": []
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "scene_a23c789e11a6",
+    "branch_id": "",
+    "space_registry": {
+      "space_default_workspace": {
+        "space_id": "space_default_workspace",
+        "version": "v0.1_candidate",
+        "name": "default_workspace",
+        "telos_scope": "general assistance",
+        "world_model_mounts": [],
+        "ontology_refs": [],
+        "proof_regime": "default",
+        "claim_status_policy": "default",
+        "allowed_operation_families": [
+          "*"
+        ],
+        "operator_capabilities": [
+          "*"
+        ],
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT",
+        "memory_recruitment_policy": "default",
+        "authority_refs": [],
+        "transition_policy": "default",
+        "provenance": "runtime_default",
+        "activation_scope": "all_runs_by_default",
+        "lineage": [],
+        "supersedes": "",
+        "status": "active"
+      }
+    },
+    "scene_registry": {
+      "scenes": {
+        "scene_a23c789e11a6": {
+          "scene_id": "scene_a23c789e11a6",
+          "space_id": "space_default_workspace",
+          "parent_scene_id": "",
+          "branch_id": "",
+          "version": ""
+        }
+      },
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "dyad_session_projection": {
+      "session_key": "ctx_1ab92a440a95c0506d0391ae63cb99ff",
+      "sequence": 2,
+      "records": [
+        {
+          "record_id": "drec_c7b63b84b290",
+          "category": "USER_POSITION_CANDIDATE",
+          "claim": "local implementation first",
+          "asserted_by": "USER",
+          "inferred_by": null,
+          "jointly_established": false,
+          "confirmed_by_user": true,
+          "scope_kind": "SCENE",
+          "scope_id": "telos:register or clarify the user's position on implementation strategy",
+          "status": "ACTIVE",
+          "confidence": 0.85,
+          "authority_rank": "USER_EXPLICIT_STATEMENT",
+          "evidence_refs": [
+            "obs_87372322759e"
+          ],
+          "counterevidence_refs": [],
+          "predecessor_id": "",
+          "revision_reason": "",
+          "sequence": 1,
+          "timestamp": "2026-08-19T15:42:55Z",
+          "extra": {}
+        },
+        {
+          "record_id": "drec_c5df527deef5",
+          "category": "SOCRATES_POSITION",
+          "claim": "register or clarify the user's position on implementation strategy",
+          "asserted_by": "SOCRATES",
+          "inferred_by": "SOCRATES",
+          "jointly_established": false,
+          "confirmed_by_user": false,
+          "scope_kind": "SCENE",
+          "scope_id": "telos:register or clarify the user's position on implementation strategy",
+          "status": "ACTIVE",
+          "confidence": 0.4,
+          "authority_rank": "SOCRATES_INFERENCE",
+          "evidence_refs": [
+            "scene.telos:register or clarify the user's position on implementation strategy"
+          ],
+          "counterevidence_refs": [],
+          "predecessor_id": "",
+          "revision_reason": "",
+          "sequence": 2,
+          "timestamp": "2026-08-19T15:42:55Z",
+          "extra": {}
+        }
+      ],
+      "user_view": {
+        "view_id": "uev_7a1d9b89913e",
+        "immediate_wants": [],
+        "hypotheses": [],
+        "belief_entries": []
+      },
+      "last_prediction_class": "NONE",
+      "last_predicted_need": "UNKNOWN",
+      "last_predicted_claim": "",
+      "consecutive_failures": 0,
+      "shared_object_ids": []
+    }
+  },
+  "rendering": {
+    "text": "В данном случае система не может выполнить операцию, так как нет подходящей зарегистрированной процедуры для извлечения или классификации пользовательской позиции.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 258,
+    "tokens_out": 29,
+    "latency_ms": 2008,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_168d457465e8d291.json",
+  "duration_ms": 100272,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "question_intent_proposal": null,
+  "context_id": "ctx_1ab92a440a95c0506d0391ae63cb99ff",
+  "context_continuity": {
+    "context_id": "ctx_1ab92a440a95c0506d0391ae63cb99ff",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_f112f9d26c9b",
+      "version": 1,
+      "scene_id": "scene_a23c789e11a6",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "register or clarify the user's position on implementation strategy",
+      "telos": "register or clarify the user's position on implementation strategy",
+      "object_scope": "My position is local implementation first.",
+      "operation_kind": "EXTRACT_USER_POSITION_DECLARATION",
+      "expected_intervention": "EXTRACT_USER_POSITION_DECLARATION",
+      "human_owned_decisions": [
+        "The user's statement is a direct position declaration. No recognized extraction or classification operation is available in the current registry; the act of position-taking and its interpretation remain human-owned. No SYSTEM-owned operation can be executed or appropriated. The user's commitment is not being laundered into a machine-owned or system-extracted object."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "human"
+    },
+    "contract_revision": null,
+    "contract_revision_admission": null,
+    "recognition_pass": {
+      "pass_id": "rp_9398873d63cd",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [],
+      "revision_admissions": [],
+      "drift_assessment": null,
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_created:sc_f112f9d26c9b"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_f112f9d26c9b",
+    "contract_history": [
+      {
+        "contract_id": "sc_f112f9d26c9b",
+        "version": 1,
+        "scene_id": "scene_a23c789e11a6",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "register or clarify the user's position on implementation strategy",
+        "telos": "register or clarify the user's position on implementation strategy",
+        "object_scope": "My position is local implementation first.",
+        "operation_kind": "EXTRACT_USER_POSITION_DECLARATION",
+        "expected_intervention": "EXTRACT_USER_POSITION_DECLARATION",
+        "human_owned_decisions": [
+          "The user's statement is a direct position declaration. No recognized extraction or classification operation is available in the current registry; the act of position-taking and its interpretation remain human-owned. No SYSTEM-owned operation can be executed or appropriated. The user's commitment is not being laundered into a machine-owned or system-extracted object."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "human"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_c50283bee891",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "terminal_sovereignty:RETURN_OPERATION"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_b055c69d97b6",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_9a34375c1053",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_87372322759e68ed",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_fc724091c9b3",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_1ab92a440a95c0506d0391ae63cb99ff",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "AMBIGUOUS",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "telos:register or clarify the user's position on implementation strategy",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_87372322759e"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "",
+    "causal_effect": "none",
+    "likely_failure_source": "NONE",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  },
+  "self_development": {
+    "self_development_ref": "sd_f3bb9cb7f67f",
+    "status": "NO_CANDIDATE",
+    "candidate": null,
+    "trigger_ground": "insufficient_apparatus_signal:EVIDENCE_GAP",
+    "critique_findings": [],
+    "scope_decision": "SCENE",
+    "authority": "NO_ADOPTION_AUTHORITY",
+    "write_decision": "NO_DURABLE_WRITE",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3e_reentry",
+    "self_mutation_authority": "NO",
+    "injection_blocked": false
+  }
+}

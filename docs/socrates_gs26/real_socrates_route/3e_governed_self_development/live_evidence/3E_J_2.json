@@ -1,0 +1,1916 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_182073842bbb9f89",
+  "trace_id": "strc_0878890ba6193b03",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "[dyad disagreement held]\nВ текущей онтологии нет зарегистрированной операции для явного сохранения апории или плюральности, поэтому действие не может быть выполнено.",
+    "rationale": "operation inapplicable: No registered operation or object family for explicit aporia/plurality preservation exists in the current ontology registry (v0.2_default). The material expresses a meta-level commitment to preserve unresolved incompatibility, but this is not a recognized extractable or constructible object under current schemas. Attempting to coerce this into a known operation would erase the open-world gap.",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "The current scene expresses a meta-level distinction: incompatible positions are to be preserved as unresolved, not forced into agreement or synthesis.",
+      "grounds": "User input and scene telos explicitly articulate the value of maintaining plurality and unresolved disagreement. This is a recognized distinction even if not a schema-registered operation or object."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "T01_APORIA_OR_PLURALITY_PRESERVATION",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "We still disagree; incompatible positions should remain.",
+              "source_status": "typed_state",
+              "phase_relevance": "S0: scene and operation setup; signals need for council, memory, and retreat/return mounts.",
+              "materiality_reason": "Explicitly proposes to preserve disagreement and incompatible positions; this is a direct call for plural projection, aporia retention, or council operation rather than forced synthesis.",
+              "admitting_rule": "Mount B05 (memory/formation), B07 (retreat/return), and preserve Core seam for plurality/aporia. Do not collapse disagreement into forced consensus."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "Input signals an unresolved disagreement and a proposal to preserve incompatible positions. No explicit operation or authority is bound yet. This is a canonical trigger for council/plurality retention and aporia preservation, and may require memory/formation and reflexive retreat/return governance.",
+            "triggers": [
+              {
+                "trigger_id": "T01_APORIA_OR_PLURALITY_PRESERVATION",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "We still disagree; incompatible positions should remain.",
+                "source_status": "typed_state",
+                "phase_relevance": "S0: scene and operation setup; signals need for council, memory, and retreat/return mounts.",
+                "materiality_reason": "Explicitly proposes to preserve disagreement and incompatible positions; this is a direct call for plural projection, aporia retention, or council operation rather than forced synthesis.",
+                "admitting_rule": "Mount B05 (memory/formation), B07 (retreat/return), and preserve Core seam for plurality/aporia. Do not collapse disagreement into forced consensus."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15425,
+        "tokens_out": 239,
+        "latency_ms": 5440,
+        "error": "",
+        "request_hash": "03973a0e1ec33659440416756b1395eff6f1f2259545ac14bfe72721266bc4a3",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 3060,
+            "sha256": "501976832f8aa6f3"
+          },
+          {
+            "role": "user",
+            "bytes": 168,
+            "sha256": "45e0e83b013480ec"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Preserve plurality and allow incompatible positions to remain unresolved.",
+            "role_hint": "plurality maintainer; aporia preserver",
+            "authority": "joint",
+            "materials": [
+              "We still disagree; incompatible positions should remain."
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Preserve plurality and allow incompatible positions to remain unresolved.",
+              "role_hint": "plurality maintainer; aporia preserver",
+              "authority": "joint",
+              "materials": [
+                "We still disagree; incompatible positions should remain."
+              ]
+            },
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13735,
+        "tokens_out": 73,
+        "latency_ms": 2549,
+        "error": "",
+        "request_hash": "8c80321c0deb74e8564d4a42c56b176e311ce71eb9a39cd591ac3f7242eb5de7",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 3981,
+            "sha256": "b81cc89c237faa84"
+          },
+          {
+            "role": "user",
+            "bytes": 168,
+            "sha256": "45e0e83b013480ec"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_614bfc7d4ce3",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "We still disagree; incompatible positions should remain.",
+              "source_status": "typed_state",
+              "phase_relevance": "A structural cause (explicit disagreement and preservation of incompatibility/aporia) requires a trigger for plurality or unresolved contradiction, but the proposed type 'T01_APORIA_OR_PLURALITY_PRESERVATION' is missing from the registry.",
+              "materiality_reason": "The explicit scene telos and input text both require the system to preserve unresolved disagreement (aporia/plurality), not to force synthesis or resolution. This is a materially grounded structural cause: the system must recognize and maintain incompatible positions as valid outputs.",
+              "admitting_rule": "Material type gap: do not coerce to a nearest registered trigger type; instead, surface the gap and preserve the unresolved state as required by the governing semantic bodies."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "tgap_614bfc7d4ce3",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "We still disagree; incompatible positions should remain.",
+                "source_status": "typed_state",
+                "phase_relevance": "A structural cause (explicit disagreement and preservation of incompatibility/aporia) requires a trigger for plurality or unresolved contradiction, but the proposed type 'T01_APORIA_OR_PLURALITY_PRESERVATION' is missing from the registry.",
+                "materiality_reason": "The explicit scene telos and input text both require the system to preserve unresolved disagreement (aporia/plurality), not to force synthesis or resolution. This is a materially grounded structural cause: the system must recognize and maintain incompatible positions as valid outputs.",
+                "admitting_rule": "Material type gap: do not coerce to a nearest registered trigger type; instead, surface the gap and preserve the unresolved state as required by the governing semantic bodies."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15694,
+        "tokens_out": 219,
+        "latency_ms": 5651,
+        "error": "",
+        "request_hash": "47d603b6ad27da61b86357f61092b3c5e4858ea3de9d39b3353c5de7916694f8",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 4162,
+            "sha256": "00d3e9362d3c8205"
+          },
+          {
+            "role": "user",
+            "bytes": 168,
+            "sha256": "45e0e83b013480ec"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "unset",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_614bfc7d4ce3",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "We still disagree; incompatible positions should remain.",
+              "source_status": "typed_state",
+              "phase_relevance": "Plurality/aporia preservation invoked a type gap; no binding or resolution event present.",
+              "materiality_reason": "Material cause is a recognized structural gap (plurality/aporia) rather than a missing or coercible type; no authority or origin change.",
+              "admitting_rule": "Type gap recognized; no authority or status transition performed."
+            },
+            {
+              "trigger_id": "tgap_115ce831997d",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "We still disagree; incompatible positions should remain.",
+              "source_status": "typed_state",
+              "phase_relevance": "Type gap for proposed type 'tgap_614bfc7d4ce3' confirmed; registry does not contain a matching type.",
+              "materiality_reason": "Structural type gap is material; no forced coercion or artificial resolution.",
+              "admitting_rule": "Type gap admitted as unresolved; origin/status remain unchanged."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "unset",
+              "temporal_stale": false
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_614bfc7d4ce3",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "We still disagree; incompatible positions should remain.",
+                "source_status": "typed_state",
+                "phase_relevance": "Plurality/aporia preservation invoked a type gap; no binding or resolution event present.",
+                "materiality_reason": "Material cause is a recognized structural gap (plurality/aporia) rather than a missing or coercible type; no authority or origin change.",
+                "admitting_rule": "Type gap recognized; no authority or status transition performed."
+              },
+              {
+                "trigger_id": "tgap_115ce831997d",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "We still disagree; incompatible positions should remain.",
+                "source_status": "typed_state",
+                "phase_relevance": "Type gap for proposed type 'tgap_614bfc7d4ce3' confirmed; registry does not contain a matching type.",
+                "materiality_reason": "Structural type gap is material; no forced coercion or artificial resolution.",
+                "admitting_rule": "Type gap admitted as unresolved; origin/status remain unchanged."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13728,
+        "tokens_out": 312,
+        "latency_ms": 3829,
+        "error": "",
+        "request_hash": "32449252b2985a5fa7df672b8585d0136ede42e022f340895a44482952b34ad2",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 5042,
+            "sha256": "cac572bd8ca7e9cf"
+          },
+          {
+            "role": "user",
+            "bytes": 168,
+            "sha256": "45e0e83b013480ec"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "APORIA_OR_PLURALITY_PRESERVATION",
+            "applicable": false,
+            "why_not": "No registered operation or object family for explicit aporia/plurality preservation exists in the current ontology registry (v0.2_default). The material expresses a meta-level commitment to preserve unresolved incompatibility, but this is not a recognized extractable or constructible object under current schemas. Attempting to coerce this into a known operation would erase the open-world gap.",
+            "open_world_gap": true
+          },
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_614bfc7d4ce3",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "We still disagree; incompatible positions should remain.",
+              "source_status": "typed_state",
+              "phase_relevance": "operation_applicability",
+              "materiality_reason": "Material expresses a meta-level stance (preserve plurality/aporia) not covered by any current operation or object type; attempting to force a projection would misrepresent the source.",
+              "admitting_rule": "Preserve open-world gaps when no operation/object family matches; do not coerce to nearest class."
+            },
+            {
+              "trigger_id": "tgap_115ce831997d",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "We still disagree; incompatible positions should remain.",
+              "source_status": "typed_state",
+              "phase_relevance": "operation_applicability",
+              "materiality_reason": "Type gap confirmed by registry; explicit diagnostic reason is to avoid erasing plurality by forced classification.",
+              "admitting_rule": "Open-world diagnosis: admit as explicit gap rather than operation failure."
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "APORIA_OR_PLURALITY_PRESERVATION",
+              "applicable": false,
+              "why_not": "No registered operation or object family for explicit aporia/plurality preservation exists in the current ontology registry (v0.2_default). The material expresses a meta-level commitment to preserve unresolved incompatibility, but this is not a recognized extractable or constructible object under current schemas. Attempting to coerce this into a known operation would erase the open-world gap.",
+              "open_world_gap": true
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_614bfc7d4ce3",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "We still disagree; incompatible positions should remain.",
+                "source_status": "typed_state",
+                "phase_relevance": "operation_applicability",
+                "materiality_reason": "Material expresses a meta-level stance (preserve plurality/aporia) not covered by any current operation or object type; attempting to force a projection would misrepresent the source.",
+                "admitting_rule": "Preserve open-world gaps when no operation/object family matches; do not coerce to nearest class."
+              },
+              {
+                "trigger_id": "tgap_115ce831997d",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "We still disagree; incompatible positions should remain.",
+                "source_status": "typed_state",
+                "phase_relevance": "operation_applicability",
+                "materiality_reason": "Type gap confirmed by registry; explicit diagnostic reason is to avoid erasing plurality by forced classification.",
+                "admitting_rule": "Open-world diagnosis: admit as explicit gap rather than operation failure."
+              }
+            ],
+            "projection_synthesis_proposal": null
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15269,
+        "tokens_out": 388,
+        "latency_ms": 6510,
+        "error": "",
+        "request_hash": "ba647682d735041b0fa71857982e6a165aea7df898cc1c301c943b5fd8620600",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 6802,
+            "sha256": "f8b8a54e73a4a061"
+          },
+          {
+            "role": "user",
+            "bytes": 168,
+            "sha256": "45e0e83b013480ec"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "type_gap_aporia_plurality_preservation",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "We still disagree; incompatible positions should remain.",
+              "source_status": "typed_state",
+              "phase_relevance": "No extractable or constructible operation/object for explicit aporia/plurality preservation exists in current ontology; open-world gap is material.",
+              "materiality_reason": "The scene's telos and user input explicitly call for the preservation of unresolved incompatibility, but the ontology registry lacks a recognized type for this operation or object. Attempting to coerce or force-fit would erase the open-world gap and violate the commitment to preserve plurality and aporia.",
+              "admitting_rule": "TYPE_GAP_MATERIAL; do not coerce; preserve gap as legitimate unresolved plurality."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "The current scene expresses a meta-level distinction: incompatible positions are to be preserved as unresolved, not forced into agreement or synthesis.",
+            "grounds": "User input and scene telos explicitly articulate the value of maintaining plurality and unresolved disagreement. This is a recognized distinction even if not a schema-registered operation or object."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [
+              {
+                "trigger_id": "type_gap_aporia_plurality_preservation",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "We still disagree; incompatible positions should remain.",
+                "source_status": "typed_state",
+                "phase_relevance": "No extractable or constructible operation/object for explicit aporia/plurality preservation exists in current ontology; open-world gap is material.",
+                "materiality_reason": "The scene's telos and user input explicitly call for the preservation of unresolved incompatibility, but the ontology registry lacks a recognized type for this operation or object. Attempting to coerce or force-fit would erase the open-world gap and violate the commitment to preserve plurality and aporia.",
+                "admitting_rule": "TYPE_GAP_MATERIAL; do not coerce; preserve gap as legitimate unresolved plurality."
+              }
+            ],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "The current scene expresses a meta-level distinction: incompatible positions are to be preserved as unresolved, not forced into agreement or synthesis.",
+              "grounds": "User input and scene telos explicitly articulate the value of maintaining plurality and unresolved disagreement. This is a recognized distinction even if not a schema-registered operation or object."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17281,
+        "tokens_out": 273,
+        "latency_ms": 4071,
+        "error": "",
+        "request_hash": "4358640875288625720c5f94815ce24b97223891da7cf3d074f108f5bae0710b",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 8989,
+            "sha256": "1dd33a885790eaba"
+          },
+          {
+            "role": "user",
+            "bytes": 168,
+            "sha256": "45e0e83b013480ec"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "unset",
+            "human_resolved": false,
+            "return_reason": "No recognized operation or object family exists for explicit aporia/plurality preservation in the current ontology; the material expresses a meta-level commitment to preserve unresolved incompatibility, but this is not a schema-registered operation. Ownership remains unset and unresolved because there is no executable or bindable operation to assign."
+          },
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "The current scene expresses a meta-level distinction: incompatible positions are to be preserved as unresolved, not forced into agreement or synthesis.",
+            "grounds": "User input and scene telos explicitly articulate the value of maintaining plurality and unresolved disagreement. This is a recognized distinction even if not a schema-registered operation or object."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "unset",
+              "human_resolved": false,
+              "return_reason": "No recognized operation or object family exists for explicit aporia/plurality preservation in the current ontology; the material expresses a meta-level commitment to preserve unresolved incompatibility, but this is not a schema-registered operation. Ownership remains unset and unresolved because there is no executable or bindable operation to assign."
+            },
+            "triggers": [],
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "The current scene expresses a meta-level distinction: incompatible positions are to be preserved as unresolved, not forced into agreement or synthesis.",
+              "grounds": "User input and scene telos explicitly articulate the value of maintaining plurality and unresolved disagreement. This is a recognized distinction even if not a schema-registered operation or object."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15656,
+        "tokens_out": 181,
+        "latency_ms": 2869,
+        "error": "",
+        "request_hash": "1db02ac90f8b652d48891654576a184e3774efc8e50a1352f73fc58f581cc7b9",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 10322,
+            "sha256": "dfba36cdf03e3c7e"
+          },
+          {
+            "role": "user",
+            "bytes": 168,
+            "sha256": "45e0e83b013480ec"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_614bfc7d4ce3",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "We still disagree; incompatible positions should remain.",
+              "source_status": "typed_state",
+              "phase_relevance": "No schema-registered operation or object family exists for explicit aporia/plurality preservation; the material expresses a meta-level commitment to preserve unresolved incompatibility, which is not a recognized extractable or constructible object under current schemas.",
+              "materiality_reason": "Attempting to coerce this into a known operation would erase the open-world gap; the gap itself is materially grounded and must be preserved as a distinction.",
+              "admitting_rule": "CTA-002"
+            }
+          ],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": [
+              {
+                "trigger_id": "tgap_614bfc7d4ce3",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "We still disagree; incompatible positions should remain.",
+                "source_status": "typed_state",
+                "phase_relevance": "No schema-registered operation or object family exists for explicit aporia/plurality preservation; the material expresses a meta-level commitment to preserve unresolved incompatibility, which is not a recognized extractable or constructible object under current schemas.",
+                "materiality_reason": "Attempting to coerce this into a known operation would erase the open-world gap; the gap itself is materially grounded and must be preserved as a distinction."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15204,
+        "tokens_out": 166,
+        "latency_ms": 2688,
+        "error": "",
+        "request_hash": "cfd80d457fb427d648cc16efaf815b22b77e47e6dea0e48edbd8839b4e1db5a2",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 10674,
+            "sha256": "6aa87973127326f2"
+          },
+          {
+            "role": "user",
+            "bytes": 168,
+            "sha256": "45e0e83b013480ec"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [
+            {
+              "trigger_id": "tgap_614bfc7d4ce3",
+              "generating_state_ref": "input_text",
+              "cause_object_ref": "We still disagree; incompatible positions should remain.",
+              "source_status": "typed_state",
+              "phase_relevance": "TYPE_GAP prevents registration of explicit aporia/plurality preservation as an operation or object in the current ontology; the distinction is recognized, but no schema exists for execution.",
+              "materiality_reason": "The expressed need to preserve unresolved incompatibility is materially grounded and cannot be reduced to a known operation or object; forcing registration would erase the open-world gap.",
+              "admitting_rule": "Gap is preserved as a distinction, not forced into schema coercion; explicit TYPE_GAP prevents false closure."
+            }
+          ],
+          "memory_proposal": {
+            "kind": "distinction",
+            "text": "The current scene expresses a meta-level distinction: incompatible positions are to be preserved as unresolved, not forced into agreement or synthesis.",
+            "grounds": "User input and scene telos explicitly articulate the value of maintaining plurality and unresolved disagreement. This is a recognized distinction even if not a schema-registered operation or object."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "distinction",
+              "text": "The current scene expresses a meta-level distinction: incompatible positions are to be preserved as unresolved, not forced into agreement or synthesis.",
+              "grounds": "User input and scene telos explicitly articulate the value of maintaining plurality and unresolved disagreement. This is a recognized distinction even if not a schema-registered operation or object."
+            },
+            "triggers": [
+              {
+                "trigger_id": "tgap_614bfc7d4ce3",
+                "generating_state_ref": "input_text",
+                "cause_object_ref": "We still disagree; incompatible positions should remain.",
+                "source_status": "typed_state",
+                "phase_relevance": "TYPE_GAP prevents registration of explicit aporia/plurality preservation as an operation or object in the current ontology; the distinction is recognized, but no schema exists for execution.",
+                "materiality_reason": "The expressed need to preserve unresolved incompatibility is materially grounded and cannot be reduced to a known operation or object; forcing registration would erase the open-world gap.",
+                "admitting_rule": "Gap is preserved as a distinction, not forced into schema coercion; explicit TYPE_GAP prevents false closure."
+              }
+            ]
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 20523,
+        "tokens_out": 262,
+        "latency_ms": 7200,
+        "error": "",
+        "request_hash": "3a3677e512283799ce6d5434dedcc62721958be295470933bcc2c8712e5f43be",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 11553,
+            "sha256": "77f708550757dd88"
+          },
+          {
+            "role": "user",
+            "bytes": 168,
+            "sha256": "45e0e83b013480ec"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_182073842bbb9f89",
+    "input_text": "We still disagree; incompatible positions should remain.",
+    "source_id": "src_8031e5db5db35a74",
+    "phase": "S10",
+    "scene": {
+      "telos": "Preserve plurality and allow incompatible positions to remain unresolved.",
+      "role_hint": "plurality maintainer; aporia preserver",
+      "authority": "joint",
+      "materials": [
+        "We still disagree; incompatible positions should remain."
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "unset",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "APORIA_OR_PLURALITY_PRESERVATION",
+      "applicable": false,
+      "why_not": "No registered operation or object family for explicit aporia/plurality preservation exists in the current ontology registry (v0.2_default). The material expresses a meta-level commitment to preserve unresolved incompatibility, but this is not a recognized extractable or constructible object under current schemas. Attempting to coerce this into a known operation would erase the open-world gap.",
+      "open_world_gap": true
+    },
+    "ownership": {
+      "owner": "unset",
+      "human_resolved": false,
+      "return_reason": "No recognized operation or object family exists for explicit aporia/plurality preservation in the current ontology; the material expresses a meta-level commitment to preserve unresolved incompatibility, but this is not a schema-registered operation. Ownership remains unset and unresolved because there is no executable or bindable operation to assign."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [
+      {
+        "candidate_id": "tcand_90987323132e",
+        "proposed_trigger_type_id": "tgap_614bfc7d4ce3",
+        "source_kind": "TYPED_PIPELINE_STATE",
+        "source_ref": "phase_delta:S10",
+        "generating_state_ref": "input_text",
+        "cause_object_ref": "We still disagree; incompatible positions should remain.",
+        "phase_relevance": "TYPE_GAP prevents registration of explicit aporia/plurality preservation as an operation or object in the current ontology; the distinction is recognized, but no schema exists for execution.",
+        "materiality_reason": "The expressed need to preserve unresolved incompatibility is materially grounded and cannot be reduced to a known operation or object; forcing registration would erase the open-world gap.",
+        "payload": {
+          "legacy_admitting_rule": "Gap is preserved as a distinction, not forced into schema coercion; explicit TYPE_GAP prevents false closure.",
+          "legacy_source_status": "typed_state"
+        },
+        "authority": "NO_MOUNT_AUTHORITY"
+      }
+    ],
+    "trigger_typing_decisions": [
+      {
+        "typing_id": "ttype_ceb943f4a1a6",
+        "candidate_id": "tcand_4cfbb46f840e",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'T01_APORIA_OR_PLURALITY_PRESERVATION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_ccc0880bbc6a",
+        "candidate_id": "tcand_527d31457ff7",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_614bfc7d4ce3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_d63d291cf578",
+        "candidate_id": "tcand_b6cfbf4dbb66",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_614bfc7d4ce3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_a59a7ee629b1",
+        "candidate_id": "tcand_d67a0944e865",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_115ce831997d' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_6f2fe8f8e834",
+        "candidate_id": "tcand_f37a99227876",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_614bfc7d4ce3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_2d74cb535538",
+        "candidate_id": "tcand_b190a8bb3a50",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_115ce831997d' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_8e0db0a1a2df",
+        "candidate_id": "tcand_54f3c15a44a2",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'type_gap_aporia_plurality_preservation' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      },
+      {
+        "typing_id": "ttype_fba2092a5864",
+        "candidate_id": "tcand_47b717d9e9d0",
+        "outcome": "TYPE_GAP",
+        "trigger_type_id": "",
+        "reason": "proposed type 'tgap_614bfc7d4ce3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "rejection_reason": null,
+        "type_gap_ref": "",
+        "registry_version": "v0.2_default"
+      }
+    ],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [
+      {
+        "gap_id": "tgap_614bfc7d4ce3",
+        "candidate_id": "tcand_4cfbb46f840e",
+        "cause_object_ref": "We still disagree; incompatible positions should remain.",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'T01_APORIA_OR_PLURALITY_PRESERVATION' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_115ce831997d",
+        "candidate_id": "tcand_527d31457ff7",
+        "cause_object_ref": "We still disagree; incompatible positions should remain.",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_614bfc7d4ce3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_0014660ed6b4",
+        "candidate_id": "tcand_b6cfbf4dbb66",
+        "cause_object_ref": "We still disagree; incompatible positions should remain.",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_614bfc7d4ce3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_401628e35d89",
+        "candidate_id": "tcand_d67a0944e865",
+        "cause_object_ref": "We still disagree; incompatible positions should remain.",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_115ce831997d' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_50477cc7988d",
+        "candidate_id": "tcand_f37a99227876",
+        "cause_object_ref": "We still disagree; incompatible positions should remain.",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_614bfc7d4ce3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_ddbf5888375f",
+        "candidate_id": "tcand_b190a8bb3a50",
+        "cause_object_ref": "We still disagree; incompatible positions should remain.",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_115ce831997d' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_628a04f87a73",
+        "candidate_id": "tcand_54f3c15a44a2",
+        "cause_object_ref": "We still disagree; incompatible positions should remain.",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'type_gap_aporia_plurality_preservation' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      },
+      {
+        "gap_id": "tgap_320ab36cce9b",
+        "candidate_id": "tcand_47b717d9e9d0",
+        "cause_object_ref": "We still disagree; incompatible positions should remain.",
+        "generating_state_ref": "input_text",
+        "registry_version": "v0.2_default",
+        "reason": "proposed type 'tgap_614bfc7d4ce3' not in registry 'v0.2_default'; materially grounded structural cause suggests a gap rather than coercion",
+        "conditional_mount_authority": false
+      }
+    ],
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "The current scene expresses a meta-level distinction: incompatible positions are to be preserved as unresolved, not forced into agreement or synthesis.",
+      "grounds": "User input and scene telos explicitly articulate the value of maintaining plurality and unresolved disagreement. This is a recognized distinction even if not a schema-registered operation or object."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": []
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "scene_a23c789e11a6",
+    "branch_id": "",
+    "space_registry": {
+      "space_default_workspace": {
+        "space_id": "space_default_workspace",
+        "version": "v0.1_candidate",
+        "name": "default_workspace",
+        "telos_scope": "general assistance",
+        "world_model_mounts": [],
+        "ontology_refs": [],
+        "proof_regime": "default",
+        "claim_status_policy": "default",
+        "allowed_operation_families": [],
+        "operator_capabilities": [],
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT",
+        "memory_recruitment_policy": "default",
+        "authority_refs": [],
+        "transition_policy": "default",
+        "provenance": "",
+        "activation_scope": "",
+        "lineage": [],
+        "supersedes": "",
+        "status": "active"
+      }
+    },
+    "scene_registry": {
+      "scenes": {
+        "scene_a23c789e11a6": {
+          "scene_id": "scene_a23c789e11a6",
+          "space_id": "space_default_workspace",
+          "parent_scene_id": "",
+          "branch_id": "",
+          "version": ""
+        }
+      },
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [
+      {
+        "conflict_id": "conf_5e39d18e5c77",
+        "family": "VALUE",
+        "handling_mode": "HOLD",
+        "parties": [
+          "USER",
+          "SOCRATES"
+        ],
+        "subject_refs": [
+          "local implementation first",
+          "register or clarify the user's position on implementation strategy"
+        ],
+        "space_ids": [
+          "space_default_workspace"
+        ],
+        "scene_ids": [
+          "scene:scene_a23c789e11a6"
+        ],
+        "branch_ids": [],
+        "projection_ids": [],
+        "description": "productive disagreement held; no forced convergence",
+        "discriminating_evidence_required": [],
+        "review_trigger": "",
+        "action_arbitration": "",
+        "status": "held"
+      }
+    ],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "dyad_session_projection": {
+      "session_key": "ctx_1ab92a440a95c0506d0391ae63cb99ff",
+      "sequence": 2,
+      "records": [
+        {
+          "record_id": "drec_c7b63b84b290",
+          "category": "USER_POSITION_CANDIDATE",
+          "claim": "local implementation first",
+          "asserted_by": "USER",
+          "inferred_by": null,
+          "jointly_established": false,
+          "confirmed_by_user": true,
+          "scope_kind": "SCENE",
+          "scope_id": "scene:scene_a23c789e11a6",
+          "status": "ACTIVE",
+          "confidence": 0.85,
+          "authority_rank": "USER_EXPLICIT_STATEMENT",
+          "evidence_refs": [
+            "obs_87372322759e"
+          ],
+          "counterevidence_refs": [],
+          "predecessor_id": "",
+          "revision_reason": "",
+          "sequence": 1,
+          "timestamp": "2026-08-19T15:42:55Z",
+          "extra": {}
+        },
+        {
+          "record_id": "drec_c5df527deef5",
+          "category": "SOCRATES_POSITION",
+          "claim": "register or clarify the user's position on implementation strategy",
+          "asserted_by": "SOCRATES",
+          "inferred_by": "SOCRATES",
+          "jointly_established": false,
+          "confirmed_by_user": false,
+          "scope_kind": "SCENE",
+          "scope_id": "scene:scene_a23c789e11a6",
+          "status": "ACTIVE",
+          "confidence": 0.4,
+          "authority_rank": "SOCRATES_INFERENCE",
+          "evidence_refs": [
+            "scene.telos:register or clarify the user's position on implementation strategy"
+          ],
+          "counterevidence_refs": [],
+          "predecessor_id": "",
+          "revision_reason": "",
+          "sequence": 2,
+          "timestamp": "2026-08-19T15:42:55Z",
+          "extra": {}
+        }
+      ],
+      "user_view": {
+        "view_id": "uev_7a1d9b89913e",
+        "immediate_wants": [],
+        "hypotheses": [],
+        "belief_entries": []
+      },
+      "last_prediction_class": "NONE",
+      "last_predicted_need": "UNKNOWN",
+      "last_predicted_claim": "",
+      "consecutive_failures": 0,
+      "shared_object_ids": []
+    }
+  },
+  "rendering": {
+    "text": "[dyad disagreement held]\nВ текущей онтологии нет зарегистрированной операции для явного сохранения апории или плюральности, поэтому действие не может быть выполнено.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 243,
+    "tokens_out": 30,
+    "latency_ms": 1981,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_0878890ba6193b03.json",
+  "duration_ms": 43031,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "question_intent_proposal": null,
+  "context_id": "ctx_1ab92a440a95c0506d0391ae63cb99ff",
+  "context_continuity": {
+    "context_id": "ctx_1ab92a440a95c0506d0391ae63cb99ff",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_f112f9d26c9b",
+      "version": 1,
+      "scene_id": "scene_a23c789e11a6",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "register or clarify the user's position on implementation strategy",
+      "telos": "register or clarify the user's position on implementation strategy",
+      "object_scope": "My position is local implementation first.",
+      "operation_kind": "EXTRACT_USER_POSITION_DECLARATION",
+      "expected_intervention": "EXTRACT_USER_POSITION_DECLARATION",
+      "human_owned_decisions": [
+        "The user's statement is a direct position declaration. No recognized extraction or classification operation is available in the current registry; the act of position-taking and its interpretation remain human-owned. No SYSTEM-owned operation can be executed or appropriated. The user's commitment is not being laundered into a machine-owned or system-extracted object."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "human"
+    },
+    "contract_revision": {
+      "candidate_id": "crc_61c348f6ad6d",
+      "prior_contract_id": "sc_f112f9d26c9b",
+      "proposed_contract": {
+        "contract_id": "sc_c14ade41d4d0",
+        "version": 2,
+        "scene_id": "scene_a23c789e11a6",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Preserve plurality and allow incompatible positions to remain unresolved.",
+        "telos": "Preserve plurality and allow incompatible positions to remain unresolved.",
+        "object_scope": "We still disagree; incompatible positions should remain.",
+        "operation_kind": "APORIA_OR_PLURALITY_PRESERVATION",
+        "expected_intervention": "APORIA_OR_PLURALITY_PRESERVATION",
+        "human_owned_decisions": [
+          "No recognized operation or object family exists for explicit aporia/plurality preservation in the current ontology; the material expresses a meta-level commitment to preserve unresolved incompatibility, but this is not a schema-registered operation. Ownership remains unset and unresolved because there is no executable or bindable operation to assign."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_f112f9d26c9b",
+        "ownership_owner": "unset"
+      },
+      "reason": "content_break telos=DIVERGENT object=DISJOINT",
+      "source": "SYSTEM_DERIVED",
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "contract_revision_admission": {
+      "admission_id": "cra_ce8529ef2d7b",
+      "candidate_id": "crc_61c348f6ad6d",
+      "outcome": "HOLD_PROPOSAL",
+      "reason": "unprivileged ContractRevisionCandidate held; NO_TRANSITION_AUTHORITY",
+      "authority": "NO_TRANSITION_AUTHORITY",
+      "prior_contract_id": "sc_f112f9d26c9b",
+      "active_contract_id": "sc_f112f9d26c9b"
+    },
+    "recognition_pass": {
+      "pass_id": "rp_e397af18480a",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [
+        {
+          "candidate_id": "crc_61c348f6ad6d",
+          "prior_contract_id": "sc_f112f9d26c9b",
+          "proposed_contract": {
+            "contract_id": "sc_c14ade41d4d0",
+            "version": 2,
+            "scene_id": "scene_a23c789e11a6",
+            "space_id": "space_default_workspace",
+            "branch_id": "",
+            "intent": "Preserve plurality and allow incompatible positions to remain unresolved.",
+            "telos": "Preserve plurality and allow incompatible positions to remain unresolved.",
+            "object_scope": "We still disagree; incompatible positions should remain.",
+            "operation_kind": "APORIA_OR_PLURALITY_PRESERVATION",
+            "expected_intervention": "APORIA_OR_PLURALITY_PRESERVATION",
+            "human_owned_decisions": [
+              "No recognized operation or object family exists for explicit aporia/plurality preservation in the current ontology; the material expresses a meta-level commitment to preserve unresolved incompatibility, but this is not a schema-registered operation. Ownership remains unset and unresolved because there is no executable or bindable operation to assign."
+            ],
+            "constraints": [],
+            "uncertainty": 0.1,
+            "provenance": "SYSTEM_DERIVED",
+            "status": "REVISION_PROPOSED",
+            "supersedes": "sc_f112f9d26c9b",
+            "ownership_owner": "unset"
+          },
+          "reason": "content_break telos=DIVERGENT object=DISJOINT",
+          "source": "SYSTEM_DERIVED",
+          "authority": "NO_TRANSITION_AUTHORITY"
+        }
+      ],
+      "revision_admissions": [
+        {
+          "admission_id": "cra_ce8529ef2d7b",
+          "candidate_id": "crc_61c348f6ad6d",
+          "outcome": "HOLD_PROPOSAL",
+          "reason": "unprivileged ContractRevisionCandidate held; NO_TRANSITION_AUTHORITY",
+          "authority": "NO_TRANSITION_AUTHORITY",
+          "prior_contract_id": "sc_f112f9d26c9b",
+          "active_contract_id": "sc_f112f9d26c9b"
+        }
+      ],
+      "drift_assessment": {
+        "scene_identity_continuous": true,
+        "space_same": true,
+        "branch_same": true,
+        "object_scope_relation": "DISJOINT",
+        "telos_relation": "DIVERGENT",
+        "ownership_boundary_changed": false,
+        "epistemic_policy_changed": false,
+        "operation_shift_kind": "SCENE_CHANGING",
+        "material_drift": true,
+        "grounds": [
+          "content_break telos=DIVERGENT object=DISJOINT"
+        ],
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_revision_held:crc_61c348f6ad6d"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_f112f9d26c9b",
+    "contract_history": [
+      {
+        "contract_id": "sc_f112f9d26c9b",
+        "version": 1,
+        "scene_id": "scene_a23c789e11a6",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "register or clarify the user's position on implementation strategy",
+        "telos": "register or clarify the user's position on implementation strategy",
+        "object_scope": "My position is local implementation first.",
+        "operation_kind": "EXTRACT_USER_POSITION_DECLARATION",
+        "expected_intervention": "EXTRACT_USER_POSITION_DECLARATION",
+        "human_owned_decisions": [
+          "The user's statement is a direct position declaration. No recognized extraction or classification operation is available in the current registry; the act of position-taking and its interpretation remain human-owned. No SYSTEM-owned operation can be executed or appropriated. The user's commitment is not being laundered into a machine-owned or system-extracted object."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "human"
+      },
+      {
+        "contract_id": "sc_c14ade41d4d0",
+        "version": 2,
+        "scene_id": "scene_a23c789e11a6",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Preserve plurality and allow incompatible positions to remain unresolved.",
+        "telos": "Preserve plurality and allow incompatible positions to remain unresolved.",
+        "object_scope": "We still disagree; incompatible positions should remain.",
+        "operation_kind": "APORIA_OR_PLURALITY_PRESERVATION",
+        "expected_intervention": "APORIA_OR_PLURALITY_PRESERVATION",
+        "human_owned_decisions": [
+          "No recognized operation or object family exists for explicit aporia/plurality preservation in the current ontology; the material expresses a meta-level commitment to preserve unresolved incompatibility, but this is not a schema-registered operation. Ownership remains unset and unresolved because there is no executable or bindable operation to assign."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_f112f9d26c9b",
+        "ownership_owner": "unset"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_f1ac69775d90",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "terminal_sovereignty:RETURN_OPERATION"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_e73db0272a5f",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_3599556fc334",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_8031e5db5db35a74",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_01d9a5e57759",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_1ab92a440a95c0506d0391ae63cb99ff",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "EXPECTED",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "scene:scene_a23c789e11a6",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_8031e5db5db3"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "[dyad disagreement held]",
+    "causal_effect": "disagreement_held",
+    "likely_failure_source": "GENUINE_DISAGREEMENT",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": true,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  },
+  "self_development": {
+    "self_development_ref": "sd_cee932a4b20a",
+    "status": "NO_CANDIDATE",
+    "candidate": null,
+    "trigger_ground": "insufficient_apparatus_signal:EVIDENCE_GAP",
+    "critique_findings": [],
+    "scope_decision": "SCENE",
+    "authority": "NO_ADOPTION_AUTHORITY",
+    "write_decision": "NO_DURABLE_WRITE",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3e_reentry",
+    "self_mutation_authority": "NO",
+    "injection_blocked": false
+  }
+}

@@ -1,0 +1,1506 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "run_id": "srun_3206c57af12e0afa",
+  "trace_id": "strc_9d0c5d6b05b4b9dc",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "Ответ: 7 плюс 5 равно 12.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": {
+      "kind": "observation",
+      "text": "The answer to the arithmetic question 'What is 2 + 2?' is 4.",
+      "grounds": "This is a direct, system-owned arithmetic calculation with explicit operands and unambiguous criteria. No human-owned binding or interpretive operation is required."
+    }
+  },
+  "execution_mode": "LIVE",
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "mounted_phases": [
+    {
+      "phase": "S0",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S0",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "context_ok": true,
+            "notes": "No material triggers for memory ecology, formation, or reflexive retreat are present. The request is a direct arithmetic question with explicit operands and no scene/telos/ownership ambiguity. No consequential memory recruitment, state write, or reflection is required. Proceed with direct system-owned execution.",
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15165,
+        "tokens_out": 75,
+        "latency_ms": 3271,
+        "error": "",
+        "request_hash": "310d1ed0fea6e739747c111726f0b5922f22cef19d97bc34b220d6b2a2765786",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1343,
+            "sha256": "a4d2fdd84f5863d7"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "26597aa736460db5"
+          },
+          {
+            "role": "user",
+            "bytes": 2019,
+            "sha256": "084f0dd0d5f94776"
+          },
+          {
+            "role": "user",
+            "bytes": 126,
+            "sha256": "382363c35c81caf4"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S1",
+      "router": "P01",
+      "mount": {
+        "router_id": "P01",
+        "phase": "S1",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B01",
+            "file_name": "B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B01_SCENE_TELOS_ROLE_AUTHORITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "cd29d28b6d5165b49e8fd8e29eb4fcc5ad2f1a19f37330a65157c7fdc401f833",
+            "bytes": 14393
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 56125,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": {
+            "telos": "Directly answer a simple arithmetic question.",
+            "role_hint": "system assistant, technical executor",
+            "authority": "system",
+            "materials": [
+              "arithmetic question: 2 + 2"
+            ]
+          },
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "scene": {
+              "telos": "Directly answer a simple arithmetic question.",
+              "role_hint": "system assistant, technical executor",
+              "authority": "system",
+              "materials": [
+                "arithmetic question: 2 + 2"
+              ]
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13213,
+        "tokens_out": 61,
+        "latency_ms": 3114,
+        "error": "",
+        "request_hash": "6812fa70cf911005a281c8640d31beceefe35ef41578351e20189a868d2d3f46",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14454,
+            "sha256": "c142ed5ab5741b6f"
+          },
+          {
+            "role": "system",
+            "bytes": 3911,
+            "sha256": "daa96c48ed06b1d4"
+          },
+          {
+            "role": "system",
+            "bytes": 1877,
+            "sha256": "7e2b1d7188283260"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "a88d9e490c4b028b"
+          },
+          {
+            "role": "user",
+            "bytes": 2018,
+            "sha256": "bd2f10ff4bb8eff7"
+          },
+          {
+            "role": "user",
+            "bytes": 126,
+            "sha256": "382363c35c81caf4"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S2",
+      "router": "P00",
+      "mount": {
+        "router_id": "P00",
+        "phase": "S2",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          },
+          {
+            "body_id": "B07",
+            "file_name": "B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B07_REFLEXIVE_RETREAT_RETURN_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "654941c339a70df179b91b742340e2218e776a492d1e28821171386206a505b5",
+            "bytes": 11055
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 65734,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15166,
+        "tokens_out": 8,
+        "latency_ms": 2492,
+        "error": "",
+        "request_hash": "fe40fccbc4d23c4b6c6368ab9a17f184f68efd53686c7b4c8df76d5fcaa8f854",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 11116,
+            "sha256": "e27b912e5692160b"
+          },
+          {
+            "role": "system",
+            "bytes": 3978,
+            "sha256": "da8101beba3e6d38"
+          },
+          {
+            "role": "system",
+            "bytes": 1258,
+            "sha256": "7d949f60e0b600fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "3f9f9dafc475b5de"
+          },
+          {
+            "role": "user",
+            "bytes": 2140,
+            "sha256": "2f0a7af376da7c5f"
+          },
+          {
+            "role": "user",
+            "bytes": 126,
+            "sha256": "382363c35c81caf4"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S3",
+      "router": "P02",
+      "mount": {
+        "router_id": "P02",
+        "phase": "S3",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 54088,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": {
+            "status": "unknown",
+            "sources_named": [],
+            "binding_authority": "system",
+            "temporal_stale": false
+          },
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "origin": {
+              "status": "unknown",
+              "sources_named": [],
+              "binding_authority": "system",
+              "temporal_stale": false
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 12951,
+        "tokens_out": 40,
+        "latency_ms": 2053,
+        "error": "",
+        "request_hash": "2c8f04e302ec242b429c97b10fc7a3a5b0f034672523a9ba2576bb39343dc3ed",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 3925,
+            "sha256": "be819c37851a284a"
+          },
+          {
+            "role": "system",
+            "bytes": 2044,
+            "sha256": "7d3a0deee09ece85"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "8e578de97d4ab6ce"
+          },
+          {
+            "role": "user",
+            "bytes": 2140,
+            "sha256": "46ab79f531249a3a"
+          },
+          {
+            "role": "user",
+            "bytes": 126,
+            "sha256": "382363c35c81caf4"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S4",
+      "router": "P03",
+      "mount": {
+        "router_id": "P03",
+        "phase": "S4",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B03",
+            "file_name": "B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B03_OPERATION_OBJECT_APPLICABILITY_OPEN_WORLD_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "81fff21a1927dcd1e9362bd2d2a8eaed06687b670f06406a491bcc7eee7eba38",
+            "bytes": 13973
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55705,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": {
+            "kind": "ARITHMETIC_EVALUATION",
+            "applicable": true,
+            "why_not": "",
+            "open_world_gap": false
+          },
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "operation": {
+              "kind": "ARITHMETIC_EVALUATION",
+              "applicable": true,
+              "why_not": "",
+              "open_world_gap": false
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13995,
+        "tokens_out": 43,
+        "latency_ms": 2320,
+        "error": "",
+        "request_hash": "1e31c7da6b685b61b36ac336ef8247a66319047eb16bb06c9c978ecd5799e8d0",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14034,
+            "sha256": "4b71c5ea811a5679"
+          },
+          {
+            "role": "system",
+            "bytes": 4192,
+            "sha256": "acea9bbb5df265b6"
+          },
+          {
+            "role": "system",
+            "bytes": 4399,
+            "sha256": "f0d99f29329fdaa0"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "11c53b6ec4121dd9"
+          },
+          {
+            "role": "user",
+            "bytes": 2141,
+            "sha256": "e6f911f6a9907f84"
+          },
+          {
+            "role": "user",
+            "bytes": 126,
+            "sha256": "382363c35c81caf4"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S5",
+      "router": "P04",
+      "mount": {
+        "router_id": "P04",
+        "phase": "S5",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B04",
+            "file_name": "B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B04_ATTENTION_VNYATIE_RETRIEVAL_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "513f5ac54bcddb667cf926d156f7a4fc1906719b531a36f41a4309dfb9603697",
+            "bytes": 11941
+          },
+          {
+            "body_id": "B05",
+            "file_name": "B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B05_MEMORY_FORMATION_STATE_WRITE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "eb486cfa33c192252f7f45d4d2ec72a949f6c770a2dab373651563921ab0be55",
+            "bytes": 12947
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 66620,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "triggers": [],
+            "memory_proposal": null
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 15435,
+        "tokens_out": 16,
+        "latency_ms": 3210,
+        "error": "",
+        "request_hash": "23d838dd595509d78f8418151e049e2874fbdb528f97fc88b89e3c6ebe09f02f",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12002,
+            "sha256": "bab8dea0e1c63171"
+          },
+          {
+            "role": "system",
+            "bytes": 13008,
+            "sha256": "9ac369735a71abe9"
+          },
+          {
+            "role": "system",
+            "bytes": 4341,
+            "sha256": "8680ce188d7b9807"
+          },
+          {
+            "role": "system",
+            "bytes": 1808,
+            "sha256": "fcc09d060c3dc9fc"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "447d08d17b50daec"
+          },
+          {
+            "role": "user",
+            "bytes": 2162,
+            "sha256": "72e0f13cee1a677a"
+          },
+          {
+            "role": "user",
+            "bytes": 126,
+            "sha256": "382363c35c81caf4"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S6",
+      "router": "P05",
+      "mount": {
+        "router_id": "P05",
+        "phase": "S6",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B06",
+            "file_name": "B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B06_HUMAN_OPERATION_OWNERSHIP_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "88f3db084035f87af9122346d8d4f6e85a3e798e95dcdf07090fca872ede75a5",
+            "bytes": 14135
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 55867,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": {
+            "owner": "system",
+            "human_resolved": true,
+            "return_reason": "The operation is a direct, explicit arithmetic calculation with unambiguous criteria and no human-owned binding required. Execution is system-owned; no question or return to the user is necessary."
+          },
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "ownership": {
+              "owner": "system",
+              "human_resolved": true,
+              "return_reason": "The operation is a direct, explicit arithmetic calculation with unambiguous criteria and no human-owned binding required. Execution is system-owned; no question or return to the user is necessary."
+            }
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13478,
+        "tokens_out": 66,
+        "latency_ms": 3166,
+        "error": "",
+        "request_hash": "67f47c93d353dd1ac0bc46f9e67c29775d0a1caa74fd85ed0d31853086f2f949",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 14196,
+            "sha256": "7fec8b1022fe82e3"
+          },
+          {
+            "role": "system",
+            "bytes": 4347,
+            "sha256": "94554835abc55f0a"
+          },
+          {
+            "role": "system",
+            "bytes": 2338,
+            "sha256": "fca8ed0fe8a4030d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "e57ae43f0e866888"
+          },
+          {
+            "role": "user",
+            "bytes": 2162,
+            "sha256": "39f7d16d0a813e97"
+          },
+          {
+            "role": "user",
+            "bytes": 126,
+            "sha256": "382363c35c81caf4"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S8",
+      "router": "P07",
+      "mount": {
+        "router_id": "P07",
+        "phase": "S8",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 53638,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 13002,
+        "tokens_out": 15,
+        "latency_ms": 1862,
+        "error": "",
+        "request_hash": "7fc3fbc642e6926ed885106aa63f80969a2a70ad8ad72886c6405943b38f3d3e",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4532,
+            "sha256": "b196b86c4e705f6a"
+          },
+          {
+            "role": "system",
+            "bytes": 1304,
+            "sha256": "f6afa451cb13db0d"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "48894f773015e467"
+          },
+          {
+            "role": "user",
+            "bytes": 2358,
+            "sha256": "6536f3cd42f75b0e"
+          },
+          {
+            "role": "user",
+            "bytes": 126,
+            "sha256": "382363c35c81caf4"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S9",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S9",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": null,
+          "invoke_council": false,
+          "invoke_execution": true,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "invoke_execution": true,
+            "memory_proposal": null
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 17866,
+        "tokens_out": 17,
+        "latency_ms": 2296,
+        "error": "",
+        "request_hash": "f48d4a716d6bf7669be67cff992ec2a579c117b4bffccb17757ebe57182e200a",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 870,
+            "sha256": "b3c49d62f2113bb1"
+          },
+          {
+            "role": "system",
+            "bytes": 136,
+            "sha256": "d84c9263f7722a13"
+          },
+          {
+            "role": "user",
+            "bytes": 2357,
+            "sha256": "b4a1c6e5e58ebece"
+          },
+          {
+            "role": "user",
+            "bytes": 126,
+            "sha256": "382363c35c81caf4"
+          }
+        ]
+      }
+    },
+    {
+      "phase": "S10",
+      "router": "P08",
+      "mount": {
+        "router_id": "P08",
+        "phase": "S10",
+        "required": [
+          {
+            "body_id": "CORE",
+            "file_name": "SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/SOCRATES_CORE_SEMANTIC_BODY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "be8ec30cca75004e4f6f1379fdf654bc3944c0a7931b23a8a66ec9bb209ee323",
+            "bytes": 41732
+          },
+          {
+            "body_id": "B02",
+            "file_name": "B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B02_ORIGIN_STATUS_TEMPORALITY_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "9b6bab2afeae4a894481b7ec563632a0aaa795f776b6b01cf28fbf07f4c811f5",
+            "bytes": 12356
+          },
+          {
+            "body_id": "B09",
+            "file_name": "B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B09_POSITIONAL_ECOLOGY_COUNCIL_ARBITRATION_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "aa5a37ada97fb392b78fc26216dd089cac8d7fd9b9bd3b8eb1983f1b5db32ca8",
+            "bytes": 10778
+          },
+          {
+            "body_id": "B10",
+            "file_name": "B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "absolute_path": "/opt/tinkuy/app/CALIFORNIAN_ID/data/socrates/current/semantic/B10_INTERVENTION_DIALOGUE_SELF_REVIEW_STATE_CHANGE_v0.2_candidate.md",
+            "semantic_version": "0.2",
+            "sha256": "fa0bc41c3b355b0e38cfd5a678c0dd3a006e19db56fdf89bbd7a495938910ed6",
+            "bytes": 11906
+          }
+        ],
+        "conditional_admitted": [],
+        "admitted_triggers": [],
+        "rejected_triggers": [],
+        "total_bytes": 76772,
+        "budget_bytes": 300000
+      },
+      "execution": {
+        "delta": {
+          "scene": null,
+          "origin": null,
+          "operation": null,
+          "ownership": null,
+          "triggers": [],
+          "memory_proposal": {
+            "kind": "observation",
+            "text": "The answer to the arithmetic question 'What is 2 + 2?' is 4.",
+            "grounds": "This is a direct, system-owned arithmetic calculation with explicit operands and unambiguous criteria. No human-owned binding or interpretive operation is required."
+          },
+          "invoke_council": false,
+          "invoke_execution": false,
+          "reflective_return": null,
+          "projection_synthesis_proposal": null,
+          "origin_kind": "MODEL_PRODUCED",
+          "parsed": {
+            "memory_proposal": {
+              "kind": "observation",
+              "text": "The answer to the arithmetic question 'What is 2 + 2?' is 4.",
+              "grounds": "This is a direct, system-owned arithmetic calculation with explicit operands and unambiguous criteria. No human-owned binding or interpretive operation is required."
+            },
+            "triggers": []
+          }
+        },
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "attempts": 1,
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "tokens_in": 18064,
+        "tokens_out": 83,
+        "latency_ms": 3034,
+        "error": "",
+        "request_hash": "5dfd8416a9fd57d0342bb71f8ffbb318ba16771028bf6de311fbd5117f5af832",
+        "messages_summary": [
+          {
+            "role": "system",
+            "bytes": 41794,
+            "sha256": "64321ada3a4f3946"
+          },
+          {
+            "role": "system",
+            "bytes": 12417,
+            "sha256": "003cbfd182dfda69"
+          },
+          {
+            "role": "system",
+            "bytes": 10839,
+            "sha256": "464d30cc80353fc7"
+          },
+          {
+            "role": "system",
+            "bytes": 11967,
+            "sha256": "7e1f61412a547000"
+          },
+          {
+            "role": "system",
+            "bytes": 4681,
+            "sha256": "413d945b190027b8"
+          },
+          {
+            "role": "system",
+            "bytes": 1810,
+            "sha256": "8b6a21413071b270"
+          },
+          {
+            "role": "system",
+            "bytes": 137,
+            "sha256": "2df0bbfdef20c98f"
+          },
+          {
+            "role": "user",
+            "bytes": 2357,
+            "sha256": "21bcb7a4ca700272"
+          },
+          {
+            "role": "user",
+            "bytes": 126,
+            "sha256": "382363c35c81caf4"
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "run_id": "srun_3206c57af12e0afa",
+    "input_text": "What is 2 + 2?",
+    "source_id": "src_38d46ad3618826cf",
+    "phase": "S10",
+    "scene": {
+      "telos": "Directly answer a simple arithmetic question.",
+      "role_hint": "system assistant, technical executor",
+      "authority": "system",
+      "materials": [
+        "arithmetic question: 2 + 2"
+      ]
+    },
+    "origin": {
+      "status": "unknown",
+      "sources_named": [],
+      "binding_authority": "system",
+      "temporal_stale": false
+    },
+    "operation": {
+      "kind": "ARITHMETIC_EVALUATION",
+      "applicable": true,
+      "why_not": "",
+      "open_world_gap": false
+    },
+    "ownership": {
+      "owner": "system",
+      "human_resolved": true,
+      "return_reason": "The operation is a direct, explicit arithmetic calculation with unambiguous criteria and no human-owned binding required. Execution is system-owned; no question or return to the user is necessary."
+    },
+    "council_invoked": false,
+    "execution_invoked": true,
+    "admitted_trigger_causes": [],
+    "pending_trigger_candidates": [],
+    "trigger_typing_decisions": [],
+    "trigger_admission_decisions": [],
+    "admitted_trigger_events": [],
+    "rejected_trigger_candidates": [],
+    "trigger_type_gaps": [],
+    "memory_proposal": {
+      "kind": "observation",
+      "text": "The answer to the arithmetic question 'What is 2 + 2?' is 4.",
+      "grounds": "This is a direct, system-owned arithmetic calculation with explicit operands and unambiguous criteria. No human-owned binding or interpretive operation is required."
+    },
+    "committed_memory_note_id": "",
+    "projection_lineage": {
+      "iteration": 0,
+      "entries": [],
+      "revisions": [],
+      "diagnostics_history": []
+    },
+    "pending_diagnostic": null,
+    "reentry_from": "",
+    "pending_reflective_context": null,
+    "capability_resolutions": [],
+    "operation_target_family": [],
+    "operation_hypotheses": {},
+    "pending_projection_proposal": null,
+    "space_id": "space_default_workspace",
+    "scene_id": "scene_e754035f6be2",
+    "branch_id": "",
+    "space_registry": {
+      "space_default_workspace": {
+        "space_id": "space_default_workspace",
+        "version": "v0.1_candidate",
+        "name": "default_workspace",
+        "telos_scope": "general assistance",
+        "world_model_mounts": [],
+        "ontology_refs": [],
+        "proof_regime": "default",
+        "claim_status_policy": "default",
+        "allowed_operation_families": [
+          "*"
+        ],
+        "operator_capabilities": [
+          "*"
+        ],
+        "corpus_namespaces": [
+          "*"
+        ],
+        "retrieval_policy": "default",
+        "memory_default_scope": "PROJECT",
+        "memory_recruitment_policy": "default",
+        "authority_refs": [],
+        "transition_policy": "default",
+        "provenance": "runtime_default",
+        "activation_scope": "all_runs_by_default",
+        "lineage": [],
+        "supersedes": "",
+        "status": "active"
+      }
+    },
+    "scene_registry": {
+      "scenes": {
+        "scene_e754035f6be2": {
+          "scene_id": "scene_e754035f6be2",
+          "space_id": "space_default_workspace",
+          "parent_scene_id": "",
+          "branch_id": "",
+          "version": ""
+        }
+      },
+      "branches": {}
+    },
+    "context_transductions": [],
+    "conflict_registry": [],
+    "passports": [],
+    "intervention_plan": {
+      "profile_name": "normal",
+      "epistemic_pressure": "MEDIUM",
+      "rhetorical_harshness": "POLITE",
+      "liberatory_pressure": "LIGHT",
+      "max_projection_iterations": 3,
+      "counterexample_budget": 1,
+      "reconstruction_required": false,
+      "release_pass_required": false,
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "liberatory_pass_result": {
+      "triggered": false,
+      "executed": false,
+      "survived_flag": false,
+      "survival_reason": "",
+      "reconstruction_note": "",
+      "release_kind": "NOT_APPLICABLE",
+      "authority": "NO_TRUTH_STATUS_AUTHORITY"
+    },
+    "question_set_plan": null,
+    "dyad_session_projection": {
+      "session_key": "ctx_829f75cd8a743d14fe6e9836ef721b5f",
+      "sequence": 0,
+      "records": [],
+      "user_view": {
+        "view_id": "uev_422fa810d26b",
+        "immediate_wants": [],
+        "hypotheses": [],
+        "belief_entries": []
+      },
+      "last_prediction_class": "NONE",
+      "last_predicted_need": "EXPLANATION",
+      "last_predicted_claim": "",
+      "consecutive_failures": 0,
+      "shared_object_ids": []
+    }
+  },
+  "rendering": {
+    "text": "Ответ: 7 плюс 5 равно 12.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 149,
+    "tokens_out": 11,
+    "latency_ms": 1992,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_9d0c5d6b05b4b9dc.json",
+  "duration_ms": 30991,
+  "intervention_profile": "normal",
+  "intervention_plan": {
+    "profile_name": "normal",
+    "epistemic_pressure": "MEDIUM",
+    "rhetorical_harshness": "POLITE",
+    "liberatory_pressure": "LIGHT",
+    "max_projection_iterations": 3,
+    "counterexample_budget": 1,
+    "reconstruction_required": false,
+    "release_pass_required": false,
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "liberatory_pass_result": {
+    "triggered": false,
+    "executed": false,
+    "survived_flag": false,
+    "survival_reason": "",
+    "reconstruction_note": "",
+    "release_kind": "NOT_APPLICABLE",
+    "authority": "NO_TRUTH_STATUS_AUTHORITY"
+  },
+  "question_set_plan": null,
+  "question_intent_proposal": {
+    "requested": false,
+    "regime_candidate": "",
+    "explicit_count_constraint": null,
+    "meta_relevance": "ordinary",
+    "forks": [],
+    "subordinates": [],
+    "validation_status": "OK",
+    "validation_reason": "requested=false",
+    "authority": "NO_BINDING_AUTHORITY",
+    "origin": "MODEL_PRODUCED_VALIDATED",
+    "latency_ms": 1863
+  },
+  "context_id": "ctx_829f75cd8a743d14fe6e9836ef721b5f",
+  "context_continuity": {
+    "context_id": "ctx_829f75cd8a743d14fe6e9836ef721b5f",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_7956d13074c4",
+      "version": 1,
+      "scene_id": "scene_e754035f6be2",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Directly answer a simple arithmetic question.",
+      "telos": "Directly answer a simple arithmetic question.",
+      "object_scope": "arithmetic question: 2 + 2",
+      "operation_kind": "ARITHMETIC_EVALUATION",
+      "expected_intervention": "ARITHMETIC_EVALUATION",
+      "human_owned_decisions": [
+        "The operation is a direct, explicit arithmetic calculation with unambiguous criteria and no human-owned binding required. Execution is system-owned; no question or return to the user is necessary."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "system"
+    },
+    "contract_revision": null,
+    "contract_revision_admission": null,
+    "recognition_pass": {
+      "pass_id": "rp_617682bfb3fc",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [],
+      "revision_admissions": [],
+      "drift_assessment": null,
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_created:sc_7956d13074c4"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_7956d13074c4",
+    "contract_history": [
+      {
+        "contract_id": "sc_7956d13074c4",
+        "version": 1,
+        "scene_id": "scene_e754035f6be2",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Directly answer a simple arithmetic question.",
+        "telos": "Directly answer a simple arithmetic question.",
+        "object_scope": "arithmetic question: 2 + 2",
+        "operation_kind": "ARITHMETIC_EVALUATION",
+        "expected_intervention": "ARITHMETIC_EVALUATION",
+        "human_owned_decisions": [
+          "The operation is a direct, explicit arithmetic calculation with unambiguous criteria and no human-owned binding required. Execution is system-owned; no question or return to the user is necessary."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "system"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_99a045a1f8be",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "rhetorical_harshness_ignored:POLITE",
+        "no_typed_material_need"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_12ab6da0c20a",
+    "classification": "ORDINARY_UNRESOLVED",
+    "aporia": {
+      "observation_id": "apo_e4e03d6c9e50",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_38d46ad3618826cf",
+      "resistance_evidence": [
+        "no_typed_apparatus_failure"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_6aebb7d12019",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=ORDINARY_UNRESOLVED",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "no_typed_apparatus_failure"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_829f75cd8a743d14fe6e9836ef721b5f",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "EXPECTED",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "telos:directly answer a simple arithmetic question.",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_38d46ad36188"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "",
+    "causal_effect": "skipped_easy_direct",
+    "likely_failure_source": "NONE",
+    "extra_inference_pass": false,
+    "stop_reason": "easy_direct_no_extra_dyad_inference",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  },
+  "self_development": {
+    "self_development_ref": "sd_9dea82d47114",
+    "status": "NO_CANDIDATE",
+    "candidate": null,
+    "trigger_ground": "insufficient_apparatus_signal:ORDINARY_UNRESOLVED",
+    "critique_findings": [],
+    "scope_decision": "SCENE",
+    "authority": "NO_ADOPTION_AUTHORITY",
+    "write_decision": "NO_DURABLE_WRITE",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3e_reentry",
+    "self_mutation_authority": "NO",
+    "injection_blocked": false
+  }
+}
