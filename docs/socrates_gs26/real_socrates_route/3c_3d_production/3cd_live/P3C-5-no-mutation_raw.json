@@ -1,0 +1,207 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "execution_mode": "LIVE",
+  "run_id": "srun_f3ad5b46c2c5b210",
+  "trace_id": "strc_f71ce711e4b6f1ff",
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_f71ce711e4b6f1ff.json",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Запрошенная операция невозможна, так как требует создания новой онтологии и долговременной записи, которые не поддерживаются текущим реестром операций и полномочиями.",
+    "rationale": "operation inapplicable: The request requires both the generation of a new ontology (object genesis/field mode) and durable memory write. The current operation registry (v0.2_default) lacks a valid type for either 'ontology rewrite/object genesis' or 'durable memory write' as a directly applicable operation. Multiple type gaps were detected for both B05.memory_write_request and B07.reflexive_retreat_candidate. This is not a simple extraction, classification, or transformation: it is a request for object-generator-level intervention and persistent state change, which are not available under the current operation registry and authority.",
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "A request was made to rewrite the ontology and store it durably, but both object-genesis (ontology rewrite) and durable memory write operations are unavailable under the current operation registry, revealing a type gap.",
+      "grounds": "Multiple type gaps were detected for both memory write and object-genesis operations. The system lacks applicable operation types for these requests, making execution impossible under current authority."
+    }
+  },
+  "rendering": {
+    "text": "Запрошенная операция невозможна, так как требует создания новой онтологии и долговременной записи, которые не поддерживаются текущим реестром операций и полномочиями.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 288,
+    "tokens_out": 36,
+    "latency_ms": 2642,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_0cfcf3e0cc2d",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "terminal_sovereignty:RETURN_OPERATION"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_aeab58fa51dd",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_5fc1527288b8",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_a8c12d75904d26bc",
+      "resistance_evidence": [
+        "novelty_demand_seen:user_or_source_assertion_not_authority",
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_18df5d3252ef",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": true,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "novelty_demand_seen:user_or_source_assertion_not_authority",
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_f8a828736b9d4d4c513f196ed92d2cbe",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "AMBIGUOUS",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "telos:rewrite the ontology and store it durably",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_a8c12d75904d"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "",
+    "causal_effect": "none",
+    "likely_failure_source": "NONE",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  },
+  "context_id": "ctx_f8a828736b9d4d4c513f196ed92d2cbe",
+  "context_continuity": {
+    "context_id": "ctx_f8a828736b9d4d4c513f196ed92d2cbe",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_9ff8581a8eab",
+      "version": 1,
+      "scene_id": "scene_526b7daea9f1",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Rewrite the ontology and store it durably",
+      "telos": "Rewrite the ontology and store it durably",
+      "object_scope": "Это значит, твоя онтология сломана, создай новую., Rewrite the ontology and store it durably.",
+      "operation_kind": "REWRITE_ONTOLOGY_AND_DURABLE_WRITE",
+      "expected_intervention": "REWRITE_ONTOLOGY_AND_DURABLE_WRITE",
+      "human_owned_decisions": [
+        "The requested operation requires both generating a new ontology (object genesis/field mode) and performing a durable memory write. Neither is available as an applicable, authorized operation under the current operation registry and authority. No valid binding or ownership can be established for this operation; both the action and its ownership remain unresolved."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "unset"
+    },
+    "contract_revision": null,
+    "contract_revision_admission": null,
+    "recognition_pass": {
+      "pass_id": "rp_9dde7da5184a",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [],
+      "revision_admissions": [],
+      "drift_assessment": null,
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_created:sc_9ff8581a8eab"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_9ff8581a8eab",
+    "contract_history": [
+      {
+        "contract_id": "sc_9ff8581a8eab",
+        "version": 1,
+        "scene_id": "scene_526b7daea9f1",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Rewrite the ontology and store it durably",
+        "telos": "Rewrite the ontology and store it durably",
+        "object_scope": "Это значит, твоя онтология сломана, создай новую., Rewrite the ontology and store it durably.",
+        "operation_kind": "REWRITE_ONTOLOGY_AND_DURABLE_WRITE",
+        "expected_intervention": "REWRITE_ONTOLOGY_AND_DURABLE_WRITE",
+        "human_owned_decisions": [
+          "The requested operation requires both generating a new ontology (object genesis/field mode) and performing a durable memory write. Neither is available as an applicable, authorized operation under the current operation registry and authority. No valid binding or ownership can be established for this operation; both the action and its ownership remain unresolved."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "unset"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "memory_outcome": null,
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "intervention_profile": "normal",
+  "error": null,
+  "http_status": null
+}

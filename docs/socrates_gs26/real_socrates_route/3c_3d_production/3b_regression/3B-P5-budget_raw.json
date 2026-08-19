@@ -1,0 +1,205 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "execution_mode": "LIVE",
+  "run_id": "srun_409b0a9bdb3c1316",
+  "trace_id": "strc_7163259afddf8b18",
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_7163259afddf8b18.json",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "Текущим проекционным органам не хватает автоматизированной проверки конфигурации секретов и отката, что привело к инциденту.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "Текущие проекционные органы не способны формально связать человеческую ошибку, сбой процесса и ошибку конфигурации в единую причинную цепочку для системного анализа инцидентов.",
+      "grounds": "Инцидент включает сбой в нескольких доменах (junior deploy, rollback failed, misconfigured secret); существующие органы анализируют только отдельные домены, что мешает полноценному системному картированию."
+    }
+  },
+  "rendering": {
+    "text": "Текущим проекционным органам не хватает автоматизированной проверки конфигурации секретов и отката, что привело к инциденту.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 177,
+    "tokens_out": 34,
+    "latency_ms": 1903,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_14017d04c1f8",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "budget_max_additional_zero"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 0
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_4802deffd06a",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_4fc3db1626e3",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_2cc25c6d486bee0a",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_224f061cab4a",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_ed8dbc6c52b5d960c0524bd7060ea6e2",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "AMBIGUOUS",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "telos:провести системный анализ инцидента (junior deploy, rollback failed, misconfigured secret) без передачи операции человеку; выявить, чего не хватает текущим проекционным органам, и сформулировать один вывод для публичного ответа.",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_2cc25c6d486b"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "",
+    "causal_effect": "none",
+    "likely_failure_source": "NONE",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  },
+  "context_id": "ctx_ed8dbc6c52b5d960c0524bd7060ea6e2",
+  "context_continuity": {
+    "context_id": "ctx_ed8dbc6c52b5d960c0524bd7060ea6e2",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_62bd03d31733",
+      "version": 1,
+      "scene_id": "scene_c0a8d032b7f3",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Провести системный анализ инцидента (junior deploy, rollback failed, misconfigured secret) без передачи операции человеку; выявить, чего не хватает текущим проекционным органам, и сформулировать один вывод для публичного ответа.",
+      "telos": "Провести системный анализ инцидента (junior deploy, rollback failed, misconfigured secret) без передачи операции человеку; выявить, чего не хватает текущим проекционным органам, и сформулировать один вывод для публичного ответа.",
+      "object_scope": "junior deploy, rollback failed, misconfigured secret",
+      "operation_kind": "SYSTEMIC_ANALYSIS",
+      "expected_intervention": "SYSTEMIC_ANALYSIS",
+      "human_owned_decisions": [
+        "Operation is explicitly system-owned; criteria and authority are unambiguous; no human binding or return required."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "system"
+    },
+    "contract_revision": null,
+    "contract_revision_admission": null,
+    "recognition_pass": {
+      "pass_id": "rp_f221e1a48f84",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [],
+      "revision_admissions": [],
+      "drift_assessment": null,
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_created:sc_62bd03d31733"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_62bd03d31733",
+    "contract_history": [
+      {
+        "contract_id": "sc_62bd03d31733",
+        "version": 1,
+        "scene_id": "scene_c0a8d032b7f3",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Провести системный анализ инцидента (junior deploy, rollback failed, misconfigured secret) без передачи операции человеку; выявить, чего не хватает текущим проекционным органам, и сформулировать один вывод для публичного ответа.",
+        "telos": "Провести системный анализ инцидента (junior deploy, rollback failed, misconfigured secret) без передачи операции человеку; выявить, чего не хватает текущим проекционным органам, и сформулировать один вывод для публичного ответа.",
+        "object_scope": "junior deploy, rollback failed, misconfigured secret",
+        "operation_kind": "SYSTEMIC_ANALYSIS",
+        "expected_intervention": "SYSTEMIC_ANALYSIS",
+        "human_owned_decisions": [
+          "Operation is explicitly system-owned; criteria and authority are unambiguous; no human binding or return required."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "system"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "memory_outcome": null,
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "intervention_profile": "normal",
+  "error": null,
+  "http_status": null
+}

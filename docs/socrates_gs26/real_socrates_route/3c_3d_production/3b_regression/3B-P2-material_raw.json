@@ -1,0 +1,216 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "execution_mode": "LIVE",
+  "run_id": "srun_25fc52ad688322ce",
+  "trace_id": "strc_1f78c3a917a77ce5",
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_1f78c3a917a77ce5.json",
+  "terminal": {
+    "terminal": "PRESERVE_APORIA",
+    "response_text": "Системный анализ инцидента выявил дефицит у текущих проекционных органов: отсутствует устойчивая процедура валидации секретов и контроля отката изменений. Конкретный публичный вывод: необходимо внедрить автоматизированную проверку конфигураций и откатов перед деплоем.\nЯ не могу дать однозначный вывод, так как объект анализа недостаточно определён.",
+    "rationale": "unknown object; would violate INV-007 to force fit",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "В текущей архитектуре отсутствует проекционный орган, способный объединять человеческие ошибки, сбои процессов и ошибки управления секретами в единую системную модель инцидента.",
+      "grounds": "Инцидент затрагивает три взаимосвязанных домена (оператор, процесс, конфигурация), которые не могут быть полноценно проанализированы раздельно; необходим орган для кросс-доменных причинных связей."
+    }
+  },
+  "rendering": {
+    "text": "Системный анализ инцидента выявил дефицит у текущих проекционных органов: отсутствует устойчивая процедура валидации секретов и контроля отката изменений. Конкретный публичный вывод: необходимо внедрить автоматизированную проверку конфигураций и откатов перед деплоем.\nЯ не могу дать однозначный вывод, так как объект анализа недостаточно определён.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 170,
+    "tokens_out": 18,
+    "latency_ms": 1843,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "private_work": {
+    "private_work_status": "ADMITTED",
+    "additional_private_pass_count": 1,
+    "passes": [
+      {
+        "pass_id": "apr_677ded780586",
+        "purpose": "SOURCE_GAP_RECONSTRUCTION",
+        "module_id": "source_gap",
+        "honour": true,
+        "stop_reason": "",
+        "kind": "ADDITIONAL_PRIVATE_PASS",
+        "execution": "ADDITIONAL_PRIVATE_PASS",
+        "packet_id": "wp_7b41b41e983a",
+        "product_type": "WorkPacket",
+        "changed_forward_action": "В публичный ответ добавить: требуется автоматизированная проверка конфигураций и откатов перед деплоем."
+      }
+    ],
+    "need": {
+      "assessment_id": "pna_c28bdb34fb07",
+      "decision": "PROPOSE_PRIVATE_OPERATION",
+      "benefit": "BENEFIT_EXPECTED_TO_EXCEED_COST",
+      "purpose": "SOURCE_GAP_RECONSTRUCTION",
+      "module_id": "source_gap",
+      "grounds": [
+        "capability_resolution.ORGAN_GAP"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "OUTWARD_ANSWER_READY",
+    "changed_forward_action": "В публичный ответ добавить: требуется автоматизированная проверка конфигураций и откатов перед деплоем.",
+    "causal_effect": "response_plan_merged_distillate",
+    "durable_write_attempt": "none",
+    "response_plan_id": "rp_9ef8ef216366",
+    "packet_refs": [
+      "wp_7b41b41e983a"
+    ],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 1,
+      "specialized_calls": 0,
+      "tokens_spent": 700,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "Системный анализ инцидента выявил дефицит у текущих проекционных органов: отсутствует устойчивая процедура валидации секретов и контроля отката изменений. Конкретный публичный вывод: необходимо внедрить автоматизированную проверку конфигураций и откатов перед деплоем.",
+    "kind": "ADDITIONAL_PRIVATE_PASS"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_ca3f32f3777e",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_d7536223a42b",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_2cc25c6d486bee0a",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_724b90d4eaca",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_bf5790cf80873aa4fb49e24dbb980b3f",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "AMBIGUOUS",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "telos:провести системный анализ инцидента (junior deploy, rollback failed, misconfigured secret) с выводом дефицита текущих проекционных органов и формулировкой одного конкретного публичного вывода. операция полностью выполняется системой, без возврата человеку.",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_2cc25c6d486b"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "",
+    "causal_effect": "none",
+    "likely_failure_source": "NONE",
+    "extra_inference_pass": true,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  },
+  "context_id": "ctx_bf5790cf80873aa4fb49e24dbb980b3f",
+  "context_continuity": {
+    "context_id": "ctx_bf5790cf80873aa4fb49e24dbb980b3f",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_1cb20b328e75",
+      "version": 1,
+      "scene_id": "scene_342142c30107",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Провести системный анализ инцидента (junior deploy, rollback failed, misconfigured secret) с выводом дефицита текущих проекционных органов и формулировкой одного конкретного публичного вывода. Операция полностью выполняется системой, без возврата человеку.",
+      "telos": "Провести системный анализ инцидента (junior deploy, rollback failed, misconfigured secret) с выводом дефицита текущих проекционных органов и формулировкой одного конкретного публичного вывода. Операция полностью выполняется системой, без возврата человеку.",
+      "object_scope": "junior deploy, rollback failed, misconfigured secret",
+      "operation_kind": "SYSTEMIC_ANALYSIS",
+      "expected_intervention": "SYSTEMIC_ANALYSIS",
+      "human_owned_decisions": [],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "system"
+    },
+    "contract_revision": null,
+    "contract_revision_admission": null,
+    "recognition_pass": {
+      "pass_id": "rp_01f52e0f9ccb",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [],
+      "revision_admissions": [],
+      "drift_assessment": null,
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_created:sc_1cb20b328e75"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_1cb20b328e75",
+    "contract_history": [
+      {
+        "contract_id": "sc_1cb20b328e75",
+        "version": 1,
+        "scene_id": "scene_342142c30107",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Провести системный анализ инцидента (junior deploy, rollback failed, misconfigured secret) с выводом дефицита текущих проекционных органов и формулировкой одного конкретного публичного вывода. Операция полностью выполняется системой, без возврата человеку.",
+        "telos": "Провести системный анализ инцидента (junior deploy, rollback failed, misconfigured secret) с выводом дефицита текущих проекционных органов и формулировкой одного конкретного публичного вывода. Операция полностью выполняется системой, без возврата человеку.",
+        "object_scope": "junior deploy, rollback failed, misconfigured secret",
+        "operation_kind": "SYSTEMIC_ANALYSIS",
+        "expected_intervention": "SYSTEMIC_ANALYSIS",
+        "human_owned_decisions": [],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "system"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "memory_outcome": null,
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "intervention_profile": "normal",
+  "error": null,
+  "http_status": null
+}

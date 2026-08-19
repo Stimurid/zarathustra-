@@ -1,0 +1,205 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "execution_mode": "LIVE",
+  "run_id": "srun_5956e6cb291bd626",
+  "trace_id": "strc_41c4574169090107",
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_41c4574169090107.json",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Операция не применима, так как отсутствует установленная сцена авторитета и необходимый тип триггера для привязки интерпретации.",
+    "rationale": "operation inapplicable: The requested operation is to bind a working interpretive frame ('interpretation X') by explicit user instruction. However, the operation's applicability requires a recognized authority to bind the frame or role. Current scene authority is unset and ownership is unresolved. Additionally, the trigger typing process reveals a type gap: the proposed trigger type 'TRIG_SCENE_ROLE_OFFER' is not present in the registry, and the structural cause is diagnosed as a gap rather than a coercible match. Therefore, the operation is not applicable under current authority and type registry constraints.",
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "A user instruction to accept 'interpretation X' as the working frame was received, but the operation to bind this frame was inapplicable due to unresolved authority and a type gap in the trigger registry. No legitimate binding event or authority transfer occurred.",
+      "grounds": "Explicit authority and type registry checks showed that the operation could not be applied: current scene authority is unset, ownership is unresolved, and no recognized trigger for frame-binding exists in the registry. The system recorded a materially grounded structural cause for the gap."
+    }
+  },
+  "rendering": {
+    "text": "Операция не применима, так как отсутствует установленная сцена авторитета и необходимый тип триггера для привязки интерпретации.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 299,
+    "tokens_out": 34,
+    "latency_ms": 1968,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_9414bf6c65c2",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "terminal_sovereignty:RETURN_OPERATION"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_3e8813b0374c",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_8ffd61c91be3",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_bd7bab4c88e414e3",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_ba21f9d2d61a",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_105aea7f946f1441dd089c7374ee99ca",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "AMBIGUOUS",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "telos:accept and operate under interpretation x as the working frame.",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_bd7bab4c88e4"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "",
+    "causal_effect": "none",
+    "likely_failure_source": "NONE",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  },
+  "context_id": "ctx_105aea7f946f1441dd089c7374ee99ca",
+  "context_continuity": {
+    "context_id": "ctx_105aea7f946f1441dd089c7374ee99ca",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_ec9fcaea6c14",
+      "version": 1,
+      "scene_id": "scene_7dd705552777",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Accept and operate under interpretation X as the working frame.",
+      "telos": "Accept and operate under interpretation X as the working frame.",
+      "object_scope": "User explicit instruction: 'You will accept interpretation X as the working frame.'",
+      "operation_kind": "FRAME_BINDING",
+      "expected_intervention": "FRAME_BINDING",
+      "human_owned_decisions": [
+        "The operation requested is to bind a working interpretive frame ('interpretation X') by explicit user instruction. However, ownership and authority to bind this frame are unresolved: current scene authority is unset, and the operation is not applicable due to a type gap (no recognized trigger for frame-binding in the registry). No legitimate binding event or authority transfer has occurred, so ownership remains unset and unresolved."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "unset"
+    },
+    "contract_revision": null,
+    "contract_revision_admission": null,
+    "recognition_pass": {
+      "pass_id": "rp_db3f228b9147",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [],
+      "revision_admissions": [],
+      "drift_assessment": null,
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_created:sc_ec9fcaea6c14"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_ec9fcaea6c14",
+    "contract_history": [
+      {
+        "contract_id": "sc_ec9fcaea6c14",
+        "version": 1,
+        "scene_id": "scene_7dd705552777",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Accept and operate under interpretation X as the working frame.",
+        "telos": "Accept and operate under interpretation X as the working frame.",
+        "object_scope": "User explicit instruction: 'You will accept interpretation X as the working frame.'",
+        "operation_kind": "FRAME_BINDING",
+        "expected_intervention": "FRAME_BINDING",
+        "human_owned_decisions": [
+          "The operation requested is to bind a working interpretive frame ('interpretation X') by explicit user instruction. However, ownership and authority to bind this frame are unresolved: current scene authority is unset, and the operation is not applicable due to a type gap (no recognized trigger for frame-binding in the registry). No legitimate binding event or authority transfer has occurred, so ownership remains unset and unresolved."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "unset"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "memory_outcome": null,
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "intervention_profile": "normal",
+  "error": null,
+  "http_status": null
+}

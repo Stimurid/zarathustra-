@@ -1,0 +1,329 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "execution_mode": "LIVE",
+  "run_id": "srun_6ae8323722119c2f",
+  "trace_id": "strc_46606003176b6672",
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_46606003176b6672.json",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "Примените уже установленную сцену инцидента бета напрямую, без изменений.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "A type gap was detected: the operation requires direct application of an existing scene object ('incident scene beta') without any reconstruction, segmentation, or analytic transformation. The current type registry lacks an explicit type for 'do not reconstruct or retrieve' operations, and this gap is materially grounded by the explicit prohibition in the instruction.",
+      "grounds": "Multiple type gap triggers (e.g., 'B05_DO_NOT_RETRIEVE_OR_RECONSTRUCT') were proposed and rejected as not present in the current registry. The instruction and operation both confirm that only direct application is warranted; no analytic or reconstructive operation is permitted."
+    }
+  },
+  "rendering": {
+    "text": "Примените уже установленную сцену инцидента бета напрямую, без изменений.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 184,
+    "tokens_out": 18,
+    "latency_ms": 1595,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "private_work": {
+    "private_work_status": "NO_CHANGE_STOP",
+    "additional_private_pass_count": 1,
+    "passes": [
+      {
+        "pass_id": "apr_f66cd71afb6a",
+        "purpose": "SOURCE_GAP_RECONSTRUCTION",
+        "module_id": "source_gap",
+        "honour": true,
+        "stop_reason": "",
+        "kind": "ADDITIONAL_PRIVATE_PASS",
+        "execution": "ADDITIONAL_PRIVATE_PASS",
+        "packet_id": "wp_3c0799241be4",
+        "product_type": "WorkPacket",
+        "changed_forward_action": ""
+      }
+    ],
+    "need": {
+      "assessment_id": "pna_f105844419a4",
+      "decision": "PROPOSE_PRIVATE_OPERATION",
+      "benefit": "BENEFIT_EXPECTED_TO_EXCEED_COST",
+      "purpose": "SOURCE_GAP_RECONSTRUCTION",
+      "module_id": "source_gap",
+      "grounds": [
+        "capability_resolution.ORGAN_GAP"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_CHANGED_FORWARD_ACTION",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [
+      "wp_3c0799241be4"
+    ],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 1,
+      "specialized_calls": 0,
+      "tokens_spent": 700,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "ADDITIONAL_PRIVATE_PASS"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_ce32d3ee405c",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_7127cf60199d",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_7346fba3c9774d61",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_af49567c1a1c",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_29c2cd4dd967bfdad7492df27216d433",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "SCENE_SHIFT",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "telos:apply the previously established 'incident scene beta' directly to the next step without further reconstruction or modification.",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_7346fba3c977"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "",
+    "causal_effect": "none",
+    "likely_failure_source": "SCENE_MISMATCH",
+    "extra_inference_pass": true,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  },
+  "context_id": "ctx_29c2cd4dd967bfdad7492df27216d433",
+  "context_continuity": {
+    "context_id": "ctx_29c2cd4dd967bfdad7492df27216d433",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_c9e4c9215daf",
+      "version": 1,
+      "scene_id": "scene_a33c58559c7a",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Distinguish implementation consequence from abstraction in the context of a hiring scenario (scene alpha).",
+      "telos": "Distinguish implementation consequence from abstraction in the context of a hiring scenario (scene alpha).",
+      "object_scope": "Hiring scene alpha, Distinction between implementation consequence and abstraction",
+      "operation_kind": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+      "expected_intervention": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+      "human_owned_decisions": [
+        "The operation—distinguishing implementation consequence from abstraction in the context of a hiring scene—is a conceptual analysis with explicit telos and no unresolved human-owned criterion, commitment, or consequential value binding. Execution is system-owned; direct assistance is appropriate. No question or return to the user is required."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "system"
+    },
+    "contract_revision": {
+      "candidate_id": "crc_e900b5f05b96",
+      "prior_contract_id": "sc_c9e4c9215daf",
+      "proposed_contract": {
+        "contract_id": "sc_ab5e924b1968",
+        "version": 2,
+        "scene_id": "scene_a33c58559c7a",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Apply the previously established 'incident scene beta' directly to the next step without further reconstruction or modification.",
+        "telos": "Apply the previously established 'incident scene beta' directly to the next step without further reconstruction or modification.",
+        "object_scope": "Incident scene beta",
+        "operation_kind": "APPLY_EXISTING_SCENE_NO_RECONSTRUCTION",
+        "expected_intervention": "APPLY_EXISTING_SCENE_NO_RECONSTRUCTION",
+        "human_owned_decisions": [
+          "The operation is to apply an already established scene object ('incident scene beta') directly, with explicit instruction not to reconstruct or reinterpret. The criterion and operation are clear, require no human-only evidence or consequential commitment, and are stably SYSTEM-owned. No Socratic question or return is required."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_c9e4c9215daf",
+        "ownership_owner": "system"
+      },
+      "reason": "content_break telos=DIVERGENT object=DISJOINT",
+      "source": "SYSTEM_DERIVED",
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "contract_revision_admission": {
+      "admission_id": "cra_461ac694a1aa",
+      "candidate_id": "crc_e900b5f05b96",
+      "outcome": "HOLD_PROPOSAL",
+      "reason": "unprivileged ContractRevisionCandidate held; NO_TRANSITION_AUTHORITY",
+      "authority": "NO_TRANSITION_AUTHORITY",
+      "prior_contract_id": "sc_c9e4c9215daf",
+      "active_contract_id": "sc_c9e4c9215daf"
+    },
+    "recognition_pass": {
+      "pass_id": "rp_6139c68456da",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [
+        {
+          "candidate_id": "crc_e900b5f05b96",
+          "prior_contract_id": "sc_c9e4c9215daf",
+          "proposed_contract": {
+            "contract_id": "sc_ab5e924b1968",
+            "version": 2,
+            "scene_id": "scene_a33c58559c7a",
+            "space_id": "space_default_workspace",
+            "branch_id": "",
+            "intent": "Apply the previously established 'incident scene beta' directly to the next step without further reconstruction or modification.",
+            "telos": "Apply the previously established 'incident scene beta' directly to the next step without further reconstruction or modification.",
+            "object_scope": "Incident scene beta",
+            "operation_kind": "APPLY_EXISTING_SCENE_NO_RECONSTRUCTION",
+            "expected_intervention": "APPLY_EXISTING_SCENE_NO_RECONSTRUCTION",
+            "human_owned_decisions": [
+              "The operation is to apply an already established scene object ('incident scene beta') directly, with explicit instruction not to reconstruct or reinterpret. The criterion and operation are clear, require no human-only evidence or consequential commitment, and are stably SYSTEM-owned. No Socratic question or return is required."
+            ],
+            "constraints": [],
+            "uncertainty": 0.1,
+            "provenance": "SYSTEM_DERIVED",
+            "status": "REVISION_PROPOSED",
+            "supersedes": "sc_c9e4c9215daf",
+            "ownership_owner": "system"
+          },
+          "reason": "content_break telos=DIVERGENT object=DISJOINT",
+          "source": "SYSTEM_DERIVED",
+          "authority": "NO_TRANSITION_AUTHORITY"
+        }
+      ],
+      "revision_admissions": [
+        {
+          "admission_id": "cra_461ac694a1aa",
+          "candidate_id": "crc_e900b5f05b96",
+          "outcome": "HOLD_PROPOSAL",
+          "reason": "unprivileged ContractRevisionCandidate held; NO_TRANSITION_AUTHORITY",
+          "authority": "NO_TRANSITION_AUTHORITY",
+          "prior_contract_id": "sc_c9e4c9215daf",
+          "active_contract_id": "sc_c9e4c9215daf"
+        }
+      ],
+      "drift_assessment": {
+        "scene_identity_continuous": true,
+        "space_same": true,
+        "branch_same": true,
+        "object_scope_relation": "DISJOINT",
+        "telos_relation": "DIVERGENT",
+        "ownership_boundary_changed": false,
+        "epistemic_policy_changed": false,
+        "operation_shift_kind": "SCENE_CHANGING",
+        "material_drift": true,
+        "grounds": [
+          "content_break telos=DIVERGENT object=DISJOINT"
+        ],
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_revision_held:crc_e900b5f05b96"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_c9e4c9215daf",
+    "contract_history": [
+      {
+        "contract_id": "sc_c9e4c9215daf",
+        "version": 1,
+        "scene_id": "scene_a33c58559c7a",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Distinguish implementation consequence from abstraction in the context of a hiring scenario (scene alpha).",
+        "telos": "Distinguish implementation consequence from abstraction in the context of a hiring scenario (scene alpha).",
+        "object_scope": "Hiring scene alpha, Distinction between implementation consequence and abstraction",
+        "operation_kind": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+        "expected_intervention": "DISTINGUISH_IMPLEMENTATION_CONSEQUENCE_FROM_ABSTRACTION",
+        "human_owned_decisions": [
+          "The operation—distinguishing implementation consequence from abstraction in the context of a hiring scene—is a conceptual analysis with explicit telos and no unresolved human-owned criterion, commitment, or consequential value binding. Execution is system-owned; direct assistance is appropriate. No question or return to the user is required."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "system"
+      },
+      {
+        "contract_id": "sc_ab5e924b1968",
+        "version": 2,
+        "scene_id": "scene_a33c58559c7a",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Apply the previously established 'incident scene beta' directly to the next step without further reconstruction or modification.",
+        "telos": "Apply the previously established 'incident scene beta' directly to the next step without further reconstruction or modification.",
+        "object_scope": "Incident scene beta",
+        "operation_kind": "APPLY_EXISTING_SCENE_NO_RECONSTRUCTION",
+        "expected_intervention": "APPLY_EXISTING_SCENE_NO_RECONSTRUCTION",
+        "human_owned_decisions": [
+          "The operation is to apply an already established scene object ('incident scene beta') directly, with explicit instruction not to reconstruct or reinterpret. The criterion and operation are clear, require no human-only evidence or consequential commitment, and are stably SYSTEM-owned. No Socratic question or return is required."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_c9e4c9215daf",
+        "ownership_owner": "system"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "memory_outcome": null,
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "intervention_profile": "normal",
+  "error": null,
+  "http_status": null
+}

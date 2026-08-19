@@ -1,0 +1,205 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "execution_mode": "LIVE",
+  "run_id": "srun_ccd10c1a1531da62",
+  "trace_id": "strc_f80e4c19c2222ca4",
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_f80e4c19c2222ca4.json",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Система не может зарегистрировать или уточнить позицию, так как соответствующий тип отсутствует в реестре, и заявление пользователя остаётся его личным утверждением.",
+    "rationale": "operation inapplicable: The requested operation is to register or clarify a 'position declaration' (e.g., 'local implementation first'), but the relevant type 'T001_POSITION_DECLARATION' is not present in the v0.2_default registry. This is a materially grounded type gap, not a tool or operation mismatch. The system cannot coerce the input into a known type without fabricating an object or misattributing the user's intent.",
+    "memory_proposal": {
+      "kind": "observation",
+      "text": "A user declared a stance: 'local implementation first.' The analytic type for position declaration is missing, so the statement cannot be formally registered as a position object.",
+      "grounds": "Direct textual evidence of self-attribution is present, but a type gap in the registry prevents structured extraction. This is a materially grounded open-world gap, not a tool or operation mismatch."
+    }
+  },
+  "rendering": {
+    "text": "Система не может зарегистрировать или уточнить позицию, так как соответствующий тип отсутствует в реестре, и заявление пользователя остаётся его личным утверждением.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 262,
+    "tokens_out": 35,
+    "latency_ms": 1801,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_fa2e60e417f7",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "terminal_sovereignty:RETURN_OPERATION"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_a390fafd4106",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_41daf84e56bf",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_87372322759e68ed",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_97f26e85576e",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_2c4e8a0d54dba18d18d4a6758de9a791",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "AMBIGUOUS",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "telos:register or clarify the user's stated position: 'local implementation first.'",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_87372322759e"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "",
+    "causal_effect": "none",
+    "likely_failure_source": "NONE",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  },
+  "context_id": "ctx_2c4e8a0d54dba18d18d4a6758de9a791",
+  "context_continuity": {
+    "context_id": "ctx_2c4e8a0d54dba18d18d4a6758de9a791",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_2cced367c493",
+      "version": 1,
+      "scene_id": "scene_7a4980962e5c",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Register or clarify the user's stated position: 'local implementation first.'",
+      "telos": "Register or clarify the user's stated position: 'local implementation first.'",
+      "object_scope": "My position is local implementation first.",
+      "operation_kind": "EXTRACT_POSITION_DECLARATION",
+      "expected_intervention": "EXTRACT_POSITION_DECLARATION",
+      "human_owned_decisions": [
+        "The statement is a direct self-attribution of a position ('local implementation first'). The authority to bind and define this position remains with the human user. No system-owned operation is required or permitted to fabricate or formalize a structured position object, as the analytic type is missing and the user's declaration stands as its own commitment."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "human"
+    },
+    "contract_revision": null,
+    "contract_revision_admission": null,
+    "recognition_pass": {
+      "pass_id": "rp_e80b17d05f87",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [],
+      "revision_admissions": [],
+      "drift_assessment": null,
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_created:sc_2cced367c493"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_2cced367c493",
+    "contract_history": [
+      {
+        "contract_id": "sc_2cced367c493",
+        "version": 1,
+        "scene_id": "scene_7a4980962e5c",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Register or clarify the user's stated position: 'local implementation first.'",
+        "telos": "Register or clarify the user's stated position: 'local implementation first.'",
+        "object_scope": "My position is local implementation first.",
+        "operation_kind": "EXTRACT_POSITION_DECLARATION",
+        "expected_intervention": "EXTRACT_POSITION_DECLARATION",
+        "human_owned_decisions": [
+          "The statement is a direct self-attribution of a position ('local implementation first'). The authority to bind and define this position remains with the human user. No system-owned operation is required or permitted to fabricate or formalize a structured position object, as the analytic type is missing and the user's declaration stands as its own commitment."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "human"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "memory_outcome": null,
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "intervention_profile": "normal",
+  "error": null,
+  "http_status": null
+}

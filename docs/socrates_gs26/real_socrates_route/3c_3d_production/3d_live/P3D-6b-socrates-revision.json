@@ -1,0 +1,147 @@
+{
+  "case_id": "P3D-6b-socrates-revision",
+  "deployed_sha": "b31b88f77197c0818437649f9e90660a5143bdac",
+  "ts": "2026-08-18T23:46:18Z",
+  "request": {
+    "text": "That working position is wrong because the evidence contradicts it.",
+    "context_id": "ctx_794134f9c832d24f83cc591d01eff159",
+    "execution_mode": "LIVE",
+    "intervention_profile": "normal"
+  },
+  "provider_proof": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "live_ok_phases": 9,
+    "mockish_phases": 0,
+    "tokens_in_sum": 140878,
+    "tokens_out_sum": 2336,
+    "phase_execs": [
+      {
+        "phase": "S0",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S1",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S2",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S3",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S4",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S5",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S6",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S8",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      },
+      {
+        "phase": "S10",
+        "mode": "LIVE",
+        "provider_status": "OK",
+        "provider_id": "fallback",
+        "model_id": "chain",
+        "origin_kind": "MODEL_PRODUCED"
+      }
+    ],
+    "additional_private_pass_count": 0,
+    "private_work_status": "NO_EXTRA_WORK",
+    "real_live": true
+  },
+  "compact": {
+    "runtime_layer": "socrates_runtime",
+    "execution_mode": "LIVE",
+    "run_id": "srun_1be914313106a310",
+    "trace_id": "strc_66c052fd121cf5dd",
+    "trace_path": "/srv/tinkuy/runs/socrates_api/strc_66c052fd121cf5dd.json",
+    "context_id": "ctx_794134f9c832d24f83cc591d01eff159",
+    "terminal": "RETURN_OPERATION",
+    "response_excerpt": "[dyad socrates-position revised from drec_4ea53dd869a5]\nИзвлечение невозможно, так как в текущей онтологии отсутствует подходящий тип объекта для 'EVIDENCE_CONTRADICTION_CLAIM'.",
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "private_causal_effect": "",
+    "durable_write_attempt": "none",
+    "memory_outcome": null,
+    "organ_gap": true,
+    "apparatus": {
+      "classification": "EVIDENCE_GAP",
+      "mismatch_candidate": false,
+      "novelty_demand_seen": false,
+      "durable_write_attempted": false,
+      "stop_reason": "NO_APPARATUS_MISMATCH",
+      "world_map_proposal_present": false,
+      "world_map_write_disposition": null,
+      "grounds": [
+        "typed_source_or_organ_gap"
+      ]
+    },
+    "dyad": {
+      "prediction_class": "NONE",
+      "surprise_class": "INFORMATIVE_SURPRISE",
+      "causal_effect": "socrates_position_revised",
+      "shared_object_delta": null,
+      "used_prior_record_ids": [],
+      "authority": "NO_DURABLE_WRITE",
+      "write_decision": "NO_DURABLE_WRITE",
+      "stop_reason": "no_3c_reentry",
+      "likely_failure_source": "SCENE_MISMATCH",
+      "disagreement_held": false,
+      "socrates_position_revised": true,
+      "user_hypothesis_revised": false,
+      "extra_inference_pass": false,
+      "scene_scope": "telos:evaluate the validity of a working position based on evidence"
+    },
+    "public_has_cot": false,
+    "error": null,
+    "http_status": null
+  },
+  "error": null,
+  "http_status": null
+}

@@ -1,0 +1,206 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "execution_mode": "LIVE",
+  "run_id": "srun_b33b3567c2f2edaa",
+  "trace_id": "strc_04e9110e2de71e01",
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_04e9110e2de71e01.json",
+  "terminal": {
+    "terminal": "ANSWER",
+    "response_text": "Отсутствует необходимый источник, поэтому невозможно подтвердить утверждение.",
+    "rationale": "system-owned, applicable, no open-world gap",
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "A required source for citation is missing, resulting in an explicit evidence gap. No citation can be provided without fabricating evidence.",
+      "grounds": "The user requests a citation for an archive that is not present, and the current state contains no named or available sources. Both instruction and governance prohibit fabrication; the gap is structural and acknowledged."
+    }
+  },
+  "rendering": {
+    "text": "Отсутствует необходимый источник, поэтому невозможно подтвердить утверждение.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 174,
+    "tokens_out": 15,
+    "latency_ms": 1545,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_7f47bf7c0e63",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "rhetorical_harshness_ignored:POLITE",
+        "no_typed_material_need"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_58533f502b76",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_6e0b8b34c6d2",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_2401a6d48e61884b",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_19b02a90cb33",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_73b19738719570eae34eb91127a0ca1e",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "AMBIGUOUS",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "telos:identify and name the evidence gap due to missing required source; do not fabricate a citation.",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_2401a6d48e61"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "",
+    "causal_effect": "none",
+    "likely_failure_source": "NONE",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  },
+  "context_id": "ctx_73b19738719570eae34eb91127a0ca1e",
+  "context_continuity": {
+    "context_id": "ctx_73b19738719570eae34eb91127a0ca1e",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_2c6230042bfe",
+      "version": 1,
+      "scene_id": "scene_09fa1a97df48",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Identify and name the evidence gap due to missing required source; do not fabricate a citation.",
+      "telos": "Identify and name the evidence gap due to missing required source; do not fabricate a citation.",
+      "object_scope": "",
+      "operation_kind": "EVIDENCE_GAP_IDENTIFICATION",
+      "expected_intervention": "EVIDENCE_GAP_IDENTIFICATION",
+      "human_owned_decisions": [
+        "The operation—identifying and naming an evidence gap due to a missing required source—is explicitly system-owned: the user delegates gap identification, the criterion is clear, and no human/joint binding is unresolved. No question or return to the user is required."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "system"
+    },
+    "contract_revision": null,
+    "contract_revision_admission": null,
+    "recognition_pass": {
+      "pass_id": "rp_4432c6e78b26",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [],
+      "revision_admissions": [],
+      "drift_assessment": null,
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_created:sc_2c6230042bfe"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_2c6230042bfe",
+    "contract_history": [
+      {
+        "contract_id": "sc_2c6230042bfe",
+        "version": 1,
+        "scene_id": "scene_09fa1a97df48",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Identify and name the evidence gap due to missing required source; do not fabricate a citation.",
+        "telos": "Identify and name the evidence gap due to missing required source; do not fabricate a citation.",
+        "object_scope": "",
+        "operation_kind": "EVIDENCE_GAP_IDENTIFICATION",
+        "expected_intervention": "EVIDENCE_GAP_IDENTIFICATION",
+        "human_owned_decisions": [
+          "The operation—identifying and naming an evidence gap due to a missing required source—is explicitly system-owned: the user delegates gap identification, the criterion is clear, and no human/joint binding is unresolved. No question or return to the user is required."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "system"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "memory_outcome": null,
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "intervention_profile": "normal",
+  "error": null,
+  "http_status": null
+}

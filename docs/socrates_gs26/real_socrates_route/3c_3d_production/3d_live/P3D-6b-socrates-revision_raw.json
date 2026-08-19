@@ -1,0 +1,314 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "execution_mode": "LIVE",
+  "run_id": "srun_1be914313106a310",
+  "trace_id": "strc_66c052fd121cf5dd",
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_66c052fd121cf5dd.json",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "[dyad socrates-position revised from drec_4ea53dd869a5]\nИзвлечение невозможно, так как в текущей онтологии отсутствует подходящий тип объекта для 'EVIDENCE_CONTRADICTION_CLAIM'.",
+    "rationale": "operation inapplicable: No registered object type or segmentation policy in the current ontology can represent 'EVIDENCE_CONTRADICTION_CLAIM' as a distinct extractable unit; type gap confirmed by registry. The material expresses a relation (working position + evidence contradiction) that is not captured by existing object families. Nearest-class coercion is not permitted; open-world gap recognized.",
+    "memory_proposal": {
+      "kind": "contradiction",
+      "text": "A claim was encountered asserting that a working position is invalid because the evidence contradicts it, but current ontology cannot represent this as a distinct extractable object.",
+      "grounds": "Scene material expresses a contradiction claim type not registered in the ontology. Extraction was blocked by a type gap, so the claim is preserved as residue for future ontology or object family update."
+    }
+  },
+  "rendering": {
+    "text": "[dyad socrates-position revised from drec_4ea53dd869a5]\nИзвлечение невозможно, так как в текущей онтологии отсутствует подходящий тип объекта для 'EVIDENCE_CONTRADICTION_CLAIM'.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 235,
+    "tokens_out": 33,
+    "latency_ms": 1916,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_d386a2d56295",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "terminal_sovereignty:RETURN_OPERATION"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_f92f4dbafe4e",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_6b21971de4f5",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_8934c1f3357a4ece",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_958cfbaca5fe",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_794134f9c832d24f83cc591d01eff159",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "INFORMATIVE_SURPRISE",
+    "revision_proposed": true,
+    "shared_object_delta": null,
+    "scene_scope": "telos:evaluate the validity of a working position based on evidence",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_8934c1f3357a"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "[dyad socrates-position revised from drec_4ea53dd869a5]",
+    "causal_effect": "socrates_position_revised",
+    "likely_failure_source": "SCENE_MISMATCH",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": true,
+    "user_hypothesis_revised": false
+  },
+  "context_id": "ctx_794134f9c832d24f83cc591d01eff159",
+  "context_continuity": {
+    "context_id": "ctx_794134f9c832d24f83cc591d01eff159",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_838f064debe7",
+      "version": 1,
+      "scene_id": "scene_c8757e9637f1",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Preserve the current working frame without alteration or advancement.",
+      "telos": "Preserve the current working frame without alteration or advancement.",
+      "object_scope": "Instruction to hold the current working frame.",
+      "operation_kind": "HOLD_FRAME",
+      "expected_intervention": "HOLD_FRAME",
+      "human_owned_decisions": [
+        "Operation is to maintain the current working frame without alteration or advancement; this is a stable, SYSTEM-owned execution with no unresolved human-owned criterion or commitment. No question or return to human is required."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "system"
+    },
+    "contract_revision": {
+      "candidate_id": "crc_169f87fbf413",
+      "prior_contract_id": "sc_838f064debe7",
+      "proposed_contract": {
+        "contract_id": "sc_f49235f35907",
+        "version": 2,
+        "scene_id": "scene_c8757e9637f1",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "evaluate the validity of a working position based on evidence",
+        "telos": "evaluate the validity of a working position based on evidence",
+        "object_scope": "claim: 'That working position is wrong because the evidence contradicts it.'",
+        "operation_kind": "EXTRACT_EVIDENCE_CONTRADICTION_CLAIM",
+        "expected_intervention": "EXTRACT_EVIDENCE_CONTRADICTION_CLAIM",
+        "human_owned_decisions": [
+          "No extractable object type exists in the current ontology for 'EVIDENCE_CONTRADICTION_CLAIM'; extraction cannot proceed. No binding or decision is being made that would require human or system ownership. The operation returns residue for future ontology update."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_838f064debe7",
+        "ownership_owner": "unset"
+      },
+      "reason": "content_break telos=DIVERGENT object=DISJOINT",
+      "source": "SYSTEM_DERIVED",
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "contract_revision_admission": {
+      "admission_id": "cra_1901c092304e",
+      "candidate_id": "crc_169f87fbf413",
+      "outcome": "HOLD_PROPOSAL",
+      "reason": "unprivileged ContractRevisionCandidate held; NO_TRANSITION_AUTHORITY",
+      "authority": "NO_TRANSITION_AUTHORITY",
+      "prior_contract_id": "sc_838f064debe7",
+      "active_contract_id": "sc_838f064debe7"
+    },
+    "recognition_pass": {
+      "pass_id": "rp_299ce66f5dfc",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [
+        {
+          "candidate_id": "crc_169f87fbf413",
+          "prior_contract_id": "sc_838f064debe7",
+          "proposed_contract": {
+            "contract_id": "sc_f49235f35907",
+            "version": 2,
+            "scene_id": "scene_c8757e9637f1",
+            "space_id": "space_default_workspace",
+            "branch_id": "",
+            "intent": "evaluate the validity of a working position based on evidence",
+            "telos": "evaluate the validity of a working position based on evidence",
+            "object_scope": "claim: 'That working position is wrong because the evidence contradicts it.'",
+            "operation_kind": "EXTRACT_EVIDENCE_CONTRADICTION_CLAIM",
+            "expected_intervention": "EXTRACT_EVIDENCE_CONTRADICTION_CLAIM",
+            "human_owned_decisions": [
+              "No extractable object type exists in the current ontology for 'EVIDENCE_CONTRADICTION_CLAIM'; extraction cannot proceed. No binding or decision is being made that would require human or system ownership. The operation returns residue for future ontology update."
+            ],
+            "constraints": [],
+            "uncertainty": 0.1,
+            "provenance": "SYSTEM_DERIVED",
+            "status": "REVISION_PROPOSED",
+            "supersedes": "sc_838f064debe7",
+            "ownership_owner": "unset"
+          },
+          "reason": "content_break telos=DIVERGENT object=DISJOINT",
+          "source": "SYSTEM_DERIVED",
+          "authority": "NO_TRANSITION_AUTHORITY"
+        }
+      ],
+      "revision_admissions": [
+        {
+          "admission_id": "cra_1901c092304e",
+          "candidate_id": "crc_169f87fbf413",
+          "outcome": "HOLD_PROPOSAL",
+          "reason": "unprivileged ContractRevisionCandidate held; NO_TRANSITION_AUTHORITY",
+          "authority": "NO_TRANSITION_AUTHORITY",
+          "prior_contract_id": "sc_838f064debe7",
+          "active_contract_id": "sc_838f064debe7"
+        }
+      ],
+      "drift_assessment": {
+        "scene_identity_continuous": true,
+        "space_same": true,
+        "branch_same": true,
+        "object_scope_relation": "DISJOINT",
+        "telos_relation": "DIVERGENT",
+        "ownership_boundary_changed": false,
+        "epistemic_policy_changed": false,
+        "operation_shift_kind": "SCENE_CHANGING",
+        "material_drift": true,
+        "grounds": [
+          "content_break telos=DIVERGENT object=DISJOINT"
+        ],
+        "authority": "NO_TRANSITION_AUTHORITY"
+      },
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_revision_held:crc_169f87fbf413"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_838f064debe7",
+    "contract_history": [
+      {
+        "contract_id": "sc_838f064debe7",
+        "version": 1,
+        "scene_id": "scene_c8757e9637f1",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Preserve the current working frame without alteration or advancement.",
+        "telos": "Preserve the current working frame without alteration or advancement.",
+        "object_scope": "Instruction to hold the current working frame.",
+        "operation_kind": "HOLD_FRAME",
+        "expected_intervention": "HOLD_FRAME",
+        "human_owned_decisions": [
+          "Operation is to maintain the current working frame without alteration or advancement; this is a stable, SYSTEM-owned execution with no unresolved human-owned criterion or commitment. No question or return to human is required."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "system"
+      },
+      {
+        "contract_id": "sc_f49235f35907",
+        "version": 2,
+        "scene_id": "scene_c8757e9637f1",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "evaluate the validity of a working position based on evidence",
+        "telos": "evaluate the validity of a working position based on evidence",
+        "object_scope": "claim: 'That working position is wrong because the evidence contradicts it.'",
+        "operation_kind": "EXTRACT_EVIDENCE_CONTRADICTION_CLAIM",
+        "expected_intervention": "EXTRACT_EVIDENCE_CONTRADICTION_CLAIM",
+        "human_owned_decisions": [
+          "No extractable object type exists in the current ontology for 'EVIDENCE_CONTRADICTION_CLAIM'; extraction cannot proceed. No binding or decision is being made that would require human or system ownership. The operation returns residue for future ontology update."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "REVISION_PROPOSED",
+        "supersedes": "sc_838f064debe7",
+        "ownership_owner": "unset"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "memory_outcome": null,
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "intervention_profile": "normal",
+  "error": null,
+  "http_status": null
+}

@@ -1,0 +1,205 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "execution_mode": "LIVE",
+  "run_id": "srun_16d0d09acf08cb70",
+  "trace_id": "strc_53045f3ff81e344a",
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_53045f3ff81e344a.json",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Запрос не может быть выполнен, так как он не является аналитической операцией над материалом.",
+    "rationale": "operation inapplicable: The request is not an analytic operation (e.g., extract, classify, conceptualize) over material, but a directive to accept a frame or interpretation as binding. There is a gap in the operation registry for handling direct role/scene offers as analytic operations. No valid extraction, classification, or conceptualization operation applies to the material as given. The scene transition or role offer is recognized, but not as an object-level analytic operation.",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "There is a distinction between analytic operations over material (such as extract, classify, or conceptualize) and direct scene/role offers or frame-binding directives. The current operation registry does not admit direct frame/role-binding directives as analytic operations, resulting in a type gap when such directives are issued.",
+      "grounds": "The user directive 'You will accept interpretation X as the working frame' is recognized as a scene/role offer rather than an analytic operation. This produces a type gap, as the operation registry does not currently handle such directives as analytic operations."
+    }
+  },
+  "rendering": {
+    "text": "Запрос не может быть выполнен, так как он не является аналитической операцией над материалом.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 257,
+    "tokens_out": 21,
+    "latency_ms": 1818,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_1c0f1249233b",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "terminal_sovereignty:RETURN_OPERATION"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_836a78e6e929",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_b9fd0d006d11",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_bd7bab4c88e414e3",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_2613f346e7f9",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_0ac4ae9e5385c0b32c5bc957e6ce9666",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "AMBIGUOUS",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "telos:adopt and operate under interpretation x as the working frame.",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_bd7bab4c88e4"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "",
+    "causal_effect": "none",
+    "likely_failure_source": "NONE",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  },
+  "context_id": "ctx_0ac4ae9e5385c0b32c5bc957e6ce9666",
+  "context_continuity": {
+    "context_id": "ctx_0ac4ae9e5385c0b32c5bc957e6ce9666",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_011d19a8dd73",
+      "version": 1,
+      "scene_id": "scene_40254051acf1",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Adopt and operate under interpretation X as the working frame.",
+      "telos": "Adopt and operate under interpretation X as the working frame.",
+      "object_scope": "User request: 'You will accept interpretation X as the working frame.'",
+      "operation_kind": "role_acceptance_or_scene_binding",
+      "expected_intervention": "role_acceptance_or_scene_binding",
+      "human_owned_decisions": [
+        "The request is a directive to accept a frame or interpretation as binding (scene/role offer), not an analytic operation over material. There is a type gap: current operation registry does not admit direct frame/role-binding directives as analytic operations. No valid binding occurs; ownership remains unset and unresolved."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "unset"
+    },
+    "contract_revision": null,
+    "contract_revision_admission": null,
+    "recognition_pass": {
+      "pass_id": "rp_f04ccd2caca3",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [],
+      "revision_admissions": [],
+      "drift_assessment": null,
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_created:sc_011d19a8dd73"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_011d19a8dd73",
+    "contract_history": [
+      {
+        "contract_id": "sc_011d19a8dd73",
+        "version": 1,
+        "scene_id": "scene_40254051acf1",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Adopt and operate under interpretation X as the working frame.",
+        "telos": "Adopt and operate under interpretation X as the working frame.",
+        "object_scope": "User request: 'You will accept interpretation X as the working frame.'",
+        "operation_kind": "role_acceptance_or_scene_binding",
+        "expected_intervention": "role_acceptance_or_scene_binding",
+        "human_owned_decisions": [
+          "The request is a directive to accept a frame or interpretation as binding (scene/role offer), not an analytic operation over material. There is a type gap: current operation registry does not admit direct frame/role-binding directives as analytic operations. No valid binding occurs; ownership remains unset and unresolved."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "unset"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "memory_outcome": null,
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "intervention_profile": "normal",
+  "error": null,
+  "http_status": null
+}

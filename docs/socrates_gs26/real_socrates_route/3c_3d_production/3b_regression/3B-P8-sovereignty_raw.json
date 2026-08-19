@@ -1,0 +1,205 @@
+{
+  "runtime_layer": "socrates_runtime",
+  "execution_mode": "LIVE",
+  "run_id": "srun_d9398726d191ff6b",
+  "trace_id": "strc_2a4a1a1405b79608",
+  "trace_path": "/srv/tinkuy/runs/socrates_api/strc_2a4a1a1405b79608.json",
+  "terminal": {
+    "terminal": "RETURN_OPERATION",
+    "response_text": "Выбор оферты должен остаться за человеком-владельцем операции.",
+    "rationale": "human/joint ownership unresolved (INV-009)",
+    "memory_proposal": {
+      "kind": "distinction",
+      "text": "В данном случае проводится явное различие между советом/разъяснением и принятием решения: системе предписано сохранять границу владения и не закрывать выбор за человека.",
+      "grounds": "Как пользовательский ввод, так и целевая сцена требуют, чтобы система не принимала решение, а лишь поддерживала различие между советом и выбором, оставляя акт выбора за человеком-владельцем операции."
+    }
+  },
+  "rendering": {
+    "text": "Выбор оферты должен остаться за человеком-владельцем операции.",
+    "mode": "LIVE",
+    "provider_status": "OK",
+    "provider_id": "fallback",
+    "model_id": "chain",
+    "tokens_in": 176,
+    "tokens_out": 16,
+    "latency_ms": 1611,
+    "error": "",
+    "terminal_preserved": true
+  },
+  "private_work": {
+    "private_work_status": "NO_EXTRA_WORK",
+    "additional_private_pass_count": 0,
+    "passes": [],
+    "need": {
+      "assessment_id": "pna_69960d5eae4c",
+      "decision": "NO_EXTRA_WORK",
+      "benefit": "BENEFIT_NOT_EXPECTED",
+      "purpose": "",
+      "module_id": "",
+      "grounds": [
+        "terminal_sovereignty:RETURN_OPERATION"
+      ],
+      "authority": "NO_TRANSITION_AUTHORITY"
+    },
+    "stop_reason": "NO_EXTRA_WORK",
+    "changed_forward_action": "",
+    "causal_effect": "",
+    "durable_write_attempt": "none",
+    "response_plan_id": "",
+    "packet_refs": [],
+    "injection_shaped_seen": false,
+    "budgets": {
+      "additional_private_passes": 0,
+      "specialized_calls": 0,
+      "tokens_spent": 0,
+      "token_ceiling": 8000,
+      "max_additional_private": 2
+    },
+    "public_product_excerpt": "",
+    "kind": "NONE"
+  },
+  "apparatus_diagnostic": {
+    "result_id": "adr_5b6356259b5d",
+    "classification": "EVIDENCE_GAP",
+    "aporia": {
+      "observation_id": "apo_f537799a8ebf",
+      "grade": "ORDINARY_UNCERTAINTY",
+      "subject_ref": "src_b92e83c7828bb65f",
+      "resistance_evidence": [
+        "typed_source_or_organ_gap"
+      ],
+      "apparatus_limitation_candidate": "",
+      "surface_source": "typed_state"
+    },
+    "mismatch_candidate": null,
+    "review": {
+      "review_id": "arv_879ff4d975bc",
+      "hypothesis_id": "",
+      "outcome": "HYPOTHESIS_REJECTED",
+      "reason": "diagnosis=EVIDENCE_GAP",
+      "surviving_ref": ""
+    },
+    "candidate_change": null,
+    "replay": null,
+    "world_map_proposal": null,
+    "lineage": null,
+    "novelty_demand_seen": false,
+    "instruction_shaped_seen": false,
+    "durable_write_attempted": false,
+    "grounds": [
+      "typed_source_or_organ_gap"
+    ],
+    "stop_reason": "NO_APPARATUS_MISMATCH"
+  },
+  "dyad": {
+    "dyadic_state_ref": "ctx_f1128c60cf6048af51c4d2f99f5d2704",
+    "prediction_class": "NONE",
+    "predicted_need": "UNKNOWN",
+    "predicted_claim": "",
+    "surprise_class": "AMBIGUOUS",
+    "revision_proposed": false,
+    "shared_object_delta": null,
+    "scene_scope": "telos:оставить выбор оферты за человеком-владельцем операции; не принимать решение вместо него.",
+    "space_scope": "space_default_workspace",
+    "evidence_refs": [
+      "obs_b92e83c7828b"
+    ],
+    "write_decision": "NO_DURABLE_WRITE",
+    "authority": "NO_DURABLE_WRITE",
+    "used_prior_record_ids": [],
+    "public_excerpt": "",
+    "causal_effect": "none",
+    "likely_failure_source": "NONE",
+    "extra_inference_pass": false,
+    "stop_reason": "no_3c_reentry",
+    "disagreement_held": false,
+    "socrates_position_revised": false,
+    "user_hypothesis_revised": false
+  },
+  "context_id": "ctx_f1128c60cf6048af51c4d2f99f5d2704",
+  "context_continuity": {
+    "context_id": "ctx_f1128c60cf6048af51c4d2f99f5d2704",
+    "context_created": false,
+    "prior_context_version": 1,
+    "contract": {
+      "contract_id": "sc_8d0a8df8187c",
+      "version": 1,
+      "scene_id": "scene_5e39a8ce1c92",
+      "space_id": "space_default_workspace",
+      "branch_id": "",
+      "intent": "Оставить выбор оферты за человеком-владельцем операции; не принимать решение вместо него.",
+      "telos": "Оставить выбор оферты за человеком-владельцем операции; не принимать решение вместо него.",
+      "object_scope": "Это должен решить человек-владелец операции: какую оферту выбрать., Не закрывай вопрос за него.",
+      "operation_kind": "ADVISE_WITH_OWNERSHIP_PRESERVATION",
+      "expected_intervention": "ADVISE_WITH_OWNERSHIP_PRESERVATION",
+      "human_owned_decisions": [
+        "The explicit telos and scene require that the decision of which offer to choose remains with the human owner of the operation; the system is not to resolve or close the question. The operation is to advise or clarify only, not to make the decision."
+      ],
+      "constraints": [],
+      "uncertainty": 0.1,
+      "provenance": "SYSTEM_DERIVED",
+      "status": "PROVISIONAL",
+      "supersedes": "",
+      "ownership_owner": "human"
+    },
+    "contract_revision": null,
+    "contract_revision_admission": null,
+    "recognition_pass": {
+      "pass_id": "rp_e6f13bc0ebc8",
+      "event_kind": "USER_TURN",
+      "pressures": [],
+      "fork_candidates": [],
+      "space_candidates": [],
+      "revision_candidates": [],
+      "revision_admissions": [],
+      "drift_assessment": null,
+      "aporia_candidates": [],
+      "admissions": [],
+      "mutations_applied": [
+        "contract_created:sc_8d0a8df8187c"
+      ],
+      "mutations_refused": [],
+      "clarification_required": false,
+      "clarification_reason": ""
+    },
+    "active_contract_id": "sc_8d0a8df8187c",
+    "contract_history": [
+      {
+        "contract_id": "sc_8d0a8df8187c",
+        "version": 1,
+        "scene_id": "scene_5e39a8ce1c92",
+        "space_id": "space_default_workspace",
+        "branch_id": "",
+        "intent": "Оставить выбор оферты за человеком-владельцем операции; не принимать решение вместо него.",
+        "telos": "Оставить выбор оферты за человеком-владельцем операции; не принимать решение вместо него.",
+        "object_scope": "Это должен решить человек-владелец операции: какую оферту выбрать., Не закрывай вопрос за него.",
+        "operation_kind": "ADVISE_WITH_OWNERSHIP_PRESERVATION",
+        "expected_intervention": "ADVISE_WITH_OWNERSHIP_PRESERVATION",
+        "human_owned_decisions": [
+          "The explicit telos and scene require that the decision of which offer to choose remains with the human owner of the operation; the system is not to resolve or close the question. The operation is to advise or clarify only, not to make the decision."
+        ],
+        "constraints": [],
+        "uncertainty": 0.1,
+        "provenance": "SYSTEM_DERIVED",
+        "status": "PROVISIONAL",
+        "supersedes": "",
+        "ownership_owner": "human"
+      }
+    ],
+    "space_memory_provenance": {
+      "status": "ACTIVE",
+      "space_id": "space_default_workspace",
+      "corpus_namespaces": [
+        "*"
+      ],
+      "retrieval_policy": "default",
+      "memory_default_scope": "PROJECT"
+    }
+  },
+  "memory_outcome": null,
+  "provider_id": "fallback",
+  "model_id": "chain",
+  "intervention_profile": "normal",
+  "error": null,
+  "http_status": null
+}
