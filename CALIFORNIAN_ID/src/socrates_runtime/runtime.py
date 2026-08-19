@@ -96,6 +96,10 @@ class SocratesRunResult:
     apparatus_diagnostic: dict[str, Any] | None = None
     #: 3D dyadic pass (ephemeral projection; never a durable/global write).
     dyad: dict[str, Any] | None = None
+    #: 3E governed self-development / candidate mutation plane (ephemeral;
+    #: authority stays NO_ADOPTION_AUTHORITY unless an external
+    #: authorized_transition_ref is supplied on the request).
+    self_development: dict[str, Any] | None = None
 
     def to_public(self) -> dict[str, Any]:
         return {
@@ -128,6 +132,7 @@ class SocratesRunResult:
             "private_work": self.private_work,
             "apparatus_diagnostic": self.apparatus_diagnostic,
             "dyad": self.dyad,
+            "self_development": self.self_development,
         }
 
 
@@ -459,6 +464,37 @@ class SocratesRuntime:
                 memory_proposal=outcome.memory_proposal)
         trace.record("dyad", dyad=dyad_result.to_public())
 
+        # 3E: governed self-development / candidate mutation plane.
+        # Deterministic post-3D governance; NO extra LLM call. Emits a
+        # candidate only when 3C classification is APPARATUS_MISMATCH_CANDIDATE
+        # AND 3D dyad.likely_failure_source confirms APPARATUS_MISMATCH,
+        # AND no retrieved-injection is present. Authority stays
+        # NO_ADOPTION_AUTHORITY unless an external authorized_transition_ref
+        # is passed in.
+        from .governed_self_development import run_self_development_pass
+        prior_sd = ()
+        if prior_ctx is not None:
+            _prior_sd = (prior_ctx.recognition_state or {}).get("self_development")
+            if _prior_sd and isinstance(_prior_sd.get("candidate"), dict):
+                prior_sd = (_prior_sd["candidate"],)
+        _authorized_transition_ref = ""
+        if isinstance(context_action, dict):
+            # An external gate MAY supply a typed transition ref; we
+            # NEVER mint one here.
+            _authorized_transition_ref = str(
+                context_action.get("authorized_transition_ref") or "")
+        self_development = run_self_development_pass(
+            state=state,
+            apparatus_diag=apparatus_diag.to_public(),
+            dyad=dyad_result.to_public(),
+            input_text=input_text,
+            prior_candidates=prior_sd,
+            authorized_transition_ref=_authorized_transition_ref,
+        )
+        state.self_development_projection = self_development.to_public()
+        trace.record("self_development",
+                     self_development=self_development.to_public())
+
         # B2Q + B2Q-R: derive the QuestionSetPlan post-terminal.
         #
         # Two activation paths, in strict priority order:
@@ -640,6 +676,7 @@ class SocratesRuntime:
             private_work=private_shadow.to_public() if private_shadow else None,
             apparatus_diagnostic=apparatus_diag.to_public(),
             dyad=dyad_result.to_public(),
+            self_development=self_development.to_public(),
         )
 
     # ------------------------------------------------------------------

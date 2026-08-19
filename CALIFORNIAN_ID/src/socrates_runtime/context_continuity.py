@@ -131,6 +131,16 @@ def snapshot_context(ctx: SocratesContext,
         ctx.recognition_state["dyad"] = dyad_proj
     elif prior_dyad:
         ctx.recognition_state["dyad"] = prior_dyad
+    # 3E: persist the current-turn self-development projection (typed
+    # governance object, not a mutation) so cross-HTTP callers can trace
+    # candidate lineage. Never persists more than the current
+    # SelfDevelopmentPassResult.to_public() — no separate DB.
+    prior_sd = (ctx.recognition_state or {}).get("self_development")
+    sd_proj = getattr(state, "self_development_projection", None)
+    if sd_proj:
+        ctx.recognition_state["self_development"] = sd_proj
+    elif prior_sd:
+        ctx.recognition_state["self_development"] = prior_sd
     # 3C repair (D-S26-3C-LIVE-REPEAT-001): persist the runtime-local
     # apparatus_repeat counter into the context snapshot so a fresh
     # SocratesRuntime built for the next HTTP request can hydrate the

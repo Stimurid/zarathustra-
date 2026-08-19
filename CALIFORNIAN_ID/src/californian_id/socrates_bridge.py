@@ -141,4 +141,8 @@ def dispatch_socrates_run(*, text: str, execution_mode: str,
         "private_work": public.get("private_work"),
         "apparatus_diagnostic": public.get("apparatus_diagnostic"),
         "dyad": public.get("dyad"),
+        # 3E: governed self-development / candidate mutation plane.
+        # Authority stays NO_ADOPTION_AUTHORITY unless a caller supplies
+        # an external authorized_transition_ref on the request body.
+        "self_development": public.get("self_development"),
     }

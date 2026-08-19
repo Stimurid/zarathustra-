@@ -375,6 +375,12 @@ class PipelineState:
     #: this run" (the runtime hydrates its counter from
     #: prior_ctx.recognition_state.apparatus_repeat on entry).
     apparatus_repeat_projection: dict[str, int] | None = None
+    #: 3E governed self-development projection (not a second store).
+    #: Snapshot of the SelfDevelopmentPassResult.to_public() at end of
+    #: run so context_continuity can persist it under
+    #: recognition_state.self_development. Authority stays
+    #: NO_ADOPTION_AUTHORITY here — persistence is provenance, not adoption.
+    self_development_projection: dict[str, Any] | None = None
 
     @property
     def source_id(self) -> str:
