@@ -1,18 +1,21 @@
-task_id: SOCRATES-GS26-3D-HYBRID-DYAD-20260819-001
-status: PASS
+task_id: SOCRATES-GS26-3C-3D-PRODUCTION-CLOSURE-20260819-001
+status: READY
 authority_date: '2026-08-19'
 repository: 'C:/projects/zarathustra-push'
 remote: 'https://github.com/Stimurid/zarathustra-.git'
 
-start_branch: socrates/3c-aporia-apparatus-learning
-start_head: 9d9abb76d12a5ab94994984e808512dacf411156
-production_at_start: c2d5833847303fa3280d0cb9168bf5b37325a200
 work_branch: socrates/3d-hybrid-dyad
-current_head: aa0c7148d4fbb07c08ca28bdf4f3e5edde84984d
+evidence_commit: 05f73c94480075391512d21eda43e83964105758
+production_sha: b31b88f77197c0818437649f9e90660a5143bdac
+production_host: moderbober-prod-01
+production_service: tinkuy-web
+production_port: 8085
+production_acceptance: PARTIAL
+rollback_required: false
 
 package_order:
-  - 3D_HYBRID_DYAD
-current_package: 3D_HYBRID_DYAD
+  - 3C_3D_PRODUCTION_CLOSURE
+current_package: 3C_3D_PRODUCTION_CLOSURE
 completed_packages:
   - B2Q_R_NATURAL_QUESTION_INFERENCE
   - 3A_PLUS_CONTEXT_CONTINUITY
@@ -20,14 +23,20 @@ completed_packages:
   - 3B_PRIVATE_WORK_PLANE
   - 3C_APORIA_APPARATUS_LEARNING
   - 3D_HYBRID_DYAD
-next_package: STOP_AFTER_3D
+  - 3C_3D_PRODUCTION_DEPLOY_PARTIAL
+next_package: 3C_3D_PRODUCTION_CLOSURE
 
-entry_classification: SUBSTRATE_PLUS_UNWIRED_TYPES
-exit_classification: PASS_ACTIVE_IN_RUNTIME
-architecture_decision: TYPED_DYAD_PROJECTION_ON_EXISTING_CONTEXT_STORE
+entry_classification: PRODUCTION_DEPLOYED_ACCEPTANCE_PARTIAL
+exit_classification: PENDING_CLOSURE
+architecture_decision: ARCHAEOLOGY_BEFORE_REPAIR
+
+semantic_state:
+  '3B': production_accepted_retained
+  '3C': repo_pass_active_in_runtime__production_deployed__acceptance_partial
+  '3D': repo_pass_active_in_runtime__production_deployed__acceptance_partial
+  '3E': not_started_blocked_until_closure_pass
 
 regression:
-  full_backend_floor: 1257
   full_backend_current: 1276_passed_4_skipped_0_failed
 
 open_defects:
@@ -35,12 +44,27 @@ open_defects:
     summary: QUESTION remains post-terminal rendering subtype not first-class governor terminal.
     status: OPEN
     nonblocking: true
+  - id: D-S26-3D-LIVE-TELOS-001
+    summary: Same context_id LIVE continuation can rewrite S1 telos and classify SCENE_SHIFT, blocking distinction reuse and user-hypothesis revision.
+    status: OPEN
+    evidence: docs/socrates_gs26/real_socrates_route/3c_3d_production/3d_live/
+    nonblocking: false
+  - id: D-S26-3C-LIVE-REPEAT-001
+    summary: Apparatus repeat_index is per SocratesRuntime instance; HTTP cannot accumulate APPARATUS_MISMATCH_CANDIDATE across requests.
+    status: OPEN
+    evidence: docs/socrates_gs26/real_socrates_route/3c_3d_production/3c_live/
+    nonblocking: false
+  - id: D-S26-3C-LIVE-ORGAN-PRIORITY-001
+    summary: LIVE organ/source-gap can classify EVIDENCE_GAP while terminal is PRESERVE_APORIA.
+    status: OPEN
+    evidence: docs/socrates_gs26/real_socrates_route/3c_3d_production/3c_live/P3C-3-aporia.json
+    nonblocking: false
 
 resume_from:
-  package: STOP_AFTER_3D
+  package: 3C_3D_PRODUCTION_CLOSURE
   what_to_do_next: |
-    3D PASS / ACTIVE_IN_RUNTIME. Do not start 3E unless a new handoff is issued.
-    Production remains on 3B c2d5833; 3C/3D VM install is a separate acceptance.
+    Pull socrates/3d-hybrid-dyad. Read SOCRATES_3C_3D_PRODUCTION_CLOSURE_HANDOFF.md.
+    Production remains b31b88f. Do not start 3E. Archaeology first.
 
 cursor_constraints:
   - LOCAL_FOREGROUND_ONLY
@@ -49,9 +73,10 @@ cursor_constraints:
   - NO_PROXY_SSH_DEPLOY
 
 nonclaims:
-  - '3E/3F NOT STARTED.'
-  - 'No persona residency / Indago migration / Tinkuy-as-persona-home.'
+  - '3E NOT STARTED. Blocked until SOCRATES_3C_3D_PRODUCTION_CLOSURE_PASS.'
+  - 'No persona residency / Indago / Tinkuy-as-persona-home.'
   - 'D-S26-QSEL-003 unchanged unless separately proven.'
-  - 'No new source/fabric/argument/memory/relationship store.'
-  - 'Production VM not migrated by this package.'
+  - 'No new source/fabric/argument/memory/relationship/dyad/world-map store.'
+  - 'Docs commits after b31b88f are not the production code SHA.'
 last_updated: '2026-08-19'
+handoff: docs/socrates_gs26/current_task/SOCRATES_3C_3D_PRODUCTION_CLOSURE_HANDOFF.md
