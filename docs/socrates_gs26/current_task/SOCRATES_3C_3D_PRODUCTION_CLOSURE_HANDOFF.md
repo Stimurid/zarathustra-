@@ -51,7 +51,7 @@ Only **PASS** opens the 3E implementation gate.
 | 3D implementation | `aa0c7148d4fbb07c08ca28bdf4f3e5edde84984d` |
 | 3D / **production deployed SHA** | `b31b88f77197c0818437649f9e90660a5143bdac` |
 | Production LIVE evidence commit | `05f73c94480075391512d21eda43e83964105758` |
-| Closure/control commit | successor of `05f73c9` on this branch (this handoff lives there) |
+| Closure/control commit | `d3d84b9d7c4d1bb8643dd857de7e36f4fcc7ede9` (this handoff lives there) |
 | Backend floor | 1276 passed / 4 skipped / 0 failed |
 
 **Production must remain on `b31b88f` until a closure repair is intentionally deployed.**  
@@ -168,7 +168,17 @@ P3C-1 ordinary-unresolved prompt also `EVIDENCE_GAP` (ordinary class **did** app
 ### Question 1 — Scene identity / current-scene continuity
 
 What determines Scene identity today?  
-Trace S1 / telos production → Scene / SceneContract → context store → dyad `scene_scope_key` / `prior_scene_key` (`runtime.py` uses `prior_ctx.last_telos`).
+Trace:
+incoming HTTP request
+→ context_id resolution
+→ context hydration
+→ S1
+→ telos generation/update
+→ SceneContract / Scene
+→ Space / Branch
+→ hybrid dyad
+→ scene-shift classification
+Find all writers/readers/tests/history.
 
 ### Question 2 — Telos vs continuation identity
 
@@ -186,9 +196,16 @@ Do not invent a new global dict or a new DB unless architecture proves it.
 Trace `GapKind`, downstream consumers (`dyad.likely_failure_source`, dialogue log, HTTP public fields).  
 Do not change priority until consumers are known.
 
+Trace the current diagnostic priority path explicitly:
+evidence gap → organ gap → projection gap → ontology gap → space mismatch
+→ genuine aporia → apparatus mismatch candidate
+and every downstream consumer of that representation.
+
 ### Question 5 — One boundary or three defects?
 
 Are TELOS-001, REPEAT-001, and ORGAN-PRIORITY-001 separate causes, or symptoms of one state-continuity boundary between HTTP requests?
+Test the stronger possibility that they share a single state-continuity /
+classification-boundary root.
 
 Also keep **D-S26-QSEL-003 OPEN**. Do not silently close it.
 
@@ -197,6 +214,18 @@ Also keep **D-S26-QSEL-003 OPEN**. Do not silently close it.
 ## F. REPAIR BOUNDARY
 
 This pass **may** repair 3C/3D production closure (runtime + tests + bounded redeploy of a descendant of `b31b88f` if needed).
+
+Claude must preserve:
+- USER observation vs USER hypothesis distinction;
+- shared-object delta vs user-model delta;
+- Socrates-side revision;
+- disagreement/aporia persistence;
+- NO_DURABLE_WRITE default;
+- 3B private-work budget discipline (bounded additional passes);
+- 3C no automatic ontology mutation (proposal-only where required);
+- 3D scene-locality and context isolation;
+- provenance/history;
+- no hidden-reasoning leak (no public CoT fields).
 
 It must **NOT**:
 
