@@ -1,0 +1,29 @@
+[Unit]
+Description=Tinkuy Workbench API (workbench_api)
+After=network.target tinkuy-web.service
+
+[Service]
+Type=simple
+User=tinkuy
+Group=tinkuy
+WorkingDirectory=/opt/tinkuy/app/CALIFORNIAN_ID
+EnvironmentFile=/etc/tinkuy/tinkuy.env
+Environment=PYTHONPATH=/opt/tinkuy/app/CALIFORNIAN_ID/src
+Environment=CALIFORNIAN_ID_DATA_DIR=/opt/tinkuy/app/CALIFORNIAN_ID/src/californian_id/data
+Environment=CALIFORNIAN_ID_RUNS_DIR=/srv/tinkuy/runs
+Environment=PERSONA_LAYER_ROOT=/opt/tinkuy/app/runtime_assets/personas/v0.2
+ExecStart=/opt/tinkuy/app/.venv/bin/python -c "from workbench_api import serve; serve(host='0.0.0.0', port=8790)"
+Restart=on-failure
+RestartSec=10
+
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/srv/tinkuy /opt/tinkuy/app
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=tinkuy-workbench-api
+
+[Install]
+WantedBy=multi-user.target
