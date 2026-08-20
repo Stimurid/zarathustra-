@@ -7,45 +7,63 @@
 <style>
   :root {
     --fg: #1a1a1a; --muted: #6b6b6b; --line: #e5e5e5; --accent: #2860d8;
-    --bg: #fafafa; --card: #ffffff; --err: #b03030;
+    --bg: #fafafa; --card: #ffffff; --err: #b03030; --warn: #a67c00;
+    --ok: #2f7d3a;
     --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg);
     font: 15px/1.5 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif; }
-  main { max-width: 880px; margin: 0 auto; padding: 32px 24px 96px; }
+  main { max-width: 940px; margin: 0 auto; padding: 32px 24px 96px; }
   h1 { font-size: 28px; font-weight: 500; letter-spacing: -0.01em; margin: 0 0 4px; }
   h2 { font-size: 18px; font-weight: 500; margin: 24px 0 8px; }
   .sub { color: var(--muted); margin: 0 0 24px; }
-  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 24px; }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 20px; }
   .chip { padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px;
     background: var(--card); cursor: pointer; font-size: 14px; transition: 0.12s; }
   .chip:hover { border-color: var(--accent); }
   .chip.active { background: var(--accent); color: white; border-color: var(--accent); }
-  textarea { width: 100%; min-height: 200px; padding: 12px 14px;
+  .chip.disabled { opacity: 0.4; cursor: not-allowed; }
+  textarea, input[type=text] { width: 100%; padding: 12px 14px;
     border: 1px solid var(--line); border-radius: 8px; background: var(--card);
     font: 14px/1.5 var(--mono); resize: vertical; }
+  textarea { min-height: 160px; }
   .actions { margin-top: 16px; display: flex; gap: 12px; align-items: center; }
   button.primary { background: var(--accent); color: white; border: 0;
     padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 15px; }
-  button.primary:disabled { opacity: 0.5; cursor: default; }
+  button.secondary { background: white; color: var(--fg); border: 1px solid var(--line);
+    padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; }
+  button.primary:disabled, button.secondary:disabled { opacity: 0.5; cursor: default; }
   .card { background: var(--card); border: 1px solid var(--line);
     border-radius: 8px; padding: 16px 20px; margin: 12px 0; }
   .card h3 { margin: 0 0 8px; font-size: 14px; font-weight: 500;
     color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
-  .card .body { font-size: 15px; }
   .kv { display: grid; grid-template-columns: 200px 1fr; gap: 6px 12px; font-size: 14px; }
   .kv dt { color: var(--muted); }
   .kv dd { margin: 0; font-family: var(--mono); }
-  pre { white-space: pre-wrap; word-break: break-word; margin: 0; font-family: var(--mono); font-size: 13px; }
+  pre { white-space: pre-wrap; word-break: break-word; margin: 0;
+    font-family: var(--mono); font-size: 13px; }
   .err { color: var(--err); }
   .footer { color: var(--muted); font-size: 12px; margin-top: 40px; }
-  .status-badge { display: inline-block; padding: 2px 8px; border-radius: 4px;
+  .status-badge, .event-badge, .metric-badge {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
     font-size: 11px; font-family: var(--mono); text-transform: uppercase; }
   .st-CREATED, .st-INPUT_RECEIVED { background: #eef; color: #339; }
-  .st-RUNNING { background: #ffe; color: #a70; }
+  .st-RUNNING, .st-QUEUED { background: #ffe; color: #a70; }
   .st-COMPLETED { background: #efe; color: #060; }
   .st-FAILED { background: #fee; color: var(--err); }
+  .event-badge { background: #eef; color: #337; margin: 2px 4px 2px 0; }
+  .metric-STRONG_YES { background: #dfe; color: var(--ok); }
+  .metric-WEAK_YES   { background: #efe; color: #050; }
+  .metric-UNCLEAR    { background: #eee; color: #555; }
+  .metric-WEAK_NO    { background: #fee; color: var(--err); }
+  .metric-STRONG_NO  { background: #fdd; color: var(--err); }
+  .metric-UNKNOWN    { background: #eee; color: #666; }
+  .turn { border-left: 3px solid var(--accent); padding: 6px 12px; margin: 8px 0;
+    background: #fafcff; font-size: 13px; }
+  .turn .who { font-weight: 500; color: var(--muted); }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 720px) { .split { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -55,15 +73,22 @@
 "use strict";
 
 const api = {
-  session: (body) => fetch("/api/interface/session", { method: "POST",
-    headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }).then(r => r.json()),
-  input:   (body) => fetch("/api/interface/input",   { method: "POST",
-    headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }).then(r => r.json()),
-  run:     (body) => fetch("/api/interface/run",     { method: "POST",
-    headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }).then(r => r.json()),
+  scenarios: () => fetch("/api/interface/scenarios").then(r => r.json()),
+  fromScenario: (body) => post("/api/interface/session/from_scenario", body),
+  session: (body) => post("/api/interface/session", body),
+  input:   (body) => post("/api/interface/input", body),
+  turn:    (body) => post("/api/interface/turn", body),
+  longRun: (body) => post("/api/interface/long_pressure_run", body),
+  evaluation: (body) => post("/api/interface/evaluation", body),
   getSession: (id) => fetch("/api/interface/session/" + encodeURIComponent(id)).then(r => r.json()),
-  getRun:     (id) => fetch("/api/interface/run/"     + encodeURIComponent(id)).then(r => r.json()),
+  getEvents:  (id) => fetch("/api/interface/events/"  + encodeURIComponent(id)).then(r => r.json()),
+  getEvaluations: (id) => fetch("/api/interface/evaluations/" + encodeURIComponent(id)).then(r => r.json()),
 };
+function post(path, body) {
+  return fetch(path, { method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body) }).then(r => r.json());
+}
 
 function el(tag, attrs, children) {
   const e = document.createElement(tag);
@@ -79,30 +104,55 @@ function el(tag, attrs, children) {
   }
   return e;
 }
+function mdMini(text) {
+  const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  let out = esc(text || "");
+  out = out.replace(/`([^`]+)`/g, "<code>$1</code>");
+  out = out.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  out = out.replace(/^### (.+)$/gm, "<h4 style='margin:12px 0 4px;font-size:14px;'>$1</h4>");
+  out = out.replace(/^- (.+)$/gm, "<div>• $1</div>");
+  out = out.replace(/\n/g, "<br>");
+  return out;
+}
+function cardBlock(title, body) {
+  return el("div", { class: "card" }, [
+    el("h3", {}, [title]),
+    el("div", {}, [body]),
+  ]);
+}
 
 // ---------------- Launchpad ----------------
 
-function renderLaunchpad(root) {
+async function renderLaunchpad(root) {
   root.innerHTML = "";
-  let have = "TEXT";
-  let want = "ПОНЯТЬ";
+  let have = "TEXT", want = "ПОНЯТЬ", scenarioId = "";
+  let scenarios = [];
+  try {
+    const s = await api.scenarios();
+    scenarios = s.scenarios || [];
+  } catch (e) { /* offline / empty */ }
 
-  const haveChip = (label, value) => {
-    const c = el("span", { class: "chip" + (value === have ? " active" : ""),
+  const haveChip = (label, value) =>
+    el("span", { class: "chip" + (value === have ? " active" : ""),
       onclick: () => { have = value; render(); } }, [label]);
-    return c;
-  };
-  const wantChip = (label, value) => {
-    const c = el("span", { class: "chip" + (value === want ? " active" : ""),
+  const wantChip = (label, value) =>
+    el("span", { class: "chip" + (value === want ? " active" : ""),
       onclick: () => { want = value; render(); } }, [label]);
-    return c;
+  const scenarioChip = (sc) => {
+    const enabled = sc.state === "enabled";
+    return el("span", {
+      class: "chip" + (scenarioId === sc.id ? " active" : "")
+                    + (enabled ? "" : " disabled"),
+      title: sc.description + (enabled ? "" : "\n(blocker: " + (sc.blocker_reason || "n/a") + ")"),
+      onclick: () => { if (enabled) { scenarioId = (scenarioId === sc.id ? "" : sc.id); render(); } },
+    }, [sc.name + (enabled ? "" : " · blocked")]);
   };
 
   function render() {
     root.innerHTML = "";
     const main = el("div", {}, [
       el("h1", {}, ["Tinkuy"]),
-      el("p", { class: "sub" }, ["Что у вас есть и что хотите с этим сделать?"]),
+      el("p", { class: "sub" }, ["Что у вас есть, что хотите с этим сделать — и (опционально) какой сценарий давления запустить."]),
 
       el("h2", {}, ["Что у вас есть?"]),
       el("div", { class: "chip-row" }, [
@@ -119,9 +169,15 @@ function renderLaunchpad(root) {
         wantChip("Создать", "СОЗДАТЬ"),
       ]),
 
-      el("h2", {}, ["Материал"]),
+      scenarios.length ? el("div", {}, [
+        el("h2", {}, ["Сценарий давления (опционально)"]),
+        el("p", { class: "sub" }, ["Выбор сценария — засеет сессию его initial_prompt и включит режим устойчивостной оценки."]),
+        el("div", { class: "chip-row" }, scenarios.map(scenarioChip)),
+      ]) : null,
+
+      el("h2", {}, ["Материал / первый ход"]),
       el("textarea", { id: "material",
-        placeholder: "Вставьте текст, расшифровку встречи, фрагмент…" }),
+        placeholder: "Вставьте текст, расшифровку или первую реплику…" }),
 
       el("div", { class: "actions" }, [
         el("button", { class: "primary", onclick: onStart }, ["Начать работу"]),
@@ -129,8 +185,8 @@ function renderLaunchpad(root) {
       ]),
 
       el("p", { class: "footer" }, [
-        "Vertical slice · runs the real Socrates runtime · " +
-        "DETERMINISTIC mode (bypasses external provider outage)"
+        "Vertical slice · SocratesRuntime · DETERMINISTIC (FAST) · " +
+        "authority: NO_ADOPTION_AUTHORITY · сессии в SQLite."
       ]),
     ]);
     root.appendChild(main);
@@ -139,22 +195,29 @@ function renderLaunchpad(root) {
   async function onStart() {
     const text = document.getElementById("material").value.trim();
     const hint = document.getElementById("hint");
-    if (!text) { hint.textContent = "нужно вставить материал"; hint.classList.add("err"); return; }
+    if (!text && !scenarioId) {
+      hint.textContent = "нужно вставить материал или выбрать сценарий";
+      hint.classList.add("err"); return;
+    }
     hint.textContent = "…создаём сессию…"; hint.classList.remove("err");
     try {
-      const s = await api.session({ have, want, actor: "web" });
-      if (s.error) throw new Error(s.error);
-      const sid = s.session.session_id;
-
-      hint.textContent = "…принимаем материал…";
-      const i = await api.input({ session_id: sid, kind: have, body_text: text, mime: "text/plain" });
-      if (i.error) throw new Error(i.error);
-      const iid = i.input.input_id;
-
-      hint.textContent = "…запускаем pipeline…";
-      const r = await api.run({ session_id: sid, input_id: iid, mode: "FAST" });
-      if (r.error) throw new Error(r.error);
-
+      let sid;
+      if (scenarioId) {
+        const seeded = await api.fromScenario({
+          scenario_id: scenarioId, actor: "web" });
+        if (seeded.error) throw new Error(seeded.error);
+        sid = seeded.session.session_id;
+        if (text) {
+          const t = await api.turn({ session_id: sid, text });
+          if (t.error) throw new Error(t.error);
+        }
+      } else {
+        const s = await api.session({ have, want, actor: "web" });
+        if (s.error) throw new Error(s.error);
+        sid = s.session.session_id;
+        const t = await api.turn({ session_id: sid, text });
+        if (t.error) throw new Error(t.error);
+      }
       history.pushState(null, "", "/workspace?session=" + sid);
       renderWorkspace(root, sid);
     } catch (e) {
@@ -174,7 +237,7 @@ async function renderWorkspace(root, sid) {
     el("h1", {}, ["Tinkuy · сессия"]),
     el("p", { class: "sub" }, [
       el("a", { href: "/" }, ["← новая сессия"]),
-      " · session_id: ", el("span", { class: "" }, [sid]),
+      " · session: ", el("code", {}, [sid]),
     ]),
     el("div", { id: "sections" }, []),
   ]);
@@ -193,105 +256,116 @@ async function renderWorkspace(root, sid) {
     const arts = d.artifacts || [];
     const latestRun = runs.length ? runs[runs.length - 1] : null;
 
+    const events = await api.getEvents(sid);
+    const evList = (events.events || []);
+    const evals = await api.getEvaluations(sid);
+    const evaluation = (evals.evaluations || []).slice(-1)[0];
+
     const sections = shell.querySelector("#sections");
     sections.innerHTML = "";
 
-    // INPUT
-    sections.appendChild(cardBlock("INPUT", inputs.length
-      ? el("div", {}, [
-          el("dl", { class: "kv" }, [
-            el("dt", {}, ["kind"]), el("dd", {}, [inputs[0].kind]),
-            el("dt", {}, ["length"]), el("dd", {}, [String(inputs[0].length_chars)]),
+    // DIALOGUE TIMELINE
+    const dialogueBody = el("div", {}, []);
+    const runsByInput = {};
+    for (const r of runs) runsByInput[r.input_id] = r;
+    for (const inp of inputs) {
+      dialogueBody.appendChild(el("div", { class: "turn" }, [
+        el("div", { class: "who" }, ["human · " + inp.kind]),
+        el("pre", {}, [inp.body_preview || ""]),
+      ]));
+      const r = runsByInput[inp.input_id];
+      if (r) {
+        const answer = arts.find(a => a.run_id === r.run_id
+          && a.kind === "RECONSTRUCTION" && !(a.provenance && a.provenance.is_epistemic_events));
+        dialogueBody.appendChild(el("div", { class: "turn",
+          style: "border-color:#8888;background:#fafafa;" }, [
+          el("div", { class: "who" }, [
+            "socrates · ",
+            el("span", { class: "status-badge st-" + r.status }, [r.status]),
+            " · " + (r.terminal || "-"),
           ]),
-          el("h3", { class: "" }, ["превью"]),
-          el("pre", {}, [inputs[0].body_preview || ""]),
-        ])
-      : el("em", {}, ["материал ещё не получен"])));
+          el("div", { html: mdMini((answer || {}).body_md || r.response_text || "") }),
+        ]));
+      }
+    }
+    sections.appendChild(cardBlock("DIALOGUE (" + inputs.length + " ходов)", dialogueBody));
 
-    // RECONSTRUCTION
-    const recon = arts.find(a => a.kind === "RECONSTRUCTION");
-    sections.appendChild(cardBlock("RECONSTRUCTION", recon
-      ? el("div", { html: mdMini(recon.body_md) })
-      : el("em", {}, ["реконструкция появится после первого прогона"])));
+    // NEXT TURN INPUT
+    const nextTurnBody = el("div", {}, [
+      el("input", { type: "text", id: "next-turn",
+        placeholder: "следующая реплика человека…" }),
+      el("div", { class: "actions" }, [
+        el("button", { class: "primary", onclick: async () => {
+          const txt = document.getElementById("next-turn").value.trim();
+          if (!txt) return;
+          document.getElementById("next-turn").value = "";
+          await api.turn({ session_id: sid, text: txt });
+          refresh();
+        } }, ["Отправить ход"]),
+        sess.scenario_id ? el("button", { class: "secondary",
+          onclick: async () => {
+            const r = await api.longRun({ session_id: sid,
+              scenario_id: sess.scenario_id, mode: "FAST" });
+            if (r.error) { alert(r.error); return; }
+            refresh();
+          } }, ["Прогнать весь сценарий"]) : null,
+        el("button", { class: "secondary", onclick: async () => {
+          await api.evaluation({ session_id: sid });
+          refresh();
+        } }, ["Пересчитать оценку"]),
+      ]),
+    ]);
+    sections.appendChild(cardBlock("NEXT TURN", nextTurnBody));
 
-    // RUN
-    sections.appendChild(cardBlock("RUN", latestRun
-      ? el("dl", { class: "kv" }, [
-          el("dt", {}, ["status"]),
-          el("dd", {}, [el("span",
-            { class: "status-badge st-" + latestRun.status },
-            [latestRun.status])]),
-          el("dt", {}, ["terminal"]), el("dd", {}, [latestRun.terminal || "-"]),
-          el("dt", {}, ["mode"]), el("dd", {}, [latestRun.mode]),
-          el("dt", {}, ["duration_ms"]), el("dd", {}, [String(latestRun.duration_ms || 0)]),
-          el("dt", {}, ["provider_id"]), el("dd", {}, [latestRun.provider_id || "-"]),
-          el("dt", {}, ["dyad.causal"]), el("dd", {}, [latestRun.dyad_causal || "-"]),
-          el("dt", {}, ["apparatus.class"]), el("dd", {}, [latestRun.apparatus_class || "-"]),
-          el("dt", {}, ["sd.status"]), el("dd", {}, [latestRun.sd_status || "-"]),
-          el("dt", {}, ["sd.authority"]), el("dd", {}, [latestRun.sd_authority || "-"]),
-        ])
-      : el("em", {}, ["run ещё не запущен"])));
+    // EPISTEMIC EVENTS
+    const eventsBody = evList.length ? el("div", {},
+      evList.map(e => el("div", {}, [
+        el("span", { class: "event-badge" }, [e.kind]),
+        el("span", { class: "sub" }, [" · " + (e.source_field || "") + " = " + (e.source_value || "")]),
+        e.note ? el("span", { class: "sub" }, [" — " + e.note]) : null,
+      ])))
+      : el("em", {}, ["событий ещё нет"]);
+    sections.appendChild(cardBlock(
+      "EPISTEMIC EVENTS (" + evList.length + ")", eventsBody));
 
-    // ARTIFACTS
-    const artCards = arts.length
-      ? arts.map(a => el("div", { class: "card" }, [
-          el("h3", {}, [a.kind + " · " + a.title]),
-          el("div", { html: mdMini(a.body_md) }),
-        ]))
-      : [el("em", {}, ["артефакты появятся после первого прогона"])];
-    sections.appendChild(cardBlock("ARTIFACTS", el("div", {}, artCards)));
+    // EVALUATION
+    if (evaluation) {
+      const metricsBody = el("div", {}, evaluation.metrics.map(m => el("div", {
+        style: "padding:4px 0;"
+      }, [
+        el("span", { class: "metric-badge metric-" + m.verdict }, [m.verdict]),
+        el("strong", { style: "margin-left:8px;" }, [m.kind]),
+        el("div", { class: "sub", style: "font-size:12px;" }, [
+          m.evidence.length ? "evidence: " + m.evidence.slice(0, 3).join(", ")
+                            : "no direct evidence",
+        ]),
+      ])));
+      sections.appendChild(cardBlock(
+        "EVALUATION · " + evaluation.state, metricsBody));
+    }
 
-    // NEXT ACTIONS (static shelf)
-    const nextArt = arts.find(a => a.kind === "NEXT_ACTIONS");
-    sections.appendChild(cardBlock("NEXT ACTIONS", nextArt
-      ? el("div", { html: mdMini(nextArt.body_md) })
-      : el("em", {}, ["предложения появятся после первого прогона"])));
-
-    // Session state banner
+    // SESSION STATUS
     sections.appendChild(el("p", { class: "sub" }, [
       "session status: ",
       el("span", { class: "status-badge st-" + sess.status }, [sess.status]),
+      sess.scenario_id ? el("span", {}, [" · scenario: ",
+        el("code", {}, [sess.scenario_id])]) : null,
     ]));
 
-    // Auto-refresh until run is terminal
-    if (latestRun && latestRun.status !== "COMPLETED" && latestRun.status !== "FAILED") {
+    if (latestRun && (latestRun.status === "QUEUED" ||
+                      latestRun.status === "RUNNING")) {
       setTimeout(refresh, 2000);
     }
   }
   refresh();
 }
 
-function cardBlock(title, body) {
-  return el("div", { class: "card" }, [
-    el("h3", {}, [title]),
-    el("div", { class: "body" }, [body]),
-  ]);
-}
-
-function mdMini(text) {
-  // Deliberately tiny markdown-ish: **bold**, `code`, headers, list dashes,
-  // newlines. Enough for our reconstruction / next-actions bodies.
-  const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  let out = esc(text || "");
-  out = out.replace(/`([^`]+)`/g, "<code>$1</code>");
-  out = out.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-  out = out.replace(/^### (.+)$/gm, "<h4 style='margin:12px 0 4px;font-size:14px;'>$1</h4>");
-  out = out.replace(/^- (.+)$/gm, "<div>• $1</div>");
-  out = out.replace(/\n/g, "<br>");
-  return out;
-}
-
-// ---------------- Router ----------------
-
 function route() {
   const root = document.getElementById("app");
   const url = new URL(location.href);
   const sid = url.searchParams.get("session");
-  if (url.pathname === "/workspace" && sid) {
-    renderWorkspace(root, sid);
-  } else {
-    renderLaunchpad(root);
-  }
+  if (url.pathname === "/workspace" && sid) renderWorkspace(root, sid);
+  else renderLaunchpad(root);
 }
 
 window.addEventListener("popstate", route);

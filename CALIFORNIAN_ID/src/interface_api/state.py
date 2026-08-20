@@ -16,6 +16,10 @@ import sqlite3
 from pathlib import Path
 from typing import Any, Iterable
 
+from .evaluation import (
+    EvaluationRecord, EvaluationState, MetricEntry, MetricKind,
+    MetricVerdict,
+)
 from .models import (
     Artifact, ArtifactKind, Decision, DecisionAction,
     InputArtifact, InputKind, Run, RunMode, RunStatus,
@@ -31,7 +35,9 @@ CREATE TABLE IF NOT EXISTS sessions (
     actor       TEXT NOT NULL,
     status      TEXT NOT NULL,
     created_at  TEXT NOT NULL,
-    updated_at  TEXT NOT NULL
+    updated_at  TEXT NOT NULL,
+    context_id  TEXT NOT NULL DEFAULT '',
+    scenario_id TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TABLE IF NOT EXISTS inputs (
@@ -95,7 +101,30 @@ CREATE TABLE IF NOT EXISTS decisions (
     FOREIGN KEY (session_id) REFERENCES sessions (session_id)
 );
 CREATE INDEX IF NOT EXISTS decisions_session_idx ON decisions (session_id);
+
+CREATE TABLE IF NOT EXISTS evaluations (
+    evaluation_id     TEXT PRIMARY KEY,
+    session_id        TEXT NOT NULL,
+    scenario_id       TEXT NOT NULL,
+    state             TEXT NOT NULL,
+    metrics_json      TEXT NOT NULL,
+    total_events      INTEGER NOT NULL,
+    turns_evaluated   INTEGER NOT NULL,
+    human_notes       TEXT NOT NULL,
+    created_at        TEXT NOT NULL,
+    reviewed_at       TEXT NOT NULL DEFAULT '',
+    reviewer          TEXT NOT NULL DEFAULT '',
+    FOREIGN KEY (session_id) REFERENCES sessions (session_id)
+);
+CREATE INDEX IF NOT EXISTS evaluations_session_idx
+    ON evaluations (session_id);
 """
+
+# Additive migration for older DBs that lack the new columns.
+_MIGRATIONS = [
+    "ALTER TABLE sessions ADD COLUMN context_id TEXT NOT NULL DEFAULT ''",
+    "ALTER TABLE sessions ADD COLUMN scenario_id TEXT NOT NULL DEFAULT ''",
+]
 
 
 class InterfaceStore:
@@ -112,6 +141,13 @@ class InterfaceStore:
         self._conn = sqlite3.connect(
             str(self.db_path), check_same_thread=False, isolation_level=None)
         self._conn.executescript(_SCHEMA)
+        for stmt in _MIGRATIONS:
+            try:
+                self._conn.execute(stmt)
+            except sqlite3.OperationalError:
+                # column already present or table not yet created; safe
+                # to ignore for additive migrations
+                pass
         self._conn.commit()
 
     def close(self) -> None:
@@ -122,16 +158,19 @@ class InterfaceStore:
     def put_session(self, s: Session) -> None:
         self._conn.execute(
             "INSERT OR REPLACE INTO sessions "
-            "(session_id, have, want, actor, status, created_at, updated_at) "
-            "VALUES (?, ?, ?, ?, ?, ?, ?)",
+            "(session_id, have, want, actor, status, created_at, "
+            "updated_at, context_id, scenario_id) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
             (s.session_id, s.have, s.want, s.actor, s.status.value,
-             s.created_at, s.updated_at),
+             s.created_at, s.updated_at, s.context_id or "",
+             s.scenario_id or ""),
         )
 
     def get_session(self, session_id: str) -> Session | None:
         row = self._conn.execute(
             "SELECT session_id, have, want, actor, status, created_at, "
-            "updated_at FROM sessions WHERE session_id=?",
+            "updated_at, context_id, scenario_id "
+            "FROM sessions WHERE session_id=?",
             (session_id,)).fetchone()
         if row is None:
             return None
@@ -139,6 +178,8 @@ class InterfaceStore:
             session_id=row[0], have=row[1], want=row[2], actor=row[3],
             status=SessionStatus(row[4]),
             created_at=row[5], updated_at=row[6],
+            context_id=row[7] or "",
+            scenario_id=row[8] or "",
         )
 
     def update_session_status(self, session_id: str,
@@ -282,6 +323,53 @@ class InterfaceStore:
             action=DecisionAction(r[5]),
             payload=json.loads(r[6] or "{}"), created_at=r[7],
         ) for r in rows]
+
+    # -------------------- evaluations --------------------
+
+    def put_evaluation(self, e: EvaluationRecord) -> None:
+        self._conn.execute(
+            "INSERT OR REPLACE INTO evaluations "
+            "(evaluation_id, session_id, scenario_id, state, metrics_json, "
+            "total_events, turns_evaluated, human_notes, created_at, "
+            "reviewed_at, reviewer) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (e.evaluation_id, e.session_id, e.scenario_id,
+             e.state.value,
+             json.dumps([m.to_public() for m in e.metrics],
+                        ensure_ascii=False),
+             e.total_events, e.turns_evaluated, e.human_notes,
+             e.created_at, e.reviewed_at, e.reviewer),
+        )
+
+    def get_evaluation(self, evaluation_id: str) -> EvaluationRecord | None:
+        row = self._conn.execute(
+            "SELECT evaluation_id, session_id, scenario_id, state, "
+            "metrics_json, total_events, turns_evaluated, human_notes, "
+            "created_at, reviewed_at, reviewer "
+            "FROM evaluations WHERE evaluation_id=?",
+            (evaluation_id,)).fetchone()
+        if row is None:
+            return None
+        metrics_raw = json.loads(row[4] or "[]")
+        metrics = [MetricEntry(
+            kind=MetricKind(m["kind"]),
+            verdict=MetricVerdict(m["verdict"]),
+            evidence=tuple(m.get("evidence") or ()),
+            note=str(m.get("note") or ""),
+        ) for m in metrics_raw]
+        return EvaluationRecord(
+            evaluation_id=row[0], session_id=row[1], scenario_id=row[2],
+            state=EvaluationState(row[3]), metrics=metrics,
+            total_events=row[5], turns_evaluated=row[6],
+            human_notes=row[7], created_at=row[8],
+            reviewed_at=row[9] or "", reviewer=row[10] or "",
+        )
+
+    def list_evaluations(self, session_id: str) -> list[EvaluationRecord]:
+        rows = self._conn.execute(
+            "SELECT evaluation_id FROM evaluations WHERE session_id=? "
+            "ORDER BY created_at ASC", (session_id,)).fetchall()
+        return [self.get_evaluation(r[0]) for r in rows
+                if self.get_evaluation(r[0])]
 
 
 __all__ = ["InterfaceStore"]

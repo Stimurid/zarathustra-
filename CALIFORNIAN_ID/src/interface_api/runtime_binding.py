@@ -15,11 +15,28 @@ from socrates_runtime import SocratesRuntime
 from socrates_runtime.context_store import InMemoryContextStore
 from socrates_runtime.phase_executor import ExecutionMode
 
+from .epistemic_events import events_to_markdown, extract_events
 from .models import (
     Artifact, ArtifactKind, InputArtifact, Run, RunMode, RunStatus,
     Session, SessionStatus, _now_iso,
 )
 from .state import InterfaceStore
+
+
+# Per-session in-process context store registry so multi-turn dialogs
+# share the same SocratesContext. Keyed by session_id. Rebuilt lazily
+# from persisted context_id after process restart (single-turn continuity
+# is preserved via SQLite; deeper continuity requires the durable
+# SQLite context_store which is out of scope for this pass).
+_context_registry: dict[str, InMemoryContextStore] = {}
+
+
+def _ctx_store_for(session: Session) -> InMemoryContextStore:
+    store = _context_registry.get(session.session_id)
+    if store is None:
+        store = InMemoryContextStore()
+        _context_registry[session.session_id] = store
+    return store
 
 
 _MODE_MAP = {
@@ -87,7 +104,7 @@ def execute_run(store: InterfaceStore, session: Session,
 
     exec_mode = _MODE_MAP.get(mode, ExecutionMode.DETERMINISTIC)
     runtime = SocratesRuntime(trace_dir=runs_dir)
-    ctx_store = InMemoryContextStore()
+    ctx_store = _ctx_store_for(session)
 
     t0 = time.time()
     try:
@@ -95,6 +112,7 @@ def execute_run(store: InterfaceStore, session: Session,
             input_art.body_text or "",
             mode=exec_mode,
             context_store=ctx_store,
+            context_id=session.context_id or None,
         )
     except Exception as exc:  # noqa: BLE001
         dt_ms = int((time.time() - t0) * 1000)
@@ -124,6 +142,13 @@ def execute_run(store: InterfaceStore, session: Session,
     run.provider_id = str(getattr(result, "provider_id", "") or "")
     run.model_id = str(getattr(result, "model_id", "") or "")
     run.trace_ref = str(getattr(result, "trace_path", "") or "")
+
+    # Bind runtime context_id back onto the session so subsequent turns
+    # of this dialogue share the same SocratesContext.
+    result_ctx = str(getattr(result, "context_id", "") or "")
+    if result_ctx and not session.context_id:
+        session.context_id = result_ctx
+        store.put_session(session)
 
     is_ok = run.terminal != "FAILED_EXPLICIT"
     run.status = RunStatus.COMPLETED if is_ok else RunStatus.FAILED
@@ -164,6 +189,27 @@ def execute_run(store: InterfaceStore, session: Session,
         provenance={"run_id": run.run_id, "vertical_slice_static": True},
     )
     store.put_artifact(nxt)
+
+    # Epistemic events artifact — typed projection of dyad / apparatus /
+    # 3E fields into stability events. Consumers filter by kind for UI
+    # and for the evaluation record.
+    events = extract_events(run)
+    ep_art = Artifact.new(
+        session_id=session.session_id, run_id=run.run_id,
+        kind=ArtifactKind.RECONSTRUCTION,  # reuse enum; distinguished by title
+        title="Epistemic events",
+        body_md=events_to_markdown(events),
+        provenance={
+            "run_id": run.run_id,
+            "event_kinds": [e.kind.value for e in events],
+            "event_count": len(events),
+        },
+    )
+    # switch to a dedicated kind for evaluation code to find events easily
+    # (ArtifactKind has no EPISTEMIC_EVENTS by design freeze; use provenance
+    # marker instead)
+    ep_art.provenance["is_epistemic_events"] = True
+    store.put_artifact(ep_art)
 
     store.update_session_status(
         session.session_id,

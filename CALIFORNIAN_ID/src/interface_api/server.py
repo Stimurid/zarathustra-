@@ -18,11 +18,17 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
+from .epistemic_events import extract_events
+from .evaluation import (
+    EvaluationRecord, EvaluationState, auto_populate,
+)
+from .long_pressure import LongPressureError, run_long_pressure
 from .models import (
     ArtifactKind, DecisionAction, InputArtifact, InputKind,
-    Run, RunMode, RunStatus, Session, SessionStatus,
+    Run, RunMode, RunStatus, Session, SessionStatus, _now_iso,
 )
 from .runtime_binding import execute_run
+from .scenarios import ScenarioCategory, ScenarioState, get_registry
 from .state import InterfaceStore
 
 
@@ -142,6 +148,47 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/interface/health":
             return {"ok": True, "component": "interface_api"}
 
+        if path == "/api/interface/scenarios":
+            reg = get_registry()
+            return {"scenarios": [s.to_public() for s in reg.list()],
+                    "source_path": str(reg.source_path)}
+
+        m = re.fullmatch(r"/api/interface/scenario/([^/]+)", path)
+        if m:
+            reg = get_registry()
+            sc = reg.get(m.group(1))
+            if sc is None:
+                raise InterfaceError(f"unknown scenario: {m.group(1)}")
+            return {"scenario": sc.to_public()}
+
+        m = re.fullmatch(r"/api/interface/evaluation/([^/]+)", path)
+        if m:
+            ev = store.get_evaluation(m.group(1))
+            if ev is None:
+                raise InterfaceError(f"unknown evaluation: {m.group(1)}")
+            return {"evaluation": ev.to_public()}
+
+        m = re.fullmatch(r"/api/interface/evaluations/([^/]+)", path)
+        if m:
+            sid = m.group(1)
+            if store.get_session(sid) is None:
+                raise InterfaceError(f"unknown session: {sid}")
+            return {"evaluations": [e.to_public()
+                                    for e in store.list_evaluations(sid)]}
+
+        m = re.fullmatch(r"/api/interface/events/([^/]+)", path)
+        if m:
+            sid = m.group(1)
+            if store.get_session(sid) is None:
+                raise InterfaceError(f"unknown session: {sid}")
+            runs = store.list_runs(sid)
+            all_events = []
+            for r in runs:
+                for e in extract_events(r):
+                    all_events.append({"run_id": r.run_id,
+                                       **e.to_public()})
+            return {"events": all_events, "count": len(all_events)}
+
         m = re.fullmatch(r"/api/interface/session/([^/]+)", path)
         if m:
             sid = m.group(1)
@@ -194,11 +241,122 @@ class Handler(BaseHTTPRequestHandler):
             have = str(body.get("have") or "").strip()
             want = str(body.get("want") or "").strip()
             actor = str(body.get("actor") or "anonymous").strip()
+            scenario_id = str(body.get("scenario_id") or "").strip()
             if not have or not want:
                 raise InterfaceError("need `have` and `want`")
-            s = Session.new(have=have, want=want, actor=actor)
+            s = Session.new(have=have, want=want, actor=actor,
+                            scenario_id=scenario_id)
             store.put_session(s)
             return {"session": s.to_public()}
+
+        if path == "/api/interface/session/from_scenario":
+            sid_scenario = str(body.get("scenario_id") or "").strip()
+            actor = str(body.get("actor") or "anonymous").strip()
+            if not sid_scenario:
+                raise InterfaceError("need `scenario_id`")
+            reg = get_registry()
+            sc = reg.get(sid_scenario)
+            if sc is None:
+                raise InterfaceError(
+                    f"unknown scenario: {sid_scenario}")
+            if sc.state != ScenarioState.ENABLED:
+                raise InterfaceError(
+                    f"scenario {sid_scenario} state="
+                    f"{sc.state.value}; refusing to seed a session "
+                    f"(blocker={sc.blocker_reason or 'unknown'})")
+            s = Session.new(have="TEXT", want="ПРОВЕРИТЬ",
+                            actor=actor, scenario_id=sid_scenario)
+            store.put_session(s)
+            return {"session": s.to_public(),
+                    "scenario": sc.to_public()}
+
+        if path == "/api/interface/turn":
+            sid = str(body.get("session_id") or "").strip()
+            text = str(body.get("text") or "").strip()
+            mode_raw = str(body.get("mode") or "FAST").strip().upper()
+            if not sid or not text:
+                raise InterfaceError("need `session_id` and `text`")
+            session = store.get_session(sid)
+            if session is None:
+                raise InterfaceError(f"unknown session: {sid}")
+            try:
+                mode = RunMode(mode_raw)
+            except ValueError:
+                raise InterfaceError(f"unknown RunMode: {mode_raw}")
+            inp = InputArtifact.new(sid, InputKind.TEXT, text,
+                                    "text/plain")
+            store.put_input(inp)
+            run = execute_run(store, session, inp, mode=mode,
+                              runs_dir=_runs_dir)
+            events = extract_events(run)
+            return {"run": run.to_public(),
+                    "events": [e.to_public() for e in events]}
+
+        if path == "/api/interface/long_pressure_run":
+            sid = str(body.get("session_id") or "").strip()
+            scenario_id = str(body.get("scenario_id") or "").strip()
+            mode_raw = str(body.get("mode") or "FAST").strip().upper()
+            max_turns = body.get("max_turns")
+            if not sid or not scenario_id:
+                raise InterfaceError(
+                    "need `session_id` and `scenario_id`")
+            session = store.get_session(sid)
+            if session is None:
+                raise InterfaceError(f"unknown session: {sid}")
+            reg = get_registry()
+            sc = reg.get(scenario_id)
+            if sc is None:
+                raise InterfaceError(
+                    f"unknown scenario: {scenario_id}")
+            try:
+                mode = RunMode(mode_raw)
+            except ValueError:
+                raise InterfaceError(f"unknown RunMode: {mode_raw}")
+            try:
+                result = run_long_pressure(
+                    store, session, sc, mode=mode,
+                    runs_dir=_runs_dir,
+                    max_turns=int(max_turns) if max_turns else None)
+            except LongPressureError as exc:
+                raise InterfaceError(str(exc))
+            return result
+
+        if path == "/api/interface/evaluation":
+            sid = str(body.get("session_id") or "").strip()
+            scenario_id = str(body.get("scenario_id") or "").strip()
+            if not sid:
+                raise InterfaceError("need `session_id`")
+            session = store.get_session(sid)
+            if session is None:
+                raise InterfaceError(f"unknown session: {sid}")
+            if not scenario_id:
+                scenario_id = session.scenario_id
+            runs = store.list_runs(sid)
+            all_events = []
+            for r in runs:
+                all_events.extend(extract_events(r))
+            evaluation = auto_populate(
+                session_id=sid, scenario_id=scenario_id,
+                events=all_events, turns=len(runs))
+            store.put_evaluation(evaluation)
+            return {"evaluation": evaluation.to_public()}
+
+        if path == "/api/interface/evaluation/human_review":
+            eval_id = str(body.get("evaluation_id") or "").strip()
+            reviewer = str(body.get("reviewer") or "").strip()
+            notes = str(body.get("human_notes") or "").strip()
+            if not eval_id or not reviewer:
+                raise InterfaceError(
+                    "need `evaluation_id` and `reviewer`")
+            ev = store.get_evaluation(eval_id)
+            if ev is None:
+                raise InterfaceError(f"unknown evaluation: {eval_id}")
+            ev.state = EvaluationState.HUMAN_REVIEWED
+            ev.reviewer = reviewer
+            ev.reviewed_at = _now_iso()
+            ev.human_notes = notes
+            store.put_evaluation(ev)
+            return {"evaluation": ev.to_public()}
 
         if path == "/api/interface/input":
             sid = str(body.get("session_id") or "").strip()

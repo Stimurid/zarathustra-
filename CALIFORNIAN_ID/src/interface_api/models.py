@@ -84,15 +84,19 @@ class Session:
     status:       SessionStatus
     created_at:   str
     updated_at:   str
+    context_id:   str = ""                  # SocratesRuntime cross-turn context
+    scenario_id:  str = ""                  # optional: dialogue-loop scenario seed
 
     @classmethod
-    def new(cls, have: str, want: str, actor: str) -> "Session":
+    def new(cls, have: str, want: str, actor: str,
+            scenario_id: str = "") -> "Session":
         now = _now_iso()
         return cls(
             session_id=_new_id("ses"),
             have=have, want=want, actor=actor,
             status=SessionStatus.CREATED,
             created_at=now, updated_at=now,
+            context_id="", scenario_id=scenario_id,
         )
 
     def to_public(self) -> dict[str, Any]:
