@@ -1,0 +1,30 @@
+[Unit]
+Description=Tinkuy Interface API (interface_api vertical slice)
+After=network.target tinkuy-web.service
+
+[Service]
+Type=simple
+User=tinkuy
+Group=tinkuy
+WorkingDirectory=/opt/tinkuy/app/CALIFORNIAN_ID
+EnvironmentFile=/etc/tinkuy/tinkuy.env
+Environment=PYTHONPATH=/opt/tinkuy/app/CALIFORNIAN_ID/src
+Environment=CALIFORNIAN_ID_DATA_DIR=/opt/tinkuy/app/CALIFORNIAN_ID/src/californian_id/data
+Environment=CALIFORNIAN_ID_RUNS_DIR=/srv/tinkuy/runs
+Environment=CALIFORNIAN_ID_INTERFACE_DB=/srv/tinkuy/runs/interface_state.sqlite
+Environment=PERSONA_LAYER_ROOT=/opt/tinkuy/app/runtime_assets/personas/v0.2
+ExecStart=/opt/tinkuy/app/.venv/bin/python -m interface_api serve --host 0.0.0.0 --port 8791
+Restart=on-failure
+RestartSec=10
+
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/srv/tinkuy /opt/tinkuy/app
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=tinkuy-interface-api
+
+[Install]
+WantedBy=multi-user.target

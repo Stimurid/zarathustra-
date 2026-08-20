@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tinkuy</title>
+<style>
+  :root {
+    --fg: #1a1a1a; --muted: #6b6b6b; --line: #e5e5e5; --accent: #2860d8;
+    --bg: #fafafa; --card: #ffffff; --err: #b03030;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+    font: 15px/1.5 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif; }
+  main { max-width: 880px; margin: 0 auto; padding: 32px 24px 96px; }
+  h1 { font-size: 28px; font-weight: 500; letter-spacing: -0.01em; margin: 0 0 4px; }
+  h2 { font-size: 18px; font-weight: 500; margin: 24px 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 24px; }
+  .chip { padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px;
+    background: var(--card); cursor: pointer; font-size: 14px; transition: 0.12s; }
+  .chip:hover { border-color: var(--accent); }
+  .chip.active { background: var(--accent); color: white; border-color: var(--accent); }
+  textarea { width: 100%; min-height: 200px; padding: 12px 14px;
+    border: 1px solid var(--line); border-radius: 8px; background: var(--card);
+    font: 14px/1.5 var(--mono); resize: vertical; }
+  .actions { margin-top: 16px; display: flex; gap: 12px; align-items: center; }
+  button.primary { background: var(--accent); color: white; border: 0;
+    padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 15px; }
+  button.primary:disabled { opacity: 0.5; cursor: default; }
+  .card { background: var(--card); border: 1px solid var(--line);
+    border-radius: 8px; padding: 16px 20px; margin: 12px 0; }
+  .card h3 { margin: 0 0 8px; font-size: 14px; font-weight: 500;
+    color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .card .body { font-size: 15px; }
+  .kv { display: grid; grid-template-columns: 200px 1fr; gap: 6px 12px; font-size: 14px; }
+  .kv dt { color: var(--muted); }
+  .kv dd { margin: 0; font-family: var(--mono); }
+  pre { white-space: pre-wrap; word-break: break-word; margin: 0; font-family: var(--mono); font-size: 13px; }
+  .err { color: var(--err); }
+  .footer { color: var(--muted); font-size: 12px; margin-top: 40px; }
+  .status-badge { display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 11px; font-family: var(--mono); text-transform: uppercase; }
+  .st-CREATED, .st-INPUT_RECEIVED { background: #eef; color: #339; }
+  .st-RUNNING { background: #ffe; color: #a70; }
+  .st-COMPLETED { background: #efe; color: #060; }
+  .st-FAILED { background: #fee; color: var(--err); }
+</style>
+</head>
+<body>
+<main id="app"></main>
+
+<script>
+"use strict";
+
+const api = {
+  session: (body) => fetch("/api/interface/session", { method: "POST",
+    headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }).then(r => r.json()),
+  input:   (body) => fetch("/api/interface/input",   { method: "POST",
+    headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }).then(r => r.json()),
+  run:     (body) => fetch("/api/interface/run",     { method: "POST",
+    headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }).then(r => r.json()),
+  getSession: (id) => fetch("/api/interface/session/" + encodeURIComponent(id)).then(r => r.json()),
+  getRun:     (id) => fetch("/api/interface/run/"     + encodeURIComponent(id)).then(r => r.json()),
+};
+
+function el(tag, attrs, children) {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) {
+    if (k === "class") e.className = attrs[k];
+    else if (k === "html") e.innerHTML = attrs[k];
+    else if (k.startsWith("on")) e.addEventListener(k.slice(2), attrs[k]);
+    else e.setAttribute(k, attrs[k]);
+  }
+  for (const c of (children || [])) {
+    if (c == null) continue;
+    e.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+  }
+  return e;
+}
+
+// ---------------- Launchpad ----------------
+
+function renderLaunchpad(root) {
+  root.innerHTML = "";
+  let have = "TEXT";
+  let want = "ПОНЯТЬ";
+
+  const haveChip = (label, value) => {
+    const c = el("span", { class: "chip" + (value === have ? " active" : ""),
+      onclick: () => { have = value; render(); } }, [label]);
+    return c;
+  };
+  const wantChip = (label, value) => {
+    const c = el("span", { class: "chip" + (value === want ? " active" : ""),
+      onclick: () => { want = value; render(); } }, [label]);
+    return c;
+  };
+
+  function render() {
+    root.innerHTML = "";
+    const main = el("div", {}, [
+      el("h1", {}, ["Tinkuy"]),
+      el("p", { class: "sub" }, ["Что у вас есть и что хотите с этим сделать?"]),
+
+      el("h2", {}, ["Что у вас есть?"]),
+      el("div", { class: "chip-row" }, [
+        haveChip("Текст", "TEXT"),
+        haveChip("Файл", "FILE"),
+        haveChip("Расшифровка", "TRANSCRIPT"),
+      ]),
+
+      el("h2", {}, ["Что хотите сделать?"]),
+      el("div", { class: "chip-row" }, [
+        wantChip("Понять", "ПОНЯТЬ"),
+        wantChip("Проверить", "ПРОВЕРИТЬ"),
+        wantChip("Преобразовать", "ПРЕОБРАЗОВАТЬ"),
+        wantChip("Создать", "СОЗДАТЬ"),
+      ]),
+
+      el("h2", {}, ["Материал"]),
+      el("textarea", { id: "material",
+        placeholder: "Вставьте текст, расшифровку встречи, фрагмент…" }),
+
+      el("div", { class: "actions" }, [
+        el("button", { class: "primary", onclick: onStart }, ["Начать работу"]),
+        el("span", { class: "sub", id: "hint" }, [""]),
+      ]),
+
+      el("p", { class: "footer" }, [
+        "Vertical slice · runs the real Socrates runtime · " +
+        "DETERMINISTIC mode (bypasses external provider outage)"
+      ]),
+    ]);
+    root.appendChild(main);
+  }
+
+  async function onStart() {
+    const text = document.getElementById("material").value.trim();
+    const hint = document.getElementById("hint");
+    if (!text) { hint.textContent = "нужно вставить материал"; hint.classList.add("err"); return; }
+    hint.textContent = "…создаём сессию…"; hint.classList.remove("err");
+    try {
+      const s = await api.session({ have, want, actor: "web" });
+      if (s.error) throw new Error(s.error);
+      const sid = s.session.session_id;
+
+      hint.textContent = "…принимаем материал…";
+      const i = await api.input({ session_id: sid, kind: have, body_text: text, mime: "text/plain" });
+      if (i.error) throw new Error(i.error);
+      const iid = i.input.input_id;
+
+      hint.textContent = "…запускаем pipeline…";
+      const r = await api.run({ session_id: sid, input_id: iid, mode: "FAST" });
+      if (r.error) throw new Error(r.error);
+
+      history.pushState(null, "", "/workspace?session=" + sid);
+      renderWorkspace(root, sid);
+    } catch (e) {
+      hint.textContent = "ошибка: " + e.message;
+      hint.classList.add("err");
+    }
+  }
+
+  render();
+}
+
+// ---------------- Workspace ----------------
+
+async function renderWorkspace(root, sid) {
+  root.innerHTML = "";
+  const shell = el("div", {}, [
+    el("h1", {}, ["Tinkuy · сессия"]),
+    el("p", { class: "sub" }, [
+      el("a", { href: "/" }, ["← новая сессия"]),
+      " · session_id: ", el("span", { class: "" }, [sid]),
+    ]),
+    el("div", { id: "sections" }, []),
+  ]);
+  root.appendChild(shell);
+
+  async function refresh() {
+    const d = await api.getSession(sid);
+    if (d.error) {
+      shell.querySelector("#sections").innerHTML =
+        "<div class='card err'>" + d.error + "</div>";
+      return;
+    }
+    const sess = d.session;
+    const inputs = d.inputs || [];
+    const runs = d.runs || [];
+    const arts = d.artifacts || [];
+    const latestRun = runs.length ? runs[runs.length - 1] : null;
+
+    const sections = shell.querySelector("#sections");
+    sections.innerHTML = "";
+
+    // INPUT
+    sections.appendChild(cardBlock("INPUT", inputs.length
+      ? el("div", {}, [
+          el("dl", { class: "kv" }, [
+            el("dt", {}, ["kind"]), el("dd", {}, [inputs[0].kind]),
+            el("dt", {}, ["length"]), el("dd", {}, [String(inputs[0].length_chars)]),
+          ]),
+          el("h3", { class: "" }, ["превью"]),
+          el("pre", {}, [inputs[0].body_preview || ""]),
+        ])
+      : el("em", {}, ["материал ещё не получен"])));
+
+    // RECONSTRUCTION
+    const recon = arts.find(a => a.kind === "RECONSTRUCTION");
+    sections.appendChild(cardBlock("RECONSTRUCTION", recon
+      ? el("div", { html: mdMini(recon.body_md) })
+      : el("em", {}, ["реконструкция появится после первого прогона"])));
+
+    // RUN
+    sections.appendChild(cardBlock("RUN", latestRun
+      ? el("dl", { class: "kv" }, [
+          el("dt", {}, ["status"]),
+          el("dd", {}, [el("span",
+            { class: "status-badge st-" + latestRun.status },
+            [latestRun.status])]),
+          el("dt", {}, ["terminal"]), el("dd", {}, [latestRun.terminal || "-"]),
+          el("dt", {}, ["mode"]), el("dd", {}, [latestRun.mode]),
+          el("dt", {}, ["duration_ms"]), el("dd", {}, [String(latestRun.duration_ms || 0)]),
+          el("dt", {}, ["provider_id"]), el("dd", {}, [latestRun.provider_id || "-"]),
+          el("dt", {}, ["dyad.causal"]), el("dd", {}, [latestRun.dyad_causal || "-"]),
+          el("dt", {}, ["apparatus.class"]), el("dd", {}, [latestRun.apparatus_class || "-"]),
+          el("dt", {}, ["sd.status"]), el("dd", {}, [latestRun.sd_status || "-"]),
+          el("dt", {}, ["sd.authority"]), el("dd", {}, [latestRun.sd_authority || "-"]),
+        ])
+      : el("em", {}, ["run ещё не запущен"])));
+
+    // ARTIFACTS
+    const artCards = arts.length
+      ? arts.map(a => el("div", { class: "card" }, [
+          el("h3", {}, [a.kind + " · " + a.title]),
+          el("div", { html: mdMini(a.body_md) }),
+        ]))
+      : [el("em", {}, ["артефакты появятся после первого прогона"])];
+    sections.appendChild(cardBlock("ARTIFACTS", el("div", {}, artCards)));
+
+    // NEXT ACTIONS (static shelf)
+    const nextArt = arts.find(a => a.kind === "NEXT_ACTIONS");
+    sections.appendChild(cardBlock("NEXT ACTIONS", nextArt
+      ? el("div", { html: mdMini(nextArt.body_md) })
+      : el("em", {}, ["предложения появятся после первого прогона"])));
+
+    // Session state banner
+    sections.appendChild(el("p", { class: "sub" }, [
+      "session status: ",
+      el("span", { class: "status-badge st-" + sess.status }, [sess.status]),
+    ]));
+
+    // Auto-refresh until run is terminal
+    if (latestRun && latestRun.status !== "COMPLETED" && latestRun.status !== "FAILED") {
+      setTimeout(refresh, 2000);
+    }
+  }
+  refresh();
+}
+
+function cardBlock(title, body) {
+  return el("div", { class: "card" }, [
+    el("h3", {}, [title]),
+    el("div", { class: "body" }, [body]),
+  ]);
+}
+
+function mdMini(text) {
+  // Deliberately tiny markdown-ish: **bold**, `code`, headers, list dashes,
+  // newlines. Enough for our reconstruction / next-actions bodies.
+  const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  let out = esc(text || "");
+  out = out.replace(/`([^`]+)`/g, "<code>$1</code>");
+  out = out.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  out = out.replace(/^### (.+)$/gm, "<h4 style='margin:12px 0 4px;font-size:14px;'>$1</h4>");
+  out = out.replace(/^- (.+)$/gm, "<div>• $1</div>");
+  out = out.replace(/\n/g, "<br>");
+  return out;
+}
+
+// ---------------- Router ----------------
+
+function route() {
+  const root = document.getElementById("app");
+  const url = new URL(location.href);
+  const sid = url.searchParams.get("session");
+  if (url.pathname === "/workspace" && sid) {
+    renderWorkspace(root, sid);
+  } else {
+    renderLaunchpad(root);
+  }
+}
+
+window.addEventListener("popstate", route);
+route();
+</script>
+</body>
+</html>
