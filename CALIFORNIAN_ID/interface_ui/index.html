@@ -80,6 +80,8 @@ const api = {
   turn:    (body) => post("/api/interface/turn", body),
   longRun: (body) => post("/api/interface/long_pressure_run", body),
   evaluation: (body) => post("/api/interface/evaluation", body),
+  humanReview: (body) => post("/api/interface/evaluation/human_review", body),
+  comparativeRun: (body) => post("/api/interface/comparative_run", body),
   getSession: (id) => fetch("/api/interface/session/" + encodeURIComponent(id)).then(r => r.json()),
   getEvents:  (id) => fetch("/api/interface/events/"  + encodeURIComponent(id)).then(r => r.json()),
   getEvaluations: (id) => fetch("/api/interface/evaluations/" + encodeURIComponent(id)).then(r => r.json()),
@@ -328,20 +330,105 @@ async function renderWorkspace(root, sid) {
     sections.appendChild(cardBlock(
       "EPISTEMIC EVENTS (" + evList.length + ")", eventsBody));
 
-    // EVALUATION
+    // EVALUATION + HUMAN REVIEW FORM
     if (evaluation) {
-      const metricsBody = el("div", {}, evaluation.metrics.map(m => el("div", {
-        style: "padding:4px 0;"
-      }, [
-        el("span", { class: "metric-badge metric-" + m.verdict }, [m.verdict]),
-        el("strong", { style: "margin-left:8px;" }, [m.kind]),
-        el("div", { class: "sub", style: "font-size:12px;" }, [
-          m.evidence.length ? "evidence: " + m.evidence.slice(0, 3).join(", ")
-                            : "no direct evidence",
+      const isReviewed = evaluation.state === "HUMAN_REVIEWED"
+                       || evaluation.state === "LOCKED";
+      const overrides = {};
+      const rows = evaluation.metrics.map(m => {
+        const verdictSelect = el("select", {
+          style: "margin-left:8px;font-family:var(--mono);font-size:12px;",
+          onchange: (e) => {
+            overrides[m.kind] = overrides[m.kind] || {};
+            overrides[m.kind].verdict = e.target.value;
+          },
+        }, ["STRONG_YES","WEAK_YES","UNCLEAR","WEAK_NO","STRONG_NO","UNKNOWN"]
+            .map(v => el("option", { value: v,
+              selected: v === m.verdict ? "selected" : null }, [v])));
+        const noteInput = el("input", { type: "text",
+          placeholder: "note / evidence reference",
+          style: "width:100%;font-size:12px;margin-top:2px;",
+          value: (m.note && m.note.indexOf("HUMAN:") === 0)
+                   ? m.note.slice(6).trim() : "",
+          oninput: (e) => {
+            overrides[m.kind] = overrides[m.kind] || {};
+            overrides[m.kind].note = e.target.value;
+          },
+        });
+        return el("div", { style: "padding:8px 0;border-top:1px solid var(--line);" }, [
+          el("div", {}, [
+            el("span", { class: "metric-badge metric-" + m.verdict,
+              title: "AUTO" }, [m.verdict]),
+            el("span", { class: "sub", style: "margin:0 6px;" }, ["AUTO"]),
+            el("strong", {}, [m.kind]),
+            verdictSelect,
+            el("span", { class: "sub", style: "margin-left:6px;font-size:11px;" }, ["HUMAN"]),
+          ]),
+          el("div", { class: "sub", style: "font-size:12px;margin-top:2px;" }, [
+            m.evidence.length ? "auto evidence: " + m.evidence.slice(0, 3).join(", ")
+                              : "no direct auto evidence",
+          ]),
+          noteInput,
+        ]);
+      });
+      const reviewerInput = el("input", { type: "text",
+        placeholder: "reviewer (ваше имя)",
+        style: "width:60%;margin-right:8px;" });
+      const notesInput = el("input", { type: "text",
+        placeholder: "общие заметки к review",
+        style: "width:100%;margin-top:6px;" });
+      const saveBtn = el("button", { class: "primary",
+        onclick: async () => {
+          const reviewer = reviewerInput.value.trim();
+          if (!reviewer) { alert("нужно имя reviewer"); return; }
+          const res = await api.humanReview({
+            evaluation_id: evaluation.evaluation_id,
+            reviewer, human_notes: notesInput.value.trim(),
+            overrides,
+          });
+          if (res.error) { alert(res.error); return; }
+          refresh();
+        } }, ["Сохранить human review"]);
+      const header = el("div", {}, [
+        el("span", { class: "sub" }, ["state: "]),
+        el("code", {}, [evaluation.state]),
+        isReviewed ? el("span", { class: "sub",
+          style: "margin-left:12px;color:var(--ok);" }, [
+          "✓ HUMAN_REVIEWED by " + (evaluation.reviewer || "?")
+        ]) : el("span", { class: "sub",
+          style: "margin-left:12px;color:var(--warn);" }, [
+          "⚠ AUTO — не является финальным acceptance"
         ]),
-      ])));
+      ]);
       sections.appendChild(cardBlock(
-        "EVALUATION · " + evaluation.state, metricsBody));
+        "EVALUATION",
+        el("div", {}, [
+          header,
+          ...rows,
+          el("div", { class: "actions" }, [reviewerInput]),
+          notesInput,
+          el("div", { class: "actions" }, [saveBtn]),
+        ]),
+      ));
+    }
+
+    // COMPARATIVE ARM LAUNCHER
+    if (sess.scenario_id) {
+      const compBody = el("div", {}, [
+        el("p", { class: "sub" }, [
+          "Прогнать текущий сценарий во всех трёх плечах side-by-side. ",
+          "Kvaqin и BASE_MODEL требуют LIVE провайдер; если он недоступен, ",
+          "arm отчитается ", el("code", {}, ["BLOCKED_PROVIDER"]),
+          " — без подмены deterministic-результатом."
+        ]),
+        el("div", { class: "actions" }, [
+          el("button", { class: "secondary",
+            onclick: () => runComparative(sections, sess.scenario_id) },
+            ["Прогнать SOCRATES / KVAQIN / BASE_MODEL"]),
+        ]),
+        el("div", { id: "comparative-panel" }, []),
+      ]);
+      sections.appendChild(cardBlock("COMPARATIVE ARMS", compBody));
     }
 
     // SESSION STATUS
@@ -358,6 +445,56 @@ async function renderWorkspace(root, sid) {
     }
   }
   refresh();
+}
+
+async function runComparative(sections, scenarioId) {
+  const panel = sections.querySelector("#comparative-panel");
+  panel.innerHTML = "<em>…запускаю плечи, KVAQIN может ответить BLOCKED_PROVIDER…</em>";
+  try {
+    const res = await api.comparativeRun({ scenario_id: scenarioId,
+      arms: ["SOCRATES", "KVAQIN", "BASE_MODEL"] });
+    if (res.error) { panel.innerHTML = "<div class='err'>" + res.error + "</div>"; return; }
+    const probe = res.provider_probe || {};
+    panel.innerHTML = "";
+    panel.appendChild(el("div", { class: "sub", style: "font-size:12px;margin-bottom:6px;" }, [
+      "provider probe: ", el("code", {}, [
+        (probe.ok ? "OK" : "FAIL") + " · " + (probe.provider || "?") +
+        " · " + (probe.model || "?") + (probe.error ? " · " + probe.error.slice(0, 120) : "")
+      ]),
+    ]));
+    const columns = el("div", { class: "split", style: "grid-template-columns: 1fr 1fr 1fr;" }, []);
+    for (const arm of res.arms) {
+      const statusBadge = el("span", {
+        class: "status-badge " + (arm.status === "OK" ? "st-COMPLETED" : "st-FAILED"),
+      }, [arm.status]);
+      const dialogueDivs = (arm.turns || []).slice(0, 3).map(t => el("div", { class: "turn",
+        style: "font-size:12px;" }, [
+        el("div", { class: "who" }, ["turn " + t.turn_index + " · " + (t.terminal || "-")]),
+      ]));
+      const evalSummary = arm.evaluation ? el("div", { class: "sub", style: "font-size:12px;" }, [
+        arm.evaluation.metrics.map(m => m.kind + ":" + m.verdict).join(" · "),
+      ]) : null;
+      const blocker = arm.status !== "OK" ? el("div", { class: "sub",
+        style: "font-size:12px;color:var(--warn);margin-top:4px;" }, [
+        (arm.blocker_detail || arm.error || "").slice(0, 260),
+      ]) : null;
+      const col = el("div", { class: "card", style: "margin:0;" }, [
+        el("h3", {}, [arm.kind + " · " + arm.provider_id + "/" + arm.model_id]),
+        statusBadge,
+        ...(dialogueDivs.length ? [el("div", { style: "margin-top:6px;" }, dialogueDivs)] : []),
+        arm.turns && arm.turns.length > 3
+          ? el("div", { class: "sub", style: "font-size:11px;" },
+              ["…+" + (arm.turns.length - 3) + " turn(s)"])
+          : null,
+        evalSummary,
+        blocker,
+      ]);
+      columns.appendChild(col);
+    }
+    panel.appendChild(columns);
+  } catch (e) {
+    panel.innerHTML = "<div class='err'>" + e.message + "</div>";
+  }
 }
 
 function route() {

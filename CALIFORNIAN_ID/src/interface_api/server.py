@@ -18,9 +18,11 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
+from .comparative_arm import ArmKind, run_comparative
 from .epistemic_events import extract_events
 from .evaluation import (
-    EvaluationRecord, EvaluationState, auto_populate,
+    EvaluationRecord, EvaluationState, MetricEntry, MetricKind,
+    MetricVerdict, auto_populate,
 )
 from .long_pressure import LongPressureError, run_long_pressure
 from .models import (
@@ -345,18 +347,66 @@ class Handler(BaseHTTPRequestHandler):
             eval_id = str(body.get("evaluation_id") or "").strip()
             reviewer = str(body.get("reviewer") or "").strip()
             notes = str(body.get("human_notes") or "").strip()
+            overrides = body.get("overrides") or {}
             if not eval_id or not reviewer:
                 raise InterfaceError(
                     "need `evaluation_id` and `reviewer`")
             ev = store.get_evaluation(eval_id)
             if ev is None:
                 raise InterfaceError(f"unknown evaluation: {eval_id}")
+            # Optional per-metric human overrides: {metric_kind: {verdict, note}}
+            if isinstance(overrides, dict) and overrides:
+                new_metrics = []
+                for m in ev.metrics:
+                    key = m.kind.value
+                    if key in overrides and isinstance(
+                            overrides[key], dict):
+                        ov = overrides[key]
+                        try:
+                            v = MetricVerdict(str(ov.get("verdict")
+                                                  or m.verdict.value))
+                        except ValueError:
+                            v = m.verdict
+                        note = str(ov.get("note") or m.note)
+                        # Preserve original AUTO evidence as visible in
+                        # the record; humans can add notes but do not
+                        # rewrite the auto evidence trail.
+                        new_metrics.append(MetricEntry(
+                            kind=m.kind, verdict=v,
+                            evidence=m.evidence,
+                            note=("HUMAN: " + note) if note else "HUMAN",
+                        ))
+                    else:
+                        new_metrics.append(m)
+                ev.metrics = new_metrics
             ev.state = EvaluationState.HUMAN_REVIEWED
             ev.reviewer = reviewer
             ev.reviewed_at = _now_iso()
             ev.human_notes = notes
             store.put_evaluation(ev)
             return {"evaluation": ev.to_public()}
+
+        if path == "/api/interface/comparative_run":
+            scenario_id = str(body.get("scenario_id") or "").strip()
+            arms_raw = body.get("arms") or ["SOCRATES", "KVAQIN",
+                                             "BASE_MODEL"]
+            max_turns = body.get("max_turns")
+            if not scenario_id:
+                raise InterfaceError("need `scenario_id`")
+            reg = get_registry()
+            sc = reg.get(scenario_id)
+            if sc is None:
+                raise InterfaceError(
+                    f"unknown scenario: {scenario_id}")
+            arms: list[ArmKind] = []
+            for a in arms_raw:
+                try:
+                    arms.append(ArmKind(str(a).upper()))
+                except ValueError:
+                    raise InterfaceError(f"unknown arm: {a}")
+            return run_comparative(
+                store, sc, arms=arms, runs_dir=_runs_dir,
+                max_turns=int(max_turns) if max_turns else None)
 
         if path == "/api/interface/input":
             sid = str(body.get("session_id") or "").strip()
